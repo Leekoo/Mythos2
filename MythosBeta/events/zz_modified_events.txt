@@ -1,0 +1,8982 @@
+character_event = {
+	id = TOG.600
+	desc = EVTDESC_TOG_600
+	picture = GFX_evt_viking_throneroom_oldgods
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	option = {
+		name = EVTOPTA_TOG_600
+		any_vassal = {
+			limit = {
+				OR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				NOT = { is_inaccessible_trigger = yes }
+				age = 16
+				prisoner = no
+				war = no
+				NOT = { trait = incapable }
+			}
+			character_event = { id = TOG.601 tooltip = EVTTOOLTIP_TOG_601 }
+			hidden_tooltip = { character_event = { id = TOG.605 days = 10 } }
+		}
+		any_vassal = {
+			limit = {
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+				}
+				NOT = { is_inaccessible_trigger = yes }
+				age = 16
+				prisoner = no
+				war = no
+				NOT = { trait = incapable }
+			}
+			character_event = { id = TOG.602 tooltip = EVTTOOLTIP_TOG_602 }
+		}
+		hidden_tooltip = { character_event = { id = TOG.604 days = 10 } }
+	}
+}
+#character_event = {
+#	id = 1000109000
+#	desc = "EVTDESC1000109000"
+#	picture = "GFX_evt_pale_rider"
+#
+#	is_triggered_only = yes
+#}
+
+#############################################
+# No education focus selected               #
+#############################################
+
+character_event = {
+	id = ZE.14700
+	hide_window = yes
+	is_triggered_only = yes
+	
+	# Bounce to another event with a slight delay to fix magic characters getting 2 education traits
+	immediate = {
+		if = {
+			limit = {
+				has_dlc = "Zeus"
+				NOR = {
+					has_character_flag = is_being_graded
+					has_focus = focus_ed_diplomacy
+					has_focus = focus_ed_martial
+					has_focus = focus_ed_stewardship
+					has_focus = focus_ed_intrigue
+					has_focus = focus_ed_learning
+					has_focus = focus_ed_magic
+					trait = naive_appeaser
+					trait = underhanded_rogue
+					trait = charismatic_negotiator
+					trait = grey_eminence
+					trait = misguided_warrior
+					trait = tough_soldier
+					trait = skilled_tactician
+					trait = brilliant_strategist
+					trait = indulgent_wastrel
+					trait = thrifty_clerk
+					trait = fortune_builder
+					trait = midas_touched
+					trait = amateurish_plotter
+					trait = flamboyant_schemer
+					trait = intricate_webweaver
+					trait = elusive_shadow
+					trait = detached_priest
+					trait = martial_cleric
+					trait = scholarly_theologian
+					trait = mastermind_theologian
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			character_event = { id = MYTH_WoL.190 days = 1 }
+		}
+	}
+}
+# Notify educator
+character_event = {
+	id = ZE.14710
+	picture = GFX_evt_noble_in_castle
+
+	desc = {
+		text = EVTDESCA_ZE_14710
+		trigger = {
+			FROM = { trait = naive_appeaser }
+		}
+	}
+	desc = {
+		text = EVTDESCB_ZE_14710
+		trigger = {
+			FROM = { trait = misguided_warrior }
+		}
+	}
+	desc = {
+		text = EVTDESCC_ZE_14710
+		trigger = {
+			FROM = { trait = indulgent_wastrel }
+		}
+	}
+	desc = {
+		text = EVTDESCD_ZE_14710
+		trigger = {
+			FROM = { trait = amateurish_plotter }
+		}
+	}
+	desc = {
+		text = EVTDESCE_ZE_14710
+		trigger = {
+			FROM = { trait = detached_priest }
+		}
+	}
+	desc = {
+		text = EVTDESCE_ZE_14710
+		trigger = {
+			FROM = { trait = novice_mage }
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = naive_appeaser }
+		}
+		tooltip = { FROM = { add_trait = naive_appeaser } }
+	}
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = misguided_warrior }
+		}
+		tooltip = { FROM = { add_trait = misguided_warrior } }
+	}
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = indulgent_wastrel }
+		}
+		tooltip = { FROM = { add_trait = indulgent_wastrel } }
+	}
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = amateurish_plotter }
+		}
+		tooltip = { FROM = { add_trait = amateurish_plotter } }
+	}
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = detached_priest }
+		}
+		tooltip = { FROM = { add_trait = detached_priest } }
+	}
+	option = {
+		name = EVTOPTA_ZE_14710
+		trigger = {
+			FROM = { trait = novice_mage }
+		}
+		tooltip = { FROM = { add_trait = novice_mage } }
+	}
+}
+# Respond to worried friend/relative
+character_event = {
+	id = WoL.6322
+	desc = EVTDESC_WoL_6322
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_WoL_6322 # Don't worry
+		reverse_opinion = {
+			modifier = opinion_worried
+			who = FROM
+			years = 2
+		}
+		hidden_tooltip = { 
+			random_list = {
+				10 = {
+					character_event = { id = WoL.6329 days = 180 }
+				}
+				4 = {
+					character_event = { id = MYTH_WoL.20 days = 180 }
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WoL_6322  # I am communing with other worlds here!
+		prestige = 30
+		reverse_opinion = {
+			modifier = opinion_afraid
+			who = FROM
+			years = 2
+		}
+		hidden_tooltip = { 
+			random_list = {
+				10 = {
+					character_event = { id = WoL.6329 days = 180 }
+				}
+				4 = {
+					character_event = { id = MYTH_WoL.20 days = 180 }
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_WoL_6322 # Alright, I'll stop it (lies)
+		trigger = {
+			NOT = { trait = honest }
+		}
+		if = {
+			limit = { NOT = { trait = deceitful } }
+			add_trait = deceitful
+		}
+		hidden_tooltip = { 
+			random_list = {
+				10 = {
+					character_event = { id = WoL.6329 days = 180 }
+				}
+				4 = {
+					character_event = { id = MYTH_WoL.20 days = 180 }
+				}
+			}
+		}
+	}
+}
+
+# Hunt outcome
+character_event = {
+	id = WoL.5011
+	
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_hunting    # To interrupt events if player changes focus
+	}
+	
+	immediate = {
+		random_list = {
+			2 = {
+				if = {
+					limit = { trait = known_werewolf }
+					random = {
+						chance = 25
+						set_character_flag = failed_epic_hunt
+						character_event = { id = WEREWOLF.45 } # Werewolf tears animal apart
+						break = yes
+					}
+				}
+				character_event = { id = WoL.5030 }  # Actually finds and kills animal
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5035 }  # Comes very close to animal and sees its majestic beauty
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5040 }  # Meets other hunter obsessed with same animal, he joins your court, random character
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5045 }  # Gets lost in the wilderness, bad experience
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5050 }  # Gets lost in the wilderness, good experience
+			}
+			60 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5055 }  # Uneventful hunt, returns home emptyhanded
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5060 }  # Gets lost, finds cottage, meets strange old witch
+			}
+			20 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = WoL.5065 }  # Gets lost, finds cottage, meets attractive person of opposite sex...
+			}
+			1 = {
+				set_character_flag = failed_epic_hunt
+				character_event = { id = MYTH_WoL.33 } # Attacked by a wild man
+			}
+			
+		}
+	}
+}
+
+# Hidden 'outcome tombola' event for the "Spy On" decision
+character_event = {
+	id = WoL.2060
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					prisoner = yes # I have become imprisoned
+					trait = incapable # I have become incapable
+					NOT = { has_focus = focus_intrigue } # I have changed my focus
+				}
+			}
+			character_event = { id = WoL.2069 } # Clear out any flags, etc
+			break = yes # Stop execution here
+		}
+		
+		if = {
+			limit = {
+				FROMFROM = {
+					is_alive = no
+				}
+			}
+			
+			character_event = { id = WoL.2061 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				FROMFROM = {
+					prisoner = yes
+				}
+			}
+			character_event = { id = WoL.2062 }
+			break = yes
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					trait = incapable
+				}
+			}
+			character_event = { id = WoL.2063 }
+			break = yes
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					NOT = { same_realm = ROOT }
+				}
+			}
+			character_event = { id = WoL.2064 }
+			break = yes
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_opinion_modifier = {
+						who = FROMFROM
+						modifier = opinion_spying_on
+					}
+				}
+			}
+			break = yes # I have stopped spying on this character
+		}
+		
+		repeat_event = { id = WoL.2060 days = 40 random = 40 } # Fire again with no scope changes
+		
+		if = {
+			limit = {
+				FROMFROM = {
+					OR = {
+						trait = on_hajj
+						is_inaccessible_trigger = yes
+						trait = on_pilgrimage
+					}
+				}
+			}
+			break = yes
+		}
+		
+		random_list = {
+			20000 = { # Nothing happens
+				modifier = {
+					factor = 0.75
+					attribute_diff = {
+						attribute = intrigue
+						character = FROMFROM
+						value = 3
+					}
+				}
+				modifier = {
+					factor = 0.75
+					attribute_diff = {
+						attribute = intrigue
+						character = FROMFROM
+						value = 5
+					}
+				}
+				modifier = {
+					factor = 0.5
+					attribute_diff = {
+						attribute = intrigue
+						character = FROMFROM
+						value = 10
+					}
+				}
+				modifier = {
+					factor = 2.0
+					NOT = {
+						attribute_diff = {
+							attribute = intrigue
+							character = FROMFROM
+							value = -2
+						}
+					}
+				}
+				modifier = {
+					factor = 3.0
+					NOT = {
+						attribute_diff = {
+							attribute = intrigue
+							character = FROMFROM
+							value = -4
+						}
+					}
+				}
+				modifier = {
+					factor = 4.0
+					NOT = {
+						attribute_diff = {
+							attribute = intrigue
+							character = FROMFROM
+							value = -9
+						}
+					}
+				}
+				modifier = {
+					factor = 0.75
+					has_character_modifier = wol_schemer_1
+				}
+				modifier = {
+					factor = 0.5
+					has_character_modifier = wol_schemer_2
+				}
+				modifier = {
+					factor = 0.2
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { has_character_modifier = wol_schemer_1 }
+				}
+				modifier = {
+					factor = 3.0
+					FROMFROM = { has_character_modifier = wol_schemer_2 }
+				}
+				modifier = {
+					factor = 5.0
+					FROMFROM = { trait = schemer }
+				}
+				
+				random = {
+					chance = 25
+					character_event = { id = WoL.2065 } # Time to give up?
+				}
+			}
+			10000 = { # Plot uncovered
+				modifier = {
+					factor = 0
+					FROMFROM = {
+						NOR = {
+							AND = {
+								has_plot = yes
+								NOT = { plot_is_known_by = ROOT }
+							}
+							any_backed_character = {
+								has_plot = yes
+								NOT = { plot_is_known_by = ROOT }
+							}
+						}
+					}
+				}
+				
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				if = {
+					limit = {
+						FROMFROM = {
+							has_plot = yes
+							NOT = { plot_is_known_by = ROOT }
+						}
+					}
+					FROMFROM = { character_event = { id = WoL.2070 } } # Plot uncovered 
+					break = yes
+				}
+				
+				FROMFROM = {
+					random_backed_character = {
+						limit = {
+							has_plot = yes
+							NOT = { plot_is_known_by = ROOT }
+						}
+						character_event = { id = WoL.2070 }
+					}
+				}
+			}
+			
+			3000 = { # Adultery of spouse or consort uncovered
+				modifier = {
+					factor = 0
+					FROMFROM = {
+						NOT = { is_married = ROOT }
+						NOT = { is_consort = ROOT }
+						NOT = {
+							any_lover = {
+								OR = {
+									is_married = ROOT
+									is_consort = ROOT
+								}
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					FROMFROM = {
+						OR = {
+							is_married = ROOT
+							is_consort = ROOT
+						}
+						NOT = {
+							any_lover = {
+								NOT = { character = ROOT }
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 0.05
+					FROMFROM = {
+						OR = {
+							has_character_modifier = wol_court_tomcat
+							has_character_modifier = wol_court_vixen
+						}
+					}
+				}
+				modifier = {
+					factor = 0.05
+					FROMFROM = {
+						any_lover = {
+							NOT = { character = ROOT }
+							OR = {
+								has_character_modifier = wol_court_tomcat
+								has_character_modifier = wol_court_vixen
+								trait = schemer
+								has_character_modifier = wol_schemer_2
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 0.1
+					FROMFROM = {
+						any_lover = {
+							NOT = { character = ROOT }
+							has_character_modifier = wol_schemer_1
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = {
+						OR = {
+							AND = {
+								num_of_lovers = 2
+								NOT = { is_lover = ROOT }
+							}
+							num_of_lovers = 3
+						}
+					}
+				}
+				
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				if = {
+					limit = {
+						FROMFROM = {
+							OR = {
+								is_married = ROOT
+								is_consort = ROOT
+							}
+						}
+					}
+					FROMFROM = {
+						save_event_target_as = target_cheating_spouse
+						random_lover = {
+							limit = {
+								NOT = { character = ROOT }
+							}
+							save_event_target_as = target_adulterer
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						FROMFROM = {
+							NOR = {
+								is_married = ROOT
+								is_consort = ROOT
+							}
+						}
+					}
+					FROMFROM = {
+						save_event_target_as = target_adulterer
+						random_lover = {
+							limit = {
+								OR = {
+									is_married = ROOT
+									is_consort = ROOT
+								}
+							}
+							save_event_target_as = target_cheating_spouse
+						}
+					}
+				}
+				
+				event_target:target_cheating_spouse = { character_event = { id = WoL.2140 } } # Adultery discovered
+			}
+			
+			2000 = { # Discovery of werewolf
+				modifier = {
+					factor = 0
+					FROMFROM = {
+						OR = {
+							NOT = { trait = werewolf }
+							trait = known_werewolf
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					trait = werewolf
+				}
+				modifier = {
+					factor = 0
+					culture = werewolf_culture
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						OR = {
+							trait = lunatic
+							trait = possessed
+						}
+					}
+				}
+				modifier = {
+					factor = 4
+					trait = monster_hunter
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						trait = rabies
+					}
+				}
+				modifier = {
+					factor = 0.7
+					FROMFROM = {
+						OR = {
+							trait = genius
+							trait = quick
+							trait = shrewd
+						}
+					}
+				}
+				modifier = {
+					factor = 1.1
+					FROMFROM = {
+						trait = hedonist
+					}
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						trait = gluttonous
+					}
+				}
+				modifier = {
+					factor = 0.8
+					FROMFROM = {
+						OR = {
+							trait = temperate
+							trait = kind
+							trait = patient
+						}
+					}
+				}
+				modifier = {
+					factor = 0.9
+					FROMFROM = {
+						OR = {
+							trait = deceitful
+							trait = paranoid
+						}
+					}
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						trait = cruel
+						trait = wroth
+					}
+				}
+				modifier = {
+					factor = 1.1
+					FROMFROM = {
+						trait = berserker
+					}
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = {
+						trait = cannibal_trait
+					}
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+					}
+				}
+				modifier = {
+					factor = 1.8
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+					}
+				}
+				modifier = {
+					factor = 1.6
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+					}
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 4 }
+					}
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 5 }
+					}
+				}
+				modifier = {
+					factor = 2
+					has_game_rule = { name = secrecy value = more }
+				}
+				modifier = {
+					factor = 0.5
+					has_game_rule = { name = secrecy value = fewer }
+				}
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				if = {
+					limit = {
+						FROMFROM = {
+							trait = werewolf
+						}
+					}
+					#FROMFROM = { character_event = { id = MYTH_WoL.6 } } # Character uncovered as a werewolf
+					#any_realm_character = { character_event = { id = MYTH_WoL.7 } } # Court finds out character is a werewolf
+					#liege = { character_event = { id = MYTH_WoL.8 } } # Liege finds out character is a werewolf
+					save_event_target_as = target_discovered_werewolf
+					character_event = { id = MYTH_WoL.9 } # Werewolf discovered					
+				}
+			}
+			
+			2000 = { # Discovery of vampire
+				modifier = {
+					factor = 0
+					FROMFROM = {
+						OR = {
+							NOT = { trait = vampire }
+							trait = known_vampire
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					trait = vampire
+				}
+				modifier = {
+					factor = 0
+					culture = vampire_culture
+				}
+				modifier = {
+					factor = 0.1
+					religion = satanist
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						OR = {
+							trait = lunatic
+							trait = possessed
+						}
+					}
+				}
+				modifier = {
+					factor = 4
+					trait = monster_hunter
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						trait = hunger_1
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = {
+						trait = hunger_2
+					}
+				}
+				modifier = {
+					factor = 1.9
+					FROMFROM = {
+						trait = hunger_3
+					}
+				}
+				modifier = {
+					factor = 2.4
+					FROMFROM = {
+						trait = hunger_4
+					}
+				}
+				modifier = {
+					factor = 3
+					FROMFROM = {
+						trait = hunger_5
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { is_40 = yes }
+					#NOT = { FROMFROM = {  immortal_age = 30 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { is_50 = yes }
+					#NOT = { FROMFROM = { immortal_age = 40 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { is_60 = yes }
+					#NOT = { FROMFROM = { immortal_age = 50 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { is_70 = yes }
+					#NOT = { FROMFROM = { immortal_age = 60 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { is_80 = yes }
+					#NOT = { FROMFROM = { immortal_age = 70 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = { is_90 = yes }
+					#NOT = { FROMFROM = { immortal_age = 80 } }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 2.5
+					FROMFROM = { is_100 = yes }
+					NOR = { # Not immortal for non-monsterous reason
+						trait = immortal
+						trait = god
+						trait = philosopher_stone_trait
+					}
+				}
+				modifier = {
+					factor = 0.7
+					FROMFROM = {
+						OR = {
+							trait = genius
+							trait = quick
+							trait = shrewd
+						}
+					}
+				}
+				modifier = {
+					factor = 1.1
+					FROMFROM = {
+						trait = hedonist
+					}
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						trait = impaler
+					}
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						trait = gluttonous
+					}
+				}
+				modifier = {
+					factor = 0.8
+					FROMFROM = {
+						OR = {
+							trait = temperate
+							trait = kind
+							trait = patient
+						}
+					}
+				}
+				modifier = {
+					factor = 0.9
+					FROMFROM = {
+						OR = {
+							trait = deceitful
+							trait = paranoid
+						}
+					}
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						trait = cruel
+						trait = wroth
+					}
+				}
+				modifier = {
+					factor = 2
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+					}
+				}
+				modifier = {
+					factor = 1.8
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+					}
+				}
+				modifier = {
+					factor = 1.6
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+					}
+				}
+				modifier = {
+					factor = 1.4
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 4 }
+					}
+				}
+				modifier = {
+					factor = 1.2
+					FROMFROM = {
+						has_instances_of_character_modifier = { modifier = known_monster amount = 5 }
+					}
+				}
+				modifier = {
+					factor = 2
+					has_game_rule = { name = secrecy value = more }
+				}
+				modifier = {
+					factor = 0.5
+					has_game_rule = { name = secrecy value = fewer }
+				}
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				if = {
+					limit = {
+						FROMFROM = {
+							trait = vampire
+						}
+					}
+					save_event_target_as = target_discovered_vampire
+					character_event = { id = VAMPIRE.17 } # Werewolf discovered					
+				}
+			}
+			
+			1000 = { # Treason charges & blackmail. Allows imprisonment or faction prevention/joining.
+				modifier = {
+					factor = 0
+					OR = {
+						FROMFROM = { independent = yes }
+						has_opinion_modifier = { who = FROMFROM modifier = opinion_spy_blackmailed } # Already done this once
+					}
+				}
+				modifier = {
+					factor = 3.0
+					FROMFROM = {
+						society_is_criminal = yes
+						NOT = { same_society_as = ROOT }
+					}
+				}
+				
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				character_event = { id = WoL.2080 }
+			}
+			
+			3000 = { # Chance to slander
+				modifier = {
+					factor = 0
+					FROMFROM = { has_character_modifier = vicious_rumors }
+				}
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = temperate
+						trait = just
+						trait = honest
+						trait = kind
+					}
+				}
+				modifier = {
+					factor = 2.0
+					FROMFROM = {
+						OR = {
+							has_character_modifier = incestuous_adulterer
+							has_character_modifier = incestuous_adulteress
+							has_character_modifier = adulterer
+							has_character_modifier = adulteress
+							has_character_modifier = known_sodomite
+							has_character_modifier = cradle_robber
+							has_character_modifier = adulterous_priest
+						}
+					}
+				}
+				modifier = {
+					factor = 2.0
+					FROMFROM = {
+						OR = {
+							trait = hedonist
+							trait = drunkard
+							trait = impaler
+							trait = decadent
+							trait = bastard
+							trait = inbred
+							trait = dwarf
+							trait = homosexual
+							trait = gluttonous
+							trait = legit_bastard
+						}
+					}
+				}
+			
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				character_event = { id = WoL.2100 }
+			}
+			400 = { # Chance to murder the target
+				modifier = {
+					factor = 0
+					NOT = {
+						attribute_diff = {
+							attribute = intrigue
+							character = FROMFROM
+							value = 0
+						}
+					}
+				}
+				
+				modifier = {
+					factor = 0
+					NOR = {
+						trait = schemer
+						has_character_modifier = wol_schemer_1
+						has_character_modifier = wol_schemer_2
+					}
+				}
+				
+				modifier = {
+					factor = 0.25
+					has_character_modifier = wol_schemer_1
+				}
+				
+				modifier = {
+					factor = 0.5
+					has_character_modifier = wol_schemer_2
+				}
+				
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				character_event = { id = WoL.2110 }
+			}
+			400 = { # Chance to abduct the target
+				modifier = {
+					factor = 0
+					NOT = {
+						attribute_diff = {
+							attribute = intrigue
+							character = FROMFROM
+							value = 0
+						}
+					}
+				}
+				
+				modifier = {
+					factor = 0
+					NOR = {
+						trait = schemer
+						has_character_modifier = wol_schemer_1
+						has_character_modifier = wol_schemer_2
+					}
+				}
+				
+				modifier = {
+					factor = 0.25
+					has_character_modifier = wol_schemer_1
+				}
+				
+				modifier = {
+					factor = 0.5
+					has_character_modifier = wol_schemer_2
+				}
+				
+				character_event = { id = WoL.2000 days = 1 } # Chance of levelling up Intrigue skills
+				
+				character_event = { id = WoL.2120 }
+			}
+		}
+	}
+}
+
+# Godly voter shows you how to be more pious.
+# Modified for more bad priest traits
+character_event = {
+	id = ZE.22500
+	desc = EVTDESC_ZE_22500
+	picture = GFX_evt_council_agreement
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	only_playable = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Zeus"
+		is_voter = yes
+		NOR = { 
+			piety = 200
+			trait = zealous
+			trait = humble
+			trait = erudite
+			trait = theologian
+			trait = faqih
+			trait = hafiz
+			is_inaccessible_trigger = yes
+		}
+		
+		liege = {
+			any_realm_character = {
+				same_liege = ROOT
+				religion = ROOT
+				OR = {
+					AND = {
+						is_theocracy = yes
+						piety = 0
+						NOR = {
+							trait = bad_priest_muslim
+							trait = bad_priest_christian
+							trait = bad_priest_norse
+							trait = bad_priest_tengri
+							trait = bad_priest_zoroastrian
+							trait = bad_priest_aztec
+							trait = bad_priest_draconic
+							trait = bad_priest_voodoo
+							trait = bad_priest_druidic
+							trait = bad_priest_kemetic
+							trait = bad_priest_jotnar
+							trait = bad_priest_hellenic
+							trait = bad_priest_satanist
+							trait = cynical
+						}
+					}
+					AND = {
+						piety = 200
+						NOT = { trait = cynical }
+						OR = {
+							trait = zealous
+							trait = humble
+							trait = erudite
+							trait = theologian
+							trait = faqih
+							trait = hafiz
+						}
+					}
+				}
+				NOR = {
+					character = ROOT
+					owes_favor_to = ROOT
+					trait = incapable
+					is_inaccessible_trigger = yes
+					is_rival = ROOT
+				}
+				is_voter = yes
+				prisoner = no
+			}
+		}
+	}
+	
+	immediate = {
+		liege = {
+			any_realm_character = {
+				limit = {
+					same_liege = ROOT
+					religion = ROOT
+					OR = {
+						AND = {
+							is_theocracy = yes
+							piety = 0
+							NOR = {
+								trait = bad_priest_muslim
+								trait = bad_priest_christian
+								trait = bad_priest_norse
+								trait = bad_priest_tengri
+								trait = bad_priest_zoroastrian
+								trait = bad_priest_aztec
+								trait = bad_priest_draconic
+								trait = bad_priest_voodoo
+								trait = bad_priest_druidic
+								trait = bad_priest_kemetic
+								trait = bad_priest_jotnar
+								trait = bad_priest_hellenic
+								trait = bad_priest_satanist
+								trait = cynical
+							}
+						}
+						AND = {
+							piety = 200
+							NOT = { trait = cynical }
+							OR = {
+								trait = zealous
+								trait = humble
+								trait = erudite
+								trait = theologian
+								trait = faqih
+								trait = hafiz
+							}
+						}
+					}
+					NOR = {
+						character = ROOT
+						owes_favor_to = ROOT
+						trait = incapable
+						is_inaccessible_trigger = yes
+						is_rival = ROOT
+					}
+					is_voter = yes
+					prisoner = no
+				}
+				save_event_target_as = target_pious_voter
+			}
+		}
+	}
+	
+	# Accept
+	option = {
+		name = EVTOPTA_ZE_22500
+		
+		ai_chance = {
+			factor = 70
+			
+			modifier = {
+				factor = 0.5
+				trait = proud
+			}
+		}
+		
+		piety = 100
+		add_character_modifier = {
+			name = the_pious
+			years = 3
+		}
+		event_target:target_pious_voter = {
+			add_favor = ROOT
+			character_event = {	id = ZE.22510 days = 1 }
+		}
+	}
+	
+	# Deny
+	option = {
+		name = EVTOPTB_ZE_22500
+		
+		ai_chance = {
+			factor = 30
+		}
+		
+		piety = -50
+		
+		event_target:target_pious_voter = {
+			opinion = {
+				modifier = opinion_dislike
+				who = ROOT
+				years = 15
+			}
+			character_event = {	id = ZE.22520 days = 1 }
+		}
+		
+	}
+}
+
+# Bi-yearly childhood pulse - select which event chain to get, weighted by childhood focus
+character_event = {
+	id = ZE.12999
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	min_age = 6
+	max_age = 12
+	trigger = {
+		has_dlc = "Zeus"
+		NOT = { has_character_modifier = the_oubliette }
+		NOT = { has_character_modifier = the_dungeon }
+	}
+
+	immediate = {
+		random_list = {
+			10 = {				# Haughty
+				modifier = {
+					factor = 5
+					OR = {
+						has_focus = focus_ch_pride
+						has_focus = focus_ch_magic
+					}
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_haughty_events
+						trait = haughty
+					}
+				}
+				character_event = { id = ZE.12000 days = 10 random = 90 }
+			}
+			10 = {				# Affectionate
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_humility
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_affectionate_events
+						trait = affectionate
+					}
+				}
+				character_event = { id = ZE.12010 days = 10 random = 90 }
+			}
+			10 = {				# Timid
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_humility
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_timid_events
+						trait = timid
+						trait = rowdy # Mutually exclusive with Timid
+					}
+				}
+				character_event = { id = ZE.12020 days = 10 random = 90 }
+			}
+			10 = {				# Rowdy
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_struggle
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_rowdy_events
+						is_strong_trigger = yes
+						is_weak_trigger = yes
+						is_dumb_trigger = yes
+						trait = rowdy
+						trait = timid # Mutually exclusive with Rowdy
+					}
+				}
+				character_event = { id = ZE.12030 days = 10 random = 90 }
+			}
+			10 = {				# Willful
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_struggle
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_willful_events
+						trait = willful
+					}
+				}
+				character_event = { id = ZE.12040 days = 10 random = 90 }
+			}
+			10 = {				# Brooding
+				modifier = {
+					factor = 5
+					OR = {
+						has_focus = focus_ch_pride
+						has_focus = focus_ch_magic
+					}
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_brooding_events
+						trait = brooding
+					}
+				}
+				character_event = { id = ZE.12050 days = 10 random = 90 }
+			}
+			10 = {				# Indolent
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_etiquette
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_indolent_events
+						trait = indolent
+					}
+				}
+				character_event = { id = ZE.12060 days = 10 random = 90 }
+			}
+			10 = {				# Playful
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_etiquette
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_playful_events
+						trait = lunatic
+						trait = playful
+					}
+				}
+				character_event = { id = ZE.12070 days = 10 random = 90 }
+			}
+			10 = {				# Conscientious
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_duty
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_conscientious_events
+						trait = conscientious
+					}
+				}
+				character_event = { id = ZE.12080 days = 10 random = 90 }
+			}
+			10 = {				# Fussy
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_thrift
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_fussy_events
+						trait = fussy
+					}
+				}
+				character_event = { id = ZE.12090 days = 10 random = 90 }
+			}
+			10 = {				# Curious
+				modifier = {
+					factor = 5
+					OR = {
+						has_focus = focus_ch_thrift
+						has_focus = focus_ch_magic
+					}
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_curious_events
+						trait = genius
+						trait = curious
+					}
+				}
+				character_event = { id = ZE.12100 days = 10 random = 90 }
+			}
+			10 = {				# Idolizer
+				modifier = {
+					factor = 5
+					has_focus = focus_ch_faith
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_character_flag = ze_child_idolizer_events
+						trait = genius
+						trait = idolizer
+					}
+				}
+				character_event = { id = ZE.12110 days = 10 random = 90 }
+			}
+		}
+		# Culture / Religion swap from focus
+		if = {
+			limit = { 
+				OR = {
+					has_focus = focus_ch_heritage
+					has_character_modifier = house_arrest
+				}
+				NOT = {
+					educator = {
+						religion = ROOT
+						culture = ROOT
+					}
+				}
+			}
+			random_list = {
+				30 = {
+					random_list = {
+						50 = {
+							if = {
+								limit = {
+									NOT = { 
+										educator = {
+											religion = ROOT
+										}
+									}
+								}
+								educator = { character_event = { id = ZE.2113 days = 20 random = 200 } }
+							}
+							if = {
+								limit = {
+									NOR = {
+										mother = { is_nomadic = yes }
+										father = { is_nomadic = yes }
+										any_sibling = { is_nomadic = yes }
+										educator = {
+											culture = ROOT
+										}
+									}
+								}
+								educator = { character_event = { id = ZE.2123 days = 300 random = 100 } }
+							}
+						}
+						50 = {
+							if = {
+								limit = {
+									NOR = {
+										mother = { is_nomadic = yes }
+										father = { is_nomadic = yes }
+										any_sibling = { is_nomadic = yes }
+										educator = {
+											culture = ROOT
+										}
+									}
+								}
+								educator = { character_event = { id = ZE.2123 days = 20 random = 200 } }
+							}
+							if = {
+								limit = {
+									NOT = { 
+										educator = {
+											religion = ROOT
+										}
+									}
+								}
+								educator = { character_event = { id = ZE.2113 days = 300 random = 100 } }
+							}
+						}
+					}
+				}
+				30 = {
+					modifier = {
+						age = 8
+						factor = 0.5
+					}
+					modifier = {
+						age = 10
+						factor = 0
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_focus = focus_ch_faith
+				NOT = {
+					educator = {
+						religion = ROOT
+					}
+				}
+			}
+			random_list = {
+				30 = {
+					educator = { character_event = { id = ZE.2103 days = 45 random = 400 } }
+				}
+				30 = {
+					modifier = {
+						age = 8
+						factor = 0.5
+					}
+					modifier = {
+						age = 10
+						factor = 0
+					}
+				}
+			}
+		}
+	}
+}
+
+#Active ***life - less impressive if immortal.
+character_event = {
+	id = 30100
+	desc = EVTDESC30100
+	picture = GFX_evt_lovers
+	
+	min_age = 16
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		fertility = 0.65
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { trait = celibate }
+		spouse = {
+			NOT = { trait = incapable }
+			NOT = { trait = celibate }
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { trait = eunuch }
+			#age = 40
+			is_40 = yes
+			war = no
+			in_command = no
+			is_abroad = no
+			at_location = ROOT
+			prisoner = no
+			is_alive = yes
+			immortal = no
+		}
+		NOT = {
+			has_character_modifier = spouse_active_timer
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 4
+			NOT = { age = 25 }
+		}
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.5
+			trait = lustful
+		}
+		modifier = {
+			factor = 2
+			spouse = { has_character_modifier = for_the_sake_of_love }
+		}
+	}
+	
+	immediate = {
+		add_character_modifier = {
+			name = spouse_active_timer
+			duration = 365
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA30100" #Take him on a wild ride
+		spouse = {
+			set_character_flag = wild_ride
+			character_event = {
+				id = 30101
+				tooltip = "EVTTOOLTIPA30101"
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTD30100" #Make sure he knows who is the boss in the bedchamber
+		spouse = {
+			set_character_flag = boss_in_bedchamber
+			character_event = {
+				id = 30101
+				tooltip = "EVTTOOLTIPB30101"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB30100" #Be gentle to him
+		spouse = {
+			set_character_flag = gentle_loving
+			character_event = {
+				id = 30102
+				tooltip = "EVTTOOLTIPA30102"
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC30100" #Make sweet, sweet love
+		spouse = {
+			set_character_flag = sweet_love
+			character_event = {
+				id = 30102
+				tooltip = "EVTTOOLTIPB30102"
+			}
+		}
+	}
+}
+
+#Active ***live: Wild ride and Boss in Bed
+character_event = {
+	id = 30101
+	desc = EVTDESC30101
+	picture = GFX_evt_lovers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA30101
+		trigger = {
+			has_character_flag = wild_ride
+			#NOT = {
+			#	#age = 55
+			#}
+			is_60 = no
+		}
+		clr_character_flag = wild_ride
+		prestige = 20
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		if = {
+			limit = { immortal = no }
+			random = {
+				chance = 10
+				
+				death = {
+					death_reason = death_accident
+				}
+				spouse = {
+					character_event = {
+						id = 30103
+						tooltip = "EVTTOOLTIP30103"
+					}
+				}
+				break = yes
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB30101"
+		trigger = {
+			has_character_flag = wild_ride
+			age = 55
+		}
+		clr_character_flag = wild_ride
+		prestige = 20
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		if = {
+			limit = { immortal = no }
+			random = {
+				chance = 30
+				
+				death = {
+					death_reason = death_accident
+				}
+				spouse = {
+					character_event = {
+						id = 30103
+						tooltip = "EVTTOOLTIP30103"
+					}
+				}
+				break = yes
+			}
+		}
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC30101"
+		trigger = {
+			has_character_flag = boss_in_bedchamber
+			#NOT = {
+			#	#age = 55
+			#}
+			is_60 = no
+		}
+		clr_character_flag = boss_in_bedchamber
+		prestige = 20
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		if = {
+			limit = { immortal = no }
+			random = {
+				chance = 10
+				
+				death = {
+					death_reason = death_accident
+				}
+				spouse = {
+					character_event = {
+						id = 30103
+						tooltip = "EVTTOOLTIP30103"
+					}
+				}
+				break = yes
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD30101"
+		trigger = {
+			has_character_flag = boss_in_bedchamber
+			#age = 55
+			is_60 = yes
+		}
+		clr_character_flag = boss_in_bedchamber
+		prestige = 20
+		random = {
+			chance = 10
+			
+			death = {
+				death_reason = death_accident
+			}
+			spouse = {
+				character_event = {
+					id = 30103
+					tooltip = "EVTTOOLTIP30103"
+				}
+			}
+			break = yes
+		}
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+	}
+}
+
+#Active ***live: Gentle and Sweet Love
+character_event = {
+	id = 30102
+	desc = "EVTDESC30102"
+	picture = GFX_evt_lovers
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA30102"
+		trigger = {
+			has_character_flag = gentle_loving
+			#NOT = {
+			#	age = 55
+			#}
+			is_60 = no
+		}
+		clr_character_flag = gentle_loving
+		random = {
+			chance = 60
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		random = {
+			chance = 10
+			
+			death = {
+				death_reason = death_accident
+			}
+			spouse = {
+				character_event = {
+					id = 30104
+					tooltip = "EVTTOOLTIP30104"
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB30102"
+		trigger = {
+			has_character_flag = gentle_loving
+			#age = 55
+			is_60 = yes
+		}
+		clr_character_flag = gentle_loving
+		random = {
+			chance = 40
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		random = {
+			chance = 20
+			
+			death = {
+				death_reason = death_accident
+			}
+			spouse = {
+				character_event = {
+					id = 30104
+					tooltip = "EVTTOOLTIP30104"
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC30102"
+		trigger = {
+			has_character_flag = sweet_love
+			#NOT = {
+			#	age = 60
+			#}
+			is_60 = no
+		}
+		clr_character_flag = sweet_love
+		random = {
+			chance = 30
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		random = {
+			chance = 20
+			
+			spouse = {
+				character_event = {
+					id = 30104
+					tooltip = "EVTTOOLTIP30104"
+				}
+			}
+			death = {
+				death_reason = death_accident
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTD30102"
+		trigger = {
+			has_character_flag = sweet_love
+			#age = 60
+			is_60 = yes
+		}
+		clr_character_flag = sweet_love
+		random = {
+			chance = 20
+			
+			add_trait = lustful
+			hidden_tooltip = {
+				character_event = {
+					id = 38272 #Notify Lustful
+				}
+			}
+		}
+		random = {
+			chance = 40
+			
+			spouse = {
+				character_event = {
+					id = 30104
+					tooltip = "EVTTOOLTIP30104"
+				}
+			}
+			death = {
+				death_reason = death_accident
+			}
+		}
+	}
+}
+
+# Wife, suspecting husband is infertile, tries to produce an heir with someone else
+character_event = {
+	id = 30105
+	desc = "EVTDESC30105"
+	picture = "GFX_evt_pregnancy"
+	
+	only_women = yes
+	capable_only = yes
+	prisoner = no
+	#max_age = 40
+	min_age = 20
+	is_married = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_40 = no
+		has_lover = no
+		fertility = 0.3
+		spouse = {
+			NOT = { trait = incapable }
+			war = no
+			in_command = no
+			is_abroad = no
+			at_location = ROOT
+			prisoner = no
+			is_alive = yes
+			NOT = {
+				num_of_children = 1
+			}
+			NOT = {
+				fertility = 0.5
+			}
+		}
+		is_pregnant = no
+		NOT = {
+			num_of_children = 1
+		}
+		any_courtier = {
+			reverse_opinion = { who = ROOT value = 40 }
+			is_female = no
+			fertility = 0.5
+			has_lover = no
+			age = 20
+			NOR = { 
+				age = 35
+				trait = eunuch
+				is_ascetic_trigger = yes
+				trait = chaste
+				trait = celibate
+				family = ROOT
+			}
+			is_close_relative = no
+		}
+		NOT = {
+			has_character_modifier = suitable_father_timer
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 3
+			has_ambition = obj_have_a_daughter
+		}
+		modifier = {
+			factor = 0.5
+			trait = chaste
+		}
+		modifier = {
+			factor = 3
+			has_ambition = obj_have_a_son
+		}
+	}
+	
+	immediate = {
+		hidden_tooltip = {
+			add_character_modifier = {
+				name = suitable_father_timer
+				duration = 365
+				hidden = yes
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA30105"
+		ai_chance = { factor = 80 }
+		piety = -15
+		random_courtier = {
+			limit = {
+				reverse_opinion = { who = ROOT value = 40 }
+				is_female = no
+				fertility = 0.5
+				has_lover = no
+				age = 20
+				NOR = { 
+					age = 35
+					trait = eunuch
+					is_ascetic_trigger = yes
+					trait = chaste
+					trait = celibate
+					family = ROOT
+				}
+				is_close_relative = no
+			}
+			add_lover = ROOT
+			random = {
+				chance = 15
+				impregnate_cuckoo = ROOT
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB30105"
+		piety = 10
+	}
+}
+
+# Immortality keeps triggering for gods.  Also, adjust for aging
+#Contemplating mortality
+narrative_event = {
+	title = EVTNAME_RIP_21000
+	id = RIP.21000
+	border = GFX_event_narrative_frame_religion
+	picture = GFX_evt_danse_macabre
+
+	only_playable = yes
+	capable_only = yes
+	prisoner = no
+	min_age = 16
+	has_dlc = "Reapers"
+
+	hide_from = yes
+	hide_new = yes
+
+	trigger = {
+		OR = {
+			ai = no
+			has_game_rule = {
+				name = supernatural_events
+				value = unrestricted
+			}
+		}
+		NOR = {
+			has_game_rule = {
+				name = supernatural_events
+				value = off
+			}
+			has_character_flag = eternal_life_events
+		}
+		is_inaccessible_trigger = no
+		immortal = no
+		NOT = { trait = god }
+	}
+
+	mean_time_to_happen = {
+		months = 3000
+		
+		modifier = {
+			factor = 0.8
+			NOT = { health = 2 }
+			has_disease_trigger = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_disease_trigger = yes
+		}
+		modifier = {
+			factor = 0.9
+			#age = 50
+			is_50 = yes
+		}
+		modifier = {
+			factor = 0.9
+			#age = 60
+			is_60 = yes
+		}
+		modifier = {
+			factor = 0.9
+			#age = 70
+			is_70 = yes
+		}
+		modifier = {
+			factor = 0.9
+			#age = 80
+			is_80 = yes
+		}
+		modifier = {
+			factor = 0.9
+			#age = 90
+			is_90 = yes
+		}
+	}
+
+	immediate = {
+		set_character_flag = eternal_life_events
+
+		if = {
+			limit = {
+				is_married = no
+				NOT = { trait = ambitious }
+			}
+
+			set_character_flag = RIP_21000_lonely
+
+			if = {
+				limit = { 
+					any_courtier = { 
+						sad_example_trigger = yes 
+						is_inaccessible_trigger = no
+						ai = yes
+					} 
+				}
+
+				random_courtier = {
+					limit = { 
+						sad_example_trigger = yes 
+						is_inaccessible_trigger = no
+						ai = yes
+					}
+					
+					add_trait = depressed
+					save_event_target_as = eternal_life_sad_example	
+				}
+			}
+
+			if = {
+				limit = { NOT = { any_courtier = { sad_example_trigger = yes } } }
+
+				create_character = {
+					age = 62
+					random_traits = yes
+					trait = depressed
+					religion = ROOT
+					dynasty = random
+					race = ROOT
+					culture = ROOT
+				}
+				new_character = {
+					if = {
+						limit = {
+							graphical_culture = dragongfx
+							graphical_culture = demongfx
+							graphical_culture = etherealgfx
+						}
+						set_graphical_culture = english
+					}
+					save_event_target_as = eternal_life_sad_example
+				}
+			}
+		}
+	}
+
+	desc = {
+		text = EVTDSC_RIP_21000_MARRIED
+		trigger = { 
+			AND = {
+				is_married = yes
+				any_spouse = {
+					is_lover = ROOT
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDSC_RIP_21000_UNMARRIED
+		trigger = {
+			has_character_flag = RIP_21000_lonely
+		}
+	}
+
+	desc = {
+		text = EVTDSC_RIP_21000_UNMARRIED_AMBITIOUS
+		trigger = {
+			OR = {
+				AND = {
+					is_married = no
+					trait = ambitious
+				}
+				AND = {
+					is_married = yes
+					NOT = { trait = kind }
+					NOT = {
+						any_spouse = {
+							is_lover = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDSC_RIP_21000_MARRIED_NO_LOVE
+		trigger = { 
+			AND = {
+				is_married = yes
+				trait = kind
+				NOT = {
+					any_spouse = {
+						is_lover = ROOT
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDSC_RIP_21000_FALLBACK
+		trigger = {
+			is_married = no
+			NOT = { trait = ambitious }
+			NOT = { has_character_flag = RIP_21000_lonely }
+		}
+	}	
+
+	#Summon the council!
+	option = {
+		name = EVTOPTA_RIP_21000
+		narrative_event = {
+			id = RIP.21001
+			days = 10
+			tooltip = EVTOPTA_RIP_21000_TOOLTIP
+		}
+
+		trigger = {	NOT = { has_character_flag = RIP_21000_lonely } }
+	}
+
+	#Summon the council! Who cares about lonely people?
+	option = {
+		name = EVTOPTB_RIP_21000
+		narrative_event = {
+			id = RIP.21001
+			days = 15
+			tooltip = EVTOPTB_RIP_21000_TOOLTIP
+		}
+
+		trigger = { has_character_flag = RIP_21000_lonely }
+
+		clr_character_flag = RIP_21000_lonely
+	}
+
+	#Nah
+	option = {
+		name = EVTOPTC_RIP_21000
+		custom_tooltip = { text = EVTOPTC_RIP_21000_TOOLTIP }
+		if = {
+			limit = { NOT = { trait = content } }
+			add_trait = content
+		}
+
+		trigger = {	NOT = { has_character_flag = RIP_21000_lonely }	}
+	}
+
+	#Nah, I wanna spend more time with the sad person
+	option = {
+		name = EVTOPTD_RIP_21000
+		custom_tooltip = { text = EVTOPTD_RIP_21000_TOOLTIP }
+
+		if = {
+			limit = { NOT = { trait = content } }
+			add_trait = content
+		}
+
+		event_target:eternal_life_sad_example = {
+			opinion = {
+				who = FROM
+				modifier = opinion_budding_friendship
+			}
+			hidden_tooltip = { add_friend = FROM }
+		}
+
+		trigger = {	has_character_flag = RIP_21000_lonely }
+		
+		hidden_tooltip = {
+			clear_event_target = eternal_life_sad_example
+			clr_character_flag = RIP_21000_lonely
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+character_event = {
+	id = 72109
+	desc = "EVTDESC72109"
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72109"
+		hidden_tooltip = {
+			random_list = {
+				20 = { #Jongleurs seek your patronage
+					character_event = { id = 72000 days = 5 }
+				}
+				20 = { #Minstrel seeks your patronage
+					character_event = { id = 72001 days = 5 }
+				}
+				20 = { #Enchanted instruments
+					character_event = { id = MYTH.47 days = 5 }
+				}
+				20 = { #Musicians seek your patronage
+					character_event = { id = 72002 days = 5 }
+				}
+				20 = { #Ethereal Musicians
+					character_event = { id = MYTH.46 days = 5 }
+				}
+				20 = { #Fire-eaters seek your patronage
+					character_event = { id = 72006 days = 5 }
+				}
+				20 = { #Conjurer seeks your patronage
+					character_event = { id = 72007 days = 5 }
+				}
+				20 = { #Acrobats seek your patronage
+					character_event = { id = 72009 days = 5 }
+				}
+				20 = { #Travelling Dancers seek your patronage
+					character_event = { id = 72120 days = 5 }
+				}
+			}
+			random_list = {
+				15 = { #Jongleurs seek your patronage #2
+					character_event = { id = 72000 days = 10 }
+				}
+				15 = { #Minstrel seeks your patronage #2
+					character_event = { id = 72001 days = 10 }
+				}
+				15 = { #Enchanted instruments #2
+					character_event = { id = MYTH.47 days = 10 }
+				}
+				15 = { #Musicians seek your patronage #2
+					character_event = { id = 72002 days = 10 }
+				}
+				15 = { #Ethereal Musicians #2
+					character_event = { id = MYTH.46 days = 10 }
+				}
+				15 = { #Fire-eaters seek your patronage #2
+					character_event = { id = 72006 days = 10 }
+				}
+				15 = { #Conjurer seeks your patronage #2
+					character_event = { id = 72007 days = 10 }
+				}
+				15 = { #Acrobats seek your patronage #2
+					character_event = { id = 72009 days = 10 }
+				}
+				15 = { #Travelling Dancers seek your patronage #2
+					character_event = { id = 72120 days = 10 }
+				}
+				5 = { #Castle problems
+					modifier = {
+						factor = 0
+						NOT = {
+							any_courtier = {
+								has_job_title = job_treasurer
+							}
+						}
+					}
+					character_event = { id = 72004 days = 10 }
+				}
+				5 = { #Highway Robber Band
+					modifier = {
+						factor = 0
+						NOR = {
+							any_courtier = {
+								has_job_title = job_marshal
+							}
+							location = {
+								has_province_modifier = highway_robber_band
+							}
+						}
+					}
+					character_event = { id = 72005 days = 10 }
+				}
+				30 = { #Hunt for boars for winter feast
+					modifier = {
+						factor = 0
+						NOT = {
+							any_courtier = {
+								has_job_title = job_marshal
+							}
+						}
+					}
+					character_event = { id = 72008 days = 10 }
+				}
+			}
+			character_event = {
+				id = 72003
+				days = 15
+				random = 2
+			}
+		}
+	}
+}
+
+### Witch
+character_event = {
+	id = WoL.12028
+	desc = EVTDESC_WoL_12028
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_economy
+	
+	min_age = 16
+	capable_only = yes
+	only_playable = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_rulership
+		any_demesne_province = {
+			always = yes
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	weight_multiplier = {
+		factor = 1
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			save_event_target_as = witch_province
+		}
+		random_list = {
+			10 = {
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					female = yes
+					age = 28
+					religion = ROOT
+					culture = ROOT
+					trait = ugly
+					trait = kind
+					trait = charitable
+					trait = humble
+					trait = honest
+					trait = shy
+					trait = trusting
+					#trait = naive_appeaser
+				}
+				new_character = {
+					random_list = {
+						90 = { add_trait = naive_appeaser }
+						10 = { add_trait = novice_mage }
+					}		
+					save_event_target_as = suspected_witch
+					hidden_tooltip = {
+						character_event = { id = MYTH.56 }
+					}
+				}
+			}
+			10 = {
+				create_character = {
+					random_traits = no
+					dynasty = NONE
+					female = yes
+					age = 26
+					religion = ROOT
+					culture = ROOT
+					trait = hunchback
+					trait = wroth
+					trait = envious
+					trait = paranoid
+					trait = deceitful
+					trait = shy
+					trait = cynical
+					#trait = amateurish_plotter
+				}
+				new_character = {
+					random_list = {
+						90 = { add_trait = amateurish_plotter }
+						10 = { add_trait = novice_mage }
+					}	
+					save_event_target_as = suspected_witch
+					hidden_tooltip = {
+						character_event = { id = MYTH.56 }
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_WoL_12028
+		event_target:witch_province = {
+			add_province_modifier = {
+				name = peasants_protected
+				duration = 365
+			}
+		}
+		event_target:suspected_witch = {
+			death = {
+				death_reason = death_execution_burning
+				killer = ROOT
+			}
+		}
+		hidden_tooltip = { character_event = { id = WoL.12500 days = 1 } }
+		piety = 30
+	}
+	option = {
+		name = EVTOPTB_WoL_12028
+		event_target:suspected_witch = {
+			imprison = ROOT
+		}
+		hidden_tooltip = { character_event = { id = WoL.12500 days = 1 } }
+	}
+	option = {
+		name = EVTOPTC_WoL_12028
+		event_target:witch_province = {
+			add_province_modifier = {
+				name = peasant_unrest
+				duration = 365
+			}
+		}
+		culture_techpoints = 50
+		hidden_tooltip = { character_event = { id = WoL.12500 days = 1 } }
+	}
+}
+
+#Notification for sick children or spouses
+character_event = {
+	id = RIP.5060
+	picture = GFX_evt_doctor_tending_to_sick
+	border = GFX_event_normal_frame_religion
+
+	trigger = {
+		FROM = { character_disease_trigger = yes }
+		OR = {
+			NOT = { has_character_flag = no_relative_illness_notifications }
+			had_character_flag = { flag = no_relative_illness_notifications days = 1825 }
+		}
+		NOT = { trait = in_hiding }
+	}
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = { has_character_flag = announce_tuberculosis }
+		text = EVTDSC_RIP_5060_TUBERCULOSIS
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_typhoid }
+		text = EVTDSC_RIP_5060_TYPHOID
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_typhus }
+		text = EVTDSC_RIP_5060_TYPHUS
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_plague }
+		text = EVTDSC_RIP_5060_PLAGUE
+		picture = GFX_evt_plague_spreading
+	}
+	desc = {
+		trigger = { has_character_flag = announce_measles }
+		text = EVTDSC_RIP_5060_MEASLES
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_smallpox }
+		text = EVTDSC_RIP_5060_SMALLPOX
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_syphilis }
+		text = EVTDSC_RIP_5060_SYPHILITIC
+		picture = GFX_evt_bring_out_your_dead
+	}
+	desc = {
+		trigger = { has_character_flag = announce_flu }
+		text = EVTDSC_RIP_5060_FLU
+	}
+	desc = {
+		trigger = { has_character_flag = announce_dysentery }
+		text = EVTDSC_RIP_5060_DYSENTERY
+	}
+	desc = {
+		trigger = { has_character_flag = announce_gout }
+		text = EVTDSC_RIP_5060_GOUT
+	}
+	desc = {
+		trigger = { has_character_flag = announce_food_poisoning }
+		text = EVTDSC_RIP_5060_FOOD_POISONING
+	}
+	desc = {
+		trigger = { has_character_flag = announce_rabies }
+		text = EVTDSC_RIP_5060_RABIES
+	}
+	desc = {
+		trigger = { has_character_flag = announce_cancer }
+		text = EVTDSC_RIP_5060_CANCER
+	}
+	desc = {
+		trigger = { has_character_flag = announce_pneumonic }
+		text = EVTDSC_RIP_5060_PNEUMONIC
+	}
+	desc = {
+		trigger = { has_character_flag = announce_zombie_plague }
+		text = EVTDSC_RIP_5060_ZOMBIE
+	}
+
+	option = {
+		trigger = {
+			is_landed = yes
+			NOR = {
+				has_character_modifier = in_seclusion
+				any_courtier_or_vassal = {
+					has_minor_title = title_court_physician
+					liege = {
+						character = ROOT
+					}
+				}
+				is_tribal = yes
+				is_nomadic = yes
+			}
+			OR = {
+				NOT = { has_character_flag = 3_year_physician_cooldown }
+				had_character_flag = { flag = 3_year_physician_cooldown days = 1095 }
+			}
+
+		}
+		name = EVTOPTC_RIP_5060
+		custom_tooltip = { text = employ_court_physician_tooltip }
+
+		hidden_tooltip = {
+			set_character_flag = looking_for_court_physician
+			character_event = { id = RIP.11051 days = 10 random = 30 }
+			clr_character_flag = 3_year_physician_cooldown
+			set_character_flag = 3_year_physician_cooldown
+		}
+
+		clr_character_flag = announce_syphilis
+		clr_character_flag = announce_pneumonic
+		clr_character_flag = announce_tuberculosis
+		clr_character_flag = announce_typhoid
+		clr_character_flag = announce_typhus
+		clr_character_flag = announce_plague
+		clr_character_flag = announce_measles
+		clr_character_flag = announce_smallpox
+		clr_character_flag = announce_flu
+		clr_character_flag = announce_dysentery
+		clr_character_flag = announce_gout
+		clr_character_flag = announce_food_poisoning
+		clr_character_flag = announce_rabies
+		clr_character_flag = announce_cancer
+		clr_character_flag = announce_zombie_plague
+	}
+
+	option = {
+		name = EVTOPTA_RIP_5060
+
+		clr_character_flag = announce_syphilis
+		clr_character_flag = announce_pneumonic
+		clr_character_flag = announce_tuberculosis
+		clr_character_flag = announce_typhoid
+		clr_character_flag = announce_typhus
+		clr_character_flag = announce_plague
+		clr_character_flag = announce_measles
+		clr_character_flag = announce_smallpox
+		clr_character_flag = announce_flu
+		clr_character_flag = announce_dysentery
+		clr_character_flag = announce_gout
+		clr_character_flag = announce_food_poisoning
+		clr_character_flag = announce_rabies
+		clr_character_flag = announce_cancer
+		clr_character_flag = announce_zombie_plague
+	}
+
+	option = {
+		name = EVTOPTB_RIP_5060
+		clr_character_flag = no_relative_illness_notifications
+		set_character_flag = no_relative_illness_notifications
+
+		clr_character_flag = announce_syphilis
+		clr_character_flag = announce_pneumonic
+		clr_character_flag = announce_tuberculosis
+		clr_character_flag = announce_typhoid
+		clr_character_flag = announce_typhus
+		clr_character_flag = announce_plague
+		clr_character_flag = announce_measles
+		clr_character_flag = announce_smallpox
+		clr_character_flag = announce_flu
+		clr_character_flag = announce_dysentery
+		clr_character_flag = announce_gout
+		clr_character_flag = announce_food_poisoning
+		clr_character_flag = announce_rabies
+		clr_character_flag = announce_cancer
+		clr_character_flag = announce_zombie_plague
+		
+		custom_tooltip = { text = ignore_ill_relatives_tooltip }
+	}
+}
+
+###########################################
+# Favorite hunting dog                    #
+# ID WoL.5200-WoL.5299                    #
+###########################################
+# Only events that care about the name
+
+# Name puppy
+character_event = {
+	id = WoL.5203
+	desc = EVTDESC_WoL_5203
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			90 = { set_character_flag = good_dog }  # Decide dog's personality...
+			10 = { set_character_flag = bad_dog }
+		}
+	}
+	
+	option = { # Faithful
+		name = EVTOPTA_WoL_5203
+		set_character_flag = dog_name_faithful
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Hunter
+		name = EVTOPTB_WoL_5203
+		set_character_flag = dog_name_hunter
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Tricky
+		name = EVTOPTC_WoL_5203
+		set_character_flag = dog_name_tricky
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Lucifer
+		name = EVTOPTD_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion_group = christian
+		}
+		set_character_flag = dog_name_lucifer
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Shaytan
+		name = EVTOPTE_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion_group = muslim
+		}
+		set_character_flag = dog_name_shaytan
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Fenrir
+		name = EVTOPTF_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_fenrir
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Erlik
+		name = EVTOPTG_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = tengri_pagan
+				religion = tengri_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_erlik
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Velnias
+		name = EVTOPTH_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_velnias
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Tuoni
+		name = EVTOPTI_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_tuoni
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Xolotl
+		name = EVTOPTJ_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = aztec
+				religion = aztec_reformed
+			}
+		}
+		set_character_flag = dog_name_xolotl
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Veles
+		name = EVTOPTK_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_veles
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Guruhi
+		name = EVTOPTL_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_guruhi
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Darkness
+		name = EVTOPTM_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = zun_pagan
+				religion = zun_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_darkness
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Ahriman
+		name = EVTOPTN_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion_group = zoroastrian_group
+		}
+		set_character_flag = dog_name_ahriman
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Satan
+		name = EVTOPTO_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion_group = jewish_group
+		}
+		set_character_flag = dog_name_satan
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Vinayaka
+		name = EVTOPTP_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = hindu
+		}
+		set_character_flag = dog_name_vinayaka
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Mara
+		name = EVTOPTQ_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = buddhist
+		}
+		set_character_flag = dog_name_mara
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Punisher
+		name = EVTOPTR_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = jain
+		}
+		set_character_flag = dog_name_punisher
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Sigurd
+		name = EVTOPTS_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		set_character_flag = dog_name_sigurd
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Thor
+		name = EVTOPTT_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+		set_character_flag = dog_name_thor
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Michael
+		name = EVTOPTU_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = satanist
+		}
+		set_character_flag = dog_name_michael
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Ysbaddaden - there may be a better fit - information is a bit sparse
+		name = EVTOPTV_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+		set_character_flag = dog_name_ysbaddaden
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Set - Probably best known spelling.  Setesh might also be a good choice - "sounds" more Egyptian while still being recognizable to most people.
+		name = EVTOPTW_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			OR = {
+				religion = kemetic_pagan
+				religion = atenist
+			}
+		}
+		set_character_flag = dog_name_set
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Deimos
+		name = EVTOPTX_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = hellenic_pagan
+		}
+		set_character_flag = dog_name_deimos
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+	option = { # Metus
+		name = EVTOPTY_WoL_5203
+		trigger = {
+			OR = {
+				trait = cynical
+				trait = possessed
+				is_devil_worshiper_trigger = yes
+			}
+			religion = roman_pagan
+		}
+		set_character_flag = dog_name_metus
+		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	}
+}
+
+## Random dog events...
+
+# Spending time outside training dog has its effects
+character_event = {
+	id = WoL.5221
+	desc = EVTDESC_WoL_5221
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = pet_hunting_dog
+	}
+	
+	option = { # Train dog
+		name = EVTOPTA_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_faithful
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTB_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_hunter
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTC_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_tricky
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTD_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_lucifer
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTE_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_shaytan
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTF_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_fenrir
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTG_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_erlik
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTH_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_velnias
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTI_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_tuoni
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTJ_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_xolotl
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTK_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_veles
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTL_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_guruhi
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTM_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_darkness
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTN_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_ahriman
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTO_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_satan
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTP_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_vinayaka
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTQ_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_mara
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTR_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_punisher
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTS_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_sigurd
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTT_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_thor
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTU_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_michael
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTV_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_ysbaddaden
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTW_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_set
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTX_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_deimos
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+	option = { # Train dog
+		name = EVTOPTY_WoL_5221
+		trigger = {
+			has_character_flag = dog_name_metus
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				trait = diligent
+			}
+			health = 1
+		}
+		if = {
+			limit = {
+				is_weak_trigger = no
+				NOT = { trait = diligent }
+			}
+			add_trait = diligent
+		}
+		if = {
+			limit = {
+				is_weak_trigger = yes
+			}
+			remove_trait = weak
+			remove_trait = feeble
+		}
+	}
+}
+
+# Dog dies! Decide on funeral
+character_event = {
+	id = WoL.5290
+	desc = EVTDESC_WoL_5290
+	picture = GFX_evt_hunting_scene
+	border = GFX_event_normal_frame_war
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_modifier = pet_hunting_dog
+		NOT = { has_character_flag = hunting_dog_already_killed }
+	}
+
+	immediate = {
+		remove_character_modifier = pet_best_friends
+	}
+	
+	option = { # Bury him quietly
+		name = EVTOPTA_WoL_5290
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Throw a grand funeral
+		name = EVTOPTB_WoL_5290
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTC_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_faithful
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTD_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_hunter
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTE_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_tricky
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTF_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_lucifer
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTG_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_shaytan
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTH_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_fenrir
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTI_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_erlik
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTJ_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_velnias
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTK_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_tuoni
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTL_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_xolotl
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTM_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_veles
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTN_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_guruhi
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTO_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_darkness
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTP_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_ahriman
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTQ_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_satan
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTR_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_vinayaka
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTS_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_mara
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTT_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_punisher
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTU_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_sigurd
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTV_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_thor
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTW_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_michael
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTX_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_ysbaddaden
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTY_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_set
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTZ_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_deimos
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	option = { # Lunatic option - build him a great pyramid - use dogs name
+		name = EVTOPTAA_WoL_5290
+		trigger = {
+			ai = no
+			OR = {
+				trait = lunatic
+				trait = possessed
+			}
+			has_character_flag = dog_name_metus
+		}
+		scaled_wealth = { value = -2 max = -800 }
+		capital_scope = {
+			add_province_modifier = { # Powerful but extremely unusual
+				name = pyramid
+				duration = -1
+			}
+		}
+		remove_character_modifier = pet_hunting_dog
+		hidden_tooltip = { character_event = { id = WoL.5291 } }
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_dlc = "Mystics"
+					OR = {
+						has_character_modifier = good_relationship_omen
+						has_character_modifier = bad_relationship_omen
+					}
+				}
+			}
+			set_character_flag = dog_death_omen
+			character_event = { id = MNM.1213 days = 35 random = 30 } # Scrying vision come true
+		}
+	}
+}
+
+# flag and delayed event clearing
+character_event = {
+	id = WoL.5291
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = pet_hunting_dog
+		clear_delayed_event = { id = WoL.5290 }
+		clear_delayed_event = { id = WoL.5204 }
+		clear_delayed_event = { id = WoL.5221 }
+		clr_character_flag = dog_name_faithful
+		clr_character_flag = dog_name_hunter
+		clr_character_flag = dog_name_tricky
+		clr_character_flag = dog_name_lucifer
+		clr_character_flag = dog_name_shaytan
+		clr_character_flag = dog_name_fenrir
+		clr_character_flag = dog_name_erlik
+		clr_character_flag = dog_name_velnias
+		clr_character_flag = dog_name_tuoni
+		clr_character_flag = dog_name_xolotl
+		clr_character_flag = dog_name_veles
+		clr_character_flag = dog_name_guruhi
+		clr_character_flag = dog_name_darkness
+		clr_character_flag = dog_name_ahriman
+		clr_character_flag = dog_name_satan
+		clr_character_flag = dog_name_vinayaka
+		clr_character_flag = dog_name_mara
+		clr_character_flag = dog_name_punisher
+		clr_character_flag = dog_name_sigurd
+		clr_character_flag = dog_name_thor
+		clr_character_flag = dog_name_michael
+		clr_character_flag = dog_name_ysbaddaden
+		clr_character_flag = dog_name_set
+		clr_character_flag = dog_name_deimos
+		clr_character_flag = dog_name_metus
+	}
+}
+
+# An ambitious character with no inheritance begins to plan an adventure for a foreign title
+character_event = {
+	id = TOG.1210
+	
+	hide_window = yes # Only fires for unplayable landless characters
+	
+	min_age = 16
+	max_age = 50
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "The Old Gods"
+		
+		NOT = {
+			has_game_rule = {
+				name = adventurers
+				value = none
+			}
+		}
+		
+		is_ruler = no
+		NOT = { any_spouse = { is_ruler = yes } }
+
+		OR = {
+			is_female = no
+			liege = { has_law = status_of_women_4 }
+			liege = { has_law = true_cognatic_succession }
+			liege = { religion = cathar }
+			liege = { religion = messalian }
+			has_game_rule = {
+				name = gender
+				value = all
+			}
+		}
+		
+#		year = 867
+		
+		diplomacy = 7
+		martial = 9
+		health = 4
+		
+		NOT = { trait = content }
+		NOT = { trait = craven }
+		
+		OR = { # Only these for now
+			culture_group = north_germanic
+			culture_group = west_germanic
+			culture_group = altaic
+			culture = norman
+			culture = frankish
+			culture = breton
+			culture = catalan
+			culture = draconic
+			AND = {
+				culture = hungarian
+				NOT = { year = 1066 }
+			}
+			has_character_flag = demon_child_non_pagan
+		}
+		
+		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
+			any_heir_title = {
+				always = yes
+			}
+		}
+		
+		NOT = { # Handled by event TOG.1200
+			any_claim = {
+				has_holder = yes
+				holder_scope = {
+					independent = yes
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
+						}
+					}
+				}
+				OR = {
+					tier = KING
+					holder_scope = { tier = PREV }
+				}
+				ROOT = {
+					NOR = {
+						obedient = PREV
+						non_interference = PREV
+					}
+				}
+			}
+		}
+		
+		OR = {
+			father_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
+			mother_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
+		}
+		
+		NOT = { has_character_modifier = planning_duchy_adventure }
+	}
+	
+	mean_time_to_happen = {
+		years = 100
+		modifier = {
+			factor = 4
+			has_dlc = "Horse Lords"
+			is_allowed_to_loot = yes
+		}
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				AND = {
+					culture = norman
+					NOT = { year = 1250 }
+				}
+				AND = {
+					culture_group = north_germanic
+					NOT = { year = 1066 }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			has_character_flag = flag_denied_title
+		}
+		modifier = {
+			factor = 0.2
+			has_character_flag = demon_child_non_pagan
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
+		}
+		modifier = {
+			factor = 0.75
+			martial = 12
+		}
+		modifier = {
+			factor = 0.75
+			trait = brave
+		}
+		modifier = {
+			factor = 0.85
+			trait = proud
+		}
+		modifier = {
+			factor = 3.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 3.0
+			trait = humble
+		}
+		modifier = {
+			factor = 3.0
+			trait = kind
+		}
+		modifier = {
+			factor = 3.0
+			any_liege = {
+				ai = no
+			}
+		}
+		modifier = {
+			factor = 3.0
+			top_liege = {
+				tier = emperor
+			}
+		}
+		modifier = {
+			factor = 50
+			has_game_rule = {
+				name = adventurers
+				value = rare
+			}
+		}
+	}
+	
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				NOT = { culture = ROOT }
+				is_landed = yes
+				independent = yes
+				NOT = { is_vassal_or_below = ROOT }
+				any_realm_province = {
+					OR = {
+						AND = {
+							port = yes
+							ROOT = {
+								NOT = { culture_group = altaic }
+								NOT = { culture = hungarian }
+							}
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
+							}
+						}
+						any_neighbor_province = {
+							owner = {
+								same_realm = ROOT
+							}
+						}
+					}
+					NOT = {
+						region = world_europe_north
+					}
+					NOT = {
+						duchy = {
+							title = d_bjarmia
+						}
+					}
+				}
+				ROOT = {
+					NOR = {
+						obedient = PREV
+						non_interference = PREV
+					}
+				}
+			}
+			
+			random_realm_province = {
+				limit = {
+					OR = {
+						AND = {
+							port = yes
+							ROOT = {
+								NOT = { culture_group = altaic }
+								NOT = { culture = hungarian }
+							}
+							NOT = {
+								distance = {
+									who = ROOT
+									value = 800
+								}
+							}
+						}
+						any_neighbor_province = {
+							owner = {
+								same_realm = ROOT
+							}
+						}
+					}
+					NOT = {
+						region = world_europe_north
+					}
+					NOT = {
+						duchy = {
+							title = d_bjarmia
+						}
+					}
+				}
+				
+				ROOT = {
+					opinion = {
+						who = PREVPREV
+						years = 3
+						modifier = opinion_duchy_adventure_target
+					}
+					add_character_modifier = {
+						name = planning_duchy_adventure
+						hidden = yes
+						days = 730
+					}
+					character_event = {
+						id = TOG.1212 # Fire the attack
+						days = 730
+					}
+				}
+				PREV = {
+					character_event = {
+						id = TOG.1211 # Warn the target
+					}
+				}
+			}
+		}
+		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
+		
+		set_character_flag = do_not_disturb
+		character_event = { id = TOG.1215 days = 730 }
+	}
+	
+	option = {
+		name = OK
+	}
+}
+
+# An ambitious character with no inheritance begins to plan an adventure for a foreign title
+character_event = {
+	id = HL.100
+	hide_window = yes # Only fires for unplayable landless characters
+	
+	min_age = 16
+	max_age = 50
+	only_men = yes
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_dlc = "Horse Lords"
+		
+		NOT = {
+			has_game_rule = {
+				name = adventurers
+				value = none
+			}
+		}
+		
+		is_ruler = no
+		
+#		year = 867
+		
+#		diplomacy = 7
+#		martial = 9
+#		health = 4
+		
+		is_allowed_to_loot = yes
+		NOT = { trait = content }
+		NOT = { trait = craven }
+		OR = {
+			AND = {
+				any_liege = {
+					government = nomadic_government
+				}
+				culture_group = altaic
+			}
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		
+		NOT = { # Somewhat clunky way of checking that the character does not stand to inherit any titles
+			any_heir_title = {
+				always = yes
+			}
+		}
+		
+		NOT = { # Handled by event TOG.1200
+			any_claim = {
+				has_holder = yes
+				holder_scope = {
+					independent = yes
+					OR = {
+						is_merchant_republic = no
+						NOT = {
+							capital_holding = {
+								de_jure_liege_or_above = PREVPREV
+							}
+						}
+					}
+				}
+				OR = {
+					tier = KING
+					holder_scope = { tier = PREV }
+				}
+			}
+		}
+		
+		OR = {
+			father_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
+			mother_even_if_dead = {
+				OR = {
+					primary_title = { higher_tier_than = BARON }
+					father_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+					mother_even_if_dead = {
+						primary_title = { higher_tier_than = BARON }
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+		modifier = {
+			factor = 0.5
+			trait = ambitious
+		}
+		modifier = {
+			factor = 0.2
+			has_character_flag = flag_denied_title
+		}
+		modifier = {
+			factor = 0.2
+			has_character_flag = demon_child_non_pagan
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
+		}
+		modifier = {
+			factor = 0.75
+			martial = 12
+		}
+		modifier = {
+			factor = 0.75
+			combat_rating = 3
+		}
+		modifier = {
+			factor = 0.75
+			trait = brave
+		}
+		modifier = {
+			factor = 0.85
+			trait = proud
+		}
+		modifier = {
+			factor = 3.0
+			trait = slothful
+		}
+		modifier = {
+			factor = 3.0
+			trait = humble
+		}
+		modifier = {
+			factor = 3.0
+			trait = kind
+		}
+		modifier = {
+			factor = 3.0
+			any_liege = {
+				ai = no
+			}
+		}
+		modifier = {
+			factor = 50
+			has_game_rule = {
+				name = adventurers
+				value = rare
+			}
+		}
+#		modifier = {
+#			factor = 3.0
+#			top_liege = {
+#				tier = emperor
+#			}
+#		}
+	}
+	
+	immediate = {
+		end_inaccessibility_effect = yes #removes in hiding or in_seclusion
+		add_trait = adventurer
+		liege = {
+			primary_title = {
+				holder_scope = {
+					save_event_target_as = previous_liege
+				}
+			}
+			character_event = {
+				id = HL.101
+				days = 1
+			}
+			capital_scope = {
+				save_event_target_as = target_province
+				ROOT = {
+					set_defacto_liege = ROOT
+					create_title = {
+						tier = DUKE
+						landless = yes
+						adventurer = yes
+						culture = ROOT
+						name = "CLAIMANT_ADVENTURE"
+						holder = ROOT
+						base_title = THIS
+					}
+					set_character_flag = raiding_adventurer
+					if = {
+						limit = {
+							event_target:previous_liege = {
+								government = nomadic_government
+							}
+						}
+						character_event = { id = HL.105 } #create troops steppe
+					}
+					if = {
+						limit = {
+							event_target:previous_liege = {
+								NOT = { government = nomadic_government }
+							}
+						}
+						character_event = { id = HL.102 } #create troops vikings
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 30
+					}
+					create_random_soldier = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 25
+					}
+					if  = {
+						limit = {
+							is_seafarer = yes
+						}
+						
+						# Create a fleet, just to be sure
+						spawn_fleet = {
+							province = closest # closest sea zone
+							owner = ROOT
+							disband_on_peace = yes
+							troops =
+							{
+								galleys = { 110 110 }
+							}
+						}
+					}
+				}
+			}
+		}
+		character_event = { id = HL.110 days = 1095 } # Ping to see if he's ready to settle, repeating every 3 years.
+	}
+}
+
+character_event = {
+	id = HL.103
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		random_list = {
+			30 = { #250
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 15
+				}
+				modifier = {
+					factor = 0.7
+					martial = 18
+				}
+				modifier = {
+					factor = 0.7
+					martial = 21
+				}
+				modifier = {
+					factor = 0.7
+					martial = 24
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						archers = { 70 70 }
+						light_infantry = { 170 170 }
+						heavy_infantry = { 10 10 }
+					}
+				}
+			}
+			30 = { #380
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 17
+				}
+				modifier = {
+					factor = 0.7
+					martial = 20
+				}
+				modifier = {
+					factor = 0.7
+					martial = 23
+				}
+				modifier = {
+					factor = 0.7
+					martial = 26
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						archers = { 90 90 }
+						light_infantry = { 215 215 }
+						heavy_infantry = { 15 15 }
+					}
+				}
+				
+			}
+			30 = { #420
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 9 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 15 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 20
+				}
+				modifier = {
+					factor = 0.7
+					martial = 24
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						archers = { 100 100 }
+						light_infantry = { 225 225 }
+						heavy_infantry = { 15 15 }
+					}
+				}
+			}
+			30 = { #490
+				modifier = {
+					factor = 1.3
+					martial = 24
+				}
+				modifier = {
+					factor = 1.3
+					martial = 28
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 15 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 20 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						archers = { 140 140 }
+						light_infantry = { 330 330 }
+						heavy_infantry = { 20 20 }
+					}
+				}
+			}
+			30 = { #570
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 14 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 20 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 26 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						archers = { 170 170 }
+						light_infantry = { 360 360 }
+						heavy_infantry = { 40 40 }
+					}
+				}
+			}
+			50 = { # 200 Dragons
+				modifier = {
+					factor = 0
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+				modifier = {
+					factor = 1.5
+					culture = draconic
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { trait = dragon }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 10 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 14 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						dragon_cavalry = { 200 200 }
+					}
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = HL.106
+	is_triggered_only = yes
+	hide_window = yes
+	
+	immediate = {
+		random_list = {
+			30 = { #180
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 2 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 15
+				}
+				modifier = {
+					factor = 0.7
+					martial = 18
+				}
+				modifier = {
+					factor = 0.7
+					martial = 21
+				}
+				modifier = {
+					factor = 0.7
+					martial = 24
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						light_cavalry = { 100 100 }
+						horse_archers = { 80 80 }
+					}
+				}
+			}
+			30 = { #280
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 4 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 6 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 8 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 17
+				}
+				modifier = {
+					factor = 0.7
+					martial = 20
+				}
+				modifier = {
+					factor = 0.7
+					martial = 23
+				}
+				modifier = {
+					factor = 0.7
+					martial = 26
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						light_cavalry = { 150 150 }
+						horse_archers = { 130 130 }
+					}
+				}
+				
+			}
+			30 = { #315
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 9 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 1.3
+					NOT = { martial = 15 }
+				}
+				modifier = {
+					factor = 0.7
+					martial = 20
+				}
+				modifier = {
+					factor = 0.7
+					martial = 24
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						light_cavalry = { 165 165 }
+						horse_archers = { 150 150 }
+					}
+				}
+			}
+			30 = { #365
+				modifier = {
+					factor = 1.3
+					martial = 24
+				}
+				modifier = {
+					factor = 1.3
+					martial = 28
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 10 }
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { martial = 15 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 20 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						light_cavalry = { 190 190 }
+						horse_archers = { 175 175 }
+					}
+				}
+			}
+			30 = { #420
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 14 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 20 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 26 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						light_cavalry = { 220 220 }
+						horse_archers = { 200 200 }
+					}
+				}
+			}
+			50 = { # 200 Dragons
+				modifier = {
+					factor = 0
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+				modifier = {
+					factor = 1.5
+					culture = draconic
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { trait = dragon }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 10 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 14 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						dragon_cavalry = { 200 200 }
+					}
+				}
+			}
+			30 = { # 500 Dragons
+				modifier = {
+					factor = 0
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+				modifier = {
+					factor = 1.5
+					culture = draconic
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { trait = dragon }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 14 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 18 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 24 }
+				}
+				modifier = {
+					factor = 0.7
+					NOT = { martial = 30 }
+				}
+				spawn_unit = {
+					province = event_target:target_province
+					home = event_target:target_province
+					owner = ROOT
+					#leader = none
+					attrition = 0
+#					disband_on_peace = yes
+					reinforces = yes
+					is_looter = yes
+					can_toggle_looting = no
+					cannot_inherit = yes
+					merge = yes
+					troops = {
+						dragon_cavalry = { 500 500 }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Pagan reformation
+narrative_event = {
+	id = 670
+	title = "EVTNAME670"
+	desc = "EVTDESC670"
+	picture = GFX_evt_heretic
+	border = "GFX_event_narrative_frame_religion"	
+	
+	is_triggered_only = yes
+	major = yes
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_rulers = yes
+	
+	immediate = {
+		if = {
+			limit = { ai = no }
+			set_character_flag = achievement_new_ways
+		}
+		any_courtier = {
+			limit = {
+				is_heresy_of = ROOT
+				employer = { character = ROOT }
+			}
+			religion = ROOT
+		}
+		any_dynasty_member = {
+			limit = {
+				is_heresy_of = ROOT
+				is_playable = no
+			}
+			religion = ROOT
+		}
+		any_vassal = {
+			limit = {
+				is_playable = no
+				is_heresy_of = ROOT
+			}
+			religion = ROOT
+		}
+		capital_scope = {
+			if = {
+				limit = { is_heresy_of = ROOT }
+				religion = ROOT
+			}
+		}
+		if = {
+			limit = { religion = norse_pagan_reformed }
+			d_jomsvikings = {
+				religion = norse_pagan_reformed # This Holy Order now changes religion
+			}
+			set_global_flag = norse_reformation
+			norse_pagan = {
+				set_name = norse_old
+			}
+		}
+		if = {
+			limit = { religion = tengri_pagan_reformed }
+			set_global_flag = tengri_reformation
+			tengri_pagan = {
+				set_name = tengri_old
+			}
+		}
+		if = {
+			limit = { religion = baltic_pagan_reformed }
+			set_global_flag = baltic_reformation
+			tengri_pagan = {
+				set_name = baltic_old
+			}
+		}
+		if = {
+			limit = { religion = finnish_pagan_reformed }
+			set_global_flag = finnish_reformation
+			finnish_pagan = {
+				set_name = finnish_old
+			}
+		}
+		if = {
+			limit = { religion = aztec_reformed }
+			set_global_flag = aztec_reformation
+			aztec = {
+				set_name = aztec_old
+			}
+		}
+		if = {
+			limit = { religion = slavic_pagan_reformed }
+			set_global_flag = slavic_reformation
+			slavic_pagan = {
+				set_name = slavic_old
+			}
+		}
+		if = {
+			limit = { religion = west_african_pagan_reformed }
+			set_global_flag = west_african_reformation
+			west_african_pagan = {
+				set_name = west_african_old
+			}
+		}
+		if = {
+			limit = { religion = zun_pagan_reformed }
+			set_global_flag = zun_reformation
+			zun_pagan = {
+				set_name = zun_old
+			}
+		}
+		if = {
+			limit = { religion = draconic_pagan_reformed }
+			set_global_flag = draconic_reformation
+			draconic_pagan = {
+				set_name = draconic_old
+			}
+		}
+		if = {
+			limit = { religion = druidic_reformed }
+			set_global_flag = druidic_reformation
+			druidic = {
+				set_name = druidic_old
+			}
+			d_galatian_company = {
+				religion = druidic_reformed
+			}
+			d_helvetic_company = {
+				religion = druidic_reformed
+			}
+			d_brennus_ambaxtoi = {
+				religion = druidic_reformed
+			}
+		}
+		if = {
+			limit = { religion = jotnar_reformed }
+			set_global_flag = jotnar_reformation
+			jotnar = {
+				set_name = jotnar_old
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTA670" # The Reformer
+		trigger = { religion = ROOT }
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_PLAYER_REFORMED_RELIGION
+				portrait = [Root.GetID]
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB670" # Rulers of the old Faith - Accept
+		trigger = {
+			is_heresy_of = ROOT # The old religion has become a heresy of the Reformed one
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_OTHER_REFORMED_PLAYERS_RELIGION
+				portrait = [Root.GetID]
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 5
+				any_liege = { religion = ROOT }
+			}
+			modifier = {
+				factor = 2
+				same_realm = ROOT
+			}
+			modifier = {
+				factor = 5
+				trait = cynical
+			}
+			modifier = {
+				factor = 10
+				dynasty = ROOT
+			}
+			modifier = {
+				factor = 0.1
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+		}
+		
+		religion = ROOT
+		
+		hidden_tooltip = {
+			any_courtier = {
+				limit = {
+					is_heresy_of = ROOT
+					employer = { character = PREV }
+				}
+				religion = ROOT
+			}
+			any_vassal = {
+				limit = {
+					is_playable = no
+					is_heresy_of = ROOT
+				}
+				religion = ROOT
+			}
+			capital_scope = {
+				if = {
+					limit = { is_heresy_of = ROOT }
+					religion = ROOT
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTC670" # Rulers of the old Faith - Decline
+		trigger = {
+			is_heresy_of = ROOT # The old religion has become a heresy of the Reformed one
+		}
+		if = {
+			limit = { ai = no }
+			chronicle = {
+				entry = CHRONICLE_OTHER_REFORMED_PLAYERS_RELIGION
+				portrait = [Root.GetID]
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				has_landed_title = d_jomsvikings
+			}
+		}
+		tooltip = { religion = THIS }
+	}
+	option = {
+		name = "EVTOPTD670" # Other playable rulers
+		trigger = {
+			NOT = { religion = ROOT }
+			NOT = { is_heresy_of = ROOT }
+		}
+	}
+}
+
+# 901: The Lord Spiritual converts a subject character
+character_event = {
+	id = 901
+	title = "EVTNAME901"
+	desc = "EVTDESC901"
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_inquisition
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			any_province_character = {
+				is_adult = yes
+				NOT = { character = ROOT }
+				NOT = { is_liege_of = ROOT }
+				NOT = { religion = ROOT }
+				OR = {
+					is_ruler = no
+					primary_title = {
+						controls_religion = no
+						mercenary = no
+						holy_order = no
+					}
+				}
+				same_realm = ROOT
+				NAND = {
+					trait = god
+					true_religion_group_christian_trigger = yes
+					true_religion_group_muslim_trigger = yes
+					true_religion_group_jewish_group_trigger = yes
+					true_religion_zun_pagan_trigger = yes
+					true_religion_zun_pagan_reformed_trigger = yes
+					true_religion_group_zoroastrian_group_trigger = yes
+					true_religion_buddhist_trigger = yes
+					true_religion_taoist_trigger = yes
+					true_religion_hindu_trigger = yes
+					true_religion_bon_trigger = yes
+					true_religion_jain_trigger = yes
+					AND = {
+						OR = {
+							true_religion_draconic_pagan_trigger = yes
+							true_religion_draconic_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_norse_pagan_trigger = yes
+							true_religion_norse_pagan_reformed_trigger = yes
+							true_religion_jotnar_trigger = yes
+							true_religion_jotnar_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = norse_pagan
+								religion = norse_pagan_reformed
+								religion = jotnar
+								religion = jotnar_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_baltic_pagan_trigger = yes
+							true_religion_baltic_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = baltic_pagan
+								religion = baltic_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_finnish_pagan_trigger = yes
+							true_religion_finnish_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = finnish_pagan
+								religion = finnish_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_slavic_pagan_trigger = yes
+							true_religion_slavic_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = slavic_pagan
+								religion = slavic_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_tengri_pagan_trigger = yes
+							true_religion_tengri_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = tengri_pagan
+								religion = tengri_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_aztec_trigger = yes
+							true_religion_aztec_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = aztec
+								religion = aztec_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_west_african_pagan_trigger = yes
+							true_religion_west_african_pagan_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = west_african_pagan
+								religion = west_african_pagan_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_hellenic_pagan_trigger = yes
+							true_religion_roman_pagan_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = hellenic_pagan
+								religion = roman_pagan
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_druidic_trigger = yes
+							true_religion_druidic_reformed_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = druidic
+								religion = druidic_reformed
+							}
+						}
+					}
+					AND = {
+						OR = {
+							true_religion_kemetic_pagan_trigger = yes
+							true_religion_atenist_trigger = yes
+						}
+						ROOT = {
+							OR = {
+								religion = kemetic_pagan
+								religion = atenist
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			learning = 10
+		}
+		modifier = {
+			factor = 0.75
+			learning = 11
+		}
+		modifier = {
+			factor = 0.75
+			learning = 12
+		}
+		modifier = {
+			factor = 0.75
+			learning = 13
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 0.75
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 0.75
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 3.0
+			religion_group = pagan_group
+			is_reformed_religion = no
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA901"
+		piety = 5
+		location = {
+			random_province_character = {
+				limit = {
+					is_adult = yes
+					NOT = { character = ROOT }
+					NOT = { is_liege_of = ROOT }
+					NOT = { religion = ROOT }
+					OR = {
+						is_ruler = no
+						primary_title = {
+							controls_religion = no
+							mercenary = no
+							holy_order = no
+						}
+					}
+					same_realm = ROOT
+				}
+				letter_event = { id = 20010 tooltip = "EVTTOOLTIP20010" }
+			}
+		}
+	}
+}
+
+# 20270: Liege get a letter
+letter_event = {
+	id = 20270
+	desc = "EVTDESC20270"
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA20270"
+		ai_chance = { factor = 100 }
+		FROM = { imprison = yes }
+	}
+	option = {
+		name = "EVTOPTC20270"
+		trigger = {
+			NOR = {
+				religion = FROM
+				has_secret_religion = yes
+				trait = god
+			}
+		}
+		ai_chance = { factor = 0 }
+		set_secret_religion = { target_type = public target = FROM }
+		FROM = { letter_event = { id = 20271 } }
+	}
+	option = {
+		name = "EVTOPTB20270"
+		trigger = { trait = god }
+		ai_chance = { factor = 0 }
+		religion = FROM
+	}
+}
+
+# Convert to the physicians religion?
+character_event = {
+	id = RIP.4101
+	desc = EVTDESC_RIP_4101
+	picture = GFX_evt_court_physician
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		event_target:missionary_physician_target = {
+			NOT = { religion_group = ROOT }
+		}
+		controls_religion = no
+		NOT = { trait = god }
+	}
+	
+	option = {
+		name = EVTOPTA_RIP_4101
+		
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+		}
+		
+		event_target:missionary_physician_target = {
+			opinion = {
+				modifier = opinion_did_not_trust_me
+				who = ROOT
+				years = 10
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB_RIP_4101
+		
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 3
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.75
+				NOT = {
+					year = 900
+				}
+			}
+			modifier = {
+				factor = 0.25
+				OR = {
+					culture_group = baltic
+					culture_group = finno_ugric  # The most stubborn pagans
+				}
+			}
+			modifier = {
+				factor = 0.25
+				culture_group = east_slavic # Like alcohol
+				event_target:missionary_physician_target = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.25
+				culture_group = north_germanic # Vikings do like their alcohol
+				event_target:missionary_physician_target = {
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 0.25
+				trait = paranoid
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					religion_group = pagan_group
+				}
+			}
+		}
+		
+		event_target:missionary_physician_target = {
+			opinion = {
+				modifier = opinion_glad
+				who = ROOT
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+				religion_group = pagan_group
+			}
+			add_trait = sympathy_pagans
+		}
+		religion = event_target:missionary_physician_target
+		prestige = -500
+		piety = 250
+		any_courtier = {
+			limit = { 
+				is_close_relative = ROOT
+				NOT = { trait = zealous }
+			}
+			religion = event_target:missionary_physician_target
+		}
+		any_spouse = {
+			limit = { 
+				is_consort = no
+				NOT = { trait = zealous }
+			}
+			religion = event_target:missionary_physician_target
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_RIP_4101
+		
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 5
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+		}
+		
+		wealth = 50
+		event_target:missionary_physician_target = {
+			death = {
+				death_reason = death_execution_burning
+				killer = ROOT
+			}
+		}
+		event_target:origin_realm_of_missionary_physician_target = {
+			opinion = {
+				modifier = opinion_dishonorable_scum
+				who = ROOT
+				years = 15
+			}
+		}
+	}
+}
+
+# Lord Spiritual on mission turns disloyal and and writes letters home about virtues of enemy religion, converting courtiers...
+character_event = {
+	id = ZE.5020
+	desc = EVTDESC_ZE_5020
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Zeus"
+		ai = no
+		job_spiritual = {
+			ai = yes
+			NOT = { opinion = { who = ROOT value = -75 } }
+			has_job_action = action_inquisition
+			NOT = { trait = honest }
+			diplomacy = 10
+			location = { NOT = { religion_group = ROOT } }
+			OR = {
+				trait = cynical
+				trait = sympathy_christendom
+				trait = sympathy_islam
+				trait = sympathy_pagans
+				trait = sympathy_zoroastrianism
+				trait = sympathy_judaism
+				trait = sympathy_indian
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		
+		modifier = {
+			factor = 2
+			job_spiritual = { trait = deceitful }
+		}
+		modifier = {
+			factor = 0.5
+			job_spiritual = { trait = craven }
+		}
+	}
+	
+	immediate = {
+		job_spiritual = {
+			set_character_flag = spiritual_reverse_convert_ze_5020
+			location = {
+				save_event_target_as = ze_5020_province
+				trigger_switch = {
+					on_trigger = religion_group
+					christian 			= { PREV = { add_trait = sympathy_christendom } }
+					muslim 				= { PREV = { add_trait = sympathy_islam } }
+					pagan_group 		= { PREV = { add_trait = sympathy_pagans } }
+					zoroastrian_group 	= { PREV = { add_trait = sympathy_zoroastrianism } }
+					jewish_group 		= { PREV = { add_trait = sympathy_judaism } }
+					indian_group 		= { PREV = { add_trait = sympathy_indian } }
+				}
+			}
+		}
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				is_adult = yes
+				religion = ROOT
+				NOR = {
+					trait = zealous
+					trait = god
+					is_primary_heir = ROOT
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+				prisoner = no
+			}
+			save_event_target_as = target_courtier
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ZE_5020  # Strange, why convert?
+		event_target:target_courtier = {
+			event_target:ze_5020_province = {
+				reverse_religion = PREV
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				80 = {
+					character_event = { id = ZE.5022 days = 100 }  # Convert one more...
+				}
+				20 = {
+					character_event = { id = ZE.5027 days = 100 } # Letters discovered!
+					modifier = {
+						factor = 2
+						attribute_diff = {
+							character = job_spiritual
+							attribute = intrigue
+							value = 4
+						}
+					}
+					modifier = {
+						factor = 2
+						attribute_diff = {
+							character = job_spiritual
+							attribute = intrigue
+							value = 8
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# Lord Spiritual continues converting courtiers...
+character_event = {
+	id = ZE.5022
+	desc = EVTDESC_ZE_5022
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "Zeus"
+		job_spiritual = {
+			has_job_action = action_inquisition
+			has_character_flag = spiritual_reverse_convert_ze_5020
+			location = {
+				province = event_target:ze_5020_province
+			}
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_ruler = no
+				is_adult = yes
+				religion = ROOT
+				NOR = {
+					trait = zealous
+					trait = god
+					is_primary_heir = ROOT
+					trait = incapable
+					is_inaccessible_trigger = yes
+				}
+				prisoner = no
+			}
+			save_event_target_as = target_courtier
+		}
+		job_spiritual = {
+			save_event_target_as = target_spiritual
+		}
+	}
+
+	option = {
+		name = EVTOPTA_ZE_5022  # Strange, why convert?
+		event_target:target_courtier = {
+			event_target:ze_5020_province = {
+				reverse_religion = PREV
+			}
+		}
+		hidden_tooltip = {
+			random_list = {
+				80 = {
+					repeat_event = { id = ZE.5022 days = 100 }  # Convert one more...
+				}
+				20 = {
+					character_event = { id = ZE.5027 days = 100 } # Letters discovered!
+					modifier = {
+						factor = 2
+						attribute_diff = {
+							character = event_target:target_spiritual
+							attribute = intrigue
+							value = 4
+						}
+					}
+					modifier = {
+						factor = 2
+						attribute_diff = {
+							character = event_target:target_spiritual
+							attribute = intrigue
+							value = 8
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# 927: Lord Spiritual = heretic
+character_event = {
+	id = 927
+	title = "EVTNAME927"
+	desc = "EVTDESC927"
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_advance_cul_tech
+		NOT = { has_character_modifier = in_seclusion }
+		NOT = { religion_group = indian_group }
+		is_heretic = no
+		has_secret_religion = no
+		OR = {
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+			AND = { # Norse can get heresies if jotun is available
+				OR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+				}
+				OR = {
+					trait = giant
+					culture = jotunn
+					location = { religion = jotnar }
+					location = { religion = jotnar_reformed }
+					location = { culture = jotunn }
+					any_demesne_province = {
+						OR = {
+							religion = jotnar
+							religion = jotnar_reformed
+							culture = jotunn
+						}
+					}
+				}
+			}
+			# Kemetic can get heresies if atenist is available
+			AND = {
+				religion = kemetic_pagan
+				OR = {
+					has_global_flag = atenist_revived
+					AND = {
+						c_asyut = {
+							OR = {
+								religion = kemetic_pagan
+								religion = atenist
+							}
+						}
+						OR = {
+							kemetic_pagan = { num_of_holy_sites = 3 }
+							AND = {
+								kemetic_pagan = { num_of_holy_sites = 2 }
+								atenist = { num_of_holy_sites = 1 }
+							}
+							AND = {
+								kemetic_pagan = { num_of_holy_sites = 1 }
+								atenist = { num_of_holy_sites = 2 }
+							}
+							atenist = { num_of_holy_sites = 3 }
+						}
+					}
+				}
+			}
+		}
+		liege = {
+			is_heretic = no
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}
+		NOT = {
+			religion_head = { character = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1000
+		
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			learning = 10
+		}
+		modifier = {
+			factor = 0.75
+			learning = 11
+		}
+		modifier = {
+			factor = 0.75
+			learning = 12
+		}
+		modifier = {
+			factor = 0.75
+			learning = 13
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA927"
+		ai_chance = { factor = 80 }
+		become_heretic = yes
+		hidden_tooltip = {
+			liege = { letter_event = { id = 20270 } }
+		}
+	}
+	option = {
+		name = "EVTOPTB927"
+		ai_chance = { factor = 20 }
+	}
+	after = {
+		hidden_tooltip = {
+			if = {
+				limit = {
+					religion = atenist
+					NOT = { has_global_flag = atenist_revived }
+				}
+				set_global_flag = atenist_revived
+			}
+		}
+	}
+}
+
+# Impersonating Priests - Agitation 
+character_event = {
+	id = MNM.20048
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from_from = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROMFROMFROM = {
+			is_alive = yes
+			prisoner = no
+			is_incapable = no
+		}
+		FROMFROM = {
+			is_alive = yes
+			prisoner = no
+			is_incapable = no
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				FROMFROM = {
+					has_heresies = yes
+					is_heretic = no
+					OR = {
+						NOR = { 
+							religion = norse_pagan
+							religion = norse_pagan_reformed
+						}
+						trait = giant
+						culture = jotunn
+					}
+				}
+			}
+			set_character_flag = ip_heresy
+		}
+		
+		if = {
+			limit = { NOT = { trait = deceitful } }
+			random = {
+				chance = 25
+				set_character_flag = ip_deceitful
+			}
+		}
+		if = {
+			limit = { NOT = { trait = gregarious } }
+			random = {
+				chance = 50
+				set_character_flag = ip_gregarious
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = {
+					is_friend = FROMFROMFROM
+					is_lover = FROMFROMFROM
+				}
+			}
+			random_list = {
+				85 = { 
+					set_character_flag = ip_friendify
+				}
+				15 = {
+					modifier = {
+						factor = 0
+						FROMFROMFROM = { trait = honest }
+					}
+					modifier = {
+						factor = 2
+						FROMFROMFROM = { trait = deceitful }
+					}
+					modifier = {
+						factor = 2
+						FROMFROMFROM = { trait = cruel }
+					}
+					FROMFROMFROM = { character_event = { id = MNM.20051 days = 7 } } # Rivalry
+				}
+			}
+		}
+	}
+	
+	desc = EVTDESC_MNM_20048
+	
+	option = {
+		name = EVTOPTA_MNM_20048
+		
+		if = {
+			limit = {
+				has_character_flag = ip_heresy
+			}
+			FROM = {
+				add_province_modifier = {
+					modifier = heretic_stronghold
+					years = 3
+				}
+				if = {
+					limit = {
+						NOR = {
+							religion = norse_pagan
+							religion = norse_pagan_reformed
+							religion = jotnar
+							religion = jotnar_reformed
+						}
+					}
+					become_heretic = yes
+				}
+				else = {
+					random_list = {
+						1 = {
+							trigger = {
+								NOT = { religion = norse_pagan }
+								FROMFROM = {
+									NOR = {
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}
+							}
+							religion = norse_pagan
+						}
+						1 = {
+							trigger = {
+								NOT = { religion = norse_pagan_reformed }
+								FROMFROM = {
+									NOR = {
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}
+								has_character_flag = norse_reformation
+							}
+							religion = norse_pagan_reformed
+						}
+						1 = {
+							trigger = {
+								NOT = { religion = jotnar }
+								FROMFROM = {
+									OR = {
+										trait = giant
+										culture = jotunn
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}	
+							}
+							religion = jotnar
+						}
+						1 = {
+							trigger = {
+								NOT = { religion = jotnar_reformed }
+								has_global_flag = jotnar_reformation
+								FROMFROM = {
+									OR = {
+										trait = giant
+										culture = jotunn
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}	
+							}
+							religion = jotnar_reformed
+						}
+					}
+				}
+				province_event = { id = MNM.20050 } # Notify lieges
+			}
+		}
+		
+		if = {
+			limit = {
+				NOT = { has_character_flag = ip_heresy }
+			}
+			FROM = {
+				add_province_modifier = {
+					modifier = religious_unrest
+					years = 5
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = ip_deceitful
+			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = honest }
+					NOT = { has_character_flag = deceitful }
+				}
+				add_trait = deceitful
+			}
+			if = {
+				limit = {
+					has_character_flag = honest
+				}
+				remove_trait = honest
+			}
+		}
+		
+		if = {
+			limit = {
+				has_character_flag = ip_gregarious
+			}
+			if = {
+				limit = {
+					NOT = { has_character_flag = shy }
+					NOT = { has_character_flag = gregarious }
+				}
+				add_trait = gregarious
+			}
+			if = {
+				limit = {
+					has_character_flag = shy
+				}
+				remove_trait = shy
+			}
+		}
+		
+		# Friend gained / Rivalry lost
+		if = {
+			limit = {
+				has_character_flag = ip_friendify
+			}
+			if = {
+				limit = {
+					NOT = {
+						is_rival = FROMFROMFROM
+					}
+				}
+				add_friend = FROMFROMFROM
+			}
+			if = {
+				limit = {
+					is_rival = FROMFROMFROM
+				}
+				remove_rival = FROMFROMFROM
+			}
+		}
+		
+		add_society_currency_minor_effect = yes
+		
+		clr_character_flag = ip_heresy
+		clr_character_flag = ip_deceitful
+		clr_character_flag = ip_gregarious
+		clr_character_flag = ip_friendify
+	}
+}
+
+# Heresy Appears in Province
+province_event = {
+	id = SoA.4000
+	desc = EVTDESC39000
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	trigger = {
+		has_dlc = "Sons of Abraham"
+		
+		is_heretic = no
+		
+		has_heresies = yes
+		
+		OR = { # Either not norse, or norse heresies are valid
+			NOR = {
+				religion = norse_pagan
+			}
+			has_global_flag = norse_reformation
+			owner = {
+				trait = giant
+				culture = jotunn
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			any_neighbor_province = {
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+		
+		OR = { # Either not Hellenic, or Roman is available
+			NOT = { religion = hellenic_pagan }
+			has_global_flag = roman_pagan_restoration
+		}
+		
+		OR = { # Either not Kemetic, or atenist is available
+			NOT = { religion = kemetic_pagan }
+			has_global_flag = atenist_revived
+			AND = {
+				c_asyut = {
+					OR = {
+						religion = kemetic_pagan
+						religion = atenist
+					}
+				}
+				OR = {
+					kemetic_pagan = { num_of_holy_sites = 3 }
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 2 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 2 }
+					}
+					atenist = { num_of_holy_sites = 3 }
+				}
+			}
+		}
+		
+		# Heretic top lieges must spread the faith themselves
+		owner = {
+			top_liege = {
+				NOT = { is_heresy_of = ROOT }
+			}
+		}
+		
+		num_of_settlements = 1
+		any_province_holding = {
+			NOT = { holding_type = nomad }
+		}
+		
+		NOT = { religion_authority = 0.9 }
+	}
+	
+	mean_time_to_happen = {
+		months = 9600 # 800 years
+		modifier = {
+			factor = 1.5
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 1.5
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 1.5
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 2.0
+			religion_authority = 0.9
+		}
+		modifier = {
+			factor = 3.0
+			OR = {
+				province_id = 333 # Rome
+				province_id = 497 # Thrace
+				province_id = 719 # Mecca
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.3 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { religion_authority = 0.5 }
+		}
+		
+		modifier = {
+			factor = 0.5
+			any_neighbor_province = {
+				is_land = yes
+				is_heresy_of = ROOT
+			}
+		}
+		modifier = {
+			factor = 0.25
+			any_neighbor_province = {
+				is_land = yes
+				is_heresy_of = ROOT
+				has_province_modifier = heretic_stronghold
+			}
+		}
+	}
+	
+	immediate = {
+	
+		# Prefer a neighboring heresy
+		random_neighbor_province = {
+			limit = {
+				is_land = yes
+				is_heresy_of = ROOT
+			}
+			ROOT = {
+				religion = PREV
+			}
+		}
+	
+		# Prefer an existing heresy in the realm
+		if = {
+			limit = {
+				is_heretic = no
+			}
+			owner = {
+				top_liege = {
+					random_realm_province = {
+						limit = {
+							is_land = yes
+							is_heresy_of = ROOT
+						}
+						ROOT = {
+							religion = PREV
+						}
+					}
+				}
+			}
+		}
+	
+		# ...otherwise, just pick a heresy
+		if = {
+			limit = {
+				is_heretic = no
+			}
+			become_heretic = yes
+		}
+		
+		# Two years of much higher revolt risk
+		add_province_modifier = {
+			name = religious_unrest
+			duration = 730
+		}
+		
+		# One heretic province in the realm is the epicentre of the heresy
+		if = {
+			limit = {
+				owner = {
+					top_liege = {
+						NOT = {
+							any_realm_province = {
+								religion = ROOT
+								has_province_modifier = heretic_stronghold
+							}
+						}
+					}
+				}
+			}
+			add_province_modifier = {
+				name = heretic_stronghold # Ten years of even higher revolt risk
+				duration = 3650
+			}
+		}
+		
+		# Notify the lieges
+		owner = {
+			any_liege = {
+				character_event = { id = 39400 }
+			}
+		}
+		owner = {
+			if = {
+				limit = { ai = no }
+				chronicle = {
+					entry = CHRONICLE_HERESY_SPREAD
+					picture = GFX_evt_heretic
+				}
+			}
+		}
+		owner = {
+			any_liege = {
+				if = {
+					limit = { ai = no }
+					chronicle = {
+						entry = CHRONICLE_HERESY_SPREAD
+						picture = GFX_evt_heretic
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				religion = atenist
+				NOT = { has_global_flag = atenist_revived }
+			}
+			set_global_flag = atenist_revived
+		}
+	}
+	
+	option = {
+		name = EVTOPTA39000 # The owner is of the parent religion
+		trigger = { owner = { is_parent_religion = ROOT } }
+		
+		owner = { piety = -10 }
+		
+		ai_chance = {
+        	factor = 95
+        }
+	}
+	
+	option = {
+		name = EVTOPTB39000 # The owner is of the same heresy
+		trigger = { owner = { religion = ROOT } }
+		ai_chance = {
+        	factor = 95
+        }
+	}
+	
+	option = {
+		name = EVTOPTC_SOA_4000 # The owner is of some other religion
+		trigger = {
+			owner = {
+				NOT = { religion = ROOT }
+				NOT = { is_parent_religion = ROOT }
+			}
+		}
+		ai_chance = {
+        	factor = 95
+        }
+	}
+	
+	option = {
+		name = EVTOPTD_SOA_4000 #  The owner is of the parent religion and interested in the heresy
+		trigger = {
+			owner = {
+				is_parent_religion = ROOT
+			}
+		}
+		
+		owner = {
+			piety = -250
+			set_secret_religion = { target_type = public target = ROOT }
+			any_spouse = {
+				limit = {
+					ai = yes
+					has_secret_religion = no
+				}
+				set_secret_religion = { target_type = public target = ROOT }
+			}
+			any_child = {
+				limit = {
+					ai = yes
+					has_secret_religion = no
+				}
+				set_secret_religion = { target_type = public target = ROOT }
+			}
+		}
+		
+		ai_chance = {
+        	factor = 5
+        	modifier = {
+        		factor = 0
+				owner = {
+					trait = zealous 
+				}
+        	}
+        	modifier = {
+        		factor = 2
+				owner = {
+					trait = cynical 
+				}
+        	}
+        }
+	}
+}
+
+# Hunt Apostates
+character_event = { # Hunt Apostates meta event
+	id = MNM.70100
+	title = MNM.70031.t
+	hide_window = yes
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_hunt_heretics
+		NOT = { has_character_modifier = in_seclusion }
+		liege = {
+			OR = {
+				# There is someone who is highly suspect
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NAND = { # If you share the same secret religion, dont catch them
+						has_roots_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no
+					}
+					NAND = { # If they share secret religion with the liege, dont catch them
+						has_prevs_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no 
+					}
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = PREV
+						}
+					}
+					is_in_society = yes
+					society_is_criminal = yes
+					has_character_modifier = highly_suspect
+				}
+				
+				# There is someone moderately suspect
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NAND = { # If you share the same secret religion, dont catch them
+						has_roots_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no
+					}
+					NAND = { # If they share secret religion with the liege, dont catch them
+						has_prevs_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no 
+					}
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = PREV
+						}
+					}
+					is_in_society = yes
+					society_is_criminal = yes
+					has_character_modifier = under_suspicion
+				}
+				
+				# Someone with a secret religion
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					OR = { # Nor your brethren
+						NOT = { same_society_as = ROOT }
+						is_in_society = no
+					}
+					OR = { # Nor liege's brethren
+						NOT = { same_society_as = PREV }
+						is_in_society = no
+					}
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_prevs_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = PREV
+						}
+					}
+					religion = PREV
+					age = 16
+					has_secret_religion_trait_trigger = yes
+				}
+				
+				# A Vampire, and I'm good at my job
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NOT = { ROOT = { trait = vampire } } # Don't catch other vampires if you are one
+					NOT = { PREV = { trait = known_vampire } } # Don't catch vampires if your liege is one
+					NOT = { ROOT = { culture = vampire_culture } } # Don't catch vampires if your culture approves of them
+					NOT = { PREV = { culture = vampire_culture } } # Don't catch vampires if your liege's culture approves of them
+					NOT = { trait = known_vampire }
+					ROOT = {
+						OR = {
+							AND = {
+								learning = 16
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 12
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 9
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 13
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+							}
+							AND = {
+								learning = 9
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 6
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 19
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 15
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 12
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+						}
+					}
+				}
+				
+				# A Werewolf, and I'm good at my job
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NOT = { ROOT = { trait = werewolf } } # Don't catch other werewolf if you are one
+					NOT = { PREV = { trait = known_werewolf } } # Don't catch werewolf if your liege is one
+					NOT = { ROOT = { culture = werewolf_culture } } # Don't catch werewolf if your culture approves of them
+					NOT = { PREV = { culture = werewolf_culture } } # Don't catch werewolf if your liege's culture approves of them
+					NOT = { trait = known_werewolf }
+					ROOT = {
+						OR = {
+							AND = {
+								learning = 16
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 12
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 9
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 13
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+							}
+							AND = {
+								learning = 9
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 6
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 19
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 15
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 12
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+						}
+					}
+				}
+				
+				# A devil worshiper, and I'm amazingly good at my job
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_prevs_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = PREV
+						}
+					}
+					age = 16
+					is_devil_worshiper_trigger = yes
+					ai = yes
+					NOR = {
+						has_character_modifier = highly_suspect
+						has_character_modifier = under_suspicion
+					}
+					ROOT = {
+						OR = {
+							learning = 16
+							AND = {
+								learning = 12
+								inquisitor = yes
+							}
+						}
+					}
+				}
+				
+				# Someone random, and I'm incompetent
+				any_realm_character = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					OR = { # Nor your brethren
+						NOT = { same_society_as = ROOT }
+						is_in_society = no
+					}
+					OR = { # Nor liege's brethren
+						NOT = { same_society_as = PREV }
+						is_in_society = no
+					}
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_prevs_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = PREV
+						}
+					}
+					NOT = {
+						higher_tier_than = BARON
+					}
+					age = 16
+					NOR = {
+						has_character_modifier = highly_suspect
+						has_character_modifier = under_suspicion
+						has_secret_religion_trait_trigger = yes
+					}
+					ROOT = {
+						OR = {
+							NOT = {
+								learning = 8
+							}
+							is_dumb_trigger = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		# Mark targets
+		liege = {
+			save_event_target_as = my_liege
+			# Extremely suspect people
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = event_target:my_liege } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = event_target:my_liege } # Nor liege's brethren
+					NAND = { # If you share the same secret religion, dont catch them
+						has_my_liege_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no
+					}
+					NAND = { # If they share secret religion with the liege, dont catch them
+						has_prevs_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no 
+					}
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = event_target:my_liege
+						}
+					}
+					is_in_society = yes
+					society_is_criminal = yes
+					has_character_modifier = highly_suspect
+				}
+				save_event_target_as = highly_suspected_society_member
+				set_character_flag = apostate_extremely_suspect
+			}
+			
+			# Moderatley suspect people
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = event_target:my_liege } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = event_target:my_liege } # Nor liege's brethren
+					NAND = { # If you share the same secret religion, dont catch them
+						has_my_liege_secret_religion_truly_trigger = yes  
+						is_devil_worshiper_trigger = no
+					}
+					NAND = { # If they share secret religion with the liege, dont catch them
+						has_prevs_secret_religion_truly_trigger = yes 
+						is_devil_worshiper_trigger = no 
+					}
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = event_target:my_liege
+						}
+					}
+					is_in_society = yes
+					society_is_criminal = yes
+					has_character_modifier = under_suspicion
+				}
+				save_event_target_as = suspected_society_member
+				set_character_flag = apostate_moderate_suspect
+			}
+			
+			# Characters with a secret religion
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = event_target:my_liege } # Don't catch your liege
+					OR = { # Nor your brethren
+						NOT = { same_society_as = ROOT }
+						is_in_society = no
+					}
+					OR = { # Nor liege's brethren
+						NOT = { same_society_as = event_target:my_liege }
+						is_in_society = no
+					}
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_my_liege_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = event_target:my_liege
+						}
+					}
+					religion = event_target:my_liege
+					age = 16
+					has_secret_religion_trait_trigger = yes
+				}
+				save_event_target_as = suspected_apostate
+				set_character_flag = apostate_secret_religion
+			}
+			
+			# Vampires
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NOT = { ROOT = { trait = vampire } } # Don't catch other vampires if you are one
+					NOT = { PREV = { trait = known_vampire } } # Don't catch vampires if your liege is one
+					NOT = { ROOT = { culture = vampire_culture } } # Don't catch vampires if your culture approves of them
+					NOT = { PREV = { culture = vampire_culture } } # Don't catch vampires if your liege's culture approves of them
+					NOT = { trait = known_vampire }
+					ROOT = {
+						OR = {
+							AND = {
+								learning = 16
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 12
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 9
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 13
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+							}
+							AND = {
+								learning = 9
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 6
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 19
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 15
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 12
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+						}
+					}
+				}
+				save_event_target_as = suspected_vampire
+				set_character_flag = apostate_vampire
+			}
+			
+			# Werewolf
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = PREV } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = PREV } # Nor liege's brethren
+					NOT = { ROOT = { trait = werewolf } } # Don't catch other werewolves if you are one
+					NOT = { PREV = { trait = known_werewolf } } # Don't catch werewolves if your liege is one
+					NOT = { ROOT = { culture = werewolf_culture } } # Don't catch werewolves if your culture approves of them
+					NOT = { PREV = { culture = werewolf_culture } } # Don't catch werewolves if your liege's culture approves of them
+					NOT = { trait = known_werewolf }
+					ROOT = {
+						OR = {
+							AND = {
+								learning = 16
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 12
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 9
+								NOR = {
+									has_game_rule = { name = secrecy value = more }
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 13
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+							}
+							AND = {
+								learning = 9
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 6
+								NOT = {
+									has_game_rule = { name = secrecy value = more }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+							AND = {
+								learning = 19
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+							}
+							AND = {
+								learning = 15
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								OR = {
+									PREV = { has_character_modifier = known_monster }
+									trait = monster_hunter
+								}
+							}
+							AND = {
+								learning = 12
+								NOT = {
+									has_game_rule = { name = secrecy value = fewer }
+								}
+								PREV = { has_character_modifier = known_monster }
+								trait = monster_hunter
+							}
+						}
+					}
+				}
+				save_event_target_as = suspected_werewolf
+				set_character_flag = apostate_werewolf
+			}
+			
+			# Devil worshipers without any suspicion
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = event_target:my_liege } # Don't catch your liege
+					NOT = { same_society_as = ROOT } # Nor your brethren 
+					NOT = { same_society_as = event_target:my_liege } # Nor liege's brethren
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_prevs_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = event_target:my_liege
+						}
+					}
+					age = 16
+					is_devil_worshiper_trigger = yes
+					ai = yes
+					NOR = {
+						has_character_modifier = highly_suspect
+						has_character_modifier = under_suspicion
+					}
+					ROOT = {
+						OR = {
+							learning = 16
+							AND = {
+								learning = 12
+								is_in_society = monastic_order_dominican
+							}
+						}
+					}
+				}
+				save_event_target_as = no_suspicion
+				set_character_flag = apostate_no_suspicion
+			}
+			
+			# Innocent person!
+			random_realm_character = {
+				limit = {
+					prisoner = no
+					NOT = { character = ROOT } # Don't catch yourself
+					NOT = { character = event_target:my_liege } # Don't catch your liege
+					OR = { # Nor your brethren
+						NOT = { same_society_as = ROOT }
+						is_in_society = no
+					}
+					OR = { # Nor liege's brethren
+						NOT = { same_society_as = event_target:my_liege }
+						is_in_society = no
+					}
+					NOT = { has_roots_secret_religion_truly_trigger = yes } # If you share the same secret religion, dont catch them
+					NOT = { has_prevs_secret_religion_truly_trigger = yes } # If they share secret religion with the liege, dont catch them
+					NOT = {
+						reverse_has_opinion_modifier = {
+							modifier = opinion_accused_apostate
+							who = event_target:my_liege
+						}
+					}
+					NOT = {
+						higher_tier_than = BARON
+					}
+					age = 16
+					NOR = {
+						is_devil_worshiper_trigger = yes
+						has_character_modifier = highly_suspect
+						has_character_modifier = under_suspicion
+						has_secret_religion_trait_trigger = yes
+					}
+				}
+				save_event_target_as = innocent_victim
+				set_character_flag = apostate_innocent
+			}
+		}
+		
+		if = { # If you're incompetent its more usual to accuse someone innocent
+			limit = {
+				OR = {
+					NOT = {
+						learning = 8
+					}
+					is_dumb_trigger = yes
+				}
+				event_target:innocent_victim = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				20 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 4 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					event_target:innocent_victim = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MNM.70110 }
+					break = yes
+				}
+				80 = {
+					
+				}
+			}
+		}
+		
+		if = { # If there is someone who is highly suspicious, always succeed
+			limit = {
+				event_target:highly_suspected_society_member = {
+					is_alive = yes
+				}
+			}
+			event_target:highly_suspected_society_member = {
+				save_event_target_as = accused_apostate
+			}
+			character_event = { id = MNM.70110 }
+			break = yes
+		}
+		
+		if = { # If there is someone semi-suspicious, succeed a bit less often
+			limit = {
+				event_target:suspected_society_member = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				30 = {
+					modifier = {
+						factor = 0
+						event_target:suspected_society_member = {
+							ai = no
+							NOT = { check_variable = { which = visibility_value value = 19 } }
+						}
+					}
+					modifier = {
+						factor = 0.25
+						event_target:suspected_society_member = {
+							ai = no
+						}
+					}
+					modifier = {
+						factor = 1.25
+						learning = 10
+					}
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.25
+						learning = 14
+					}
+					modifier = {
+						factor = 1.25
+						learning = 16
+					}
+					modifier = {
+						factor = 1.25
+						learning = 18
+					}
+					modifier = {
+						factor = 1.25
+						learning = 20
+					}
+					modifier = {
+						factor = 1.25
+						learning = 22
+					}
+					modifier = {
+						factor = 1.25
+						inquisitor = yes
+					}
+					event_target:suspected_society_member = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MNM.70110 }
+					break = yes
+				}
+				70 = {
+					
+				}
+			}
+		}
+		
+		if = { # If there is someone with a secret religion, only succeed if you're really good
+			limit = {
+				event_target:suspected_apostate = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				25 = {
+					modifier = {
+						factor = 0
+						event_target:suspected_apostate = {
+							ai = no
+						}
+					}
+					modifier = {
+						factor = 1.25
+						learning = 10
+					}
+					modifier = {
+						factor = 1.25
+						learning = 12
+					}
+					modifier = {
+						factor = 1.25
+						learning = 14
+					}
+					modifier = {
+						factor = 1.25
+						learning = 16
+					}
+					modifier = {
+						factor = 1.25
+						learning = 18
+					}
+					modifier = {
+						factor = 1.25
+						learning = 20
+					}
+					modifier = {
+						factor = 1.25
+						learning = 22
+					}
+					modifier = {
+						factor = 1.25
+						inquisitor = yes
+					}
+					event_target:suspected_apostate = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MNM.70110 }
+					break = yes
+				}
+				75 = {
+					
+				}
+			}
+		}
+		
+		if = { # If there's a secret vampire, you need to be pretty good to succeed, or they need to be fairly suspicious
+			limit = {
+				event_target:suspected_vampire = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0.1
+						ai = no
+					}
+					modifier = {
+						factor = 1.3
+						learning = 10
+					}
+					modifier = {
+						factor = 1.3
+						learning = 12
+					}
+					modifier = {
+						factor = 1.3
+						learning = 14
+					}
+					modifier = {
+						factor = 1.25
+						learning = 16
+					}
+					modifier = {
+						factor = 1.25
+						learning = 18
+					}
+					modifier = {
+						factor = 1.25
+						learning = 20
+					}
+					modifier = {
+						factor = 1.25
+						learning = 22
+					}
+					modifier = {
+						factor = 1.25
+						trait = monster_hunter
+					}
+					modifier = {
+						factor = 1.1
+						inquisitor = yes
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+					}
+					modifier = {
+						factor = 2
+						has_game_rule = { name = secrecy value = more }
+					}
+					modifier = {
+						factor = 0.5
+						has_game_rule = { name = secrecy value = fewer }
+					}
+					event_target:suspected_vampire = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MONSTER.12 }
+					break = yes
+				}
+				90 = {
+				
+				}
+			}
+		}
+		
+		if = { # If there's a secret werewolf, you need to be pretty good to succeed, or they need to be fairly suspicious
+			limit = {
+				event_target:suspected_werewolf = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 0.1
+						ai = no
+					}
+					modifier = {
+						factor = 1.3
+						learning = 10
+					}
+					modifier = {
+						factor = 1.3
+						learning = 12
+					}
+					modifier = {
+						factor = 1.3
+						learning = 14
+					}
+					modifier = {
+						factor = 1.25
+						learning = 16
+					}
+					modifier = {
+						factor = 1.25
+						learning = 18
+					}
+					modifier = {
+						factor = 1.25
+						learning = 20
+					}
+					modifier = {
+						factor = 1.25
+						learning = 22
+					}
+					modifier = {
+						factor = 1.25
+						trait = monster_hunter
+					}
+					modifier = {
+						factor = 1.1
+						inquisitor = yes
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+					}
+					modifier = {
+						factor = 1.5
+						has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+					}
+					modifier = {
+						factor = 2
+						has_game_rule = { name = secrecy value = more }
+					}
+					modifier = {
+						factor = 0.5
+						has_game_rule = { name = secrecy value = fewer }
+					}
+					event_target:suspected_werewolf = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MONSTER.12 }
+					break = yes
+				}
+				90 = {
+				
+				}
+			}
+		}
+		
+		if = { # If there is a devil worshiper without any level of suspicion, only succeed if you're amazingly good
+			limit = {
+				event_target:no_suspicion = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				25 = {
+					modifier = {
+						factor = 1.25
+						learning = 18
+					}
+					modifier = {
+						factor = 1.25
+						learning = 20
+					}
+					modifier = {
+						factor = 1.25
+						learning = 22
+					}
+					modifier = {
+						factor = 1.25
+						society_member_of = monastic_order_dominican
+					}
+					event_target:no_suspicion = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MNM.70110 }
+					break = yes
+				}
+				75 = {
+					
+				}
+			}
+		}
+		
+		if = { # Accidently accuse someone innocent!
+			limit = {
+				event_target:innocent_victim = {
+					is_alive = yes
+				}
+			}
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 2 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 4 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 6 }
+					}
+					modifier = {
+						factor = 1.25
+						NOT = { learning = 8 }
+					}
+					modifier = {
+						factor = 1.25
+						is_dumb_trigger = yes
+					}
+					event_target:innocent_victim = {
+						save_event_target_as = accused_apostate
+					}
+					character_event = { id = MNM.70110 }
+					break = yes
+				}
+				95 = {
+					
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 6 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 0.75
+			learning = 10
+		}
+		modifier = {
+			factor = 0.75
+			learning = 12
+		}
+		modifier = {
+			factor = 0.75
+			learning = 14
+		}
+		modifier = {
+			factor = 0.75
+			learning = 16
+		}
+		modifier = {
+			factor = 0.75
+			learning = 18
+		}
+		modifier = {
+			factor = 0.75
+			learning = 20
+		}
+		modifier = {
+			factor = 0.75
+			learning = 22
+		}
+		modifier = {
+			factor = 0.75
+			inquisitor = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { religion_authority = 0.1 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religion_authority = 0.2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { religion_authority = 0.3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { religion_authority = 0.4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { religion_authority = 0.5 }
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.9
+		}
+	}
+}
+
+# 929: Plot Uncovered
+character_event = {
+	id = 929
+	title = "EVTNAME929"
+	desc = "EVTDESC929"
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_plot } }
+		text = "EVTDESC929"
+	}
+	desc = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_werewolf } }
+		text = EVTDESC929.werewolf
+	}
+	desc = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_vampire } }
+		text = EVTDESC929.vampire
+	}
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_uncover_plots
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			any_province_character = {
+				NOT = { is_liege_of = ROOT }
+				NOT = { character = ROOT }
+				OR = {
+					has_plot = plot_gain_title
+					has_plot = plot_kill_character
+					has_plot = plot_kill_spouse
+					has_plot = plot_weaken_fellow_vassal
+					has_plot = plot_gain_liege_title
+					has_plot = plot_gain_fellow_vassal_title
+					AND = {
+						trait = secret_werewolf
+						ROOT = { 
+							NOR = { 
+								trait = werewolf
+								culture = werewolf_culture
+							}
+						}
+					}
+					AND = {
+						trait = secret_vampire
+						ROOT = { 
+							NOR = { 
+								trait = werewolf
+								culture = werewolf_culture
+								religion = satanist
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 1.25
+			NOT = { intrigue = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { intrigue = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { intrigue = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { intrigue = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 10
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 11
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 12
+		}
+		modifier = {
+			factor = 0.75
+			intrigue = 13
+		}
+	}
+	
+	immediate = {
+		location = {
+			random_province_character = {
+				limit = {
+					NOT = { is_liege_of = ROOT }
+					NOT = { character = ROOT }
+					OR = {
+						has_plot = plot_gain_title
+						has_plot = plot_kill_character
+						has_plot = plot_kill_spouse
+						has_plot = plot_weaken_fellow_vassal
+						has_plot = plot_gain_liege_title
+						has_plot = plot_gain_fellow_vassal_title
+						AND = {
+							trait = secret_werewolf
+							ROOT = { 
+								NOR = { 
+									trait = werewolf
+									culture = werewolf_culture
+								}
+							}
+						}
+						AND = {
+							trait = secret_vampire
+							ROOT = { 
+								NOR = { 
+									trait = werewolf
+									culture = werewolf_culture
+									religion = satanist
+								}
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								trait = secret_werewolf
+								ROOT = { 
+									NOR = { 
+										trait = werewolf
+										culture = werewolf_culture
+									}
+								}
+							}
+							AND = {
+								trait = secret_vampire
+								ROOT = { 
+									NOR = { 
+										trait = werewolf
+										culture = werewolf_culture
+										religion = satanist
+									}
+								}
+							}
+						}
+						OR = {
+							has_plot = plot_gain_title
+							has_plot = plot_kill_character
+							has_plot = plot_kill_spouse
+							has_plot = plot_weaken_fellow_vassal
+							has_plot = plot_gain_liege_title
+							has_plot = plot_gain_fellow_vassal_title
+						}
+					}
+					random_list = {
+						3 = {
+							set_character_flag = accused_plot
+						}
+						1 = {
+							if = {
+								limit = { trait = secret_werewolf }
+								set_character_flag = accused_werewolf
+							}
+							else = {
+								set_character_flag = accused_vampire
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = { trait = secret_werewolf }
+					set_character_flag = accused_werewolf
+				}
+				else_if = {
+					limit = { trait = secret_vampire }
+					set_character_flag = accused_vampire
+				}
+				else = {
+					set_character_flag = accused_plot
+				}
+				save_event_target_as = accused_apostate # Name used to match MnM version
+			}
+		}
+	}
+					
+	
+	option = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_plot } }
+		name = "EVTOPTA929"
+		hidden_tooltip = {
+			event_target:accused_apostate = {
+				character_event = { id = 20290 days = 7 }
+			}
+		}
+	}
+	
+	option = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_vampire } }
+		name = EVTOPTA929.vampire
+		event_target:accused_apostate = {
+			opinion = {
+				modifier = opinion_hate
+				who = ROOT
+				years = 100
+			}
+		}
+		
+		custom_tooltip = {
+			text = monster_found_tooltip
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { lifestyle_traits < 1 }
+				random = {
+					chance = 30
+					character_event = { id = MONSTER.15 }
+				}
+			}
+		}
+		
+		liege = {
+			character_event = { id = MONSTER.13 }
+		}
+	}
+	
+	option = {
+		trigger = { event_target:accused_apostate = { has_character_flag = accused_werewolf } }
+		name = EVTOPTA929.werewolf
+		event_target:accused_apostate = {
+			opinion = {
+				modifier = opinion_hate
+				who = ROOT
+				years = 100
+			}
+		}
+		
+		custom_tooltip = {
+			text = monster_found_tooltip
+		}
+		
+		hidden_tooltip = {
+			if = {
+				limit = { lifestyle_traits < 1 }
+				random = {
+					chance = 30
+					character_event = { id = MONSTER.15 }
+				}
+			}
+		}
+		
+		liege = {
+			character_event = { id = MONSTER.13 }
+		}
+	}
+}
+
+#Intrigue quest step 3 ghost success
+narrative_event = {
+	title = EVTNAME_RIP_21322
+	id = RIP.21322
+	desc = EVTDSC_RIP_21322
+	border = GFX_event_narrative_frame_intrigue
+	picture = GFX_evt_shadowy_cabal
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_21322
+		custom_tooltip = { text = EVTOPTA_RIP_21322_TOOLTIP } 
+		#add_trait = immortal
+		add_artifact = philosopher_stone
+		hidden_tooltip = { add_trait = philosopher_stone_trait }
+
+		if = {
+			limit = { trait = incapable }
+			remove_trait = incapable
+		}
+
+		hidden_tooltip = {
+			event_target:eternal_life_mystic = { add_trait = immortal }
+			FROM =  {
+				remove_opinion = {
+					who = ROOT
+					modifier = opinion_finished_mystic_task_2
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_finished_mystic_task_3
+			}
+		}
+	}
+}
+
+#Intrigue quest step 3 search success 
+narrative_event = {
+	title = EVTNAME_RIP_21324
+	id = RIP.21324
+	desc = EVTDSC_RIP_21324
+	border = GFX_event_narrative_frame_intrigue
+	picture = GFX_evt_shadowy_cabal
+
+	is_triggered_only = yes
+
+	option = {
+		name = EVTOPTA_RIP_21324
+		custom_tooltip = { text = EVTOPTA_RIP_21324_TOOLTIP } 
+		#add_trait = immortal
+		add_artifact = philosopher_stone
+		hidden_tooltip = { add_trait = philosopher_stone_trait }
+
+		if = {
+			limit = { trait = incapable }
+			remove_trait = incapable
+		}
+
+		hidden_tooltip = {
+			
+			event_target:eternal_life_mystic = { add_trait = immortal }
+			
+			FROM =  {
+				remove_opinion = {
+					who = ROOT
+					modifier = opinion_finished_mystic_task_2
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_finished_mystic_task_3
+			}
+		}
+	}
+}
+
+# Attacker discovered after failed murder - consequences.
+# (Should be fired for the attacker. The victim is event_target:target_victim.)
+character_event = {
+	id = 11
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:target_victim = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_murder_attempt
+				months = 600
+			}
+			
+			any_liege = {
+				limit = {
+					is_close_relative = PREV
+					NOT = { character = ROOT }
+					NOT = { dynasty = ROOT }
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_dishonorable
+					months = 60
+				}
+			}
+			
+			if = {
+				limit = {
+					NOT = { dynasty = ROOT }
+				}
+				any_dynasty_member = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_dishonorable
+						months = 60
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					mother = {
+						NOT = { character = ROOT }
+						NOT = { is_mother = ROOT }
+					}
+				}
+				mother = {
+					opinion = {
+						who = ROOT
+						modifier = attempted_murder_of_child
+						months = 120
+					}
+				}
+			}
+			if = {
+				limit = {
+					father = {
+						NOT = { character = ROOT }
+						NOT = { is_father = ROOT }
+					}
+				}
+				father = {
+					opinion = {
+						who = ROOT
+						modifier = attempted_murder_of_child
+						months = 120
+					}
+				}
+			}
+			
+			any_child = {
+				limit = {
+					NOT = { character = ROOT }
+					NOT = { is_child_of = ROOT }
+				}
+				opinion = {
+					who = ROOT
+					modifier = attempted_murder_of_parent
+					months = 120
+				}
+			}
+			
+			any_sibling = {
+				limit = {
+					NOT = { character = ROOT }
+					NOT = { sibling = ROOT }
+				}
+				opinion = {
+					who = ROOT
+					modifier = attempted_murder_of_sibling
+					months = 60
+				}
+			}
+			
+			if = {
+				limit = {
+					ROOT = {
+						trait = vampire
+						is_voter = yes
+						liege = { character = event_target:target_victim }
+					}
+					government = blood_court_government
+					trait = vampire
+					is_incapable = no
+					prisoner = no
+					is_adult = yes
+					NOT = { is_inaccessible_trigger = yes }
+				}
+				opinion = { who = ROOT modifier = can_blood_bond }
+			}
+		}
+	}
+}

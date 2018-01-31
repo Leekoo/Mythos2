@@ -1,0 +1,152 @@
+# We like you for exposing a werewolf
+exposed_werewolf = {
+	opinion = 10
+	months = 24
+}
+# We just discovered you are a werewolf.  We can arrest or execute you.  No opinion change to avoid exposing other werewolves.
+newly_found_werewolf = {
+	opinion = 0
+	prison_reason = yes
+	execute_reason = yes
+	months = 12
+}
+# We like you for exposing a vampire
+exposed_vampire = {
+	opinion = 10
+	months = 24
+}
+# We just discovered you are a vampire.  We can arrest or execute you.
+newly_found_vampire = {
+	opinion = 0
+	prison_reason = yes
+	execute_reason = yes
+	months = 12
+}
+# Known werewolfs like having new friends
+likes_newly_found_werewolf = {
+	opinion = 20
+	months = 12
+}
+# Exposed me as a werewolf/vampire
+exposed_me = {
+	opinion = -100
+	months = 120
+}
+# Killed a child
+killed_child = {
+	opinion = -30
+	months = 60
+}
+# Abandoned child in the woods
+abandoned_child = {
+	opinion = 10
+	months = 60
+}
+# Summoned courtier
+bound_by_magic = {
+	opinion = 100
+	obedient = yes
+}
+# Failed Loyalty
+evil_enchanter = {
+	opinion = -30
+	years = 3
+}
+# Forced Loyalty = {
+magic_loyalty = {
+	opinion = 70
+	decay = yes
+}
+# Forced Disloyalty
+magic_disloyalty = {
+	opinion = -70
+	decay = yes
+}
+# Forced to name as heir
+opinion_forced_heir = {
+	opinion = -20
+}
+
+opinion_supported_challenge = {
+	opinion = 20
+}
+opinion_opposed_challenge = {
+	opinion = -20
+}
+
+# You offered to turn someone into a werewolf or vampire and they refused - Listed as "Horrified" for secrecy purposes
+opinion_turn_refusal = {
+	opinion = -10
+	months = 60
+}
+
+# You are an impure spouse/lover/concubine/heir
+opinion_impure = {
+	opinion = -50
+}
+
+opinion_bought_blessing = {
+	opinion = 10
+	years = 5
+}
+
+### Sapphire Flame Favors
+
+opinion_asked_for_blessing = { # Stacks for each time asked
+	opinion = -5
+	months = 480
+}
+
+opinion_asked_for_disinheritance = { # Stacks for each time asked
+	opinion = -10
+	months = 480
+}
+
+opinion_asked_for_gold = { # Stacks for each time asked
+	opinion = -10
+	months = 480
+}
+
+opinion_disinherited = {
+	opinion = -40
+}
+
+opinion_vassalized_tribute = {
+	opinion = -20
+	months = 600
+}
+
+opinion_monster = {
+	opinion = -100
+	revoke_reason = yes
+	prison_reason = yes
+	banish_reason = yes
+	execute_reason = yes
+	divorce_reason = yes
+}
+
+# Voter forced by blood to support their liege
+vampire_blood_bond = {
+	opinion = 50
+}
+can_blood_bond = {
+	is_visible = { always = no }
+	months = 24
+}
+
+# Aware of seized power
+aware_of_secret_actions = {
+	months = 120
+}
+
+# Refused to join war
+refused_war = {
+	opinion = -10
+	months = 120
+}
+
+# Joined war
+joined_war = {
+	opinion = 10
+	months = 120
+}

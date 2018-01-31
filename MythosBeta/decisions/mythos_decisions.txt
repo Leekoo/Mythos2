@@ -1,0 +1,596 @@
+decisions = {
+
+	# Can't duplicate decision ID without causing issues, so Christians and Pagans have a separate version
+	restore_roman_empire_pagan = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			has_landed_title = e_byzantium
+			OR = {
+				#religion_group = christian
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+		allow = {
+			primary_title = { title = e_byzantium }
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_venice
+			completely_controls = d_ferrara
+			completely_controls = d_sicily
+			completely_controls = d_genoa
+			completely_controls = d_capua
+			completely_controls = d_apulia
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			completely_controls = d_alexandria
+			completely_controls = d_athens
+			completely_controls = d_tunis
+			completely_controls = d_croatia
+		}
+		effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	revive_roman_paganism = {
+		only_independent = yes
+		is_high_prio = yes
+		
+		potential = {
+			NOT = { has_global_flag = roman_pagan_restoration }
+			is_adult = yes
+			prisoner = no
+			NOT = { is_incapable = yes }
+			religion = hellenic_pagan
+			OR = {
+				has_landed_title = e_roman_empire
+				has_landed_title = e_byzantium
+			}
+		}
+		allow = {
+			completely_controls = c_roma
+			piety = 1000
+			num_of_holy_sites = 4
+			religion_authority = 0.5
+		}
+		effect = {
+			set_global_flag = roman_pagan_restoration
+			piety = -1000
+			narrative_event = { id = MYTH.57 tooltip = EVTTOOLTIPMYTH.57 }
+			hidden_tooltip = { # Alert everyone
+				any_playable_ruler = {
+					limit = {
+						NOT = { character = ROOT }
+						ai = no # Informational
+					}
+					narrative_event = { id = MYTHMORE.21 days = 1 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+	hellenic_quest = {
+		potential = {
+			is_ruler = yes
+			OR = {
+				true_religion = hellenic_pagan
+				true_religion = roman_pagan
+			}
+			NOT = { has_character_modifier = has_quested }
+			NOT = { has_artifact = golden_fleece }
+			NOT = { has_artifact = medusa_head }
+		}
+		allow = {
+			is_incapable = no
+			war = no
+			in_command = no
+			any_demesne_province = {
+				is_occupied = no
+			}
+			prisoner = no
+			scaled_wealth = 0.20
+			age = 16
+			prestige = 1000
+			custom_tooltip = {
+				text = health_travel_condition
+				hidden_tooltip = {
+					NOT = {	trait = pregnant }
+					NOT = {	trait = incapable }
+					NOT = {	trait = blinded }
+					NOT = {	trait = has_tuberculosis }
+					NOT = {	trait = has_typhoid_fever }
+					NOT = {	trait = has_typhus }
+					NOT = {	trait = has_bubonic_plague }
+					NOT = {	trait = has_measles }
+					NOT = {	trait = has_small_pox }
+					NOT = {	trait = has_aztec_disease }
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = -0.20
+			add_character_modifier = {
+				name = has_quested
+				duration = -1
+			}
+			hidden_tooltip = {
+				character_event = { 
+					id = MYTH.20
+					days = 5
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.001 
+			modifier = {
+				factor = 0
+				NOT = { age = 25 }
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+		}
+	}
+	
+	# Some new religions have a version of the feast
+	feast_mythos = {
+		only_playable = yes
+		potential = {
+			is_playable = yes
+			OR = {
+				is_feudal = yes
+				is_tribal = yes
+				is_nomadic = yes
+			}
+			prisoner = no
+			OR = {
+				religion = satanist
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			NOT = {
+				has_character_modifier = holding_large_feast
+			}
+			NOT = {
+				has_character_modifier = large_feast_timer
+			}
+			NOT = {
+				has_character_modifier = fabulous_feast
+			}
+			NOT = {
+				has_character_flag = guest_feast_started
+			}
+			NOT = {
+				liege = {
+					has_character_modifier = holding_large_feast
+				}
+			}			
+			num_of_vassals = 1
+		}
+		allow = {
+			war = no
+			custom_tooltip = {
+				text = UNOCCUPIED_DEMESNE_TITLE
+				hidden_tooltip = {
+					any_demesne_title = {
+						NOT = { higher_tier_than = count }
+						is_occupied = no
+					}
+				}
+			}
+			prisoner = no
+			NOT = { is_inaccessible_trigger = yes }
+			wealth = 25
+			month = 10
+			prestige = 100
+			custom_tooltip = {
+				text = is_not_busy_trigger_tooltip
+				hidden_tooltip = { NOT = { has_character_flag = do_not_disturb } }
+			}
+		}
+		effect = {
+			wealth = -25
+			add_character_modifier = {
+				name = holding_large_feast
+				duration = -1
+			}
+			set_character_flag = recent_minor_decision
+			set_character_flag = do_not_disturb
+			hidden_tooltip = { character_event = { id = 72999 days = 150 } } # Safety catch flag clearing
+			
+			hidden_tooltip = {
+				character_event = { 
+					id = 72109  
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Reapers"
+				}
+				custom_tooltip = {
+					text = capital_prospers_custom_tooltip
+					hidden_tooltip = {
+						capital_scope = {
+							change_variable = { which = prosperity_value value = 8 }
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				factor = 0
+				NOT = {
+					wealth = 200
+				}
+			}
+			modifier = {
+				factor = 0
+				trait = shy
+			}
+			modifier = {
+				factor = 0
+				NOT = { diplomacy = 10 }
+			}	
+			modifier = {
+				factor = 0
+				has_character_flag = recent_minor_decision
+				NOT = {
+					had_character_flag = {
+						flag = recent_minor_decision
+						days = 730
+					}
+				}
+			}
+		}
+	}
+	
+	# Reject materialism
+	reject_materialism = {
+		potential = {
+			OR = {
+				religion = waldensian
+				religion = lollard
+			}
+			NOR = {
+				trait = ascetic
+				trait = monk
+				trait = nun
+			}
+		}
+		allow = {
+			OR = {
+				religion = waldensian
+				AND = {
+					religion = lollard
+					is_priest = yes
+				}
+			}
+			NOT = { wealth = 200 }
+			NOT = { trait = greedy }
+		}
+		effect = {
+			add_trait = ascetic
+			hidden_tooltip = {
+				character_event = { id = MYTHMORE.28 }
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				ai_zeal = 30
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 60
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 90
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 2
+				NOT = { ai_greed = 0 }
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed = 40
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed = 80
+			}
+			modifier = {
+				factor = 0.1
+				trait = cynical
+			}
+		}
+	}
+	
+	# Reject asceticism
+	reject_asceticism = {
+		potential = {
+			OR = {
+				religion = waldensian
+				religion = lollard
+			}
+			trait = ascetic
+		}
+		allow = {
+			piety = 400
+		}
+		effect = {
+			remove_trait = ascetic
+			piety = -400
+			hidden_tooltip = {
+				character_event = { id = MYTHMORE.29 }
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				ai_greed = 30
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 60
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 90
+			}
+			modifier = {
+				factor = 5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.2
+				trait = charitable
+			}
+			modifier = {
+				factor = 0.8
+				ai_zeal = 30
+			}
+			modifier = {
+				factor = 0.8
+				ai_zeal = 60
+			}
+			modifier = {
+				factor = 0.8
+				ai_zeal = 90
+			}
+		}
+	}
+}
+
+targetted_decisions = {
+	
+	# Iconoclasts can destory icons for piety and revolt risk reduction
+	destroy_icon = {
+		filter = self
+		ai_target_filter = self
+		third_party_filter = artifacts
+		ai_third_party_filter = artifacts
+		
+		potential = {
+			character = FROM
+			religion = iconoclast
+			any_artifact = {
+				OR = {
+					has_artifact_flag = major_icon
+					has_artifact_flag = minor_icon
+				}
+			}
+		}
+		third_party_potential = {
+			FROMFROM = {
+				OR = {
+					has_artifact_flag = major_icon
+					has_artifact_flag = minor_icon
+				}
+			}
+		}
+		allow = {
+			show_only_failed_conditions = yes
+			custom_tooltip = {
+				text = tt_icon
+				hidden_tooltip = {
+					any_artifact = {
+						OR = {
+							has_artifact_flag = major_icon
+							has_artifact_flag = minor_icon
+						}
+					}
+				}
+			}
+		}
+		third_party_allow = {
+			FROMFROM = {
+				OR = {
+					has_artifact_flag = major_icon
+					has_artifact_flag = minor_icon
+				}
+			}
+		}
+		effect = {
+			conditional_tooltip = {
+				trigger = { FROMFROM = { has_artifact_flag = major_icon } }
+				custom_tooltip = {
+					text = tt_destroy_icon_major
+				}
+			}
+			conditional_tooltip = {
+				trigger = { FROMFROM = { has_artifact_flag = minor_icon } }
+				custom_tooltip = {
+					text = tt_destroy_icon_minor
+				}
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTHMORE.30 }
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				ai_zeal = 30
+			}
+			modifier = {
+				factor = 2
+				ai_zeal = 60
+			}
+			modifier = {
+				factor = 2
+				ai_zeal = 90
+			}
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					trait = theologian
+					trait = heresiarch
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+				secret_religion_group = christian
+			}
+			modifier = {
+				factor = 0.1 # Avoid getting too aggressive
+				OR = {
+					has_character_modifier = destroyed_major_icon_character
+					has_character_modifier = destroyed_minor_icon_character
+				}
+			}
+		}
+		third_party_score = {
+			factor = 1
+			modifier = {
+				factor = 2 # Prefer minor artifacts to avoid being too disruptive to gameplay
+				has_artifact_flag = minor_icon
+			}
+		}
+	}
+	
+	donate_artifact = {
+		filter = self
+		ai_target_filter = self
+		third_party_filter = artifacts
+		ai_third_party_filter = artifacts
+		third_party = FROM
+		
+		potential = {
+			character = FROM
+			is_antimaterialist = yes
+			any_artifact = {
+				has_artifact_flag = wealth
+			}
+		}
+		third_party_potential = {
+			FROMFROM = { has_artifact_flag = wealth }
+		}
+		allow = {
+			show_only_failed_conditions = yes
+			custom_tooltip = {
+				text = tt_valueable_artifact
+				hidden_tooltip = {
+					any_artifact = {
+						has_artifact_flag = wealth
+					}
+				}
+			}
+		}
+		third_party_allow = {
+			FROMFROM = { has_artifact_flag = wealth }
+		}
+		effect = {
+			custom_tooltip = {
+				text = tt_destroy_wealth
+			}
+			hidden_tooltip = {
+				character_event = { id = MYTHMORE.31 }
+			}
+		}
+		ai_will_do = {
+			factor = 0.02
+			modifier = {
+				factor = 0.5
+				ai_greed = 25
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed = 75
+			}
+			modifier = {
+				factor = 0.5
+				ai_greed = 100
+			}
+			modifier = {
+				factor = 1.5
+				ai_greed <= -25
+			}
+			modifier = {
+				factor = 1.5
+				ai_greed <= -50
+			}
+			modifier = {
+				factor = 1.5
+				ai_greed <= -75
+			}
+			modifier = {
+				factor = 1.5
+				ai_greed <= -100
+			}
+			modifier = {
+				factor = 1.2
+				ai_zeal = 50
+			}
+			modifier = {
+				factor = 1.2
+				ai_zeal = 100
+			}
+			modifier = {
+				factor = 1.5
+				is_priest = yes
+			}
+		}
+		third_party_score = {
+			factor = 1
+		}
+	}
+}

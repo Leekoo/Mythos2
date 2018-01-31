@@ -1,0 +1,3024 @@
+castle = {
+
+	#Dragon
+	# Dragon, Capital
+	ca_dragon_tower_1 = {
+		desc = ca_dragon_tower_1_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = ca_dragon_tower_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = dragon }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+
+		fort_level = 1
+		monthly_character_prestige = 0.15
+		dragon_cavalry = 10
+		global_movement_speed = 0.03
+
+		gold_cost = 300
+		build_time = 350
+
+		extra_tech_building_start = 10.0
+	}
+
+	ca_dragon_tower_2 = {
+		desc = ca_dragon_tower_2_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = ca_dragon_tower_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = dragon }
+			TECH_CASTLE_CONSTRUCTION = 3
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		upgrades_from = ca_dragon_tower_1
+		ai_creation_factor = 100
+
+		fort_level = 2
+		monthly_character_prestige = 0.25
+		dragon_cavalry = 10
+		global_movement_speed = 0.03
+
+		gold_cost = 425
+		build_time = 625
+		extra_tech_building_start = 10.0
+	}
+
+	ca_dragon_tower_3 = {
+		desc = ca_dragon_tower_3_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = ca_dragon_tower_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = dragon }
+			TECH_CASTLE_CONSTRUCTION = 5
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		upgrades_from = ca_dragon_tower_2
+		ai_creation_factor = 99
+
+		fort_level = 3
+		monthly_character_prestige = 0.50
+		dragon_cavalry = 15
+		global_movement_speed = 0.04
+
+		gold_cost = 600
+		build_time = 1020
+		extra_tech_building_start = 10.0
+	}
+
+	# Dragon Culture Building
+	ca_dragon_militia_1 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = draconic }
+				FROMFROM = {
+					has_building = ca_dragon_militia_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+			
+		ai_creation_factor = 90
+
+		gold_cost = 200
+		build_time = 730
+
+		dragon_cavalry = 5
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 2.0
+	}
+	ca_dragon_militia_2 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = draconic }
+				FROMFROM = {
+					has_building = ca_dragon_militia_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_dragon_militia_1
+		ai_creation_factor = 90
+
+		gold_cost = 300
+		build_time = 1095
+
+		dragon_cavalry = 10
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 4.0
+	}
+	ca_dragon_militia_3 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = draconic }
+				FROMFROM = {
+					has_building = ca_dragon_militia_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_dragon_militia_2
+		ai_creation_factor = 90
+
+		gold_cost = 400
+		build_time = 2190
+
+		dragon_cavalry = 15
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 6.0
+	}
+	ca_dragon_militia_4 = {
+		desc = ca_dragon_militia_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = draconic }
+				FROMFROM = {
+					has_building = ca_dragon_militia_4
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_4
+							has_building = ca_culture_scottish_4
+							has_building = ca_culture_group_baltic_4
+							has_building = ca_culture_group_altaic_4
+							has_building = ca_culture_frank_norman_german_4
+							has_building = ca_culture_group_iberian_4
+							has_building = ca_culture_italian_4
+							has_building = ca_culture_russian_4
+							has_building = ca_culture_group_north_germanic_4
+							has_building = ca_culture_hungarian_4
+							has_building = ca_culture_group_arabic_4
+							has_building = ca_culture_group_byzantine_4
+							has_building = ca_culture_irish_4
+							has_building = ca_culture_ethiopian_4
+							has_building = ca_culture_somali_4
+							has_building = ca_culture_west_african_4
+							has_building = ca_culture_group_south_slavic_4
+							has_building = ca_culture_dutch_4
+							has_building = ca_culture_nahuatl_4
+							has_building = ca_culture_jewish_4
+							has_building = ca_culture_indian_4
+							has_building = ca_culture_nubian_4
+							has_building = ca_culture_germanic_4
+							has_building = ca_culture_pictish_4
+							has_building = ca_culture_suebi_4
+							has_building = ca_culture_moors_4
+							has_building = ca_culture_chinese_han_4
+							has_building = ca_culture_altaic_jurchen_4
+							has_building = ca_culture_tibetan_4
+							has_building = ca_werewolf_soldiers_4
+							has_building = ca_vampire_catacomb_4
+							has_building = ca_giant_arena_4
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_dragon_militia_3
+		ai_creation_factor = 90
+
+		gold_cost = 500
+		build_time = 2190
+
+		dragon_cavalry = 15
+		dragon_cavalry_offensive = 0.1
+
+		extra_tech_building_start = 8.0
+	}
+
+	# Dragon holding building
+	ca_dragon_vault_1 = {
+		desc = ca_dragon_vault_1_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = ca_dragon_vault_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = ca_giant_market
+							has_building = ca_mummy_pyramid
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = dragon }
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+		}
+
+		prerequisites = { ca_wall_1 }
+		ai_creation_factor = 101
+
+		tax_income = 2
+		monthly_character_prestige = 0.25
+		trade_route_value = 2
+		gold_cost = 300
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	
+	ca_dragon_vault_2 = {
+		desc = ca_dragon_vault_2_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = dragon
+						trait = dragonborn
+						culture = draconic
+					}
+				}
+				FROMFROM = {
+					has_building = ca_dragon_vault_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = ca_giant_market
+							has_building = ca_mummy_pyramid
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = dragon }
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = dragon
+					trait = dragonborn
+				}
+			}
+		}
+
+		prerequisites = { ca_wall_2 }
+		upgrades_from = ca_dragon_vault_1
+		ai_creation_factor = 101
+
+		tax_income = 3
+		monthly_character_prestige = 0.3
+		trade_route_value = 2
+		gold_cost = 500
+		build_time = 630
+		extra_tech_building_start = 10.0
+	}
+
+	# Werewolf Capital Building
+	ca_werewolf_lodge_1 = {
+		desc = ca_werewolf_lodge_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = { 
+					has_building = ca_werewolf_lodge_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = { trait = known_werewolf }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		prerequisites = { ca_wall_1 }
+		ai_creation_factor = 99
+
+		lycan_berzerkers = 100
+		archers = 150
+		global_winter_supply = 2
+		siege_defence = 0.05
+
+		gold_cost = 450
+		build_time = 400
+
+		extra_tech_building_start = 10.0
+	}
+
+	ca_werewolf_lodge_2 = {
+		desc = ca_werewolf_lodge_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = { 
+					has_building = ca_werewolf_lodge_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = known_werewolf }
+			TECH_CASTLE_CONSTRUCTION = 3
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = { trait = known_werewolf }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		upgrades_from = ca_werewolf_lodge_1
+		ai_creation_factor = 99
+
+		lycan_berzerkers = 150
+		archers = 200
+		global_winter_supply = 2
+		siege_defence = 0.05
+
+		gold_cost = 600
+		build_time = 500
+
+		extra_tech_building_start = 10.0
+	}
+
+	# Werewolf Culture
+	ca_werewolf_soldiers_1 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = werewolf_culture }
+				FROMFROM = {
+					has_building = ca_werewolf_soldiers_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		ai_creation_factor = 90
+
+		lycan_berzerkers = 20
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		gold_cost = 200
+		build_time = 730
+
+
+		extra_tech_building_start = 2.0
+	}
+	ca_werewolf_soldiers_2 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = werewolf_culture }
+				FROMFROM = {
+					has_building = ca_werewolf_soldiers_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_Trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		ai_creation_factor = 90
+		prerequisites = { ca_werewolf_soldiers_1 }
+
+		lycan_berzerkers = 30
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		gold_cost = 300
+		build_time = 1095
+
+		extra_tech_building_start = 4.0
+	}
+	ca_werewolf_soldiers_3 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = werewolf_culture }
+				FROMFROM = {
+					has_building = ca_werewolf_soldiers_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		ai_creation_factor = 90
+		prerequisites = { ca_werewolf_soldiers_2 }
+
+		lycan_berzerkers = 30
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		gold_cost = 400
+		build_time = 2190
+
+		extra_tech_building_start = 6.0
+	}
+	ca_werewolf_soldiers_4 = {
+		desc = ca_werewolf_soldiers_desc
+
+		potential = {
+			OR = {
+				FROM = { culture = werewolf_culture }
+				FROMFROM = {
+					has_building = ca_werewolf_soldiers_4
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_4
+							has_building = ca_culture_scottish_4
+							has_building = ca_culture_group_baltic_4
+							has_building = ca_culture_group_altaic_4
+							has_building = ca_culture_frank_norman_german_4
+							has_building = ca_culture_group_iberian_4
+							has_building = ca_culture_italian_4
+							has_building = ca_culture_russian_4
+							has_building = ca_culture_group_north_germanic_4
+							has_building = ca_culture_hungarian_4
+							has_building = ca_culture_group_arabic_4
+							has_building = ca_culture_group_byzantine_4
+							has_building = ca_culture_irish_4
+							has_building = ca_culture_ethiopian_4
+							has_building = ca_culture_somali_4
+							has_building = ca_culture_west_african_4
+							has_building = ca_culture_group_south_slavic_4
+							has_building = ca_culture_dutch_4
+							has_building = ca_culture_nahuatl_4
+							has_building = ca_culture_jewish_4
+							has_building = ca_culture_indian_4
+							has_building = ca_culture_nubian_4
+							has_building = ca_culture_germanic_4
+							has_building = ca_culture_pictish_4
+							has_building = ca_culture_suebi_4
+							has_building = ca_culture_moors_4
+							has_building = ca_culture_chinese_han_4
+							has_building = ca_culture_altaic_jurchen_4
+							has_building = ca_culture_tibetan_4
+							has_building = ca_dragon_militia_4
+							has_building = ca_vampire_catacomb_4
+							has_building = ca_giant_arena_4
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		ai_creation_factor = 90
+		prerequisites = { ca_werewolf_soldiers_3 }
+
+		lycan_berzerkers = 40
+		lycan_berzerkers_offensive = 0.05
+		lycan_berzerkers_defensive = 0.05
+
+		gold_cost = 500
+		build_time = 2190
+
+		extra_tech_building_start = 8.0
+	}
+
+	# Werewolf Holding
+	ca_werewolf_pits = {
+		desc = ca_werewolf_pits_desc
+
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+					}
+				}
+				FROMFROM = {
+					has_building = ca_werewolf_pits
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_vault_1
+							has_building = ca_vampire_spy_network
+							has_building = ca_giant_market
+							has_building = ca_mummy_pyramid
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			FROM = {
+				culture = werewolf_culture
+				trait = known_werewolf
+			}
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = known_werewolf
+					culture = werewolf_culture
+				}
+			}
+		}
+		ai_creation_factor = 100
+
+		tax_income = 1.5
+		garrison_size = 300
+		local_build_time_castle_modifier = -0.1
+		local_revolt_risk = -0.02
+
+		gold_cost = 225
+		build_time = 350
+
+		extra_tech_building_start = 10.0
+	}
+
+	# Vampire Capital
+	ca_vampire_citadel_1 = {
+		desc = ca_vampire_citadel_1_desc
+
+		potential = {
+			OR = {
+				FROM = { trait = vampire }
+				FROMFROM = {
+					has_building = ca_vampire_citadel_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = vampire }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = { trait = vampire }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 100
+
+		vampires = 150
+		knights = 50
+		fort_level = 2
+		monthly_character_prestige = 0.25
+		commander_limit = 1
+
+		gold_cost = 495
+		build_time = 1095
+
+		extra_tech_building_start = 10.0
+	}
+
+	ca_vampire_citadel_2 = {
+		desc = ca_vampire_citadel_2_desc
+
+		potential = {
+			OR = {
+				FROM = { trait = vampire }
+				FROMFROM = {
+					has_building = ca_vampire_citadel_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = vampire }
+			TECH_CASTLE_CONSTRUCTION = 3
+			is_capital = yes
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			FROM = { trait = vampire }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+
+		upgrades_from = ca_vampire_citadel_1
+		ai_creation_factor = 99
+
+		vampires = 175
+		knights = 75
+		fort_level = 2
+		monthly_character_prestige = 0.25
+		commander_limit = 1
+
+		gold_cost = 750
+		build_time = 1825
+
+		extra_tech_building_start = 10.0
+	}
+	
+	# Vampire Culture Building
+	ca_vampire_catacomb_1 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = vampire_culture }
+				FROMFROM = {
+					has_building = ca_vampire_catacomb_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		
+		ai_creation_factor = 99
+		
+		vampires = 30
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		gold_cost = 225
+		build_time = 400
+		
+		extra_tech_building_start = 2.0
+	}
+	ca_vampire_catacomb_2 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = vampire_culture }
+				FROMFROM = {
+					has_building = ca_vampire_catacomb_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_vampire_catacomb_1
+		
+		ai_creation_factor = 99
+		
+		vampires = 40
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		gold_cost = 300
+		build_time = 1095
+		
+		extra_tech_building_start = 4.0
+	}
+	ca_vampire_catacomb_3 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = vampire_culture }
+				FROMFROM = {
+					has_building = ca_vampire_catacomb_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 5
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_vampire_catacomb_2
+		
+		ai_creation_factor = 99
+		
+		vampires = 50
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		gold_cost = 400
+		build_time = 2190
+		
+		extra_tech_building_start = 6.0
+	}
+	ca_vampire_catacomb_4 = {
+		desc = ca_vampire_catacomb_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = vampire_culture }
+				FROMFROM = {
+					has_building = ca_vampire_catacomb_4
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_4
+							has_building = ca_culture_scottish_4
+							has_building = ca_culture_group_baltic_4
+							has_building = ca_culture_group_altaic_4
+							has_building = ca_culture_frank_norman_german_4
+							has_building = ca_culture_group_iberian_4
+							has_building = ca_culture_italian_4
+							has_building = ca_culture_russian_4
+							has_building = ca_culture_group_north_germanic_4
+							has_building = ca_culture_hungarian_4
+							has_building = ca_culture_group_arabic_4
+							has_building = ca_culture_group_byzantine_4
+							has_building = ca_culture_irish_4
+							has_building = ca_culture_ethiopian_4
+							has_building = ca_culture_somali_4
+							has_building = ca_culture_west_african_4
+							has_building = ca_culture_group_south_slavic_4
+							has_building = ca_culture_dutch_4
+							has_building = ca_culture_nahuatl_4
+							has_building = ca_culture_jewish_4
+							has_building = ca_culture_indian_4
+							has_building = ca_culture_nubian_4
+							has_building = ca_culture_germanic_4
+							has_building = ca_culture_pictish_4
+							has_building = ca_culture_suebi_4
+							has_building = ca_culture_moors_4
+							has_building = ca_culture_chinese_han_4
+							has_building = ca_culture_altaic_jurchen_4
+							has_building = ca_culture_tibetan_4
+							has_building = ca_dragon_militia_4
+							has_building = ca_werewolf_soldiers_4
+							has_building = ca_giant_arena_4
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 7
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_tower_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_vampire_catacomb_3
+		
+		ai_creation_factor = 99
+		
+		vampires = 60
+		vampires_defensive = 0.1
+		vampires_morale = 0.1
+		
+		gold_cost = 500
+		build_time = 2190
+		
+		extra_tech_building_start = 8.0
+	}
+	
+	# Vampire holding building
+	ca_vampire_spy_network = {
+		desc = ca_vampire_spy_network_desc
+		
+		potential = {
+			OR = {
+				FROM = { trait = vampire }
+				FROMFROM = {
+					has_building = ca_vampire_spy_network
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_vault_1
+							has_building = ca_werewolf_pits
+							has_building = ca_giant_market
+							has_building = ca_mummy_pyramid
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			TECH_CASTLE_CONSTRUCTION = 1
+			FROM = { trait = vampire }
+		}
+		is_active_trigger = {
+			FROM = { trait = vampire }
+		}
+		
+		ai_creation_factor = 100
+		prerequisites = { ca_town_1 }
+		
+		plot_power_modifier = 0.1
+		defensive_plot_power_modifier = 0.1
+		siege_defence = 0.1
+		
+		gold_cost = 225
+		build_time = 400
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	# Giant Capital
+	ca_giant_shield = {
+		desc = ca_giant_shield_desc
+		
+		potential = { 
+			OR = {
+				FROM = {
+					OR = {
+						trait = giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = ca_giant_shield
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = giant }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = giant
+					trait = half_giant
+				}
+			}
+		}
+		
+		prerequisites = { ca_wall_1 }
+		ai_creation_factor = 100
+		
+		heavy_infantry = 200
+		heavy_infantry_offensive = 0.10
+		fort_level = 1
+		short_reign_length = -1
+		levy_reinforce_rate = 0.1
+		
+		gold_cost = 275
+		build_time = 400
+		extra_tech_building_start = 10.0
+	}
+	
+	ca_giant_hall = {
+		desc = ca_giant_hall_desc
+		
+		potential = { 
+			OR = {
+				FROM = {
+					OR = {
+						trait = giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = ca_giant_hall
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = { 
+			FROM = { trait = giant }
+			TECH_CASTLE_CONSTRUCTION = 3
+			is_capital = yes		 
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = giant
+					trait = half_giant
+				}
+			}
+		}
+		
+		upgrades_from = ca_giant_shield
+		ai_creation_factor = 100
+		
+		heavy_infantry = 250
+		heavy_infantry_offensive = 0.15
+		fort_level = 1
+		short_reign_length = -1
+		levy_reinforce_rate = 0.15
+		
+		gold_cost = 350
+		build_time = 550
+		
+		extra_tech_building_start = 10.0
+	}
+	
+	# Giant (Jotun) Culture
+	ca_giant_arena_1 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = jotunn }
+				FROMFROM = {
+					has_building = ca_giant_arena_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		prerequisites = { ca_wall_2 }
+		
+		gold_cost = 200
+		build_time = 730
+		heavy_infantry = 30
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 101
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_giant_arena_2 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = jotunn }
+				FROMFROM = {
+					has_building = ca_giant_arena_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		upgrades_from = ca_giant_arena_1
+		gold_cost = 300
+		build_time = 1095
+		heavy_infantry = 40
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_giant_arena_3 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = jotunn }
+				FROMFROM = {
+					has_building = ca_giant_arena_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+						}
+					}
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		upgrades_from = ca_giant_arena_2
+		gold_cost = 400
+		build_time = 2190
+		heavy_infantry = 50
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+	}
+	ca_giant_arena_4 = {
+		desc = ca_giant_arena_desc
+		
+		potential = {
+			OR = {
+				FROM = { culture = jotunn }
+				FROMFROM = {
+					has_building = ca_giant_arena_4
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_culture_saxon_english_4
+							has_building = ca_culture_scottish_4
+							has_building = ca_culture_group_baltic_4
+							has_building = ca_culture_group_altaic_4
+							has_building = ca_culture_frank_norman_german_4
+							has_building = ca_culture_group_iberian_4
+							has_building = ca_culture_italian_4
+							has_building = ca_culture_russian_4
+							has_building = ca_culture_group_north_germanic_4
+							has_building = ca_culture_hungarian_4
+							has_building = ca_culture_group_arabic_4
+							has_building = ca_culture_group_byzantine_4
+							has_building = ca_culture_irish_4
+							has_building = ca_culture_ethiopian_4
+							has_building = ca_culture_somali_4
+							has_building = ca_culture_west_african_4
+							has_building = ca_culture_group_south_slavic_4
+							has_building = ca_culture_dutch_4
+							has_building = ca_culture_nahuatl_4
+							has_building = ca_culture_jewish_4
+							has_building = ca_culture_indian_4
+							has_building = ca_culture_nubian_4
+							has_building = ca_culture_germanic_4
+							has_building = ca_culture_pictish_4
+							has_building = ca_culture_suebi_4
+							has_building = ca_culture_moors_4
+							has_building = ca_culture_chinese_han_4
+							has_building = ca_culture_altaic_jurchen_4
+							has_building = ca_culture_tibetan_4
+							has_building = ca_dragon_militia_4
+							has_building = ca_werewolf_soldiers_4
+							has_building = ca_vampire_catacomb_4
+						}
+					}
+				}
+			}
+		}
+		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		upgrades_from = ca_giant_arena_3
+		gold_cost = 500
+		build_time = 2190
+		heavy_infantry = 60
+		heavy_infantry_offensive = 0.1
+		heavy_infantry_defensive = 0.05
+		garrison_size = 0.1
+		ai_creation_factor = 100
+		
+		extra_tech_building_start = 0.8
+	}
+	# Giant Holding
+	ca_giant_market = {
+		desc = ca_giant_market_desc
+		
+		potential = { 
+			OR = {
+				FROM = {
+					OR = {
+						trait = giant
+						trait = half_giant
+					}
+				}
+				FROMFROM = {
+					has_building = ca_giant_market
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_vault_1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = ca_mummy_pyramid
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = giant }
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = giant
+					trait = half_giant
+				}
+			}
+		}
+		ai_creation_factor = 100
+		prerequisites = { ca_town_1 }
+		
+		tax_income = 2
+		supply_limit = 1
+		tradevalue = 5
+		
+		gold_cost = 225
+		build_time = 400
+		
+		extra_tech_building_start = 10.0
+	}
+	# God Holding
+	ca_god_pantheon = {
+		desc = ca_god_pantheon_desc
+		
+		potential = { 
+			OR = {
+				FROM = {
+					AND = {
+						OR = {
+							trait = god
+							trait = demi_god
+						}
+						follows_polytheistic_religion = yes
+					}
+				}
+				FROMFROM = {
+					has_building = ca_god_pantheon
+				}
+			}
+		}
+		trigger = {
+			FROM = {
+				OR = {
+					trait = god
+					trait = demi_god
+				}
+			}
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = god
+					trait = demi_god
+					trait = blood_of_the_gods
+				}
+			}
+		}
+		prerequisites = { ca_wall_1 }
+		ai_creation_factor = 100
+		
+		fort_level = 1
+		tax_income = 1.5
+		monthly_character_piety = 1.0
+		land_morale = 0.1
+		
+		gold_cost = 300
+		build_time = 350
+		
+		extra_tech_building_start = 10.0
+	}
+	# Mage Holding
+	ca_mage_library = {
+		desc = ca_mage_library_desc
+		
+		potential = {
+			OR = {
+				FROM = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+				}
+				FROMFROM = { has_building = tb_mage_library }
+			}
+		}
+		trigger = {
+			FROM = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+		}
+		
+		ai_creation_factor = 95
+		
+		fort_level = 1
+		land_morale = 0.1
+		levy_reinforce_rate = 0.1
+		monthly_character_prestige = 0.15
+		
+		gold_cost = 250
+		build_time = 450
+		
+		extra_tech_building_start = 10.0
+	}
+	# Zombie Culture
+	#ca_zombie_crypt_1 = {
+	#	desc = ca_zombie_crypt_desc
+	#	
+	#	potential = {
+	#		FROM = {
+	#			OR = {
+	#				# List of zombie cultures, once added
+	#			}
+	#		}
+	#	}
+	#	trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+	#	prerequisites = { ca_wall_2 }
+	#	gold_cost = 200
+	#	build_time = 730
+	#	zombie_troops = 30
+	#	ai_creation_factor = 101
+	#	
+	#	extra_tech_building_start = 0.8
+	#}
+	#ca_zombie_crypt_2 = {
+	#	desc = ca_zombie_crypt_desc
+	#	
+	#	potential = {
+	#		FROM = {
+	#			OR = {
+	#				# List of zombie cultures, once added
+	#			}
+	#		}
+	#	}
+	#	trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+	#	upgrades_from = ca_zombie_crypt_1
+	#	gold_cost = 300
+	#	build_time = 1094
+	#	zombie_troops = 40
+	#	ai_creation_factor = 101
+	#	
+	#	extra_tech_building_start = 0.8
+	#}
+	#ca_zombie_crypt_3 = {
+	#	desc = ca_zombie_crypt_desc
+	#	
+	#	potential = {
+	#		FROM = {
+	#			OR = {
+	#				# List of zombie cultures, once added
+	#			}
+	#		}
+	#	}
+	#	trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+	#	upgrades_from = ca_zombie_crypt_2
+	#	gold_cost = 400
+	#	build_time = 2190
+	#	zombie_troops = 50
+	#	ai_creation_factor = 101
+	#	
+	#	extra_tech_building_start = 0.8
+	#}
+	#ca_zombie_crypt_4 = {
+	#	desc = ca_zombie_crypt_desc
+	#	
+	#	potential = {
+	#		FROM = {
+	#			OR = {
+	#				# List of zombie cultures, once added
+	#			}
+	#		}
+	#	}
+	#	trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+	#	upgrades_from = ca_zombie_crypt_3
+	#	gold_cost = 500
+	#	build_time = 2190
+	#	zombie_troops = 60
+	#	ai_creation_factor = 101
+	#	
+	#	extra_tech_building_start = 0.8
+	#}
+	# Mummy Capital
+	ca_mummy_necropolis = {
+		desc = ca_mummy_necropolis_desc
+		
+		potential = {
+			OR = {
+				FROM = { trait = mummy }
+				FROMFROM = {
+					has_building = ca_mummy_necropolis
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_djinni_caves
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+		}
+		is_active_trigger = {
+			FROM = { trait = mummy }
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		light_infantry = 120
+		heavy_infantry = 40
+		monthly_character_piety = 0.5
+		retinuesize = 30
+		
+		gold_cost = 300
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	# Mummy Holding
+	ca_mummy_pyramid = {
+		desc = ca_mummy_pyramid_desc
+		potential = {
+			OR = {
+				FROM = { trait = mummy }
+				FROMFROM = {
+					has_building = ca_mummy_necropolis
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_vault_1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = ca_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ca_djinni_town
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = mummy }
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = { trait = mummy }
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		fort_level = 1
+		heavy_infantry = 40
+		supply_limit = 1
+		siege_defence = 0.1
+		
+		gold_cost = 250
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	# Djinn Capital
+	ca_djinni_caves = {
+		desc = ca_djinni_caves_desc
+		
+		potential = {
+			OR = {
+				FROM = { trait = djinn }
+				FROMFROM = {
+					has_building = ca_djinni_caves
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_monster_hunter_lodge
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = djinn }
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+		}
+		is_active_trigger = {
+			FROM = { trait = djinn }
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		heavy_infantry = 60
+		tax_income = 1.5
+		global_movement_speed = 0.15
+		
+		gold_cost = 300
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	ca_djinni_town = {
+		desc = ca_djinni_town_desc
+		
+		potential = {
+			OR = {
+				FROM = { trait = djinn }
+				FROMFROM = {
+					has_building = ca_djinni_town
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_vault_1
+							has_building = ca_werewolf_pits
+							has_building = ca_vampire_spy_network
+							has_building = ca_giant_market
+							has_building = ca_god_pantheon
+							has_building = ca_mage_library
+							has_building = ca_mummy_pyramid
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			FROM = { trait = djinn }
+			TECH_CASTLE_CONSTRUCTION = 1
+		}
+		is_active_trigger = {
+			FROM = { trait = djinn }
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		supply_limit = 2
+		disease_defence = 0.2
+		tax_income = 1
+		
+		gold_cost = 250
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	# Monster Hunter Capital
+	ca_monster_hunter_lodge = {
+		desc = ca_monster_hunter_lodge_desc
+		
+		potential = {
+			OR = {
+				FROM = { trait = monster_hunter }
+				FROMFROM = {
+					has_building = ca_monster_hunter_lodge
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_giant_shield
+							has_building = ca_mummy_necropolis
+							has_building = ca_djinni_caves
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			is_capital = yes
+		}
+		is_active_trigger = {
+			FROM = { trait = monster_hunter }
+		}
+		prerequisites = { ca_wall_2 }
+		ai_creation_factor = 101
+		
+		archers = 100
+		heavy_infantry = 50
+		knights = 20
+		land_morale = 0.5
+		
+		gold_cost = 300
+		build_time = 350
+		extra_tech_building_start = 10.0
+	}
+	
+	# Magic Focus
+	ca_mage_tower_enchantment = {
+		desc = ca_mage_tower_enchantment_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_enchantment
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_enchantment
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = enchanter
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+		}
+		gold_cost = 1000
+		build_time = 1000
+		local_revolt_risk = -0.1
+		tax_income = 0.5
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.02
+		vassal_opinion = 5
+		garrison_size = 0.1
+	}
+	ca_mage_tower_conjuration = {
+		desc = ca_mage_tower_conjuration_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_conjuration
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_conjuration
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = summoner
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.02
+		levy_size = 0.05
+		levy_reinforce_rate = 0.1
+		retinuesize = 200
+		etherial_soldiers = 20
+	}
+	ca_mage_tower_alchemy = {
+		desc = ca_mage_tower_alchemy_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_alchemy
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_alchemy
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = alchemist
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_conjuration
+			ca_mage_tower_herbalism
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		local_build_time_modifier = -0.02
+		local_build_cost_modifier = -0.05
+		tax_income = 2
+		local_tax_modifier = 0.1
+		supply_limit = 0.02
+		tradevalue = 5
+	}
+	ca_mage_tower_herbalism = {
+		desc = ca_mage_tower_herbalism_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_herbalism
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_herbalism
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = herbalist
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = 0.5
+		monthly_character_piety = 0.5
+		disease_defence = 0.1
+		levy_reinforce_rate = 0.05
+		land_morale = 0.08
+		supply_limit = 0.15
+		global_winter_supply = 0.05
+	}
+}

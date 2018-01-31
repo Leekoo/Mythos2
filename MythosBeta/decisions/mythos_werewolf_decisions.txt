@@ -1,0 +1,504 @@
+decisions = {
+	
+	werewolf_challenge = {
+		is_high_prio = yes
+		
+		potential = {
+			trait = werewolf
+			culture = werewolf_culture
+			independent = no
+			liege = { 
+				OR = {
+					culture = werewolf_culture
+					has_landed_title = e_werewolf
+				}
+				higher_real_tier_than = count
+				primary_title = {
+					NOR = { 
+						temporary = yes
+						title = k_papal_state
+						title = k_orthodox
+					}
+				}
+			}
+			NOT = { has_character_modifier = challenged_liege }
+			age = 16
+		}
+		allow = {
+			trait = known_werewolf
+			prestige = 1
+			is_incapable = no
+			prisoner = no
+			custom_tooltip = {
+				text = TT_no_current_challenge
+				hidden_tooltip = {
+					NOR = {
+						has_character_modifier = facing_challenge
+						liege = { has_character_modifier = facing_challenge }
+					}
+				}
+			}
+			OR = {
+				liege = { NOT = { age = 16 } }
+				custom_tooltip = {
+					text = TT_challenge_child
+					hidden_tooltip = {
+						liege = {
+							NOR = {
+								has_law = werewolf_law_2
+								has_law = werewolf_law_3
+								has_law = werewolf_law_4
+							}
+						}
+					}
+				}
+			}
+			OR = {
+				AND = {
+					liege = { is_female = yes }
+					custom_tooltip = {
+						text = TT_challenge_female
+						hidden_tooltip = {
+							liege = {
+								AND = {
+									NOT = { has_law = werewolf_law_4 }
+									OR = {
+										AND = {
+											has_dlc = "Zeus"
+											has_law = status_of_women_0
+										}
+										AND = {
+											NOT = { has_dlc = "Zeus" }
+											has_law = agnatic_succession
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					custom_tooltip = {
+						text = TT_infamous
+						hidden_tooltip = {
+							liege = { 
+								OR = {
+									NOT = { prestige = 0 }
+									reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+									reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
+								}
+							}
+						}
+					}
+					custom_tooltip = {
+						text = TT_challenge_infamy
+						hidden_tooltip = {
+							liege = { 
+								NOR = {
+									has_law = werewolf_law_1
+									has_law = werewolf_law_2
+									has_law = werewolf_law_3
+									has_law = werewolf_law_4
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					liege = {
+						OR = {
+							trait = weak
+							trait = feeble
+						}
+					}
+					custom_tooltip = {
+						text = TT_challenge_weak
+						hidden_tooltip = {
+							liege = { NOT = { has_law = werewolf_law_4 } }
+						}
+					}
+				}
+				AND = {
+					custom_tooltip = {
+						text = TT_deformed
+						hidden_tooltip = {
+							liege = {
+								OR = {
+									trait = clubfooted
+									trait = harelip
+									trait = hunchback
+									trait = dwarf
+									trait = inbred
+								}
+							}
+						}
+					}
+					custom_tooltip = {
+						text = TT_challenge_deformed
+						hidden_tooltip = {
+							liege = {
+								NOR = {
+									has_law = werewolf_law_3
+									has_law = werewolf_law_4
+								}
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = TT_new_liege
+					hidden_tooltip = {
+						liege = {
+							OR = {
+								AND = {
+									NOT = { ruled_years = 5 }
+									NOR = {
+										has_law = werewolf_law_2
+										has_law = werewolf_law_3
+										has_law = werewolf_law_4
+									}
+								}
+								AND = {
+									NOT = { ruled_years = 4 }
+									OR = {
+										has_law = werewolf_law_2
+										has_law = werewolf_law_3
+									}
+								}
+								NOT = { ruled_years = 3 }
+							}
+						}
+					}
+				}
+				liege = { is_incapable = yes }
+				liege = { NOT = { culture = werewolf_culture } }
+				liege = { NOT = { trait = known_werewolf } }
+			}
+		}
+		effect = {
+			liege = {
+				character_event = { id = CHALLENGE.1 tooltip = TT_issue_challenge }
+				add_character_modifier = { name = facing_challenge months = 3 } # Time limit in case something breaks the challenge
+			}
+			custom_tooltip = {
+				text = TT_restrict_challenge
+				hidden_tooltip = {
+					if = {
+						limit = { has_law = werewolf_law_0 }
+						add_character_modifier = { name = challenged_liege years = 2 }
+					}
+					if = {
+						limit = { has_law = werewolf_law_1 }
+						add_character_modifier = { name = challenged_liege years = 3 }
+					}
+					if = {
+						limit = { has_law = werewolf_law_2 }
+						add_character_modifier = { name = challenged_liege years = 4 }
+					}
+					if = {
+						limit = { has_law = werewolf_law_3 }
+						add_character_modifier = { name = challenged_liege years = 5 }
+					}
+					if = {
+						limit = { has_law = werewolf_law_4 }
+						add_character_modifier = { name = challenged_liege }
+					}
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 0.1
+				trait = content
+			}
+			modifier = {
+				factor = 0.7
+				trait = patient
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 0.1
+				liege = { opinion = { who = ROOT value = 50 } }
+			}
+			modifier = {
+				factor = 2
+				liege = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}
+			modifier = {
+				factor = 2
+				liege = { NOT = { opinion = { who = ROOT value = -50 } } }
+			}
+			modifier = {
+				factor = 2
+				liege = {
+					ROOT = {
+						is_foe = PREV
+					}
+				}
+			}
+			modifier = {
+				factor = 1.1
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 20
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 40
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 60
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 80
+			}
+			modifier = {
+				factor = 1.5
+				ai_ambition = 100
+			}
+			modifier = {
+				factor = 0.9
+				ai_honor = 40
+			}
+			modifier = {
+				factor = 0.8
+				ai_honor = 80
+			}
+		}
+	}
+	
+	werewolf_convert_culture = {
+		is_high_prio = yes
+		potential = {
+			is_playable = yes
+			trait = werewolf
+			NOT = { culture = werewolf_culture }
+		}
+		allow = {
+			higher_real_tier_than = KING
+			is_incapable = no
+		}
+		effect = {
+			prestige = 200
+			culture = werewolf_culture
+			any_courtier = {
+				limit = {
+					NOT = { culture = werewolf_culture }
+					employer = { character = ROOT }
+					trait = werewolf
+				}
+				culture = werewolf_culture
+			}
+			any_vassal = {
+				limit = {
+					NOT = { culture = werewolf_culture }
+					liege = { character = ROOT }
+					trait = werewolf
+				}
+				culture = werewolf_culture
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	werewolf_reveal_self = {
+		potential = {
+			trait = secret_werewolf
+			culture = werewolf_culture
+			OR = {
+				independent = yes
+				top_liege = { culture = werewolf_culture }
+			}
+			capital_scope = { culture = werewolf_culture }
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+			character_event = { id = MYTH.49 }
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 0.05
+			modifier = {
+				factor = 2
+				liege = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 0.1
+				trait = craven
+			}
+			modifier = {
+				factor = 0.1
+				trait = content
+			}
+			modifier = {
+				factor = 1.1
+				trait = strong
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 20
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 40
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 60
+			}
+			modifier = {
+				factor = 1.25
+				ai_ambition = 80
+			}
+			modifier = {
+				factor = 1.5
+				ai_ambition = 100
+			}
+			modifier = {
+				factor = 1.1
+				ai_honor = 40
+			}
+			modifier = {
+				factor = 1.2
+				ai_honor = 80
+			}
+			modifier = {
+				factor = 2
+				trait = honest
+			}
+		}
+	}
+	
+}
+
+targetted_decisions = {
+	
+	turn_werewolf = {
+		filter = realm
+		ai_target_filter = realm
+		only_rulers = yes
+		from_potential = {
+			trait = werewolf
+			is_ruler = yes
+			is_incapable = no
+		}
+		potential = {
+			NOR = { 
+				trait = known_vampire
+				trait = werewolf
+				trait = dragon
+				trait = djinn
+				trait = giant
+				trait = god
+				character = FROM
+			}
+			OR = { 
+				AND = {
+					liege = { character = FROM }
+					prisoner = no
+				}
+				host = { character = FROM }
+				AND = {
+					guardian = { character = FROM }
+					prisoner = no
+				}
+				AND = {
+					any_spouse = { character = FROM }
+					prisoner = no
+				}
+				AND = {
+					any_lover = { character = FROM }
+					prisoner = no
+				}
+				AND = {
+					any_friend = { character = FROM }
+					prisoner = no
+				}
+			}
+			age = 16
+		}
+		allow = {
+			FROM = { is_incapable = no }
+			NOT = { has_character_modifier = in_seclusion }
+			custom_tooltip = {
+				text = NOT_RECENT_TURN_REFUSAL
+				NOT = { has_opinion_modifier = { who = FROM modifier = opinion_turn_refusal } }
+			}
+			custom_tooltip = {
+				text = NOT_CONSIDERING_MAJOR_DECISIONS
+				NOT = { has_character_flag = considering_decision }
+			}
+		}
+		
+		effect = {
+			set_character_flag = considering_decision
+			letter_event = { id = WEREWOLF.14 days = 7 } # Offeree receives event
+		}
+		
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 1.1
+				opinion = { who = FROM value = 100 }
+				FROM = { opinion = { who = ROOT value = 100 } }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 175 }
+				FROM = { opinion = { who = ROOT value = 175 } }
+			}
+			modifier = {
+				factor = 0.1
+				OR = { 
+					religion_group = christian
+					religion_group = muslim
+					religion_group = jewish_group
+				}
+			}
+			modifier = {
+				factor = 1.5
+				higher_tier_than = DUKE
+			}
+			modifier = {
+				factor = 100
+				prisoner = yes
+				higher_tier_than = DUKE
+			}
+		}
+	}
+	
+}

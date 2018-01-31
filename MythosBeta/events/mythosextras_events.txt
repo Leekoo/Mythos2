@@ -1,0 +1,1487 @@
+namespace = MYTHMORE
+
+# New and Rewritten Spells
+
+# Potion finished
+character_event = {
+	id = "MYTHMORE.1"
+	desc = "EVTDESCMYTHMORE.1"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			save_event_target_as = target_potioned
+		}
+		save_event_target_as = target_potioner
+	}
+	
+	option = {
+		name = "EVTOPTMYTHMORE.1"
+		hidden_tooltip = {
+			random_list = {
+				# Success
+				50 = {
+					modifier = {
+						factor = 9
+						trait = arcane_master
+					}
+					modifier = {
+						factor = 4
+						trait = veteran_wizard
+					}
+					modifier = {
+						factor = 2.3
+						trait = eldritch_scholar
+					}
+					modifier = {
+						factor = 1.5
+						trait = novice_mage
+					}
+					modifier = {
+						factor = 1.2
+						trait = enchanter
+					}
+					modifier = {
+						factor = 1.5
+						trait = herbalist
+					}
+					modifier = {
+						factor = 1.5
+						has_artifact = greater_key_of_solomon
+					}
+					if = {
+						limit = {
+							NOT = { same_sex = event_target:target_potioned }
+							event_target:target_potioned = { trait = homosexual }
+						}
+						# Target is different sex, but homosexual
+						character_event = {
+							id = MYTHMORE.2
+							days = 1
+						}
+						break = yes
+					}
+					if = {
+						limit = {
+							same_sex = FROM
+							event_target:target_potioned = { NOT = { trait = homosexual } }
+						}
+						# Target is same sex, but not homosexual
+						character_event = {
+							id = MYTHMORE.3
+							days = 1
+						}
+						break = yes
+					}
+					if = {
+						limit = {
+							event_target:target_potioned = { trait = chaste }
+						}
+						# Target has chaste
+						character_event = {
+							id = MYTHMORE.4
+							days = 1
+						}
+						break = yes
+					}
+					# Target becomes lover
+					character_event = {
+						id = MYTHMORE.5
+						days = 1
+					}
+				}
+				# Failure
+				50 = {
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									same_sex = event_target:target_potioned
+									NOT = { event_target:target_potioned = { trait = homosexual } }
+								}
+								AND = {
+									NOT = { same_sex = FROM }
+									event_target:target_potioned = { trait = homosexual }
+								}
+							}
+						}
+						# Target is not attracted to your sex, becomes your rival
+						character_event = {
+							id = MYTHMORE.6
+							days = 1
+						}
+						break = yes
+					}
+					if = {
+						limit = {
+							NOT = { event_target:target_potioned = { trait = chaste } }
+						}
+						# Target is not chaste
+						random_list = {
+							50 = {
+								# Target becomes chaste
+								character_event = {
+									id = MYTHMORE.7
+									days = 1
+								}
+							}
+							30 = {
+								# Target sexuality change
+								if = {
+									limit = {
+										same_sex = FROM
+									}
+									# Target loses homosexual
+									character_event = {
+										id = MYTHMORE.8
+										days = 1
+									}
+								}
+								if = {
+									limit = {
+										NOT = { same_sex = FROM }
+									}
+									# Target gains homosexual
+									character_event = {
+										id = MYTHMORE.9
+										days = 1
+									}
+								}
+							}
+							10 = {
+								# Target becomes Rival
+								character_event = {
+									id = MYTHMORE.6
+									days = 1
+								}
+							}
+							10 = {
+								# Target becomes Celibate
+								character_event = {
+									id = MYTHMORE.10
+									days = 1
+								}
+							}
+						}
+						break = yes
+					}
+					
+					# Target is attracted to your sex, but is already chaste
+					random_list = {
+						50 = {
+							# Target sexuality change
+							if = {
+								limit = {
+									same_sex = FROM
+								}
+								# Target loses homosexual
+								character_event = {
+									id = MYTHMORE.8
+									days = 1
+								}
+							}
+							if = {
+								limit = {
+									NOT = { same_sex = FROM }
+								}
+								# Target gains homosexual
+								character_event = {
+									id = MYTHMORE.9
+									days = 1
+								}
+							}
+						}
+						30 = {
+							# Target becomes Rival
+							character_event = {
+								id = MYTHMORE.6
+								days = 1
+							}
+						}
+						20 = {
+							# Target becomes Celibate
+							character_event = {
+								id = MYTHMORE.10
+								days = 1
+							}
+						}
+					}
+					break = yes
+				}
+			}
+		}
+	}
+}
+				
+
+# MYTHMORE.2 - Potion success, target loses homosexual
+character_event = {
+	id = "MYTHMORE.2"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = {
+			remove_trait = homosexual
+		}
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.14" } }
+		}
+	}
+}
+
+# MYTHMORE.3 - Potion success, target gains homosexual
+character_event = {
+	id = "MYTHMORE.3"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = {
+			add_trait = homosexual
+		}
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.15" } }
+		}
+	}
+}
+
+# MYTHMORE.4 - Potion success, target loses chaste
+character_event = {
+	id = "MYTHMORE.4"
+	desc = "EVTDESCMYTHMORE.2"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.2"
+		event_target:target_potioned = { remove_trait = chaste }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "1029" } } # Call vanilla trait removal
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = MYTH.56 } }
+		}
+	}
+}
+
+# MYTHMORE.5 - Potion success, target becomes lover
+character_event = {
+	id = "MYTHMORE.5"
+	desc = "EVTDESCMYTHMORE.5"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.5"
+		event_target:target_potioned = { add_lover = event_target:target_potioner }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					event_target:target_potioned = { spouse = { character = event_target:target_potioner } }
+				}
+				event_target:target_potioned = { character_event = { id = "64030" } }
+			}
+			if = {
+				limit = {
+					NOT = { event_target:target_potioned = { spouse = { character = event_target:target_potioner } } }
+				}
+				event_target:target_potioned = { character_event = { id = "64018" } }
+			}
+		}
+	}
+}
+
+# MYTHMORE.6 - Potion failure, target becomes rival
+character_event = {
+	id = "MYTHMORE.6"
+	desc = "EVTDESCMYTHMORE.6"
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.6"
+		event_target:target_potioned = { add_rival = event_target:target_potioner }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.16" } }
+		}
+	}
+}
+		
+# MYTHMORE.7 - Potion failure, target gains chaste
+character_event = {
+	id = "MYTHMORE.7"
+	desc = "EVTDESCMYTHMORE.7"
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.7"
+		event_target:target_potioned = { add_trait = chaste }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.17" } }
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = MYTH.56 } }
+		}
+	}
+}
+
+# MYTHMORE.8 - Potion failure, target loses homosexual
+character_event = {
+	id = "MYTHMORE.8"
+	desc = "EVTDESCMYTHMORE.8"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.8"
+		event_target:target_potioned = { remove_trait = homosexual }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.14" } }
+		}
+	}
+}
+	
+# MYTHMORE.9 - Potion failure, target gains homosexual
+character_event = {
+	id = "MYTHMORE.9"
+	desc = "EVTDESCMYTHMORE.8"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.8"
+		event_target:target_potioned = { add_trait = homosexual }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.15" } }
+		}
+	}
+}
+
+# MYTHMORE.10 - Potion failure, target gains Celibate
+character_event = {
+	id = "MYTHMORE.10"
+	title = "EVTNAMEMYTHMORE.10"
+	desc = "EVTDESCMYTHMORE.10"
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.10"
+		event_target:target_potioned = { add_trait = celibate }
+		hidden_tooltip = {
+			event_target:target_potioned = { character_event = { id = "MYTHMORE.18" } }
+		}
+	}
+}
+
+# MYTHMORE.11 - Cast convert religion
+character_event = {
+	id = "MYTHMORE.11"
+	desc = "EVTDESCMYTHMORE.11"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			#save_event_target_as = target_converted_province
+			location = {
+				save_event_target_as = target_converted_province
+			}
+		}
+		save_event_target_as = target_conversion_caster
+	}
+	
+	option = {
+		name = "EVTOPTMYTHMORE.11"
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					event_target:target_conversion_caster = { trait = arcane_master }
+				}
+				event_target:target_conversion_caster = {
+					character_event = {
+						id = "MYTHMORE.12"
+						days = 1
+					}
+				}
+			}
+			if = {
+				limit = {
+					event_target:target_conversion_caster = { trait = veteran_wizard }
+				}
+				random_list = {
+					60 = {
+						# Conversion
+						event_target:target_conversion_caster = {
+							character_event = {
+								id = "MYTHMORE.12"
+								days = 1
+							}
+						}
+					}
+					40 = {
+						# Spread of false religion
+						event_target:target_conversion_caster = {
+							character_event = {
+								id = "MYTHMORE.13"
+								days = 1
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# MYTHMORE.12 - Successful religious conversion
+character_event = {
+	id = "MYTHMORE.12"
+	desc = "EVTDESCMYTHMORE.12"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.12"
+		event_target:target_converted_province = { religion = event_target:target_conversion_caster }
+	}
+}
+
+# MYTHMORE.13 - Failed religion conversion
+character_event = {
+	id = "MYTHMORE.13"
+	desc = "EVTDESCMYTHMORE.13"
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.13"
+		random_demesne_province = {
+			religion = event_target:target_converted_province
+		}
+	}
+}
+
+# MYTHMORE.14 - Lost Homosexual
+character_event = {
+	id = "MYTHMORE.14"
+	desc = "EVTDESCMYTHMORE.14"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.14"
+		remove_trait = homosexual
+	}
+}
+
+# MYTHMORE.15 - Gained Homosexual
+character_event = {
+	id = "MYTHMORE.15"
+	desc = "EVTDESCMYTHMORE.15"
+	picture = GFX_evt_lovers
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.15"
+		add_trait = homosexual
+	}
+}
+
+# MYTHMORE.16 - Become Rival
+character_event = {
+	id = "MYTHMORE.16"
+	desc = "EVTDESCMYTHMORE.16"
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.16"
+		add_rival = event_target:target_potioner
+	}
+}
+
+# MYTHMORE.17 - Become chaste
+character_event = {
+	id = "MYTHMORE.17"
+	desc = "EVTDESCMYTHMORE.17"
+	picture = "GFX_evt_library"
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.17"
+		add_trait = chaste
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# MYTHMORE.18 - Become Celibate - Player can refuse
+character_event = {
+	id = "MYTHMORE.18"
+	desc = "EVTDESCMYTHMORE.18"
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTMYTHMORE.18a"
+		add_trait = celibate
+		remove_trait = hedonist
+	}
+	option = {
+		name = "EVTOPTMYTHMORE.18b"
+	}
+}
+
+# MYTH isn't loading events past 57. Move here?
+
+# MYTH.58 - Offer to convert to Roman Paganism
+character_event = {
+	id = MYTHMORE.19
+	desc = EVTDESC_MYTHMORE.19
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Accept
+	option = {
+		name = EVTOPTA_MYTHMORE.19
+		religion = roman_pagan
+		if = {
+			limit = {
+				is_landed = yes
+				capital_scope = { religion = hellenic_pagan }
+			}
+			capital_scope = { religion = roman_pagan }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				culture = roman
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					culture = lombard
+					culture = italian
+				}
+			}
+			modifier = {
+				factor = 1.2
+				liege = {
+					OR = {
+						has_law = revoke_title_law_2
+						has_law = crown_authority_2
+						has_law = crown_authority_3
+						has_law = crown_authority_4
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 1.5
+				is_close_relative = FROM
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 100 }
+			}
+			modifier = {
+				factor = 3
+				top_liege = { trait = god }
+			}
+			modifier = {
+				factor = 2
+				top_liege = { trait = demi_god }
+			}
+			modifier = {
+				factor = 1.5
+				top_liege = { trait = blood_of_the_gods }
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTB_MYTHMORE.19
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				ai_zeal = 30
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 60
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 90
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.6
+				NOT = { opinion = { who = FROM value = -24 } }
+			}
+			modifier = {
+				factor = 1.7
+				NOT = { opinion = { who = FROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.8
+				NOT = { opinion = { who = FROM value = -74 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = -99 } }
+			}
+		}
+	}
+}
+	
+# MYTH.59 - Greek pantheon can convert to Roman
+character_event = {
+	id = MYTHMORE.20
+	desc = EVTDESC_MYTHMORE.20
+	picture = GFX_evt_hippodrome_byzantine
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	religion = hellenic_pagan
+	only_capable = yes
+	
+	trigger = {
+		can_change_religion = yes
+		OR = {
+			has_landed_title = e_olympus
+			top_liege = {
+				has_landed_title = e_olympus
+			}
+		}
+	}
+	
+	# Convert
+	option = {
+		name = EVTOPTA_MYTHMORE.20
+		religion = roman_pagan
+		ai_chance = {
+			factor = 3
+			modifier = { # Original dieties more likely
+				factor = 1.5
+				age = 300
+			}
+			modifier = {
+				factor = 1.5
+				ai_ambition = 50
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTB_MYTHMORE.20
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				ai_zeal = 60
+			}
+		}
+	}
+}
+
+# MYTH.60 - Everyone is alerted to reformation
+narrative_event = {
+	id = MYTHMORE.21
+	title = EVTTITLE_MYTHMORE.21
+	desc = EVTDESC_MYTHMORE.21
+	picture = GFX_evt_heretic
+	border = "GFX_event_narrative_frame_religion"	
+	
+	is_triggered_only = yes
+	major = yes
+	show_ROOT = yes
+	hide_new = yes
+	
+	only_rulers = yes
+	
+	# Roman Pagans
+	option = {
+		trigger = { religion = roman_pagan }
+		name = EVTOPTA_MYTHMORE.21
+	}
+	# Hellenic Pagans
+	option = {
+		trigger = { religion = hellenic_pagan }
+		name = EVTOPTB_MYTHMORE.21
+	}
+	# Others
+	option = {
+		trigger = {
+			NOR = {
+				religion = roman_pagan
+				religion = hellenic_pagan
+			}
+		}
+		name = EVTOPTC_MYTHMORE.21
+	}
+}
+
+# MYTH.61 - Hellenic Augur suggests riving Roman rites
+character_event = {
+	id = MYTHMORE.22
+	desc = EVTDESC_MYTHMORE.22
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	religion = hellenic_pagan
+	
+	trigger = {
+		has_job_title = job_spiritual
+		num_of_holy_sites = 2
+		liege = {
+			religion = hellenic_pagan
+			piety = 500
+			OR = {
+				has_landed_title = e_roman_empire
+				has_landed_title = c_roma
+				has_landed_title = b_roma
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			num_of_holy_sites = 3
+		}
+		modifier = {
+			factor = 2.5
+			num_of_holy_sites = 4
+		}
+		modifier = {
+			factor = 3
+			num_of_holy_sites = 5
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { learning = 8 }
+		}
+		modifier = {
+			factor = 1.2
+			learning = 10
+		}
+		modifier = {
+			factor = 1.3
+			learning = 15
+		}
+		modifier = {
+			factor = 1.4
+			learning = 20
+		}
+		modifier = {
+			factor = 1.5
+			learning = 25
+		}
+		modifier = {
+			factor = 1.5
+			learning = 30
+		}
+	}
+	# Suggest reforms
+	option = {
+		name = EVTOPTA_MYTHMORE.22
+		hidden_tooltip = {
+			liege = {
+				character_event = { id = MYTHMORE.23 days = 1 }
+			}
+		}
+	}
+	# Decide against it
+	option = {
+		name = EVTOPTB_MYTHMORE.22
+		trigger = { 
+			OR = {
+				ai = no
+				trait = cynical
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.23
+	desc = EVTDESC_MYTHMORE.23
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Agree
+	option = {
+		name = EVTOPTA_MYTHMORE.23
+		piety = -500
+		religion = roman_pagan
+		capital_scope = { religion = roman_pagan }
+		FROM = {
+			religion = roman_pagan
+			gain_title = d_roman_pagan
+			hidden_tooltip = {
+				character_event = { id = MYTHMORE.24 } # Inform and improve opinion
+			}
+		}
+		any_vassal = {
+			limit = { religion = hellenic_pagan }
+			character_event = { id = MYTHMORE.25 days = 1 }
+		}
+		any_courtier = {
+			limit = { is_councillor = yes }
+			character_event = { id = MYTHMORE.25 days = 2 }
+		}
+		hidden_tooltip = {
+			set_global_flag = roman_pagan_restoration
+			# Greek pantheon receives offer to convert
+			e_olympus = {
+				holder_scope = {
+					character_event = { id = MYTHMORE.20 days = 1 }
+					any_courtier = {
+						limit = { religion = hellenic_pagan }
+						character_event = { id = MYTHMORE.20 days = 1}
+					}
+				}
+			}
+			# Alert everyone
+			any_playable_ruler = {
+				limit = {
+					NOT = { character = ROOT }
+					ai = no # Informational
+				}
+				narrative_event = { id = MYTHMORE.21 days = 1 }
+			}
+		}
+	}
+	# Decline
+	option = {
+		name = EVTOPTB_MYTHMORE.23
+	}
+}
+
+# MYTH.63 - Inform augur of acceptance/promotion
+character_event = {
+	id = MYTHMORE.24
+	desc = EVTDESC_MYTHMORE.24
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTDESC_MYTHMORE.24
+		opinion = { who = FROM modifier = opinion_very_grateful years = 2 }
+		opinion = { who = FROM modifier = opinion_happy_convertion years = 5 }
+		tooltip = { gain_title = d_roman_pagan }
+	}
+}
+
+# MYTH.64 - Vassal can change to Roman pagan. If yes, and tier count or higher send to their court.
+character_event = {
+	id = MYTHMORE.25
+	desc = EVTDESC_MYTHMORE.25
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Accept
+	option = {
+		name = EVTOPTA_MYTHMORE.19
+		religion = roman_pagan
+		hidden_tooltip = {
+			if = {
+				limit = {
+					has_landed_title = yes
+					NOT = { tier = baron }
+				}
+				any_vassal = {
+					limit = { religion = hellenic_pagan }
+					character_event = { id = MYTHMORE.25 days = 1 }
+				}
+				any_courtier = {
+					limit = { is_councillor = yes }
+					character_event = { id = MYTHMORE.25 days = 2 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 1.5
+				opinion = { who = top_liege value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = top_liege value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = top_liege value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = top_liege value = 100 }
+			}
+			modifier = {
+				factor = 3
+				top_liege = { trait = god }
+			}
+			modifier = {
+				factor = 2
+				top_liege = { trait = demi_god }
+			}
+			modifier = {
+				factor = 1.5
+				top_liege = { trait = blood_of_the_gods }
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTB_MYTHMORE.22
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 1.5
+				ai_zeal = 50
+			}
+			modifier = {
+				factor = 1.5
+				ai_zeal = 100
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = top_liege value = -24 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = top_liege value = -49 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = top_liege value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = top_liege value = -99 } }
+			}
+		}
+	}
+	# Falsely convert
+	option = {
+		name = EVTOPTC_MYTHMORE.25
+		religion = roman_pagan
+		set_secret_religion = hellenic_pagan
+		hidden_tooltip = {
+			if = {
+				limit = {
+					has_landed_title = yes
+					NOT = { tier = baron }
+				}
+				any_vassal = {
+					limit = { religion = hellenic_pagan }
+					character_event = { id = MYTHMORE.25 days = 1 }
+				}
+				any_courtier = {
+					limit = { is_councillor = yes }
+					character_event = { id = MYTHMORE.25 days = 2 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { ai_honor = -20 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { ai_honor = -40 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { ai_honor = -60 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { ai_honor = -80 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = top_liege value = 0 } }
+			}
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+		}
+	}
+}
+
+# MYTH.65 - Gain Religious Icon (Not made by hand)
+#Miraculous Icon
+#Quality 2
+character_event = {
+    id = MYTHMORE.26
+    desc = EVTDESC_MYTHMORE.26
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    has_dlc = "Mystics"
+
+    option = { #it's their duty
+        name = EVTOPT_MINOR_ARTIFACT_DUTY
+        prestige = 10
+        reverse_opinion = {
+			who = FROM
+		modifier = opinion_disappointed
+			years = 10
+		}
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+
+    option = { #monetary reward
+        name = EVTOPT_MINOR_ARTIFACT_MONEY
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		transfer_scaled_wealth = {
+			to = FROM
+			value = 0.25
+			min = 20
+		}
+
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+    
+    option = { #reward them with a favor
+        name = EVTOPT_MINOR_ARTIFACT_FAVOR
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+        reverse_add_favor = FROM
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+
+    option = { #praise them (prestige reward)
+    	trigger = {
+			diplomacy = 15
+		}
+        name = EVTOPT_MINOR_ARTIFACT_PRESTIGE
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_praised
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		FROM = { prestige = 25 }
+		random = {
+			chance = 20
+			add_friend = FROM
+		}
+        add_artifact = religious_icon_not_made_by_hand
+        new_artifact = {
+			set_creation_date = 1.1.1
+		}
+    }
+    after = { clr_artifact_flagsmodifiers_effect = yes }
+}
+# MYTH.66 - Gain Religious Icon
+#Religious Icon
+#Quality 1
+character_event = {
+    id = MYTHMORE.27
+    desc = EVTDESC_MYTHMORE.27
+    picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_religion
+
+    is_triggered_only = yes
+
+    has_dlc = "Mystics"
+
+    option = { #it's their duty
+        name = EVTOPT_MINOR_ARTIFACT_DUTY
+        prestige = 10
+        reverse_opinion = {
+			who = FROM
+		modifier = opinion_disappointed
+			years = 10
+		}
+        add_artifact = religious_icon
+    }
+
+    option = { #monetary reward
+        name = EVTOPT_MINOR_ARTIFACT_MONEY
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		transfer_scaled_wealth = {
+			to = FROM
+			value = 0.25
+			min = 20
+		}
+
+        add_artifact = religious_icon
+    }
+    
+    option = { #reward them with a favor
+        name = EVTOPT_MINOR_ARTIFACT_FAVOR
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_rewarded
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+        reverse_add_favor = FROM
+        add_artifact = religious_icon
+    }
+
+    option = { #praise them (prestige reward)
+    	trigger = {
+			diplomacy = 15
+		}
+        name = EVTOPT_MINOR_ARTIFACT_PRESTIGE
+
+        reverse_opinion = {
+			who = FROM
+			modifier = opinion_was_praised
+			years = 5
+		}
+		opinion = {
+			who = FROM
+			modifier = opinion_found_minor_artifact
+			years = 5
+		}
+		FROM = { prestige = 25 }
+		random = {
+			chance = 20
+			add_friend = FROM
+		}
+        add_artifact = religious_icon
+    }
+    after = { clr_artifact_flagsmodifiers_effect = yes }
+}
+
+# MYTH.67 - Notification for gaining ascetic
+character_event = {
+	id = MYTHMORE.28
+	desc = EVTDESC_MYTHMORE.28
+	picture = GFX_evt_secluded_in_prayer
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.68 - Notification for losing ascetic
+character_event = {
+	id = MYTHMORE.29
+	desc = EVTDESC_MYTHMORE.29
+	picture = GFX_evt_relaxed_ruler
+	
+	notification = yes
+	
+	is_triggered_only = yes
+	hide_from = yes
+	
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.69 - Destroy Icon
+character_event = {
+	id = MYTHMORE.30
+	desc = EVTDESC_MYTHMORE.30
+	picture = GFX_evt_icon
+	border = GFX_event_normal_frame_religion
+	
+	notification = yes
+
+    is_triggered_only = yes
+	
+	trigger = { religion = iconoclast } # Sanity
+	
+	immediate = {
+		if = {
+			limit = {
+				FROMFROMFROM = {
+					has_artifact_flag = major_icon
+				}
+			}
+			any_demesne_province = {
+				limit = { religion = iconoclast }
+				add_province_modifier = { modifier = destroyed_major_icon years = 1 }
+			}
+			piety = 300
+			add_character_modifier = { modifier = destroyed_major_icon_character years = 1 }
+			religion_authority = { modifier = destroyed_major_icon_MA }
+		}
+		else = {
+			any_demesne_province = {
+				limit = { religion = iconoclast }
+				add_province_modifier = { modifier = destroyed_minor_icon years = 1 }
+			}
+			piety = 100
+			add_character_modifier = { modifier = destroyed_minor_icon_character years = 1 }
+		}
+		FROMFROMFROM = { destroy_artifact = yes }
+	}
+	option = {
+		name = OK 
+	}
+}
+
+# MYTH.70 - Donate Artifact
+character_event = {
+	id = MYTHMORE.31
+	desc = EVTDESC_MYTHMORE.31
+	picture = GFX_evt_relic_box
+	border = GFX_event_normal_frame_religion
+	
+	notification = yes
+
+    is_triggered_only = yes
+	
+	immediate = {
+		any_demesne_province = {
+			limit = { NOT = { has_province_modifier = prosperity_modifier_3 } }
+			add_province_modifier = { modifier = charity_to_poor years = 1 }
+			hidden_tooltip = {
+ 				change_variable = { which = prosperity_value value = 2 }
+			}
+		}
+		piety = 100
+		add_character_modifier = { modifier = acts_of_charity years = 1 }
+		FROMFROMFROM = { destroy_artifact = yes }
+		if = {
+			limit = {
+				NOR = {
+					trait = charitable
+					trait = greedy
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = charitable
+				hidden_tooltip = {
+					# Notify
+					character_event = { id = 38273 }
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = greedy }
+			random = {
+				chance = 20
+				remove_trait = greedy
+				hidden_tooltip = {
+					# Notify
+					character_event = { id = 38252 }
+				}
+			}
+		}
+	}
+	option = {
+		name = OK 
+	}
+}
+
+# Wipe prosperity progress with a chance to lower prosperity
+province_event = {
+	id = MYTHMORE.32
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = prosperity_value value = 0 }
+		random = {
+			chance = 75 #chance to lower by 1 step
+			if = {
+				limit = {
+					has_province_modifier = depopulated_2
+				}
+				remove_province_modifier = depopulated_2
+				add_province_modifier = { name = depopulated_3 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = depopulated_1
+				}
+				remove_province_modifier = depopulated_1
+				add_province_modifier = { name = depopulated_2 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				add_province_modifier = { name = depopulated_1 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_1
+				}
+				remove_province_modifier = prosperity_modifier_1
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_2
+				}
+				remove_province_modifier = prosperity_modifier_2
+				add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+				break = yes
+			}
+			else_if = {
+				limit = {
+					has_province_modifier = prosperity_modifier_3
+				}
+				remove_province_modifier = prosperity_modifier_3
+				add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+			}
+		}
+	}
+}

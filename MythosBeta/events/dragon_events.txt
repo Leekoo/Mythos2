@@ -1,0 +1,8017 @@
+namespace = DRAGON
+### Dragon events
+
+# DRAGON.1 - was MYTH.78 - Dragon angers locals
+province_event = {
+	id = DRAGON.1
+	title = EVTNAME_DRAGON.1
+	desc = EVTDESC_DRAGON.1
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { culture = draconic }
+		owner = { 
+			NOT = { trait = incapable }
+			top_liege = { trait = dragon}
+		}
+	}	
+
+	option = {
+		name = EVTOPTA_DRAGON.1
+		owner = { top_liege = { scaled_wealth = { value = -0.3 min = -10 max = -300 } } }
+	}
+	option = {
+		name = EVTOPTB_DRAGON.1
+		add_province_modifier = {
+			name = recently_burnt_the_land_not_owner
+			duration = 365
+		}
+	}
+	option = {
+		name = EVTOPTC_DRAGON.1
+		tooltip_info = diplomacy
+		trigger = {
+			owner = { 
+				top_liege = { 
+					NOT = { trait = "wroth" }
+					diplomacy = 15 
+				} 
+			}
+		}
+	}
+	option = {
+		name = EVTOPTD_DRAGON.1
+		trigger = {
+			owner = { top_liege = { dynasty = 1049229 } }
+		}
+	}
+}
+
+# DRAGON.2 - was MYTH.79 - Dragon with small horde
+character_event = {
+	id = DRAGON.2
+	title = EVTNAME_DRAGON.2
+	desc = EVTDESC_DRAGON.2
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		NOT = { wealth = 500 }
+	}
+	
+	weight_multiplier = {
+		days = 3
+		modifier = {
+			factor = 4
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { wealth = 250 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { wealth = 125 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { wealth = 50 }
+		}
+		modifier = {
+			factor = 10
+			NOT = { wealth = 0 }
+		}
+		modifier = {
+			factor = 4
+			trait = envious
+		}
+		modifier = {
+			factor = 0.2
+			trait = humble
+		}
+		modifier = {
+			factor = 2
+			trait = zealous
+			OR = {
+				true_religion = draconic_pagan_reformed
+				true_religion = draconic_pagan
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { trait = dragon }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.2
+		scaled_wealth = { value = 0.5 max = 200 }
+		any_vassal = {
+			opinion = {
+				who = ROOT
+				modifier = opinion_tyrant
+				months = 24
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					true_religion = draconic_pagan
+					true_religion = draconic_pagan_reformed
+				}
+				ai_zeal = 50
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.2
+		tooltip_info = stewardship
+		trigger = { stewardship = 15 }
+		scaled_wealth = { value = 0.3 max = 150 }
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = EVTOPTC_DRAGON.2
+		prestige = -10
+		if = {
+			limit = {
+				OR = {
+					true_religion = draconic_pagan
+					true_religion = draconic_pagan_reformed
+				}
+			}
+			piety = -10
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+			modifier = {
+				factor = 2
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = humble
+			}
+			modifier = {
+				factor = 1.5
+				ai_honor = 20
+			}
+		}
+	}
+}
+
+# DRAGON.3 - was MYTH.89 - Dragon aging
+character_event = {
+	id = "DRAGON.3"
+	title = EVTNAME_DRAGON.3
+	desc = "EVTDESC_DRAGON.3"
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	min_age = 20
+	
+	trigger = {
+		trait = dragon
+		#age = 20
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.2
+			age = 50
+		}
+		modifier = {
+			factor = 1.2
+			age = 100
+		}
+		modifier = {
+			factor = 1.2
+			age = 150
+		}
+		modifier = {
+			factor = 1.3
+			age = 200
+		}
+		modifier = {
+			factor = 0
+			NOT = { trait = dragon }
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA_DRAGON.3"
+		change_martial = 1
+		change_stewardship = 1
+		change_learning = 2
+		economy_techpoints = 100
+		health = 1
+	}
+}
+
+# DRAGON.4 - Set up DRAGON.1
+character_event = {
+	id = DRAGON.4
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = incapable }
+		trait = dragon
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 5
+			trait = arbitrary
+		}
+		modifier = {
+			factor = 0.5
+			trait = just
+		}
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 4
+			trait = gluttonous
+		}
+		modifier = {
+			factor = 5
+			OR = { 
+				trait = possessed
+				trait = lunatic
+			}
+		}
+		modifier = {
+			factor = 4
+			OR = { 
+				trait = drunkard
+				trait = hedonist
+			}
+		}
+		modifier = {
+			factor = 0.5
+			trait = temperate
+		}
+		modifier = {
+			factor = 0.3
+			trait = gregarious
+		}
+		modifier = {
+			factor = 0
+			NOT = { trait = dragon }
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				NOT = { culture = draconic }
+			}
+			province_event = { id = DRAGON.1 }
+		}
+	}
+}
+
+# DRAGON.7 - Seize an artifact as tribute
+character_event = {
+	id = DRAGON.7
+	desc = EVTDESC_DRAGON.7
+	picture = GFX_evt_relic_box
+    border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		event_target:artifact_owner = {
+			any_artifact = {
+				quality == 1
+				NOT = {
+					artifact_type_owned_by = ROOT
+				}
+			}
+		}
+	}
+			
+	
+	immediate = {
+		event_target:artifact_owner = {
+			random_artifact = {
+				limit = {
+					quality == 1
+					NOT = {
+						artifact_type_owned_by = ROOT
+					}
+				}
+				set_artifact_flag = looted_artifact_tooltip_1
+				set_artifact_flag = looted_artifact_tooltip_2
+				transfer_artifact = {
+					from = event_target:artifact_owner
+					to = ROOT
+				}
+				ROOT = { character_event = { id = MNM.9903 } }
+				if = {
+					limit = { artifact_type = philosopher_stone }
+					ROOT = { add_trait = philosopher_stone_trait }
+					event_target:artifact_owner = { remove_trait = philosopher_stone_trait }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			random_artifact = {
+				limit = {
+					has_artifact_flag = looted_artifact_tooltip_1
+				}
+				transfer_artifact = {
+					from = event_target:artifact_owner
+					to = ROOT
+				}
+			}
+		}
+		hidden_effect = {
+			random_artifact = {
+				limit = {
+					has_artifact_flag = looted_artifact_tooltip_1
+				}
+				clr_artifact_flag = looted_artifact_tooltip_1
+			}
+		}
+	}
+}
+
+# DRAGON.8 - On ruler death of draconic tribal tribute, slightly delayed event to main heir
+character_event = {
+	id = DRAGON.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_tributary = yes
+		suzerain = {
+			government = draconic_tribal_government
+		}
+	}
+	
+	immediate = {
+		suzerain = {
+			save_event_target_as = dragon_suzerain
+		}
+		#current_heir = {
+		#	character_event = { id = DRAGON.9 days = 2 }
+		#}
+		# Use capital to bounce to the new ruler to avoid issues with gavelkind
+		capital_scope = { province_event = { id = DRAGON.55 days = 1 } }
+	}
+}
+
+# DRAGON.9 - Old ruler paid tribute to a dragon. You now have the same choice
+character_event = {
+	id = DRAGON.9
+	desc = EVTDESC_DRAGON.9
+	picture = GFX_evt_war_planning
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:dragon_suzerain = {
+			make_tributary = { who = ROOT percentage = 0.4 }
+		}
+	}
+	
+	# Continue paying tribute
+	option = {
+		name = EVTOPTA_DRAGON.9
+		hidden_tooltip = {
+			event_target:dragon_suzerain = {
+				character_event = { id = DRAGON.10 }
+			}
+		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 1.2
+				trait = content
+			}
+			modifier = {
+				factor = 1.2
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.2
+				opinion = {
+					who = event_target:dragon_suzerain
+					value = 50 
+				}
+			}
+		}
+	}
+	
+	# Pay them off
+	option = {
+		name = EVTOPTB_DRAGON.9
+		trigger = {
+			scaled_wealth = 2
+		}
+		transfer_scaled_wealth = { to = event_target:dragon_suzerain value = 2 }
+		suzerain = {
+			remove_tributary = ROOT
+		}
+		hidden_tooltip = {
+			event_target:dragon_suzerain = { character_event = { id = DRAGON.11 } }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 1.2
+				reverse_has_truce = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				scaled_wealth = 3
+			}
+			modifier = {
+				factor = 1.2
+				scaled_wealth = 4
+			}
+			modifier = {
+				factor = 1.2
+				scaled_wealth = 6
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = event_target:dragon_suzerain value = 25 }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { scaled_wealth = 2 }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { scaled_wealth = 1 }
+			}
+			modifier = {
+				factor = 0.8
+				NOT = { scaled_wealth = 0.5 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { wealth = 0 }
+			}
+		}
+	}
+	
+	# Vassal
+	option = {
+		trigger = { 
+			independent = yes
+			lower_tier_than = event_target:dragon_suzerain
+		}
+		name = EVTOPTC_DRAGON.9
+		suzerain = {
+			remove_tributary = ROOT
+		}
+		set_defacto_liege = event_target:dragon_suzerain
+		hidden_tooltip = {
+			event_target:dragon_suzerain = { character_event = { id = DRAGON.12 } }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 1.2
+				NOT = { ai_ambition = 0 }
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 70
+			}
+			modifier = {
+				factor = 1.2
+				true_religion = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				culture = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				dynasty = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				is_incapable = yes
+			}
+			modifier = {
+				factor = 1.2
+				is_lover = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 0.8
+				is_tribal = no
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { relative_power = { who = event_target:dragon_suzerain power = 0.75 } }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { relative_power = { who = event_target:dragon_suzerain power = 0.5 } }
+			}
+			modifier = {
+				factor = 1.4
+				NOT = { relative_power = { who = event_target:dragon_suzerain power = 0.25 } }
+			}
+			modifier = {
+				factor = 1.2
+				opinion = { who = event_target:dragon_suzerain value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = event_target:dragon_suzerain value = 100 }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { realm_size = 2}
+				event_target:dragon_suzerain = { realm_size = 5 }
+			}
+			modifier = {
+				# Single province count, and suzerain has at least 2 counties in your dejure duchy
+				factor = 1.4
+				NOT = { realm_size = 2 }
+				tier = count
+				capital_scope = {
+					duchy = {
+						any_de_jure_vassal_title = {
+							count = 2
+							tier = count
+							owner = {
+								top_liege = {
+									character = event_target:dragon_suzerain
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0.8
+				trait = proud
+			}
+			modifier = {
+				factor = 1.2
+				trait = humble
+			}
+			modifier = {
+				factor = 1.3
+				trait = craven
+			}
+		}
+	}
+	
+	# Revolt
+	option = {
+		name = EVTOPTD_DRAGON.9
+		trigger = {
+			war = no
+			suzerain = {
+				NOT = { war_with = ROOT }
+				NOT = { reverse_has_truce = ROOT }
+			}
+		}
+		hidden_tooltip = {
+			event_target:dragon_suzerain = { character_event = { id = DRAGON.13 } }
+		}
+		war = { target = event_target:dragon_suzerain casus_belli = free_tributary_cb }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 1.2
+				ai_ambition = 75 
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 75
+			}
+			modifier = {
+				factor = 1.2
+				is_rival = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				higher_tier_than = event_target:dragon_suzerain
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { personal_opinion = { who = event_target:dragon_suzerain value = 0 } }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { personal_opinion = { who = event_target:dragon_suzerain value = -24 } }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { personal_opinion = { who = event_target:dragon_suzerain value = -49 } }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { personal_opinion = { who = event_target:dragon_suzerain value = -74 } }
+			}
+			modifier = {
+				factor = 1.2
+				NOT = { personal_opinion = { who = event_target:dragon_suzerain value = -99 } }
+			}
+			modifier = {
+				factor = 1.2
+				relative_power = { who = event_target:dragon_suzerain power = 1.5 }
+			}
+			modifier = {
+				factor = 1.2
+				relative_power = { who = event_target:dragon_suzerain power = 2.0 }
+			}
+			modifier = {
+				factor = 1.2
+				relative_power = { who = event_target:dragon_suzerain power = 3.0 }
+			}
+			modifier = {
+				factor = 1.2
+				relative_power = { who = event_target:dragon_suzerain power = 4.0 }
+			}
+			modifier = {
+				factor = 1.2
+				OR = {
+					trait = impaler
+					trait = duelist
+					trait = strategist
+				}
+			}
+			modifier = {
+				factor = 1.2
+				has_ambition = obj_become_king
+			}
+			modifier = {
+				factor = 0.8
+				has_ambition = obj_see_the_realm_prosper
+			}
+			modifier = {
+				factor = 0.7
+				NOT = { realm_size = 2 }
+			}
+			modifier = {
+				factor = 0.8
+				in_revolt = yes
+			}
+			modifier = {
+				factor = 0.6
+				war = yes
+			}
+			modifier = {
+				factor = 1.2
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.2
+				trait = brave
+			}
+			modifier = {
+				factor = 0.5
+				trait = craven
+			}
+		}
+	}
+}
+
+# DRAGON.10 - New ruler will continue paying tribure
+character_event = {
+	id = DRAGON.10
+	desc = EVTDESC_DRAGON.10
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.10
+	}
+}
+
+# DRAGON.11 - New ruler pays lump tribute
+character_event = {
+	id = DRAGON.11
+	desc = EVTDESC_DRAGON.11
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.11
+		custom_tooltip = {
+			text = EVTTT_DRAGON.11
+			FROM = { transfer_scaled_wealth = { to = ROOT value = 3 } }
+		}
+		set_truce = { who = FROM years = 5 }
+	}
+}
+
+# DRAGON.12 - New ruler becomes a vassal
+character_event = {
+	id = DRAGON.12
+	desc = EVTDESC_DRAGON.12
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.12
+		custom_tooltip = {
+			text = EVTTT_DRAGON.11
+			FROM = { set_defacto_liege = ROOT }
+		}
+	}
+}
+
+# DRAGON.13 - New ruler revolts to end tribute
+character_event = {
+	id = DRAGON.13
+	desc = EVTDESC_DRAGON.13
+	picture = GFX_evt_throne_room
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.13
+		FROM = { war = { target = event_target:dragon_suzerain casus_belli = free_tributary_cb } }
+	}
+}
+
+# DRAGON.14 - Abdicate to forced heir, setup
+character_event = {
+	id = DRAGON.14
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_assigned_minor_title = title_forced_heir
+	}
+	
+	immediate = {
+		any_opinion_modifier_target = {
+			limit = {
+				reverse_has_opinion_modifier = {
+					who = ROOT
+					modifier = opinion_forced_heir
+				}
+			}
+			wealth = ROOT
+			ROOT = {
+				clear_wealth = yes
+				abdicate_to = PREV
+			}
+		}
+	}
+}
+
+# Ultimatum - Make me your heir
+letter_event = {
+	id = DRAGON.15
+	desc = EVTDESC_DRAGON.15
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { in_faction = faction_draconic_heir }
+	}
+	
+	immediate = {
+		FROM = { 
+			diplomatic_immunity = yes 
+			any_faction_backer = {
+				faction = faction_draconic_heir
+				diplomatic_immunity = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA8000
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = {
+					FROM = {
+						faction_power = {
+							faction = faction_draconic_heir
+							power = 1.0
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				is_weak_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = craven
+			}
+			modifier = {
+				factor = 1.25
+				trait = humble
+			}
+			modifier = {
+				factor = 1.25
+				trait = kind
+			}
+			modifier = {
+				factor = 1.25
+				trait = charitable
+			}
+			modifier = {
+				factor = 1.25
+				trait = patient
+			}
+			modifier = {
+				factor = 1.25
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				current_heir = {
+					is_rival = ROOT
+				}
+			}
+		}
+		
+		hidden_tooltip = {
+			any_vassal = {
+				limit = {
+					ai = no
+					NOT = { in_faction = faction_draconic_heir }
+				}
+				character_event = { id = DRAGON.16 }
+			}
+			FROM = {
+				letter_event = { id = DRAGON.17 }
+				any_faction_backer = {
+					faction = faction_draconic_heir
+					letter_event = { id = DRAGON.18 }
+					diplomatic_immunity = no
+				}
+				diplomatic_immunity = no
+			}
+		}
+		FROM = {
+			give_minor_title = title_forced_heir
+		}
+		opinion = {	modifier = opinion_forced_heir who = FROM }
+	}
+	
+	option = {
+		name = EVTOPTB8000
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 1.25
+				is_strong_trigger = yes
+			}
+			modifier = {
+				factor = 1.25
+				trait = brave
+			}
+			modifier = {
+				factor = 1.25
+				trait = proud
+			}
+			modifier = {
+				factor = 1.25
+				trait = envious
+			}
+			modifier = {
+				factor = 1.25
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.25
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.25
+				trait = ambitious
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_draconic_heir
+						power = 1.5
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_draconic_heir
+						power = 1.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_draconic_heir
+						power = 2.0
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_draconic_heir
+						power = 3.0
+					}
+				}
+			}	
+			modifier = {
+				factor = 0.5
+				FROM = {
+					faction_power = 
+					{
+						faction = faction_draconic_heir
+						power = 4.0
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				current_heir = {
+					is_friend = ROOT
+				}
+			}
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					FROM = { faction_power = { faction = faction_draconic_heir power = 1.0 } }
+				}
+				random = {
+					chance = 25
+					character_event = { id = 45002 days = 120 } # Loyalists flock to the liege's banner
+				}
+			}
+		}
+		FROM = {
+			letter_event = { id = DRAGON.19 days = 3 tooltip = "EVTTOOLTIP8100" }
+			tooltip = {
+				any_faction_backer = {
+					faction = faction_draconic_heir
+				}
+			}
+			hidden_tooltip = {
+				if = {
+					limit = {
+						NOT = { faction_power = { faction = faction_draconic_heir power = 0.75 } }
+					}
+					random_list = {
+						50 = {
+						}
+						30 = {
+							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
+						}
+						20 = {
+							character_event = { id = 45004 days = 17 } # Rebels flock to the revolter's banner
+						}
+					}
+				}
+				if = {
+					limit = {
+						faction_power = { faction = faction_draconic_heir power = 0.75 }
+						NOT = { faction_power = { faction = faction_draconic_heir power = 1.5 } }
+					}
+					random_list = {
+						75 = {
+						}
+						5 = {
+							character_event = { id = 45000 days = 17 } # A great number of rebels flock to the revolter's banner
+						}
+						20 = {
+							character_event = { id = 45004 days = 17 } # Rebels flock to the revolter's banner
+						}
+					}
+				}
+			}
+		}
+	}
+}
+		
+# DRAGON.16, inform other vassals - draconic heir
+character_event = {
+	id = DRAGON.16
+	desc = EVTDESC_DRAGON.16
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_intrigue
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "I_SEE"
+	}
+}
+
+# DRAGON.17, Demand accepted - draconic heir
+letter_event = {
+	id = DRAGON.17
+	desc = EVTDESC_DRAGON.17
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EXCELLENT"
+		clr_character_flag = faction_draconic_heir_ultimatum_taken
+		
+		add_character_modifier = {
+			name = faction_draconic_heir_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+
+# DRAGON.18, Inform faction backer - draconic heir
+letter_event = {
+	id = DRAGON.18
+	desc = EVTDESC_DRAGON.18
+	
+	show_from_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "GOOD"
+		reverse_opinion = {
+			modifier = opinion_grateful
+			who = FROMFROM
+			years = 5
+		}
+		
+		add_character_modifier = {
+			name = faction_draconic_heir_ultimatum_timer
+			hidden = yes
+			duration = 3650
+		}
+	}
+}
+
+# DRAGON.19, demand rejected - draconic heir
+letter_event = {
+	id = DRAGON.19
+	desc = EVTDESC8100
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA8100
+		
+		clr_character_flag = faction_draconic_heir_ultimatum_taken
+		
+		faction_draconic_heir = { # The target (title) of the faction
+			reverse_war = {
+				target = ROOT
+				casus_belli = cb_force_heir
+				faction = faction_draconic_heir
+			}
+		}
+	}
+}
+
+# DRAGON.20 - Handle unfit flame controller
+character_event = {
+	id = DRAGON.20
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			remove_character_modifier = unfit_flame_controller
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = dragon
+					trait = flametender
+				}
+			}
+			remove_character_modifier = unfit_flame_controller
+			break = yes
+		}
+		if = {
+			limit = {
+				any_demesne_province = {
+					has_building = tp_eternal_flame
+				}
+			}
+			add_character_modifier = { name = unfit_flame_controller }
+			break = yes
+		}
+		remove_character_modifier = unfit_flame_controller
+	}
+}
+
+# DRAGON.21 - Control Heathen Stronghold modifier
+character_event = {
+	id = DRAGON.21
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+	}
+	
+	immediate = {
+		any_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+				}
+				remove_province_modifier = heathen_stronghold
+			}
+			else = {
+				add_province_modifier = { name = heathen_stronghold }
+			}
+		}
+	}
+}
+
+# DRAGON.22 - Eternal Flame - Infidel Holder - Pilgrims riled up
+character_event = {
+	id = DRAGON.22
+	desc = EVTDESC_DRAGON.22
+	picture = GFX_evt_dragon_castle
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA20039"
+		event_target:upset_province = {
+			# Increase revolt risk
+			add_province_modifier = {
+				name = religious_tension
+				duration = 365
+			}
+			# Province barons
+			any_province_lord = {
+				limit = {
+					NOT = { character = ROOT }
+				}
+				opinion = {
+					who = ROOT
+					modifier = opinion_irritated
+					months = 12
+				}
+			}
+		}
+	}
+}
+
+# DRAGON.23 - Eternal Flame - Infidel Holder - Priests angered by rituals
+character_event = {
+	id = DRAGON.23
+	desc = EVTDESC_DRAGON.23
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			any_province_holding = {
+				has_building = tp_eternal_flame
+				owner = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.23
+		add_character_modifier = { name = annoyed_religious years = 1 }
+	}
+}
+
+# DRAGON.24 - Eternal Flame - Infidel Holder - Zealous vassal angered
+character_event = {
+	id = DRAGON.24
+	desc = EVTDESC_DRAGON.24
+	picture = GFX_evt_poke_king_in_chest
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+		any_vassal = {
+			trait = zealous
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			trait = slothful
+		}
+		modifier = {
+			factor = 1.5
+			trait = cynical
+		}
+		modifier = {
+			factor = 1.5
+			trait = sympathy_pagans
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+		random_vassal = {
+			limit = { 
+				trait = zealous
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+					secret_religion = draconic_pagan
+					secret_religion = draconic_pagan_reformed
+				}
+			}
+			save_event_target_as = upset_vassal
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.24
+		reverse_opinion = { who = event_target:upset_vassal modifier = opinion_bitter years = 2 }
+		opinion = { who = event_target:upset_vassal modifier = opinion_insulted years = 2 }
+	}
+}
+
+# DRAGON.25 - Eternal Flame - Infidel Holder - Unlanded vassal converts
+character_event = {
+	id = DRAGON.25
+	desc = EVTDESC_DRAGON.25
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+		any_courtier = {
+			is_landed = no
+			NOT = { trait = zealous }
+			religion = ROOT
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+		random_courtier = {
+			limit = {
+				is_landed = no
+				NOT = { trait = zealous }
+				religion = ROOT
+			}
+			save_event_target_as = converted_courtier
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.25
+		event_target:converted_courtier = {
+			if = {
+				limit = { is_title_active = e_draconic_pagan_reformed }
+				religion = draconic_pagan_reformed
+			}
+			if = {
+				limit = { NOT = { is_title_active = e_draconic_pagan_reformed } }
+				religion = draconic_pagan
+			}
+		}
+	}
+}
+
+# DRAGON.26 - Eternal Flame - Infidel Holder - Heathen preacher appears
+character_event = {
+	id = DRAGON.26
+	desc = EVTDESC_DRAGON.26
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+		create_character = {
+			age = 26
+			trait = mastermind_theologian
+			trait = zealous
+			trait = greedy
+			trait = flametender
+			trait = dragon
+			trait = gregarious
+			random_traits = yes
+			religion = draconic_pagan
+			culture = draconic
+			dynasty = random
+		}
+		new_character = {
+			if = {
+				limit = { is_title_active = e_draconic_pagan_reformed }
+				religion = draconic_pagan_reformed
+			}
+			save_event_target_as = portrait_target
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.26
+		event_target:portrait_target = {
+			move_character = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.26
+		event_target:portrait_target = {
+			imprison = ROOT
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		event_target:upset_province = {
+			add_province_modifier = { name = ordered_our_prophet_executed years = 3 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					secret_religion = draconic_pagan
+					secret_religion = draconic_pagan_reformed
+				}
+			}
+		}
+	}
+}
+
+# DRAGON.27 - Eternal Flame - Infidel Holder - Locals blame heathen rituals for sickness
+character_event = {
+	id = DRAGON.27
+	desc =  EVTDESC_DRAGON.27 
+	picture = GFX_evt_depopulated_town
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			has_disease = yes
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { 
+				has_building = tp_eternal_flame
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				has_disease = yes
+			}
+			save_event_target_as = upset_province
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.27
+		event_target:upset_province = {
+			add_province_modifier = { name = peasants_scorned months = 3 }
+		}
+	}
+}
+
+# DRAGON.28 - Eternal Flame - Infidel Holder - Accused of heathen rituals
+character_event = {
+	id = DRAGON.28
+	desc = EVTDESC_DRAGON.28
+	picture = GFX_evt_accused
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+			controls_religion = no
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { has_building = tp_eternal_flame }
+			save_event_target_as = upset_province
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.28
+		add_character_modifier = { name = suspected_witch years = 1 }
+	}
+}
+# DRAGON.29 - Eternal Flame - Infidel Holder - Conflicts between pilgrims and locals
+character_event = {
+	id = DRAGON.29
+	desc = EVTDESC_DRAGON.29
+	picture = GFX_evt_riots_byzantine
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				has_building = tp_eternal_flame
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			save_event_target_as = upset_province
+			random_province_holding = {
+				limit = { has_building = tp_eternal_flame }
+				holder_scope = {
+					save_event_target_as = local_priest
+				}
+			}
+		}
+	}
+	
+	# Force conversion
+	option = {
+		name = EVTOPTA_DRAGON.29
+		trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		event_target:upset_province = {
+			religion = ROOT
+			add_province_modifier = { name = force_converting years = 1 }
+		}
+		if = {
+			limit = { NOT = { trait = zealous } }
+			random = {
+				chance = 30
+				add_trait = zealous
+				hidden_tooltip = {
+					# Notification for zealous
+					character_event = { id = 38269 }
+				}
+			}
+		}
+		if = {
+			limit = {
+				event_target:local_priest = {
+					NOT = { religion = ROOT }
+				}
+			}
+			event_target:local_priest = {
+				opinion = { modifier = opinion_tyrant who = ROOT }
+			}
+		}
+	}
+	
+	# Upset religious officials
+	option = {
+		name = EVTOPTB_DRAGON.29
+		add_character_modifier = { name = annoyed_religious years = 1 }
+		if = {
+			limit = { NOT = { trait = arbitrary } }
+			add_trait = arbitrary
+		}
+	}
+	
+	# Crack down
+	option = {
+		name = EVTOPTC_DRAGON.29
+		trigger = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+		}
+		event_target:upset_province = {
+			add_province_modifier = { name = religious_tension years = 1 }
+		}
+	}
+	
+	# Smooth things over
+	option = {
+		name = EVTOPTD_DRAGON.29
+		trigger = {
+			diplomacy = 16
+		}
+		tooltip_info = diplomacy
+	}
+}
+# DRAGON.30 - Eternal Flame - Infidel Holder - Religious unrest
+character_event = {
+	id = DRAGON.30
+	desc = EVTDESC_DRAGON.30
+	picture = GFX_evt_peasants
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		any_demesne_province = {
+			has_building = tp_eternal_flame
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_province = {
+			limit = { 
+				has_building = tp_eternal_flame
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			save_event_target_as = upset_province
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.30
+		event_target:upset_province = {
+			add_province_modifier = { name = religious_unrest duration = 730 }
+		}
+	}
+}
+
+# DRAGON.31 - Begin search for a way to destroy the flame
+character_event = {
+	id = DRAGON.31
+	desc = EVTDESC_DRAGON.31
+	picture = GFX_evt_council
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.31
+		hidden_tooltip = { character_event = { id = DRAGON.34 } }
+	}
+}
+
+# DRAGON.32 - Abandoned search to destroy flame - lost control of flame
+character_event = {
+	id = DRAGON.32
+	desc = EVTDESC_DRAGON.32
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.32
+		hidden_tooltip = {
+			clr_character_flag = destroy_flame_sjaelland
+			clr_character_flag = destroy_flame_kent
+			clr_character_flag = destroy_flame_galloway
+			clr_character_flag = destroy_flame_plock
+			clr_character_flag = destroy_flame_uppland
+		}
+	}
+}
+
+# DRAGON.33 - Abandoned search to destroy flame - already destroyed
+character_event = {
+	id = DRAGON.33
+	desc = EVTDESC_DRAGON.33
+	picture = GFX_evt_siege
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.33
+		hidden_tooltip = {
+			clr_character_flag = destroy_flame_sjaelland
+			clr_character_flag = destroy_flame_kent
+			clr_character_flag = destroy_flame_galloway
+			clr_character_flag = destroy_flame_plock
+			clr_character_flag = destroy_flame_uppland
+		}
+	}
+}
+
+# DRAGON.34 - Outcome control for search
+character_event = {
+	id = DRAGON.34
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			10 = {
+				# Attempt to bury the flame
+				character_event = { id = DRAGON.37 days = 60 random = 60 }
+			}
+			10 = {
+				# Cast a counterspell
+				modifier = {
+					factor = 0
+					NOT = {	has_education_magic_trigger = yes }
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.2
+					trait = proud
+				}
+				modifier = {
+					factor = 1.2
+					trait = erudite
+				}
+				character_event = { id = DRAGON.39 days = 30 random = 50 }
+			}
+			10 = {
+				# Pray for the flame to be stopped
+				modifier = {
+					factor = 0
+					trait = cynical
+				}
+				modifier = {
+					factor = 0
+					job_spiritual = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					NOT = {
+						job_spiritual = { character = THIS }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.2
+					has_lifestyle_learning_trigger = yes
+				}
+				modifier = {
+					factor = 0.8
+					trait = proud
+				}
+				modifier = {
+					factor = 1.2
+					trait = humble
+				}
+				character_event = { id = DRAGON.41 days = 30 random = 50 }
+			}
+			10 = {
+				# Attempt to bombard the flame with siege weapons
+				modifier = {
+					factor = 0
+					job_marshal = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					NOT = {
+						job_marshal = { character = THIS }
+					}
+				}
+				modifier = {
+					factor = 1.2
+					has_lifestyle_martial_trigger = yes
+				}
+				modifier = {
+					factor = 1.2
+					trait = wroth
+				}
+				character_event = { id = DRAGON.43 days = 60 random = 60 }
+			}
+			10 = {
+				# Try to flood the flame
+				modifier = {
+					factor = 0
+					job_treasurer = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+				}
+				modifier = {
+					factor = 0
+					NOT = {
+						job_treasurer = { character = THIS }
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = diligent
+				}
+				modifier = {
+					factor = 1.2
+					trait = patient
+				}
+				character_event = { id = DRAGON.45 days = 90 random = 90 }
+			}
+			10 = {
+				# Ritual Sacrifice
+				modifier = {
+					factor = 0
+					OR = {
+						NOT = { num_of_children = 1 }
+						primary_title = {
+							heir_under_primogeniture_law = {
+								NOT = { father = { character = ROOT } }
+							}
+							heir_under_primogeniture_law = {
+								NOT = { employer = { character = ROOT } }
+							}
+						}
+					}
+					OR = {
+						NOT = { num_of_spouses = 1 }
+						spouse = { is_landed = yes }
+					}
+					NOT = { num_of_lovers = 1 }
+					NOT = { num_of_friends = 1 }
+				}
+				modifier = {
+					factor = 1.2
+					trait = impaler
+				}
+				modifier = {
+					factor = 1.2
+					trait = deceitful
+				}
+				modifier = {
+					factor = 1.2
+					trait = cannibal_trait
+				}
+				modifier = {
+					factor = 1.1
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.2
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.1
+					trait = lunatic
+				}
+				modifier = {
+					factor = 1.1
+					trait = possessed
+				}
+				character_event = { id = DRAGON.47 days = 20 random = 100 }
+			}
+			10 = {
+				# Butcher the dragons
+				modifier = {
+					factor = 0
+					# Requires 3 dragon courtier or 1 dragon courtier and 1 draconic province
+					NOR = {
+						any_courtier = {
+							trait = dragon
+							count = 3
+						}
+						AND = {
+							any_courtier = {
+								trait = dragon
+							}
+							any_demesne_province = {
+								OR = {
+									religion = draconic_pagan
+									religion = draconic_pagan_reformed
+									culture = draconic
+								}
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = impaler
+				}
+				modifier = {
+					factor = 1.2
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.2
+					trait = lunatic
+				}
+				modifier = {
+					factor = 1.3
+					trait = possessed
+				}
+				modifier = {
+					factor = 0.2
+					trait = kind
+				}
+				modifier = {
+					factor = 0.5
+					trait = sympathy_pagans
+				}
+				modifier = {
+					factor = 1.1
+					trait = paranoid
+				}
+				character_event = { id = DRAGON.49 days = 80 random = 120 }
+			}
+		}
+	}
+}
+						
+# DRAGON.35 - Successfully destroyed flame
+character_event = {
+	id = DRAGON.35
+	desc = EVTDESC_DRAGON.35
+	picture = GFX_evt_irminsul_burning
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.35
+		if = {
+			limit = { has_character_flag = destroy_flame_sjaelland }
+			b_lejre = {
+				remove_building = tp_eternal_flame
+				save_event_target_as = destroyed_flame
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = destroy_flame_kent }
+			b_canterbury = {
+				remove_building = tp_eternal_flame
+				save_event_target_as = destroyed_flame
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = destroy_flame_plock }
+			b_pruszkow = {
+				remove_building = tp_eternal_flame
+				save_event_target_as = destroyed_flame
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = destroy_flame_galloway }
+			b_whithorn = {
+				remove_building = tp_eternal_flame
+				save_event_target_as = destroyed_flame
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = destroy_flame_uppland }
+			b_uppsala = {
+				remove_building = tp_eternal_flame
+				save_event_target_as = destroyed_flame
+			}
+		}
+		if = {
+			limit = { trait = cynical }
+			remove_trait = cynical
+		}
+		if = {
+			limit = { NOT = { trait = zealous } }
+			add_trait = zealous
+		}
+		religion_authority = { modifier = destroyed_eternal_flame }
+		hidden_tooltip = {
+			random_character = {
+				limit = { religion = draconic_pagan }
+				religion_authority = { modifier = lost_eternal_flame }
+			}
+			random_character = {
+				limit = { religion = draconic_pagan_reformed }
+				religion_authority = { modifier = lost_eternal_flame }
+			}
+		}
+		prestige = 300
+		hidden_tooltip = {
+			any_realm_character = {
+				limit = { 
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					NOT = { trait = cynical }
+				}
+				opinion = { modifier = opinion_offended who = ROOT years = 5 }
+				if = {
+					limit = { trait = zealous }
+					add_rival = ROOT
+				}
+			}
+			clr_character_flag = destroy_flame_sjaelland
+			clr_character_flag = destroy_flame_kent
+			clr_character_flag = destroy_flame_galloway
+			clr_character_flag = destroy_flame_plock
+			clr_character_flag = destroy_flame_uppland
+			# Notification to player characters
+			any_player = {
+				limit = { NOT = { character = ROOT } }
+				narrative_event = { id = DRAGON.53 }
+			}
+		}
+	}
+}
+	
+# DRAGON.36 - Attempt to destroy flame failed. Try again?
+character_event = {
+	id = DRAGON.36
+	desc = EVTDESC_DRAGON.36
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.36
+		scaled_wealth = { value = -0.25 max = -200 }
+		character_event = { id = DRAGON.34 days = 3 tooltip = keep_searching_flame }
+	}
+	option = {
+		name = EVTOPTB_DRAGON.36
+		custom_tooltip = { text = stop_searching_flame }
+		hidden_tooltip = {
+			clr_character_flag = destroy_flame_sjaelland
+			clr_character_flag = destroy_flame_kent
+			clr_character_flag = destroy_flame_galloway
+			clr_character_flag = destroy_flame_plock
+			clr_character_flag = destroy_flame_uppland
+		}
+	}
+}
+	
+# DRAGON.37 - Control for burying flame - make sure valid
+character_event = {
+	id = DRAGON.37
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		character_event = { id = DRAGON.38 }
+	}
+}
+# DRAGON.38 - Attempt to bury flame
+character_event = {
+	id = DRAGON.38
+	desc = EVTDESC_DRAGON.38
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	# Bury it
+	option = {
+		name = EVTOPTA_DRAGON.38
+		random_list = {
+			5 = {
+				custom_tooltip = { text = destroy_flame_success }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.35 days = 6 }
+				}
+			}
+			95 = {
+				custom_tooltip = { text = destroy_flame_failure }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.36 days = 6 }
+				}
+			}
+		}
+	}
+	
+	# Extra men
+	option = {
+		name = EVTOPTB_DRAGON.38
+		scaled_wealth = { value = -0.25 max = -200 }
+		random_list = {
+			10 = {
+				custom_tooltip = { text = destroy_flame_success }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.35 days = 6 }
+				}
+			}
+			90 = {
+				custom_tooltip = { text = destroy_flame_failure }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.36 days = 6 }
+				}
+			}
+		}
+	}
+	
+	# Spare no expense
+	option = {
+		name = EVTOPTC_DRAGON.38
+		scaled_wealth = { value = -1 max = -600 }
+		random_list = {
+			20 = {
+				custom_tooltip = { text = destroy_flame_success }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.35 days = 6 }
+				}
+			}
+			80 = {
+				custom_tooltip = { text = destroy_flame_failure }
+				hidden_tooltip = {
+					character_event = { id = DRAGON.36 days = 6 }
+				}
+			}
+		}
+	}
+	
+	# Reject plan
+	option = {
+		name = EVTOPTD_DRAGON.38
+		trigger = { ai = no }
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+	}
+}
+
+# DRAGON.39 - Control for counterspell - make sure valid
+character_event = {
+	id = DRAGON.39
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				NOT = {	has_education_magic_trigger = yes }
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.40 }
+	}
+}
+
+# DRAGON.40 - Attempt to disenchant flame
+character_event = {
+	id = DRAGON.40
+	desc = EVTDESC_DRAGON.40
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	# Counterspell
+	option = {
+		name = EVTOPTA_DRAGON.40
+		custom_tooltip = { text = strenuous_casting_1 }
+		hidden_tooltip = { add_character_modifier = { name = cast_spell years = 1 } }
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.6
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 1.05
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.1
+					trait = alchemist
+				}
+				modifier = {
+					factor = 1.2
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.3
+					trait = summoner
+				}
+				# Not yet implemented
+				#modifier = {
+				#	factor = 1.4
+				#	trait = necromancer
+				#}
+				modifier = {
+					factor = 1.5
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.1
+					learning = 5
+				}
+				modifier = {
+					factor = 1.1
+					learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					learning = 15
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 25
+				}
+				modifier = {
+					factor = 1.1
+					learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					learning = 50
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	# Overtax yourself
+	option = {
+		name = EVTOPTB_DRAGON.40
+		trigger = {
+			OR = {
+				trait = eldritch_scholar
+				trait = veteran_wizard
+				trait = arcane_master
+			}
+		}
+		custom_tooltip = { text = strenuous_casting_3 }
+		hidden_tooltip = { add_character_modifier = { name = cast_spell years = 3 } }
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.6
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 1.05
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.1
+					trait = alchemist
+				}
+				modifier = {
+					factor = 1.2
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.3
+					trait = summoner
+				}
+				# Not yet implemented
+				#modifier = {
+				#	factor = 1.4
+				#	trait = necromancer
+				#}
+				modifier = {
+					factor = 1.5
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.1
+					learning = 5
+				}
+				modifier = {
+					factor = 1.1
+					learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					learning = 15
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 25
+				}
+				modifier = {
+					factor = 1.1
+					learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					learning = 50
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			18 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		if = { limit = { trait = eldritch_scholar }
+			remove_trait = eldritch_scholar
+			add_trait = novice_mage
+		}
+		if = { limit = { trait = veteran_wizard }
+			remove_trait = veteran_wizard
+			add_trait = eldritch_scholar
+		}
+		if = { limit = { trait = arcane_master }
+			remove_trait = arcane_master
+			add_trait = veteran_wizard
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				trait = stressed
+			}
+			modifier = {
+				factor = 1.2
+				trait = diligent
+			}
+		}
+	}
+	
+	# Sacrifice your power
+	option = {
+		name = EVTOPTC_DRAGON.40
+		random_list = {
+			4 = {
+				modifier = {
+					factor = 1.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.6
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 1.05
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.1
+					trait = alchemist
+				}
+				modifier = {
+					factor = 1.2
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.3
+					trait = summoner
+				}
+				# Not yet implemented
+				#modifier = {
+				#	factor = 1.4
+				#	trait = necromancer
+				#}
+				modifier = {
+					factor = 1.5
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.1
+					learning = 5
+				}
+				modifier = {
+					factor = 1.1
+					learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					learning = 15
+				}
+				modifier = {
+					factor = 1.1
+					learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					learning = 25
+				}
+				modifier = {
+					factor = 1.1
+					learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					learning = 50
+				}
+				# Increased bonus for higher levels sacrificed
+				modifier = {
+					factor = 1.3
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 1.2
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 1.1
+					trait = eldritch_scholar
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			16 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		if = {
+			limit = { trait = arcane_master }
+			remove_trait = arcane_master
+		}
+		if = {
+			limit = { trait = veteran_wizard }
+			remove_trait = veteran_wizard
+		}
+		if = {
+			limit = { trait = eldritch_scholar }
+			remove_trait = eldritch_scholar
+		}
+		if = {
+			limit = { trait = novice_mage }
+			remove_trait = novice_mage
+		}
+		if = {
+			limit = { trait = enchanter }
+			remove_trait = enchanter
+			add_trait = mystic
+		}
+		if = {
+			limit = { trait = summoner }
+			remove_trait = summoner
+			add_trait = mystic
+		}
+		hidden_tooltip = {
+			remove_character_modifier = studying_conjuration
+			remove_character_modifier = studying_sorcery
+		}
+		add_trait = detached_priest
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = novice_mage
+			}
+		}
+	}
+	
+	# Decline
+	option = {
+		name = EVTOPTD_DRAGON.40
+		trigger = { ai = no }
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+	}
+}
+	
+# DRAGON.41 - Control for prayer - make sure valid
+character_event = {
+	id = DRAGON.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = cynical
+					job_spiritual = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+					NOT = {
+						job_spiritual = { character = THIS }
+					}
+				}
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.42 }
+	}
+}
+
+# DRAGON.42 - Attempt to pray the flame away
+character_event = {
+	id = DRAGON.42
+	desc = EVTDESC_DRAGON.42
+	picture = GFX_evt_bishop
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	immediate = {
+		count_personal_virtues = yes
+		count_personal_vices = yes
+	}
+	
+	# Pray
+	option = {
+		name = EVTOPTA_DRAGON.42
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.2
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.3
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.4
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 1.5
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 1.8
+					trait = theologian
+				}
+				modifier = {
+					factor = 0.2
+					OR = {
+						has_impious_trait_trigger = yes
+						trait = excommunicated
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = zealous
+				}
+				modifier = {
+					factor = 2
+					trait = celibate
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = pilgrim
+						trait = hajjaj
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = hafiz
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 70
+				}
+				modifier = {
+					factor = 1.1
+					check_variable = { which = virtue_count value = 1 }
+				}
+				modifier = {
+					factor = 1.1
+					check_variable = { which = virtue_count value = 2 }
+				}
+				modifier = {
+					factor = 1.1
+					check_variable = { which = virtue_count value = 3 }
+				}
+				modifier = {
+					factor = 1.1
+					check_variable = { which = virtue_count value = 4 }
+				}
+				modifier = {
+					factor = 1.1
+					check_variable = { which = virtue_count value = 5 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = num_vices value = 1 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = num_vices value = 2 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = num_vices value = 3 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = num_vices value = 4 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = num_vices value = 5 }
+				}
+				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 9
+		}
+	}
+	
+	# Take vow of celibacy
+	option = {
+		name = EVTOPTB_DRAGON.42
+		trigger = {
+			NOT = { trait = celibate }
+			NOT = { trait = lustful }
+		}
+		add_trait = celibate
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 1.2
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.3
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.4
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 1.5
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 1.8
+					trait = theologian
+				}
+				modifier = {
+					factor = 0.2
+					OR = {
+						has_impious_trait_trigger = yes
+						trait = excommunicated
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = pilgrim
+						trait = hajjaj
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = hafiz
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 70
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_1_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_2_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_3_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_4_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_5_or_better = yes
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_neutral_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_1_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_2_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_3_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_4_or_better = no
+				}
+				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
+			}
+			17 = {
+				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				num_of_children = 3
+			}
+		}
+	}
+	
+	# Take vow of poverty
+	option = {
+		name = EVTOPTD_DRAGON.42
+		trigger = {
+			NOT = { trait = ascetic }
+			NOT = { trait = greedy }
+		}
+		add_trait = ascetic
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 1.2
+					trait = detached_priest
+				}
+				modifier = {
+					factor = 1.3
+					trait = martial_cleric
+				}
+				modifier = {
+					factor = 1.4
+					trait = scholarly_theologian
+				}
+				modifier = {
+					factor = 1.5
+					trait = mastermind_theologian
+				}
+				modifier = {
+					factor = 1.8
+					trait = theologian
+				}
+				modifier = {
+					factor = 0.2
+					OR = {
+						has_impious_trait_trigger = yes
+						trait = excommunicated
+					}
+				}
+				modifier = {
+					factor = 1.2
+					trait = zealous
+				}
+				modifier = {
+					factor = 1.1
+					OR = {
+						trait = pilgrim
+						trait = hajjaj
+					}
+				}
+				modifier = {
+					factor = 1.1
+					trait = hafiz
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_learning = 70
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_1_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_2_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_3_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_4_or_better = yes
+				}
+				modifier = {
+					factor = 1.1
+					is_virtuous_5_or_better = yes
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_neutral_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_1_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_2_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_3_or_better = no
+				}
+				modifier = {
+					factor = 0.8
+					is_virtuous_minus_4_or_better = no
+				}
+				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
+			}
+			17 = {
+				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				ai_greed < -30
+			}
+		}
+	}
+	
+	# Alternate plan
+	option = {
+		name = EVTOPTC_DRAGON.42
+		trigger = { ai = no }
+		if = {
+			limit = { NOT = { trait = zealous } }
+			random = {
+				chance = 30
+				remove_trait = zealous
+				hidden_tooltip = {
+					# Notification
+					character_event = { id = 38310 }
+				}
+			}
+		}
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+	}
+	
+	after = {
+		set_variable = { which = num_virtues value = 0 }
+		set_variable = { which = num_vices value = 0 }
+	}
+}
+
+# DRAGON.43 - Control for bombarding flame - make sure valid
+character_event = {
+	id = DRAGON.43
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					job_marshal = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+					NOT = {
+						job_marshal = { character = THIS }
+					}
+				}
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.44 }
+	}
+}
+
+# DRAGON.44 - Attempt to bombard the flame with seige weapons
+character_event = {
+	id = DRAGON.44
+	desc = EVTDESC_DRAGON.44
+	picture = GFX_evt_machines_of_war
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.44
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.2
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.4
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.7
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 1.3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.1
+					trait = architect
+				}
+				modifier = {
+					factor = 1.3
+					trait = siege_leader
+				}
+				modifier = {
+					factor = 1.1
+					has_crusade_trait_trigger = yes
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.44
+		random_list ={
+			2 = {
+				modifier = {
+					factor = 1.2
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.4
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.7
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 1.3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.1
+					trait = architect
+				}
+				modifier = {
+					factor = 1.3
+					trait = siege_leader
+				}
+				modifier = {
+					factor = 1.1
+					has_crusade_trait_trigger = yes
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			18 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		add_character_modifier = { name = spent_military months = 9 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_DRAGON.44
+		random_list = {
+			4 = {
+				modifier = {
+					factor = 1.2
+					trait = misguided_warrior
+				}
+				modifier = {
+					factor = 1.4
+					trait = tough_soldier
+				}
+				modifier = {
+					factor = 1.7
+					trait = skilled_tactician
+				}
+				modifier = {
+					factor = 2
+					trait = brilliant_strategist
+				}
+				modifier = {
+					factor = 1.3
+					trait = strategist
+				}
+				modifier = {
+					factor = 1.1
+					trait = architect
+				}
+				modifier = {
+					factor = 1.3
+					trait = siege_leader
+				}
+				modifier = {
+					factor = 1.1
+					has_crusade_trait_trigger = yes
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_martial = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			16 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		add_character_modifier = { name = exhausted_military months = 9 }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+		}
+	}
+	
+	# Alternate plan
+	option = {
+		name = EVTOPTD_DRAGON.44
+		trigger = { ai = no }
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+	}
+}
+	
+# DRAGON.45 - Control for flooding the flame - make sure valid
+character_event = {
+	id = DRAGON.45
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					job_treasurer = {
+						OR = {
+							religion = draconic_pagan
+							religion = draconic_pagan_reformed
+						}
+					}
+					NOT = {
+						job_treasurer = { character = THIS }
+					}
+				}
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.46 }
+	}
+}
+
+# DRAGON.46 - Attempt to flood the flame
+character_event = {
+	id = DRAGON.46
+	desc = EVTDESC_DRAGON.46
+	picture = GFX_evt_leaning_tower
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.46
+		scaled_wealth = { value = -0.25 max = -100 }
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.2
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.4
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.7
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 1.1
+					trait = gardener
+				}
+				modifier = {
+					factor = 1.3
+					trait = architect
+				}
+				modifier = {
+					factor = 1.5
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 0.25 }
+			}
+			modifier = {
+				factor = 2
+				scaled_wealth = 1
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.46
+		scaled_wealth = { value = -1 max = -400 }
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.2
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.4
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.7
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 1.1
+					trait = gardener
+				}
+				modifier = {
+					factor = 1.3
+					trait = architect
+				}
+				modifier = {
+					factor = 1.5
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			9 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 1 }
+			}
+			modifier = {
+				factor = 2
+				scaled_wealth = 3
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_DRAGON.46
+		scaled_wealth = { value = -3 max = -800 }
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 1.2
+					trait = indulgent_wastrel
+				}
+				modifier = {
+					factor = 1.4
+					trait = thrifty_clerk
+				}
+				modifier = {
+					factor = 1.7
+					trait = fortune_builder
+				}
+				modifier = {
+					factor = 2
+					trait = midas_touched
+				}
+				modifier = {
+					factor = 1.1
+					trait = gardener
+				}
+				modifier = {
+					factor = 1.3
+					trait = architect
+				}
+				modifier = {
+					factor = 1.5
+					trait = administrator
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 10
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 20
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 30
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 40
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 50
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 60
+				}
+				modifier = {
+					factor = 1.1
+					realm_stewardship = 70
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			4 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { scaled_wealth = 3 }
+			}
+			modifier = {
+				factor = 2
+				scaled_wealth = 6
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_DRAGON.46
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+		}
+	}
+}
+	
+# DRAGON.47 - Control for ritual sacrifice - make sure valid
+character_event = {
+	id = DRAGON.47
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				NOR = {
+					AND = {
+						num_of_spouses = 1
+						spouse = {
+							is_landed = no
+						}
+						num_of_lovers = 1
+						num_of_friends = 1
+						AND = {
+							num_of_children = 1
+							primary_title = {
+								heir_under_primogeniture_law = {
+									father = { character = ROOT }
+									employer = { character = ROOT }
+								}
+							}
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.48 }
+	}
+}
+
+# DRAGON.48 - Attempt ritual sacrifice
+character_event = {
+	id = DRAGON.48
+	desc = EVTDESC_DRAGON.48
+	picture = GFX_evt_sacrifice
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				num_of_children = 1
+				primary_title = {
+					heir_under_primogeniture_law = {
+						father = { character = ROOT }
+						employer = { character = ROOT }
+					}
+				}
+			}
+			set_character_flag = child_sacrifice_flg
+			primary_title = {
+				heir_under_primogeniture_law = {
+					save_event_target_as = child_sacrifice
+					count_personal_virtues = yes
+					count_personal_vices = yes
+				}
+			}
+		}
+		if = {
+			limit = { 
+				num_of_spouses = 1 
+				spouse = { is_landed = no }
+			}
+			set_character_flag = spouse_sacrifice_flg
+			spouse = {
+				save_event_target_as = spouse_sacrifice
+				count_personal_virtues = yes
+				count_personal_vices = yes
+			}
+		}
+		if = {
+			limit = { 
+				num_of_lovers = 1
+				any_lover = {
+					NOT = { character = event_target:spouse_sacrifice }
+				}
+			}
+			set_character_flag = lover_sacrifice_flg
+			random_lover = {
+				limit = { NOT = { character = event_target:spouse_sacrifice } }
+				save_event_target_as = lover_sacrifice
+				count_personal_virtues = yes
+				count_personal_vices = yes
+			}
+		}
+		if = {
+			limit = {
+				num_of_friends = 1
+				any_friend = {
+					NOR = {
+						character = event_target:child_sacrifice
+						character = event_target:spouse_sacrifice
+						character = event_target:lover_sacrifice
+					}
+				}
+			}
+			set_character_flag = friend_sacrifice_flg
+			random_friend = {
+				limit = {
+					NOR = {
+						character = event_target:child_sacrifice
+						character = event_target:spouse_sacrifice
+						character = event_target:lover_sacrifice
+					}
+				}
+				save_event_target_as = friend_sacrifice
+				count_personal_virtues = yes
+				count_personal_vices = yes
+			}
+		}
+	}
+	
+	# Abort option first
+	option = {
+		name = EVTOPTA_DRAGON.48
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+		ai_chance = {
+			factor = 10
+		}
+	}
+	
+	# Sacrifice your child
+	option = {
+		name = EVTOPTB_DRAGON.48
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 1.5
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.1
+					event_target:child_sacrifice = {
+						NOT = { check_variable = { which = num_vices value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:child_sacrifice = {
+						NOT = { check_variable = { which = num_virtues value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:child_sacrifice = {
+						probable_virgin_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 5
+					event_target:child_sacrifice = {
+						immortal = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:child_sacrifice = {
+						character_disease_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:child_sacrifice = {
+						has_negative_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:child_sacrifice = {
+						has_positive_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:child_sacrifice = {
+						trait = dragon
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:child_sacrifice = {
+						trait = dragonborn
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:child_sacrifice = {
+						has_disability_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:child_sacrifice = {
+						trait = bastard
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:child_sacrifice = {
+						trait = born_in_the_purple
+					}
+				}
+				modifier = {
+					factor = 1.5
+					current_heir = {
+						character = event_target:child_sacrifice
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:child_sacrifice = {
+						trait = zealous
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:child_sacrifice = {
+						trait = trusting
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:child_sacrifice = {
+						trait = cruel
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:child_sacrifice = {
+						trait = eunuch
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:child_sacrifice = {
+						trait = cannibal_trait
+					}
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				is_foe = event_target:child_sacrifice
+			}
+			modifier = {
+				factor = 2
+				num_of_children = 3
+			}
+			modifier = {
+				factor = 2
+				current_heir = {
+					NOT = { character = event_target:child_sacrifice }
+				}
+			}
+		}
+	}
+	
+	# Sacrifice your spouse
+	option = {
+		name = EVTOPTC_DRAGON.48
+		random_list = {
+			3 = {
+				modifier = {
+					factor = 1.5
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.1
+					event_target:spouse_sacrifice = {
+						NOT = { check_variable = { which = num_vices value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:spouse_sacrifice = {
+						NOT = { check_variable = { which = num_virtues value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:spouse_sacrifice = {
+						probable_virgin_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 5
+					event_target:spouse_sacrifice = {
+						immortal = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:spouse_sacrifice = {
+						character_disease_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:spouse_sacrifice = {
+						has_negative_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:spouse_sacrifice = {
+						has_positive_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:spouse_sacrifice = {
+						trait = dragon
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:spouse_sacrifice = {
+						trait = dragonborn
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:spouse_sacrifice = {
+						has_disability_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:spouse_sacrifice = {
+						trait = bastard
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:spouse_sacrifice = {
+						trait = born_in_the_purple
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_lover = {
+						character = event_target:spouse_sacrifice
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:spouse_sacrifice = {
+						trait = zealous
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:spouse_sacrifice = {
+						trait = trusting
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:spouse_sacrifice = {
+						trait = cruel
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:spouse_sacrifice = {
+						trait = eunuch
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:spouse_sacrifice = {
+						trait = cannibal_trait
+					}
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				is_foe = event_target:spouse_sacrifice
+			}
+		}
+	}
+	
+	# Sacrifice Lover
+	option = {
+		name = EVTOPTD_DRAGON.48
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.1
+					event_target:lover_sacrifice = {
+						NOT = { check_variable = { which = num_vices value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:lover_sacrifice = {
+						NOT = { check_variable = { which = num_virtues value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:lover_sacrifice = {
+						probable_virgin_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 5
+					event_target:lover_sacrifice = {
+						immortal = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:lover_sacrifice = {
+						character_disease_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:lover_sacrifice = {
+						has_negative_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:lover_sacrifice = {
+						has_positive_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:lover_sacrifice = {
+						trait = dragon
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:lover_sacrifice = {
+						trait = dragonborn
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:lover_sacrifice = {
+						has_disability_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:lover_sacrifice = {
+						trait = bastard
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:lover_sacrifice = {
+						trait = born_in_the_purple
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_spouse = {
+						character = event_target:lover_sacrifice
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:lover_sacrifice = {
+						trait = zealous
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:lover_sacrifice = {
+						trait = trusting
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:lover_sacrifice = {
+						trait = cruel
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:lover_sacrifice = {
+						trait = eunuch
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:lover_sacrifice = {
+						trait = cannibal_trait
+					}
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				is_foe = event_target:lover_sacrifice
+			}
+		}
+	}
+	
+	# Sacrifice Friend
+	option = {
+		name = EVTOPTE_DRAGON.48
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					trait = mystic
+				}
+				modifier = {
+					factor = 1.1
+					event_target:friend_sacrifice = {
+						NOT = { check_variable = { which = num_vices value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:friend_sacrifice = {
+						NOT = { check_variable = { which = num_virtues value = 1 } }
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:friend_sacrifice = {
+						probable_virgin_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 5
+					event_target:friend_sacrifice = {
+						immortal = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:friend_sacrifice = {
+						character_disease_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:friend_sacrifice = {
+						has_negative_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:friend_sacrifice = {
+						has_positive_congenital_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 1.5
+					event_target:friend_sacrifice = {
+						trait = dragon
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:friend_sacrifice = {
+						trait = dragonborn
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:friend_sacrifice = {
+						has_disability_trigger = yes
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:friend_sacrifice = {
+						trait = bastard
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:friend_sacrifice = {
+						trait = born_in_the_purple
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_spouse = {
+						character = event_target:friend_sacrifice
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:friend_sacrifice = {
+						trait = zealous
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:friend_sacrifice = {
+						trait = trusting
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:friend_sacrifice = {
+						trait = cruel
+					}
+				}
+				modifier = {
+					factor = 0.5
+					event_target:friend_sacrifice = {
+						trait = eunuch
+					}
+				}
+				modifier = {
+					factor = 0.9
+					event_target:friend_sacrifice = {
+						trait = cannibal_trait
+					}
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			19 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+}
+	
+# DRAGON.49 - Control for draconic sacrifice - make sure valid
+character_event = {
+	id = DRAGON.49
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			character_event = { id = DRAGON.51 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						NOR = {
+							has_landed_title = c_sjaelland
+							has_landed_title = b_lejre
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						NOR = {
+							has_landed_title = c_kent
+							has_landed_title = b_canterbury
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						NOR = {
+							has_landed_title = c_plock
+							has_landed_title = b_pruszkow
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						NOR = {
+							has_landed_title = c_galloway
+							has_landed_title = b_whithorn
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						NOR = {
+							has_landed_title = c_uppland
+							has_landed_title = b_uppsala
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.32 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_character_flag = destroy_flame_sjaelland
+						c_sjaelland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_kent
+						c_kent = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_plock
+						c_plock = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_galloway
+						c_galloway = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+					AND = {
+						has_character_flag = destroy_flame_uppland
+						c_uppland = {
+							NOT = { has_building = tp_eternal_flame }
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.33 }
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					any_courtier = {
+						trait = dragon
+						count = 3
+					}
+					AND = {
+						any_courtier = {
+							trait = dragon
+						}
+						any_demesne_province = {
+							OR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+								culture = draconic
+							}
+						}
+					}
+				}
+			}
+			character_event = { id = DRAGON.34 }
+			break = yes
+		}
+		character_event = { id = DRAGON.50 }
+	}
+}
+
+# DRAGON.50 - Draconic sacrifice
+character_event = {
+	id = DRAGON.50
+	desc = EVTDESC_DRAGON.50
+	picture = GFX_evt_impalement
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.50
+		any_courtier = {
+			limit = { trait = dragon }
+			death = { death_reason = death_execution killer = ROOT }
+		}
+		any_demesne_province = {
+			limit = {
+				culture = draconic
+			}
+			increase_depopulation_effect = yes
+			add_province_modifier = { name = cultural_unrest years = 2 }
+		}
+		any_demesne_province = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			increase_depopulation_effect = yes
+			add_province_modifier = { name = religious_unrest years = 2 }
+		}
+		add_character_modifier = { name = merciless years = 5 }
+		hidden_tooltip = {
+			top_liege = {
+				any_realm_character = {
+					limit = {
+						OR = {
+							trait = dragon
+							trait = dragonborn
+						}
+					}
+					opinion = { modifier = evil_murderer who = ROOT origin_description = butchered_my_people }
+				}
+			}
+		}
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 2
+					trait = impaler
+				}
+				modifier = {
+					factor = 2
+					trait = hunter
+				}
+				modifier = {
+					factor = 2
+					trait = schemer
+				}
+				modifier = {
+					factor = 1.2
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.2
+					trait = diligent
+				}
+				modifier = {
+					factor = 1.3
+					trait = cruel
+				}
+				modifier = {
+					factor = 1.1
+					martial = 10
+				}
+				modifier = {
+					factor = 1.1
+					martial = 15
+				}
+				modifier = {
+					factor = 1.1
+					martial = 20
+				}
+				modifier = {
+					factor = 1.1
+					martial = 25
+				}
+				modifier = {
+					factor = 1.1
+					martial = 30
+				}
+				modifier = {
+					factor = 1.1
+					martial = 40
+				}
+				modifier = {
+					factor = 1.1
+					martial = 50
+				}
+				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
+			}
+			3 = {
+				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = cruel
+					trait = kind
+				}
+			}
+			add_trait = cruel
+		}
+		else_if = {
+			limit = { trait = kind }
+			remove_trait = kind
+		}
+		if = {
+			limit = { NOT = { lifestyle_traits = 1 } }
+			add_trait = impaler
+		}
+		if = {
+			limit = { has_nickname = no }
+			give_nickname = nick_the_butcher
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = possessed
+			}
+			modifier = {
+				factor = 0.5
+				trait = just
+			}
+			modifier = {
+				factor = 0.1
+				trait = kind
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.50
+		character_event = { id = DRAGON.34 days = 20 tooltip = alternate_plan }
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+# DRAGON.51 - Abort - converted to draconic paganism
+character_event = {
+	id = DRAGON.51
+	desc = EVTDESC_DRAGON.51
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.51
+		hidden_tooltip = {
+			clr_character_flag = destroy_flame_sjaelland
+			clr_character_flag = destroy_flame_kent
+			clr_character_flag = destroy_flame_galloway
+			clr_character_flag = destroy_flame_plock
+			clr_character_flag = destroy_flame_uppland
+		}
+	}
+}
+
+# DRAGON.52 - Sacrifice yourself to restore the flame
+character_event = {
+	id = DRAGON.52
+	desc = EVTDESC_DRAGON.52
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_religion
+
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.52
+		if = { 
+			limit = { has_character_flag = restore_flame_sjaelland }
+			b_lejre = { 
+				add_building = tp_eternal_flame
+				save_event_target_as = relit_flame
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_kent }
+			b_canterbury = { 
+				add_building = tp_eternal_flame
+				save_event_target_as = relit_flame
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_plock }
+			b_pruszkow = { 
+				add_building = tp_eternal_flame
+				save_event_target_as = relit_flame
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_galloway }
+			b_whithorn = { 
+				add_building = tp_eternal_flame
+				save_event_target_as = relit_flame
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_uppland }
+			b_uppsala = { 
+				add_building = tp_eternal_flame
+				save_event_target_as = relit_flame
+			}
+		}
+		religion_authority = { modifier = relit_eternal_flame }
+		prestige = 1000
+		add_character_modifier = { name = flame_restorer }
+		give_nickname = nick_the_everburning
+		if = {
+			limit = { NOT = { trait = zealous } }
+			add_trait = zealous
+		}
+		if = {
+			limit = { NOT = { trait = flametender } }
+			add_trait = flametender
+		}
+		if = {
+			limit = { NOT = { trait = brave } }
+			add_trait = brave
+		}
+		if = {
+			limit = { NOT = { trait = claw_of_fafnir } }
+			add_trait = claw_of_fafnir
+		}
+		if = {
+			limit = { trait = bad_priest_draconic }
+			remove_trait = bad_priest_draconic
+		}
+		death = { death_reason = death_sacrificed }
+		hidden_tooltip = {
+			any_player = {
+				narrative_event = { id = DRAGON.54 }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.51
+		hidden_tooltip = {
+			clr_character_flag = restore_flame_sjaelland
+			clr_character_flag = restore_flame_kent
+			clr_character_flag = restore_flame_plock
+			clr_character_flag = restore_flame_galloway
+			clr_character_flag = restore_flame_uppland
+		}
+	}
+}
+
+# DRAGON.53 - Notifications of flame destruction
+narrative_event = {
+	id = DRAGON.53
+	title = EVTTITLE_DRAGON.53
+	desc = EVTDESC_DRAGON.53
+	picture = GFX_evt_depopulated_town
+	border = GFX_event_narrative_frame_religion
+	is_triggered_only = yes
+	
+	ai = no
+	
+	major = yes
+	
+	# For draconic pagans
+	option = {
+		trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		name = EVTOPTA_DRAGON.53
+	}
+	# For dragons of the religion of the destroyer
+	option = {
+		trigger = {
+			OR = {
+				trait = dragon
+				trait = dragonborn
+			}
+			religion_group = FROM
+		}
+		name = EVTOPTB_DRAGON.53
+	}
+	# Co-religionists
+	option = {
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = dragonborn
+			}
+			religion_group = FROM
+		}
+		name = EVTOPTC_DRAGON.53
+	}
+	# Everyone else
+	option = {
+		trigger = {
+			NOR = {
+				religion_group = FROM
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		name = EVTOPTD_DRAGON.53
+	}
+}
+
+# DRAGON.54 - Flame relit
+narrative_event = {
+	id = DRAGON.54
+	title = EVTTITLE_DRAGON.54
+	desc = EVTDESC_DRAGON.54
+	picture = GFX_evt_dragon_immolation
+	border = GFX_event_narrative_frame_religion
+	is_triggered_only = yes
+	
+	ai = no
+	
+	major = yes
+	
+	# Dragonic pagans
+	option = {
+		trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		name = EVTOPTA_DRAGON.54
+	}
+	# Others
+	option = {
+		trigger = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		name = EVTOPTB_DRAGON.54
+	}
+}
+
+# DRAGON.55 - Bounce to Dragon.9 to alert the new ruler
+province_event = {
+	id = DRAGON.55
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		owner = { character_event = { id = DRAGON.9  days = 1 } }
+	}
+}
+
+# DRAGON.56 - Update Purity
+character_event = {
+	id = DRAGON.56
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = purity value = 0 }
+		remove_purity_trait = yes
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			determine_purity = yes
+			set_purity_trait = yes
+		}
+	}
+}
+
+# DRAGON.57 - Update purity for everyone. Runs on new game
+character_event = {
+	id = DRAGON.57
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		any_character = {
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# DRAGON.58 - Single dragon with desire for a pure marriage approached by appropriate lowborn
+character_event = {
+	id = DRAGON.58
+	hide_window = yes
+	
+	is_triggered_only = yes
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	min_age = 16
+	
+	trigger = {
+		trait = dragon
+		is_married = no
+		is_landed = yes
+		is_pregnant = no
+		has_regent = no
+		
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		
+		OR = {
+			is_female = no
+			NOT = { trait = infertile }
+		}
+		
+		NOR = {
+			trait = infirm
+			trait = celibate
+			trait = eunuch
+			trait = in_hiding
+			trait = disfigured
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 4
+			has_ambition = obj_purify_marriage
+		}
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				trait = dragon
+				ai = yes
+				is_pregnant = no
+				prisoner = no
+				NOR = {
+					trait = incapable
+					trait = infirm
+					trait = celibate
+					trait = eunuch
+					trait = chaste
+					trait = in_hiding
+					trait = disfigured
+				}
+				OR = {
+					is_female = no
+					NOT = { trait = infertile }
+				}
+				is_consort = no
+				is_married = no
+				can_marry = ROOT
+				is_marriage_adult = yes
+				NOT = { is_rival = ROOT }
+				religion = ROOT
+				culture = ROOT
+				
+				opinion = { who = ROOT value = 20 }
+			}
+			character_event = { id = DRAGON.59 }
+		}
+	}
+}
+
+# DRAGON.59 - Dragon courtier approaches character about marriage
+character_event = {
+	id = DRAGON.59
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = DRAGON.60 } }
+	}
+}
+
+# DRAGON.60 - Single Dragon looking for marriageable dragon, approached
+character_event = {
+	id = DRAGON.60
+	desc = EVTDESC_DRAGON.60
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_alive = yes }
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.60 # Marry her
+		add_spouse = FROM
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				has_ambition = obj_purify_marriage
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.60 # Refuse
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 2
+				trait = homosexual
+			}
+			modifier = {
+				factor = 2
+				trait = shy
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_DRAGON.60 # Perhaps something less permanent...
+		FROM = { character_event = { id = 452 days = 7 tooltip = EVTTOOLTIP452 } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 3
+				trait = hedonist
+			}
+		}
+	}
+}
+
+# DRAGON.61 - Ping for divorce suggestion
+character_event = {
+	id = DRAGON.61
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	min_age = 16
+	is_married = yes
+	
+	trigger = {
+		trait = dragon
+		spouse = { NOT = { trait = dragon } }
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		OR = {
+			trait = zealous
+			has_ambition = obj_purify_marriage
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			has_ambition = obj_purify_marriage
+		}
+	}
+	
+	immediate = {
+		random_vassal = {
+			limit = {
+				is_priest = yes
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				NOR = {
+					trait = cynical
+					trait = bad_priest_draconic
+				}
+			}
+			character_event = { id = DRAGON.62 }
+		}
+	}
+}
+
+# DRAGON.62 - Priest can speak to character about marriage
+character_event = {
+	id = DRAGON.62
+	desc = EVTDESC_DRAGON.62
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.62
+		FROM = { character_event = { id = DRAGON.63 } }
+	}
+	option = {
+		trigger = { ai = no }
+		name = EVTOPTB_DRAGON.62
+	}
+}
+
+# DRAGON.63 - Priest approached you about divorcing your human spouse
+character_event = {
+	id = DRAGON.63
+	desc = EVTDESC_DRAGON.63
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.63
+		random_spouse = {
+			limit = { NOT = { trait = dragon } }
+			transfer_scaled_wealth = { from = ROOT value = 0.75 }
+			opinion = { modifier = opinion_divorced who = ROOT }
+			any_close_relative = {
+				opinion = { modifier = opinion_divorced_relative who = ROOT }
+			}
+			remove_spouse = ROOT
+		}
+		FROM = { opinion = { modifier = opinion_took_my_advice who = ROOT } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.2
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				has_positive_purity = no
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.63
+		FROM = {
+			opinion = { modifier = opinion_did_not_take_my_advice who = ROOT }
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.2
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.2
+				trait = lustful
+			}
+		}
+	}
+}
+
+# DRAGON.64 - Ping for friend approaching you about non-dragon lover/consorts
+character_event = {
+	id = DRAGON.64
+	hide_window = yes
+	is_triggered_only = yes
+	
+	min_age = 16
+	only_playable = yes
+	religion_group = pagan_group
+	only_capable = yes
+	friends = yes
+	prisoner = no
+	
+	trigger = {
+		trait = dragon
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		OR = {
+			any_lover = {
+				NOT = { trait = dragon }
+			}
+			any_consort = {
+				NOT = { trait = dragon }
+			}
+		}
+	}
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			ai_zeal = 50
+		}
+		modifier = {
+			factor = 4
+			has_ambition = obj_purify_love
+		}
+		modifier = {
+			factor = 1.5
+			any_lover = {
+				NOT = { trait = zealous }
+				count = 2
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_consort = {
+				NOT = { trait = zealous }
+				count = 2
+			}
+		}
+	}
+	immediate = {
+		random_friend = {
+			limit = {
+				trait = dragon
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				OR = {
+					trait = zealous
+					ROOT = { has_ambition = obj_purify_love }
+				}
+				# Don't be a hypocrite
+				NOR = {
+					any_lover = {
+						NOT = { trait = dragon }
+					}
+					any_consort = {
+						NOT = { trait = dragon }
+					}
+				}
+			}
+			character_event = { id = DRAGON.65 }
+		}
+	}
+}
+
+# DRAGON.65 - Friend can approach about impure lovers
+character_event = {
+	id = DRAGON.65
+	desc = EVTDESC_DRAGON.65
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.65
+		FROM = { character_event = { id = DRAGON.66 } }
+	}
+	option = {
+		name = EVTOPTB_DRAGON.65
+		trigger = { ai = no }
+	}
+}
+
+# DRAGON.66 - Friend approaches about impure lovers
+character_event = {
+	id = DRAGON.66
+	desc = EVTDESC_DRAGON.66
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Set them aside
+	option = {
+		name = EVTOPTA_DRAGON.66
+		any_lover = {
+			limit = { NOT = { trait = dragon } }
+			remove_lover = ROOT
+			character_event = { id = 64046 } # Inform lover
+		}
+		any_consort = {
+			limit = { NOT = { trait = dragon } }
+			remove_consort = ROOT
+		}
+		FROM = { opinion = { modifier = opinion_took_my_advice who = ROOT } }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.2
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				has_positive_purity = no
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.66
+		FROM = {
+			opinion = { modifier = opinion_did_not_take_my_advice who = ROOT }
+		}
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 20
+				add_trait = lustful
+				hidden_tooltip = {
+					# Notify
+					character_event = { id = 38272 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.2
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.2
+				trait = lustful
+			}
+		}
+	}
+}
+
+# DRAGON.67 - Determine if Sapphire Flame is a fit holder
+character_event = {
+	id = DRAGON.67
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				has_landed_title = e_draconic_pagan_reformed
+				NOT = { trait = dragon }
+			}
+			add_character_modifier = { name = unfit_sapphire_flame }
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = dragon
+					NOT = { has_landed_title = e_draconic_pagan_reformed }
+				}
+			}
+			remove_character_modifier = unfit_sapphire_flame
+		}
+	}
+}
+
+# DRAGON.68 - Call 67 for new and old holder
+character_event = {
+	id = DRAGON.68
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	religion_group = pagan_group
+	
+	trigger = {
+		religion = draconic_pagan_reformed
+	}
+	
+	immediate = {
+		character_event = { id = DRAGON.67 days = 1 }
+		FROMFROM = { character_event = { id = DRAGON.67 days = 1 } }
+	}
+}
+
+# DRAGON.69 - Trade Land for Alliance - Select province
+character_event = {
+	id = DRAGON.69
+	desc = EVTDESC_DRAGON.69
+	picture = GFX_evt_fishing
+	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	# Note - to call event, make sure owner has at least 1 county title that borders SF that isn't their capital
+	
+	immediate = {
+		random_demesne_province = {
+			limit = {
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
+				OR = {
+					any_neighbor_province = {
+						owner = { 
+							top_liege = {
+								has_landed_title = e_draconic_pagan_reformed
+							}
+						}
+					}
+					sea_zone = {
+						any_neighbor_province = {
+							owner = { 
+								top_liege = {
+									has_landed_title = e_draconic_pagan_reformed
+								}
+							}
+						}
+					}
+					sea_zone = {
+						sea_zone = {
+							any_neighbor_province = {
+								owner = { 
+									top_liege = {
+										has_landed_title = e_draconic_pagan_reformed
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = title_1
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
+				NOT = { province = event_target:title_1 }
+				OR = {
+					any_neighbor_province = {
+						owner = { 
+							top_liege = {
+								has_landed_title = e_draconic_pagan_reformed
+							}
+						}
+					}
+					sea_zone = {
+						any_neighbor_province = {
+							owner = { 
+								top_liege = {
+									has_landed_title = e_draconic_pagan_reformed
+								}
+							}
+						}
+					}
+					sea_zone = {
+						sea_zone = {
+							any_neighbor_province = {
+								owner = { 
+									top_liege = {
+										has_landed_title = e_draconic_pagan_reformed
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = title_2
+		}
+		random_demesne_province = {
+			limit = {
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
+				NOR = { 
+					province = event_target:title_1
+					province = event_target:title_2
+				}
+				OR = {
+					any_neighbor_province = {
+						owner = { 
+							top_liege = {
+								has_landed_title = e_draconic_pagan_reformed
+							}
+						}
+					}
+					sea_zone = {
+						any_neighbor_province = {
+							owner = { 
+								top_liege = {
+									has_landed_title = e_draconic_pagan_reformed
+								}
+							}
+						}
+					}
+					sea_zone = {
+						sea_zone = {
+							any_neighbor_province = {
+								owner = { 
+									top_liege = {
+										has_landed_title = e_draconic_pagan_reformed
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = title_3
+		}
+	}
+	
+	option = { # Offer province 1
+		name = EVTOPTA_DRAGON.69
+		trigger = {
+			event_target:title_1 = { always = yes }
+		}
+		custom_tooltip = { text = offer_county_SF_alliance }
+		hidden_tooltip = {
+			# Ping to province
+			event_target:title_1 = {
+				county = { save_event_target_as = traded_title }
+				e_draconic_pagan_reformed = { holder_scope = { character_event = { id = DRAGON.70 } } }
+				#province_event = { id = DRAGON.70 }
+			}
+		}
+	}
+	option = { # Offer province 2
+		name = EVTOPTB_DRAGON.69
+		trigger = {
+			event_target:title_2 = { always = yes }
+		}
+		custom_tooltip = { text = offer_county_SF_alliance }
+		hidden_tooltip = {
+			# Ping to province
+			event_target:title_2 = {
+				county = { save_event_target_as = traded_title }
+				e_draconic_pagan_reformed = { holder_scope = { character_event = { id = DRAGON.70 } } }
+				#province_event = { id = DRAGON.70 }
+			}
+		}
+	}
+	option = { # Offer province 3
+		name = EVTOPTC_DRAGON.69
+		trigger = {
+			event_target:title_3 = { always = yes }
+		}
+		custom_tooltip = { text = offer_county_SF_alliance }
+		hidden_tooltip = {
+			# Ping to province
+			event_target:title_3 = {
+				county = { save_event_target_as = traded_title }
+				e_draconic_pagan_reformed = { holder_scope = { character_event = { id = DRAGON.70 } } }
+				#province_event = { id = DRAGON.70 }
+			}
+		}
+	}
+	option = { # Changed mind
+		name = EVTOPTD_DRAGON.69
+		trigger = {
+			OR = {
+				event_target:title_1 = { always = yes }
+				event_target:title_2 = { always = yes }
+				event_target:title_3 = { always = yes }
+			}
+		}
+	}
+	option = { # Sanity - shouldn't happen
+		name = EVTOPTE_DRAGON.69
+		trigger = {
+			NOR = {
+				event_target:title_1 = { always = yes }
+				event_target:title_2 = { always = yes }
+				event_target:title_3 = { always = yes }
+			}
+		}
+	}
+}
+
+# DRAGON.70 - Trade land for alliance - Offered to Sapphire Flame
+character_event = {
+	id = DRAGON.70
+	desc = EVTDESC_DRAGON.70
+	picture = GFX_evt_cathedral
+ 	border = GFX_event_normal_frame_diplomacy
+	
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	option = { # Accept
+		name = EVTOPTA_DRAGON.70
+		tooltip = { # Fake it here, give in in the event sent to the requestor
+			event_target:traded_title = { grant_title = ROOT }
+			add_alliance = { who = FROM years = 200 }
+			opinion = { who = FROM modifier = opinion_granted_county months = 60 }
+		}
+		hidden_tooltip = {
+			FROM = { letter_event = { id = DRAGON.71 days = 1 random = 2 } }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.3
+				FROM = { has_positive_purity = yes }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 20
+			}
+			modifier = {
+				factor = 1.2
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 1.5
+				family = FROM
+			}
+			modifier = {
+				factor = 1.1
+				FROM = { trait = dragon }
+			}
+			modifier = {
+				factor = 1.1
+				event_target:traded_title = { location = { has_hospital = yes } }
+			}
+			modifier = {
+				factor = 2
+				event_target:traded_title = { is_holy_site = ROOT }
+			}
+			modifier = {
+				factor = 2
+				event_target:traded_title = { ROOT = { has_claim = PREV } }
+			}
+			modifier = {
+				factor = 1.05
+				event_target:traded_title = { location = { num_of_max_settlements = 5 } }
+			}
+			modifier = {
+				factor = 1.05
+				event_target:traded_title = { location = { num_of_max_settlements = 6 } }
+			}
+			modifier = {
+				factor = 1.05
+				event_target:traded_title = { location = { num_of_max_settlements = 7 } }
+			}
+			modifier = {
+				factor = 1.1
+				event_target:traded_title = { location = { num_of_settlements = 4 } }
+			}
+			modifier = {
+				factor = 1.1
+				event_target:traded_title = { location = { num_of_settlements = 5 } }
+			}
+			modifier = {
+				factor = 1.1
+				event_target:traded_title = { location = { num_of_settlements = 6 } }
+			}
+			modifier = {
+				factor = 1.1
+				event_target:traded_title = { location = { num_of_settlements = 7 } }
+			}
+			modifier = {
+				factor = 1.05
+				reverse_opinion = { who = FROM value = 25 }
+			}
+			modifier = {
+				factor = 1.05
+				reverse_opinion = { who = FROM value = 50 }
+			}
+			modifier = {
+				factor = 1.05
+				reverse_opinion = { who = FROM value = 75 }
+			}
+			modifier = {
+				factor = 1.05
+				reverse_opinion = { who = FROM value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				event_target:traded_title = { de_jure_liege_or_above = ROOT }
+			}
+		}
+	}
+	
+	option = { # Refuse
+		name = EVTOPTB_DRAGON.70
+		hidden_tooltip = {
+			FROM = { letter_event = { id = DRAGON.72 } }
+		}
+		ai_chance = {
+			factor = 5
+			
+			modifier = {
+				factor = 2
+				event_target:traded_title = { location = { NOT = { religion = ROOT } } }
+			}
+			modifier = {
+				factor = 1.3
+				event_target:traded_title = { location = { NOT = { culture = ROOT } } }
+			}
+			modifier = {
+				factor = 1.3
+				event_target:traded_title = { location = {  NOT = { culture_group = ROOT } } }
+			}
+			modifier = {
+				factor = 1.2
+				event_target:traded_title = { location = { has_disease = yes } }
+			}
+			modifier = {
+				factor = 1.5
+				event_target:traded_title = { is_contested = yes }
+			}
+			modifier = {
+				factor = 1.3
+				event_target:traded_title = { location = { NOT = { num_of_max_settlements = 3 } } }
+			}
+			modifier = {
+				factor = 1.3
+				event_target:traded_title = { location = { NOT = { num_of_max_settlements = 2 } } }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { opinion = { who = FROM value = -24 } }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { opinion = { who = FROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.3
+				NOT = { opinion = { who = FROM value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -99 } }
+			}
+			modifier = {
+				factor = 1.1
+				relative_power = { who = FROM power = 1.5 }
+			}
+			modifier = {
+				factor = 1.1
+				relative_power = { who = FROM power = 2.0 }
+			}
+			modifier = {
+				factor = 1.1
+				relative_power = { who = FROM power = 3.0 }
+			}
+			modifier = {
+				factor = 1.1
+				relative_power = { who = FROM power = 4.0 }
+			}
+			modifier = {
+				factor = 1.1
+				relative_power = { who = FROM power = 5.0 }
+			}
+		}
+	}
+}
+
+# DRAGON.71 - Trade land for alliance - Offer accepted
+letter_event = {
+	id = DRAGON.71
+	desc = EVTDESC_DRAGON.71
+	border = GFX_event_letter_frame_diplomacy
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		event_target:traded_title = { grant_title_no_opinion = FROM }
+		add_alliance = { who = FROM years = 200 }
+		reverse_opinion = { who = FROM modifier = opinion_granted_county months = 60 }
+		piety = 100
+	}
+}
+
+# DRAGON.72 - Trade land for alliance - Offer declined
+letter_event = {
+	id = DRAGON.72
+	desc = EVTDESC_DRAGON.72
+	border = GFX_event_letter_frame_diplomacy
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA63054
+	}
+}
+
+# DRAGON.74 - Buy Blessing - ping to target
+character_event = {
+	id = DRAGON.74
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		e_draconic_pagan_reformed = {
+			holder_scope = {
+				letter_event = { id = DRAGON.75 }
+			}
+		}
+	}
+}
+
+# DRAGON.75 - Buy Blessing - Sapphire Flame receives offer
+letter_event = {
+	id = DRAGON.75
+	desc = {
+		text = EVTDESCA_DRAGON.75 # Self
+		trigger = {
+			FROM = { character = FROMFROM }
+		}
+	}
+	desc = {
+		text = EVTDESCB_DRAGON.75 # Other
+		trigger = {
+			FROM = { NOT = { character = FROMFROM } }
+		}
+	}
+	border = GFX_event_letter_frame_religion
+	show_from_from = yes
+	is_triggered_only = yes
+	
+	# Redone so you can only send the offer if it will be accepted
+	
+	option = {
+		name = EVTOPTA_DRAGON.75
+		FROM = { 
+			add_character_modifier = { modifier = sapphire_flame_blessing years = 10 }
+			letter_event = { id = DRAGON.76 }
+		}
+		FROMFROM = {
+			if = {
+				limit = {
+					tier = count
+				}
+				wealth = -100
+				ROOT = { wealth = 100 }
+			}
+			if = {
+				limit = {
+					tier = duke
+				}
+				wealth = -200
+				ROOT = { wealth = 200 }
+			}
+			if = {
+				limit = {
+					tier = king
+				}
+				wealth = -300
+				ROOT = { wealth = 300 }
+			}
+			if = {
+				limit = {
+					tier = emperor
+				}
+				wealth = -400
+				ROOT = { wealth = 400 }
+			}
+			if = {
+				limit = {
+					NOT = { FROMFROM = { character = FROM } }
+				}
+				letter_event = { id = DRAGON.77 }
+			}
+		}
+		#ai_chance = {
+		#	factor = 10
+		#	
+		#	modifier = {
+		#		factor = 0
+		#		FROM = { trait = bad_priest_draconic }
+		#		NOT = { trait = bad_priest_draconic }
+		#	}
+		#	modifier = {
+		#		factor = 0
+		#		is_rival = FROMFROM
+		#	}
+		#	modifier = {
+		#		factor = 0
+		#		is_rival = FROM
+		#	}
+		#	
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROM value = 25 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROM value = 50 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROM value = 75 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROM value = 100 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 25 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 50 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 75 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 100 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROM = { has_pious_trait_trigger = yes }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		FROM = { has_education_theology_trigger = yes }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		ai_greed = 20
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		ai_greed = 40
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		ai_greed = 60
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		ai_greed = 80
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		ai_greed = 100
+		#	}
+		#}
+	}
+	#option = {
+	#	name = EVTOPTB_DRAGON.75
+	#	FROMFROM = {
+	#		letter_event = { id = DRAGON.78 }
+	#	}
+	#	ai_chance = {
+	#		factor = 5
+	#		
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROM value = -24 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROM value = -49 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROM value = -74 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROM value = -99 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -24 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -49 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -74 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -99 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { has_impious_trait_trigger = yes }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = {
+	#				has_vice_trigger = yes
+	#				has_virtue_trigger = no
+	#			}
+	#		}
+	#	}
+	#}
+	after = {
+		opinion = { who = FROMFROM modifier = opinion_asked_for_blessing }
+	}
+}
+
+# DRAGON.76 - Recieve blessing from Sapphire Flame
+letter_event = {
+	id = DRAGON.76
+	desc = EVTDESC_DRAGON.76
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.76
+		custom_tooltip = { 
+			text = purity_plus_1
+			add_character_modifier = { modifier = sapphire_flame_blessing years = 10 }
+		}
+		if = {
+			limit = { NOT = { character = FROMFROMFROM } }
+			opinion = { modifier = opinion_bought_blessing who = FROMFROMFROM }
+		}
+	}
+}
+
+# DRAGON.77 - Sent blessing
+letter_event = {
+	id = DRAGON.77
+	desc = EVTDESC_DRAGON.77
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.77
+	}
+}
+
+# DRAGON.78 - Refused blessing
+letter_event = {
+	id = DRAGON.78
+	desc = EVTDESC_DRAGON.78
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.78
+	}
+}
+
+# DRAGON.79 - Requested Claim - FROM is title, FROMFROM is requestor
+letter_event = {
+	id = DRAGON.79
+	desc = EVTDESC_DRAGON.79
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.79
+		tooltip = { FROM = { add_claim = FROMFROM } }
+		FROMFROM = { letter_event = { id = DRAGON.80 } }
+		ai_chance = {
+			factor = 10
+			
+			modifier = {
+				factor = 0
+				is_rival = FROMFROM
+			}
+			
+			modifier = {
+				factor = 1.2
+				FROMFROM = { trait = purity_3 }
+			}
+			modifier = {
+				factor = 1.3
+				FROMFROM = { trait = purity_4 }
+			}
+			modifier = {
+				factor = 1.4
+				FROMFROM = { trait = purity_5  }
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = { trait = purity_6 }
+			}
+			modifier = {
+				factor = 1.6
+				FROMFROM = { trait = purity_7 }
+			}
+			modifier = {
+				factor = 1.7
+				FROMFROM = { trait = purity_8 }
+			}
+			modifier = {
+				factor = 1.8
+				FROMFROM = { trait = purity_9 }
+			}
+			modifier = {
+				factor = 1.9
+				FROMFROM = { trait = purity_10 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROMFROM value = 50 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROMFROM value = 75 }
+			}
+			modifier = {
+				factor = 1.5
+				opinion = { who = FROMFROM value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { NOT = { reverse_opinion = { who = ROOT value = -24 } } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { NOT = { reverse_opinion = { who = ROOT value = -49 } } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { NOT = { reverse_opinion = { who = ROOT value = -74 } } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { NOT = { reverse_opinion = { who = ROOT value = -99 } } }
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_rival = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = { is_pious_trigger = yes }
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { has_pleasant_trait_trigger = yes }
+			}
+			modifier = {
+				factor = 1.2
+				FROMFROM = { has_crusade_trait_trigger = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = {
+					has_virtue_trigger = yes
+					has_vice_trigger = no
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB_DRAGON.79
+		FROMFROM = { letter_event = { id = DRAGON.81 } }
+		ai_chance = {
+			factor = 9
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROMFROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROMFROM value = -24 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROMFROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROMFROM value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROMFROM value = -99 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { reverse_opinion = { who = ROOT value = 25 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { reverse_opinion = { who = ROOT value = 50 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { reverse_opinion = { who = ROOT value = 75 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { reverse_opinion = { who = ROOT value = 100 } }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_friend = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_pious_trigger = yes }
+			}
+			modifier = {
+				factor = 1.1
+				FROM = { has_pleasant_trait_trigger = yes }
+			}
+			modifier = {
+				factor = 1.2
+				FROM = { has_pleasant_personality_trigger = yes }
+			}
+			modifier = {
+				factor = 1.2
+				FROM = { has_crusade_trait_trigger = yes }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					has_virtue_trigger = yes
+					has_vice_trigger = no
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 1.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+		}
+	}
+	after = {
+		opinion = { who = FROMFROM modifier = asked_for_claim }
+	}
+}
+
+# DRAGON.80 - Claim granted
+letter_event = {
+	id = DRAGON.80
+	desc = EVTDESC_DRAGON.80
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.80
+		FROMFROM = { add_claim = ROOT }
+	}
+}
+
+# DRAGON.81 - Claim denied
+letter_event = {
+	id = DRAGON.81
+	desc = EVTDESC_DRAGON.81
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.81
+	}
+}
+
+# DRAGON.82 - Divorce requested
+letter_event = {
+	id = DRAGON.82
+	desc = EVTDESC_DRAGON.82
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	# Changed so it can't be requested unless it will be accepted
+	
+	option = {
+		name = EVTOPTA_DRAGON.82
+		FROMFROM = { 
+			letter_event = { id = DRAGON.83 days = 1 }
+			spouse = {
+				letter_event = { id = DRAGON.84 days = 1 }
+			}
+		}
+		#ai_chance = {
+		#	factor = 5
+		#	
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			has_positive_purity = yes
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 2
+		#		is_friend = FROMFROM
+		#	}
+		#	modifier = {
+		#		factor = 2
+		#		FROMFROM = { spouse = { is_rival = ROOT } }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = { higher_purity_prev_this  = no }
+		#	}
+		#	modifier = {
+		#		factor = 1.1
+		#		FROMFROM = { trait = flametender }
+		#	}
+		#	modifier = {
+		#		factor = 1.3
+		#		opinion = { who = FROMFROM value = 25 }
+		#	}
+		#	modifier = {
+		#		factor = 1.3
+		#		opinion = { who = FROMFROM value = 50 }
+		#	}
+		#	modifier = {
+		#		factor = 1.3
+		#		opinion = { who = FROMFROM value = 75 }
+		#	}
+		#	modifier = {
+		#		factor = 1.3
+		#		opinion = { who = FROMFROM value = 100 }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		FROMFROM = { spouse = { NOT = { reverse_opinion = { who = ROOT value = -24 } } } }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		FROMFROM = { spouse = { NOT = { reverse_opinion = { who = ROOT value = -49 } } } }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		FROMFROM = { spouse = { NOT = { reverse_opinion = { who = ROOT value = -74 } } } }
+		#	}
+		#	modifier = {
+		#		factor = 1.2
+		#		FROMFROM = { spouse = { NOT = { reverse_opinion = { who = ROOT value = -99 } } } }
+		#	}
+		#}
+	}
+	#option = {
+	#	name = EVTOPTB_DRAGON.82
+	#	FROMFROM = { letter_event = { id = DRAGON.85 days = 1 } }
+	#	ai_chance = {
+	#		factor = 10
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			FROMFROM = {
+	#				trait = dragon
+	#				spouse = { NOT = { trait = dragon } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROMFROM = {
+	#				spouse = {
+	#					NOR = {
+	#						religion = draconic_pagan_reformed
+	#						religion = draconic_pagan
+	#					}
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROMFROM = {
+	#				spouse = { has_positive_purity = yes }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.2
+	#			FROMFROM = {
+	#				has_negative_purity = yes
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			is_rival = FROMFROM
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROMFROM = { spouse = { is_friend = ROOT } }
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROMFROM = { spouse = {  trait = flametender } }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			NOT = { opinion = { who = FROMFROM value = -24 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			NOT = { opinion = { who = FROMFROM value = -49 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			NOT = { opinion = { who = FROMFROM value = -74 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			NOT = { opinion = { who = FROMFROM value = -99 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.2
+	#			FROMFROM = { spouse = { reverse_opinion = { who = ROOT value = 25 } } }
+	#		}
+	#		modifier = {
+	#			factor = 1.2
+	#			FROMFROM = { spouse = { reverse_opinion = { who = ROOT value = 50 } } }
+	#		}
+	#		modifier = {
+	#			factor = 1.2
+	#			FROMFROM = { spouse = { reverse_opinion = { who = ROOT value = 75 } } }
+	#		}
+	#		modifier = {
+	#			factor = 1.2
+	#			FROMFROM = { spouse = { reverse_opinion = { who = ROOT value = 100 } } }
+	#		}
+	#	}
+	#}
+	after = {
+		opinion = { modifier = asked_for_divorce who = FROMFROM }
+	}
+}
+
+# DRAGON.83 - Positive response to divorce
+letter_event = {
+	id = DRAGON.83
+	desc = EVTDESC_DRAGON.83
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.83
+		spouse = {
+			opinion = { modifier = opinion_divorced who = ROOT }
+			hidden_tooltip = {
+				any_close_relative = {
+					opinion = { modifier = opinion_divorced_relative who = ROOT }
+				}
+			}
+		}
+		remove_spouse = yes
+	}
+}
+
+# DRAGON.84 - You were divorced
+letter_event = {
+	id = DRAGON.84
+	desc = EVTDESC_DRAGON.84
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.84
+		tooltip = { opinion = { modifier = opinion_divorced who = FROMFROMFROM } }
+		remove_spouse = yes
+	}
+}
+
+# DRAGON.85 - Divorce declined
+letter_event = {
+	id = DRAGON.85
+	desc = EVTDESC_DRAGON.85
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.85
+	}
+}
+
+# DRAGON.86 - Request to disinherit heir
+letter_event = {
+	id = DRAGON.86
+	desc = EVTDESC_DRAGON.86
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	# Reworked so this can only be requested if it will be accepted
+	
+	option = {
+		name = EVTOPTA_DRAGON.86
+		FROMFROM = {
+			letter_event = { id = DRAGON.87 days = 1 }
+			current_heir = { letter_event = { id = DRAGON.88 days = 1 } }
+		}
+		#ai_chance = {
+		#	factor = 10
+		#	
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			is_pious_trigger = yes
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 3
+		#		FROMFROM = {
+		#			current_heir = {
+		#				NOT = { religion = draconic_pagan_reformed }
+		#			}
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 25 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 50 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 75 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 100 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			current_heir = {
+		#				NOT = { reverse_opinion = { who = ROOT value = -24 } }
+		#			}
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			current_heir = {
+		#				NOT = { reverse_opinion = { who = ROOT value = -49 } }
+		#			}
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			current_heir = {
+		#				NOT = { reverse_opinion = { who = ROOT value = -74 } }
+		#			}
+		#		}
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		FROMFROM = {
+		#			current_heir = {
+		#				NOT = { reverse_opinion = { who = ROOT value = -99 } }
+		#			}
+		#		}
+		#	}
+		#}
+	}
+	#option = {
+	#	name = EVTOPTB_DRAGON.86
+	#	FROMFROM = { letter_event = { id = DRAGON.89 days = 1 } }
+	#	ai_chance = {
+	#		factor = 1
+	#		
+	#		modifier = {
+	#			factor = 1.5
+	#			FROMFROM = { 
+	#				current_heir = { culture = ROOT }
+	#				NOT = { culture = ROOT }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			is_rival = FROMFROM
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROMFROM = {
+	#				current_heir = { is_lover = ROOT }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROMFROM = {
+	#				current_heir = { is_friend = ROOT }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROMFROM = {
+	#				current_heir = {
+	#					reverse_opinion = { who = ROOT value = 25 }
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROMFROM = {
+	#				current_heir = {
+	#					reverse_opinion = { who = ROOT value = 50 }
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROMFROM = {
+	#				current_heir = {
+	#					reverse_opinion = { who = ROOT value = 75 }
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROMFROM = {
+	#				current_heir = {
+	#					reverse_opinion = { who = ROOT value = 100 }
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+	
+	after = {
+		opinion = { who = FROMFROM modifier = opinion_asked_for_disinheritance }
+	}
+}
+
+# DRAGON.87 - Disinheritance granted
+letter_event = {
+	id = DRAGON.87
+	desc = EVTDESC_DRAGON.87
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.87
+		current_heir = { add_trait = disinherited }
+	}
+}
+
+# DRAGON.88 - You were disinherited
+letter_event = {
+	id = DRAGON.88
+	desc = EVTDESC_DRAGON.88
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.88
+		add_trait = disinherited
+		opinion = { who = FROMFROMFROM modifier = opinion_disinherited }
+		add_trait = depressed
+		if = {
+			limit = { trait = trusting }
+			remove_trait = trusting
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				trait = temperate
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = shy
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.88
+		add_trait = disinherited
+		opinion = { who = FROMFROMFROM modifier = opinion_disinherited }
+		add_trait = ambitious
+		add_trait = envious
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				ai_ambition = 70
+			}
+			modifier = {
+				factor = 2
+				trait = stubborn
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 2
+				trait = adventurer
+			}
+			modifier = {
+				factor = 2
+				trait = strategist
+			}
+			modifier = {
+				factor = 2
+				trait = patient
+			}
+			modifier = {
+				factor = 2
+				trait = diligent
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_DRAGON.88
+		add_trait = disinherited
+		opinion = { who = FROMFROMFROM modifier = opinion_disinherited }
+		add_rival = FROMFROMFROM
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = duelist
+			}
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				is_any_kinslayer_trigger = yes
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_DRAGON.88
+		add_trait = disinherited
+		opinion = { who = FROMFROMFROM modifier = opinion_disinherited }
+		add_trait = wroth
+		add_trait = envious
+		add_trait = greedy
+		add_trait = deceitful
+		add_trait = paranoid
+		add_rival = FROMFROMFROM
+		add_rival = FROM
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = impaler
+			}
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = cruel
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = lunatic
+			}
+			modifier = {
+				factor = 2
+				trait = possessed
+			}
+			modifier = {
+				factor = 2
+				is_any_kinslayer_trigger = yes
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			character_event = { id = MYTH.56 }
+		}
+	}
+}
+
+# DRAGON.89 - Disinheritance refused
+letter_event = {
+	id = DRAGON.89
+	desc = EVTDESC_DRAGON.89
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.89
+	}
+}
+
+# DRAGON.90 - Requested Gold
+letter_event = {
+	id = DRAGON.90
+	desc = EVTDESC_DRAGON.90
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	# Changed to only allow requests that will be accepted
+	
+	#immediate = {
+	#	export_to_variable = { which = currGold value = wealth }
+	#}
+	
+	option = {
+		name = EVTOPTA_DRAGON.90
+		FROMFROM = { letter_event = { id = DRAGON.91 days = 1 } }
+		tooltip = {
+			FROMFROM = {
+				transfer_scaled_wealth = { from = ROOT value = 5 } # Might be too high - adjust value as needed. Also in next event
+				add_character_modifier = { modifier = begger years = 10 }
+			}
+		}
+		#ai_chance = {
+		#	factor = 10
+		#	modifier = {
+		#		factor = 0
+		#		check_variable = { which = GoldAmt which = currGold } # Can't afford
+		#	}
+		#	modifier = {
+		#		factor = 2
+		#		trait = charitable
+		#	}
+		#	modifier = {
+		#		factor = 2
+		#		FROMFROM = { NOT = { wealth = 0 } }
+		#	}
+		#	modifier = {
+		#		factor = 2
+		#		trait = kind
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 25 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 50 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 75 }
+		#	}
+		#	modifier = {
+		#		factor = 1.5
+		#		opinion = { who = FROMFROM value = 100 }
+		#	}
+		#}
+	}
+	
+	#option = {
+	#	name = EVTOPTB_DRAGON.90
+	#	FROMFROM = { letter_event = { id = DRAGON.92 days = 1 } }
+	#	ai_chance = {
+	#		factor = 10
+	#		modifier = {
+	#			factor = 1.5
+	#			ai_greed = 25
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			ai_greed = 50
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			ai_greed = 75
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			ai_greed = 100
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -24 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -49 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -74 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			NOT = { opinion = { who = FROMFROM value = -99 } }
+	#		}
+	#	}
+	#}
+	
+	after = {
+		opinion = { who = FROMFROM modifier = opinion_asked_for_gold }
+	}
+}
+
+# DRAGON.91 - Loan given
+letter_event = {
+	id = DRAGON.91
+	desc = EVTDESC_DRAGON.91
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_DRAGON.91
+		transfer_scaled_wealth = { from = FROM value = 5 }
+		add_character_modifier = { modifier = begger years = 10 }
+		custom_tooltip = { text = purity_down_3 }
+	}
+}
+
+# DRAGON.92 - Loan refused
+letter_event = {
+	id = DRAGON.92
+	desc = EVTDESC_DRAGON.92
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_DRAGON.92
+	}
+}
+
+# DRAGON.93 - Sapphire Flame can pay to build a temple in your land.
+# Make sure requirements met, then bounce to Sapphire Flame
+character_event = {
+	id = DRAGON.93
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		higher_real_tier_than = baron
+		any_demesne_province = {
+			has_empty_holding = yes
+			religion = draconic_pagan_reformed
+		}
+		e_draconic_pagan_reformed = {
+			holder_scope = {
+				wealth = 350
+			}
+		}
+	}
+	
+	immediate = {
+		e_draconic_pagan_reformed = {
+			holder_scope = {
+				character_event = { id = DRAGON.94 }
+			}
+		}
+	}
+}
+
+# DRAGON.94 - Sapphire Flame can offer to build a temple
+character_event = {
+	id = DRAGON.94
+	desc = EVTDESC_DRAGON.94
+	picture = GFX_evt_cathedral
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.94
+		FROM = {
+			random_demesne_province = {
+				limit = { 
+					has_empty_holding = yes
+					religion = draconic_pagan_reformed
+				}
+				province_event = { id = DRAGON.95 days = 1}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				wealth = 700
+			}
+			modifier = {
+				factor = 1.5
+				wealth = 1000
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.94
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				NOT = { wealth = 400 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 500 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 600 }
+			}
+		}
+	}
+}
+
+# DRAGON.95 - Offer to build temple - ping province
+province_event = {
+	id = DRAGON.95
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		holder_scope = {
+			letter_event = { id = DRAGON.96 }
+		}
+	}
+}
+
+# DRAGON.96 - Offer to build temple
+letter_event = {
+	id = DRAGON.96
+	desc = EVTDESC_DRAGON.96
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.96
+		wealth = 350
+		FROMFROM = {
+			letter_event = { id = DRAGON.97 days = 1 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				ai_greed = 40
+			}
+			modifier = {
+				factor = 2
+				ai_zeal = 40
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 100 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 0 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.96
+		FROMFROM = {
+			letter_event = { id = DRAGON.98 days = 1 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROMFROM  value = 0 } }
+			}
+		}
+	}
+}
+
+# DRAGON.97 - Positive response - build temple
+letter_event = {
+	id = DRAGON.97
+	desc = EVTDESC_DRAGON.97
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.97
+		wealth = -350
+		FROMFROM = {
+			build_holding = {
+				type = temple
+				holder = ROOT
+			}
+		}
+	}
+}
+
+# DRAGON.98 - Negative response - don't build temple
+letter_event = {
+	id = DRAGON.98
+	desc = EVTDESC_DRAGON.98
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.98
+	}
+}
+
+# DRAGON.99 - Sapphire Flame can offer to buy a province they hold a temple in
+character_event = {
+	id = DRAGON.99
+	desc = EVTDESC_DRAGON.99
+	picture = GFX_evt_cathedral
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	only_capable = yes
+	
+	trigger = {
+		has_landed_title = e_draconic_pagan_reformed
+		wealth = 750
+		any_demesne_title = {
+			tier = baron
+			holding_type = temple
+			county = {
+				holder_scope = {
+					NOT = { character = ROOT }
+					independent = yes
+					num_of_count_titles = 2
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_demesne_title = {
+			limit = {
+				tier = baron
+				holding_type = temple
+				county = {
+					holder_scope = {
+						NOT = { character = ROOT }
+						independent = yes
+						num_of_count_titles = 2
+					}
+				}
+			}
+			county = {
+				save_event_target_as = targetted_county
+				holder_scope = {
+					save_event_target_as = county_holder
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.99
+		event_target:county_holder = { letter_event = { id = DRAGON.100 days = 2 } }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				wealth = 2000
+			}
+			modifier = {
+				factor = 3
+				wealth = 3000
+			}
+			modifier = {
+				factor = 2
+				ai_ambition = 50
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_DRAGON.99
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 10
+				event_target:targetted_county = {
+					NOT = {
+						location = {
+							any_neighbor_province = {
+								holder_scope = { 
+									OR = {
+										character = ROOT 
+										top_liege = {
+											character = ROOT
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 50
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 1000 }
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+		}
+	}
+}
+
+# DRAGON.100 - Sapphire Flame tries to purchase county
+letter_event = {
+	id = DRAGON.100
+	desc = EVTDESC_DRAGON.100
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = { # Accept
+		name = EVTOPTA_DRAGON.100
+		FROM = {
+			letter_event = { id = DRAGON.101 }
+		}
+		event_target:targetted_county = {
+			gain_title = FROM
+			hidden_tooltip = { remove_claim = ROOT }
+		}
+		wealth = 750
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { wealth = 0 }
+				wealth = -750
+			}
+			modifier = {
+				factor = 2
+				ai_greed = 100
+				NOT = { ai_ambition = 0 }
+			}
+			modifier = {
+				factor = 2
+				religion = FROM
+				trait = zealous
+			}
+		}
+	}
+	option = { # Not worth the money
+		name = EVTOPTB_DRAGON.100
+		trigger = {
+			OR = {
+				religion = draconic_pagan_reformed
+				religion = draconic_pagan
+				trait = cynical
+			}
+		}
+		FROM = { letter_event = { id = DRAGON.102 } }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				wealth = 1000
+			}
+			modifier = {
+				factor = 2
+				ai_ambition = 50
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -24 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -99 } }
+			}
+		}
+	}
+	option = { # Refuse the heathen's offer
+		name = EVTOPTC_DRAGON.100
+		trigger = {
+			NOR = {
+				religion = draconic_pagan_reformed
+				religion = draconic_pagan
+				trait = cynical
+			}
+		}
+		FROM = { letter_event = { id = DRAGON.103 } }
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				wealth = 1000
+			}
+			modifier = {
+				factor = 2
+				ai_ambition = 50
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -24 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -49 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -74 } }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { opinion = { who = FROM value = -99 } }
+			}
+		}
+	}
+}
+
+# DRAGON.101 - Sapphire Flame purchases county
+letter_event = {
+	id = DRAGON.101
+	desc = EVTDESC_DRAGON.101
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.101
+		wealth = -750
+		tooltip = {
+			event_target:targetted_count = { gain_title = ROOT } 
+		}
+	}
+}
+
+# DRAGON.102 - County purchase refused
+letter_event = {
+	id = DRAGON.102
+	desc = EVTDESC_DRAGON.102
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.98
+	}
+}
+
+# DRAGON.103 - County purchase refused zealously
+letter_event = {
+	id = DRAGON.103
+	desc = EVTDESC_DRAGON.103
+	border = GFX_event_letter_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.103
+	}
+}
+
+# DRAGON.104 - On reformation, the Sapphire Flame is always created from one of your vassals instead of leaving it to the decision. So, remove it.
+# Can't simply remove it.  Using an event to set a flag, then a separate event the removes it when received and unsets it
+character_event = {
+	id = DRAGON.104
+	hide_window = yes
+	is_triggered_only = yes
+	
+	religion_group = pagan_group
+	
+	trigger = {
+		# Don't know which should be used at this point
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	immediate = {
+		#e_draconic_pagan_reformed = {
+		#	holder_scope = {
+		#		activate_title = { title = e_draconic_pagan_reformed status = no }
+		#		set_defacto_liege = ROOT
+		#	}
+		#}
+		set_global_flag = deactivate_sapphire_flame
+		set_character_flag = reformed_draconic_paganism
+		e_draconic_pagan_reformed = {
+			holder_scope = {
+				e_draconic_pagan_reformed = {
+					activate_title = { title = THIS status = no }
+					destroy_landed_title = THIS
+				}
+				set_defacto_liege = ROOT
+			}
+		}
+		piety = 500
+	}
+}
+
+# Take half of a character's wealth after draconic tribute war
+character_event = {
+	id = DRAGON.105
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROM = {
+			export_to_variable = { which = local_wealth value = wealth }
+			divide_variable = { which = local_wealth value = 2 }
+		}
+		wealth = local_wealth
+		multiply_variable = { which = local_wealth value = -1 }
+		FROMFROM = {
+			wealth = local_wealth
+		}
+	}
+}

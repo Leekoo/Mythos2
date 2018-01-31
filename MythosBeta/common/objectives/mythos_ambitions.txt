@@ -1,0 +1,1640 @@
+# Dragon Purity Ambitions
+# Not normally selectable, but given by event
+
+### Purity from Gold ###
+
+# Build a horde of 200 gold
+obj_build_horde_1 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+	}
+	success = {
+		wealth = 200
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = built_horde years = 1 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_gold_1
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_1
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 400 gold
+obj_build_horde_2 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+	}
+	success = {
+		wealth = 400
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = built_horde years = 2 }
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			set_character_flag = finished_dragon_ambition_gold_2
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_2
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 800 gold
+obj_build_horde_3 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+		modifier = {
+			factor = 0.01
+			# Can use amass wealth/build war chest
+			NOT = { wealth = 200 }
+			is_ruler = yes
+			NOT = { trait = charitable }
+		}
+	}
+	success = {
+		wealth = 800
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = built_horde years = 3 }
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			clr_character_flag = finished_dragon_ambition_gold_2
+			set_character_flag = finished_dragon_ambition_gold_3
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_3
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 1600 gold
+obj_build_horde_4 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_4
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_4
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+		modifier = {
+			factor = 0.01
+			# Can use amass wealth/build war chest
+			NOT = { wealth = 200 }
+			is_ruler = yes
+			NOT = { trait = charitable }
+		}
+	}
+	success = {
+		wealth = 1600
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			clr_character_flag = finished_dragon_ambition_gold_2
+			clr_character_flag = finished_dragon_ambition_gold_3
+			set_character_flag = finished_dragon_ambition_gold_4
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_4
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 3200 gold
+obj_build_horde_5 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_5
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_5
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+		modifier = {
+			factor = 0.01
+			# Can use amass wealth/build war chest
+			NOT = { wealth = 200 }
+			is_ruler = yes
+			NOT = { trait = charitable }
+		}
+	}
+	success = {
+		wealth = 3200
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			clr_character_flag = finished_dragon_ambition_gold_2
+			clr_character_flag = finished_dragon_ambition_gold_3
+			clr_character_flag = finished_dragon_ambition_gold_4
+			set_character_flag = finished_dragon_ambition_gold_5
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_5
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 6400 gold
+obj_build_horde_6 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_6
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_6
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+		modifier = {
+			factor = 0.01
+			# Can use amass wealth/build war chest
+			NOT = { wealth = 200 }
+			is_ruler = yes
+			NOT = { trait = charitable }
+		}
+	}
+	success = {
+		wealth = 6400
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			clr_character_flag = finished_dragon_ambition_gold_2
+			clr_character_flag = finished_dragon_ambition_gold_3
+			clr_character_flag = finished_dragon_ambition_gold_4
+			clr_character_flag = finished_dragon_ambition_gold_5
+			set_character_flag = finished_dragon_ambition_gold_6
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_6
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Build a horde of 12800 gold
+obj_build_horde_7 = {
+	type = character
+	
+	ai_greed = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_gold_7
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_gold_7
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 10
+			trait = greedy
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 1.25
+			trait = fortune_builder
+		}
+		modifier = {
+			factor = 1.25
+			trait = midas_touched
+		}
+		modifier = {
+			factor = 0.01
+			# Can use amass wealth/build war chest
+			NOT = { wealth = 200 }
+			is_ruler = yes
+			NOT = { trait = charitable }
+		}
+	}
+	success = {
+		wealth = 12800
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_stewardship = 1
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_gold_1
+			clr_character_flag = finished_dragon_ambition_gold_2
+			clr_character_flag = finished_dragon_ambition_gold_3
+			clr_character_flag = finished_dragon_ambition_gold_4
+			clr_character_flag = finished_dragon_ambition_gold_5
+			clr_character_flag = finished_dragon_ambition_gold_6
+			set_character_flag = finished_dragon_ambition_gold_7
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_gold_7
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+### Purity from Piety ###
+
+# Gain 2000 piety
+obj_become_pious_1 = {
+	type = character
+	
+	ai_zeal = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_piety_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_piety_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 10
+			trait = zealous
+		}
+		modifier = {
+			factor = 2
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.01
+			trait = cynical
+		}
+		modifier = {
+			factor = 10.0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 0.01
+			# Can use paragon of virtue instead
+			NOT = { piety = 100 }
+			is_ruler = yes
+			NOT = { trait = cruel }
+			NOT = { trait = impaler }
+			NOT = { trait = incapable }
+		}
+	}
+	success = {
+		piety = 2000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = the_pious years = 1 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_piety_1
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_piety_1
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Gain 4000 piety
+obj_become_pious_2 = {
+	type = character
+	
+	ai_zeal = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_piety_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_piety_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 10
+			trait = zealous
+		}
+		modifier = {
+			factor = 2
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.01
+			trait = cynical
+		}
+		modifier = {
+			factor = 10.0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 0.01
+			# Can use paragon of virtue instead
+			NOT = { piety = 100 }
+			is_ruler = yes
+			NOT = { trait = cruel }
+			NOT = { trait = impaler }
+			NOT = { trait = incapable }
+		}
+	}
+	success = {
+		piety = 4000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = the_pious years = 2 }
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_piety_1
+			set_character_flag = finished_dragon_ambition_piety_2
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_piety_2
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+# Gain 8000 piety
+obj_become_pious_3 = {
+	type = character
+	
+	ai_zeal = 30
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_piety_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_piety_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 10
+			trait = zealous
+		}
+		modifier = {
+			factor = 2
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.01
+			trait = cynical
+		}
+		modifier = {
+			factor = 10.0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 0.01
+			# Can use paragon of virtue instead
+			NOT = { piety = 100 }
+			is_ruler = yes
+			NOT = { trait = cruel }
+			NOT = { trait = impaler }
+			NOT = { trait = incapable }
+		}
+	}
+	success = {
+		piety = 8000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = the_pious years = 3 }
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_piety_1
+			clr_character_flag = finished_dragon_ambition_piety_2
+			set_character_flag = finished_dragon_ambition_piety_3
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_piety_3
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+### Purity through Pilgrimage
+
+obj_pilgrimage = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_pilgrimage
+		OR = {
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_pilgrimage
+		OR = {
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		factor = 100
+		
+		modifier = {
+			factor = 10
+			trait = zealous
+		}
+		modifier = {
+			factor = 2
+			trait = diligent
+		}
+		modifier = {
+			factor = 0.01
+			trait = cynical
+		}
+		modifier = {
+			factor = 10.0
+			OR = {
+				trait = detached_priest
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 1.5
+			trait = erudite
+		}
+	}
+	success = {
+		trait = flametender
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = church_appreciates months = 6 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_pilgrimage
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_pilgrimage
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+### Cleanse impure marriage ###
+
+obj_purify_marriage = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_clean_marriage
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_clean_marriage
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 2.0
+			trait = ambitious
+		}
+		modifier = {
+			factor = 2.0
+			trait = zealous
+		}
+	}
+	success = {
+		spouse = { trait = dragon }
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = invigorated months = 6 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_purify_marriage
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_clean_marriage
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+### Cleanse impure love ###
+
+obj_purify_love = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_clean_love
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_clean_love
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 5
+			trait = zealous
+		}
+		modifier = {
+			factor = 5
+			trait = chaste
+		}
+		modifier = {
+			factor = 0.1
+			trait = lustful
+		}
+		modifier = {
+			factor = 0.1
+			trait = hedonist
+		}
+	}
+	success = {
+		NOR = {
+			any_lover = { NOT = { trait = dragon } }
+			any_consort = { NOT = { trait = dragon } }
+		}
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = invigorated months = 6 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_purify_love
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_clean_love
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+### Keep lands under draconic control ###
+
+obj_purify_succession = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_clean_heir
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_clean_heir
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0
+			OR = {
+				trait = infertile
+				trait = celibate
+			}
+		}
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 3
+			# Young, time for more children
+			NOT = { age = 40 }
+		}
+		modifier = {
+			factor = 0.5
+			is_old = yes
+		}
+		modifier = {
+			factor = 0.5
+			is_50 = yes
+		}
+		modifier = {
+			factor = 0.01
+			any_spouse = {
+				is_old = yes
+			}
+		}
+	}
+	success = {
+		NOR = {
+			current_heir = { NOT = { trait = dragon } }
+		}
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = invigorated months = 6 }
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_purify_succession
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_clean_heir
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+
+##### Human ambitions under reformed draconic paganism #####
+
+### Gain prestige ###
+
+obj_gain_prestige_human_1 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_human_prestige_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_human_prestige_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 2500
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = confident years = 1 }
+		prestige = 50
+		hidden_tooltip = {
+			set_character_flag = finished_human_ambition_prestige_1
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_human_prestige_1
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_human_2 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_human_prestige_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_human_prestige_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 5000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = confident years = 2 }
+		prestige = 100
+		hidden_tooltip = {
+			clr_character_flag = finished_human_ambition_prestige_1
+			set_character_flag = finished_human_ambition_prestige_2
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_human_prestige_2
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_human_3 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_human_prestige_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_human_prestige_3
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 10000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = confident years = 3 }
+		prestige = 200
+		hidden_tooltip = {
+			clr_character_flag = finished_human_ambition_prestige_1
+			clr_character_flag = finished_human_ambition_prestige_2
+			set_character_flag = finished_human_ambition_prestige_3
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_human_prestige_3
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_human_4 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_human_prestige_4
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_human_prestige_4
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 20000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_diplomacy = 1
+		prestige = 400
+		hidden_tooltip = {
+			clr_character_flag = finished_human_ambition_prestige_1
+			clr_character_flag = finished_human_ambition_prestige_2
+			clr_character_flag = finished_human_ambition_prestige_3
+			set_character_flag = finished_human_ambition_prestige_4
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_human_prestige_4
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_human_5 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_human_prestige_5
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_human_prestige_5
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 40000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		change_diplomacy = 1
+		prestige = 800
+		hidden_tooltip = {
+			clr_character_flag = finished_human_ambition_prestige_1
+			clr_character_flag = finished_human_ambition_prestige_2
+			clr_character_flag = finished_human_ambition_prestige_3
+			clr_character_flag = finished_human_ambition_prestige_4
+			set_character_flag = finished_human_ambition_prestige_5
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_human_prestige_5
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_become_diligent = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_diligent
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_diligent
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+	}
+	
+	success = {
+		trait = diligent
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		piety = 100
+		hidden_tooltip = {
+			set_character_flag = finished_human_ambition_diligent
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_diligent
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_dragon_1 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_prestige_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_prestige_1
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 5000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = confident years = 1 }
+		prestige = 100
+		hidden_tooltip = {
+			set_character_flag = finished_dragon_ambition_prestige_1
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_prestige_1
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}
+
+obj_gain_prestige_dragon_2 = {
+	type = character
+	
+	potential = {
+		has_character_modifier = can_ambition_dragon_prestige_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	allow = {
+		has_character_modifier = can_ambition_dragon_prestige_2
+		OR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	
+	chance = {
+		factor = 100
+		
+		modifier = {
+			factor = 0.01
+			# Can become exalted instead
+			NOT = { prestige = 200 }
+			is_ruler = yes
+			NOT = { trait = content }
+			NOT = { trait = humble }
+			NOT = { trait = incapable }
+		}
+		modifier = {
+			factor = 10
+			trait = proud
+		}
+		modifier = {
+			factor = 1.25
+			trait = patient
+		}
+		modifier = {
+			factor = 0.01
+			NOT = { tier = king }
+			NOT = { tier = emperor }
+		}
+		modifier = {
+			factor = 5.0
+			trait = ambitious
+		}
+	}
+	
+	success = {
+		prestige = 5000
+	}
+	abort = {
+		NOR = {
+			is_incapable = no
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+	}
+	abort_effect = {
+	}
+	effect = {
+		add_character_modifier = { modifier = confident years = 3 }
+		prestige = 100
+		hidden_tooltip = {
+			clr_character_flag = finished_dragon_ambition_prestige_1
+			set_character_flag = finished_dragon_ambition_prestige_2
+			remove_character_modifier = purity_review_timer
+			remove_character_modifier = can_ambition_dragon_prestige_2
+			character_event = { id = DRAGON.56 }
+		}
+	}
+}

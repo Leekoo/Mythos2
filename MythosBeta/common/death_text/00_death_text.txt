@@ -1,0 +1,314 @@
+death_text_lustful = { # Lustful - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = lustful }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_gluttonous = { # Gluttonous - Sin
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = gluttonous }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_greedy = { # Greedy - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = greedy }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_slothful = { # Slothful - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = slothful }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR  = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_envious = { # Envious - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = envious }
+				is_wicked = no
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_wroth = { # Wroth - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = wroth }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_proud = { # Proud - Vice
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = proud }
+				is_wicked = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+}
+
+
+death_text_chaste = { # Chaste - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = chaste }
+				is_virtous = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_temperate = { # Temperate - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = temperate }
+				is_virtous = no
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_charitable = { # Charitable - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = charitable }
+				is_virtous = no
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_diligent = { # Diligent - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = diligent }
+				is_virtous = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_kind = { # Kind - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = kind }
+				is_virtous = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_patient = { # Patient - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = patient }
+				is_virtous = no
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+}
+death_text_humble = { # Humble - Virtue
+	weight_multiplier = {
+		factor = 10
+	
+		modifier = {
+			factor = 0
+			OR = {
+				NOT = { trait = humble }
+				is_virtous = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			NOR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+}

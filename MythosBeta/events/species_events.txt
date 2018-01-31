@@ -1,0 +1,1311 @@
+namespace = SPECIES
+# Species Maintainance
+
+# SPECIES.1 - New system for checking that proper race placements are present.
+# Should be less resource heavy than old method
+character_event = {
+	id = SPECIES.1
+	
+	hide_window = yes
+	ai = no
+	
+	mean_time_to_happen = { days = 1 }
+	
+	immediate = {
+		race_placeholder = {
+			character_event = { id = SPECIES.2 } # The heavy lifting is in its own event for easier modding
+		}
+	}
+}
+# SPECIES.2 - Actual work for setting races
+character_event = {
+	id = SPECIES.2
+	
+	hide_window = yes
+	#is_triggered_only = yes
+	
+	mean_time_to_happen = { days = 1 }
+	trigger = {
+		trait = race_placeholder
+	}
+	
+	immediate = {
+		remove_trait = race_placeholder
+		set_character_flag = checked_race
+		
+		# Remove existing race traits to be sure
+		
+		remove_trait = dragon
+		remove_trait = dragonborn
+		remove_trait = god
+		remove_trait = demi_god
+		remove_trait = blood_of_the_gods
+		remove_trait = giant
+		remove_trait = half_giant
+		remove_trait = djinn
+		
+		# Set character's biological father
+		if = {
+			limit = { real_father_even_if_dead = { always = yes } }
+			real_father_even_if_dead = { save_event_target_as = true_father }
+		}
+		else = {
+			father_even_if_dead = { save_event_target_as = true_father }
+		}
+		
+		
+		# Handle characters with 2 parents
+		if = {
+			limit = {
+				event_target:true_father = { always = yes }
+				mother_even_if_dead = { always = yes }
+			}
+			set_character_flag = test_two_parents
+			# Bad parent
+			if = {
+				limit = {
+					OR = {
+						event_target:true_father = {
+							trait = zombie
+							trait = mummy
+							trait = ethereal_trait
+							trait = demon_trait
+						}
+						mother_even_if_dead = {
+							trait = zombie
+							trait = mummy
+							trait = ethereal_trait
+							trait = demon_trait
+						}
+					}
+				}
+				set_character_flag = test_bad_parent
+				add_trait = sickly
+				add_trait = stressed
+			}
+			# Handle dragons
+			# Both parents are dragons
+			if = {
+				limit = {
+					event_target:true_father = { trait = dragon }
+					mother_even_if_dead = { trait = dragon }
+				}
+				set_character_flag = test_both_dragon
+				add_trait = dragon
+				set_graphical_culture = draconic
+				# Can't be a werewolf
+				remove_trait = pup
+				remove_trait = fledgling
+			}
+			# Mother is dragon, father is dragonborn
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = dragonborn }
+					mother_even_if_dead = { trait = dragon }
+				}
+				set_character_flag = test_mdragon_fdb
+				random_list = {
+					3 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						remove_trait = pup
+						remove_trait = fledgling
+					}
+					7 = {
+						modifier = {
+							factor = 0.7
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = dragonborn
+						set_graphical_culture = event_target:true_father
+					}
+				}
+			}
+			# Father is dragon, mother is dragonborn
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = dragon }
+					mother_even_if_dead = { trait = dragonborn }
+				}
+				set_character_flag = test_mdb_fdragon
+				random_list = {
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						remove_trait = pup
+						remove_trait = fledgling
+					}
+					9 = {
+						modifier = {
+							factor = 0.7
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = dragonborn
+						mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+					}
+				}
+			}
+			# Both parents are dragonborn
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = dragonborn }
+					mother_even_if_dead = { trait = dragonborn }
+				}
+				set_character_flag = test_db
+				random_list = {
+					5 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						remove_trait = pup
+						remove_trait = fledgling
+					}
+					75 = {
+						
+						modifier = {
+							factor = 0.7
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = dragonborn
+					}
+					20 = {
+						modifier = {
+							factor = 0.5
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 2
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# One parent is human, other is dragonborn
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = dragonborn }
+							mother_even_if_dead = {
+								NOR = {
+									trait = dragon
+									trait = dragonborn
+								}
+							}
+						}
+						AND = {
+							mother_even_if_dead = { trait = dragonborn }
+							event_target:true_father = {
+								NOR = {
+									trait = dragon
+									trait = dragonborn
+								}
+							}
+						}
+					}
+				}
+				set_character_flag = test_db_human
+				random_list = {
+					1 = {
+						add_trait = dragonborn
+					}
+					9 = {
+					}
+				}
+			}
+			# One parent is a dragon and the other is human - father is dragon
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = dragon }
+					mother_even_if_dead = {
+						NOR = {
+							trait = dragon
+							trait = dragonborn
+						}
+					}
+				}
+				set_character_flag = test_mhum_fdragon
+				add_trait = dragonborn
+				mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+			}
+			# One parent is a dragon and the other is human - mother is dragon
+			else_if = {
+				limit = {
+					mother_even_if_dead = { trait = dragon }
+					event_target:true_father = {
+						NOR = {
+							trait = dragon
+							trait = dragonborn
+						}
+					}
+				}
+				set_character_flag = test_mdragon_fhum
+				add_trait = dragonborn
+				set_graphical_culture = event_target:true_father
+			}
+			# Handle gods
+			# Both parents are gods
+			if = {
+				limit = {
+					event_target:true_father = { trait = god }
+					mother_even_if_dead = { trait = god }
+				}
+				add_trait = god
+			}
+			# One parent is god, other is human, BotG, or Demigod
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = god }
+							mother_even_if_dead = { NOT = { trait = god } }
+						}
+						AND = {
+							mother_even_if_dead = { trait = god }
+							event_target:true_father = { NOT = { trait = god } }
+						}
+					}
+				}
+				add_trait = demi_god
+			}
+			# Both parents are demigods
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = demi_god }
+					mother_even_if_dead = { trait = demi_god }
+				}
+				random_list = {
+					1 = {
+						add_trait = demi_god
+					}
+					1 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = blood_of_the_gods
+					}
+				}
+			}
+			# Demigod and Human or Blood of the Gods
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = demi_god }
+							mother_even_if_dead = {
+								NOR = {
+									trait = god
+									trait = demi_god
+								}
+							}
+						}
+						AND = {
+							mother_even_if_dead = { trait = demi_god }
+							event_target:true_father = {
+								NOR = {
+									trait = god
+									trait = demi_god
+								}
+							}
+						}
+					}
+				}
+				add_trait = blood_of_the_gods
+			}
+			# One has blood of the gods, other is human
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = blood_of_the_gods }
+							mother_even_if_dead = {
+								OR = {
+									trait = god
+									trait = demi_god
+									trait = blood_of_the_gods
+								}
+							}
+						}
+						AND = {
+							mother_even_if_dead = { trait = blood_of_the_gods }
+							event_target:true_father = {
+								OR = {
+									trait = god
+									trait = demi_god
+									trait = blood_of_the_gods
+								}
+							}
+						}
+					}
+				}
+				random_list = {
+					3 = {
+						add_trait = blood_of_the_gods
+					}
+					7 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Both have blood of the gods
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = blood_of_the_gods }
+					mother_even_if_dead = { trait = blood_of_the_gods }
+				}
+				add_trait = blood_of_the_gods
+			}
+			# Djinn
+			# Both parents are Djinni
+			if = {
+				limit = {
+					event_target:true_father = { trait = djinn }
+					mother_even_if_dead = { trait = djinn }
+				}
+				add_trait = djinn
+			}
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = djinn }
+							mother_even_if_dead = { NOT = { trait = djinn } }
+						}
+						AND = {
+							event_target:true_father = { NOT = { trait = djinn } }
+							mother_even_if_dead = { trait = djinn }
+						}
+					}
+				}
+				random_list = {
+					1 = { add_trait = djinn }
+					1 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Werewolf
+			# Remove pup on certain characters
+			if = {
+				limit = {
+					OR = {
+						trait = dragon
+						trait = djinn
+						trait = demon_trait
+						trait = ethereal_trait
+					}
+				}
+				remove_trait = pup
+			}
+			# Set initial control for Pups as a variable. Will become a trait on adulthood
+			if = {
+				limit = { trait = pup }
+				if = {
+					limit = {
+						event_target:true_father = { trait = werewolf }
+						mother_even_if_dead = { trait = werewolf }
+					}
+					set_variable = { which = control which = event_target:true_father }
+					mother_even_if_dead = {
+						ROOT = {
+							change_variable = { which = control which = PREV }
+						}
+					}
+					divide_variable = { which = control value = 2 }
+					control_restrict_range = yes
+				}
+				else_if = {
+					limit = {
+						real_father_even_if_dead = { trait = werewolf }
+						mother_even_if_dead = { NOT = { trait = werewolf } }
+					}
+					set_variable = { which = control which = event_target:true_father }
+					multiply_variable = { which = control value = 2 }
+					divide_variable = { which = control value = 3 }
+					control_restrict_range = yes
+				}
+				else_if = {
+					limit = {
+						event_target:true_father = { NOT = { trait = werewolf } }
+						mother_even_if_dead = { trait = werewolf }
+					}
+					set_variable = { which = control which = event_target:true_father }
+					multiply_variable = { which = control value = 2 }
+					divide_variable = { which = control value = 3 }
+					control_restrict_range = yes
+				}
+				else = {
+					set_variable = { which = control value = 2 }
+				}
+			}
+			# Giant
+			# Both parents are giants
+			if = {
+				limit = {
+					event_target:true_father = { trait = giant }
+					mother_even_if_dead = { trait = giant }
+				}
+				add_trait = giant
+			}
+			# One giant and one human
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = giant }
+							mother_even_if_dead = { 
+								NOR = {
+									trait = giant
+									trait = half_giant
+								}
+							}
+						}
+						AND = {
+							mother_even_if_dead = { trait = giant }
+							event_target:true_father = { 
+								NOR = {
+									trait = giant
+									trait = half_giant
+								}
+							}
+						}
+					}
+				}
+				add_trait = half_giant
+			}
+			# Both half-giant
+			else_if = {
+				limit = {
+					event_target:true_father = { trait = half_giant }
+					mother_even_if_dead = { trait = half_giant }
+				}
+				random_list = {
+					2 = {
+						add_trait = giant
+					}
+					2 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+					6 = {
+						modifier = {
+							factor = 0.8
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.2
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = half_giant
+					}
+				}
+			}
+			# One half-giant, one human
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = half_giant }
+							mother_even_if_dead = {
+								NOR = {
+									trait = giant
+									trait = half_giant
+								}
+							}
+						}
+						AND = {
+							mother_even_if_dead = { trait = half_giant }
+							event_target:true_father = {
+								NOR = {
+									trait = giant
+									trait = half_giant
+								}
+							}
+						}
+					}
+				}
+				random_list = {
+					4 = {
+						add_trait = half_giant
+					}
+					6 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# One half-giant, one giant
+			else_if = {
+				limit = {
+					OR = {
+						AND = {
+							event_target:true_father = { trait = half_giant }
+							mother_even_if_dead = { trait = giant }
+						}
+						AND = {
+							mother_even_if_dead = { trait = half_giant }
+							event_target:true_father = { trait = giant }
+						}
+					}
+				}
+				random_list = {
+					6 = {
+						add_trait = half_giant
+					}
+					4 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Special - Giants or half giants where one parent is a god or demigod but other is giant
+			# may become horse (Sleipnir), dragon (Jormungandr), or pup (Fenrir)
+			if = {
+				limit = {
+					OR = {
+						trait = giant
+						trait = half_giant
+					}
+					OR = {
+						AND = {
+							event_target:true_father = {
+								OR = {
+									trait = god
+									trait = demi_god
+								}
+							}
+							mother_even_if_dead = { trait = giant }
+						}
+						AND = {
+							mother_even_if_dead = {
+								OR = {
+									trait = god
+									trait = demi_god
+								}
+							}
+							event_target:true_father = { trait = giant }
+						}
+					}
+				}
+				random_list = {
+					1 = {
+						remove_trait = giant
+						remove_trait = half_giant
+						add_trait = horse
+						set_graphical_culture = horse
+					}
+					1 = {
+						remove_trait = giant
+						remove_trait = half_giant
+						add_trait = dragon
+						set_graphical_culture = draconic
+					}
+					1 = {
+						remove_trait = giant
+						remove_trait = half_giant
+						add_trait = pup
+						set_variable = { which = control value = 1 }
+					}
+					17 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+		}
+		# Character with one parent
+		else_if = {
+			limit = {
+				OR = {
+					event_target:true_father = { always = yes }
+					mother_even_if_dead = { always = yes }
+				}
+			}
+			set_character_flag = test_one_parent
+			# Set parent
+			if = {
+				limit = {
+					event_target:true_father = { always = yes }
+				}
+				event_target:true_father = { save_event_target_as = parent }
+			}
+			else = {
+				mother_even_if_dead = { save_event_target_as = parent }
+			}
+			# Parent is dragon
+			if = {
+				limit = { event_target:parent = { trait = dragon } }
+				random_list = {
+					7 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+					}
+					3 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = dragonborn
+						set_graphical_culture = frankish
+					}
+				}
+			}
+			# Dragonborn
+			else_if = {
+				limit = { event_target:parent = { trait = dragonborn } }
+				random_list = {
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+					}
+					60 = {
+						modifier = {
+							factor = 0.8
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.2
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = dragonborn
+						set_graphical_culture = event_target:parent
+					}
+					39 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						set_graphical_culture = event_target:parent
+					}
+				}
+			}
+			# Werewolf
+			if = {
+				limit = { event_target:parent = { trait = werewolf } }
+				if = {
+					limit = {
+						OR = {
+							trait = werewolf
+							trait = pup
+						}
+					}
+					set_variable = { which = control which = event_target:parent }
+					decrease_control = yes
+				}
+			}
+			# God
+			if = {
+				limit = { event_target:parent = { trait = god } }
+				random_list = {
+					1 = {
+						add_trait = god
+					}
+					1 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = demi_god
+					}
+				}
+			}
+			# Demigod
+			else_if = {
+				limit = { event_target:parent = { trait = demi_god } }
+				random_list = {
+					1 = {
+						add_trait = demi_god
+					}
+					9 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = blood_of_the_gods
+					}
+				}
+			}
+			# Blood of the God
+			else_if = {
+				limit = { event_target:parent = { trait = blood_of_the_gods } }
+				random_list = {
+					3 = { add_trait = blood_of_the_gods }
+					7 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Djinn
+			if = {
+				limit = { event_target:parent = { trait = djinn } }
+				random_list = {
+					8 = { add_trait = djinn }
+					2 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Giant
+			if = {
+				limit = { event_target:parent = { trait = giant } }
+				random_list = {
+					8 = { add_trait = giant }
+					2 = { 
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+						add_trait = half_giant
+					}
+				}
+			}
+			# Half-giant
+			else_if = {
+				limit = { event_target:parent = { trait = half_giant } }
+				random_list = {
+					8 = { add_trait = half_giant }
+					2 = {
+						modifier = {
+							factor = 0.6
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 1.5
+							has_game_rule = { name = breeding value = fewer }
+						}
+					}
+				}
+			}
+			# Ethereal - shouldn't happen. Tend towards childhood death.
+			if = {
+				limit = { event_target:parent = { trait = ethereal_trait } }
+				if = {
+					limit = { NOT = { age = 16 } }
+					add_trait = sickly
+				}
+				else = {
+					add_trait = cancer
+				}
+				add_trait = stressed
+				add_trait = depressed
+				add_trait = possessed
+			}
+			# Demon - shouldn't happen. Be possessed
+			if = {
+				limit = { event_target:parent = { trait = demon_trait } }
+				add_trait = stressed
+				add_trait = possessed
+			}
+		}
+		# No parents
+		else = {
+			set_character_flag = test_no_parents
+			if = {
+				limit = { graphical_culture = dragongfx }
+				add_trait = dragon
+			}
+			else_if = {
+				limit = { graphical_culture = demongfx }
+				add_trait = demon_trait
+			}
+			else_if = {
+				limit = { graphical_culture = etherealgfx }
+				add_trait = ethereal_trait
+			}
+			else = {
+				remove_trait = dragon
+				remove_trait = demon_trait
+				remove_trait = ethereal_trait
+			}
+			if = {
+				limit = {
+					OR = {
+						trait = werewolf
+						trait = pup
+					}
+					check_variable = { which = control value < 1 }
+				}
+				set_variable = { which = control value = 5 }
+				update_control = yes
+			}
+		}
+		
+		if = {
+			limit = { 
+				age = 16
+				trait = pup
+			}
+			remove_trait = pup
+			add_trait = werewolf
+		}
+		if = {
+			limit = {
+				trait = werewolf
+			}
+			update_control = yes
+			if = {
+				limit = { NOT = { trait = known_werewolf } }
+				add_trait = secret_werewolf
+			}
+		}
+		if = {
+			limit = {
+				trait = vampire
+				NOT = { trait = known_vampire }
+			}
+			add_trait = secret_vampire
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					trait = werewolf
+				}
+			}
+			character_event = { id = SPECIES.3 } # Update known/secret and control
+		}
+	}
+}
+
+# SPECIES.3 - periodic sanity check to remove known werewolf from non-werewolves and add secret werewolf to unknown werewolves
+# Also vampires
+character_event = {
+	id = SPECIES.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				trait = known_werewolf
+				NOT = { trait = werewolf }
+			}
+			AND = {
+				trait = werewolf
+				NOT = { trait = known_werewolf }
+				NOT = { trait = secret_werewolf }
+			}
+			AND = {
+				trait = known_vampire
+				NOT = { trait = vampire }
+			}
+			AND = {
+				trait = vampire
+				NOR = {
+					trait = known_vampire
+					trait = secret_vampire
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { trait = werewolf }
+				trait = known_werewolf
+			}
+			remove_trait = known_werewolf
+			set_variable = { which = control value = 0 }
+			remove_trait = control_1
+			remove_trait = control_2
+			remove_trait = control_3
+			remove_trait = control_4
+			remove_trait = control_5
+			remove_trait = control_6
+			remove_trait = control_7
+			remove_trait = control_8
+			remove_trait = control_9
+		}
+		else_if = {
+			limit = {
+				trait = werewolf
+				NOR = {
+					trait = known_werewolf
+					trait = secret_werewolf
+				}
+			}
+			add_trait = secret_werewolf
+			if = {
+				limit = { check_variable = { which = control value < 1 } }
+				character_event = { id = WEREWOLF.96 } # Set initial control
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { trait = vampire }
+				trait = known_vampire
+			}
+			remove_trait = known_vampire
+			remove_trait = hunger_1
+			remove_trait = hunger_2
+			remove_trait = hunger_3
+			remove_trait = hunger_4
+			remove_trait = hunger_5
+		}
+		else_if = {
+			limit = { 
+				trait = vampire
+				NOR = {
+					trait = known_vampire
+					trait = secret_vampire
+				}
+			}
+			add_trait = secret_vampire
+		}
+	}
+}
+
+# SPECIES.4 - Species based infertility.  Called yearly and gives infertility based on race
+character_event = {
+	id = SPECIES.4
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	min_age = 45 # Humans reach menopause the youngest, at 45
+	only_women = yes # Men don't become infertile through age
+	
+	trigger = {
+		NOR = {
+			#trait = infertile
+			trait = god
+			trait = immortal
+			trait = zombie # Undead should always be infertile
+			trait = mummy
+			trait = vampire
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					trait = dragon
+					trait = demi_god
+					# Lives to about 180 from racial trait
+				}
+			}
+			if = {
+				limit = { age = 135 }
+				add_trait = infertile
+			}
+			if = {
+				limit = { NOT = { age = 135 } }
+				remove_trait = infertile
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = giant
+					trait = djinn
+					# Lives to about 100 from racial trait
+				}
+			}
+			if = {
+				limit = { age = 65 }
+				add_trait = infertile
+			}
+			if = {
+				limit = { NOT = { age = 65 } }
+				remove_trait = infertile
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					trait = werewolf
+					trait = half_giant
+					trait = blood_of_the_gods
+					trait = dragonborn
+					# Lives a bit longer than normal
+				}
+			}
+			if = {
+				limit = { age = 50 }
+				add_trait = infertile
+			}
+			if = {
+				limit = { NOT = { age = 50 } }
+				remove_trait = infertile
+			}
+			add_trait = infertile
+			break = yes
+		}
+		if = {
+			limit = {
+				age = 45
+			}
+			add_trait = infertile
+		}
+	}
+}
+# SPECIES.5 - Check all characters to make sure the race event eventually runs on them
+character_event = {
+	id = SPECIES.5
+	hide_window = yes
+	
+	# Also, triggered all over the place
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		NOT = { has_character_flag = checked_race }
+	}
+	
+	immediate = {
+		add_trait = race_placeholder
+		set_character_flag = checked_race
+	}
+}
+# SPECIES.6 - Fire on chronicle start to mark all premade charactes as the right race
+character_event = {
+	id = SPECIES.6
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		any_character = { # I am so, so sorry for using this scope, but this should only get called once.
+			limit = { ai = yes }
+			set_character_flag = checked_race
+			if = {
+				limit = {
+					OR = {
+						trait = vampire
+						trait = werewolf
+					}
+				}
+				character_event = { id = SPECIES.3 }
+			}
+		}
+	}
+}
+# SPECIES.7 - Heir based modifiers
+character_event = {
+	id = SPECIES.7
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	immediate = {
+		if = {
+			limit = { culture = werewolf_culture }
+			if = {
+				limit = {
+					current_heir = {
+						NOT = { trait = known_werewolf }
+						age = 16
+					}
+				}
+				add_character_modifier = { name = non_werewolf_heir }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = {culture = werewolf_culture }
+					current_heir = {
+						OR = {
+							trait = known_werewolf
+							NOT = { age = 16 }
+						}
+					}
+				}
+			}
+			remove_character_modifier = non_werewolf_heir
+		}
+		if = {
+			limit = {
+				OR = {
+					government = draconic_feudal_government
+					government = draconic_tribal_government
+					government = draconic_governorship
+					government = draconic_merchant_republic_government
+				}
+				NOT = { has_assigned_minor_title = title_forced_heir }
+			}
+			if = {
+				limit = {
+					current_heir = {
+						NOR = {
+							trait = dragon
+							trait = dragonborn
+						}
+					}
+				}
+				add_character_modifier = { name = non_dragon_heir }
+			}
+			if = {
+				limit = {
+					current_heir = {
+						trait = dragonborn
+					}
+				}
+				add_character_modifier = { name = non_dragon_heir_lesser }
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = dragon
+						trait = dragonborn
+					}
+				}
+				add_character_modifier = { name = non_dragon_ruler }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					current_heir = { trait = dragon }
+					has_assigned_minor_title = title_forced_heir
+				}
+			}
+			remove_character_modifier = non_dragon_heir
+			remove_character_modifier = non_dragon_heir_lesser
+		}
+		if = {
+			limit = {
+				NOR = {
+					government = draconic_feudal_government
+					government = draconic_tribal_government
+					government = draconic_governorship
+					government = draconic_merchant_republic_government
+				}
+			}
+			remove_character_modifier = non_dragon_heir
+			remove_character_modifier = non_dragon_heir_lesser
+			remove_character_modifier = non_dragon_ruler
+		}
+		if = {
+			limit = {
+				culture = vampire_culture
+				current_heir = {
+					NOR = {
+						trait = known_vampire
+						age = 16
+					}
+				}
+			}
+			add_character_modifier = { name = non_vampire_heir }
+		}
+		if = {
+			limit = {
+				OR = {	
+					NOT = { culture = vampire_culture }
+					current_heir = { 
+						OR = {
+							trait = known_vampire
+							age < 16
+						}
+					}
+				}
+			}
+			remove_character_modifier = non_vampire_heir
+		}
+	}
+}
+# SPECIES.8 - Re-evaluate heir for dynasts and liege (Not just parents, because seniority)
+character_event = {
+	id = SPECIES.8
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		any_dynasty_member = { character_event = { id = SPECIES.7 } }
+		any_liege = { character_event = { id = SPECIES.7 } }
+	}
+}
