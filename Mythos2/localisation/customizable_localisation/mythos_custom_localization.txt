@@ -1,0 +1,4661 @@
+# GetBlessingDonation		Cost of domation to the Sapphire Flame for a blessing
+
+defined_text = {
+	name = GetBlessingDonation
+	
+	text = {
+		localisation_key = "100"
+		trigger = {
+			tier = count
+		}
+	}
+	text = {
+		localisation_key = "200"
+		trigger = {
+			tier = duke
+		}
+	}
+	text = {
+		localisation_key = "300"
+		trigger = {
+			tier = king
+		}
+	}
+	text = {
+		localisation_key = "400"
+		trigger = {
+			tier = emperor
+		}
+	}
+}
+
+defined_text = {
+	name = GetPureImpure
+	
+	text = {
+		localisation_key = key_pure
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = yes
+				}
+				AND = {
+					religion = jain
+					piety = 500
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = no
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = key_impure
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = no
+				}
+				AND = {
+					religion = jain
+					NOT = { piety = 500 }
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPureImpureArt
+	
+	text = {
+		localisation_key = key_pure_art
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = yes
+				}
+				AND = {
+					religion = jain
+					piety = 500
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = no
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = key_impure_art
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = no
+				}
+				AND = {
+					religion = jain
+					NOT = { piety = 500 }
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPureImpureCap
+	
+	text = {
+		localisation_key = key_pure_cap
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = yes
+				}
+				AND = {
+					religion = jain
+					piety = 500
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = no
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = key_impure_cap
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = no
+				}
+				AND = {
+					religion = jain
+					NOT = { piety = 500 }
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPureImpureArtCap
+	
+	text = {
+		localisation_key = key_pure_art_cap
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = yes
+				}
+				AND = {
+					religion = jain
+					piety = 500
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = no
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = key_impure_art_cap
+		trigger = {
+			OR = {
+				AND = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_positive_purity = no
+				}
+				AND = {
+					religion = jain
+					NOT = { piety = 500 }
+				}
+				AND = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = jain
+					}
+					has_evil_trait_trigger = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = wicked_end
+	
+	text = {
+		localisation_key = wicked_end_standard
+		trigger = {
+			use_christian_vice_virtue = yes
+			NOT = { religion_group = indian_group }
+		}
+	}
+	text = {
+		localisation_key = wicked_end_reincarnation
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_hel
+		trigger = {
+			use_norse_vice_virtue = yes
+			OR = {
+				death_reason = death_dungeon
+				death_reason = death_natural
+				death_reason = death_poor_health
+				death_reason = death_trait
+				death_reason = death_dragged_to_hell
+				death_reason = death_suicide
+				death_reason = death_suicide_fall
+				death_reason = death_suicide_hanging
+				death_reason = death_suicide_poison
+				death_reason = death_platypus
+				death_reason = death_hashish_overdose
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_standard
+		trigger = {
+			use_norse_vice_virtue = yes
+			NOR = {
+				death_reason = death_dungeon
+				death_reason = death_natural
+				death_reason = death_poor_health
+				death_reason = death_trait
+				death_reason = death_dragged_to_hell
+				death_reason = death_suicide
+				death_reason = death_suicide_fall
+				death_reason = death_suicide_hanging
+				death_reason = death_suicide_poison
+				death_reason = death_platypus
+				death_reason = death_hashish_overdose
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_pure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_positive_purity = yes
+		}
+	}
+	text = {
+		localisation_key = wicked_end_impure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_positive_purity = no
+		}
+	}
+	text = {
+		localisation_key = wicked_end_tlalocan
+		trigger = {
+			use_aztec_vice_virtue = yes
+			OR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+				death_reason = death_trait
+				death_reason = death_accident_drowning
+				death_reason = death_murder_drowning
+				death_reason = death_murder_unknown_drowning
+				death_reason = death_murder_unknown_lightning
+				death_reason = death_execution_boiling
+				death_reason = death_execution_drowning_pit
+			}
+			NOR = { # Warriors chase the sun
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_sun
+		trigger = {
+			use_aztec_vice_virtue = yes
+			NOT = { trait = craven }
+			OR = {
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+				death_reason = death_battle
+				death_reason = death_duel
+				death_reason = death_childbirth
+			}
+			NOR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_mictlan
+		trigger = {
+			OR = {
+				trait = craven
+				NOR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+					trait = eagle_warrior
+					death_reason = death_battle
+					death_reason = death_duel
+					death_reason = death_childbirth
+					trait = clubfooted
+					trait = harelip
+					trait = hunchback
+					trait = dwarf
+					trait = inbred
+					death_reason = death_trait
+					death_reason = death_accident_drowning
+					death_reason = death_murder_drowning
+					death_reason = death_murder_unknown_drowning
+					death_reason = death_murder_unknown_lightning
+					death_reason = death_execution_boiling
+					death_reason = death_execution_drowning_pit
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = wicked_end_zoroastrian
+		trigger = {
+			use_zoroastrian_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = wicked_end_satanist
+		trigger = {
+			use_satanist_vice_virtue = yes
+		}
+	}
+}
+defined_text = {
+	name = pious_end
+	
+	text = {
+		localisation_key = pious_end_standard
+		trigger = {
+			use_christian_vice_virtue = yes
+			NOT = { religion_group = indian_group }
+		}
+	}
+	text = {
+		localisation_key = pious_end_reincarnation
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_valhalla
+		trigger = {
+			use_norse_vice_virtue = yes
+			OR = {
+				# Amazing warrior, Valhalla Bound, or knows runes
+				trait = brilliant_strategist
+				trait = mastermind_theologian
+				trait = valhalla_bound
+				trait = veteran_wizard
+				trait = arcane_master
+				trait = scholar
+				trait = mystic
+				AND = {
+					OR = {
+						# Skilled warrior
+						trait = skilled_tactician
+						trait = tough_soldier
+						trait = duelist
+						trait = strategist
+					}
+					OR = {
+						# Battle death
+						death_reason = death_battle
+						death_reason = death_duel
+						death_reason = death_childbirth
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_folkvangr
+		trigger = {
+			use_norse_vice_virtue = yes
+			NOR = {
+				trait = brilliant_strategist
+				trait = mastermind_theologian
+				trait = valhalla_bound
+				trait = veteran_wizard
+				trait = arcane_master
+				trait = scholar
+				trait = mystic
+				trait = skilled_tactician
+				trait = tough_soldier
+				trait = duelist
+				trait = strategist
+			}
+			OR = {
+				death_reason = death_battle
+				death_reason = death_duel
+				death_reason = death_childbirth
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_standard
+		trigger = {
+			NOR = {
+				trait = brilliant_strategist
+				trait = mastermind_theologian
+				trait = valhalla_bound
+				trait = veteran_wizard
+				trait = arcane_master
+				trait = scholar
+				trait = mystic
+				death_reason = death_battle
+				death_reason = death_duel
+				death_reason = death_childbirth
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_pure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_positive_purity = yes
+		}
+	}
+	text = {
+		localisation_key = pious_end_impure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_positive_purity = no
+		}
+	}
+	text = {
+		localisation_key = pious_end_tlalocan
+		trigger = {
+			use_aztec_vice_virtue = yes
+			OR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+				death_reason = death_trait
+				death_reason = death_accident_drowning
+				death_reason = death_murder_drowning
+				death_reason = death_murder_unknown_drowning
+				death_reason = death_murder_unknown_lightning
+				death_reason = death_execution_boiling
+				death_reason = death_execution_drowning_pit
+			}
+			NOR = { # Warriors chase the sun
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_sun
+		trigger = {
+			use_aztec_vice_virtue = yes
+			NOT = { trait = craven }
+			OR = {
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+				death_reason = death_battle
+				death_reason = death_duel
+				death_reason = death_childbirth
+			}
+			NOR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_mictlan
+		trigger = {
+			OR = {
+				trait = craven
+				NOR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+					trait = eagle_warrior
+					death_reason = death_battle
+					death_reason = death_duel
+					death_reason = death_childbirth
+					trait = clubfooted
+					trait = harelip
+					trait = hunchback
+					trait = dwarf
+					trait = inbred
+					death_reason = death_trait
+					death_reason = death_accident_drowning
+					death_reason = death_murder_drowning
+					death_reason = death_murder_unknown_drowning
+					death_reason = death_murder_unknown_lightning
+					death_reason = death_execution_boiling
+					death_reason = death_execution_drowning_pit
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = pious_end_zoroastrian
+		trigger = {
+			use_zoroastrian_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = pious_end_satanist
+		trigger = {
+			use_satanist_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = neutral_end
+	
+	text = {
+		localisation_key = neutral_end_default
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+			NOT = { religion_group = indian_group }
+		}
+	}
+	text = {
+		localisation_key = neutral_end_reincarnation
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = neutral_end_norse
+		trigger = {
+			use_norse_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = neutral_end_pure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_positive_purity = yes
+			NOT = { trait = purity_1 }
+		}
+	}
+	text = {
+		localisation_key = neutral_end_impure
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+			has_negative_purity = yes
+			NOT = { trait = purity_minus_1 }
+		}
+	}
+	text = {
+		localisation_key = neutral_end_draconic
+		trigger = {
+			OR = {
+				trait = purity_1
+				trait = purity_minus_1
+				has_purity_trait = no
+			}
+		}
+	}
+	text = {
+		localisation_key = neutral_end_tlalocan
+		trigger = {
+			use_aztec_vice_virtue = yes
+			OR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+				death_reason = death_trait
+				death_reason = death_accident_drowning
+				death_reason = death_murder_drowning
+				death_reason = death_murder_unknown_drowning
+				death_reason = death_murder_unknown_lightning
+				death_reason = death_execution_boiling
+				death_reason = death_execution_drowning_pit
+			}
+			NOR = { # Warriors chase the sun
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+			}
+		}
+	}
+	text = {
+		localisation_key = neutral_end_sun
+		trigger = {
+			use_aztec_vice_virtue = yes
+			NOT = { trait = craven }
+			OR = {
+				trait = brilliant_strategist
+				trait = skilled_tactician
+				trait = eagle_warrior
+				death_reason = death_battle
+				death_reason = death_duel
+				death_reason = death_childbirth
+			}
+			NOR = {
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = dwarf
+				trait = inbred
+			}
+		}
+	}
+	text = {
+		localisation_key = neutral_end_mictlan
+		trigger = {
+			OR = {
+				trait = craven
+				NOR = {
+					trait = brilliant_strategist
+					trait = skilled_tactician
+					trait = eagle_warrior
+					death_reason = death_battle
+					death_reason = death_duel
+					death_reason = death_childbirth
+					trait = clubfooted
+					trait = harelip
+					trait = hunchback
+					trait = dwarf
+					trait = inbred
+					death_reason = death_trait
+					death_reason = death_accident_drowning
+					death_reason = death_murder_drowning
+					death_reason = death_murder_unknown_drowning
+					death_reason = death_murder_unknown_lightning
+					death_reason = death_execution_boiling
+					death_reason = death_execution_drowning_pit
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetSpecies
+	
+	text = {
+		localisation_key = String_dragon
+		trigger = { trait = dragon }
+	}
+	text = {
+		localisation_key = String_dragonborn
+		trigger = { trait = dragonborn }
+	}
+	text = {
+		localisation_key = String_vampire
+		trigger = { trait = vampire } # Change to known vampire once secrecy is in
+	}
+	text = {
+		localisation_key = String_werewolf
+		trigger = { trait = known_werewolf }
+	}
+	text = {
+		localisation_key = String_giant
+		trigger = { trait = giant }
+	}
+	text = {
+		localisation_key = String_half_giant
+		trigger = { trait = half_giant }
+	}
+	text = {
+		localisation_key = String_god
+		trigger = { trait = god }
+	}
+	text = {
+		localisation_key = String_demi_god
+		trigger = { trait = demi_god }
+	}
+	text = {
+		#localisation_key = GetZombieName  # Change once zombie revamp is done
+		localisation_key = String_zombie
+		trigger = { trait = zombie }
+	}
+	text = {
+		localisation_key = String_mummy
+		trigger = { trait = mummy }
+	}
+	text = {
+		localisation_key = String_djinn
+		trigger = { trait = djinn }
+	}
+	text = {
+		localisation_key = String_demon
+		trigger = { trait = demon_trait }
+	}
+	text = {
+		localisation_key = String_spirit
+		trigger = { trait = ethereal_trait }
+	}
+	text = {
+		localisation_key = String_human
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = dragonborn
+				trait = vampire # Change to known vampire once secrecy is in
+				trait = known_werewolf
+				trait = giant
+				trait = half_giant
+				trait = god
+				trait = demi_god
+				trait = zombie
+				trait = mummy
+				trait = djinn
+				trait = demon_trait
+				trait = ethereal_trait
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip
+	# Wealth
+	# Wealth + (200 gold)
+	text = {
+		localisation_key = tt_purity_wealth_200
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 200
+			NOT = { wealth = 400 }
+		}
+	}
+	# Wealth ++ (400 gold)
+	text = {
+		localisation_key = tt_purity_wealth_400
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 400
+			NOT = { wealth = 800 }
+		}
+	}
+	# Wealth +++ (800 gold)
+	text = {
+		localisation_key = tt_purity_wealth_800
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 800
+			NOT = { wealth = 1600 }
+		}
+	}
+	# Wealth ++++ (1600 gold)
+	text = {
+		localisation_key = tt_purity_wealth_1600
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 1600
+			NOT = { wealth = 3200 }
+		}
+	}
+	# Wealth +++++ (3200 gold)
+	text = {
+		localisation_key = tt_purity_wealth_3200
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 3200
+			NOT = { wealth = 6400 }
+		}
+	}
+	# Wealth ++++++ (6400 gold)
+	text = {
+		localisation_key = tt_purity_wealth_6400
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 6400
+			NOT = { wealth = 12800 }
+		}
+	}
+	# Wealth +++++++ (12800 gold)
+	text = {
+		localisation_key = tt_purity_wealth_12800
+		trigger = {
+			use_dragon_purity = yes
+			wealth = 12800
+		}
+	}
+	# Wealth ---- (Debt)
+	text = {
+		localisation_key = tt_purity_wealth_debt
+		trigger = {
+			use_dragon_purity = yes
+			NOT = { wealth = 0 }
+		}
+	}
+	# No wealth issue
+	text = {
+		localisation_key = "[GetPurityTooltip_Piety]"
+		trigger = {
+			OR = {
+				AND = {
+					wealth = 0
+					NOT = { wealth = 200 }
+				}
+				use_dragon_purity = no
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetPurityTooltip_Piety
+	
+	# Piety + (2k)
+	text = {
+		localisation_key = tt_purity_piety_2k
+		trigger = {
+			use_dragon_purity = yes
+			piety = 2000
+			NOT = { piety = 4000 }
+		}
+	}
+	# Piety ++ (4k)
+	text = {
+		localisation_key = tt_purity_piety_4k
+		trigger = {
+			use_dragon_purity = yes
+			piety = 4000
+			NOT = { piety = 8000 }
+		}
+	}
+	# Piety +++ (8k)
+	text = {
+		localisation_key = tt_purity_piety_8k
+		trigger = {
+			use_dragon_purity = yes
+			piety = 8000
+		}
+	}
+	# Human Piety + (1k)
+	text = {
+		localisation_key = tt_purity_human_piety_1k
+		trigger = {
+			use_human_purity = yes
+			piety = 1000
+			NOT = { piety = 2000 }
+		}
+	}
+	# Human Piety ++ (2k)
+	text = {
+		localisation_key = tt_purity_human_piety_2k
+		trigger = {
+			use_human_purity = yes
+			piety = 2000
+			NOT = { piety = 4000 }
+		}
+	}
+	# Human Piety +++ (4k)
+	text = {
+		localisation_key = tt_purity_human_piety_4k
+		trigger = {
+			use_human_purity = yes
+			piety = 4000
+		}
+	}
+	# No Piety
+	text = {
+		localisation_key = "[GetPurityTooltip_Prestige]"
+		trigger = {
+			OR = {
+				NOT = { piety = 1000 }
+				AND = {
+					NOT = { piety = 2000 }
+					use_human_purity = yes
+				}
+				no_purity_mechanic = yes
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetPurityTooltip_Prestige
+	# Prestige + (5k)
+	text = {
+		localisation_key = tt_purity_prestige_5k
+		trigger = {
+			use_dragon_purity = yes
+			prestige = 5000
+			NOT = { prestige = 10000 }
+		}
+	}
+	# Prestige ++ (10k)
+	text = {
+		localisation_key = tt_purity_prestige_10k
+		trigger = {
+			use_dragon_purity = yes
+			prestige = 10000
+		}
+	}
+	# Human Prestige + (2.5k)
+	text = {
+		localisation_key = tt_purity_human_prestige_2500
+		trigger = {
+			use_human_purity = yes
+			prestige = 2500
+			NOT = { prestige = 5000 }
+		}
+	}
+	# Human Prestige ++ (5k)
+	text = {
+		localisation_key = tt_purity_human_prestige_5k
+		trigger = {
+			use_human_purity = yes
+			prestige = 5000
+			NOT = { prestige = 10000 }
+		}
+	}
+	# Human Prestige +++ (10k)
+	text = {
+		localisation_key = tt_purity_human_prestige_10k
+		trigger = {
+			use_human_purity = yes
+			prestige = 10000
+			NOT = { prestige = 20000 }
+		}
+	}
+	# Human Prestige ++++ (20k)
+	text = {
+		localisation_key = tt_purity_human_prestige_20k
+		trigger = {
+			use_human_purity = yes
+			prestige = 20000
+			NOT = { prestige = 40000 }
+		}
+	}
+	# Human Prestige +++++ (40k)
+	text = {
+		localisation_key = tt_purity_human_prestige_40k
+		trigger = {
+			use_human_purity = yes
+			prestige = 40000
+		}
+	}
+	# No Prestige
+	text = {
+		localisation_key = "[GetPurityTooltip_SapphireFlame]"
+		trigger = {
+			OR = {
+				NOT = { prestige = 2500 }
+				AND = {
+					use_dragon_purity = yes
+					NOT = { prestige = 5000 }
+				}
+				no_purity_mechanic = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_SapphireFlame
+	# Sapphire Flame
+	text = {
+		localisation_key = tt_purity_sapphire_flame
+		trigger = {
+			use_dragon_purity = yes
+			has_landed_title = e_draconic_pagan_reformed
+		}
+	}
+	# Not Sapphire Flame
+	text = {
+		localisation_key = "[GetPurityTooltip_Flametender]"
+		trigger = {
+			OR = {
+				use_dragon_purity = no
+				NOT = { has_landed_title = e_draconic_pagan_reformed }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Flametender
+	# Flametender
+	text = {
+		localisation_key = tt_purity_flametender
+		trigger = {
+			use_purity_mechanic = yes
+			trait = flametender
+		}
+	}
+	# Not Flametender
+	text = {
+		localisation_key = "[GetPurityTooltip_EternalFlame]"
+		trigger = {
+			OR = {
+				no_purity_mechanic = yes
+				NOT = { trait = flametender }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_EternalFlame
+	# Eternal Flame Controller
+	text = {
+		localisation_key = tt_purity_eternal_flame
+		trigger = {
+			use_dragon_purity = yes
+			any_realm_province = { has_building = tp_eternal_flame }
+		}
+	}
+	# No
+	text = {
+		localisation_key = "[GetPurityTooltip_God]"
+		trigger = {
+			NAND = {
+				use_dragon_purity = yes
+				any_realm_province = { has_building = tp_eternal_flame }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_God
+	# God
+	text = {
+		localisation_key = tt_purity_god
+		trigger = {
+			use_dragon_purity = yes
+			trait = god
+		}
+	}
+	# Demi-god
+	text = {
+		localisation_key = tt_purity_demigod
+		trigger = {
+			use_dragon_purity = yes
+			trait = demi_god
+		}
+	}
+	# Blood of the Gods
+	text = {
+		localisation_key = tt_purity_blood_of_the_gods
+		trigger = {
+			use_dragon_purity = yes
+			trait = blood_of_the_gods
+		}
+	}
+	# No
+	text = {
+		localisation_key = "[GetPurityTooltip_Emperor]"
+		trigger = {
+			NAND = {
+				use_dragon_purity = yes
+				OR = {
+					trait = god
+					trait = demi_god
+					trait = blood_of_the_gods
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Emperor
+	text = {
+		localisation_key = tt_purity_emperor
+		trigger = {
+			use_dragon_purity = yes
+			tier = emperor
+		}
+	}
+	text = {
+		localisation_key = tt_purity_king
+		trigger = {
+			use_dragon_purity = yes
+			tier = king
+		}
+	}
+	text = {
+		localisation_key = tt_purity_duke
+		trigger = {
+			use_dragon_purity = yes
+			tier = duke
+		}
+	}
+	text = {
+		localisation_key = tt_purity_count
+		trigger = {
+			use_dragon_purity = yes
+			tier = count
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_BadSpouse]"
+		trigger = {
+			OR = {
+				use_dragon_purity = no
+				NOR = {
+					tier = emperor
+					tier = king
+					tier = duke
+					tier = count
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_BadSpouse
+	text = {
+		localisation_key = tt_purity_bad_spouse_dragon
+		trigger = {
+			trait = dragon
+			any_spouse = { NOT = { trait = dragon } }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_bad_spouse_human
+		trigger = {
+			NOT = { trait = dragon }
+			any_spouse = { trait = dragon }
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_BadLover]"
+		trigger = {
+			OR = {
+				AND = {
+					trait = dragon
+					NOT = { any_spouse = { NOT = { trait = dragon } } }
+				}
+				AND = {
+					NOT = { trait = dragon }
+					NOT = { any_spouse = { trait = dragon } }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_BadLover
+	text = {
+		localisation_key = tt_purity_bad_lover_dragon
+		trigger = {
+			use_purity_mechanic = yes
+			trait = dragon
+			OR = {
+				any_lover = { NOT = { trait = dragon } }
+				any_consort = { NOT = { trait = dragon } }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_purity_bad_lover_dragon
+		trigger = {
+			use_purity_mechanic = yes
+			NOT = { trait = dragon }
+			OR = {
+				any_lover = { trait = dragon }
+				any_consort = { trait = dragon }
+			}
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_BadHeir]"
+		trigger = {
+			OR = {
+				no_purity_mechanic = yes
+				AND = {
+					trait = dragon
+					NOT = { any_lover = { NOT = { trait = dragon } } }
+					NOT = { any_consort = { NOT = { trait = dragon } } }
+				}
+				AND = {
+					NOT = { trait = dragon }
+					NOT = { any_lover = { trait = dragon } }
+					NOT = { any_consort = { trait = dragon } }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_BadHeir
+	text = {
+		localisation_key = tt_purity_bad_heir
+		trigger = {
+			use_purity_mechanic = yes
+			trait = dragon
+			current_heir = { NOT = { trait = dragon } }
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_DragonbornDragon]"
+		trigger = {
+			NAND = {
+				use_purity_mechanic = yes
+				trait = dragon
+				current_heir = { NOT = { trait = dragon } }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_DragonbornDragon
+	text = {
+		localisation_key = tt_purity_dragonborn
+		trigger = {
+			use_dragon_purity = yes
+			trait = dragonborn
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human
+		trigger = {
+			use_dragon_purity = yes
+			NOR = {
+				trait = dragonborn
+				trait = dragon
+			}
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Disease]"
+		trigger = {
+			OR = {
+				use_dragon_purity = no
+				trait = dragon
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Disease
+	text = {
+		localisation_key = tt_purity_diseased
+		trigger = {
+			use_dragon_purity = yes
+			character_disease_trigger = yes
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Clubfoot]"
+		trigger = {
+			OR = {
+				use_dragon_purity = no
+				character_disease_trigger = no
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Clubfoot
+	text = {
+		localisation_key = tt_purity_clubfooted
+		trigger = {
+			trait = clubfooted
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Harelip]"
+		trigger = {
+			NOT = { trait = clubfooted }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Harelip
+	text = {
+		localisation_key = tt_purity_harelip
+		trigger = {
+			trait = harelip
+		}
+	}
+	text= {
+		localisation_key = "[GetPurityTooltip_Hunchback]"
+		trigger = {
+			NOT = { trait = harelip }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Hunchback
+	text = {
+		localisation_key = tt_purity_hunchback
+		trigger = {
+			trait = hunchback
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Lisp]"
+		trigger = {
+			NOT = { trait = hunchback }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Lisp
+	text = {
+		localisation_key = tt_purity_lisp
+		trigger = {
+			trait = lisp
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Stutter]"
+		trigger = {
+			NOT = { trait = lisp }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Stutter
+	text = {
+		localisation_key = tt_purity_stutter
+		trigger = {
+			trait = stutter
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Ugly]"
+		trigger = {
+			NOT = { trait = stutter }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Ugly
+	text = {
+		localisation_key = tt_purity_ugly
+		trigger = {
+			trait = ugly
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Dwarf]"
+		trigger = {
+			NOT = { trait = ugly }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Dwarf
+	text = {
+		localisation_key = tt_purity_dwarf
+		trigger = {
+			trait = dwarf
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Slow]"
+		trigger = {
+			NOT = { trait = dwarf }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Slow
+	text = {
+		localisation_key = tt_purity_slow
+		trigger = {
+			trait = slow
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Imbecile]"
+		trigger = {
+			NOT = { trait = slow }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Imbecile
+	text = {
+		localisation_key = tt_purity_imbecile
+		trigger = {
+			trait = imbecile
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Inbred]"
+		trigger = {
+			NOT = { trait = imbecile }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Inbred
+	text = {
+		localisation_key = tt_purity_inbred
+		trigger = {
+			trait = imbecile
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Weak]"
+		trigger = {
+			NOT = { trait = inbred }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Weak
+	text = {
+		localisation_key = tt_purity_weak
+		trigger = {
+			trait = weak
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Diligent]"
+		trigger = {
+			NOT = { trait = weak }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Diligent
+	text = {
+		localisation_key = tt_purity_human_diligent
+		trigger = {
+			use_human_purity = yes
+			trait = diligent
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_slothful
+		trigger = {
+			use_human_purity = yes
+			trait = slothful
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_DragonbornHuman]"
+		trigger = {
+			NOR = {
+				trait = diligent
+				trait = slothful
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_DragonbornHuman
+	text = {
+		localisation_key = tt_purity_human_dragonborn
+		trigger = {
+			use_human_purity = yes
+			trait = dragonborn
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Rank]"
+		trigger = {
+			NAND = {
+				use_human_purity = yes
+				trait = dragonborn
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Rank
+	text = {
+		localisation_key = tt_purity_human_king
+		trigger = {
+			use_human_purity = yes
+			any_liege = { trait = dragon }
+			tier = king
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_king
+		trigger = {
+			use_human_purity = yes
+			any_liege = { trait = dragon }
+			tier = duke
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_king
+		trigger = {
+			use_human_purity = yes
+			any_liege = { trait = dragon }
+			tier = count
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Servant]"
+		trigger = {
+			NAND = {
+				use_human_purity = yes
+				any_liege = { trait = dragon }
+				OR = {
+					tier = king
+					tier = duke
+					tier = count
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Servant
+	text = {
+		localisation_key = tt_purity_human_servant
+		trigger = {
+			use_human_purity = yes
+			any_liege = { trait = dragon }
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Grandmaster]"
+		trigger = {
+			NAND = {
+				use_human_purity = yes
+				any_liege = { trait = dragon }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Grandmaster
+	text = {
+		localisation_key = tt_purity_human_grandmaster
+		trigger = {
+			use_human_purity = yes
+			has_secret_religion = no
+			is_society_grandmaster = yes
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Voter]"
+		trigger = {
+			NAND = {
+				use_human_purity = yes
+				has_secret_religion = no
+				is_society_grandmaster = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Voter
+	text = {
+		localisation_key = tt_purity_human_voter
+		trigger = {
+			use_human_purity = yes
+			is_voter = yes
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Monster]"
+		trigger = {
+			NAND = {
+				use_human_purity = yes
+				is_voter = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Monster
+	text = {
+		localisation_key = tt_purity_human_werewolf
+		trigger = {
+			use_human_purity = yes
+			trait = known_werewolf # Can't show for secret werewolves
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_undead
+		trigger = {
+			use_human_purity = yes
+			is_undead = yes
+			# NOT = { trait = secret_vampire } # NYI
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Diplomacy]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				# trait = secret_vampire
+				AND = {
+					NOT = { trait = known_werewolf }
+					is_undead = no
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Diplomacy
+	text = {
+		localisation_key = tt_purity_human_diplomacy_low
+		trigger = {
+			use_human_purity = yes
+			NOT = { diplomacy = 5 }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_diplomacy_high
+		trigger = {
+			use_human_purity = yes
+			diplomacy = 20
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Martial]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				AND = {
+					diplomacy = 5
+					NOT = { diplomacy = 20 }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Martial
+	text = {
+		localisation_key = tt_purity_human_martial_low
+		trigger = {
+			use_human_purity = yes
+			NOT = { martial = 5 }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_martial_high
+		trigger = {
+			use_human_purity = yes
+			martial = 20
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Stewardship]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				AND = {
+					martial = 5
+					NOT = { martial = 20 }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Stewardship
+	text = {
+		localisation_key = tt_purity_human_stewardship_low
+		trigger = {
+			use_human_purity = yes
+			NOT = { stewardship = 5 }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_stewardship_high
+		trigger = {
+			use_human_purity = yes
+			stewardship = 20
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Intrigue]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				AND = {
+					stewardship = 5
+					NOT = { stewardship = 20 }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Intrigue
+	text = {
+		localisation_key = tt_purity_human_intrigue_low
+		trigger = {
+			use_human_purity = yes
+			NOT = { intrigue = 5 }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_intrigue_high
+		trigger = {
+			use_human_purity = yes
+			intrigue = 20
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Learning]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				AND = {
+					intrigue = 5
+					NOT = { intrigue = 20 }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Learning
+	text = {
+		localisation_key = tt_purity_human_learning_low
+		trigger = {
+			use_human_purity = yes
+			NOT = { learning = 5 }
+		}
+	}
+	text = {
+		localisation_key = tt_purity_human_learning_high
+		trigger = {
+			use_human_purity = yes
+			learning = 20
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_ImpureFlame]"
+		trigger = {
+			OR = {
+				use_human_purity = no
+				AND = {
+					learning = 5
+					NOT = { learning = 20 }
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_ImpureFlame
+	text = {
+		localisation_key = tt_purity_replace_impure
+		trigger = {
+			has_character_modifier = replaced_impure_flame
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Rebel]"
+		trigger = {
+			NOT = { has_character_modifier = replaced_impure_flame }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Rebel
+	text = {
+		localisation_key = tt_purity_rebel
+		trigger = {
+			has_character_modifier = rebelled_against_religious_head
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Blessed]"
+		trigger = {
+			NOT = { has_character_modifier = rebelled_against_religious_head }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Blessed
+	text = {
+		localisation_key = tt_purity_blessed
+		trigger = {
+			has_character_modifier = sapphire_flame_blessing
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Begger]"
+		trigger = {
+			NOT = { has_character_modifier = sapphire_flame_blessing }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Begger
+	text = {
+		localisation_key = tt_purity_begger
+		trigger = {
+			has_character_modifier = begger
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Chaste
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_christian_vice_virtue = yes
+			use_aztec_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Temperate
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Charitable
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Diligent
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			use_satanist_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Patient
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Kind
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Humble
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Lustful
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Gluttonous
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Greedy
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Slothful
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_satanist_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			use_satanist_vice_virtue = no # Literally everyone else
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Wroth
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Envious
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_satanist_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Proud
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Brave
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_norse_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Just
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Ambitious
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_draconic_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Craven
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_norse_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Arbitrary
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_black_flame_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defining_text = {
+	name = ViceVirtue_Paranoid
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Trusting
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_tengri_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Cruel
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_black_flame_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			OR = {
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Content
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			use_black_flame_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = ViceVirtue_Honest
+	text = {
+		localisation_key = tt_trait_virtue
+		trigger = {
+			use_norse_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = ListVirtueVices
+	text = {
+		localisation_key = "[HasChasteVirtue]"
+		trigger = { always = yes }
+	}
+}
+
+defined_text = {
+	name = HasChasteVirtue
+	text = {
+		localisation_key = virtue_chaste
+		trigger = {
+			trait = chaste
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasTemperateVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = chaste }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasTemperateVirtue
+	text = {
+		localisation_key = virtue_temperate
+		trigger = {
+			trait = temperate
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasCharitableVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = temperate }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasCharitableVirtue
+	text = {
+		localisation_key = virtue_charitable
+		trigger = {
+			trait = charitable
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasDiligentVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = charitable }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasDiligentVirtue
+	text = {
+		localisation_key = virtue_diligent
+		trigger = {
+			trait = diligent
+			OR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasPatientVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = diligent }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasPatientVirtue
+	text = {
+		localisation_key = virtue_patient
+		trigger = {
+			trait = patient
+			OR = {
+				use_christian_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasKindVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = patient }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasKindVirtue
+	text = {
+		localisation_key = virtue_kind
+		trigger = {
+			trait = kind
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasHumbleVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = kind }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasHumbleVirtue
+	text = {
+		localisation_key = virtue_humble
+		trigger = {
+			trait = humble
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasLustfulVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = humble }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasLustfulVirtue
+	text = {
+		localisation_key = virtue_lustful
+		trigger = {
+			trait = lustful
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasGluttonousVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = lustful }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasGluttonousVirtue
+	text = {
+		localisation_key = virtue_gluttonous
+		trigger = {
+			trait = gluttonous
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasGreedyVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = gluttonous }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasGreedyVirtue
+	text = {
+		localisation_key = virtue_greedy
+		trigger = {
+			trait = greedy
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasSlothfulVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = greedy }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasSlothfulVirtue
+	text = {
+		localisation_key = virtue_slothful
+		trigger = {
+			trait = slothful
+			use_satanist_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasWrothVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = slothful }
+				NOT = {
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasWrothVirtue
+	text = {
+		localisation_key = virtue_wroth
+		trigger = {
+			trait = wroth
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasEnviousVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = wroth }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasEnviousVirtue
+	text = {
+		localisation_key = virtue_envious
+		trigger = {
+			trait = envious
+			use_satanist_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasProudVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = envious }
+				NOT = {
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasProudVirtue
+	text = {
+		localisation_key = virtue_proud
+		trigger = {
+			trait = proud
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_draconic_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasBraveVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = proud }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasBraveVirtue
+	text = {
+		localisation_key = virtue_brave
+		trigger = {
+			trait = brave
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_norse_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasJustVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = brave }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasJustVirtue
+	text = {
+		localisation_key = virtue_just
+		trigger = {
+			trait = just
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasAmbitiousVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = just }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasAmbitiousVirtue
+	text = {
+		localisation_key = virtue_ambitious
+		trigger = {
+			trait = ambitious
+			use_draconic_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasArbitraryVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = ambitious }
+				NOT = {
+					use_draconic_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasArbitraryVirtue
+	text = {
+		localisation_key = virtue_arbitrary
+		trigger = {
+			trait = arbitrary
+			use_black_flame_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasTrustingVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = arbitrary }
+				NOT = {
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasTrustingVirtue
+	text = {
+		localisation_key = virtue_trusting
+		trigger = {
+			trait = trusting
+			use_tengri_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasCruelVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = trusting }
+				NOT = {
+					use_tengri_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasCruelVirtue
+	text = {
+		localisation_key = virtue_cruel
+		trigger = {
+			trait = cruel
+			use_black_flame_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasHonestVirtue]"
+		trigger = {
+			OR = {
+				NOT = { trait = cruel }
+				NOT = {
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasHonestVirtue
+	text = {
+		localisation_key = virtue_honest
+		trigger = {
+			trait = honest
+			use_norse_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasLustfulVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = honest }
+				NOT = {
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasLustfulVice
+	text = {
+		localisation_key = vice_lustful
+		trigger = {
+			trait = lustful
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasGluttonousVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = lustful }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasGluttonousVice
+	text = {
+		localisation_key = vice_gluttonous
+		trigger = {
+			trait = gluttonous
+			OR = {
+				use_christian_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasGreedyVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = gluttonous }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasGreedyVice
+	text = {
+		localisation_key = vice_greedy
+		trigger = {
+			trait = greedy
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasSlothfulVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = greedy }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasSlothfulVice
+	text = {
+		localisation_key = vice_slothful
+		trigger = {
+			trait = slothful
+			OR = {
+				use_satanist_vice_virtue = no
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasWrothVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = slothful }
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasWrothVice
+	text = {
+		localisation_key = vice_wroth
+		trigger = {
+			trait = wroth
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasEnviousVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = wroth }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasEnviousVice
+	text = {
+		localisation_key = vice_envious
+		trigger = {
+			trait = envious
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasProudVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = envious }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasProudVice
+	text = {
+		localisation_key = vice_proud
+		trigger = {
+			trait = proud
+			OR = {
+				use_christian_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasCravenVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = proud }
+				NOR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasCravenVice
+	text = {
+		localisation_key = vice_craven
+		trigger = {
+			trait = craven
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_norse_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasCharitableVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = craven }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasCharitableVice
+	text = {
+		localisation_key = vice_charitable
+		trigger = {
+			trait = charitable
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasHumbleVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = charitable }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasHumbleVice
+	text = {
+		localisation_key = vice_humble
+		trigger = {
+			trait = humble
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasArbitraryVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = humble }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasArbitraryVice
+	text = {
+		localisation_key = vice_arbitrary
+		trigger = {
+			trait = arbitrary
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+				use_norse_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasParanoidVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = arbitrary }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasParanoidVice
+	text = {
+		localisation_key = vice_paranoid
+		trigger = {
+			trait = paranoid
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasKindVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = paranoid }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasKindVice
+	text = {
+		localisation_key = vice_kind
+		trigger = {
+			trait = kind
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+				use_aztec_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasCruelVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = kind }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasCruelVice
+	text = {
+		localisation_key = vice_cruel
+		trigger = {
+			trait = cruel
+			OR = {
+				use_zoroastrian_vice_virtue = yes
+				use_tengri_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasChasteVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = cruel }
+				NOR = {
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasChasteVice
+	text = {
+		localisation_key = vice_chaste
+		trigger = {
+			trait = chaste
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasTemperateVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = chaste }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasTemperateVice
+	text = {
+		localisation_key = vice_temperate
+		trigger = {
+			trait = temperate
+			OR = {
+				use_draconic_vice_virtue = yes
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasDiligentVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = temperate }
+				NOR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasDiligentVice
+	text = {
+		localisation_key = vice_diligent
+		trigger = {
+			trait = diligent
+			OR = {
+				use_satanist_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasPatientVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = diligent }
+				NOT = {
+					use_satanist_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasPatientVice
+	text = {
+		localisation_key = vice_patient
+		trigger = {
+			trait = patient
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_black_flame_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasContentVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = patient }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasContentVice
+	text = {
+		localisation_key = vice_content
+		trigger = {
+			trait = content
+			use_black_flame_vice_virtue = yes
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_HumanSpouse
+	text = {
+		localisation_key = tt_divorce_humanspouse
+		trigger = {
+			FROM = { spouse = { NOT = { trait = dragon } } }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_HighPurity]"
+		trigger = {
+			FROM = { spouse = { trait = dragon } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_HighPurity
+	text = {
+		localisation_key = tt_divorce_highpurity
+		trigger = {
+			FROM = { higher_purity_prev_this = yes }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_Friend]"
+		trigger = {
+			FROM = { higher_purity_prev_this = no }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_Friend
+	text = {
+		localisation_key = tt_divorce_friend
+		trigger = {
+			is_friend = FROM
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_RivalSpouse]"
+		trigger = {
+			NOT = { is_friend = FROM }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_RivalSpouse
+	text = {
+		localisation_key = tt_divorce_rivalspouse
+		trigger = {
+			FROM = { spouse = { is_rival = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_Rival]"
+		trigger = {
+			FROM = { spouse = { NOT = { is_rival = ROOT } } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_Rival
+	text = {
+		localisation_key = tt_divorce_rival
+		trigger = {
+			is_rival = FROM
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_FriendSpouse]"
+		trigger = {
+			NOT = { is_rival = FROM }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_FriendSpouse
+	text = {
+		localisation_key = tt_divorce_friendspouse
+		trigger = {
+			FROM = { spouse = { is_friend = ROOT } }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_Flametender]"
+		trigger = {
+			NOT = { FROM = { spouse = { is_friend = ROOT } } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_Flametender
+	text = {
+		localisation_key = tt_flametender
+		trigger = {
+			FROM = { trait = flametender }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_Opinion]"
+		trigger = {
+			FROM = { NOT = { trait = flametender } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_Opinion
+	text = {
+		localisation_key = tt_divorce_opinion_minus_4
+		trigger = {
+			NOT = { opinion = { who = FROM value = -99 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_minus_3
+		trigger = {
+			opinion = { who = FROM value = -99 }
+			NOT = { opinion = { who = FROM value = -74 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_minus_2
+		trigger = {
+			opinion = { who = FROM value = -74 }
+			NOT = { opinion = { who = FROM value = -49 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_minus_1
+		trigger = {
+			opinion = { who = FROM value = -49 }
+			NOT = { opinion = { who = FROM value = -24 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_1
+		trigger = {
+			opinion = { who = FROM value = 25 }
+			NOT = { opinion = { who = FROM value = 50 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_2
+		trigger = {
+			opinion = { who = FROM value = 50 }
+			NOT = { opinion = { who = FROM value = 75 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_3
+		trigger = {
+			opinion = { who = FROM value = 75 }
+			NOT = { opinion = { who = FROM value = 100 } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_opinion_4
+		trigger = {
+			opinion = { who = FROM value = 100 }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_SpouseOpinion]"
+		trigger = {
+			NOT = { opinion = { who = FROM value = 25 } }
+			opinion = { who = FROM value = -24 }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_SpouseOpinion
+	text = {
+		localisation_key = tt_divorce_spouseopinion_4
+		trigger = {
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = -99 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_3
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = -99 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = -74 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_2
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = -74 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = -49 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_1
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = -49 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = -24 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_minus_1
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = 25 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = 50 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_minus_2
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = 50 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = 75 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_minus_3
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = 75 } } }
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = 100 } } } }
+		}
+	}
+	text = {
+		localisation_key = tt_divorce_spouseopinion_minus_4
+		trigger = {
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = 100 } } }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_SpouseInfidel]"
+		trigger = {
+			NOT = { FROM = { spouse = { reverse_opinion = { who = ROOT value = 25 } } } }
+			FROM = { spouse = { reverse_opinion = { who = ROOT value = -24 } } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_SpouseInfidel
+	text = {
+		localisation_key = tt_divorce_spouseinfidel
+		trigger = {
+			FROM = { spouse = { NOT = { religion = draconic_pagan_reformed } } }
+		}
+	}
+	text = {
+		localisation_key = "[Divorce_FlametenderSpouse]"
+		trigger = {
+			FROM = { spouse = { religion = draconic_pagan_reformed } }
+		}
+	}
+}
+
+defined_text = {
+	name = Divorce_FlametenderSpouse
+	text = {
+		localisation_key = tt_divorce_flametenderspouse
+		trigger = {
+			FROM = { spouse = { trait = flametender } }
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_DragonHeir
+	text = {
+		localisation_key = tt_disinherit_dragonheir
+		trigger = {
+			FROM = { current_heir = { trait = dragon } }
+		}
+	}
+	text = {
+		localisation_key = "[Disinherit_InfidelHeir]"
+		trigger = {
+			FROM = { current_heir = { NOT = { trait = dragon } } }
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_InfidelHeir
+	text = {
+		localisation_key = tt_disinherit_infidelheir
+		trigger = {
+			FROM = { current_heir = { NOT = { religion = draconic_pagan_reformed } } }
+		}
+	}
+	text = {
+		localisation_key = "[Disinherit_Opinion]"
+		trigger = {
+			FROM = { current_heir = { religion = draconic_pagan_reformed } }
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_Opinion
+	text = {
+		localisation_key = tt_disinherit_opinion_minus_4
+		trigger = {
+			NOT = { opinion = { who = FROM value = -99 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_minus_3
+		trigger = {
+			opinion = { who = FROM value = -99 }
+			NOT = { opinion = { who = FROM value = -74 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_minus_2
+		trigger = {
+			opinion = { who = FROM value = -74 }
+			NOT = { opinion = { who = FROM value = -49 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_minus_1
+		trigger = {
+			opinion = { who = FROM value = -49 }
+			NOT = { opinion = { who = FROM value = -24 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_1
+		trigger = {
+			opinion = { who = FROM value = 25 }
+			NOT = { opinion = { who = FROM value = 50 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_2
+		trigger = {
+			opinion = { who = FROM value = 50 }
+			NOT = { opinion = { who = FROM value = 75 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_3
+		trigger = {
+			opinion = { who = FROM value = 75 }
+			NOT = { opinion = { who = FROM value = 100 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_opinion_4
+		trigger = {
+			opinion = { who = FROM value = 100 }
+		}
+	}
+	text = {
+		localisation_key = "[Disinherit_HeirOpinion]"
+		trigger = {
+			opinion = { who = FROM value = -24 }
+			NOT = { opinion = { who = FROM value = 25 } }
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_HeirOpinion
+	text = {
+		localisation_key = tt_disinherit_heiropinion_minus_4
+		trigger = {
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = 100 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_minus_3
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = 100 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = 75 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_minus_2
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = 75 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = 50 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_minus_1
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = 50 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = 25 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_1
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = -24 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = -49 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_2
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = -49 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = -74 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_3
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = -74 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = -99 } } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heiropinion_4
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = -99 } } } }
+		}
+	}
+	text = {
+		localisation_key = "[Disinherit_Virtuous]"
+		trigger = {
+			FROM = { current_heir = { NOT = { reverse_opinion = { who = ROOT value = 25 } } } }
+			FROM = { current_heir = { reverse_opinion = { who = ROOT value = -24 } } }
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_Virtuous
+	text = {
+		localisation_key = tt_disinherit_virtue_minus_4
+		trigger = {
+			FROM = { has_character_modifier = wicked_7 }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_minus_3
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_minus_4_or_better = yes }
+				is_virtuous_minus_6_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_minus_2
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_minus_2_or_better = yes }
+				is_virtuous_minus_4_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_minus_1
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_neutral_or_better = yes }
+				is_virtuous_minus_2_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_1
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_3_or_better = yes }
+				is_virtuous_neutral_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_2
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_5_or_better = yes }
+				is_virtuous_3_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_3
+		trigger = {
+			FROM = {
+				NOT = { is_virtuous_7 = yes }
+				is_virtuous_5_or_better = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_virtue_4
+		trigger = {
+			FROM = { is_virtuous_7 = yes }
+		}
+	}
+	text = {
+		localisation_key = "[Disinherit_HeirVirtuous]"
+		trigger = {
+			FROM = {
+				is_virtuous_neutral_or_better = yes
+				NOT = { is_virtuous_1_or_better = yes }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = Disinherit_HeirVirtuous
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_4
+		trigger = {
+			FROM = { current_heir = { has_character_modifier = wicked_7 } }
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_3
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_minus_4_or_better = yes }
+					is_virtuous_minus_6_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_2
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_minus_2_or_better = yes }
+					is_virtuous_minus_4_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_1
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_neutral_or_better = yes }
+					is_virtuous_minus_2_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_minus_1
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_3_or_better = yes }
+					is_virtuous_neutral_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_minus_2
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_5_or_better = yes }
+					is_virtuous_3_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_minus_3
+		trigger = {
+			FROM = {
+				current_heir = {
+					NOT = { is_virtuous_7 = yes }
+					is_virtuous_5_or_better = yes
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_disinherit_heirvirtue_minus_4
+		trigger = {
+			FROM = { current_heir = { is_virtuous_7 = yes } }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_Beggar
+	text = {
+		localisation_key = tt_borrow_beggar
+		trigger = {
+			FROM = { has_character_modifier = beggar }
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_CharitableSF]"
+		trigger = {
+			FROM = { NOT = { has_character_modifier = beggar } }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_CharitableSF
+	text = {
+		localisation_key = tt_borrow_charitablesf
+		trigger = {
+			trait = charitable
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_KindSF]"
+		trigger = {
+			NOT = { trait = charitable }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_KndSF
+	text = {
+		localisation_key = tt_borrow_kindsf
+		trigger = {
+			trait = kind
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_Opinion]"
+		trigger = {
+			NOT = { trait = kind }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_Opinion
+	text = {
+		localisation_key = tt_borrow_opinion_minus_4
+		trigger = {
+			NOT = { opinion = { who = FROM value = -99 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_minus_3
+		trigger = {
+			opinion = { who = FROM value = -99 }
+			NOT = { opinion = { who = FROM value = -74 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_minus_2
+		trigger = {
+			opinion = { who = FROM value = -74 }
+			NOT = { opinion = { who = FROM value = -49 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_minus_1
+		trigger = {
+			opinion = { who = FROM value = -49 }
+			NOT = { opinion = { who = FROM value = -24 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_1
+		trigger = {
+			opinion = { who = FROM value = 25 }
+			NOT = { opinion = { who = FROM value = 50 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_2
+		trigger = {
+			opinion = { who = FROM value = 50 }
+			NOT = { opinion = { who = FROM value = 75 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_3
+		trigger = {
+			opinion = { who = FROM value = 75 }
+			NOT = { opinion = { who = FROM value = 100 } }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_opinion_4
+		trigger = {
+			opinion = { who = FROM value = 100 }
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_Greed]"
+		trigger = {
+			opinion = { who = FROM value = -24 }
+			NOT = { opinion = { who = FROM value = 25 } }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_Greed
+	text = {
+		localisation_key = tt_borrow_greed_1
+		trigger = {
+			ai_greed = 20
+			NOT = { ai_greed = 40 }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_greed_2
+		trigger = {
+			ai_greed = 40
+			NOT = { ai_greed = 60 }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_greed_3
+		trigger = {
+			ai_greed = 60
+			NOT = { ai_greed = 80 }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_greed_4
+		trigger = {
+			ai_greed = 80
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_Flametender]"
+		trigger = { NOT = { ai_greed = 20 } }
+	}
+}
+
+defined_text = {
+	name = Borrow_Flametender
+	text = {
+		localisation_key = tt_borrow_flametender
+		trigger = {
+			FROM = { trait = flametender }
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_Purity]"
+		trigger = {
+			FROM = { NOT = { trait = flametender } }
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_Purity
+	text = {
+		localisation_key = tt_borrow_purity_minus_3
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_minus_10
+					trait = purity_minus_9
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_purity_minus_2
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_minus_8
+					trait = purity_minus_7
+					trait = purity_minus_6
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_purity_minus_1
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_minus_5
+					trait = purity_minus_4
+					trait = purity_minus_3
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_purity_1
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_3
+					trait = purity_4
+					trait = purity_5
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_purity_2
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_6
+					trait = purity_7
+					trait = purity_8
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_purity_3
+		trigger = {
+			FROM = {
+				OR = {
+					trait = purity_minus_9
+					trait = purity_minus_10
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = "[Borrow_Virtuous]"
+		trigger = {
+			FROM = {
+				NOR = {
+					trait = purity_minus_10
+					trait = purity_minus_9
+					trait = purity_minus_8
+					trait = purity_minus_7
+					trait = purity_minus_6
+					trait = purity_minus_5
+					trait = purity_minus_4
+					trait = purity_minus_3
+					trait = purity_3
+					trait = purity_3
+					trait = purity_5
+					trait = purity_6
+					trait = purity_7
+					trait = purity_8
+					trait = purity_9
+					trait = purity_10
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = Borrow_Virtuous
+	text = {
+		localisation_key = tt_borrow_virtue_minus_2
+		trigger = {
+			NOT = { is_virtuous_minus_6_or_better = yes }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_virtue_minus_1
+		trigger = {
+			is_virtuous_minus_6_or_better = yes
+			NOT = { is_virtuous_minus_3_or_better = yes }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_virtue_1
+		trigger = {
+			is_virtuous_3_or_better = yes
+			NOT = { is_virtuous_6_or_better = yes }
+		}
+	}
+	text = {
+		localisation_key = tt_borrow_virtue_2
+		trigger = {
+			is_virtuous_6_or_better = yes
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_Rival
+	text = {
+		localisation_key = tt_blessing_rival
+		trigger = {
+			is_rival = FROM
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_RequestRival]"
+		trigger = {
+			NOT = { is_rival = FROM }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_RequestRival
+	text = {
+		localisation_key = tt_blessing_requestrival
+		trigger = {
+			is_rival = FROMFROM
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_BadPriest]"
+		trigger = {
+			NOT = { is_rival = FROMFROM }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_BadPriest
+	text = {
+		localisation_key = tt_blessing_badpriest
+		trigger = {
+			FROM = { trait = bad_priest_draconic }
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_Opinion]"
+		trigger = {
+			FROM = { NOT = { trait = bad_priest_draconic } }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_Opinion
+	text = {
+		localisation_key = tt_blessing_opinion_minus_5
+		trigger = {
+			NOT = { opinion = { who = FROM value = -99 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_minus_4
+		trigger = {
+			opinion = { who = FROM value = -99 }
+			NOT = { opinion = { who = FROM value = -79 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_minus_3
+		trigger = {
+			opinion = { who = FROM value = -79 }
+			NOT = { opinion = { who = FROM value = -59 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_minus_2
+		trigger = {
+			opinion = { who = FROM value = -59 }
+			NOT = { opinion = { who = FROM value = -39 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_minus_1
+		trigger = {
+			opinion = { who = FROM value = -39 }
+			NOT = { opinion = { who = FROM value = -19 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_1
+		trigger = {
+			opinion = { who = FROM value = 20 }
+			NOT = { opinion = { who = FROM value = 40 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_2
+		trigger = {
+			opinion = { who = FROM value = 40 }
+			NOT = { opinion = { who = FROM value = 60 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_3
+		trigger = {
+			opinion = { who = FROM value = 60 }
+			NOT = { opinion = { who = FROM value = 80 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_4
+		trigger = {
+			opinion = { who = FROM value = 80 }
+			NOT = { opinion = { who = FROM value = 100 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_opinion_5
+		trigger = {
+			opinion = { who = FROM value = 100 }
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_RequestOpinion]"
+		trigger = {
+			opinion = { who = FROM value = -19 }
+			NOT = { opinion = { who = FROM value = 20 } }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_RequestOpinion
+	text = {
+		localisation_key = tt_blessing_requestopinion_minus_5
+		trigger = {
+			NOT = { opinion = { who = FROMFROM value = -99 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_minus_4
+		trigger = {
+			opinion = { who = FROMFROM value = -99 }
+			NOT = { opinion = { who = FROMFROM value = -79 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_minus_3
+		trigger = {
+			opinion = { who = FROMFROM value = -79 }
+			NOT = { opinion = { who = FROMFROM value = -59 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_minus_2
+		trigger = {
+			opinion = { who = FROMFROM value = -59 }
+			NOT = { opinion = { who = FROMFROM value = -39 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_minus_1
+		trigger = {
+			opinion = { who = FROMFROM value = -39 }
+			NOT = { opinion = { who = FROMFROM value = -19 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_1
+		trigger = {
+			opinion = { who = FROMFROM value = 20 }
+			NOT = { opinion = { who = FROMFROM value = 40 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_2
+		trigger = {
+			opinion = { who = FROMFROM value = 40 }
+			NOT = { opinion = { who = FROMFROM value = 60 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_3
+		trigger = {
+			opinion = { who = FROMFROM value = 60 }
+			NOT = { opinion = { who = FROMFROM value = 80 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_4
+		trigger = {
+			opinion = { who = FROMFROM value = 80 }
+			NOT = { opinion = { who = FROMFROM value = 100 } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_requestopinion_5
+		trigger = {
+			opinion = { who = FROMFROM value = 100 }
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_Virtue]"
+		trigger = {
+			opinion = { who = FROMFROM value = -19 }
+			NOT = { opinion = { who = FROMFROM value = 20 } }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_Virtue
+	text = {
+		localisation_key = tt_blessing_virtue_minus_3
+		trigger = {
+			FROM = { NOT = { is_virtuous_minus_6_or_better = yes } }
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_minus_2
+		trigger = {
+			FROM = { 
+				is_virtuous_minus_6_or_better = yes
+				NOT = { is_virtuous_minus_4_or_better = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_minus_1
+		trigger = {
+			FROM = { 
+				is_virtuous_minus_4_or_better = yes
+				NOT = { is_virtuous_minus_2_or_better = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_1
+		trigger = {
+			FROM = {
+				is_virtuous_1_or_better = yes
+				NOT = { is_virtuous_3_or_better = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_2
+		trigger = {
+			FROM = {
+				is_virtuous_3_or_better = yes
+				NOT = { is_virtuous_5_or_better = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_3
+		trigger = {
+			FROM = {
+				is_virtuous_5_or_better = yes
+				NOT = { is_virtuous_7 = yes }
+			}
+		}
+	}
+	text = {
+		localisation_key = tt_blessing_virtue_4
+		trigger = {
+			FROM = {
+				is_virtuous_7 = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_Theologian]"
+		trigger = {
+			FROM = {
+				is_virtuous_minus_2_or_better = yes
+				NOT = { is_virtuous_1_or_better = yes }
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_Theologian
+	text = {
+		localisation_key = tt_blessing_theologian
+		trigger = {
+			FROM = { trait = theologian }
+		}
+	}
+	text = {
+		localisation_key = "[Blessing_Greed]"
+		trigger = {
+			FROM = { NOT = { trait = theologian } }
+		}
+	}
+}
+
+defined_text = {
+	name = Blessing_Greed
+	text = {
+		localisation_key = tt_blessing_greed_1
+		trigger = {
+			ai_greed = 40
+			NOT = { ai_greed = 80 }
+		}
+	}
+	text = {
+		localisation_key = tt_blessed_greed_2
+		trigger = {
+			ai_greed = 80
+		}
+	}
+}
+
+defined_text = {
+	name = Not_Transformed
+	text = {
+		localisation_key = YouAreNotTransformed
+		trigger = {
+			trait = werewolf
+			has_character_flag = not_shapeshifted
+		}
+	}
+	text = {
+		localisation_key = ""
+		trigger = {
+			NOR = { 
+				trait = werewolf
+				has_character_flag = not_shapeshifted
+			}
+		}
+	}
+}
