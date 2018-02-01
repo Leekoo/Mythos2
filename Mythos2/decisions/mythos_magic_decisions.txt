@@ -254,8 +254,17 @@ decisions = {
 		potential = {
 			prisoner = no
 			OR = {
-				trait = veteran_wizard
 				trait = arcane_master
+				trait = veteran_wizard
+				trait = summoner
+				AND = {
+					trait = eldritch_scholar
+					learning = 14
+				}
+				AND = {
+					trait = novice_mage
+					learning = 17
+				}
 			}
 		}
 		
@@ -265,7 +274,20 @@ decisions = {
 			war = yes
 			is_incapable = no
 			NOT = { has_character_modifier = cast_spell }
+			OR = {
+				trait = arcane_master
+				trait = veteran_wizard
+				trait = summoner
+				AND = {
+					trait = eldritch_scholar
+					learning = 14
+				}
+				AND = {
+					trait = novice_mage
+					learning = 17
+				}
 			}
+		}
 		
 		effect = {
 			wealth = -100
@@ -899,6 +921,10 @@ targetted_decisions = {
 				trait = eldritch_scholar
 				trait = veteran_wizard
 				trait = arcane_master
+				AND = {
+					trait = novice_mage
+					learning = 14
+				}
 			}
 			NOT = { trait = celibate }
 		}
@@ -948,6 +974,15 @@ targetted_decisions = {
 		allow = {
 			FROM = { wealth = 100 }
 			NOT = { FROM = {has_character_modifier = cast_spell } }
+			OR = {
+				trait = eldritch_scholar
+				trait = veteran_wizard
+				trait = arcane_master
+				AND = {
+					trait = novice_mage
+					learning = 14
+				}
+			}
 		}
 		effect = {
 			FROM = { wealth = -100 }
@@ -1430,8 +1465,16 @@ settlement_decisions = {
 			prisoner = no
 			NOT = { has_character_modifier = cast_spell }
 			OR = {
-				trait = veteran_wizard
 				trait = arcane_master
+				trait = veteran_wizard
+				AND = {
+					trait = eldritch_scholar
+					learning = 14
+				}
+				AND = {
+					trait = novice_mage
+					learning = 17
+				}
 			}
 		}
 		potential = {
