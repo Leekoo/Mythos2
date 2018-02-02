@@ -116,6 +116,15 @@ claim = {
 				if = {
 					limit = {
 						has_nickname = no
+						tier = PREV
+						any_sibling = { character = FROM }
+						random = 50
+					}
+					give_nickname = nick_the_unifier
+				}
+				else_if = {
+					limit = {
+						has_nickname = no
 						lower_tier_than = PREV
 					}
 					random = {
@@ -2507,6 +2516,15 @@ invasion = {
 				if = {
 					limit = {
 						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
+				else_if = {
+					limit = {
+						has_nickname = no
 					}
 					random_list = {
 						10 = { give_nickname = nick_the_great }
@@ -2928,6 +2946,15 @@ tribal_invasion = {
 				if = {
 					limit = {
 						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
+				else_if = {
+					limit = {
+						has_nickname = no
 					}
 					random_list = {
 						10 = { give_nickname = nick_the_great }
@@ -3294,6 +3321,15 @@ crusade = {
 					is_crusade = yes # Even if the title holder is not participating in the war, gain holdings occupied by all Crusade participants
 					type = holy_war
 				}
+				if = {
+					limit = {
+						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
 			}
 		}
 		
@@ -3317,6 +3353,17 @@ crusade = {
 				if = {
 					limit = { is_ruler = no }
 					set_character_flag = set_feudal_gov
+				}
+				hidden_tooltip = {
+					if = {
+						limit = {
+							has_nickname = no
+							NOT = { culture = FROM }
+							trait = just
+							random = 20
+						}
+						give_nickname = nick_the_judge_of_culture
+					}
 				}
 				gain_settlements_under_title = {
 					title = PREV
@@ -3415,6 +3462,15 @@ crusade = {
 					}
 				}
 				hidden_tooltip = {
+					if = {
+						limit = {
+							has_nickname = no
+							NOT = { culture = FROM }
+							trait = just
+							random = 20
+						}
+						give_nickname = nick_the_judge_of_culture
+					}
 					if = {
 						limit = {
 							has_nickname = no
@@ -3943,6 +3999,15 @@ religious = {
 				years = 20
 			}
 			hidden_tooltip = {
+				if = {
+					limit = {
+						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
 				if = {
 					limit = {
 						has_ambition = obj_strengthen_religion
@@ -6542,6 +6607,15 @@ muslim_invasion = {
 					}
 					change_variable = { which = strengthen_religion value = 1 }
 				}
+				if = {
+					limit = {
+						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
 			}
 			participation_scaled_prestige = 200
 			if = {
@@ -7579,6 +7653,15 @@ viking_invasion = {
 				if = {
 					limit = {
 						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 10
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
+				if = {
+					limit = {
+						has_nickname = no
 					}
 					random_list = {
 						10 = { give_nickname = nick_the_great }
@@ -7818,6 +7901,15 @@ pagan_subjugation = {
 		ROOT = {
 			piety = 100
 			participation_scaled_prestige = 100
+			if = {
+				limit = {
+					has_nickname = no
+					NOT = { culture = FROM }
+					trait = just
+					random = 10
+				}
+				give_nickname = nick_the_judge_of_culture
+			}
 		}
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }
@@ -9143,6 +9235,15 @@ pagan_holy_war = {
 				}
 			}
 			hidden_tooltip = {
+				if = {
+					limit = {
+						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 10
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
 				if = {
 					limit = {
 						has_nickname = no
@@ -11690,6 +11791,15 @@ buddhist_holy_war = {
 					change_variable = { which = strengthen_religion value = 1 }
 				}
 			}
+			if = {
+				limit = {
+					has_nickname = no
+					NOT = { culture = FROM }
+					trait = just
+					random = 20
+				}
+				give_nickname = nick_the_judge_of_culture
+			}
 		}
 	}
 
@@ -11927,6 +12037,17 @@ indian_subjugation = {
 	on_success = {
 		ROOT = {
 			participation_scaled_prestige = 200
+			hidden_tooltip = {
+				if = {
+					limit = {
+						has_nickname = no
+						NOT = { culture = FROM }
+						trait = just
+						random = 20
+					}
+					give_nickname = nick_the_judge_of_culture
+				}
+			}
 		}
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }

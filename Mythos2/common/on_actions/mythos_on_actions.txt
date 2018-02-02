@@ -246,7 +246,22 @@ on_battle_won = {
 		300 = 0 # No event
 	}
 }
+on_assassination_disc = {
+	events = {
+		MYTHMORE.33
+		MYTHMORE.34
+	}
+}
+on_avoided_imprison_fled_country = {
+	events = {
+		MYTHMORE.36
+	}
+}
 on_executed = {
+	events = {
+		MYTHMORE.33
+		MYTHMORE.34
+	}
 	random_events = {
 		1000 = 0		# None
 		50 = MONSTER.8	# People think character is a monster

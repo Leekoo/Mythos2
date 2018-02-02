@@ -333,6 +333,8 @@ slay_monster = {
 		}
 		
 		FROM = {
+			save_event_target_as = killer
+			character_event = { id = MYTHMORE.35 }
 			death = { death_reason = death_execution_burning killer = ROOT }
 		}
 		
