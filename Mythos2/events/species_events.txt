@@ -1309,3 +1309,16 @@ character_event = {
 		any_liege = { character_event = { id = SPECIES.7 } }
 	}
 }
+# SPECIES.9 - Remove and re-add God on adulthood so gods age correctly
+character_event = {
+	id = SPECIES.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { trait = god }
+	
+	immediate = {
+		remove_trait = god
+		add_trait = god
+	}
+}
