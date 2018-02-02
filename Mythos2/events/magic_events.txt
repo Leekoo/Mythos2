@@ -466,6 +466,15 @@ character_event = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
 			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
 			break = yes
 		}
 		if = {
@@ -482,6 +491,15 @@ character_event = {
 			if = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
 			}
 		}
 	}
@@ -611,6 +629,15 @@ character_event = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
 			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
 			break = yes
 		}
 		if = {
@@ -626,6 +653,15 @@ character_event = {
 			if = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
 			}
 		}
 	}
