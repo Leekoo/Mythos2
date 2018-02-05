@@ -1858,3 +1858,15 @@ unsafe_vampire_food = {
 		trait = ethereal_trait
 	}
 }
+
+is_injured_in_dragon_raid = {
+	OR = {
+		has_character_flag = dragon_raid_wounded
+		has_character_flag = dragon_raid_maimed
+		has_character_flag = dragon_raid_eye
+		has_character_flag = dragon_raid_leg
+		has_character_flag = dragon_raid_hand
+		has_character_flag = dragon_raid_disfigured
+		has_character_flag = dragon_raid_mangled
+	}
+}
