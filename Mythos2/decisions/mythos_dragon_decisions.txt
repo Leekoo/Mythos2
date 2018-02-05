@@ -2646,6 +2646,145 @@ targetted_decisions = {
 		}
 	}
 	
+	raid_rival = {
+		filter = rivals
+		ai_target_filter = rivals
+		
+		from_potential = {
+			trait = dragon
+			age = 16
+			prisoner = no
+			is_incapable = no
+			num_of_rivals = 1
+		}
+		potential = {
+			is_rival = FROM
+			trait = dragon
+		}
+		allow = {
+			FROM = {
+				wealth = 1
+			}
+			wealth = 1
+			NOR = { 
+				has_opinion_modifier = { who = FROM modifier = opinion_ally }
+				has_opinion_modifier = { who = FROM modifier = opinion_at_war }
+				has_opinion_modifier = { who = FROM modifier = opinion_raided }
+			}
+			is_inaccessible_trigger = no
+			FROM = { is_inaccessible_trigger = no }
+			NOT = { FROM = { has_truce = ROOT } }
+		}
+		effect = {
+			character_event = { id = DRAGON.106 days = 3 }
+			opinion = { who = FROM modifier = opinion_raided years = 2 }
+		}
+		ai_will_do = {
+			factor = 0.05
+			modifier = {
+				factor = 2
+				FROM = { trait = wroth }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = greedy }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = duelist }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { 
+					OR = {
+						character_disease_trigger = yes
+						has_symptom_trigger = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { has_injury_trigger = yes }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					OR = { # Mild combat disability
+						trait = clubfooted
+						trait = inbred
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						trait = dwarf
+						trait = imbecile
+						trait = weak # Has issued beyond personal combat
+						trait = feeble
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_strong_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				FROM = { trait = brave }
+			}
+			modifier = {
+				factor = 0.2
+				FROM = { is_maimed_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					character_disease_trigger = yes
+					has_symptom_trigger = yes
+				}
+			}
+			modifier = {
+				factor = 2
+				has_injury_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = dwarf
+					trait = imbecile
+					trait = weak
+					trait = clubfooted
+					trait = inbred
+					trait = feeble
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				is_maimed_trigger = yes
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+				has_negative_purity = yes
+			}
+			modifier = {
+				factor = 0.2
+				trait = duelist
+			}
+		}
+	}
+	
 }
 settlement_decisions = {
 	
