@@ -8639,3 +8639,235 @@ control_restrict_range = {
 		}
 	}
 }
+
+vampire_plot_repeat_chance = {
+	random_list = {
+		75 = {
+			modifier = {
+				factor = 0.8
+				has_character_flag = vampire_favor
+			}
+			modifier = {
+				factor = 0.7
+				has_character_flag = vampire_assassinate
+			}
+			if = {
+				limit = { has_character_flag = vampire_bribe }
+				repeat_event = { id = VAMPIRE.70 days = 5 random = 10 }
+			}
+			else_if = {
+				limit = { has_character_flag = vampire_favor }
+				character_event = { id = VAMPIRE.71 days = 3 random = 3 }
+			}
+			else = { # Assassination
+				repeat_event = { id = VAMPIRE.76 days = 5 random = 10 }
+			}
+		}
+		25 = {
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 1 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 2 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 3 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 4 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 5 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 6 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 7 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 8 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 9 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 10 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 11 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 12 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 13 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 14 }
+			}
+			additive_modifier = {
+				value = 5
+				check_variable = { which = invest_level value = 15 }
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_favor
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_assassinate
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_bribe
+				stewardship = 12
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_bribe
+				stewardship = 15
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_bribe
+				stewardship = 20
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_bribe
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_bribe
+				diplomacy = 15
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_bribe
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_bribe
+				intrigue = 12
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_bribe
+				intrigue = 15
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_bribe
+				intrigue = 20
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_favor
+				stewardship = 12
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_favor
+				stewardship = 15
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_favor
+				stewardship = 20
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_favor
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_favor
+				diplomacy = 15
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_favor
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_favor
+				intrigue = 12
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_favor
+				intrigue = 15
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_favor
+				intrigue = 20
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_assassination
+				stewardship = 12
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_assassination
+				stewardship = 15
+			}
+			modifier = {
+				factor = 1.3
+				has_character_flag = vampire_assassination
+				stewardship = 20
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_assassination
+				diplomacy = 12
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_assassination
+				diplomacy = 15
+			}
+			modifier = {
+				factor = 1.2
+				has_character_flag = vampire_assassination
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_assassination
+				intrigue = 12
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_assassination
+				intrigue = 15
+			}
+			modifier = {
+				factor = 1.5
+				has_character_flag = vampire_assassination
+				intrigue = 20
+			}
+			character_event = { id = VAMPIRE.78 days = 5 random = 10 }
+		}
+	}
+}
