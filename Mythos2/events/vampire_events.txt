@@ -538,6 +538,22 @@ character_event = {
 			limit = { has_character_flag = vampire_feed_kill }
 			set_character_flag = vf_stat
 		}
+		# Automatic feeding can let you feed on vampires, etc.  In these cases, no healing or stats
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						trait = vampire
+						trait = werewolf
+						trait = zombie
+						trait = demon_trait
+						trait = ethereal_trait
+					}
+				}
+			}
+			clr_character_flag = vf_heal
+			clr_character_flag = vf_stat
+		}
 		# Heal an injury
 		if = {
 			limit = {
