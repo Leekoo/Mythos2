@@ -1494,75 +1494,148 @@ character_event = {
 	id = MONSTER.20
 	hide_window = yes
 	is_triggered_only = yes
-	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 1.5
-			trait = known_werewolf
-			check_variable = { which = control value <= 2 }
-		}
-		modifier = {
-			factor = 1.5
-			trait = known_werewolf
-			check_variable = { which = control value == 1 }
-		}
-	}
-	
+		
 	trigger = {
 		OR = {
-			AND = {
-				OR = {
-					top_liege = { trait = known_vampire }
-					trait = known_vampire
-				}
-				any_demesne_province = {
-					NOR = {
-						culture = vampire_culture
-						religion = satanist
-					}
-				}
-			}
-			AND = {
-				OR = {
-					top_liege = { trait = known_werewolf }
-					trait = known_werewolf
-				}
-				any_demesne_province = {
-					NOT = { culture = werewolf_culture }
-				}
-			}
-			AND = {
-				OR = {
-					top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-					has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
-				}
-				any_demesne_province = {
-					NOR = {
-						culture = werewolf_culture
-						culture = vampire_culture
-						religion = satanist
-					}
-				}
-			}
+			trait = known_vampire
+			trait = known_werewolf
+			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
 		}
 	}
 	
 	immediate = {
-		if = {
-			limit = { random = 25 }
-			random_list = {
-				3 = {
-					character_event = { id = MONSTER.21 days = 2 random = 10 }
+		random = {
+			chance = 10
+			# Werewolves scale with low control
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 4 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 3 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 2 }
+			}
+			modifier = {
+				factor = 1.4
+				trait = known_werewolf
+				check_variable = { which = control value <= 1 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 6 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 7 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 8 }
+			}
+			modifier = {
+				factor = 0.9
+				trait = known_werewolf
+				check_variable = { which = control value >= 9 }
+			}
+			# Vampires scale with hunger. Max hunger matches old values
+			modifier = {
+				factor = 1.2
+				trait = known_vampire
+				trait = hunger_1
+			}
+			modifier = {
+				factor = 1.44
+				trait = known_vampire
+				trait = hunger_2
+			}
+			modifier = {
+				factor = 1.73
+				trait = known_vampire
+				trait = hunger_3
+			}
+			modifier = {
+				factor = 2.07
+				trait = known_vampire
+				trait = hunger_4
+			}
+			modifier = {
+				factor = 2.5
+				trait = known_vampire
+				trait = hunger_5
+			}
+			# Scales with known_monster
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+			}
+			modifier = {
+				factor = 1.2
+				has_instances_of_character_modifier = { modifier = known_monster amount = 4 }
+			}
+			modifier = {
+				factor = 0.58 # Offset the scaling for non-monsters with known_monster
+				NOR = {
+					trait = known_werewolf
+					trait = known_vampire
 				}
-				3 = {
-					character_event = { id = MONSTER.22 days = 2 random = 10 }
-				}
-				3 = {
-					character_event = { id = MONSTER.23 days = 2 random = 10 }
-				}
-				1 = {
-					character_event = { id = MONSTER.24 days = 2 random = 10 }
+			}
+			random_demesne_province = {
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								ROOT = { trait = known_werewolf }
+								NOT = { culture = werewolf_culture }
+							}
+							AND = {
+								ROOT = { trait = known_vampire }
+								NOR = {
+									culture = vampire_culture
+									religion = satanist
+								}
+							}
+							AND = {
+								ROOT = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+								NOR = {
+									culture = werewolf_culture
+									culture = vampire_culture
+									religion = satanist
+								}
+							}
+						}
+					}
+					random_list = {
+						3 = {
+							province_event = { id = MONSTER.21 days = 2 random = 10 }
+						}
+						3 = {
+							province_event = { id = MONSTER.22 days = 2 random = 10 }
+						}
+						3 = {
+							province_event = { id = MONSTER.23 days = 2 random = 10 }
+						}
+						1 = {
+							province_event = { id = MONSTER.24 days = 2 random = 10 }
+						}
+					}
 				}
 			}
 		}
@@ -1570,7 +1643,7 @@ character_event = {
 }
 
 # Province gains monster hunter training
-character_event = {
+province_event = {
 	id = MONSTER.21
 	desc = EVTDESC_MONSTER.21
 	picture = GFX_evt_peasants
@@ -1578,65 +1651,30 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		random_demesne_province = {
-			limit = {
-				OR = {
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_vampire } }
-							owner = { trait = known_vampire }
-						}
-						NOR = {
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_werewolf } }
-							owner = { trait = known_werewolf }
-						}
-						NOT = { culture = werewolf_culture }
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
-							owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-						}
-						NOR = {
-							culture = werewolf_culture
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-				}
-				NOT = { has_province_modifier = monster_hunter_training }
-			}
-			save_event_target_as = target_province
-		}
+	trigger = {
+		NOT = { has_province_modifier = monster_hunter_training }
 	}
 	
 	option = {
 		name = EVTOPTA_MONSTER_provmod
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunter_training years = 20 } }
+		add_province_modifier = { modifier = monster_hunter_training years = 20 }
 		ai_chance = {
 			factor = 4
 			modifier = {
 				factor = 2
-				ai_greed = 50
+				holder_scope = { ai_greed = 50 }
 			}
 			modifier = {
 				factor = 2
-				trait = patient
+				holder_scope = { trait = patient }
 			}
 		}
 	}
 	
 	option = {
 		name = EVTOPTB_MONSTER_provmod
-		scaled_wealth = { value = -0.25 min = -5 max = -50 }
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunter_training years = 10 } }
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = monster_hunter_training years = 10 }
 		ai_chance = {
 			factor = 2
 		}
@@ -1644,15 +1682,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_MONSTER_provmod
-		scaled_wealth = { value = -1 min = -20 max = -200 }
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunter_training years = 5 } }
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = monster_hunter_training years = 5 }
 		ai_chance = {
 			factor = 1
 			modifier = {
 				factor = 2
-				OR = {
-					trait = impaler
-					trait = cruel
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
 				}
 			}
 		}
@@ -1661,12 +1701,12 @@ character_event = {
 	option = {
 		name = EVTOPTD_MONSTER_provmod
 		trigger = { ai = no }
-		scaled_wealth = { value = -3 min = -50 max = -600 }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
 
 # Province gains monster hunting weapons
-character_event = {
+province_event = {
 	id = MONSTER.22
 	desc = EVTDESC_MONSTER.22
 	picture = GFX_evt_peasants
@@ -1674,65 +1714,30 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		random_demesne_province = {
-			limit = {
-				OR = {
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_vampire } }
-							owner = { trait = known_vampire }
-						}
-						NOR = {
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_werewolf } }
-							owner = { trait = known_werewolf }
-						}
-						NOT = { culture = werewolf_culture }
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
-							owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-						}
-						NOR = {
-							culture = werewolf_culture
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-				}
-				NOT = { has_province_modifier = monster_hunting_weapons }
-			}
-			save_event_target_as = target_province
-		}
+	trigger = {
+		NOT = { has_province_modifier = monster_hunting_weapons }
 	}
 	
 	option = {
 		name = EVTOPTA_MONSTER_provmod
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunting_weapons years = 20 } }
+		add_province_modifier = { modifier = monster_hunting_weapons years = 20 }
 		ai_chance = {
 			factor = 4
 			modifier = {
 				factor = 2
-				ai_greed = 50
+				holder_scope = { ai_greed = 50 }
 			}
 			modifier = {
 				factor = 2
-				trait = patient
+				holder_scope = { trait = patient }
 			}
 		}
 	}
 	
 	option = {
 		name = EVTOPTB_MONSTER_provmod
-		scaled_wealth = { value = -0.25 min = -5 max = -50 }
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunting_weapons years = 10 } }
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = monster_hunting_weapons years = 10 }
 		ai_chance = {
 			factor = 2
 		}
@@ -1740,15 +1745,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_MONSTER_provmod
-		scaled_wealth = { value = -1 min = -20 max = -200 }
-		event_target:target_province = { add_province_modifier = { modifier = monster_hunting_weapons years = 5 } }
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = monster_hunting_weapons years = 5 }
 		ai_chance = {
 			factor = 1
 			modifier = {
 				factor = 2
-				OR = {
-					trait = impaler
-					trait = cruel
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
 				}
 			}
 		}
@@ -1757,12 +1764,12 @@ character_event = {
 	option = {
 		name = EVTOPTD_MONSTER_provmod
 		trigger = { ai = no }
-		scaled_wealth = { value = -3 min = -50 max = -600 }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
 
 # Province gains growing discontent
-character_event = {
+province_event = {
 	id = MONSTER.23
 	desc = EVTDESC_MONSTER.23
 	picture = GFX_evt_peasants
@@ -1770,65 +1777,30 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		random_demesne_province = {
-			limit = {
-				OR = {
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_vampire } }
-							owner = { trait = known_vampire }
-						}
-						NOR = {
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_werewolf } }
-							owner = { trait = known_werewolf }
-						}
-						NOT = { culture = werewolf_culture }
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
-							owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-						}
-						NOR = {
-							culture = werewolf_culture
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-				}
-				NOT = { has_province_modifier = growing_discontent }
-			}
-			save_event_target_as = target_province
-		}
+	trigger = {
+		NOT = { has_province_modifier = growing_discontent }
 	}
 	
 	option = {
 		name = EVTOPTA_MONSTER_provmod
-		event_target:target_province = { add_province_modifier = { modifier = growing_discontent years = 20 } }
+		add_province_modifier = { modifier = growing_discontent years = 20 }
 		ai_chance = {
 			factor = 4
 			modifier = {
 				factor = 2
-				ai_greed = 50
+				holder_scope = { ai_greed = 50 }
 			}
 			modifier = {
 				factor = 2
-				trait = patient
+				holder_scope = { trait = patient }
 			}
 		}
 	}
 	
 	option = {
 		name = EVTOPTB_MONSTER_provmod
-		scaled_wealth = { value = -0.25 min = -5 max = -50 }
-		event_target:target_province = { add_province_modifier = { modifier = growing_discontent years = 10 } }
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = growing_discontent years = 10 }
 		ai_chance = {
 			factor = 2
 		}
@@ -1836,15 +1808,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_MONSTER_provmod
-		scaled_wealth = { value = -1 min = -20 max = -200 }
-		event_target:target_province = { add_province_modifier = { modifier = growing_discontent years = 5 } }
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = growing_discontent years = 5 }
 		ai_chance = {
 			factor = 1
 			modifier = {
 				factor = 2
-				OR = {
-					trait = impaler
-					trait = cruel
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
 				}
 			}
 		}
@@ -1853,12 +1827,12 @@ character_event = {
 	option = {
 		name = EVTOPTD_MONSTER_provmod
 		trigger = { ai = no }
-		scaled_wealth = { value = -3 min = -50 max = -600 }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
 
 # Province gains human riots
-character_event = {
+province_event = {
 	id = MONSTER.24
 	desc = EVTDESC_MONSTER.24
 	picture = GFX_evt_peasants
@@ -1866,65 +1840,30 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		random_demesne_province = {
-			limit = {
-				OR = {
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_vampire } }
-							owner = { trait = known_vampire }
-						}
-						NOR = {
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { trait = known_werewolf } }
-							owner = { trait = known_werewolf }
-						}
-						NOT = { culture = werewolf_culture }
-					}
-					AND = {
-						OR = {
-							owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
-							owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-						}
-						NOR = {
-							culture = werewolf_culture
-							culture = vampire_culture
-							religion = satanist
-						}
-					}
-				}
-				NOT = { has_province_modifier = human_riots }
-			}
-			save_event_target_as = target_province
-		}
+	trigger = {
+		NOT = { has_province_modifier = human_riots }
 	}
 	
 	option = {
 		name = EVTOPTA_MONSTER_provmod
-		event_target:target_province = { add_province_modifier = { modifier = human_riots years = 20 } }
+		add_province_modifier = { modifier = human_riots years = 20 }
 		ai_chance = {
 			factor = 4
 			modifier = {
 				factor = 2
-				ai_greed = 50
+				holder_scope = { ai_greed = 50 }
 			}
 			modifier = {
 				factor = 2
-				trait = patient
+				holder_scope = { trait = patient }
 			}
 		}
 	}
 	
 	option = {
 		name = EVTOPTB_MONSTER_provmod
-		scaled_wealth = { value = -0.25 min = -5 max = -50 }
-		event_target:target_province = { add_province_modifier = { modifier = human_riots years = 10 } }
+		holder_scope = { scaled_wealth = { value = -0.25 min = -5 max = -50 } }
+		add_province_modifier = { modifier = human_riots years = 10 }
 		ai_chance = {
 			factor = 2
 		}
@@ -1932,15 +1871,17 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_MONSTER_provmod
-		scaled_wealth = { value = -1 min = -20 max = -200 }
-		event_target:target_province = { add_province_modifier = { modifier = human_riots years = 5 } }
+		holder_scope = { scaled_wealth = { value = -1 min = -20 max = -200 } }
+		add_province_modifier = { modifier = human_riots years = 5 }
 		ai_chance = {
 			factor = 1
 			modifier = {
 				factor = 2
-				OR = {
-					trait = impaler
-					trait = cruel
+				holder_scope = {
+					OR = {
+						trait = impaler
+						trait = cruel
+					}
 				}
 			}
 		}
@@ -1949,7 +1890,7 @@ character_event = {
 	option = {
 		name = EVTOPTD_MONSTER_provmod
 		trigger = { ai = no }
-		scaled_wealth = { value = -3 min = -50 max = -600 }
+		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
 
