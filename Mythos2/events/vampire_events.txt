@@ -9855,36 +9855,42 @@ character_event = {
 			limit = { is_variable_equal = { which = local_title value = 1 } }
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_count
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		else_if = {
 			limit = { is_variable_equal = { which = local_title value = 2 } }
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_duke
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		else_if = {
 			limit = { is_variable_equal = { which = local_title value = 3 } }
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_king
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		else_if = {
 			limit = { is_variable_equal = { which = local_title value = 4 } } 
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_emperor
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		else_if = {
 			limit = { is_variable_equal = { which = local_title value = 5 } }
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_1
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		else_if = {
 			limit = { is_variable_equal = { which = local_title value = 6 } }
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_2
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 	}
@@ -10032,6 +10038,7 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_count
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		if = {
@@ -10074,6 +10081,7 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_duke
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		if = {
@@ -10116,6 +10124,7 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_king
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		if = {
@@ -10158,6 +10167,7 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_emperor
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		if = {
@@ -10200,6 +10210,7 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_1
+				character_event = { id = VAMPIRE.156 }
 			}
 		}
 		if = {
@@ -10242,7 +10253,86 @@ character_event = {
 			}
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_2
+				character_event = { id = VAMPIRE.156 }
 			}
+		}
+	}
+}
+
+# Fix anyone having multiple blood court titles
+character_event = {
+	id = VAMPIRE.156
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		calc_true_if = {
+			amount = 2
+			has_minor_title = blood_court_count
+			has_minor_title = blood_court_duke
+			has_minor_title = blood_court_king
+			has_minor_title = blood_court_emperor
+			has_minor_title = blood_court_e_vampire_1
+			has_minor_title = blood_court_e_vampire_2
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				has_minor_title = blood_court_count
+				OR = {
+					has_minor_title = blood_court_duke
+					has_minor_title = blood_court_king
+					has_minor_title = blood_court_emperor
+					has_minor_title = blood_court_e_vampire_1
+					has_minor_title = blood_court_e_vampire_2
+				}
+			}
+			remove_title = blood_court_count
+		}
+		if = {
+			limit = {
+				has_minor_title = blood_court_duke
+				OR = {
+					has_minor_title = blood_court_king
+					has_minor_title = blood_court_emperor
+					has_minor_title = blood_court_e_vampire_1
+					has_minor_title = blood_court_e_vampire_2
+				}
+			}
+			remove_title = blood_court_duke
+		}
+		if = {
+			limit = {
+				has_minor_title = blood_court_king
+				OR = {
+					has_minor_title = blood_court_emperor
+					has_minor_title = blood_court_e_vampire_1
+					has_minor_title = blood_court_e_vampire_2
+				}
+			}
+			remove_title = blood_court_king
+		}
+		if = {
+			limit = {
+				has_minor_title = blood_court_emperor
+				OR = {
+					has_minor_title = blood_court_e_vampire_1
+					has_minor_title = blood_court_e_vampire_2
+				}
+			}
+			remove_title = blood_court_emperor
+		}
+		if = {
+			limit = {
+				has_minor_title = blood_court_e_vampire_1
+				has_minor_title = blood_court_e_vampire_2
+			}
+			remove_title = blood_court_e_vampire_1
+		}
+		liege = {
+			character_event = { id = vampire.155 }
 		}
 	}
 }
