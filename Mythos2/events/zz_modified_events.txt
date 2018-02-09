@@ -2657,7 +2657,10 @@ character_event = {
 				new_character = {
 					random_list = {
 						90 = { add_trait = naive_appeaser }
-						10 = { add_trait = novice_mage }
+						10 = {
+							add_trait = novice_mage
+							add_trait = magic_heritage
+						}
 					}		
 					save_event_target_as = suspected_witch
 					hidden_tooltip = {
@@ -2685,7 +2688,10 @@ character_event = {
 				new_character = {
 					random_list = {
 						90 = { add_trait = amateurish_plotter }
-						10 = { add_trait = novice_mage }
+						10 = {
+							add_trait = novice_mage
+							add_trait = magic_heritage
+						}
 					}	
 					save_event_target_as = suspected_witch
 					hidden_tooltip = {

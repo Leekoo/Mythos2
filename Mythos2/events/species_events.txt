@@ -1192,6 +1192,17 @@ character_event = {
 			if = {
 				limit = {
 					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+				}
+				add_trait = magic_heritage
+			}
+			if = {
+				limit = {
+					OR = {
 						trait = vampire
 						trait = werewolf
 					}

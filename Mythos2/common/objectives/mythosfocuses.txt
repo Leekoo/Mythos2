@@ -139,6 +139,18 @@ focus_ch_magic = {
 	}
 	
 	allow = {
+		OR = {
+			religion_group = pagan_group
+			religion = satanist
+			trait = blood_of_the_gods
+			trait = dragon
+			trait = dragonborn
+			trait = djinn
+			trait = demi_god
+			trait = god
+			trait = demon_trait
+			trait = magic_heritage
+		}
 	}
 	
 	# AI Pick chance
@@ -151,6 +163,47 @@ focus_ch_magic = {
 				religion_group = christian
 				religion_group = muslim
 				religion_group = jewish_group
+			}
+		}
+		modifier = {
+			factor = 1.2
+			OR = {
+				guardian = {
+					OR = {
+						trait = mystic 
+						trait = enchanter
+						trait = summoner
+					}
+				}
+				educator = {
+					OR = {
+						trait = mystic 
+						trait = enchanter
+						trait = summoner
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			father_even_if_dead = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			mother_even_if_dead = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
 			}
 		}
 	}
@@ -184,6 +237,22 @@ focus_ed_magic = {
 	}
 	
 	allow = {
+		OR = {
+			religion_group = pagan_group
+			guardian = { religion_group = pagan_group }
+			educator = { religion_group = pagan_group }
+			religion = satanist
+			guardian = { religion = satanist }
+			educator = { religion = satanist }
+			trait = blood_of_the_gods
+			trait = dragon
+			trait = dragonborn
+			trait = djinn
+			trait = demi_god
+			trait = god
+			trait = demon_trait
+			trait = magic_heritage
+		}
 	}
 	
 	# AI Pick chance
@@ -197,6 +266,78 @@ focus_ed_magic = {
 				religion_group = muslim
 				religion_group = jewish_group
 			}
+		}
+		modifier = {
+			factor = 1.2
+			OR = {
+				guardian = {
+					OR = {
+						trait = mystic 
+						trait = enchanter
+						trait = summoner
+					}
+				}
+				educator = {
+					OR = {
+						trait = mystic 
+						trait = enchanter
+						trait = summoner
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			father_even_if_dead = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+		}
+		modifier = {
+			factor = 1.2
+			mother_even_if_dead = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 1.2
+			trait = timid
+		}
+		modifier = {
+			factor = 1.2
+			trait = idolizer
+		}
+		modifier = {
+			factor = 1.4
+			OR = {
+				guardian = { has_education_magic_trigger = yes }
+				educator = { has_education_magic_trigger = yes }
+			}
+		}
+		modifier = {
+			factor = 1.2
+			OR = {
+				guardian = { has_lifestyle_magic_trigger = yes }
+				educator = { has_lifestyle_magic_trigger = yes }
+			}
+		}
+		modifier = {
+			factor = 0.8
+			trait = affectionate
+		}
+		modifier = {
+			factor = 0.8
+			trait = rowdy
 		}
 	}
 	

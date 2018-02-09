@@ -680,6 +680,10 @@ character_event = {
 			has_character_flag = education_outcome_level_1
 		}
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_1
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -690,6 +694,10 @@ character_event = {
 			has_character_flag = education_outcome_level_2
 		}
 		add_trait = eldritch_scholar
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_2
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -700,6 +708,10 @@ character_event = {
 			has_character_flag = education_outcome_level_3
 		}
 		add_trait = veteran_wizard
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_3
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -710,6 +722,10 @@ character_event = {
 			has_character_flag = education_outcome_level_4
 		}
 		add_trait = arcane_master
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_4
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -2018,6 +2034,10 @@ character_event = {
 	option = {
 		name = EVTOPTA_MYTH_WoL.21
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		remove_trait = amateurish_plotter
 		remove_trait = flamboyant_schemer
 		remove_trait = intricate_webweaver
@@ -13775,6 +13795,57 @@ character_event = {
 				set_character_flag = education_learning
 			}
 			1 = {
+				trigger = {
+					OR = {
+					religion_group = pagan_group
+					religion = satanist
+					trait = possessed
+					trait = mystic
+					trait = enchanter
+					trait = summoner
+					trait = herbalist
+					trait = alchemist
+					trait = blood_of_the_gods
+					trait = dragon
+					trait = dragonborn
+					trait = djinn
+					trait = demi_god
+					trait = god
+					trait = demon_trait
+					trait = magic_heritage
+					father_even_if_dead = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+							trait = arcane_master
+						}
+					}
+					mother_even_if_dead = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+							trait = arcane_master
+						}
+					}
+					guardian = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+							trait = arcane_master
+						}
+					}
+					educator = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+							trait = arcane_master
+						}
+					}
+				}	
 				set_character_flag = education_magic
 			}
 		}
@@ -13840,6 +13911,10 @@ character_event = {
 			has_character_flag = education_magic
 		}
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_learning
 	}
 	

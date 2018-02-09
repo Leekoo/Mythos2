@@ -907,6 +907,10 @@ character_event = {
 				add_trait = arcane_master
 			}
 		}
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		hidden_tooltip = {
 			if = {
 				limit = {
