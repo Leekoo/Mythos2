@@ -6895,7 +6895,7 @@ character_event = {
 character_event = {
 	id = VAMPIRE.94
 	desc = EVTDESC_VAMPIRE.94
-	picture = GFX_evt_knights
+	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_intrigue
 	
 	is_triggered_only = yes
@@ -7615,7 +7615,8 @@ character_event = {
 		set_variable = { which = local_suspect_chance which = local_catch_chance }
 		divide_variable = { which = local_catch_chance value = 4 }
 		divide_variable = { which = local_suspect_chance value = 3 }
-		
+		change_variable = { which = local_catch_chance value = 1 }
+		change_variable = { which = local_suspect_chance value = 1 }
 	}
 	
 	option = {
@@ -7623,16 +7624,36 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
+				}
+				modifier = {
+					factor = 1.33
+					check_variable = { which = local_catch_chance value = 4 }
 				}
 				custom_tooltip = { text = tt_liege_catch }
 				hidden_tooltip = { liege = { character_event = { id = VAMPIRE.112 days = 2 } } }
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
+				}
+				modifier = {
+					factor = 1.33
+					check_variable = { which = local_suspect_chance value = 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = local_suspect_chance value = 5 }
 				}
 				custom_tooltip = { text = tt_liege_suspect }
 				hidden_tooltip = { liege = { character_event = { id = VAMPIRE.113 days = 2 } } }
@@ -7640,7 +7661,49 @@ character_event = {
 			7 = {}
 		}
 		hidden_tooltip = {
-			character_event = { id = VAMPIRE.108 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 60 } }
+				character_event = { id = VAMPIRE.108 days = 60 random = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 55 } }
+				character_event = { id = VAMPIRE.108 days = 55 random = 55 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 50 } }
+				character_event = { id = VAMPIRE.108 days = 50 random = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 45 } }
+				character_event = { id = VAMPIRE.108 days = 45 random = 45 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 40 } }
+				character_event = { id = VAMPIRE.108 days = 40 random = 40 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 35 } }
+				character_event = { id = VAMPIRE.108 days = 35 random = 35 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 30 } }
+				character_event = { id = VAMPIRE.108 days = 30 random = 30 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 25 } }
+				character_event = { id = VAMPIRE.108 days = 25 random = 25 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 20 } }
+				character_event = { id = VAMPIRE.108 days = 20 random = 20 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 15 } }
+				character_event = { id = VAMPIRE.108 days = 15 random = 15 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.108 days = 10 random = 10 }
+			}
 		}
 	}
 }
@@ -7706,11 +7769,13 @@ character_event = {
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
-		set_variable = { which = local_catch_chance value = 12 }
+		set_variable = { which = local_catch_chance value = 10 }
 		subtract_variable = { which = local_catch_chance which = local_rank }
 		set_variable = { which = local_suspect_chance which = local_catch_chance }
 		divide_variable = { which = local_catch_chance value = 4 }
 		divide_variable = { which = local_suspect_chance value = 3 }
+		change_variable = { which = local_catch_chance value = 1 }
+		change_variable = { which = local_suspect_chance value = 1 }
 	}
 	
 	# Most expensive
@@ -7720,8 +7785,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -7732,8 +7801,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -7746,7 +7819,29 @@ character_event = {
 		}
 		hidden_tooltip = {
 			divide_variable = { which = local_time value = 4 }
-			character_event = { id = VAMPIRE.109 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 15 } }
+				character_event = { id = VAMPIRE.109 days = 15 random = 15 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 14 } }
+				character_event = { id = VAMPIRE.109 days = 14 random = 14 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 13 } }
+				character_event = { id = VAMPIRE.109 days = 13 random = 13 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 12 } }
+				character_event = { id = VAMPIRE.109 days = 12 random = 12 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 11 } }
+				character_event = { id = VAMPIRE.109 days = 11 random = 11 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.109 days = 10 random = 10 }
+			}
 		}
 		if = {
 			limit = { 
@@ -7793,8 +7888,16 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
+				}
+				modifier = {
+					factor = 4
+					liege = { has_character_modifier = worrying_rumors }
 				}
 				modifier = {
 					factor = 4
@@ -7805,8 +7908,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -7819,7 +7926,25 @@ character_event = {
 		}
 		hidden_tooltip = {
 			divide_variable = { which = local_time value = 3 }
-			character_event = { id = VAMPIRE.109 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 20 } }
+				character_event = { id = VAMPIRE.109 days = 20 random = 20 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 18 } }
+				character_event = { id = VAMPIRE.109 days = 18 random = 18 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 16 } }
+				character_event = { id = VAMPIRE.109 days = 16 random = 16 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 14 } }
+				character_event = { id = VAMPIRE.109 days = 14 random = 14 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.109 days = 10 random = 10 }
+			}
 		}
 		ai_chance = {
 			factor = 1
@@ -7841,8 +7966,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -7853,8 +7982,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -7867,7 +8000,29 @@ character_event = {
 		}
 		hidden_tooltip = {
 			divide_variable = { which = local_time value = 2 }
-			character_event = { id = VAMPIRE.109 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 30 } }
+				character_event = { id = VAMPIRE.109 days = 30 random = 30 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 27 } }
+				character_event = { id = VAMPIRE.109 days = 27 random = 27 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 24 } }
+				character_event = { id = VAMPIRE.109 days = 24 random = 24 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 21 } }
+				character_event = { id = VAMPIRE.109 days = 21 random = 21 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 18 } }
+				character_event = { id = VAMPIRE.109 days = 18 random = 18 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.109 days = 15 random = 15 }
+			}
 		}
 		ai_chance = {
 			factor = 1
@@ -7888,8 +8043,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -7900,8 +8059,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -7913,7 +8076,29 @@ character_event = {
 			5 = {}
 		}
 		hidden_tooltip = {
-			character_event = { id = VAMPIRE.109 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 60 } }
+				character_event = { id = VAMPIRE.109 days = 60 random = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 55 } }
+				character_event = { id = VAMPIRE.109 days = 55 random = 55 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 50 } }
+				character_event = { id = VAMPIRE.109 days = 50 random = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 45 } }
+				character_event = { id = VAMPIRE.109 days = 45 random = 45 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 40 } }
+				character_event = { id = VAMPIRE.109 days = 48 random = 40 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.109 days = 35 random = 35 }
+			}
 		}
 		if = {
 			limit = { 
@@ -7996,6 +8181,8 @@ character_event = {
 		set_variable = { which = local_suspect_chance which = local_catch_chance }
 		divide_variable = { which = local_catch_chance value = 4 }
 		divide_variable = { which = local_suspect_chance value = 3 }
+		change_variable = { which = local_catch_chance value = 1 }
+		change_variable = { which = local_suspect_chance value = 1 }
 	}
 	
 	# Use favor for support
@@ -8022,8 +8209,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -8034,8 +8225,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -8048,7 +8243,29 @@ character_event = {
 		}
 		hidden_tooltip = {
 			divide_variable = { which = local_time value = 2 }
-			character_event = { id = VAMPIRE.110 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 30 } }
+				character_event = { id = VAMPIRE.110 days = 30 random = 30 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 27 } }
+				character_event = { id = VAMPIRE.110 days = 27 random = 27 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 24 } }
+				character_event = { id = VAMPIRE.110 days = 24 random = 24 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 21 } }
+				character_event = { id = VAMPIRE.110 days = 21 random = 21 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 18 } }
+				character_event = { id = VAMPIRE.110 days = 18 random = 18 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.110 days = 15 random = 15 }
+			}
 		}
 	}
 	
@@ -8067,8 +8284,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -8079,8 +8300,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -8092,7 +8317,29 @@ character_event = {
 			5 = {}
 		}
 		hidden_tooltip = {
-			character_event = { id = VAMPIRE.110 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 60 } }
+				character_event = { id = VAMPIRE.110 days = 60 random = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 55 } }
+				character_event = { id = VAMPIRE.110 days = 55 random = 55 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 50 } }
+				character_event = { id = VAMPIRE.110 days = 50 random = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 45 } }
+				character_event = { id = VAMPIRE.110 days = 45 random = 45 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 40 } }
+				character_event = { id = VAMPIRE.110 days = 48 random = 40 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.110 days = 35 random = 35 }
+			}
 		}
 	}
 	
@@ -8113,8 +8360,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -8125,8 +8376,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -8138,7 +8393,29 @@ character_event = {
 			5 = {}
 		}
 		hidden_tooltip = {
-			character_event = { id = VAMPIRE.110 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 60 } }
+				character_event = { id = VAMPIRE.110 days = 60 random = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 55 } }
+				character_event = { id = VAMPIRE.110 days = 55 random = 55 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 50 } }
+				character_event = { id = VAMPIRE.110 days = 50 random = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 45 } }
+				character_event = { id = VAMPIRE.110 days = 45 random = 45 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 40 } }
+				character_event = { id = VAMPIRE.110 days = 48 random = 40 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.110 days = 35 random = 35 }
+			}
 		}
 	}
 }
@@ -8147,7 +8424,7 @@ character_event = {
 character_event = {
 	id = VAMPIRE.110
 	desc = EVTDESC_VAMPIRE.110
-	picture = GFX_evt_knights
+	picture = GFX_evt_crusaders
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
@@ -8216,8 +8493,12 @@ character_event = {
 		random_list = {
 			1 = {
 				modifier = {
-					factor = local_catch_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_catch_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_catch_chance value = 3 }
 				}
 				modifier = {
 					factor = 4
@@ -8228,8 +8509,12 @@ character_event = {
 			}
 			2 = {
 				modifier = {
-					factor = local_suspect_chance
-					always = yes
+					factor = 2
+					check_variable = { which = local_suspect_chance value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = local_suspect_chance value = 3 }
 				}
 				modifier = {
 					factor = 0
@@ -8241,7 +8526,29 @@ character_event = {
 			17 = {}
 		}
 		hidden_tooltip = {
-			character_event = { id = VAMPIRE.111 days = local_time random = local_time }
+			if = {
+				limit = { check_variable = { which = local_time value = 60 } }
+				character_event = { id = VAMPIRE.111 days = 60 random = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 55 } }
+				character_event = { id = VAMPIRE.111 days = 55 random = 55 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 50 } }
+				character_event = { id = VAMPIRE.111 days = 50 random = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 45 } }
+				character_event = { id = VAMPIRE.111 days = 45 random = 45 }
+			}
+			else_if = {
+				limit = { check_variable = { which = local_time value = 40 } }
+				character_event = { id = VAMPIRE.111 days = 48 random = 40 }
+			}
+			else = {
+				character_event = { id = VAMPIRE.111 days = 35 random = 35 }
+			}
 		}
 	}
 }
@@ -9253,8 +9560,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
@@ -9264,8 +9607,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
@@ -9279,8 +9658,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
@@ -9383,8 +9798,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
@@ -9394,8 +9845,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
@@ -9409,8 +9896,44 @@ character_event = {
 				}
 				10 = {
 					modifier = {
-						factor = local_progress
-						always = yes
+						factor = 1.3
+						check_variable = { which = local_progress value = 1.3 }
+					}
+					modifier = {
+						factor = 1.23
+						check_variable = { which = local_progress value = 1.6 }
+					}
+					modifier = {
+						factor = 1.19
+						check_variable = { which = local_progress value = 1.9 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 2.1 }
+					}
+					modifier = {
+						factor = 1.14
+						check_variable = { which = local_progress value = 2.4 }
+					}
+					modifier = {
+						factor = 1.13
+						check_variable = { which = local_progress value = 2.7 }
+					}
+					modifier = {
+						factor = 1.11
+						check_variable = { which = local_progress value = 3 }
+					}
+					modifier = {
+						factor = 1.1
+						check_variable = { which = local_progress value = 3.3 }
+					}
+					modifier = {
+						factor = 1.09
+						check_variable = { which = local_progress value = 3.6 }
+					}
+					modifier = {
+						factor = 1.08
+						check_variable = { which = local_progress value = 3.9 }
 					}
 					modifier = {
 						factor = 1.2
