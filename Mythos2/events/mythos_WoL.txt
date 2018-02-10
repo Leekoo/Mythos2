@@ -3554,6 +3554,80 @@ character_event = {
 	}
 
 	immediate = {
+		# Select random effect
+		random_list = {
+			80 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = arcane_master
+						NOR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+						}
+					}
+				}
+				set_variable = { which = local_effect value = 1 }
+			}
+			100 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = summoner
+						trait = alchemist
+						trait = enchanter
+						trait = herbalist
+					}
+				}
+				set_variable = { which = local_effect value = 2 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = proud
+				}
+				set_variable = { which = local_effect value = 3 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = ambitious
+				}
+				set_variable = { which = local_effect value = 4 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				set_variable = { which = local_effect value = 5 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = diligent
+				}
+				set_variable = { which = local_effect value = 6 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = cynical
+						trait = zealous
+					}
+				}
+				set_variable = { which = local_effect value = 7 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = erudite
+				}
+				set_variable = { which = local_effect value = 8 }
+			}
+		}
 		# improve education
 		if = {
 			limit = {
@@ -3562,11 +3636,11 @@ character_event = {
 					trait = eldritch_scholar
 					trait = veteran_wizard
 				}
-				random = 85
+				is_variable_equal = { which = local_effect value = 1 }
 			}
 			character_event = { id = MYTH_WoL.41 }
 		}
-		# Progress - several events give progress, so less common.
+		# Progress
 		if = {
 			limit = {
 				NOR = {
@@ -3575,7 +3649,7 @@ character_event = {
 					trait = enchanter
 					trait = herbalist
 				}
-				random = 70
+				is_variable_equal = { which = local_effect value = 2 }
 			}
 			character_event = { id = MYTH_WoL.42 }
 		}
@@ -3583,7 +3657,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = proud }
-				random = 85
+				is_variable_equal = { which = local_effect value = 3 }
 			}
 			character_event = { id = MYTH_WoL.43 }
 		}
@@ -3591,7 +3665,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = ambitious }
-				random = 85
+				is_variable_equal = { which = local_effect value = 4 }
 			}
 			character_event = { id = MYTH_WoL.44 }
 		}
@@ -3599,7 +3673,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = chaste }
-				random = 85
+				is_variable_equal = { which = local_effect value = 5 }
 			}
 			character_event = { id = MYTH_WoL.45 }
 		}
@@ -3607,7 +3681,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = diligent }
-				random = 85
+				is_variable_equal = { which = local_effect value = 6 }
 			}
 			character_event = { id = MYTH_WoL.46 }
 		}
@@ -3618,7 +3692,7 @@ character_event = {
 					trait = cynical
 					trait = zealous
 				}
-				random = 85
+				is_variable_equal = { which = local_effect value = 7 }
 			}
 			character_event = { id = MYTH_WoL.47 }
 		}
@@ -3626,7 +3700,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = erudite }
-				random = 85
+				is_variable_equal = { which = local_effect value = 8 }
 			}
 			character_event = { id = MYTH_WoL.48 }
 		}
