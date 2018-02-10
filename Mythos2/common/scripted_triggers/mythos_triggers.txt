@@ -18,6 +18,23 @@ has_education_theology_trigger = {
 	}
 }
 
+has_lifestyle_magic_trigger = {
+	OR = {
+		trait = alchemist
+		trait = herbalist
+		trait = summoner
+		trait = enchanter
+	}
+}
+
+has_lifestyle_theology_trigger = {
+	OR = {
+		trait = theologian
+		trait = mystic
+		trait = scholar
+	}
+}
+
 is_undead = {
 	OR = {
 		trait = vampire
