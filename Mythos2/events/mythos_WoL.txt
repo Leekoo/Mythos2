@@ -13871,55 +13871,56 @@ character_event = {
 			1 = {
 				trigger = {
 					OR = {
-					religion_group = pagan_group
-					religion = satanist
-					trait = possessed
-					trait = mystic
-					trait = enchanter
-					trait = summoner
-					trait = herbalist
-					trait = alchemist
-					trait = blood_of_the_gods
-					trait = dragon
-					trait = dragonborn
-					trait = djinn
-					trait = demi_god
-					trait = god
-					trait = demon_trait
-					trait = magic_heritage
-					father_even_if_dead = {
-						OR = {
-							trait = novice_mage
-							trait = eldritch_scholar
-							trait = veteran_wizard
-							trait = arcane_master
+						religion_group = pagan_group
+						religion = satanist
+						trait = possessed
+						trait = mystic
+						trait = enchanter
+						trait = summoner
+						trait = herbalist
+						trait = alchemist
+						trait = blood_of_the_gods
+						trait = dragon
+						trait = dragonborn
+						trait = djinn
+						trait = demi_god
+						trait = god
+						trait = demon_trait
+						trait = magic_heritage
+						father_even_if_dead = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						mother_even_if_dead = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						guardian = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						educator = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
 						}
 					}
-					mother_even_if_dead = {
-						OR = {
-							trait = novice_mage
-							trait = eldritch_scholar
-							trait = veteran_wizard
-							trait = arcane_master
-						}
-					}
-					guardian = {
-						OR = {
-							trait = novice_mage
-							trait = eldritch_scholar
-							trait = veteran_wizard
-							trait = arcane_master
-						}
-					}
-					educator = {
-						OR = {
-							trait = novice_mage
-							trait = eldritch_scholar
-							trait = veteran_wizard
-							trait = arcane_master
-						}
-					}
-				}	
+				}
 				set_character_flag = education_magic
 			}
 		}
