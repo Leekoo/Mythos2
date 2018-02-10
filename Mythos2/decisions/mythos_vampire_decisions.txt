@@ -613,16 +613,14 @@ targetted_decisions = {
 			modifier = {
 				factor = 0.3
 				any_courtier = {
-					limit = {
-						NOR = {
-							trait = vampire
-							trait = werewolf
-							trait = zombie
-							trait = demon_trait
-							trait = ethereal_trait
-						}
+					NOT = { amount = 3 }
+					NOR = {
+						trait = vampire
+						trait = werewolf
+						trait = zombie
+						trait = demon_trait
+						trait = ethereal_trait
 					}
-					NOT = { count = 3 }
 				}
 			}
 		}
