@@ -436,14 +436,14 @@ targetted_decisions = {
 			}
 		}
 		effect = {
-			conditional_tooltip = {
-				trigger = { FROMFROM = { has_artifact_flag = major_icon } }
+			if = {
+				limit = { FROMFROM = { has_artifact_flag = major_icon } }
 				custom_tooltip = {
 					text = tt_destroy_icon_major
 				}
 			}
-			conditional_tooltip = {
-				trigger = { FROMFROM = { has_artifact_flag = minor_icon } }
+			if = {
+				limit = { FROMFROM = { has_artifact_flag = minor_icon } }
 				custom_tooltip = {
 					text = tt_destroy_icon_minor
 				}
