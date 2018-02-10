@@ -24,14 +24,14 @@ focus_ch_pride = {
 	chance = {
 		factor = 100
 		
-		ai_chance = {
+		modifier = {
 			factor = 1.2
 			OR = {
 				guardian = { trait = proud }
 				educator = { trait = proud }
 			}
 		}
-		ai_chance = {
+		modifier = {
 			factor = 0.8
 			OR = {
 				guardian = { trait = humble }
@@ -76,14 +76,14 @@ focus_ch_humility = {
 	chance = {
 		factor = 100
 		
-		ai_chance = {
+		modifier = {
 			factor = 0.8
 			OR = {
 				guardian = { trait = proud }
 				educator = { trait = proud }
 			}
 		}
-		ai_chance = {
+		modifier = {
 			factor = 1.2
 			OR = {
 				guardian = { trait = humble }
@@ -127,14 +127,14 @@ focus_ch_duty = {
 	chance = {
 		factor = 100
 		
-		ai_chance = {
+		modifier = {
 			factor = 1.2
 			OR = {
 				guardian = { trait = diligent }
 				educator = { trait = diligent }
 			}
 		}
-		ai_chance = {
+		modifier = {
 			factor = 0.8
 			OR = {
 				guardian = { trait = slothful }
@@ -215,14 +215,14 @@ focus_ch_thrift = {
 	chance = {
 		factor = 100
 		
-		ai_chance = {
+		modifier = {
 			factor = 1.2
 			OR = {
 				guardian = { trait = greedy }
 				educator = { trait = greedy }
 			}
 		}
-		ai_chance = {
+		modifier = {
 			factor = 0.8
 			OR = {
 				guardian = { trait = charitable }
@@ -276,7 +276,7 @@ focus_ch_faith = {
 				religion = ROOT
 			}
 		}
-		ai_chance = {
+		modifier = {
 			factor = 1.2
 			OR = {
 				guardian = {
@@ -294,7 +294,7 @@ focus_ch_faith = {
 			}
 			
 		}
-		ai_chance = {
+		modifier = {
 			factor = 0.8
 			OR = {
 				guardian = { trait = cynical }
