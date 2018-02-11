@@ -2261,7 +2261,14 @@ narrative_event = {
 		}
 		is_inaccessible_trigger = no
 		immortal = no
-		NOT = { trait = god }
+		NOR = {
+			trait = god
+			trait = vampire
+			trait = zombie
+			trait = demon_trait
+			trait = ethereal_trait
+			trait = philosophers_stone_trait
+		}
 	}
 
 	mean_time_to_happen = {
