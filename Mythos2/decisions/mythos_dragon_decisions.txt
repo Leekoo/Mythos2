@@ -1136,6 +1136,22 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_lejre
+								has_claim = c_sjaelland
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_lejre
+						remove_claim = c_sjaelland
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
@@ -1291,6 +1307,22 @@ decisions = {
 					if = { 
 						limit = { NOT = { trait = flametender } }
 						add_trait = flametender
+					}
+				}
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_pruszkow
+								has_claim = c_plock
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_pruszkow
+						remove_claim = c_plock
 					}
 				}
 			}
@@ -1453,6 +1485,22 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_whithorn
+								has_claim = c_galloway
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_whithorn
+						remove_claim = c_galloway
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
@@ -1612,6 +1660,22 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_uppsala
+								has_claim = c_uppland
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_uppsala
+						remove_claim = c_uppland
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
@@ -1768,6 +1832,22 @@ decisions = {
 					if = { 
 						limit = { NOT = { trait = flametender } }
 						add_trait = flametender
+					}
+				}
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_canterbury
+								has_claim = c_kent
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_canterbury
+						remove_claim = c_kent
 					}
 				}
 			}
