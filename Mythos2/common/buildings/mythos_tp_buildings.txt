@@ -30,8 +30,43 @@ temple = {
 		extra_tech_building_start = 2.0
 		
 		heavy_infantry = 100
-		knights = 30
-		dragon_cavalry = 30
+		knights = 40
+		dragon_cavalry = 40
+		retinuesize = 20
+	}
+	tp_flameshrine = {
+		desc = tp_flameshrine_desc
+		
+		potential = {
+			FROM = {
+				religion = draconic_pagan_reformed
+				controls_religion = yes
+			}
+		}
+		trigger = {
+			FROM = {
+				religion = draconic_pagan_reformed
+				controls_religion = yes
+			}
+			TECH_TEMPLE_CONSTRUCTION = 0
+		}
+		is_active_trigger = {
+			FROM = {
+				religion = draconic_pagan_reformed
+				controls_religion = yes
+			}
+		}
+		gold_cost = 140
+		build_time = 365
+		ai_creation_factor = 98
+		extra_tech_building_start = 2.0
+		
+		tax_income = 8
+		add_piety_modifier = 0.1
+		monthly_character_piety = 0.2
+		garrison_size = 0.2
+		fort_level = 2
+		retinuesize = 40
 	}
 	
 	tp_flamesworn_barracks_1 = {
