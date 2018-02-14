@@ -1,66 +1,8 @@
-nick_the_impaler = {}
 nick_ozymandias = {}
 nick_the_poor = {}
 nick_the_everburning = {}
 
 
-nick_the_dragon = {
-	allow = {
-		ruled_years = 10
-		OR = {
-			has_character_modifier = cannibal
-			trait = cannibal_trait
-			AND = {
-				trait = wroth
-				OR = {
-					is_any_kinslayer_trigger = yes
-					trait = excommunicated
-					trait = impaler
-				}
-			}
-			trait = dragon
-		}
-	}
-	chance = {
-		factor = 3
-		modifier = {
-			factor = 2
-			is_any_kinslayer_trigger = yes
-		}
-		modifier = {
-			factor = 5
-			OR = {
-				trait = cannibal_trait
-				has_character_modifier = cannibal
-			}
-		}
-	}
-}
-the_wizard = {
-	allow = {
-		age = 16
-		learning = 16
-		is_dumb_trigger = no
-		OR = {
-			AND = {
-				trait = mystic
-				OR = {
-					culture_group = chinese_group
-					culture = khitan
-					culture = jurchen
-					culture = tangut
-				}
-			}
-			trait = novice_mage
-			trait = eldritch_scholar
-			trait = veteran_wizard
-			trait = arcane_master
-		}
-	}
-	chance = {
-		factor = 3
-	}
-}
 nick_the_slow = {
 	allow = {
 		age = 20
@@ -82,74 +24,7 @@ nick_hell_duke = {
 		factor = 1
 	}
 }
-nick_twistedbeard = {
-	allow = {
-		age = 16
-		culture = breton
-		is_female = no
-		NOT = { trait = dragon } # No beards
-		any_war = {
-			defender = { 
-				character = ROOT
-				war_score = 50
-			}
-			attacker = {
-				OR = {
-					religion = norse_pagan
-					religion = norse_pagan_reformed
-				}
-			}
-		}
-	}
-	chance = {
-		factor = 30
-	}
-}
-nick_priest_hater = {
-	allow = {
-		age = 20
-		NOT = { piety = -100 }
-		trait = cynical
-		NOT = { religion = buddhist }
-		NOT = { religion = jain }
-		NOT = { trait = god }
-	}
-	chance = {
-		factor = 1
-		modifier = {
-			factor = 2.0
-			NOT = { piety = -50 }
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { piety = -100 }
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { piety = -200 }
-		}
-		modifier = {
-			factor = 2.0
-			trait = hedonist
-		}
-		modifier = {
-			factor = 2.0
-			trait = gluttonous
-		}
-		modifier = {
-			factor = 2.0
-			trait = greedy
-		}
-		modifier = {
-			factor = 2.0
-			trait = envious
-		}
-		modifier = {
-			factor = 2.0
-			trait = arbitrary
-		}
-	}
-}
+
 nick_the_flame_keeper = {
 	allow = {
 		age = 20
@@ -176,58 +51,6 @@ nick_the_flame_keeper = {
 		modifier = {
 			factor = 2
 			has_landed_title = e_draconic_pagan_reformed
-		}
-	}
-}
-nick_the_magnificent = {
-	allow = {
-		age = 30
-		ruled_years = 15
-		is_smart_trigger = yes
-		is_dumb_trigger = no
-		OR = {
-			trait = grey_eminence
-			trait = intricate_webweaver
-			trait = elusive_shadow
-			trait = charismatic_negotiator
-			trait = brilliant_strategist
-			trait = skilled_tactician
-			trait = arcane_master
-		}
-	}
-	chance = {
-		factor = 2
-	}
-}
-nick_the_wolf = {
-	allow = {
-		OR = {
-			has_character_modifier = wolf_blood
-			AND = {
-				culture_group = altaic
-				NOT = { culture = khitan }
-				OR = {
-					trait = brilliant_strategist
-					is_smart_trigger = yes
-				}
-			}
-			AND = {
-				trait = hunter
-				trait = impaler
-			}
-			AND = {
-				religion_group = christian
-				trait = gluttonous
-				trait = greedy
-			}
-			trait = known_werewolf
-		}
-	}
-	chance = {
-		factor = 1
-		modifier = {
-			factor = 2
-			culture_group = altaic
 		}
 	}
 }
