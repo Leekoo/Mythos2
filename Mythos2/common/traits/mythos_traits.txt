@@ -350,46 +350,7 @@ dragonborn = {
 #EDUCATIONAL TRAITS
 
 novice_mage = {
-	potential = { 
-		OR = { 
-			religion_group = pagan_group
-			religion = satanist
-			trait = possessed
-			trait = mystic
-			trait = enchanter
-			trait = summoner
-			trait = blood_of_the_gods
-			trait = dragonborn
-			trait = djinn
-			trait = demi_god
-			trait = god
-			trait = demon_trait
-			father_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			mother_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			guardian = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-		}
-	}
+	
 	attribute = learning
 	education = yes
 	
@@ -404,39 +365,7 @@ novice_mage = {
 }
 
 eldritch_scholar = {
-	potential = { 
-		OR = { 
-			religion_group = pagan_group
-			religion = satanist
-			trait = cynical
-			trait = possessed
-			trait = mystic
-			father_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			mother_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			guardian = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-		}
-	}
+	
 	attribute = learning
 	education = yes
 	
@@ -460,39 +389,7 @@ eldritch_scholar = {
 }
 
 veteran_wizard = {
-	potential = { 
-		OR = { 
-			religion_group = pagan_group
-			religion = satanist
-			trait = cynical
-			trait = possessed
-			trait = mystic
-			father_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			mother_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			guardian = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-		}
-	}
+	
 	attribute = learning
 	education = yes
 	
@@ -519,39 +416,7 @@ veteran_wizard = {
 }
 
 arcane_master = {
-	potential = { 
-		OR = { 
-			religion_group = pagan_group
-			religion = satanist
-			trait = cynical
-			trait = possessed
-			trait = mystic
-			father_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			mother_even_if_dead = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-			guardian = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
-					trait = arcane_master
-				}
-			}
-		}
-	}
+	
 	attribute = learning
 	education = yes
 	
@@ -575,6 +440,24 @@ arcane_master = {
 	male_insult_adj = INSULT_DRIVELING
 	female_insult_adj = INSULT_DRIVELING
 	child_insult_adj = INSULT_STUPID
+}
+
+magic_heritage = {
+	birth = 50
+	inherit_chance = 70
+	
+	ruler_designer = no
+	
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+			age < 16
+		}
+	}
 }
 
 #MISCELLANEOUS

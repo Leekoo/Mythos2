@@ -680,6 +680,10 @@ character_event = {
 			has_character_flag = education_outcome_level_1
 		}
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_1
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -690,6 +694,10 @@ character_event = {
 			has_character_flag = education_outcome_level_2
 		}
 		add_trait = eldritch_scholar
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_2
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -700,6 +708,10 @@ character_event = {
 			has_character_flag = education_outcome_level_3
 		}
 		add_trait = veteran_wizard
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_3
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -710,6 +722,10 @@ character_event = {
 			has_character_flag = education_outcome_level_4
 		}
 		add_trait = arcane_master
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_outcome_level_4
 		clr_character_flag = is_being_graded
 		hidden_tooltip = { event_target:education_outcome_educator = { character_event = { id = MYTH_WoL.5 } } } # Notify educator
@@ -2018,6 +2034,10 @@ character_event = {
 	option = {
 		name = EVTOPTA_MYTH_WoL.21
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		remove_trait = amateurish_plotter
 		remove_trait = flamboyant_schemer
 		remove_trait = intricate_webweaver
@@ -3534,6 +3554,80 @@ character_event = {
 	}
 
 	immediate = {
+		# Select random effect
+		random_list = {
+			80 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = arcane_master
+						NOR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+						}
+					}
+				}
+				set_variable = { which = local_effect value = 1 }
+			}
+			100 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = summoner
+						trait = alchemist
+						trait = enchanter
+						trait = herbalist
+					}
+				}
+				set_variable = { which = local_effect value = 2 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = proud
+				}
+				set_variable = { which = local_effect value = 3 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = ambitious
+				}
+				set_variable = { which = local_effect value = 4 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = chaste
+				}
+				set_variable = { which = local_effect value = 5 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = diligent
+				}
+				set_variable = { which = local_effect value = 6 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					OR = {
+						trait = cynical
+						trait = zealous
+					}
+				}
+				set_variable = { which = local_effect value = 7 }
+			}
+			85 = {
+				modifier = {
+					factor = 0.5
+					trait = erudite
+				}
+				set_variable = { which = local_effect value = 8 }
+			}
+		}
 		# improve education
 		if = {
 			limit = {
@@ -3542,11 +3636,11 @@ character_event = {
 					trait = eldritch_scholar
 					trait = veteran_wizard
 				}
-				random = 85
+				is_variable_equal = { which = local_effect value = 1 }
 			}
 			character_event = { id = MYTH_WoL.41 }
 		}
-		# Progress - several events give progress, so less common.
+		# Progress
 		if = {
 			limit = {
 				NOR = {
@@ -3555,7 +3649,7 @@ character_event = {
 					trait = enchanter
 					trait = herbalist
 				}
-				random = 70
+				is_variable_equal = { which = local_effect value = 2 }
 			}
 			character_event = { id = MYTH_WoL.42 }
 		}
@@ -3563,7 +3657,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = proud }
-				random = 85
+				is_variable_equal = { which = local_effect value = 3 }
 			}
 			character_event = { id = MYTH_WoL.43 }
 		}
@@ -3571,7 +3665,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = ambitious }
-				random = 85
+				is_variable_equal = { which = local_effect value = 4 }
 			}
 			character_event = { id = MYTH_WoL.44 }
 		}
@@ -3579,7 +3673,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = chaste }
-				random = 85
+				is_variable_equal = { which = local_effect value = 5 }
 			}
 			character_event = { id = MYTH_WoL.45 }
 		}
@@ -3587,7 +3681,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = diligent }
-				random = 85
+				is_variable_equal = { which = local_effect value = 6 }
 			}
 			character_event = { id = MYTH_WoL.46 }
 		}
@@ -3598,7 +3692,7 @@ character_event = {
 					trait = cynical
 					trait = zealous
 				}
-				random = 85
+				is_variable_equal = { which = local_effect value = 7 }
 			}
 			character_event = { id = MYTH_WoL.47 }
 		}
@@ -3606,7 +3700,7 @@ character_event = {
 		if = {
 			limit = {
 				NOT = { trait = erudite }
-				random = 85
+				is_variable_equal = { which = local_effect value = 8 }
 			}
 			character_event = { id = MYTH_WoL.48 }
 		}
@@ -5505,7 +5599,7 @@ character_event = {
 		name = EVTOPTCMYTH_WoL.74
 		tooltip_info = deceitful
 		trigger = { trait = deceitful }
-		scaled_wealth = { value = 2 min = 100 max = 800 }
+		scaled_wealth = { value = 2 min = 50 max = 800 }
 		ai_chance = { factor = 100 }
 	}
 }
@@ -12417,7 +12511,7 @@ character_event = {
 		new_artifact = {
 			set_creation_date = 1.1.1
 		}
-		add_favor = event_target:kos_vassal
+		reverse_add_favor = event_target:kos_vassal
 		hidden_tooltip = {
 			character_event = { id = MYTH_WoL.40 }
 			event_target:kos_vassal = { character_event = { id = MYTH_WoL.161 } }
@@ -12766,9 +12860,9 @@ character_event = {
 	
 	immediate = {
 		random = {
-			chance = 30
+			chance = 20
 			modifier = {
-				factor = 2.5
+				factor = 2
 				trait = cynical
 			}
 			modifier = {
@@ -13775,6 +13869,58 @@ character_event = {
 				set_character_flag = education_learning
 			}
 			1 = {
+				trigger = {
+					OR = {
+						religion_group = pagan_group
+						religion = satanist
+						trait = possessed
+						trait = mystic
+						trait = enchanter
+						trait = summoner
+						trait = herbalist
+						trait = alchemist
+						trait = blood_of_the_gods
+						trait = dragon
+						trait = dragonborn
+						trait = djinn
+						trait = demi_god
+						trait = god
+						trait = demon_trait
+						trait = magic_heritage
+						father_even_if_dead = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						mother_even_if_dead = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						guardian = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+						educator = {
+							OR = {
+								trait = novice_mage
+								trait = eldritch_scholar
+								trait = veteran_wizard
+								trait = arcane_master
+							}
+						}
+					}
+				}
 				set_character_flag = education_magic
 			}
 		}
@@ -13840,6 +13986,10 @@ character_event = {
 			has_character_flag = education_magic
 		}
 		add_trait = novice_mage
+		if = {
+			limit = { NOT = { trait = magic_heritage } }
+			add_trait = magic_heritage
+		}
 		clr_character_flag = education_learning
 	}
 	

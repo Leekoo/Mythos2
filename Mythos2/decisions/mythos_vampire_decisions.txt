@@ -441,7 +441,7 @@ targetted_decisions = {
 			letter_event = { id = VAMPIRE.5 days = 7 } # Offeree receives event
 		}
 		ai_will_do = {
-			factor = 0.02
+			factor = 0.01
 			
 			modifier = {
 				factor = 1.1
@@ -469,6 +469,10 @@ targetted_decisions = {
 				factor = 100
 				prisoner = yes
 				higher_tier_than = DUKE
+			}
+			modifier = {
+				factor = 2
+				independent = yes
 			}
 		}
 	}
@@ -515,7 +519,7 @@ targetted_decisions = {
 			FROM = { character_event = { id = VAMPIRE.10 } }
 		}
 		ai_will_do = {
-			factor = 0.02
+			factor = 0.01
 			modifier = {
 				factor = 2
 				FROM = { trait = hunger_2 }
@@ -603,6 +607,19 @@ targetted_decisions = {
 						trait = one_legged
 						trait = mangled
 						trait = eunuch
+					}
+				}
+			}
+			modifier = {
+				factor = 0.3
+				any_courtier = {
+					NOT = { amount = 3 }
+					NOR = {
+						trait = vampire
+						trait = werewolf
+						trait = zombie
+						trait = demon_trait
+						trait = ethereal_trait
 					}
 				}
 			}

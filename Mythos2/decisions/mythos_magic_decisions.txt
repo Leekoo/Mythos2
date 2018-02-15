@@ -494,8 +494,8 @@ decisions = {
 	summon_servent = {
 		potential = {
 			is_ruler = yes
-			tier = count
 			trait = summoner
+			higher_tier_than = baron
 			prisoner = no
 			OR = {
 				trait = novice_mage
@@ -973,14 +973,16 @@ targetted_decisions = {
 		}
 		allow = {
 			FROM = { wealth = 100 }
-			NOT = { FROM = {has_character_modifier = cast_spell } }
-			OR = {
-				trait = eldritch_scholar
-				trait = veteran_wizard
-				trait = arcane_master
-				AND = {
-					trait = novice_mage
-					learning = 14
+			NOT = { FROM = { has_character_modifier = cast_spell } }
+			FROM = {
+				OR = {
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+					AND = {
+						trait = novice_mage
+						learning = 14
+					}
 				}
 			}
 		}

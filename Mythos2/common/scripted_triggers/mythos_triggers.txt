@@ -18,6 +18,23 @@ has_education_theology_trigger = {
 	}
 }
 
+has_lifestyle_magic_trigger = {
+	OR = {
+		trait = alchemist
+		trait = herbalist
+		trait = summoner
+		trait = enchanter
+	}
+}
+
+has_lifestyle_theology_trigger = {
+	OR = {
+		trait = theologian
+		trait = mystic
+		trait = scholar
+	}
+}
+
 is_undead = {
 	OR = {
 		trait = vampire
@@ -792,6 +809,7 @@ use_christian_vice_virtue = {
 		religion = draconic_pagan_reformed
 		religion = aztec
 		religion = aztec_reformed
+		religion = satanist
 	}
 	# Virtues: Chaste, Temperate, Charitable, Diligent, Patient, Kind, Humble
 	# Vices: Lustful, Gluttonous, Greedy, Slothful, Wroth, Envious, Proud

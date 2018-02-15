@@ -2758,6 +2758,10 @@ character_event = {
 			remove_trait = summoner
 			add_trait = mystic
 		}
+		if = {
+			limit = { trait = magic_heritage }
+			remove_trait = magic_heritage
+		}
 		hidden_tooltip = {
 			remove_character_modifier = studying_conjuration
 			remove_character_modifier = studying_sorcery

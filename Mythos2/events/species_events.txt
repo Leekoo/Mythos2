@@ -27,6 +27,7 @@ character_event = {
 	mean_time_to_happen = { days = 1 }
 	trigger = {
 		trait = race_placeholder
+		NOT = { has_character_flag = checked_race }
 	}
 	
 	immediate = {
@@ -35,8 +36,6 @@ character_event = {
 		
 		# Remove existing race traits to be sure
 		
-		remove_trait = dragon
-		remove_trait = dragonborn
 		remove_trait = god
 		remove_trait = demi_god
 		remove_trait = blood_of_the_gods
@@ -90,8 +89,8 @@ character_event = {
 					event_target:true_father = { trait = dragon }
 					mother_even_if_dead = { trait = dragon }
 				}
-				set_character_flag = test_both_dragon
 				add_trait = dragon
+				remove_trait = dragonborn
 				set_graphical_culture = draconic
 				# Can't be a werewolf
 				remove_trait = pup
@@ -103,10 +102,10 @@ character_event = {
 					event_target:true_father = { trait = dragonborn }
 					mother_even_if_dead = { trait = dragon }
 				}
-				set_character_flag = test_mdragon_fdb
 				random_list = {
 					3 = {
 						add_trait = dragon
+						remove_trait = dragonborn
 						set_graphical_culture = draconic
 						remove_trait = pup
 						remove_trait = fledgling
@@ -121,6 +120,7 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						add_trait = dragonborn
+						remove_trait = dragon
 						set_graphical_culture = event_target:true_father
 					}
 				}
@@ -131,10 +131,10 @@ character_event = {
 					event_target:true_father = { trait = dragon }
 					mother_even_if_dead = { trait = dragonborn }
 				}
-				set_character_flag = test_mdb_fdragon
 				random_list = {
 					1 = {
 						add_trait = dragon
+						remove_trait = dragonborn
 						set_graphical_culture = draconic
 						remove_trait = pup
 						remove_trait = fledgling
@@ -149,6 +149,7 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						add_trait = dragonborn
+						remove_trait = dragon
 						mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
 					}
 				}
@@ -159,10 +160,10 @@ character_event = {
 					event_target:true_father = { trait = dragonborn }
 					mother_even_if_dead = { trait = dragonborn }
 				}
-				set_character_flag = test_db
 				random_list = {
 					5 = {
 						add_trait = dragon
+						remove_trait = dragonborn
 						set_graphical_culture = draconic
 						remove_trait = pup
 						remove_trait = fledgling
@@ -178,6 +179,7 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						add_trait = dragonborn
+						remove_trait = dragon
 					}
 					20 = {
 						modifier = {
@@ -188,6 +190,8 @@ character_event = {
 							factor = 2
 							has_game_rule = { name = breeding value = fewer }
 						}
+						remove_trait = dragonborn
+						remove_trait = dragon
 					}
 				}
 			}
@@ -215,12 +219,14 @@ character_event = {
 						}
 					}
 				}
-				set_character_flag = test_db_human
 				random_list = {
 					1 = {
 						add_trait = dragonborn
+						remove_trait = dragon
 					}
 					9 = {
+						remove_trait = dragonborn
+						remove_trait = dragon
 					}
 				}
 			}
@@ -235,8 +241,8 @@ character_event = {
 						}
 					}
 				}
-				set_character_flag = test_mhum_fdragon
 				add_trait = dragonborn
+				remove_trait = dragon
 				mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
 			}
 			# One parent is a dragon and the other is human - mother is dragon
@@ -250,9 +256,18 @@ character_event = {
 						}
 					}
 				}
-				set_character_flag = test_mdragon_fhum
 				add_trait = dragonborn
+				remove_trait = dragon
 				set_graphical_culture = event_target:true_father
+			}
+			# Neither parent is dragonborn or dragon
+			else = {
+				remove_trait = dragonborn
+				remove_trait = dragon
+				if = {
+					limit = { graphical_culture = dragongfx }
+					set_graphical_culture = event_target:true_father
+				}
 			}
 			# Handle gods
 			# Both parents are gods
@@ -715,6 +730,7 @@ character_event = {
 					1 = {
 						add_trait = dragon
 						set_graphical_culture = draconic
+						remove_trait = dragonborn
 					}
 					60 = {
 						modifier = {
@@ -726,6 +742,7 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						add_trait = dragonborn
+						remove_trait = dragon
 						set_graphical_culture = event_target:parent
 					}
 					39 = {
@@ -738,7 +755,18 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						set_graphical_culture = event_target:parent
+						remove_trait = dragonborn
+						remove_trait = dragon
 					}
+				}
+			}
+			# Parent is neither dragon nor dragonborn
+			else = {
+				remove_trait = dragonborn
+				remove_trait = dragon
+				if = {
+					limit = { graphical_culture = dragongfx }
+					set_graphical_culture = event_target:parent
 				}
 			}
 			# Werewolf
@@ -904,6 +932,7 @@ character_event = {
 				remove_trait = dragon
 				remove_trait = demon_trait
 				remove_trait = ethereal_trait
+				remove_trait = dragonborn
 			}
 			if = {
 				limit = {
@@ -1147,7 +1176,6 @@ character_event = {
 	
 	immediate = {
 		add_trait = race_placeholder
-		set_character_flag = checked_race
 	}
 }
 # SPECIES.6 - Fire on chronicle start to mark all premade charactes as the right race
@@ -1159,8 +1187,19 @@ character_event = {
 	
 	immediate = {
 		any_character = { # I am so, so sorry for using this scope, but this should only get called once.
-			limit = { ai = yes }
+			#limit = { ai = yes }
 			set_character_flag = checked_race
+			if = {
+				limit = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+				}
+				add_trait = magic_heritage
+			}
 			if = {
 				limit = {
 					OR = {
@@ -1307,5 +1346,35 @@ character_event = {
 	immediate = {
 		any_dynasty_member = { character_event = { id = SPECIES.7 } }
 		any_liege = { character_event = { id = SPECIES.7 } }
+	}
+}
+# SPECIES.9 - Remove and re-add God on adulthood so gods age correctly
+character_event = {
+	id = SPECIES.9
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = god
+	}
+	
+	immediate = {
+		remove_trait = god
+		character_event = { id = SPECIES.10 days = 1 }
+	}
+}
+
+# SPECIES.10 - Re-add God on adulthood
+character_event = {
+	id = SPECIES.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { trait = god }
+	}
+	
+	immediate = {
+		add_trait = god
 	}
 }

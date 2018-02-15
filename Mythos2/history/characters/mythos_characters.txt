@@ -150,6 +150,7 @@
 	trait="proud"
 	trait="quick"
 	trait="veteran_wizard"
+	trait = "magic_heritage"
 	850.3.1 = {
 		birth="850.3.1"
 	}
@@ -460,6 +461,7 @@
 	trait="just"
 	trait="diligent"
 	trait="proud"
+	trait="magic_heritage"
 	711.4.5 = {
 		birth="711.4.5"
 	}
@@ -489,6 +491,7 @@
 	religion="draconic_pagan"
 	culture="draconic"
 	trait="dragon"
+	trait="magic_heritage"
 	799.3.12 = {
 		birth="799.3.12"
 	}
@@ -511,6 +514,7 @@
 	trait="gregarious"
 	trait="scholar"
 	trait="midas_touched"
+	trait="magic_heritage"
 	martial=7
 	diplomacy=6
 	stewardship=9
@@ -519,6 +523,20 @@
 	}
 	856.2.5 = {
 		add_spouse = 268301
+	}
+	866.1.1 = {
+		effect = {
+			opinion = {
+				modifier = in_non_aggression_pact
+				years = 15
+				who = c_144000
+			}
+			reverse_opinion = {
+				modifier = in_non_aggression_pact
+				years = 15
+				who = c_144000
+			}
+		}
 	}
 }
 268300 = {
@@ -529,6 +547,7 @@
 	trait="dragon"
 	trait="quick"
 	trait="just"
+	trait="magic_heritage"
 	father=268299
 	mother=268301
 	866.3.1 = {
@@ -566,6 +585,7 @@
 	trait="genius"
 	trait="ambitious"
 	trait="arcane_master"
+	trait="magic_heritage"
 	321.3.5 = {
 		birth="321.3.5"
 		wealth = 400

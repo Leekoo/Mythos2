@@ -1136,10 +1136,26 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_lejre
+								has_claim = c_sjaelland
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_lejre
+						remove_claim = c_sjaelland
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 20
 			modifier = {
 				factor = 0
 				capital_scope = {
@@ -1294,10 +1310,26 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_pruszkow
+								has_claim = c_plock
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_pruszkow
+						remove_claim = c_plock
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 20
 			modifier = {
 				factor = 0
 				capital_scope = {
@@ -1453,10 +1485,26 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_whithorn
+								has_claim = c_galloway
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_whithorn
+						remove_claim = c_galloway
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 20
 			modifier = {
 				factor = 0
 				capital_scope = {
@@ -1612,10 +1660,26 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_uppsala
+								has_claim = c_uppland
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_uppsala
+						remove_claim = c_uppland
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 20
 			
 			modifier = {
 				factor = 0
@@ -1771,10 +1835,26 @@ decisions = {
 					}
 				}
 			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					any_character = {
+						limit = {
+							OR = {
+								has_claim = b_canterbury
+								has_claim = c_kent
+							}
+							religion = draconic_pagan_reformed
+						}
+						remove_claim = b_canterbury
+						remove_claim = c_kent
+					}
+				}
+			}
 			piety = 400
 		}
 		ai_will_do = {
-			factor = 10
+			factor = 20
 			
 			modifier = {
 				factor = 0
@@ -1942,7 +2022,7 @@ targetted_decisions = {
 		}
 		
 		ai_will_do = {
-			factor = 0.01
+			factor = 0.04
 			
 			modifier = {
 				factor = 0

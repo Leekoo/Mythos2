@@ -89,15 +89,15 @@ on_yearly_pulse = {
 		40 = MYTH.17	# Helsing followers get monster hunter
 		
 		# Eternal Flame infidel events
-		100 = DRAGON.22		# Pilgrims rile up peasants
-		100 = DRAGON.23		# Priests upset by heather ritual site
+		150 = DRAGON.22		# Pilgrims rile up peasants
+		150 = DRAGON.23		# Priests upset by heather ritual site
 		100 = DRAGON.24		# Upset Zealous vassal
-		100 = DRAGON.25		# Courtier converter
-		100 = DRAGON.26		# Draconic preacher appears
+		150 = DRAGON.25		# Courtier converter
+		150 = DRAGON.26		# Draconic preacher appears
 		100 = DRAGON.27		# Dragon blamed for disease
-		30 = DRAGON.28		# Accused of leading dragon rituals
-		50 = DRAGON.29		# Conflicts between pilgrims and locals
-		20 = DRAGON.30		# Religious unrest
+		50 = DRAGON.28		# Accused of leading dragon rituals
+		70 = DRAGON.29		# Conflicts between pilgrims and locals
+		30 = DRAGON.30		# Religious unrest
 		
 		# Religious
 		5 = MYTHMORE.22		# Revive Roman paganism by event
@@ -161,8 +161,8 @@ on_focus_pulse = {
 		300 = MYTH_WoL.75	# Alternate final alchemy trial for mages
 		70 = MYTH_WoL.78	# Create Aqua Regia
 		100 = MYTH_WoL.81	# Lunatic - spin straw into gold
-		200 = MYTH_WoL.84	# Illusionary garrison
-		200 = MYTH_WoL.85	# Practice shapeshifting
+		220 = MYTH_WoL.84	# Illusionary garrison
+		220 = MYTH_WoL.85	# Practice shapeshifting
 		150 = MYTH_WoL.148	# Weather control
 		350 = MYTH_WoL.87	# Herbalism potion for sick courtier
 		10 = MYTH_WoL.101	# Create Philosopher's Stone
@@ -209,6 +209,7 @@ on_adulthood = {
 		WEREWOLF.70		# Get rid of wolf pet
 		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
+		SPECIES.9		# Remove and re-add God trait
 	}
 }
 # Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
@@ -232,7 +233,7 @@ on_chronicle_start = {
 		MYTH.50			# Create pagan pantheons
 		MUMMY.5			# Ramesis Reborn
 		#MYTH.34 		# Force Zeus to use seduction
-		#SPECIES.6		# Mark all premade characters as already being the correct race
+		SPECIES.6		# Mark all premade characters as already being the correct race
 		DRAGON.57		# Set initial purity for draconic characters
 		MYTH.56			# Set Virtues/Vices
 		WEREWOLF.95		# Set initial werewolf control
