@@ -2,6 +2,7 @@
 
 vampire = {
 	birth = 0
+	ruler_designer_cost = 5
 
 	opposites = {
 		werewolf
@@ -57,6 +58,7 @@ known_vampire = {
 
 werewolf = {
 	birth = 5
+	ruler_designer_cost = 10
 
 	opposites = {
 		vampire
@@ -289,6 +291,7 @@ mummy = {
 
 djinn = {
 	inherit_chance = 100
+	ruler_designer_cost = 30
 
 	immortal = yes
 
@@ -322,7 +325,7 @@ dragon = {
 	ai_greed = 40
 	ai_ambition = 10
 	
-	ruler_designer_cost = 80
+	ruler_designer_cost = 60
 	
 	potential = {
 		race = draconic
@@ -353,6 +356,7 @@ novice_mage = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 0
 	
 	learning = 2
 	christian_opinion = -5
@@ -368,6 +372,7 @@ eldritch_scholar = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 2
 	
 	learning = 3
 	diplomacy = 1
@@ -392,6 +397,7 @@ veteran_wizard = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 5
 	
 	learning = 6
 	diplomacy = 2
@@ -419,6 +425,7 @@ arcane_master = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 10
 	
 	learning = 10
 	diplomacy = 4
@@ -445,6 +452,7 @@ arcane_master = {
 magic_heritage = {
 	birth = 50
 	inherit_chance = 70
+	ruler_designer_cost = 1
 	
 	ruler_designer = no
 	
@@ -731,7 +739,7 @@ summoner = {
 	levy_size = 0.1
 	
 	# Also results in larger armies from summoning spell and higher success rate.
-	# Gives acess to an additional spell (?)
+	# Gives acess to an additional spell
 	
 	same_opinion = 10
 	
