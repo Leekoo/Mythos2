@@ -162,6 +162,58 @@ is_very_old = {
 }
 
 # Adjustments for various human ages
+is_30 = {
+	immortal = no
+	OR = {
+		AND = {
+			OR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 90
+		}
+		AND = {
+			OR = {
+				trait = giant
+				trait = djinn
+			}
+			NOR = {
+				trait = dragon
+				trait = demi_god
+			}
+			age = 44
+		}
+		AND = {
+			OR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				trait = werewolf
+				trait = half_giant
+			}
+			NOR = {
+				trait = giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 33
+		}
+		AND = {
+			NOR = {
+				trait = dragonborn
+				trait = blood_of_the_gods
+				trait = werewolf
+				trait = half_giant
+				trait = giant
+				trait = djinn
+				trait = dragon
+				trait = demi_god
+			}
+			age = 30
+		}
+	}
+}
+
 is_40 = {
 	immortal = no
 	OR = {
