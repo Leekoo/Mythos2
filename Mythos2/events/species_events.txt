@@ -430,6 +430,45 @@ character_event = {
 				}
 			}
 			# Werewolf
+			# Both parents are werewolves
+			if = {
+				limit = {
+					event_target:true_father = { trait = werewolf }
+					mother_even_if_dead = { trait = werewolf }
+				}
+				random = {
+					chance = 80
+					add_trait = pup
+				}
+			}
+			# One parent is a werewolf = {
+			else_if = {
+				limit = {
+					OR = {
+						event_target:true_father = { trait = werewolf }
+						mother_even_if_dead = { trait = werewolf }
+					}
+				}
+				random = {
+					chance = 40
+					add_trait = pup
+				}
+			}
+			# No werewolf parent
+			else = {
+				random = {
+					chance = 5
+					modifier = {
+						factor = 0.6
+						event_target:true_father = { trait = vampire }
+					}
+					modifier = {
+						factor = 0.6
+						mother_even_if_dead = { trait = vampire }
+					}
+					add_trait = pup
+				}
+			}
 			# Remove pup on certain characters
 			if = {
 				limit = {
@@ -482,6 +521,14 @@ character_event = {
 				else = {
 					set_variable = { which = control value = 2 }
 				}
+			}
+			if = {
+				limit = {
+					trait = pup
+					age = 16
+				}
+				remove_trait = pup
+				update_control = yes
 			}
 			# Giant
 			# Both parents are giants
