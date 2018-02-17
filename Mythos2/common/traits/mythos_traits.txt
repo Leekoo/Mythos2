@@ -1497,3 +1497,307 @@ control_9 = { # New
 	ai_rationality = 16
 	ai_honor = 16
 }
+size_1 = { # Age 16, age 20 half-giant
+	opposites = {
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 1
+	health = 0.1
+	command_modifier = {
+		siege = 0.01
+		morale_offence = 0.01
+	}
+}
+size_2 = { # Age 28, age 40 half-giant
+	opposites = {
+		size_1
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 2
+	health = 0.2
+	martial = 1
+	command_modifier = {
+		siege = 0.02
+		morale_offence = 0.02
+	}
+}
+size_3 = { # Age 40, age 60 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 3
+	health = 0.3
+	martial = 1
+	command_modifier = {
+		siege = 0.03
+		morale_offence = 0.03
+	}
+}
+size_4 = { # Age 52, age 80 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 4
+	health = 0.4
+	martial = 2
+	command_modifier = {
+		siege = 0.04
+		morale_offence = 0.04
+	}
+}
+size_5 = { # Age 64, age 100 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 5
+	health = 0.5
+	martial = 2
+	command_modifier = {
+		siege = 0.05
+		morale_offence = 0.05
+	}
+}
+size_6 = { # Age 76
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 6
+	health = 0.6
+	martial = 3
+	command_modifier = {
+		siege = 0.06
+		morale_offence = 0.06
+	}
+}
+size_7 = { # Age 88
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 7
+	health = 0.7
+	martial = 3
+	command_modifier = {
+		siege = 0.07
+		morale_offence = 0.07
+	}
+}
+size_8 = { # Age 110
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 8
+	health = 0.8
+	martial = 4
+	command_modifier = {
+		siege = 0.08
+		morale_offence = 0.08
+	}
+}
+size_9 = { # Age 122
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 9
+	health = 0.9
+	martial = 4
+	command_modifier = {
+		siege = 0.09
+		morale_offence = 0.09
+	}
+}
+size_10 = { # Age 134
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 10
+	health = 1
+	martial = 5
+	command_modifier = {
+		siege = 0.1
+		morale_offence = 0.1
+	}
+}

@@ -1,0 +1,222 @@
+namespace = GIANT
+# GIANT.1 - Check if giant size needs to change
+character_event = {
+	id = GIANT.1
+	hide_window = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		age = 16
+		NOT = { trait = dwarf }
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = giant }
+			if = {
+				limit = {
+					age = 16
+					NOT = { age = 28 }
+					NOT = { trait = size_1 }
+				}
+				set_variable = { which - local_size value = 1 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 28
+					NOT = { age = 40 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which - local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 52 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which - local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 52
+					NOT = { age = 64 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which - local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 64
+					NOT = { age = 76 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which - local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 76
+					NOT = { age = 88 }
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which - local_size value = 6 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 88
+					NOT = { age = 110 }
+					NOT = { trait = size_7 }
+				}
+				set_variable = { which - local_size value = 7 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 110
+					NOT = { age = 122 }
+					NOT = { trait = size_8 }
+				}
+				set_variable = { which - local_size value = 8 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 122
+					NOT = { age = 134 }
+					NOT = { trait = size_9 }
+				}
+				set_variable = { which - local_size value = 9 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 134
+					NOT = { trait = size_10 }
+				}
+				set_variable = { which - local_size value = 10 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = { trait = half_giant }
+			if = {
+				limit = {
+					age = 20
+					NOT = { age = 40 }
+					NOT = { trait = size_1 }
+				}
+				set_variable = { which - local_size value = 1 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 60 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which - local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 60
+					NOT = { age = 80 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which - local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 80
+					NOT = { age = 100 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which - local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 100
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which - local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+	}
+}
+
+# GIANT.2 - Increase Giant/Half-giant size
+	id = GIANT.2
+	desc = EVTDESC_GIANT.2
+	picture = GFX_evt_shaman
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.2
+		hidden_tooltip = {
+			remove_trait = size_1
+			remove_trait = size_2
+			remove_trait = size_3
+			remove_trait = size_4
+			remove_trait = size_5
+			remove_trait = size_6
+			remove_trait = size_7
+			remove_trait = size_8
+			remove_trait = size_9
+			remove_trait = size_10
+		}
+		if = {
+			limit = { check_variable = { which = local_size value = 10 } }
+			add_trait = size_10
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 9 } }
+			add_trait = size_9
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 8 } }
+			add_trait = size_8
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 7 } }
+			add_trait = size_7
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 6 } }
+			add_trait = size_6
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 5 } }
+			add_trait = size_5
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 4 } }
+			add_trait = size_4
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 3 } }
+			add_trait = size_3
+		}
+		else_if = {
+			limit = { check_variable = { which = local_size value = 2 } }
+			add_trait = size_2
+		}
+		else = {
+			add_trait = size_1
+		}
+		prestige = 10
+	}
+}

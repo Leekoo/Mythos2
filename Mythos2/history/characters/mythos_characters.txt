@@ -9,8 +9,29 @@
 	820.1.1 = {
 		birth="820.1.1"
 	}
+	836.1.1 = {
+		add_trait = size_1
+	}
+	848.1.1 = {
+		effect = { remove_trait = size_1 }
+		add_trait = size_2
+	}
 	860.1.1 = {
 		add_spouse=268369
+		effect = { remove_trait = size_2 }
+		add_trait = size_3
+	}
+	872.1.1 = {
+		effect = { remove_trait = size_3 }
+		add_trait = size_4
+	}
+	884.1.1 = {
+		effect = { remove_trait = size_4 }
+		add_trait = size_5
+	}
+	896.1.1 = {
+		effect = { remove_trait = size_5 }
+		add_trait = size_6
 	}
 	900.1.1 = {
 		death="900.1.1"
@@ -34,6 +55,19 @@
 	}
 	866.1.1 = {
 		add_spouse=268370
+		add_trait = size_1
+	}
+	878.1.1 = {
+		effect = { remove_trait = size_1 }
+		add_trait = size_2
+	}
+	890.1.1 = {
+		effect = { remove_trait = size_2 }
+		add_trait = size_3
+	}
+	902.1.1 = {
+		effect = { remove_trait = size_3 }
+		add_trait = size_4
 	}
 	905.1.1 = {
 		death ="905.1.1"
@@ -50,6 +84,17 @@
 	842.1.1 = {
 		birth="842.1.1"
 	}
+	858.0.0 = {
+		add_trait = size_1
+	}
+	870.1.1 = {
+		effect = { remove_trait = size_1 }
+		add_trait = size_2
+	}
+	882.1.1 = {
+		effect = { remove_trait = size_2 }
+		add_trait = size_3
+	}
 	885.1.1 = {
 		death="885.1.1"
 	}
@@ -64,6 +109,17 @@
 	trait="giant"
 	850.1.1 = {
 		birth="850.1.1"
+	}
+	866.1.1 = {
+		add_trait = size_1
+	}
+	878.1.1 = {
+		effect = { remove_trait = size_1 }
+		add_trait = size_2
+	}
+	890.1.1 = {
+		effect = { remove_trait = size_2 }
+		add_trait = size_3
 	}
 	900.1.1 = {
 		death="900.1.1"
@@ -412,6 +468,8 @@
 	trait = slothful
 	trait = wroth
 	trait = arbitrary
+	trait = giant
+	trait = size_10
 	1.1.1 = {
 		birth = "1.1.1"
 		effect = { set_character_flag = norse_god_ymir }
