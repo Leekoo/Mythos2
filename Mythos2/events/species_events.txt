@@ -59,7 +59,6 @@ character_event = {
 				event_target:true_father = { always = yes }
 				mother_even_if_dead = { always = yes }
 			}
-			set_character_flag = test_two_parents
 			# Bad parent
 			if = {
 				limit = {
@@ -78,7 +77,6 @@ character_event = {
 						}
 					}
 				}
-				set_character_flag = test_bad_parent
 				add_trait = sickly
 				add_trait = stressed
 			}
@@ -737,7 +735,6 @@ character_event = {
 					mother_even_if_dead = { always = yes }
 				}
 			}
-			set_character_flag = test_one_parent
 			# Set parent
 			if = {
 				limit = {
@@ -819,6 +816,24 @@ character_event = {
 			# Werewolf
 			if = {
 				limit = { event_target:parent = { trait = werewolf } }
+				if = {
+					limit = {
+						NOR = {
+							trait = werewolf
+							trait = pup
+						}
+					}
+					random = {
+						chance = 50
+						if = {
+							limit = { age = 16 }
+							add_trait = werewolf
+						}
+						else = {
+							add_trait = pup
+						}
+					}
+				}
 				if = {
 					limit = {
 						OR = {
