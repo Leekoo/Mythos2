@@ -726,6 +726,87 @@ character_event = {
 					}
 				}
 			}
+			# Special - Norse/Jotun giants get an extra trait
+			if = {
+				limit = {
+					trait = giant
+					OR = {
+						culture_group = north_germanic
+						religion = norse_pagan_reformed
+						religion = norse_pagan
+						religion = jotnar
+						religion = jotnar_reformed
+					}
+					NOR = {
+						trait = giant_hrimthursar
+						trait = giant_eldjotnar
+						trait = giant_bergrisar
+					}
+				}
+				random_list = {
+					# Frost Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_hrimthursar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_hrimthursar }
+						}
+						modifier = { # Born in winter
+							factor = 2
+							OR = {
+								month_of_birth = 12
+								month_of_birth <= 2
+							}
+						}
+						add_trait = giant_hrimthursar
+					}
+					# Fire Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_eldjotnar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_eldjotnar }
+						}
+						modifier = { # Born in summer
+							factor = 2
+							month_of_birth = 6
+							month_of_birth <= 8
+						}
+						add_trait = giant_eldjotnar
+					}
+					# Hill Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_bergrisar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_bergrisar }
+						}
+						modifier = { # Born in spring or autumn
+							factor = 2
+							OR = {
+								AND = {
+									month_of_birth = 3
+									month_of_birth <= 5
+								}
+								AND = {
+									month_of_birth = 9
+									month_of_birth <= 11
+								}
+							}
+						}
+						add_trait = giant_bergrisar
+					}
+				}
+			}
 		}
 		# Character with one parent
 		else_if = {
@@ -937,6 +1018,87 @@ character_event = {
 					}
 				}
 			}
+			# Special - Norse/Jotun giants get an extra trait
+			if = {
+				limit = {
+					trait = giant
+					OR = {
+						culture_group = north_germanic
+						religion = norse_pagan_reformed
+						religion = norse_pagan
+						religion = jotnar
+						religion = jotnar_reformed
+					}
+					NOR = {
+						trait = giant_hrimthursar
+						trait = giant_eldjotnar
+						trait = giant_bergrisar
+					}
+				}
+				random_list = {
+					# Frost Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_hrimthursar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_hrimthursar }
+						}
+						modifier = { # Born in winter
+							factor = 2
+							OR = {
+								month_of_birth = 12
+								month_of_birth <= 2
+							}
+						}
+						add_trait = giant_hrimthursar
+					}
+					# Fire Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_eldjotnar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_eldjotnar }
+						}
+						modifier = { # Born in summer
+							factor = 2
+							month_of_birth = 6
+							month_of_birth <= 8
+						}
+						add_trait = giant_eldjotnar
+					}
+					# Hill Giant
+					1 = {
+						modifier = {
+							factor = 3
+							event_target:true_father = { trait = giant_bergrisar }
+						}
+						modifier = {
+							factor = 3
+							mother_even_if_dead = { trait = giant_bergrisar }
+						}
+						modifier = { # Born in spring or autumn
+							factor = 2
+							OR = {
+								AND = {
+									month_of_birth = 3
+									month_of_birth <= 5
+								}
+								AND = {
+									month_of_birth = 9
+									month_of_birth <= 11
+								}
+							}
+						}
+						add_trait = giant_bergrisar
+					}
+				}
+			}
 			# Half-giant
 			else_if = {
 				limit = { event_target:parent = { trait = half_giant } }
@@ -1007,6 +1169,8 @@ character_event = {
 				set_variable = { which = control value = 5 }
 				update_control = yes
 			}
+			# Special - Norse/Jotun giants get an extra trait
+			
 		}
 		
 		if = {
@@ -1437,5 +1601,126 @@ character_event = {
 	
 	immediate = {
 		add_trait = god
+	}
+}
+
+# SPECIES.11 - Add Giant subtraits
+character_event = {
+	id = SPECIES.11
+	hide_window = yes
+	is_trigged_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = checked_giant }
+		trait = giant
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					culture_group = north_germanic
+					religion = norse_pagan_reformed
+					religion = norse_pagan
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				NOR = {
+					trait = giant_hrimthursar
+					trait = giant_eldjotnar
+					trait = giant_bergrisar
+				}
+			}
+			random_list = {
+				log = "[Root.GetFullName] is a giant."
+				# Frost Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_hrimthursar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_hrimthursar }
+					}
+					modifier = { # Born in winter
+						factor = 2
+						OR = {
+							month_of_birth = 12
+							month_of_birth <= 2
+						}
+					}
+					log = "Gave Frost Giant to [Root.GetFullName]"
+					add_trait = giant_hrimthursar
+				}
+				# Fire Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_eldjotnar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_eldjotnar }
+					}
+					modifier = { # Born in summer
+						factor = 2
+						month_of_birth = 6
+						month_of_birth <= 8
+					}
+					log = "Gave Fire Giant to [Root.GetFullName]"
+					add_trait = giant_eldjotnar
+				}
+				# Hill Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_bergrisar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_bergrisar }
+					}
+					modifier = { # Born in spring or autumn
+						factor = 2
+						OR = {
+							AND = {
+								month_of_birth = 3
+								month_of_birth <= 5
+							}
+							AND = {
+								month_of_birth = 9
+								month_of_birth <= 11
+							}
+						}
+					}
+					log = "Gave Hill Giant to [Root.GetFullName]"
+					add_trait = giant_bergrisar
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = giant_hrimthursar
+					trait = giant_eldjotnar
+					trait = giant_bergrisar
+				}
+			}
+			log = "[Root.GetFullName] already has a giant sub-trait"
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					culture_group = north_germanic
+					religion = norse_pagan_reformed
+					religion = norse_pagan
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			log = "[Root.GetFullName] has the wrong culture and religion for giant sub-traits
+		}
+		add_character_flag = checked_giant
 	}
 }

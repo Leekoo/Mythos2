@@ -1798,3 +1798,57 @@ size_10 = { # Age 134
 		morale_offence = 0.1
 	}
 }
+
+giant_hrimthursar = { # Frost Giant
+	opposites = {
+		giant_eldjotnar
+		giant_bergrisar
+	}
+	potential = { trait = giant }
+	
+	frost_giants_defensive = 0.05
+	fire_giants_morale = -0.05
+	
+	command_modifier = {
+		defence = 0.2
+		morale_defence = 0.1
+		winter_supply = 2
+		winter_combat = 0.2
+		damage = -0.2
+		morale_offence = -0.1
+		speed = -0.2
+	}
+}
+giant_eldjotnar = { # Fire Giant
+	opposites = {
+		giant_hrimthursar
+		giant_bergrisar
+	}
+	potential = { trait = giant }
+	
+	fire_giants_offensive = 0.05
+	frost_giants_morale = -0.05
+	
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		defence = -0.2
+		morale_defence = -0.1
+	}
+}
+giant_bergrisar = { # Hill Giant
+	opposites = {
+		giant_hrimthursar
+		giant_eldjotnar
+	}
+	potential = { trait = giant }
+	
+	combat_rating = 2
+	martial = 1
+	days_of_supply = 30
+	
+	command_modifier = {
+		terrain = hills
+		terrain = mountain
+	}
+}

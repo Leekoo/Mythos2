@@ -4659,3 +4659,61 @@ defined_text = {
 		}
 	}
 }
+
+defined_text = {
+	name = hrimthursar
+	text = {
+		localisation_key = NordicHrimthursar
+		trigger = {
+			ROOT = {
+				culture_group = north_germanic
+			}
+		}
+	}
+	text = {
+		localisation_key = OtherHrimthursar
+		trigger = {
+			ROOT = {
+				NOT = { culture_group = north_germanic }
+			}
+		}
+	}
+}
+defined_text = {
+	name = eldjotnar
+	text = {
+		localisation_key = NordicEldjotnar
+		trigger = {
+			ROOT = {
+				culture_group = north_germanic
+			}
+		}
+	}
+	text = {
+		localisation_key = OtherEldjotnar
+		trigger = {
+			ROOT = {
+				NOT = { culture_group = north_germanic }
+			}
+		}
+	}
+}
+defined_text = {
+	name = bergrisar
+	text = {
+		localisation_key = NordicBergrisar
+		trigger = {
+			ROOT = {
+				culture_group = north_germanic
+			}
+		}
+	}
+	text = {
+		localisation_key = OtherBergrisar
+		trigger = {
+			ROOT = {
+				NOT = { culture_group = north_germanic }
+			}
+		}
+	}
+}
