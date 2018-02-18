@@ -30,7 +30,9 @@ feudal_governments = {
 				NOT = { religion = jotnar_reformed }
 				NOT = { religion = roman_pagan }
 			}
-			NOT = { culture = vampire_culture }
+			OR = {
+				NOT = { has_dlc = "Zeus" }
+			}
 			NAND = {
 				culture = draconic
 				OR = {
