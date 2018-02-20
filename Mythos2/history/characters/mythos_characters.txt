@@ -8,6 +8,7 @@
 	trait="giant"
 	820.1.1 = {
 		birth="820.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	836.1.1 = {
 		add_trait = size_1
@@ -52,6 +53,7 @@
 	father=268365
 	850.1.1 = {
 		birth ="850.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	866.1.1 = {
 		add_spouse=268370
@@ -83,6 +85,7 @@
 	trait="giant"
 	842.1.1 = {
 		birth="842.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	858.0.0 = {
 		add_trait = size_1
@@ -109,6 +112,7 @@
 	trait="giant"
 	850.1.1 = {
 		birth="850.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	866.1.1 = {
 		add_trait = size_1
@@ -139,6 +143,7 @@
 	trait="skilled_tactician"
 	835.1.1 = {
 		birth="835.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	854.1.1=
 	{
@@ -155,6 +160,12 @@
 	mother=82143
 	858.1.1 = {
 		birth="858.1.1"
+		effect = { set_character_flag = checked_race }
+	}
+	873.1.1 = {
+		remove_trait = pup
+		add_trait = werewolf
+		add_trait = secret_werewolf
 	}
 	930.1.1 = {
 		death="930.1.1"
@@ -176,6 +187,7 @@
 	trait="skilled_tactician"
 	845.1.1 = {
 		birth="845.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	866.1.1 = {
 		give_nickname = nick_the_impaler
@@ -193,6 +205,7 @@
 	trait = "brilliant_strategist"
 	1.1.1 = {
 		birth="1.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 }	
 268290 = {
@@ -206,9 +219,10 @@
 	trait="proud"
 	trait="quick"
 	trait="veteran_wizard"
-	trait = "magic_heritage"
+	trait="magic_heritage"
 	850.3.1 = {
 		birth="850.3.1"
+		effect = { set_character_flag = checked_race }
 	}
 	905.1.27 = {
 		death="905.1.27"
@@ -228,6 +242,7 @@
 	1.1.1 = {
 		birth="1.1.1"
 		effect = { set_character_flag = greek_god_uranus }
+		effect = { set_character_flag = checked_race }
 	}
 	20.3.1 = {
 		death="20.3.1"
@@ -247,6 +262,7 @@
 	1.10.1 = {
 		birth="1.10.1"
 		effect = { set_character_flag = greek_god_chronos }
+		effect = { set_character_flag = checked_race }
 	}
 	#15.10.1 = {
 	#	add_spouse=268402
@@ -473,6 +489,7 @@
 	1.1.1 = {
 		birth = "1.1.1"
 		effect = { set_character_flag = norse_god_ymir }
+		effect = { set_character_flag = checked_race }
 	}
 }	
 	
@@ -490,6 +507,7 @@
 	diplomacy=8
 	841.1.1={
 		birth="841.1.1"
+		effect = { set_character_flag = checked_race }
 	}
 	901.1.1={
 		death="901.1.1"
@@ -503,6 +521,7 @@
 	female = yes
 	718.3.1 = {
 		birth="718.3.1"
+		effect = { set_character_flag = checked_race }
 	}
 	830.2.2 = {
 		death=yes
@@ -522,6 +541,7 @@
 	trait="magic_heritage"
 	711.4.5 = {
 		birth="711.4.5"
+		effect = { set_character_flag = checked_race }
 	}
 	821.1.1 = {
 		death=yes
@@ -536,6 +556,7 @@
 	820.7.2 = {
 		birth="820.7.2"
 		effect = { set_graphical_culture=draconic }
+		effect = { set_character_flag = checked_race }
 	}
 	870.3.3 = {
 		death=yes
@@ -552,6 +573,7 @@
 	trait="magic_heritage"
 	799.3.12 = {
 		birth="799.3.12"
+		effect = { set_character_flag = checked_race }
 	}
 	867.1.1 = {
 		death = yes
@@ -578,6 +600,7 @@
 	stewardship=9
 	839.12.1 = {
 		birth="839.12.1"
+		effect = { set_character_flag = checked_race }
 	}
 	856.2.5 = {
 		add_spouse = 268301
@@ -596,6 +619,9 @@
 			}
 		}
 	}
+	960.5.3 = {
+		death = yes
+	}
 }
 268300 = {
 	name="Alagor"
@@ -610,6 +636,10 @@
 	mother=268301
 	866.3.1 = {
 		birth="866.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	990.3.2 = {
+		death = yes
 	}
 }
 268301 = {
@@ -625,6 +655,10 @@
 	trait="grey_eminence"
 	840.3.1 = {
 		birth="840.3.1"
+		effect = { set_character_flag = checked_race }
+	}
+	1000.1.2 = {
+		death = yes
 	}
 }
 268302 = {
@@ -647,6 +681,7 @@
 	321.3.5 = {
 		birth="321.3.5"
 		wealth = 400
+		effect = { set_character_flag = checked_race }
 	}
 	500.1.1 = {
 		trait="immortal" #ironic for the son of a god
@@ -697,6 +732,7 @@
 	934.2.21 = {
 		birth="934.2.21"
 		effect = { dynasty = none }
+		effect = { set_character_flag = checked_race }
 	}
 	951.5.15 = {
 		death = { death_reason = death_dragon killer = 268302 }
@@ -723,6 +759,7 @@
 	951.5.13 = {
 		birth="951.5.13"
 		effect = { set_graphical_culture = draconic }
+		effect = { set_character_flag = checked_race }
 	}
 	969.5.13 = {
 	 	give_job_title = job_marshal
@@ -753,6 +790,7 @@
 	learning=4
 	729.8.14 = {
 		birth = "729.8.14"
+		effect = { set_character_flag = checked_race }
 	}
 	745.8.20 = {
 		add_spouse = 268313
@@ -818,6 +856,7 @@
 			set_graphical_culture = draconic
 		}
 		culture = irish
+		effect = { set_character_flag = checked_race }
 	}
 	745.8.20 = {
 		add_spouse = 268310
