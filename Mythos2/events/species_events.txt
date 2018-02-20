@@ -1476,7 +1476,6 @@ character_event = {
 				}
 			}
 			random_list = {
-				log = "[Root.GetFullName] is a giant."
 				# Frost Giant
 				1 = {
 					modifier = {
@@ -1494,7 +1493,6 @@ character_event = {
 							month_of_birth <= 2
 						}
 					}
-					log = "Gave Frost Giant to [Root.GetFullName]"
 					add_trait = giant_hrimthursar
 				}
 				# Fire Giant
@@ -1512,7 +1510,6 @@ character_event = {
 						month_of_birth = 6
 						month_of_birth <= 8
 					}
-					log = "Gave Fire Giant to [Root.GetFullName]"
 					add_trait = giant_eldjotnar
 				}
 				# Hill Giant
@@ -1538,7 +1535,6 @@ character_event = {
 							}
 						}
 					}
-					log = "Gave Hill Giant to [Root.GetFullName]"
 					add_trait = giant_bergrisar
 				}
 			}
@@ -1551,7 +1547,6 @@ character_event = {
 					trait = giant_bergrisar
 				}
 			}
-			log = "[Root.GetFullName] already has a giant sub-trait"
 		}
 		else_if = {
 			limit = {
@@ -1563,7 +1558,6 @@ character_event = {
 					religion = jotnar_reformed
 				}
 			}
-			log = "[Root.GetFullName] has the wrong culture and religion for giant sub-traits
 		}
 		add_character_flag = checked_giant
 	}
