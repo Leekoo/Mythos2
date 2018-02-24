@@ -4717,3 +4717,87 @@ defined_text = {
 		}
 	}
 }
+defined_text = {
+	name = GetHandsClaws
+	text = {
+		localisation_key = String_claws
+		trigger = {
+			OR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+	text = {
+		localisation_key = String_hands
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetHandsClawsCap
+	text = {
+		localisation_key = String_claws_cap
+		trigger = {
+			OR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+	text = {
+		localisation_key = String_hands_cap
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetHandClaw
+	text = {
+		localisation_key = String_claw
+		trigger = {
+			OR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+	text = {
+		localisation_key = String_hand
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+}
+defined_text = {
+	name = GetHandClawCap
+	text = {
+		localisation_key = String_claw_cap
+		trigger = {
+			OR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+	text = {
+		localisation_key = String_hand_cap
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = known_werewolf
+			}
+		}
+	}
+}
