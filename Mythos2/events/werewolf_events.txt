@@ -2920,43 +2920,6 @@ character_event = {
 		trait = known_werewolf
 	}
 	
-	weight_multiplier = {
-		days = 1
-		
-		modifier = {
-			factor = 0.8
-			check_variable = { which = control value = 6 }
-		}
-		modifier = {
-			factor = 0.8
-			check_variable = { which = control value = 7 }
-		}
-		modifier = {
-			factor = 0.8
-			check_variable = { which = control value = 8 }
-		}
-		modifier = {
-			factor = 0.8
-			check_variable = { which = control value = 9 }
-		}
-		modifier = {
-			factor = 1.2
-			check_variable = { which = control value <= 4 }
-		}
-		modifier = {
-			factor = 1.2
-			check_variable = { which = control value <= 3 }
-		}
-		modifier = {
-			factor = 1.2
-			check_variable = { which = control value <= 2 }
-		}
-		modifier = {
-			factor = 1.2
-			check_variable = { which = control value == 1 }
-		}
-	}
-	
 	option = {
 		name = EVTOPT_WEREWOLF.45
 		clr_character_flag = do_not_disturb
