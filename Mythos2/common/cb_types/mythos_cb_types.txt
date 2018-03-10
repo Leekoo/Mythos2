@@ -787,171 +787,6 @@ dragon_tribal_tribute_cb = {
 	}
 }
 
-cb_force_heir = {
-	name = CB_NAME_FORCE_HEIR
-	war_name = WAR_NAME_FORCE_HEIR
-	sprite = 12
-	truce_days = 3650
-	
-	major_revolt = yes
-	attacker_can_call_allies = no
-	
-	can_use = {
-		ROOT = {
-			vassal_of = FROM
-			trait = dragon
-		}
-		FROM = {
-			current_heir = {
-				NOR = { 
-					character = ROOT
-					trait = dragon
-				}
-			}
-		}
-	}
-	
-	is_valid_title = {
-		NOT = {
-			holder_scope = {
-				character = ROOT
-			}
-		}
-	}
-	
-	is_valid = {
-		ROOT = {
-			trait = dragon
-			OR = {
-				liege = {
-					character = PREV # either independent
-				}
-				liege = { 
-					FROM = { 
-						is_liege_or_above = PREV # or have shared liege
-					}
-				}
-			}
-		}
-		FROM = {
-			current_heir = {
-				NOT = { trait = dragon }
-			}
-		}
-	}
-	
-	on_success = {
-		any_attacker = {
-			limit = { character = ROOT }
-			participation_scaled_prestige = 250
-			hidden_tooltip = {
-				disband_event_forces = faction_revolters
-			}
-		}
-		any_attacker = {
-			limit = { NOT = { character = ROOT } }
-			hidden_tooltip = { 
-				participation_scaled_prestige = 250
-				disband_event_forces = faction_revolters
-			}
-		}
-		ROOT = {
-			give_minor_title = title_forced_heir
-			hidden_tooltip = {
-				character_event = { id = SPECIES.7 }
-				hidden_tooltip = { disband_event_forces = faction_loyalists }
-			}
-		}
-		FROM = {
-			opinion = { who = ROOT modifier = opinion_forced_heir }
-			prestige = -500
-		}
-	}
-	
-	on_fail = {
-		ROOT = {
-			prestige = -150
-			hidden_tooltip = { disband_event_forces = faction_revolters }
-		}
-			
-		any_defender = {
-			limit = { character = FROM }
-			participation_scaled_prestige = 50
-			hidden_tooltip = { 
-				disband_event_forces = faction_loyalists
-				add_character_modifier = {
-					name = faction_draconic_heir_ultimatum_timer
-					hidden = yes
-					duration = 3650
-				}
-			}
-		}
-		any_defender = {
-			limit = { NOT = { character = FROM } }
-			hidden_tooltip = { 
-				participation_scaled_prestige = 50
-				disband_event_forces = faction_loyalists
-				add_character_modifier = {
-					name = faction_draconic_heir_ultimatum_timer
-					hidden = yes
-					duration = 3650
-				}
-			}
-		}
-	}
-	
-	on_reverse_demand = {
-		ROOT = {
-			prestige = -200
-			prisoner = FROM
-		}
-		
-		any_defender = {
-			limit = { character = FROM }
-			participation_scaled_prestige = 100
-		}
-		any_defender = {
-			limit = { NOT = { character = FROM } }
-			hidden_tooltip = { participation_scaled_prestige = 100 }
-		}
-		
-		hidden_tooltip = {
-			any_attacker = {
-				limit = { liege = { character = FROM } }
-				prisoner = FROM
-				disband_event_forces = faction_revolters
-				add_character_modifier = {
-					name = faction_draconic_heir_ultimatum_timer
-					hidden = yes
-					duration = 3650
-				}
-			}
-		}
-		
-		FROM = { 
-			hidden_tooltip = { 
-				disband_event_forces = faction_loyalists
-			}
-		}
-	}
-	
-	attacker_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	attacker_ai_defeat_worth = {
-		factor = 100
-	}
-
-	defender_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	defender_ai_defeat_worth = {
-		factor = 100
-	}
-}
-
 cb_seize_flame = {
 	name = CB_NAME_SEIZE_FLAME
 	war_name = WAR_NAME_SEIZE_FLAME
@@ -1607,6 +1442,126 @@ monster_revolt = {
 					remove_province_modifier = rally_against_monster
 				}
 			}
+		}
+	}
+	
+	attacker_ai_victory_worth = {
+		factor = 100
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 150
+	}
+}
+
+cb_reclaim_defaulted_loan = {
+	name = CB_NAME_RECLAIM_DEFAULTED_LOAN
+	war_name = WAR_NAME_RECLAIM_DEFAULTED_LOAN
+	sprite = 1
+	truce_days = 1068
+	infamy_modifier = 0
+	
+	can_use = {
+		ROOT = {
+			has_opinion_modifier = { who = FROM modifier = opinion_stole_my_money }
+		}
+		FROM = {
+			check_variable = { which = loan_amount value > 0 }
+		}
+	}
+	
+	on_add = {
+		ROOT = { set_variable = { which = local_payment which = loan_amount who = FROM } }
+	}
+	
+	on_success = {
+		FROM = {
+			wealth = forced_payment
+			wealth = forced_payment
+			if = { 
+				limit = { check_variable = { which = loan_amount value = 100 } }
+				prestige = forced_payment
+			}
+			else = {
+				prestige = -100
+			}
+			hidden_tooltip = { set_variable = { which = loan_amount value = 0 } }
+		}
+		ROOT = {
+			wealth = local_payment
+			if = {
+				limit = { trait = banker }
+				custom_tooltip = {
+					text = tt_add_payment_to_bank
+					hidden_tooltip = {
+						change_variable = { which = bank_total which = local_payment }
+					}
+				}
+			}
+			else = {
+				wealth = local_payment
+			}
+			if = { 
+				limit = { check_variable = { which = local_payment value = 100 } }
+				prestige = local_payment
+			}
+			else = {
+				prestige = 100
+			}
+		}
+		FROM = {
+			if = {
+				limit = {
+					any_artifact = {
+						is_artifact_equipped = no
+						is_indestructible = no
+						ROOT = { NOT = { has_artifact = PREV } }
+					}
+				}
+				random = {
+					chance = 50
+					character_event = { id = BANK.10 }
+				}
+			}
+		}
+	}
+	
+	on_fail = {
+		FROM = {
+			wealth = forced_payment
+			hidden_tooltip = { set_variable = { which = loan_amount value = 0 } }
+		}
+		ROOT = {
+			if = {
+				limit = { trait = banker }
+				custom_tooltip = {
+					text = tt_add_payment_to_bank
+					hidden_tooltip = {
+						change_variable = { which = bank_total which = local_payment }
+					}
+				}
+			}
+			else = {
+				wealth = local_payment
+			}
+		}
+	}
+	
+	on_reverse_demand = {
+		ROOT = {
+			prestige = -200
+		}
+		FROM = {
+			prestige = 200
+			hidden_tooltip = { set_variable = { which = loan_amount value = 0 } }
 		}
 	}
 	

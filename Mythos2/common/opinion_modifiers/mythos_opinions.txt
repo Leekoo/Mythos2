@@ -136,6 +136,7 @@ can_blood_bond = {
 
 # Aware of seized power
 aware_of_secret_actions = {
+	opinion = 0
 	months = 120
 }
 
@@ -156,4 +157,31 @@ opinion_raided = {
 	opinion = -40
 	months = 24
 	crime = yes
+}
+
+# Bank loans - mostly used to track the lender/debtor. Opinion chance is mostly so the play can see who it is they owe
+opinion_my_banker = {
+	opinion = -5
+}
+opinion_gave_loan = {
+	opinion = -5
+}
+opinion_asked_for_loan_extension = {
+	opinion = -10
+	months = 60
+}
+opinion_stole_my_money = {
+	opinion = -50
+}
+opinion_new_loan = {  # Temporary, used to track who to inform of loan changes
+	opinion = 0
+}
+opinion_forgave_debt = {
+	opinion = 40
+}
+opinion_demanded_early_payment = {
+	opinion = -25
+}
+opinion_forced_into_debt = {
+	opinion = -50
 }
