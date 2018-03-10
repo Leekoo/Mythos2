@@ -2332,7 +2332,7 @@ defined_text = {
 	}
 }
 
-defining_text = {
+defined_text = {
 	name = ViceVirtue_Paranoid
 	text = {
 		localisation_key = tt_trait_vice
@@ -4041,13 +4041,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_borrow_beggar
 		trigger = {
-			FROM = { has_character_modifier = beggar }
+			FROM = { has_character_modifier = begger }
 		}
 	}
 	text = {
 		localisation_key = "[Borrow_CharitableSF]"
 		trigger = {
-			FROM = { NOT = { has_character_modifier = beggar } }
+			FROM = { NOT = { has_character_modifier = begger } }
 		}
 	}
 }
@@ -4069,7 +4069,7 @@ defined_text = {
 }
 
 defined_text = {
-	name = Borrow_KndSF
+	name = Borrow_KindSF
 	text = {
 		localisation_key = tt_borrow_kindsf
 		trigger = {
@@ -4641,9 +4641,9 @@ defined_text = {
 }
 
 defined_text = {
-	name = Not_Transformed
+	name = Not_transformed
 	text = {
-		localisation_key = YouAreNotTransformed
+		localisation_key = not_transformed_message
 		trigger = {
 			trait = werewolf
 			has_character_flag = not_shapeshifted
@@ -4798,6 +4798,199 @@ defined_text = {
 				trait = dragon
 				trait = known_werewolf
 			}
+		}
+	}
+}
+defined_text = {
+	name = RequestBlessingReason
+	text = {
+		localisation_key = RequestBlessingReason_text
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = RequestDivorceReason
+	text = {
+		localisation_key = RequestDivorceReason_text
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = RequestDisinheritReason
+	text = {
+		localisation_key = RequestDisinheritReason_text
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = RequestGoldReason
+	text = {
+		localisation_key = RequestGoldReason_text
+		trigger = { always = yes }
+	}
+}
+defined_text = {
+	name = GetNorsePaganName
+	text = {
+		localisation_key = String_norse_pagan
+		trigger = {
+			NOT = { has_global_flag = norse_reformation }
+		}
+	}
+	text = {
+		localisation_key = norse_old
+		trigger = {
+			has_global_flag = norse_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetTengriPaganName
+	text = {
+		localisation_key = String_tengri_pagan
+		trigger = {
+			NOT = { has_global_flag = tengri_reformation }
+		}
+	}
+	text = {
+		localisation_key = tengri_old
+		trigger = {
+			has_global_flag = tengri_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetBalticPaganName
+	text = {
+		localisation_key = String_baltic_pagan
+		trigger = {
+			NOT = { has_global_flag = baltic_reformation }
+		}
+	}
+	text = {
+		localisation_key = baltic_old
+		trigger = {
+			has_global_flag = baltic_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetFinnishPaganName
+	text = {
+		localisation_key = String_finnish_pagan
+		trigger = {
+			NOT = { has_global_flag = finnish_reformation }
+		}
+	}
+	text = {
+		localisation_key = finnish_old
+		trigger = {
+			has_global_flag = finnish_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetAztecPaganName
+	text = {
+		localisation_key = String_aztec_pagan
+		trigger = {
+			NOT = { has_global_flag = aztec_reformation }
+		}
+	}
+	text = {
+		localisation_key = aztec_old
+		trigger = {
+			has_global_flag = aztec_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetSlavicPaganName
+	text = {
+		localisation_key = String_slavic_pagan
+		trigger = {
+			NOT = { has_global_flag = slavic_reformation }
+		}
+	}
+	text = {
+		localisation_key = slavic_old
+		trigger = {
+			has_global_flag = slavic_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetZunPaganName
+	text = {
+		localisation_key = String_zun_pagan
+		trigger = {
+			NOT = { has_global_flag = zun_reformation }
+		}
+	}
+	text = {
+		localisation_key = zun_old
+		trigger = {
+			has_global_flag = zun_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetWestAfricanPaganName
+	text = {
+		localisation_key = String_west_african_pagan
+		trigger = {
+			NOT = { has_global_flag = west_african_reformation }
+		}
+	}
+	text = {
+		localisation_key = west_african_old
+		trigger = {
+			has_global_flag = west_african_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetDruidicPaganName
+	text = {
+		localisation_key = String_druidic
+		trigger = {
+			NOT = { has_global_flag = druidic_reformation }
+		}
+	}
+	text = {
+		localisation_key = druidic_old
+		trigger = {
+			has_global_flag = druidic_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetDraconicPaganName
+	text = {
+		localisation_key = String_draconic_pagan
+		trigger = {
+			NOT = { has_global_flag = draconic_reformation }
+		}
+	}
+	text = {
+		localisation_key = draconic_old
+		trigger = {
+			has_global_flag = draconic_reformation
+		}
+	}
+}
+defined_text = {
+	name = GetJotnarPaganName
+	text = {
+		localisation_key = String_jotnar
+		trigger = {
+			NOT = { has_global_flag = jotnar_reformation }
+		}
+	}
+	text = {
+		localisation_key = jotnar_old
+		trigger = {
+			has_global_flag = jotnar_reformation
 		}
 	}
 }
