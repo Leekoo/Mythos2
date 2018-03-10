@@ -976,7 +976,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					has_landed_title = yes
+					is_landed = yes
 					NOT = { tier = baron }
 				}
 				any_vassal = {
@@ -1060,7 +1060,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					has_landed_title = yes
+					is_landed = yes
 					NOT = { tier = baron }
 				}
 				any_vassal = {
@@ -1528,7 +1528,7 @@ character_event = {
 		FROM = {
 			NOR = {
 				trait = dragon
-				culture = draconic_tribute
+				culture = draconic
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
