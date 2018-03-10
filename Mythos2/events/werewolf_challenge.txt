@@ -2689,13 +2689,14 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_low_2
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 0.5 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_low_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.7 }
+				multiply_variable = { which = combat_accuracy value = 7 }
+				divide_variable = { which = combat_accuracy value = 10 }
 			}
 		}
 		custom_tooltip = {
@@ -2740,7 +2741,8 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
@@ -2778,13 +2780,15 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_low_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.7 }
+				multiply_variable = { which = combat_accuracy value = 7 }
+				divide_variable = { which = combat_accuracy value = 10 }
 			}
 		}
 		custom_tooltip = {
@@ -2930,13 +2934,15 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -2960,13 +2966,14 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_low_3
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 0.1 }
+				divide_variable = { which = combat_damage value = 10 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		custom_tooltip = {
@@ -3264,7 +3271,8 @@ character_event = {
 			text = TT_lower_damage
 			hidden_tooltip = {
 				event_target:second_turn = {
-					multiply_variable = { which = combat_damage value = 0.7 }
+					multiply_variable = { which = combat_damage value = 7 }
+					divide_variable = { which = combat_damage value = 10 }
 				}
 			}
 		}
@@ -3312,7 +3320,8 @@ character_event = {
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -3617,13 +3626,14 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_low_2
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 0.5 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_low_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.7 }
+				multiply_variable = { which = combat_accuracy value = 7 }
+				divide_variable = { which = combat_accuracy value = 10 }
 			}
 		}
 		custom_tooltip = {
@@ -5609,7 +5619,7 @@ character_event = {
 		custom_tooltip = {
 			text = TT_accuracy_low_2
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.5 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -5744,13 +5754,15 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -5838,7 +5850,8 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
@@ -5965,7 +5978,8 @@ character_event = {
 		custom_tooltip = {
 			text = TT_accuracy_low_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.7 }
+				multiply_variable = { which = combat_accuracy value = 7 }
+				divide_variable = { which = combat_accuracy value = 10 }
 			}
 		}
 		ai_chance = {
@@ -6006,13 +6020,15 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 1.5 }
+				multiply_variable = { which = combat_damage value = 3 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -6036,13 +6052,14 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_low_3
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 0.1 }
+				divide_variable = { which = combat_damage value = 10 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		custom_tooltip = {
@@ -6221,13 +6238,14 @@ character_event = {
 		custom_tooltip = {
 			text = TT_attack_low_2
 			hidden_tooltip = {
-				multiply_variable = { which = combat_damage value = 0.5 }
+				divide_variable = { which = combat_damage value = 2 }
 			}
 		}
 		custom_tooltip = {
 			text = TT_accuracy_low_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 0.7 }
+				multiply_variable = { which = combat_accuracy value = 7 }
+				divide_variable = { which = combat_accuracy value = 10 }
 			}
 		}
 		custom_tooltip = {
@@ -6467,7 +6485,8 @@ character_event = {
 			text = TT_lower_damage
 			hidden_tooltip = {
 				event_target:first_turn = {
-					multiply_variable = { which = combat_damage value = 0.7 }
+					multiply_variable = { which = combat_damage value = 7 }
+					divide_variable = { which = combat_damage value = 10 }
 				}
 			}
 		}
@@ -6515,7 +6534,8 @@ character_event = {
 		custom_tooltip = {
 			text = TT_accuracy_high_1
 			hidden_tooltip = {
-				multiply_variable = { which = combat_accuracy value = 1.5 }
+				multiply_variable = { which = combat_accuracy value = 3 }
+				divide_variable = { which = combat_accuracy value = 2 }
 			}
 		}
 		ai_chance = {
@@ -6855,27 +6875,33 @@ character_event = {
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = 0 } } }
-				multiply_variable = { which = weak_hp value = 1.5 }
+				multiply_variable = { which = weak_hp value = 3 }
+				divide_variable = { which = weak_hp value = 2 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -1 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -2 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -3 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -4 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -5 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = { # Less likely to notice the danger
 				limit = { 
@@ -6892,7 +6918,8 @@ character_event = {
 			}
 			if = { # Less likely to notice the danger
 				limit = { trait = inbred }
-				divide_variable = { which = weak_hp value = 1.5 }
+				divide_variable = { which = weak_hp value = 3 }
+				multiply_variable = { which = weak_hp value = 2 }
 			}
 			if = {
 				limit = { check_variable = { which = weak_hp which = combat_hp } }
@@ -6915,27 +6942,33 @@ character_event = {
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = 0 } } }
-				multiply_variable = { which = weak_hp value = 1.5 }
+				multiply_variable = { which = weak_hp value = 3 }
+				divide_variable = { which = weak_hp value = 2 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -1 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -2 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -3 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -4 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = {
 				limit = { NOT = { check_variable = { which = combat_morale value = -5 } } }
-				multiply_variable = { which = weak_hp value = 1.1 }
+				multiply_variable = { which = weak_hp value = 11 }
+				divide_variable = { which = weak_hp value = 10 }
 			}
 			if = { # Less likely to notice the danger
 				limit = { 
@@ -6952,7 +6985,8 @@ character_event = {
 			}
 			if = { # Less likely to notice the danger
 				limit = { trait = inbred }
-				divide_variable = { which = weak_hp value = 1.5 }
+				divide_variable = { which = weak_hp value = 3 }
+				multiply_variable = { which = weak_hp value = 2 }
 			}
 			if = {
 				limit = { check_variable = { which = weak_hp which = combat_hp } }

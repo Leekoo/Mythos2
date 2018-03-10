@@ -89,7 +89,7 @@ character_event = {
 	
 	immediate = {
 		export_to_variable = { which = local_gold value = wealth }
-		multiply_variable = { which = local_gold value = 0.3 }
+		divide_variable = { which = local_gold value = 3 }
 		FROMFROMFROM = { set_variable = { which = local_gold which = ROOT } }
 		multiply_variable = { which = local_gold value = -1 }
 		
@@ -294,7 +294,8 @@ character_event = {
 				limit = { check_variable = { which = local_damage value = 1 } }
 				set_variable = { which = local_damage value = 1 }
 			}
-			else = { # Non-trivial damage increases chance of being wounded
+			else = { 
+				# Non-trivial damage increases chance of being wounded
 				change_variable = { which = local_wounded value = 1 }
 				if = {
 					limit = {
@@ -306,14 +307,14 @@ character_event = {
 					}
 				}
 			}
-			subtract_variable = { which = draconic_raid_hp value = local_damage }
+			subtract_variable = { which = draconic_raid_hp which = local_damage }
 		}
 		
 		# Deal morale damage
 		set_variable = { which = local_damage which = morale_damage }
 		event_target:second_turn = {
 			set_variable = { which = local_damage which = ROOT }
-			subtract_variable = { which = draconic_raid_morale value = local_damage }
+			subtract_variable = { which = draconic_raid_morale which = local_damage }
 		}
 		
 		# See if opponent dies, is too injured to continue, or surrenders
@@ -331,12 +332,13 @@ character_event = {
 	immediate = {
 		
 		# Lose morale from wounds
-		subtract_variable = { which = draconic_raid_morale value = local_wounded }
+		subtract_variable = { which = draconic_raid_morale which = local_wounded }
 		
 		# Dead
 		if = {
 			limit = {
-				OR = { # Has an existing injury
+				OR = { 
+					# Has an existing injury
 					has_injury_trigger = yes
 					is_maimed_trigger = yes
 					has_severe_disability_trigger = yes
@@ -400,14 +402,14 @@ character_event = {
 					}
 				}
 			}
-			subtract_variable = { which = draconic_raid_hp value = local_damage }
+			subtract_variable = { which = draconic_raid_hp which = local_damage }
 		}
 		
 		# Deal morale damage
 		set_variable = { which = local_damage which = morale_damage }
 		event_target:first_turn = {
 			set_variable = { which = local_damage which = ROOT }
-			subtract_variable = { which = draconic_raid_morale value = local_damage }
+			subtract_variable = { which = draconic_raid_morale which = local_damage }
 		}
 		
 		# See if opponent dies, is too injured to continue, or surrenders
@@ -426,7 +428,7 @@ character_event = {
 	immediate = {
 		
 		# Lose morale from wounds
-		subtract_variable = { which = draconic_raid_morale value = local_wounded }
+		subtract_variable = { which = draconic_raid_morale which = local_wounded }
 		
 		# Dead
 		if = {
@@ -613,7 +615,7 @@ character_event = {
 					event_target:challenged_party = {
 						any_artifact = {
 							is_artifact_equipped = no
-							is_indestructable = no
+							is_indestructible = no
 							event_target:challenger = { NOT = { has_artifact = PREV } }
 						}
 					}
@@ -873,7 +875,7 @@ character_event = {
 					event_target:challenged_party = {
 						any_artifact = {
 							is_artifact_equipped = no
-							is_indestructable = no
+							is_indestructible = no
 							event_target:challenger = { NOT = {  has_artifact = PREV } }
 						}
 					}
@@ -919,10 +921,16 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		# Determine reward
 		event_target:challenger = {
+			random_child = {
+				limit = {
+					is_adult = no
+					has_guardian = no
+				}
+				save_event_target_as = selected_ward
+			}
 			export_to_variable = { which = local_gold value = wealth }
-			multiply_variable = { which = local_gold value = 0.5 }
+			divide_variable = { which = local_gold value = 2 }
 			if = {
 				limit = { NOT = { check_variable = { which = local_gold value = 20 } } }
 				export_to_variable = { which = local_gold value = wealth }
@@ -931,17 +939,8 @@ character_event = {
 				limit = { check_variable = { which = local_gold value = 600 } }
 				set_variable = { which = local_gold value = 600 }
 			}
-		}
-		set_variable = { which = local_gold which = event_target:challenger }
-		
-		#event_target:challenger = {
-			random_child = {
-				limit = {
-		#			age = 6
-					age < 16
-					guardian = PREV
-				}
-				save_event_target_as = selected_ward
+			ROOT = {
+				set_variable = { which = local_gold which = PREV }
 			}
 		}
 	}
@@ -963,7 +962,7 @@ character_event = {
 					event_target:challenger = {
 						any_artifact = {
 							is_artifact_equipped = no
-							is_indestructable = no
+							is_indestructible = no
 							event_target:challenged_party = { NOT = {  has_artifact = PREV } }
 						}
 					}
@@ -1046,13 +1045,15 @@ character_event = {
 					has_dlc = "Reapers"
 					NOT = {
 						event_target:challenger = {
-							count = 2
-							trait = disfigured
-							trait = one_handed
-							trait = one_eyed
-							trait = one_legged
-							trait = mangled
-							trait = blinded
+							calc_true_if = {
+								amount = 2
+								trait = disfigured
+								trait = one_handed
+								trait = one_eyed
+								trait = one_legged
+								trait = mangled
+								trait = blinded
+							}
 						}
 					}
 				}
@@ -1146,13 +1147,15 @@ character_event = {
 				AND = {
 					has_dlc = "Reapers"
 					event_target:challenger = {
-						count = 2
-						trait = disfigured
-						trait = one_handed
-						trait = one_eyed
-						trait = one_legged
-						trait = mangled
-						trait = blinded
+						calc_true_if = {
+							amount = 2
+							trait = disfigured
+							trait = one_handed
+							trait = one_eyed
+							trait = one_legged
+							trait = mangled
+							trait = blinded
+						}
 					}
 				}
 			}
@@ -1236,7 +1239,6 @@ character_event = {
 		}
 	}
 }
-
 
 # DRAGON.123 - Attacker loses and repays gold
 character_event = {
@@ -1792,7 +1794,7 @@ character_event = {
 		# Determine reward
 		event_target:challenger = {
 			export_to_variable = { which = local_gold value = wealth }
-			multiply_variable = { which = local_gold value = 0.5 }
+			divide_variable = { which = local_gold value = 2 }
 			if = {
 				limit = { NOT = { check_variable = { which = local_gold value = 20 } } }
 				export_to_variable = { which = local_gold value = wealth }
@@ -1804,12 +1806,11 @@ character_event = {
 		}
 		set_variable = { which = local_gold which = event_target:challenger }
 		
-		#event_target:challenger = {
+		event_target:challenger = {
 			random_child = {
 				limit = {
-		#			age = 6
-					age < 16
-					guardian = PREV
+					is_adult = no
+					has_guardian = no
 				}
 				save_event_target_as = selected_ward
 			}
@@ -1818,7 +1819,7 @@ character_event = {
 	
 	# Force reparations
 	option = {
-		name = EVTOPTA_DRAGON.128
+		name = EVTOPTA_DRAGON.122
 		wealth = local_wealth
 		if = {
 			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
@@ -1833,7 +1834,7 @@ character_event = {
 					event_target:challenger = {
 						any_artifact = {
 							is_artifact_equipped = no
-							is_indestructable = no
+							is_indestructible = no
 							event_target:challenged_party = { NOT = {  has_artifact = PREV } }
 						}
 					}
@@ -1873,7 +1874,7 @@ character_event = {
 				holds_favor_on = event_target:challenger
 			}
 		}
-		name = EVTOPTB_DRAGON.128
+		name = EVTOPTB_DRAGON.122
 		add_favor = event_target:challenger
 		if = {
 			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
@@ -1916,19 +1917,21 @@ character_event = {
 					has_dlc = "Reapers"
 					NOT = {
 						event_target:challenger = {
-							count = 2
-							trait = disfigured
-							trait = one_handed
-							trait = one_eyed
-							trait = one_legged
-							trait = mangled
-							trait = blinded
+							calc_true_if = {
+								amount = 2
+								trait = disfigured
+								trait = one_handed
+								trait = one_eyed
+								trait = one_legged
+								trait = mangled
+								trait = blinded
+							}
 						}
 					}
 				}
 			}
 		}
-		name = EVTOPTC_DRAGON.128
+		name = EVTOPTC_DRAGON.122
 		if = {
 			limit = { event_target:challenger = { has_character_flag = fled_from_raid } }
 			prestige = 200
@@ -2006,7 +2009,7 @@ character_event = {
 	}
 	# Kill - injuries aren't teaching a lesson
 	option = {
-		name = EVTOPTD_DRAGON.128
+		name = EVTOPTD_DRAGON.122
 		trigger = {
 			OR = {
 				AND = {
@@ -2016,13 +2019,15 @@ character_event = {
 				AND = {
 					has_dlc = "Reapers"
 					event_target:challenger = {
-						count = 2
-						trait = disfigured
-						trait = one_handed
-						trait = one_eyed
-						trait = one_legged
-						trait = mangled
-						trait = blinded
+						calc_true_if = {
+							amount = 2
+							trait = disfigured
+							trait = one_handed
+							trait = one_eyed
+							trait = one_legged
+							trait = mangled
+							trait = blinded
+						}
 					}
 				}
 			}
@@ -2063,7 +2068,7 @@ character_event = {
 	}
 	# Force claim heir
 	option = {
-		name = EVTOPTE_DRAGON.128
+		name = EVTOPTE_DRAGON.122
 		trigger = {
 			NOT = {
 				any_ward = {
@@ -2188,7 +2193,7 @@ character_event = {
 				limit = {
 					event_target:challenger = {
 						any_artifact = {
-							is_indestructable = no
+							is_indestructible = no
 							NOT = { event_target:challenged_party = { has_artifact = PREV } }
 						}
 					}
@@ -2268,7 +2273,7 @@ character_event = {
 				limit = {
 					event_target:challenged_party = {
 						any_artifact = {
-							is_indestructable = no
+							is_indestructible = no
 							NOT = { event_target:challenger = { has_artifact = PREV } }
 						}
 					}
@@ -2367,7 +2372,7 @@ character_event = {
 				limit = {
 					event_target:challenger = {
 						any_artifact = {
-							is_indestructable = no
+							is_indestructible = no
 							NOT = { event_target:challenged_party = { has_artifact = PREV } }
 						}
 					}
@@ -2463,7 +2468,7 @@ character_event = {
 				limit = {
 					event_target:challenged_party = {
 						any_artifact = {
-							is_indestructable = no
+							is_indestructible = no
 							NOT = { event_target:challenger = { has_artifact = PREV } }
 						}
 					}
@@ -2496,7 +2501,7 @@ character_event = {
 			random_artifact = {
 				limit = {
 					is_artifact_equipped = no
-					is_indestructable = no
+					is_indestructible = no
 					ROOT = { NOT = { has_artifact = PREV } }
 				}
 				save_event_target_as = stolen_artifact
@@ -2606,7 +2611,7 @@ character_event = {
 		event_target:raid_loser = {
 			any_artifact = {
 				limit = {
-					is_indestructable = no
+					is_indestructible = no
 					ROOT = { NOT = { has_artifact = PREV } }
 				}
 				save_event_target_as = stolen_artifact

@@ -5616,16 +5616,16 @@ character_event = {
 				event_target:helper = {
 					set_variable = { which = influence which = ROOT }
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_political_influence } }
-						add_character_modifier = { name = gain_political_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_political_influence } }
+						add_character_modifier = { name = minor_political_influence years = 2 }
 					}
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_military_influence } }
-						add_character_modifier = { name = gain_military_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_military_influence } }
+						add_character_modifier = { name = minor_military_influence years = 2 }
 					}
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_economic_influence } }
-						add_character_modifier = { name = gain_economic_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_economic_influence } }
+						add_character_modifier = { name = minor_economic_influence years = 2 }
 					}
 					character_event = { id = VAMPIRE.67 }
 				}
@@ -7606,7 +7606,7 @@ character_event = {
 			set_variable = { which = local_rank value = 0 }
 		}
 		
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -7765,7 +7765,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -7894,10 +7894,6 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					check_variable = { which = local_catch_chance value = 3 }
-				}
-				modifier = {
-					factor = 4
-					liege = { has_character_modifier = worrying_rumors }
 				}
 				modifier = {
 					factor = 4
@@ -8172,7 +8168,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -8477,7 +8473,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -9343,7 +9339,7 @@ character_event = {
 				limit = { event_target:influence_rival = { has_character_modifier = major_economic_influence } }
 				event_target:influence_rival = {
 					remove_character_modifier = major_economic_influence
-					add_character_modifier = { modifier = meconomic_influence years = 10 }
+					add_character_modifier = { modifier = economic_influence years = 10 }
 				}
 			}
 			else_if = {
@@ -10855,7 +10851,7 @@ character_event = {
 			remove_title = blood_court_e_vampire_1
 		}
 		liege = {
-			character_event = { id = vampire.155 }
+			character_event = { id = VAMPIRE.155 }
 		}
 	}
 }

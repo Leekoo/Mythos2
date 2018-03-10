@@ -10,7 +10,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		export_to_variable = { which = temp_gold value = scaled_wealth }
+		export_to_variable = { which = temp_gold value = yearly_income }
 		multiply_variable = { which = temp_gold value = 2 }
 		if = {
 			limit = { NOT = { check_variable = { which = temp_gold value = 110 } } }
@@ -22,99 +22,118 @@ character_event = {
 		}
 		if = {
 			limit = { learning = 12 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 15 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 18 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 21 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 24 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 27 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { learning = 30 }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { trait = novice_mage }
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { trait = eldritch_scholar }
-			multiply_variable = { which = temp_gold value = 1.2 }
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { trait = veteran_wizard }
-			multiply_variable = { which = temp_gold value = 1.3 }
+			multiply_variable = { which = temp_gold value = 13 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { trait = arcane_master }
-			multiply_variable = { which = temp_gold value = 1.4 }
+			multiply_variable = { which = temp_gold value = 14 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = { has_artifact = lesser_key_of_solomon }
-			multiply_variable = { which = temp_gold value = 1.2 }
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 			}
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_rank = 2
 			}
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_rank = 3
 			}
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_rank = 4
 			}
-			multiply_variable = { which = temp_gold value = 1.1 }
+			multiply_variable = { which = temp_gold value = 11 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_influence <= 25
 			}
-			multiply_variable = { which = temp_gold value = 0.8 }
+			multiply_variable = { which = temp_gold value = 8 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_influence <= 50
 			}
-			multiply_variable = { which = temp_gold value = 0.8 }
+			multiply_variable = { which = temp_gold value = 8 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 		if = {
 			limit = {
 				is_in_society = hermetics
 				society_influence = 75
 			}
-			multiply_variable = { which = temp_gold value = 1.2 }
+			multiply_variable = { which = temp_gold value = 12 }
+			divide_variable = { which = temp_gold value = 10 }
 		}
 	}
 	
@@ -4532,7 +4551,7 @@ narrative_event = {
 			any_courtier = {
 				limit = {
 					religion = hellenic_pagan
-					has_landed_title = no
+					is_landed = no
 				}
 				religion = roman_pagan
 			}
