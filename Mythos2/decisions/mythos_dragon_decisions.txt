@@ -790,119 +790,6 @@ decisions = {
 		}
 	}
 	
-	faction_draconic_heir = {
-		only_playable = yes
-		is_high_prio = yes
-		
-		potential = {
-			is_playable = yes
-			leads_faction = faction_draconic_heir
-			OR = {
-				NOT = { has_character_flag = faction_draconic_heir_ultimatum_taken }
-				had_character_flag = { flag = faction_draconic_heir_ultimatum_taken days = 7 }
-			}
-		}
-		allow = {
-			war = no
-			prisoner = no
-			liege = {
-				in_revolt = no
-				NOT = { war_with = ROOT }
-				NOT = { reverse_has_truce = ROOT }
-			}
-			NOT = {
-				any_realm_title = {
-					NOT = { higher_tier_than = count }
-					is_occupied = yes
-				}
-			}
-			liege = {
-				OR = {
-					independent = yes
-					AND = {
-						will_liege_enforce_peace = no
-						has_liege_enforced_peace = no
-					}
-				}
-			}
-		}
-		effect = {
-			liege = {
-				letter_event = { id = DRAGON.15 days = 3 tooltip = EVTTOOLTIP8005 }
-			}
-			hidden_tooltip = {
-				set_character_flag = faction_draconic_heir_ultimatum_taken
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 0.75
-					}
-				}
-			}
-			modifier = {
-				factor = 0.1
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 1.0
-					}
-				}
-			}
-			modifier = {
-				factor = 0.1
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 1.5
-					}
-				}
-			}			
-			
-			modifier = {
-				factor = 0.5 # Slow it down a bit
-			}
-			
-			modifier = {
-				factor = 0
-				liege = {
-					any_war = {
-						OR = {
-							AND = {
-								defender = { character = PREV }
-								NOT = { using_cb = depose_liege }
-								NOT = { using_cb = overthrow_ruler }
-								NOT = { using_cb = overthrow_ruler_no_calls }
-							}
-							AND = {
-								attacker = { character = PREV }
-								OR = {
-									using_cb = invasion
-									using_cb = religious
-									using_cb = tribal_invasion
-									using_cb = muslim_invasion
-									using_cb = viking_invasion
-									using_cb = claim_all
-									using_cb = claim
-									using_cb = other_claim
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
 	consult_on_purity = {
 		only_playable = yes
 		
@@ -2413,7 +2300,7 @@ targetted_decisions = {
 		
 		effect = {
 			hidden_tooltip = {
-				export_to_variable = { which = GoldAmt value = scaled_wealth who = FROM }
+				export_to_variable = { which = GoldAmt value = yearly_income who = FROM }
 			}
 			letter_event = { id = DRAGON.90 days = 1 }
 			hidden_tooltip = {
