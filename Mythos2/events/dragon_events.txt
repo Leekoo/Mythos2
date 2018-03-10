@@ -7674,3 +7674,521 @@ character_event = {
 }
 
 # 106-140 are in dragon_raid.txt
+
+# DRAGON.141 - Sapphire Flame gives money to someone defending against infidels
+character_event = {
+	id = DRAGON.141
+	desc = EVTDESC_DRAGON.141
+	picture = GFX_evt_battle
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		
+		wealth = 500
+		any_playable_ruler = {
+			religion = draconic_pagan_reformed
+			NOT = { wealth = 500 }
+			religion_head = {
+				character = ROOT
+			}
+			NOT = { excommunicated_for = ROOT }
+			any_current_enemy = {
+				any_defender = { character = ROOT }
+				NOR = {
+					religion = draconic_pagan_reformed
+					religion = draconic_pagan
+				}
+			}
+			NOT = { war_with = ROOT }
+			reverse_opinion = { who = ROOT value = 0 }
+			OR = {
+				NOT = { has_character_flag = money_from_the_pope }
+				OR = {
+					had_character_flag = { flag = money_from_the_pope days = 730 }
+					AND = {
+						ai = yes
+						had_character_flag = { flag = money_from_the_pope days = 365 }
+						any_war = {
+							using_cb = religious
+							OR = {
+								attacker = {
+									character = PREVPREV
+									NOT = { war_score = -15 }
+								}
+								defender = {
+									character = PREVPREV
+									war_score = 15
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 80
+		modifier = {
+			factor = 0.5
+			wealth = 1000
+		}
+		modifier = {
+			factor = 0.5
+			wealth = 2000
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.141
+		ai_chance = { factor = 100 }
+		wealth = -200
+		
+		random_playable_ruler = {
+			limit = {
+				religion = draconic_pagan_reformed
+				NOT = { wealth = 500 }
+				religion_head = {
+					character = ROOT
+				}
+				NOT = { excommunicated_for = ROOT }
+				any_current_enemy = {
+					any_defender = { character = ROOT }
+					NOR = {
+						religion = draconic_pagan_reformed
+						religion = draconic_pagan
+					}
+				}
+				NOT = { war_with = ROOT }
+				reverse_opinion = { who = ROOT value = 0 }
+			}
+			
+			letter_event = { id = DRAGON.142 tooltip = EVTTOOLTIP39201 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.141
+		ai_chance = { factor = 0 }
+	}
+}
+
+letter_event = {
+	id = DRAGON.142
+	desc = EVTDESC_DRAGON.142
+	border = GFX_event_letter_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.142
+		wealth = 200
+		set_character_flag = money_from_the_pope
+	}
+}
+
+# Sapphire Flame sells absolution for kinslaying
+character_event = {
+	id = DRAGON.142
+	desc = EVTDESC_DRAGON.142
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		
+		any_independent_ruler = {
+			religion = ROOT
+			rightful_religious_head = ROOT
+			OR = {
+				AND = {
+					trait = dynastic_kinslayer
+					wealth = 100
+				}
+				AND = {
+					trait = familial_kinslayer
+					wealth = 200
+				}
+				AND = {
+					trait = kinslayer
+					wealth = 300
+				}
+			}
+			piety = 100
+			reverse_opinion  = { who = ROOT value = 0 }
+			NOT = { has_character_flag = kinslaying_offered }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				OR = {
+					AND = {
+						trait = dynastic_kinslayer
+						wealth = 100
+					}
+					AND = {
+						trait = familial_kinslayer
+						wealth = 200
+					}
+					AND = {
+						trait = kinslayer
+						wealth = 300
+					}
+				}
+				piety = 100
+				reverse_opinion  = { who = ROOT value = 0 }
+			}
+			set_character_flag = kinslaying_offered
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.142
+		ai_chance = { factor = 100 }
+		
+		random_independent_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				OR = {
+					AND = {
+						trait = dynastic_kinslayer
+						wealth = 100
+					}
+					AND = {
+						trait = familial_kinslayer
+						wealth = 200
+					}
+					AND = {
+						trait = kinslayer
+						wealth = 300
+					}
+				}
+				piety = 100
+				reverse_opinion  = { who = ROOT value = 0 }
+			}
+			
+			character_event = { id = DRAGON.143 tooltip = EVTTOOLTIP39211 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.142	#incase someone plays the Sapphire Flame... players will mod it in, so might as well give them a fun option here...
+		ai_chance = { factor = 0 }
+	}
+}
+
+character_event = {
+	id = DRAGON.143
+	desc = EVTDESC_DRAGON.143
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.143
+		ai_chance = { factor = 100 }
+		trigger_switch = {
+			on_trigger = trait
+			kinslayer = {
+				piety = -100
+				wealth = -300
+				remove_trait = kinslayer
+				hidden_tooltip = {
+					FROM = {
+						set_varaible = { which = local_payment value = 300 }
+					}
+				}
+			}
+			familial_kinslayer = {
+				piety = -50
+				wealth = -200
+				remove_trait = familial_kinslayer
+				hidden_tooltip = {
+					FROM = {
+						set_varaible = { which = local_payment value = 200 }
+					}
+				}
+			}
+			dynastic_kinslayer = {
+				piety = -25
+				wealth = -100
+				remove_trait = dynastic_kinslayer
+				hidden_tooltip = {
+					FROM = {
+						set_varaible = { which = local_payment value = 100 }
+					}
+				}
+			}
+		}
+		FROM = { character_event = { id = DRAGON.144 days = 1 } }
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.143
+		ai_chance = { factor = 0 }
+		FROM = { character_event = { id = DRAGON.143 days = 1 } }
+	}
+}
+
+character_event = {
+	id = DRAGON.144
+	desc = EVTDESC_DRAGON.144
+	picture = GFX_evt_dragon_horde
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	option = {
+		name = EVTOPTA_DRAGON.144
+		wealth = local_payment
+	}
+}
+
+character_event = {
+	id = DRAGON.145
+	desc = EVTDESC_DRAGON.145
+	picture = GFX_evt_torture
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.145
+		prestige = -10
+	}
+}
+
+# Sapphire Flame does not like it if you have heathens in your employ
+character_event = {
+	id = DRAGON.146
+	desc = EVTDESC_DRAGON.146
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_men = yes
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		
+		religion_authority = 0.20
+
+		any_playable_ruler = {
+			religion = ROOT
+			rightful_religious_head = ROOT
+			NOT = { has_character_flag = pope_dislikes_heathen_employed }
+			any_courtier = {
+				prisoner = no
+				OR = {
+					religion_group = muslim
+					religion_group = christian
+					religion_group = jewish_group
+					religion_group = other_group
+					religion_group = zoroastrian_group
+				}
+				OR = {
+					has_job_title = job_chancellor
+					has_job_title = job_marshal
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_spiritual
+				} 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+	}
+
+	option = {
+		name = EVTOPTA_DRAGON.146	#ask them
+		ai_chance = { factor = 100 }
+		random_playable_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				NOT = { has_character_flag = pope_dislikes_heathen_employed }
+
+				any_courtier = {
+					prisoner = no
+					OR = {
+						religion_group = muslim
+						religion_group = christian
+						religion_group = jewish_group
+						religion_group = other_group
+						religion_group = zoroastrian_group
+					}
+					OR = {
+						has_job_title = job_chancellor
+						has_job_title = job_marshal
+						has_job_title = job_treasurer
+						has_job_title = job_spymaster
+						has_job_title = job_spiritual
+					} 
+				}
+			}
+			character_event = { id = DRAGON.147 days = 14 tooltip = EVTTOOLTIP392401 }
+			set_character_flag = pope_dislikes_heathen_employed
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.146	#ignore it.
+		ai_chance = { factor = 0 }
+		religion_authority = {
+			modifier = head_of_religion_neglect
+			years = 10
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.147
+	desc = EVTDESC_DRAGON.147	
+	picture = GFX_evt_dragon_meeting
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				prisoner = no
+				OR = {
+					religion_group = muslim
+					religion_group = christian
+					religion_group = jewish_group
+					religion_group = other_group
+					religion_group = zoroastrian_group
+				}
+				OR = {
+					has_job_title = job_chancellor
+					has_job_title = job_marshal
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_spiritual
+				} 
+			}
+			set_character_flag = heathen_to_target
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.147 #imprison
+		tooltip_info = intrigue
+		trigger = {
+			realm_intrigue = 15
+		}
+		random_courtier = {
+			limit = { has_character_flag = heathen_to_target }
+			clr_character_flag = heathen_to_target
+			imprison = yes
+		}
+		FROM = {
+			opinion = {
+				modifier = pope_heathen_removal_approve_2
+				who = ROOT
+				months = 36
+			}
+		}
+		hidden_tooltip = {
+			FROM = {  character_event = { id = DRAGON.148 days = 1  } }
+		}	
+		clr_character_flag = pope_dislikes_heathen_employed
+	}
+	option = {
+		name = EVTOPTC_DRAGON.147	#Ignore Sapphire Flame
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor =  0
+				NOT = {
+					trait = cynical
+					trait = excommunicated
+				}
+			}
+		}
+		FROM = {
+			opinion = {
+				modifier = opinion_ignore_SF_demands
+				who = ROOT
+				months = 60
+			}
+		}
+		random_courtier = {
+			limit = { has_character_flag = heathen_to_target }
+			clr_character_flag = heathen_to_target
+			
+			opinion = {
+				modifier = opinion_defended_me
+				who = ROOT
+				years = 5
+			}
+		}
+		piety = -50
+		hidden_tooltip = {
+			FROM = {  character_event = { id = DRAGON.149 days = 1 } }
+		}
+	}
+}
+
+# They imprisoned the heathen
+character_event = {
+	id = DRAGON.148
+	desc = EVTDESC_DRAGON.148
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.148 
+		prestige = 5
+	}
+}
+
+#they ignored us.
+character_event = {
+	id = DRAGON.149
+	desc = EVTDESC_DRAGON.149
+	picture = GFX_evt_emissary
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.149
+		prestige = -10
+	}
+}
