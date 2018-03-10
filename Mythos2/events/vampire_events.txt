@@ -200,6 +200,10 @@ letter_event = {
 				}
 			}
 			modifier = {
+				factor = 1.5
+				is_friend = FROM
+			}
+			modifier = {
 				factor = 10000
 				prisoner = yes
 			}
@@ -357,7 +361,6 @@ letter_event = {
 					set_mother = 0
 				}
 				clr_character_flag = considering_decision
-				#ROOT = { set_child = FROM } # Command doesn't exist
 				recalc_succession = yes
 			}
 			prestige = 50
@@ -3213,17 +3216,17 @@ character_event = {
 	option = {
 		name = OK # Never!
 		ai_chance = {
-			factor = 100
+			factor = 20
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = brave
 			}
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = wroth
 			}
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = ambitious
 			}
 		}
@@ -3290,7 +3293,7 @@ character_event = {
 	option = {
 		name = OK # Never!
 		ai_chance = {
-			factor = 100
+			factor = 20
 			modifier = {
 				factor = 3.0
 				trait = brave
@@ -3363,7 +3366,7 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 20
+			factor = 10
 			modifier = {
 				factor = 3
 				trait = proud
