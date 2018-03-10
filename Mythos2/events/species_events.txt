@@ -1255,9 +1255,11 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		any_character = { # I am so, so sorry for using this scope, but this should only get called once.
-			#limit = { ai = yes }
-			set_character_flag = checked_race
+		any_character = { 
+			if = {
+				limit = { ai = no }
+				set_character_flag = checked_race
+			}
 			if = {
 				limit = {
 					OR = {
@@ -1266,6 +1268,7 @@ character_event = {
 						trait = veteran_wizard
 						trait = arcane_master
 					}
+					NOT = { trait = magic_heritage }
 				}
 				add_trait = magic_heritage
 			}
@@ -1324,7 +1327,6 @@ character_event = {
 					government = draconic_governorship
 					government = draconic_merchant_republic_government
 				}
-				NOT = { has_assigned_minor_title = title_forced_heir }
 			}
 			if = {
 				limit = {
@@ -1357,10 +1359,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					current_heir = { trait = dragon }
-					has_assigned_minor_title = title_forced_heir
-				}
+				current_heir = { trait = dragon }
 			}
 			remove_character_modifier = non_dragon_heir
 			remove_character_modifier = non_dragon_heir_lesser
@@ -1452,7 +1451,7 @@ character_event = {
 character_event = {
 	id = SPECIES.11
 	hide_window = yes
-	is_trigged_only = yes
+	is_triggered_only = yes
 	
 	trigger = {
 		NOT = { has_character_flag = checked_giant }
@@ -1539,26 +1538,7 @@ character_event = {
 				}
 			}
 		}
-		else_if = {
-			limit = {
-				OR = {
-					trait = giant_hrimthursar
-					trait = giant_eldjotnar
-					trait = giant_bergrisar
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				NOR = {
-					culture_group = north_germanic
-					religion = norse_pagan_reformed
-					religion = norse_pagan
-					religion = jotnar
-					religion = jotnar_reformed
-				}
-			}
-		}
-		add_character_flag = checked_giant
+		set_character_flag = checked_giant
+		character_event = { id = GIANT.1 }
 	}
 }
