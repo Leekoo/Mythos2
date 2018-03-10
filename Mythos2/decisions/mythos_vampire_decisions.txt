@@ -405,7 +405,10 @@ targetted_decisions = {
 				}
 				host = { character = FROM }
 				AND = {
-					guardian = { character = FROM }
+					OR = {
+						educator = { character = FROM }
+						guardian = { character = FROM }
+					}
 					prisoner = no
 				}
 				AND = {
@@ -613,7 +616,6 @@ targetted_decisions = {
 			modifier = {
 				factor = 0.3
 				any_courtier = {
-					NOT = { amount = 3 }
 					NOR = {
 						trait = vampire
 						trait = werewolf
@@ -621,6 +623,7 @@ targetted_decisions = {
 						trait = demon_trait
 						trait = ethereal_trait
 					}
+					count < 3
 				}
 			}
 		}
