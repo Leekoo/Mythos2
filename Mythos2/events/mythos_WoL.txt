@@ -3570,15 +3570,20 @@ character_event = {
 				}
 				set_variable = { which = local_effect value = 1 }
 			}
-			100 = {
+			200 = {
 				modifier = {
-					factor = 0.5
+					factor = 0.3
 					OR = {
 						trait = summoner
 						trait = alchemist
 						trait = enchanter
 						trait = herbalist
 					}
+				}
+				modifier = {
+					factor = 0.5
+					lifestyle_traits = 1
+					has_character_modifier = magic_study_2
 				}
 				set_variable = { which = local_effect value = 2 }
 			}
