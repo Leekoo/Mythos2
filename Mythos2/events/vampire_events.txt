@@ -10858,3 +10858,98 @@ character_event = {
 		}
 	}
 }
+
+# VAMPIRE.157 - Vampire gains a rival
+character_event = {
+	id = VAMPIRE.157
+	desc = EVTDESC_VAMPIRE.157
+	picture = GFX_evt_rival_rulers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = vampire
+		higher_tier_than = duke # In small realms, this could get out of hand
+		any_realm_character = {
+			count = 3
+			trait = vampire
+			NOR = { 
+				is_rival = ROOT
+				is_close_relative = ROOT
+				is_cousin_of = ROOT
+				is_friend = ROOT
+				is_lover = ROOT
+				is_nibling_of = ROOT
+				any_spouse = { character = ROOT }
+			}
+		}
+		NOT = {
+			any_rival = {
+				count = 3
+				trait = vampire
+			}
+		}
+	}
+	
+	# Characters with few total rivals (including non-vampires) are more likely to get this event
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			NOT = { num_of_rivals = 3 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { num_of_rivals = 2 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { num_of_rivals = 1 }
+		}
+	}
+	
+	immediate = {
+		random_realm_character = {
+			limit = {
+				trait = vampire
+				NOR = { 
+					is_rival = ROOT
+					is_close_relative = ROOT
+					is_cousin_of = ROOT
+					is_friend = ROOT
+					is_lover = ROOT
+					is_nibling_of = ROOT
+					any_spouse = { character = ROOT }
+				}
+			}
+			save_event_target_as = new_rival
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.157
+		event_target:new_rival = {
+			add_rival = ROOT
+			hidden_tooltip = {
+				character_event = { id = VAMPIRE.158 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = VAMPIRE.158
+	desc = EVTDESC_VAMPIRE.158
+	picture = GFX_evt_rival_rulers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.158
+		tooltip = {
+			add_rival = FROM
+		}
+	}
+}
