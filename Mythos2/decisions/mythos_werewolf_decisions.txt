@@ -38,6 +38,17 @@ decisions = {
 					}
 				}
 			}
+			liege = {
+				custom_tooltip = {
+					text = TT_no_current_challenge
+					hidden_tooltip = {
+						NOR = {
+							has_character_modifier = facing_challenge
+							liege = { has_character_modifier = facing_challenge }
+						}
+					}
+				}
+			}
 			OR = {
 				liege = { NOT = { age = 16 } }
 				custom_tooltip = {
