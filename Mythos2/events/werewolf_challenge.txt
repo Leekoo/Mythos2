@@ -302,6 +302,7 @@ character_event = {
 					has_minor_title = title_champion
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 				character_event = { id = CHALLENGE.89 days = 1 }
 			}
@@ -310,6 +311,7 @@ character_event = {
 					has_minor_title = title_champion
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 				character_event = { id = CHALLENGE.89 days = 1 }
 			}
@@ -322,6 +324,7 @@ character_event = {
 				regent = { 
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 			}
 			regent = { character_event = { id = CHALLENGE.9 days = 1 } }
@@ -335,6 +338,7 @@ character_event = {
 					same_realm = ROOT
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 				NOT = { age = 16 }
 			}
@@ -349,6 +353,7 @@ character_event = {
 					same_realm = ROOT
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 				NOT = { age = 16 }
 			}
@@ -414,6 +419,7 @@ character_event = {
 		name = EVTOPTA_CHALLENGE.9
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
+			set_character_flag = facing_challenge
 			save_event_target_as = champion
 			event_target:challenged_party = { 
 				save_event_target_as = defending_party
@@ -465,6 +471,7 @@ character_event = {
 					same_realm = PREV
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 				NOT = { age = 16 }
 			}
@@ -516,9 +523,13 @@ character_event = {
 						NOT = { same_realm = PREV }
 						is_incapable = yes
 						prisoner = yes
+						has_character_flag = facing_challenge
 					}
 				}
-				mother = { same_realm = PREV }
+				mother = { 
+					same_realm = PREV
+					NOT = { has_character_flag = facing_challenge }
+				}
 				NOT = { age = 16 }
 			}
 		}
@@ -571,12 +582,15 @@ character_event = {
 								NOT = { same_realm = PREV }
 								is_incapable = yes
 								prisoner = yes
+								has_character_flag = facing_challenge
 							}
 						}
-						mother = { OR = {
+						mother = { 
+							OR = {
 								NOT = { same_realm = PREV }
 								is_incapable = yes
 								prisoner = yes
+								has_character_flag = facing_challenge
 							}
 						}
 					}
@@ -642,7 +656,8 @@ character_event = {
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
 			save_event_target_as = champion
-			event_target:challenged_party = { 
+			event_target:challenged_party = {
+				set_character_flag = facing_challenge
 				save_event_target_as = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
@@ -692,6 +707,7 @@ character_event = {
 					same_realm = PREV
 					is_incapable = no
 					prisoner = no
+					NOT = { has_character_flag = facing_challenge }
 				}
 			}
 		}
@@ -738,6 +754,7 @@ character_event = {
 						NOT = { same_realm = PREV }
 						is_incapable = yes
 						prisoner = yes
+						has_character_flag = facing_challenge
 					}
 				}
 			}
@@ -795,6 +812,7 @@ character_event = {
 		name = EVTOPTA_CHALLENGE.9
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
+			set_character_flag = facing_challenge
 			save_event_target_as = champion
 			event_target:challenged_party = { 
 				save_event_target_as = defending_party
@@ -954,6 +972,7 @@ character_event = {
 			# exactly one counter-challenge - they are the opposition
 			any_vassal = {
 				limit = { has_character_flag = counterchallenge }
+				set_character_flag = facing_challenge
 				save_event_target_as = champion
 				save_event_target_as = defending_party
 			}
@@ -972,6 +991,7 @@ character_event = {
 					has_character_flag = counterchallenge
 					is_variable_equal = { which = fitness which = global_best_fitness }
 				}
+				set_character_flag = facing_challenge
 				save_event_target_as = champion
 				save_event_target_as = defending_party
 			}
@@ -1013,6 +1033,7 @@ character_event = {
 	
 	# Go for it!
 	option = {
+		limit = { NOT = { has_character_flag = facing_challenge } }
 		name = EVTOPTA_CHALLENGE.15
 		custom_tooltip = { text = TT_challenge_challenger }
 		hidden_tooltip = {
@@ -1629,6 +1650,7 @@ character_event = {
 		if = {
 			limit = { character = event_target:challenger }
 			remove_character_modifier = challenged_liege
+			remove_character_modifier = facing_challenge
 		}
 		if = {
 			limit = { character = event_target:challenged_party }
