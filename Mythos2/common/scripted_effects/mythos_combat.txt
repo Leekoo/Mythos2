@@ -349,6 +349,10 @@ combat_set_hp = { # Run in a character scope.  Support_multiplier MUST be set, o
 		multiply_variable = { which = combat_hp value = 9 }
 		divide_variable = { which = combat_hp value = 10 }
 	}
+	
+	# Reduce HP a bit to get challenges to go faster
+	multiply_variable = { which = combat_hp value = 8 }
+	divide_variable = { which = combat_hp value = 10 }
 }
 
 combat_set_damage = { # Run in a character scope.  Support_multiplier MUST be set, or the character will have 0 damage. Run after setting combat_morale
