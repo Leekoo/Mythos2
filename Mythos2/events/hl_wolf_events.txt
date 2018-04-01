@@ -1149,6 +1149,10 @@ character_event = {
 			culture = werewolf_culture
 		}
 		modifier = {
+			factor = 0.5
+			trait = werewolf # Too spammy on werewolves, making high control nearly impossible
+		}
+		modifier = {
 			factor = 1.1
 			trait = werewolf
 			check_variable = { which = control value <= 4 }
