@@ -6613,6 +6613,7 @@ narrative_event = {
 			trait = robust
 			trait = dragon
 			trait = flametender
+			flag = checked_race
 		}
 		new_character = {
 			wealth = 2000
@@ -6627,6 +6628,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 22
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6635,6 +6638,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 24
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6643,6 +6648,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 21
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6651,6 +6658,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 30
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6659,6 +6668,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 17
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6667,6 +6678,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 25
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6675,6 +6688,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 40
+				trait = dragon
+				flag = checked_race
 			}
 			create_character = {
 				random_traits = yes
@@ -6691,6 +6706,8 @@ narrative_event = {
 				culture = draconic
 				female = no
 				age = 31
+				trait = dragon
+				flag = checked_race
 			}
 		}
 	}
@@ -6772,6 +6789,13 @@ narrative_event = {
 			trait = lustful
 		}
 		new_character = {
+			random = {
+				chance = 10
+				add_trait = demon_trait
+				set_graphical_culture = demon_culture
+				culture = demon_culture
+				set_character_flag = checked_race
+			}
 			wealth = 500
 			d_army_baal = {
 				grant_title = PREV
@@ -6785,6 +6809,15 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6793,13 +6826,14 @@ narrative_event = {
 				female = no
 				age = 18
 			}
-			create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = satanist
-				culture = ROOT
-				female = no
-				age = 21
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -6808,6 +6842,32 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 21
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = satanist
+				culture = ROOT
+				female = no
+				age = 21
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -6817,6 +6877,15 @@ narrative_event = {
 				female = no
 				age = 22
 			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6824,6 +6893,15 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 24
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -6833,6 +6911,15 @@ narrative_event = {
 				female = no
 				age = 29
 			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6841,6 +6928,15 @@ narrative_event = {
 				female = no
 				age = 33
 			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6848,6 +6944,15 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 34
+			}
+			new_character = {
+				random = {
+					chance = 2
+					add_trait = demon_trait
+					set_graphical_culture = demon_culture
+					culture = demon_culture
+					set_character_flag = checked_race
+				}
 			}
 		}
 	}
@@ -6939,6 +7044,22 @@ narrative_event = {
 			trait = inspiring_leader
 		}
 		new_character = {
+			random_list = {
+				48 = {}
+				1 = {
+					add_trait = dragon
+					set_graphical_culture = draconic
+					set_character_flag = checked_race
+				}
+				1 = {
+					add_trait = dragonborn
+					set_character_flag = checked_race
+					if = {
+						limit = { graphical_culture = draconic }
+						set_graphical_culture = italian
+					}
+				}
+			}
 			wealth = 500
 			d_bektashi = {
 				grant_title = PREV
@@ -6952,6 +7073,24 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6959,6 +7098,24 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 17
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -6968,6 +7125,24 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6975,6 +7150,24 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 18
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -6984,6 +7177,24 @@ narrative_event = {
 				female = no
 				age = 20
 			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -6991,6 +7202,24 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 23
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7000,6 +7229,24 @@ narrative_event = {
 				female = no
 				age = 24
 			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7008,6 +7255,24 @@ narrative_event = {
 				female = no
 				age = 26
 			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7015,6 +7280,24 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 29
+			}
+			new_character = {
+				random_list = {
+					98 = {}
+					1 = {
+						add_trait = dragon
+						set_graphical_culture = draconic
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = dragonborn
+						set_character_flag = checked_race
+						if = {
+							limit = { graphical_culture = draconic }
+							set_graphical_culture = italian
+						}
+					}
+				}
 			}
 		}
 	}
@@ -7451,6 +7734,11 @@ narrative_event = {
 			trait = adventurer
 		}
 		new_character = {
+			random = {
+				chance = 5
+				trait = demi_god
+				set_character_flag = checked_race
+			}
 			wealth = 500
 			d_ares_phalanx = {
 				grant_title = PREV
@@ -7464,13 +7752,12 @@ narrative_event = {
 				female = no
 				age = 16
 			}
-			create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = hellenic_pagan
-				culture = greek
-				female = no
-				age = 18
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7479,6 +7766,28 @@ narrative_event = {
 				culture = greek
 				female = no
 				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = hellenic_pagan
+				culture = greek
+				female = no
+				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7488,6 +7797,13 @@ narrative_event = {
 				female = no
 				age = 20
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7495,6 +7811,13 @@ narrative_event = {
 				culture = greek
 				female = no
 				age = 25
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7504,6 +7827,13 @@ narrative_event = {
 				female = no
 				age = 26
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7511,6 +7841,13 @@ narrative_event = {
 				culture = greek
 				female = no
 				age = 28
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7520,6 +7857,13 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7527,6 +7871,13 @@ narrative_event = {
 				culture = greek
 				female = no
 				age = 17
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 		}
 	}
@@ -7607,6 +7958,11 @@ narrative_event = {
 			trait = brave
 		}
 		new_character = {
+			random = {
+				chance = 5
+				trait = demi_god
+				set_character_flag = checked_race
+			}
 			wealth = 500
 			d_sons_mars = {
 				grant_title = PREV
@@ -7620,13 +7976,12 @@ narrative_event = {
 				female = no
 				age = 16
 			}
-			create_character = {
-				random_traits = yes
-				dynasty = random
-				religion = ROOT
-				culture = roman
-				female = no
-				age = 18
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7635,6 +7990,28 @@ narrative_event = {
 				culture = roman
 				female = no
 				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
+			create_character = {
+				random_traits = yes
+				dynasty = random
+				religion = ROOT
+				culture = roman
+				female = no
+				age = 18
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7644,6 +8021,13 @@ narrative_event = {
 				female = no
 				age = 20
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7651,6 +8035,13 @@ narrative_event = {
 				culture = roman
 				female = no
 				age = 25
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7660,6 +8051,13 @@ narrative_event = {
 				female = no
 				age = 26
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7667,6 +8065,13 @@ narrative_event = {
 				culture = roman
 				female = no
 				age = 28
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7676,6 +8081,13 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7683,6 +8095,13 @@ narrative_event = {
 				culture = roman
 				female = no
 				age = 167
+			}
+			new_character = {
+				random = {
+					chance = 1
+					trait = demi_god
+					set_character_flag = checked_race
+				}
 			}
 		}
 	}
@@ -7765,6 +8184,7 @@ narrative_event = {
 			trait = ambitious
 			trait = cruel
 			trait = ravager
+			flag = checked_race
 		}
 		new_character = {
 			wealth = 500
@@ -7780,6 +8200,19 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7788,6 +8221,19 @@ narrative_event = {
 				female = no
 				age = 18
 			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7795,6 +8241,19 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 18
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7804,6 +8263,19 @@ narrative_event = {
 				female = no
 				age = 20
 			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7811,6 +8283,19 @@ narrative_event = {
 				culture = ROOT
 				female = no
 				age = 25
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
 			}
 			create_character = {
 				random_traits = yes
@@ -7820,7 +8305,19 @@ narrative_event = {
 				female = no
 				age = 26
 			}
-			
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7829,7 +8326,19 @@ narrative_event = {
 				female = no
 				age = 28
 			}
-			
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7838,6 +8347,19 @@ narrative_event = {
 				female = no
 				age = 16
 			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
+			}
 			create_character = {
 				random_traits = yes
 				dynasty = random
@@ -7845,6 +8367,19 @@ narrative_event = {
 				culture = norse
 				female = no
 				age = 17
+			}
+			new_character = {
+				random_list = {
+					2 = {}
+					1 = {
+						add_trait = giant
+						set_character_flag = checked_race
+					}
+					1 = {
+						add_trait = half_giant
+						set_character_flag = checked_race
+					}
+				}
 			}
 		}
 	}

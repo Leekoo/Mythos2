@@ -186,7 +186,11 @@ decisions = {
 			religion = satanist
 		}
 		ai_will_do = {
-			factor = 0.7
+			factor = 0.5
+			modifier = {
+				factor = 0.1
+				trait = secret_vampire
+			}
 		}
 	}
 	
@@ -194,7 +198,7 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			is_playable = yes
-			trait = vampire
+			trait = known_vampire
 			NOT = { culture = vampire_culture }
 		}
 		allow = {
@@ -405,7 +409,10 @@ targetted_decisions = {
 				}
 				host = { character = FROM }
 				AND = {
-					guardian = { character = FROM }
+					OR = {
+						educator = { character = FROM }
+						guardian = { character = FROM }
+					}
 					prisoner = no
 				}
 				AND = {
@@ -521,19 +528,19 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
-				factor = 2
+				factor = 1.5
 				FROM = { trait = hunger_2 }
 			}
 			modifier = {
-				factor = 4
+				factor = 2
 				FROM = { trait = hunger_3 }
 			}
 			modifier = {
-				factor = 8
+				factor = 4
 				FROM = { trait = hunger_4 }
 			}
 			modifier = {
-				factor = 16
+				factor = 8
 				FROM = { trait = hunger_5 }
 			}
 			modifier = {
@@ -613,7 +620,6 @@ targetted_decisions = {
 			modifier = {
 				factor = 0.3
 				any_courtier = {
-					NOT = { amount = 3 }
 					NOR = {
 						trait = vampire
 						trait = werewolf
@@ -621,6 +627,7 @@ targetted_decisions = {
 						trait = demon_trait
 						trait = ethereal_trait
 					}
+					count < 3
 				}
 			}
 		}
@@ -683,7 +690,7 @@ targetted_decisions = {
 				FROM = { trait = hunger_4 }
 			}
 			modifier = {
-				factor = 6
+				factor = 8
 				FROM = { trait = hunger_5 }
 			}
 			modifier = {

@@ -100,12 +100,12 @@ province_event = {
 			set_character_flag = monster_revolter
 			
 			if = {
-				limit = { owner = { top_liege = { trait = known_vampire } } }
+				limit = { ROOT = { owner = { top_liege = { trait = known_vampire } } } }
 				remove_trait = known_vampire
 				remove_trait = vampire
 			}
 			if = {
-				limit = { owner = { top_liege = { trait = known_werewolf } } }
+				limit = { ROOT = { owner = { top_liege = { trait = known_werewolf } } } }
 				remove_trait = known_werewolf
 				remove_trait = werewolf
 			}
@@ -1700,7 +1700,7 @@ province_event = {
 	
 	option = {
 		name = EVTOPTD_MONSTER_provmod
-		trigger = { ai = no }
+		trigger = { holder_scope = {  ai = no } }
 		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
@@ -1763,7 +1763,7 @@ province_event = {
 	
 	option = {
 		name = EVTOPTD_MONSTER_provmod
-		trigger = { ai = no }
+		trigger = { holder_scope = {  ai = no } }
 		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
@@ -1826,7 +1826,7 @@ province_event = {
 	
 	option = {
 		name = EVTOPTD_MONSTER_provmod
-		trigger = { ai = no }
+		trigger = { holder_scope = {  ai = no } }
 		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }
@@ -1889,7 +1889,7 @@ province_event = {
 	
 	option = {
 		name = EVTOPTD_MONSTER_provmod
-		trigger = { ai = no }
+		trigger = { holder_scope = {  ai = no } }
 		holder_scope = { scaled_wealth = { value = -3 min = -50 max = -600 } }
 	}
 }

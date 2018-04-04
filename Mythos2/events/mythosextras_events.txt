@@ -728,6 +728,10 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		clr_character_flag = ai_flag_refuse_conversion
+	}
+	
 	# Convert
 	option = {
 		name = EVTOPTA_MYTHMORE.20
@@ -972,7 +976,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					has_landed_title = yes
+					is_landed = yes
 					NOT = { tier = baron }
 				}
 				any_vassal = {
@@ -1056,7 +1060,7 @@ character_event = {
 		hidden_tooltip = {
 			if = {
 				limit = {
-					has_landed_title = yes
+					is_landed = yes
 					NOT = { tier = baron }
 				}
 				any_vassal = {
@@ -1483,5 +1487,127 @@ province_event = {
 				add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
 			}
 		}
+	}
+}
+
+# MYTHMORE.33 - See if Wolfbane title should be given - ROOT is killed character, FROM is killer
+character_event = {
+	id = MYTHMORE.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = known_werewolf
+		FROM = {
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+			trait = monster_hunter
+			has_nickname = no
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			FROM = {
+				give_nickname = nick_wolf_bane
+			}
+		}
+	}
+}
+# MYTHMORE.34 - See if Dragonbane title should be given - ROOT is killed character, FROM is killer
+character_event = {
+	id = MYTHMORE.34
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		FROM = {
+			NOR = {
+				trait = dragon
+				culture = draconic
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			trait = monster_hunter
+			has_nickname = no
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			FROM = {
+				give_nickname = nick_dragonbane
+			}
+		}
+	}
+}
+# MYTHMORE.35 - Set up events 33 and 34 when used in CBs. ROOT is killer. event_target:killed must be set on killed character
+character_event = {
+	id = MYTHMORE.35
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:killed = {
+			character_event = { id = MYTHMORE.33 }
+			character_event = { id = MYTHMORE.34 }
+		}
+	}
+}
+# MYTHMORE.36 - Become Fugitive if fled arrest with claim on title
+character_event = {
+	id = MYTHMORE.36
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { 
+			higher_tier_than = COUNT
+			primary_title = {
+				ROOT = {
+					any_claim = {
+						title = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random = {
+			chance = 25
+			give_nickname = nick_the_fugitive
+		}
+	}
+}
+# MYTHMORE.37 - If undead and gaining first title, may gain title Posthumous
+character_event = {
+	id = MYTHMORE.36
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		num_of_titles == 1
+		OR = {
+			trait = zombie
+			trait = known_vampire
+		}
+		FROMFROM = {
+			location = { 
+				NOR = {
+					culture = vampire_culture
+				}
+			}
+		}
+		has_nickname = no
+	}
+	
+	immediate = {
+		give_nickname = nick_the_posthumous
 	}
 }

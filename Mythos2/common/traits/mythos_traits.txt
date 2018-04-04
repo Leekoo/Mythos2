@@ -2,6 +2,7 @@
 
 vampire = {
 	birth = 0
+	ruler_designer_cost = 5
 
 	opposites = {
 		werewolf
@@ -18,6 +19,7 @@ vampire = {
 	martial = 1
 	intrigue = 4
 	learning = 1
+	health = 3
 	
 	combat_rating = 1
 	
@@ -57,6 +59,7 @@ known_vampire = {
 
 werewolf = {
 	birth = 5
+	ruler_designer_cost = 10
 
 	opposites = {
 		vampire
@@ -134,8 +137,6 @@ giant = {
 
 pup = {
 	opposites = { fledgling }
-	birth = 100
-	martial = 2
 	health = 1
 	customizer = no
 	hidden_from_others = yes
@@ -143,7 +144,6 @@ pup = {
 
 fledgling = {
 	opposites = { pup }
-	intrigue = 2
 	health = 1
 	customizer = no
 }
@@ -166,7 +166,7 @@ god = {
 	
 	immortal = yes
 	
-	same_opinion = 20
+	same_religion_opinion = 20
 	levy_size = 1
 	
 	health = 20
@@ -195,7 +195,7 @@ demi_god = {
 
 	opposites = { god }
 	
-	same_opinion = 10
+	same_religion_opinion = 10
 	levy_size = 0.5
 	
 	health = 10
@@ -245,7 +245,7 @@ zombie = {
 	general_opinion = -200
 
 	
-	health = -1
+	health = 3
 	fertility = -50
 	diplomacy = -10
 	intrigue = -10
@@ -279,6 +279,7 @@ mummy = {
 	diplomacy = -4
 	intrigue = 2
 	learning = 5
+	health = 3
 	
 	ai_rationality = 20
 	ai_zeal = 20
@@ -289,6 +290,7 @@ mummy = {
 
 djinn = {
 	inherit_chance = 100
+	ruler_designer_cost = 30
 
 	immortal = yes
 
@@ -322,7 +324,7 @@ dragon = {
 	ai_greed = 40
 	ai_ambition = 10
 	
-	ruler_designer_cost = 80
+	ruler_designer_cost = 60
 	
 	potential = {
 		race = draconic
@@ -353,6 +355,7 @@ novice_mage = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 0
 	
 	learning = 2
 	christian_opinion = -5
@@ -368,6 +371,7 @@ eldritch_scholar = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 2
 	
 	learning = 3
 	diplomacy = 1
@@ -392,6 +396,7 @@ veteran_wizard = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 5
 	
 	learning = 6
 	diplomacy = 2
@@ -419,6 +424,7 @@ arcane_master = {
 	
 	attribute = learning
 	education = yes
+	ruler_designer_cost = 10
 	
 	learning = 10
 	diplomacy = 4
@@ -446,7 +452,7 @@ magic_heritage = {
 	birth = 50
 	inherit_chance = 70
 	
-	ruler_designer = no
+	customizer = no
 	
 	is_visible = {
 		OR = {
@@ -731,7 +737,7 @@ summoner = {
 	levy_size = 0.1
 	
 	# Also results in larger armies from summoning spell and higher success rate.
-	# Gives acess to an additional spell (?)
+	# Gives acess to an additional spell
 	
 	same_opinion = 10
 	
@@ -1488,4 +1494,367 @@ control_9 = { # New
 	intrigue = 4
 	ai_rationality = 16
 	ai_honor = 16
+}
+size_1 = { # Age 16, age 20 half-giant
+	opposites = {
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 1
+	health = 0.1
+	command_modifier = {
+		siege = 0.02
+		morale_offence = 0.02
+	}
+}
+size_2 = { # Age 28, age 40 half-giant
+	opposites = {
+		size_1
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 2
+	health = 0.2
+	martial = 1
+	command_modifier = {
+		siege = 0.03
+		morale_offence = 0.03
+	}
+}
+size_3 = { # Age 40, age 60 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 3
+	health = 0.3
+	martial = 1
+	command_modifier = {
+		siege = 0.05
+		morale_offence = 0.05
+	}
+}
+size_4 = { # Age 52, age 80 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 4
+	health = 0.4
+	martial = 2
+	command_modifier = {
+		siege = 0.06
+		morale_offence = 0.06
+	}
+}
+size_5 = { # Age 64, age 100 half-giant
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_6
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		OR = {
+			trait = giant
+			trait = half_giant
+		}
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 5
+	health = 0.5
+	martial = 2
+	command_modifier = {
+		siege = 0.08
+		morale_offence = 0.08
+	}
+}
+size_6 = { # Age 76
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_7
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 6
+	health = 0.6
+	martial = 3
+	command_modifier = {
+		siege = 0.09
+		morale_offence = 0.09
+	}
+}
+size_7 = { # Age 88
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_8
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 7
+	health = 0.7
+	martial = 3
+	command_modifier = {
+		siege = 0.11
+		morale_offence = 0.11
+	}
+}
+size_8 = { # Age 110
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_9
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 8
+	health = 0.8
+	martial = 4
+	command_modifier = {
+		siege = 0.12
+		morale_offence = 0.12
+	}
+}
+size_9 = { # Age 122
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_10
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 9
+	health = 0.9
+	martial = 4
+	command_modifier = {
+		siege = 0.14
+		morale_offence = 0.14
+	}
+}
+size_10 = { # Age 134
+	opposites = {
+		size_1
+		size_2
+		size_3
+		size_4
+		size_5
+		size_6
+		size_7
+		size_8
+		size_9
+	}
+	potential = {
+		trait = giant
+		NOT = {
+			trait = dwarf
+		}
+	}
+	
+	customizer = no
+	
+	combat_rating = 10
+	health = 1
+	martial = 5
+	command_modifier = {
+		siege = 0.15
+		morale_offence = 0.15
+	}
+}
+
+giant_hrimthursar = { # Frost Giant
+	opposites = {
+		giant_eldjotnar
+		giant_bergrisar
+	}
+	potential = { trait = giant }
+	
+	frost_giants_defensive = 0.05
+	fire_giants_morale = -0.05
+	
+	command_modifier = {
+		defence = 0.2
+		morale_defence = 0.1
+		winter_supply = 2
+		winter_combat = 0.2
+		damage = -0.2
+		morale_offence = -0.1
+		speed = -0.2
+	}
+}
+giant_eldjotnar = { # Fire Giant
+	opposites = {
+		giant_hrimthursar
+		giant_bergrisar
+	}
+	potential = { trait = giant }
+	
+	fire_giants_offensive = 0.05
+	frost_giants_morale = -0.05
+	
+	command_modifier = {
+		damage = 0.2
+		morale_offence = 0.1
+		defence = -0.2
+		morale_defence = -0.1
+	}
+}
+giant_bergrisar = { # Hill Giant
+	opposites = {
+		giant_hrimthursar
+		giant_eldjotnar
+	}
+	potential = { trait = giant }
+	
+	combat_rating = 2
+	martial = 1
+	days_of_supply = 30
+	
+	command_modifier = {
+		terrain = hills
+		terrain = mountain
+	}
+}
+banker = {
+	customizer = no
+	random = no
+	cached = yes
 }

@@ -38,6 +38,17 @@ decisions = {
 					}
 				}
 			}
+			liege = {
+				custom_tooltip = {
+					text = TT_no_current_challenge
+					hidden_tooltip = {
+						NOR = {
+							has_character_modifier = facing_challenge
+							liege = { has_character_modifier = facing_challenge }
+						}
+					}
+				}
+			}
 			OR = {
 				liege = { NOT = { age = 16 } }
 				custom_tooltip = {
@@ -294,7 +305,7 @@ decisions = {
 			NOT = { culture = werewolf_culture }
 		}
 		allow = {
-			higher_real_tier_than = KING
+			higher_real_tier_than = DUKE
 			is_incapable = no
 		}
 		effect = {
@@ -331,8 +342,8 @@ decisions = {
 			OR = {
 				independent = yes
 				top_liege = { culture = werewolf_culture }
+				capital_scope = { culture = werewolf_culture }
 			}
-			capital_scope = { culture = werewolf_culture }
 		}
 		allow = {
 			always = yes

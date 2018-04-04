@@ -790,119 +790,6 @@ decisions = {
 		}
 	}
 	
-	faction_draconic_heir = {
-		only_playable = yes
-		is_high_prio = yes
-		
-		potential = {
-			is_playable = yes
-			leads_faction = faction_draconic_heir
-			OR = {
-				NOT = { has_character_flag = faction_draconic_heir_ultimatum_taken }
-				had_character_flag = { flag = faction_draconic_heir_ultimatum_taken days = 7 }
-			}
-		}
-		allow = {
-			war = no
-			prisoner = no
-			liege = {
-				in_revolt = no
-				NOT = { war_with = ROOT }
-				NOT = { reverse_has_truce = ROOT }
-			}
-			NOT = {
-				any_realm_title = {
-					NOT = { higher_tier_than = count }
-					is_occupied = yes
-				}
-			}
-			liege = {
-				OR = {
-					independent = yes
-					AND = {
-						will_liege_enforce_peace = no
-						has_liege_enforced_peace = no
-					}
-				}
-			}
-		}
-		effect = {
-			liege = {
-				letter_event = { id = DRAGON.15 days = 3 tooltip = EVTTOOLTIP8005 }
-			}
-			hidden_tooltip = {
-				set_character_flag = faction_draconic_heir_ultimatum_taken
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 0.75
-					}
-				}
-			}
-			modifier = {
-				factor = 0.1
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 1.0
-					}
-				}
-			}
-			modifier = {
-				factor = 0.1
-				NOT = { 
-					faction_power = 
-					{
-						faction = faction_draconic_heir
-						power = 1.5
-					}
-				}
-			}			
-			
-			modifier = {
-				factor = 0.5 # Slow it down a bit
-			}
-			
-			modifier = {
-				factor = 0
-				liege = {
-					any_war = {
-						OR = {
-							AND = {
-								defender = { character = PREV }
-								NOT = { using_cb = depose_liege }
-								NOT = { using_cb = overthrow_ruler }
-								NOT = { using_cb = overthrow_ruler_no_calls }
-							}
-							AND = {
-								attacker = { character = PREV }
-								OR = {
-									using_cb = invasion
-									using_cb = religious
-									using_cb = tribal_invasion
-									using_cb = muslim_invasion
-									using_cb = viking_invasion
-									using_cb = claim_all
-									using_cb = claim
-									using_cb = other_claim
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
 	consult_on_purity = {
 		only_playable = yes
 		
@@ -1068,10 +955,8 @@ decisions = {
 			has_global_flag = draconic_reformation
 			b_lejre = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 				}
 			}
 			c_sjaelland = {
@@ -1093,10 +978,8 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
+					is_theocracy = yes
 					war = no
 					is_theocracy = yes
 				}
@@ -1243,10 +1126,8 @@ decisions = {
 			has_global_flag = draconic_reformation
 			b_pruszkow = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 				}
 			}
 			c_plock = {
@@ -1268,10 +1149,8 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 					war = no
 					is_theocracy = yes
 				}
@@ -1417,10 +1296,8 @@ decisions = {
 			has_global_flag = draconic_reformation
 			b_whithorn = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 				}
 			}
 			c_galloway = {
@@ -1442,10 +1319,8 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 					war = no
 					is_theocracy = yes
 				}
@@ -1592,10 +1467,8 @@ decisions = {
 			has_global_flag = draconic_reformation
 			b_uppsala = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 				}
 			}
 			c_uppland = {
@@ -1617,10 +1490,8 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 					war = no
 					is_theocracy = yes
 				}
@@ -1767,10 +1638,8 @@ decisions = {
 			has_global_flag = draconic_reformation
 			b_canterbury = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 				}
 			}
 			c_kent = {
@@ -1792,10 +1661,8 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					any_liege = { character = ROOT }
+					is_theocracy = yes
 					war = no
 					is_theocracy = yes
 				}
@@ -2413,7 +2280,7 @@ targetted_decisions = {
 		
 		effect = {
 			hidden_tooltip = {
-				export_to_variable = { which = GoldAmt value = scaled_wealth who = FROM }
+				export_to_variable = { which = GoldAmt value = yearly_income who = FROM }
 			}
 			letter_event = { id = DRAGON.90 days = 1 }
 			hidden_tooltip = {
@@ -2722,6 +2589,145 @@ targetted_decisions = {
 			modifier = {
 				factor = 0.5
 				FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 0.8 } } }
+			}
+		}
+	}
+	
+	raid_rival = {
+		filter = rivals
+		ai_target_filter = rivals
+		
+		from_potential = {
+			trait = dragon
+			age = 16
+			prisoner = no
+			is_incapable = no
+			num_of_rivals = 1
+		}
+		potential = {
+			is_rival = FROM
+			trait = dragon
+		}
+		allow = {
+			FROM = {
+				wealth = 1
+			}
+			wealth = 1
+			NOR = { 
+				has_opinion_modifier = { who = FROM modifier = opinion_ally }
+				has_opinion_modifier = { who = FROM modifier = opinion_at_war }
+				has_opinion_modifier = { who = FROM modifier = opinion_raided }
+			}
+			is_inaccessible_trigger = no
+			FROM = { is_inaccessible_trigger = no }
+			NOT = { FROM = { has_truce = ROOT } }
+		}
+		effect = {
+			character_event = { id = DRAGON.106 days = 3 }
+			opinion = { who = FROM modifier = opinion_raided years = 2 }
+		}
+		ai_will_do = {
+			factor = 0.05
+			modifier = {
+				factor = 2
+				FROM = { trait = wroth }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = greedy }
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { trait = duelist }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { 
+					OR = {
+						character_disease_trigger = yes
+						has_symptom_trigger = yes
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { has_injury_trigger = yes }
+			}
+			modifier = {
+				factor = 0.5
+				FROM = {
+					OR = { # Mild combat disability
+						trait = clubfooted
+						trait = inbred
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				FROM = {
+					OR = {
+						trait = dwarf
+						trait = imbecile
+						trait = weak # Has issued beyond personal combat
+						trait = feeble
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				FROM = { is_strong_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				FROM = { trait = brave }
+			}
+			modifier = {
+				factor = 0.2
+				FROM = { is_maimed_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					character_disease_trigger = yes
+					has_symptom_trigger = yes
+				}
+			}
+			modifier = {
+				factor = 2
+				has_injury_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = dwarf
+					trait = imbecile
+					trait = weak
+					trait = clubfooted
+					trait = inbred
+					trait = feeble
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				is_maimed_trigger = yes
+			}
+			modifier = {
+				factor = 1.5
+				FROM = {
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+				}
+				has_negative_purity = yes
+			}
+			modifier = {
+				factor = 0.2
+				trait = duelist
 			}
 		}
 	}

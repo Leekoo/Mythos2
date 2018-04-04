@@ -790,6 +790,27 @@ homosexual = {
 	female_insult_adj = INSULT_SAPPHIC
 	child_insult = INSULT_PEABRAIN
 	child_insult_adj = INSULT_CRAZY
+	
+	is_visible = {
+		OR = {
+			character = FROM
+			AND = {
+				trait = homosexual
+				OR = {
+					AND = {
+						is_female = yes
+						FROM = { is_female = yes }
+					}
+					AND = {
+						is_female = no
+						FROM = { is_female = no }
+					}
+				}
+			}
+			FROM = { has_character_modifier = known_sodomite }
+			FROM = { has_character_modifier = known_sodomite_pagan }
+		}
+	}
 }
 
 #####################

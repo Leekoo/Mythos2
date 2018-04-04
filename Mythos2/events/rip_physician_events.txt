@@ -39,6 +39,14 @@ character_event = {
 	immediate = {
 		clr_character_flag = looking_for_court_physician
 		set_character_flag = found_court_physician
+		random_character = {
+			limit = { religion = atenist }
+			save_event_target_as = atenist_character
+		}
+		random_character = {
+			limit = { religion = kemetic_pagan }
+			save_event_target_as = kemetic_character
+		}
 		random_list = {
 			4 = { # Drunk Village Physician (Unschooled, 18+ Learning)
 				modifier = {
@@ -597,27 +605,56 @@ character_event = {
 						limit = {
 							religion = atenist
 							NOT = { has_global_flag = atenist_revived }
-							OR = {
-								c_asyut = {
-									location = {
-										NOR = {
+							NOT = {
+								AND = {
+									c_asyut = {
+										OR = {
 											religion = kemetic_pagan
 											religion = atenist
 										}
 									}
-								}
-								NOR = {
-									kemetic_pagan = { num_of_holy_sites = 3 }
-									AND = {
-										kemetic_pagan = { num_of_holy_sites = 2 }
-										atenist = { num_of_holy_sites = 1 }
+									OR = {
+										#kemetic_pagan = { num_of_holy_sites = 3 }
+										#AND = {
+										#	kemetic_pagan = { num_of_holy_sites = 2 }
+										#	atenist = { num_of_holy_sites = 1 }
+										#}
+										#AND = {
+										#	kemetic_pagan = { num_of_holy_sites = 1 }
+										#	atenist = { num_of_holy_sites = 2 }
+										#}
+										#atenist = { num_of_holy_sites = 3 }
+										event_target:kemetic_character = { num_of_holy_sites = 3 }
+										AND = {
+											event_target:kemetic_character = { num_of_holy_sites = 2 }
+											event_target:atenist_character = { num_of_holy_sites = 1 }
+										}
+										AND = {
+											event_target:kemetic_character = { num_of_holy_sites = 1 }
+											event_target:atenist_character = { num_of_holy_sites = 2 }
+										}
+										event_target:atenist_character = { num_of_holy_sites = 3 }
 									}
-									AND = {
-										kemetic_pagan = { num_of_holy_sites = 1 }
-										atenist = { num_of_holy_sites = 2 }
-									}
-									atenist = { num_of_holy_sites = 3 }
 								}
+							}
+						}
+						random_list = {
+							1 = {
+								religion = kemetic_pagan
+							}
+							1 = {
+								religion = sunni
+							}
+							1 = {
+								religion = sunni
+								become_heretic = yes
+							}
+							1 = {
+								religion = shiite
+							}
+							1 = { 
+								religion = shiite
+								become_heretic = yes
 							}
 						}
 					}
@@ -2333,6 +2370,7 @@ character_event = {
 							flag = is_court_physician
 							flag = physician_pagan_mystic
 							flag = ai_flag_refuse_conversion
+							flag = checked_race
 						}
 						new_character = {
 							set_character_flag = no_court_invites
@@ -2514,6 +2552,7 @@ character_event = {
 							flag = is_court_physician
 							flag = physician_pagan_mystic
 							flag = ai_flag_refuse_conversion
+							flag = checked_race
 						}
 						new_character = {
 							set_character_flag = no_court_invites
@@ -3655,6 +3694,7 @@ character_event = {
 					trait = strong
 					flag = is_court_physician
 					flag = physician_horse_md
+					flag = checked_race
 				}
 				new_character = {
 					set_character_flag = no_court_invites

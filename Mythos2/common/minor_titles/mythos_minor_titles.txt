@@ -654,32 +654,3 @@ title_curule_aedile = {
 
 	message = yes
 }
-
-# Used to force heir with draconic factions
-title_forced_heir = {
-	grant_limit = 1
-	
-	realm_in_name = yes
-	
-	patrician_heir = yes
-	
-	monthly_prestige = 0.5
-	
-	allowed_to_hold = {
-		trait = dragon
-		NOT = { trait = incapable }
-		NOT = { trait = bastard }
-		NOT = { is_ascetic_trigger = yes }
-		NOT = { trait = eunuch }
-		NOT = { trait = celibate }
-	}
-	
-	allowed_to_grant = { always = no }
-	
-	gain_effect = {
-	}
-	lose_effect = {
-	}
-
-	message = yes
-}

@@ -200,6 +200,10 @@ letter_event = {
 				}
 			}
 			modifier = {
+				factor = 1.5
+				is_friend = FROM
+			}
+			modifier = {
 				factor = 10000
 				prisoner = yes
 			}
@@ -357,7 +361,6 @@ letter_event = {
 					set_mother = 0
 				}
 				clr_character_flag = considering_decision
-				#ROOT = { set_child = FROM } # Command doesn't exist
 				recalc_succession = yes
 			}
 			prestige = 50
@@ -3213,17 +3216,17 @@ character_event = {
 	option = {
 		name = OK # Never!
 		ai_chance = {
-			factor = 100
+			factor = 20
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = brave
 			}
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = wroth
 			}
 			modifier = {
-				factor = 3.0
+				factor = 3
 				trait = ambitious
 			}
 		}
@@ -3290,7 +3293,7 @@ character_event = {
 	option = {
 		name = OK # Never!
 		ai_chance = {
-			factor = 100
+			factor = 20
 			modifier = {
 				factor = 3.0
 				trait = brave
@@ -3363,7 +3366,7 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 20
+			factor = 10
 			modifier = {
 				factor = 3
 				trait = proud
@@ -5616,16 +5619,16 @@ character_event = {
 				event_target:helper = {
 					set_variable = { which = influence which = ROOT }
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_political_influence } }
-						add_character_modifier = { name = gain_political_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_political_influence } }
+						add_character_modifier = { name = minor_political_influence years = 2 }
 					}
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_military_influence } }
-						add_character_modifier = { name = gain_military_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_military_influence } }
+						add_character_modifier = { name = minor_military_influence years = 2 }
 					}
 					if = {
-						limit = { ROOT = { has_character_modifier = gain_economic_influence } }
-						add_character_modifier = { name = gain_economic_influence years = 2 }
+						limit = { ROOT = { has_character_flag = gain_economic_influence } }
+						add_character_modifier = { name = minor_economic_influence years = 2 }
 					}
 					character_event = { id = VAMPIRE.67 }
 				}
@@ -7606,7 +7609,7 @@ character_event = {
 			set_variable = { which = local_rank value = 0 }
 		}
 		
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -7765,7 +7768,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -7894,10 +7897,6 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					check_variable = { which = local_catch_chance value = 3 }
-				}
-				modifier = {
-					factor = 4
-					liege = { has_character_modifier = worrying_rumors }
 				}
 				modifier = {
 					factor = 4
@@ -8172,7 +8171,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -8477,7 +8476,7 @@ character_event = {
 			limit = { NOT = { check_variable = { which = local_rank value = 0 } } }
 			set_variable = { which = local_rank value = 0 }
 		}
-		set_variable = { which = local_temp value = local_rank }
+		set_variable = { which = local_temp which = local_rank }
 		multiply_variable = { which = local_temp value = 5 }
 		set_variable = { which = local_time value = 60 }
 		subtract_variable = { which = local_time which = local_temp }
@@ -9343,7 +9342,7 @@ character_event = {
 				limit = { event_target:influence_rival = { has_character_modifier = major_economic_influence } }
 				event_target:influence_rival = {
 					remove_character_modifier = major_economic_influence
-					add_character_modifier = { modifier = meconomic_influence years = 10 }
+					add_character_modifier = { modifier = economic_influence years = 10 }
 				}
 			}
 			else_if = {
@@ -10855,7 +10854,107 @@ character_event = {
 			remove_title = blood_court_e_vampire_1
 		}
 		liege = {
-			character_event = { id = vampire.155 }
+			character_event = { id = VAMPIRE.155 }
+		}
+	}
+}
+
+# VAMPIRE.157 - Vampire gains a rival
+character_event = {
+	id = VAMPIRE.157
+	desc = EVTDESC_VAMPIRE.157
+	picture = GFX_evt_rival_rulers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	only_playable = yes
+	min_age = 16
+	only_capable = yes
+	
+	trigger = {
+		trait = vampire
+		higher_tier_than = duke # In small realms, this could get out of hand
+		any_realm_character = {
+			count = 3
+			trait = vampire
+			is_incapable = no
+			NOR = { 
+				is_rival = ROOT
+				is_close_relative = ROOT
+				is_cousin_of = ROOT
+				is_friend = ROOT
+				is_lover = ROOT
+				is_nibling_of = ROOT
+				any_spouse = { character = ROOT }
+			}
+		}
+		NOT = {
+			any_rival = {
+				count = 3
+				trait = vampire
+			}
+		}
+	}
+	
+	# Characters with few total rivals (including non-vampires) are more likely to get this event
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			NOT = { num_of_rivals = 3 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { num_of_rivals = 2 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { num_of_rivals = 1 }
+		}
+	}
+	
+	immediate = {
+		random_realm_character = {
+			limit = {
+				is_incapable = no
+				trait = vampire
+				NOR = { 
+					is_rival = ROOT
+					is_close_relative = ROOT
+					is_cousin_of = ROOT
+					is_friend = ROOT
+					is_lover = ROOT
+					is_nibling_of = ROOT
+					any_spouse = { character = ROOT }
+				}
+			}
+			save_event_target_as = new_rival
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.157
+		event_target:new_rival = {
+			add_rival = ROOT
+			hidden_tooltip = {
+				character_event = { id = VAMPIRE.158 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = VAMPIRE.158
+	desc = EVTDESC_VAMPIRE.158
+	picture = GFX_evt_rival_rulers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.158
+		tooltip = {
+			add_rival = FROM
 		}
 	}
 }

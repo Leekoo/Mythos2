@@ -1213,3 +1213,96 @@ character_event = {
 		}
 	}
 }
+
+character_event = {
+	id = 39240
+	desc = "EVTDESC39240"	#Pope asks a ruler that they should not have heathens employed.
+	picture = GFX_evt_heretic
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_men = yes
+	only_playable = yes
+	religion_group = christian
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+		
+		religion_authority = 0.20
+
+		any_playable_ruler = {
+			religion = ROOT
+			rightful_religious_head = ROOT
+			NOT = { has_character_flag = pope_dislikes_heathen_employed }
+			any_courtier = {
+				prisoner = no
+				OR = {
+					religion_group = muslim
+					religion_group = pagan_group
+					religion_group = other_group
+				}
+				OR = {
+					has_job_title = job_chancellor
+					has_job_title = job_marshal
+					has_job_title = job_treasurer
+					has_job_title = job_spymaster
+					has_job_title = job_spiritual
+				} 
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+		modifier = {
+			factor = 0.25
+			trait = zealous
+		}
+	}
+
+	option = {
+		name = "EVTOPTA39240"	#ask them
+		ai_chance = { factor = 100 }
+		random_playable_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				NOT = { has_character_flag = pope_dislikes_heathen_employed }
+
+				any_courtier = {
+					prisoner = no
+					OR = {
+						religion_group = muslim
+						religion_group = pagan_group
+						religion_group = other_group
+					}
+					OR = {
+						has_job_title = job_chancellor
+						has_job_title = job_marshal
+						has_job_title = job_treasurer
+						has_job_title = job_spymaster
+						has_job_title = job_spiritual
+					} 
+				}
+			}
+			character_event = { id = 39241 days = 14 tooltip = EVTTOOLTIP392401 }
+			set_character_flag = pope_dislikes_heathen_employed
+		}
+	}
+
+	option = {
+		name = "EVTOPTB39240"	#ignore it.
+		ai_chance = { factor = 0 }
+		religion_authority = {
+			modifier = head_of_religion_neglect
+			years = 10
+		}
+	}
+}

@@ -59,7 +59,6 @@ character_event = {
 				event_target:true_father = { always = yes }
 				mother_even_if_dead = { always = yes }
 			}
-			set_character_flag = test_two_parents
 			# Bad parent
 			if = {
 				limit = {
@@ -78,7 +77,6 @@ character_event = {
 						}
 					}
 				}
-				set_character_flag = test_bad_parent
 				add_trait = sickly
 				add_trait = stressed
 			}
@@ -277,6 +275,7 @@ character_event = {
 					mother_even_if_dead = { trait = god }
 				}
 				add_trait = god
+				set_character_flag = ai_flag_refuse_conversion
 			}
 			# One parent is god, other is human, BotG, or Demigod
 			else_if = {
@@ -293,6 +292,7 @@ character_event = {
 					}
 				}
 				add_trait = demi_god
+				set_character_flag = ai_flag_refuse_conversion
 			}
 			# Both parents are demigods
 			else_if = {
@@ -303,6 +303,7 @@ character_event = {
 				random_list = {
 					1 = {
 						add_trait = demi_god
+						set_character_flag = ai_flag_refuse_conversion
 					}
 					1 = {
 						modifier = {
@@ -430,6 +431,45 @@ character_event = {
 				}
 			}
 			# Werewolf
+			# Both parents are werewolves
+			if = {
+				limit = {
+					event_target:true_father = { trait = werewolf }
+					mother_even_if_dead = { trait = werewolf }
+				}
+				random = {
+					chance = 80
+					add_trait = pup
+				}
+			}
+			# One parent is a werewolf = {
+			else_if = {
+				limit = {
+					OR = {
+						event_target:true_father = { trait = werewolf }
+						mother_even_if_dead = { trait = werewolf }
+					}
+				}
+				random = {
+					chance = 40
+					add_trait = pup
+				}
+			}
+			# No werewolf parent
+			else = {
+				random = {
+					chance = 5
+					modifier = {
+						factor = 0.6
+						event_target:true_father = { trait = vampire }
+					}
+					modifier = {
+						factor = 0.6
+						mother_even_if_dead = { trait = vampire }
+					}
+					add_trait = pup
+				}
+			}
 			# Remove pup on certain characters
 			if = {
 				limit = {
@@ -482,6 +522,14 @@ character_event = {
 				else = {
 					set_variable = { which = control value = 2 }
 				}
+			}
+			if = {
+				limit = {
+					trait = pup
+					age = 16
+				}
+				remove_trait = pup
+				update_control = yes
 			}
 			# Giant
 			# Both parents are giants
@@ -690,7 +738,6 @@ character_event = {
 					mother_even_if_dead = { always = yes }
 				}
 			}
-			set_character_flag = test_one_parent
 			# Set parent
 			if = {
 				limit = {
@@ -774,6 +821,24 @@ character_event = {
 				limit = { event_target:parent = { trait = werewolf } }
 				if = {
 					limit = {
+						NOR = {
+							trait = werewolf
+							trait = pup
+						}
+					}
+					random = {
+						chance = 50
+						if = {
+							limit = { age = 16 }
+							add_trait = werewolf
+						}
+						else = {
+							add_trait = pup
+						}
+					}
+				}
+				if = {
+					limit = {
 						OR = {
 							trait = werewolf
 							trait = pup
@@ -789,6 +854,7 @@ character_event = {
 				random_list = {
 					1 = {
 						add_trait = god
+						set_character_flag = ai_flag_refuse_conversion
 					}
 					1 = {
 						modifier = {
@@ -800,6 +866,7 @@ character_event = {
 							has_game_rule = { name = breeding value = fewer }
 						}
 						add_trait = demi_god
+						set_character_flag = ai_flag_refuse_conversion
 					}
 				}
 			}
@@ -809,6 +876,7 @@ character_event = {
 				random_list = {
 					1 = {
 						add_trait = demi_god
+						set_character_flag = ai_flag_refuse_conversion
 					}
 					9 = {
 						modifier = {
@@ -944,7 +1012,7 @@ character_event = {
 				}
 				set_variable = { which = control value = 5 }
 				update_control = yes
-			}
+			}			
 		}
 		
 		if = {
@@ -952,8 +1020,7 @@ character_event = {
 				age = 16
 				trait = pup
 			}
-			remove_trait = pup
-			add_trait = werewolf
+			character_event = { id = WEREWOLF.4 }
 		}
 		if = {
 			limit = {
@@ -981,6 +1048,8 @@ character_event = {
 			}
 			character_event = { id = SPECIES.3 } # Update known/secret and control
 		}
+		
+		character_event = { id = SPECIES.11 }
 	}
 }
 
@@ -1186,9 +1255,11 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		any_character = { # I am so, so sorry for using this scope, but this should only get called once.
-			#limit = { ai = yes }
-			set_character_flag = checked_race
+		any_character = { 
+			if = {
+				limit = { ai = no }
+				set_character_flag = checked_race
+			}
 			if = {
 				limit = {
 					OR = {
@@ -1197,6 +1268,7 @@ character_event = {
 						trait = veteran_wizard
 						trait = arcane_master
 					}
+					NOT = { trait = magic_heritage }
 				}
 				add_trait = magic_heritage
 			}
@@ -1255,7 +1327,6 @@ character_event = {
 					government = draconic_governorship
 					government = draconic_merchant_republic_government
 				}
-				NOT = { has_assigned_minor_title = title_forced_heir }
 			}
 			if = {
 				limit = {
@@ -1288,10 +1359,7 @@ character_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					current_heir = { trait = dragon }
-					has_assigned_minor_title = title_forced_heir
-				}
+				current_heir = { trait = dragon }
 			}
 			remove_character_modifier = non_dragon_heir
 			remove_character_modifier = non_dragon_heir_lesser
@@ -1376,5 +1444,101 @@ character_event = {
 	
 	immediate = {
 		add_trait = god
+	}
+}
+
+# SPECIES.11 - Add Giant subtraits
+character_event = {
+	id = SPECIES.11
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = checked_giant }
+		trait = giant
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					culture_group = north_germanic
+					religion = norse_pagan_reformed
+					religion = norse_pagan
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				NOR = {
+					trait = giant_hrimthursar
+					trait = giant_eldjotnar
+					trait = giant_bergrisar
+				}
+			}
+			random_list = {
+				# Frost Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_hrimthursar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_hrimthursar }
+					}
+					modifier = { # Born in winter
+						factor = 2
+						OR = {
+							month_of_birth = 12
+							month_of_birth <= 2
+						}
+					}
+					add_trait = giant_hrimthursar
+				}
+				# Fire Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_eldjotnar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_eldjotnar }
+					}
+					modifier = { # Born in summer
+						factor = 2
+						month_of_birth = 6
+						month_of_birth <= 8
+					}
+					add_trait = giant_eldjotnar
+				}
+				# Hill Giant
+				1 = {
+					modifier = {
+						factor = 3
+						event_target:true_father = { trait = giant_bergrisar }
+					}
+					modifier = {
+						factor = 3
+						mother_even_if_dead = { trait = giant_bergrisar }
+					}
+					modifier = { # Born in spring or autumn
+						factor = 2
+						OR = {
+							AND = {
+								month_of_birth = 3
+								month_of_birth <= 5
+							}
+							AND = {
+								month_of_birth = 9
+								month_of_birth <= 11
+							}
+						}
+					}
+					add_trait = giant_bergrisar
+				}
+			}
+		}
+		set_character_flag = checked_giant
+		character_event = { id = GIANT.1 }
 	}
 }

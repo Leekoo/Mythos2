@@ -274,6 +274,38 @@ character_event = {
 	immediate = {
 		random_list = {
 			2 = {
+				modifier = {
+					factor = 0.8
+					check_variable = { which = control value = 6 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = control value = 7 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = control value = 8 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = control value = 9 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = control value <= 4 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = control value <= 3 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = control value <= 2 }
+				}
+				modifier = {
+					factor = 1.2
+					check_variable = { which = control value == 1 }
+				}
 				if = {
 					limit = { trait = known_werewolf }
 					random = {
@@ -2267,7 +2299,7 @@ narrative_event = {
 			trait = zombie
 			trait = demon_trait
 			trait = ethereal_trait
-			trait = philosophers_stone_trait
+			trait = philosopher_stone_trait
 		}
 	}
 

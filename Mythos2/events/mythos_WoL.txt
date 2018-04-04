@@ -2837,6 +2837,7 @@ character_event = {
 					age = 33
 					trait = rabies
 					trait = possessed
+					flag = checked_race
 				}
 				new_character = {
 					imprison = ROOT
@@ -2866,6 +2867,7 @@ character_event = {
 					age = 33
 					trait = rabies
 					trait = possessed
+					flag = checked_race
 				}
 				new_character = {
 					imprison = ROOT
@@ -3150,6 +3152,7 @@ character_event = {
 			female = no
 			age = 33
 			trait = possessed
+			flag = checked_race
 		}
 		new_character = {
 			imprison = ROOT
@@ -3221,6 +3224,7 @@ character_event = {
 			age = 7
 			trait = rowdy
 			trait = pup
+			flag = checked_race
 		}
 		new_character = {
 			set_variable = { which = control value = 4 }
@@ -3570,15 +3574,20 @@ character_event = {
 				}
 				set_variable = { which = local_effect value = 1 }
 			}
-			100 = {
+			200 = {
 				modifier = {
-					factor = 0.5
+					factor = 0.3
 					OR = {
 						trait = summoner
 						trait = alchemist
 						trait = enchanter
 						trait = herbalist
 					}
+				}
+				modifier = {
+					factor = 0.5
+					lifestyle_traits = 1
+					has_character_modifier = magic_study_2
 				}
 				set_variable = { which = local_effect value = 2 }
 			}
@@ -9124,7 +9133,10 @@ character_event = {
 	
 	trigger = {
 		has_focus = focus_magic
-		NOT = { lifestyle_traits  = 1 } # Alchemist version can only be done in the process of learning
+		OR = {
+			NOT = { lifestyle_traits  = 1 }
+			trait = alchemist
+		}
 		has_character_modifier = studying_alchemy
 		NOT = { has_artifact = panacea }
 		prisoner = no
@@ -13551,6 +13563,8 @@ character_event = {
 			culture = demon_culture
 			dynasty = random
 			immortal_age = 30
+			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_character_flag = summoned_demon
@@ -13594,6 +13608,8 @@ character_event = {
 			culture = demon_culture
 			dynasty = random
 			immortal_age = 30
+			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_character_flag = summoned_demon
@@ -13639,6 +13655,8 @@ character_event = {
 			culture = demon_culture
 			dynasty = random
 			immortal_age = 30
+			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_character_flag = summoned_demon

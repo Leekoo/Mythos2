@@ -466,6 +466,15 @@ character_event = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
 			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
 			break = yes
 		}
 		if = {
@@ -482,6 +491,15 @@ character_event = {
 			if = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
 			}
 		}
 	}
@@ -611,6 +629,15 @@ character_event = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
 			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
+			}
 			break = yes
 		}
 		if = {
@@ -626,6 +653,15 @@ character_event = {
 			if = {
 				limit = { NOT = { has_dlc = "Reapers" } }
 				add_trait = ill
+			}
+			hidden_tooltip = {
+				if = {
+					limit = { has_nickname = no }
+					random = {
+						chance = 30
+						give_nickname = nick_the_sleeper
+					}
+				}
 			}
 		}
 	}
@@ -3077,6 +3113,7 @@ character_event = {
 			trait = midas_touched
 			trait = greedy
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			if = {
@@ -3129,7 +3166,9 @@ character_event = {
 			trait = giant
 			trait = brilliant_strategist
 			trait = wroth
+			trait = size_2
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			if = {
@@ -3196,6 +3235,7 @@ character_event = {
 			trait = zealous
 			trait = cruel
 			flag = summoned_creature
+			flag = checked_race
 			immortal_age = 30
 		}
 		new_character = {
@@ -3256,6 +3296,7 @@ character_event = {
 			trait = chaste
 			trait = shy
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_graphical_culture = ethereal_culture
@@ -3305,6 +3346,7 @@ character_event = {
 			trait = wroth
 			trait = patient
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_graphical_culture = bedouin_arabic
@@ -3367,6 +3409,7 @@ character_event = {
 			trait = hunter
 			trait = patient
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			set_graphical_culture = bedouin_arabic
@@ -3423,6 +3466,7 @@ character_event = {
 			trait = stubborn
 			trait = aggressive_leader
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			if = {
@@ -3482,6 +3526,7 @@ character_event = {
 			trait = robust
 			trait = patient
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			culture = ROOT
@@ -3533,6 +3578,7 @@ character_event = {
 			trait = seducer
 			trait = cruel
 			flag = summoned_creature
+			flag = checked_race
 			immortal_age = 37
 		}
 		new_character = {
@@ -3587,6 +3633,7 @@ character_event = {
 			trait = kind
 			trait = zealous
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			if = {
@@ -3639,6 +3686,7 @@ character_event = {
 			trait = zombie
 			trait = brilliant_strategist
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			random_list = {
@@ -3827,6 +3875,7 @@ character_event = {
 			trait = gluttonous
 			trait = proud
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			if = {
@@ -3866,6 +3915,7 @@ character_event = {
 			trait = cruel
 			trait = ambitious
 			flag = summoned_creature
+			flag = checked_race
 			immortal_age = 37
 		}
 	}
@@ -3899,6 +3949,7 @@ character_event = {
 			trait = erudite
 			trait = zealous
 			flag = summoned_creature
+			flag = checked_race
 		}
 		new_character = {
 			random_list = {
@@ -4072,6 +4123,7 @@ character_event = {
 				trait = brave
 				trait = stubborn
 				flag = summoned_creature
+				flag = checked_race
 			}
 			new_character = {
 				hidden_tooltip = {
@@ -4101,6 +4153,7 @@ character_event = {
 				trait = misguided_warrior
 				flag = summoned_creature
 				flag = plague_bearer
+				flag = checked_race
 			}
 			new_character = {
 				add_character_modifier = {
@@ -4436,6 +4489,7 @@ character_event = {
 			trait = gregarious
 			flag = summoned_creature
 			flag = plague_bearer
+			flag = checked_race
 		}
 		new_character = {
 			if = {

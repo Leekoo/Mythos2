@@ -30,7 +30,11 @@ feudal_governments = {
 				NOT = { religion = jotnar_reformed }
 				NOT = { religion = roman_pagan }
 			}
-			NOT = { culture = vampire_culture }
+			NAND = {
+				culture = vampire_culture
+				has_dlc = "Zeus"
+				higher_tier_than = BARON
+			}
 			NAND = {
 				culture = draconic
 				OR = {
@@ -253,7 +257,10 @@ feudal_governments = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			controls_religion = no
+			OR = {
+				controls_religion = no
+				NOT = { religion = draconic_pagan_reformed }
+			}
 			religion_group = pagan_group
 			is_patrician = no
 		}
