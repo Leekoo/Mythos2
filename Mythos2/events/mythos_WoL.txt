@@ -14182,3 +14182,86 @@ character_event = {
 		}
 	}
 }
+
+# Make Zeus seduce someone else, outside of current court
+character_event = {
+	id = MYTH_WoL.196
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	only_men = yes
+	only_capable = yes
+	has_dlc = "Way of Life"
+	ai = yes
+	has_character_flag = greek_god_zeus
+		
+	trigger = {
+		has_focus = focus_seduction
+		OR = {
+			has_character_flag = seduction_confirmed
+			has_any_opinion_modifier = opinion_seducing
+		}
+	}
+	
+	immediate = {
+		# Remove current seduction target
+		random_opinion_modifier_target = {
+			limit = {
+				ROOT = {
+					has_opinion_modifier = {
+						who = PREV
+						modifier = opinion_seducing
+					}
+				}
+			}
+			remove_opinion = {
+				who = event_target:target_seduced
+				modifier = opinion_seducing
+			}
+			
+			clear_delayed_event = { id = WoL.110 }
+		
+			clr_character_flag = wol_seduce_love_letter
+			clr_character_flag = wol_seduce_gift
+			clr_character_flag = wol_seduce_gossip
+			clr_character_flag = wol_seduce_dance
+			clr_character_flag = wol_seduce_chance_meeting
+			clr_character_flag = wol_seduce_picnic
+			clr_character_flag = seduction_confirmed
+		}
+		
+		# Seduce someone new
+		random_character = {
+			limit = {
+				is_marriage_adult = yes
+				NOT = { character = ROOT }
+				NOT = { trait = incapable }
+				prisoner = no
+				NOT = { is_lover = ROOT }
+				NOT = { is_former_lover = ROOT }
+				
+				NOT = { is_consort = ROOT }
+				NOT = { any_spouse = { character = ROOT } }
+				NOT = { same_sex = ROOT }
+				NOT = { top_liege = { character = ROOT } }
+				NOT = { same_liege = ROOT }
+				NOT = { at_location = ROOT }
+				NOR = {
+					has_opinion_modifier = { who = ROOT modifier = opinion_seduced_refused }
+					has_character_modifier = dismissed_proposal
+				}
+				NOT = { trait = celibate }
+				religion_group = ROOT
+				is_within_diplo_range = ROOT
+			}
+			ROOT = {
+				opinion = {
+					who = PREV
+					modifier = opinion_seducing
+					years = 1000
+				}
+			}
+		}
+	}
+}
