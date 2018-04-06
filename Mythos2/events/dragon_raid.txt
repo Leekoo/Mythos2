@@ -344,7 +344,7 @@ character_event = {
 					has_severe_disability_trigger = yes
 				}
 				check_variable = { which = local_wounded which = draconic_raid_hp } # More wounds than health
-				random = 20 # 20% Chance
+				random = 5 # 5% Chance
 			}
 			set_character_flag = died_in_raid
 			character_event = { id = DRAGON.117 }
@@ -439,7 +439,7 @@ character_event = {
 					has_severe_disability_trigger = yes
 				}
 				check_variable = { which = local_wounded which = draconic_raid_hp } # More wounds than health
-				random = 20 # 20% Chance
+				random = 5 # 5% Chance
 			}
 			set_character_flag = died_in_raid
 			character_event = { id = DRAGON.117 }
@@ -1179,7 +1179,7 @@ character_event = {
 			clear_dragon_raid_variables_flags = yes
 		}
 		ai_chance = {
-			factor = 2
+			factor = 1
 			modifier = {
 				factor = 2
 				trait = cruel
@@ -2051,7 +2051,7 @@ character_event = {
 			clear_dragon_raid_variables_flags = yes
 		}
 		ai_chance = {
-			factor = 2
+			factor = 1
 			modifier = {
 				factor = 2
 				trait = cruel
