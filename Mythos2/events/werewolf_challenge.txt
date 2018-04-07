@@ -1033,7 +1033,7 @@ character_event = {
 	
 	# Go for it!
 	option = {
-		limit = { NOT = { has_character_flag = facing_challenge } }
+		trigger = { NOT = { has_character_flag = facing_challenge } }
 		name = EVTOPTA_CHALLENGE.15
 		custom_tooltip = { text = TT_challenge_challenger }
 		hidden_tooltip = {
