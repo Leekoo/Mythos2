@@ -8240,7 +8240,10 @@ character_event = {
 				}
 			}
 		}
-		else = {
+		else_if = {
+			# Chance to not occur at all, since this is more likely to target a dragon
+			limit = {
+			}
 			random_realm_character = {
 				limit = { is_incapable = no }
 				if = {
