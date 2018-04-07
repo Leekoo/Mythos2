@@ -523,14 +523,14 @@ character_event = {
 				3 = {
 					modifier = {
 						factor = 0
-						has_character_flag = vampire_feed_kill
+						NOT = { has_character_flag = vampire_feed_kill }
 					}
 					set_character_flag = vf_stat
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						has_character_flag = vampire_feed_kill
+						NOT = { has_character_flag = vampire_feed_kill }
 					}
 					set_character_flag = vf_heal
 					set_character_flag = vf_stat
