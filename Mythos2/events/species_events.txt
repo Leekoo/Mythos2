@@ -221,6 +221,14 @@ character_event = {
 					1 = {
 						add_trait = dragonborn
 						remove_trait = dragon
+						modifier = {
+							factor = 3
+							has_game_rule = { name = breeding value = more }
+						}
+						modifier = {
+							factor = 0.5
+							has_game_rule = { name = breeding value = fewer }
+						}
 					}
 					9 = {
 						remove_trait = dragonborn
