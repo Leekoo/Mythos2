@@ -447,8 +447,17 @@ character_event = {
 		trigger = {
 			has_character_flag = vampire_feed_kill
 			has_character_flag = vampire_feed_escape
+			has_character_flag = vf_heal
 		}
-		text = EVTDESC_VAMPIRE.9
+		text = EVTDESC_VAMPIRE.9a
+	}
+	desc = {
+		trigger = {
+			has_character_flag = vampire_feed_kill
+			has_character_flag = vampire_feed_escape
+			NOT = { has_character_flag = vf_heal }
+		}
+		text = EVTDESC_VAMPIRE.9b
 	}
 	desc = {
 		trigger = {
