@@ -2563,6 +2563,28 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
+				factor = 0
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan_reformed
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
+				factor = 0.25
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
 				factor = 1.5
 				FROM = { ai_ambition = 40 }
 			}

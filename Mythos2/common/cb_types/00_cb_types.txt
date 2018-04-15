@@ -2795,6 +2795,32 @@ invasion = {
 	defender_ai_defeat_worth = {
 		factor = 100
 	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+	}
 }
 
 tribal_invasion = {
@@ -3174,6 +3200,28 @@ tribal_invasion = {
 			}
 			FROM = {
 				has_landed_title = e_china_west_governor
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
@@ -5889,6 +5937,32 @@ coastal_republic = {
 	defender_ai_defeat_worth = {
 		factor = 50
 	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+	}
 }
 
 coastal_county_republic = {
@@ -6098,6 +6172,32 @@ coastal_county_republic = {
 	
 	defender_ai_defeat_worth = {
 		factor = 100
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -10080,6 +10180,17 @@ pagan_county_conquest = {
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -10419,6 +10530,28 @@ dejure_county_claim = {
 			}
 			FROM = {
 				has_landed_title = e_china_west_governor
+			}
+		}
+		modifier = {
+			factor = 0.05
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
@@ -13118,6 +13251,29 @@ tributary_cb = {
 				trait = greedy
 			}
 		}
+		
+		modifier = {
+			factor = 0.1
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -14448,6 +14604,28 @@ nomad_subjugation = {
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -14787,6 +14965,28 @@ nomad_invasion = {
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -15097,6 +15297,28 @@ nomad_expansion = {
 			}
 			FROM = {
 				has_landed_title = e_china_west_governor
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
