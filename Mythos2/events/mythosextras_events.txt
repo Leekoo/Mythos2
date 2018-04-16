@@ -1611,3 +1611,43 @@ character_event = {
 		give_nickname = nick_the_posthumous
 	}
 }
+# MYTHMORE.38 - Alchemy critical failure
+character_event = {
+	id = MYTHMORE.38
+	desc = EVTDESC_MYTHMORE.38
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.38
+		clear_wealth = yes
+		capital_scope = {
+			set_variable = { which = prosperity_value value = 0 }
+			random = {
+				chance = 75 #chance to lower by 1 step
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_1
+					}
+					remove_province_modifier = prosperity_modifier_1
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_2
+					}
+					remove_province_modifier = prosperity_modifier_2
+					add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_3
+					}
+					remove_province_modifier = prosperity_modifier_3
+					add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+				}
+			}
+		}
+	}
+}
