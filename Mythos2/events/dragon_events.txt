@@ -8217,54 +8217,58 @@ character_event = {
 	
 	immediate = {
 		# Independent dragons usually rival other independent dragons
-		if = {
-			limit = {
-				independent = yes
-				random = 90
-			}
-			random_independent_ruler = {
-				if = {
-					limit = {
-						trait = dragon
-						NOR = { 
-							is_rival = ROOT
-							is_close_relative = ROOT
-							is_cousin_of = ROOT
-							is_friend = ROOT
-							is_lover = ROOT
-							is_nibling_of = ROOT
-							any_spouse = { character = ROOT }
+		random_list = {
+			7 = {
+				trigger = {
+					independent = yes
+				}
+				random_independent_ruler = {
+					if = {
+						limit = {
+							trait = dragon
+							is_adult = yes
+							NOR = { 
+								is_rival = ROOT
+								is_close_relative = ROOT
+								is_cousin_of = ROOT
+								is_friend = ROOT
+								is_lover = ROOT
+								is_nibling_of = ROOT
+								any_spouse = { character = ROOT }
+							}
 						}
+						character_event = { id = DRAGON.151 }
 					}
-					character_event = { id = DRAGON.151 }
 				}
 			}
-		}
-		else = {
-			random_realm_character = {
-				limit = { is_incapable = no }
-				if = {
-					limit = {
-						trait = dragon
-						NOR = { 
-							is_rival = ROOT
-							is_close_relative = ROOT
-							is_cousin_of = ROOT
-							is_friend = ROOT
-							is_lover = ROOT
-							is_nibling_of = ROOT
-							any_spouse = { character = ROOT }
+			1 = {
+				random_realm_character = {
+					limit = { is_incapable = no }
+					if = {
+						limit = {
+							trait = dragon
+							is_adult = yes
+							NOR = { 
+								is_rival = ROOT
+								is_close_relative = ROOT
+								is_cousin_of = ROOT
+								is_friend = ROOT
+								is_lover = ROOT
+								is_nibling_of = ROOT
+								any_spouse = { character = ROOT }
+							}
+							# Liege or same liege
+							OR = {
+								liege = { character = ROOT }
+								is_liege_of = ROOT
+								same_liege = ROOT
+							}
 						}
-						# Liege or same liege
-						OR = {
-							liege = { character = ROOT }
-							is_liege_of = ROOT
-							same_liege = ROOT
-						}
+						character_event = { id = DRAGON.151 }
 					}
-					character_event = { id = DRAGON.151 }
 				}
 			}
+			2 = {}
 		}
 	}
 }

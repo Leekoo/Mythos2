@@ -407,6 +407,28 @@ dejure_duchy_claim = { # New1
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -831,8 +853,30 @@ great_realm_conflict = { # New3
 		factor = 100
 	}
 	
-	ai_will_do = { 
+	ai_will_do = {
 		factor = 1
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -1071,6 +1115,28 @@ ducal_county_conquest = { # New4
 			factor = 0
 			ROOT = {
 				NOT = { scaled_wealth = 1.25 }
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
@@ -2498,6 +2564,28 @@ unjust_conquest = { # New7
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -2821,6 +2909,28 @@ tributary_permanent_cb = { # New8
 		
 		modifier = {
 			factor = 0.5  # Low prio CB
+		}
+		modifier = {
+			factor = 0.1
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
 		}
 	}
 }
@@ -3256,6 +3366,29 @@ tributary_nomad_cb = { # New9
 			factor = 0
 			ROOT = {
 				has_landed_title = e_mongol_empire
+			}
+		}
+		
+		modifier = {
+			factor = 0.1
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}

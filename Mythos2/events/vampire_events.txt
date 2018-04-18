@@ -447,8 +447,17 @@ character_event = {
 		trigger = {
 			has_character_flag = vampire_feed_kill
 			has_character_flag = vampire_feed_escape
+			has_character_flag = vf_heal
 		}
-		text = EVTDESC_VAMPIRE.9
+		text = EVTDESC_VAMPIRE.9a
+	}
+	desc = {
+		trigger = {
+			has_character_flag = vampire_feed_kill
+			has_character_flag = vampire_feed_escape
+			NOT = { has_character_flag = vf_heal }
+		}
+		text = EVTDESC_VAMPIRE.9b
 	}
 	desc = {
 		trigger = {
@@ -523,14 +532,14 @@ character_event = {
 				3 = {
 					modifier = {
 						factor = 0
-						has_character_flag = vampire_feed_kill
+						NOT = { has_character_flag = vampire_feed_kill }
 					}
 					set_character_flag = vf_stat
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						has_character_flag = vampire_feed_kill
+						NOT = { has_character_flag = vampire_feed_kill }
 					}
 					set_character_flag = vf_heal
 					set_character_flag = vf_stat
@@ -10918,6 +10927,7 @@ character_event = {
 			limit = {
 				is_incapable = no
 				trait = vampire
+				is_adult = yes
 				NOR = { 
 					is_rival = ROOT
 					is_close_relative = ROOT

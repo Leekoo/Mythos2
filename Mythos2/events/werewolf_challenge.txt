@@ -1033,7 +1033,7 @@ character_event = {
 	
 	# Go for it!
 	option = {
-		limit = { NOT = { has_character_flag = facing_challenge } }
+		trigger = { NOT = { has_character_flag = facing_challenge } }
 		name = EVTOPTA_CHALLENGE.15
 		custom_tooltip = { text = TT_challenge_challenger }
 		hidden_tooltip = {
@@ -2040,7 +2040,7 @@ character_event = {
 					trait = shy
 				}
 				set_character_flag = event_secret_werewolf
-				character_event = { id = CHALLENGE.30 days = 1}
+				repeat_event = { id = CHALLENGE.30 days = 1}
 			}
 			# Low Control
 			2 = {
@@ -2062,7 +2062,7 @@ character_event = {
 					check_variable = { which = control value == 1 }
 				}
 				set_character_flag = event_berserk
-				character_event = { id = CHALLENGE.31 days = 1 }
+				repeat_event = { id = CHALLENGE.31 days = 1 }
 			}
 			# Untransformed werewolf can take turn to transform
 			1 = {
@@ -2082,7 +2082,7 @@ character_event = {
 					check_variable = { which = control value = 3 }
 				}
 				set_character_flag = event_transform
-				character_event = { id = CHALLENGE.87 days = 1 }
+				repeat_event = { id = CHALLENGE.87 days = 1 }
 			}
 			# Standard face-off. Most common
 			4 = {
@@ -2095,7 +2095,7 @@ character_event = {
 					check_variable = { which = combat_hp value = 30 }
 				}
 				set_character_flag = event_normal
-				character_event = { id = CHALLENGE.32 days = 1 }
+				repeat_event = { id = CHALLENGE.32 days = 1 }
 			}
 			# Opponent has poor footing
 			1 = {
@@ -2145,7 +2145,7 @@ character_event = {
 					trait = blinded
 				}
 				set_character_flag = event_poor_footing
-				character_event = { id = CHALLENGE.33 days = 1 }
+				repeat_event = { id = CHALLENGE.33 days = 1 }
 			}
 			# Opponent is wounded
 			2 = {
@@ -2175,7 +2175,7 @@ character_event = {
 					event_target:second_turn = { NOT = { check_variable = { which = combat_hp value = 10 } } }
 				}
 				set_character_flag = event_opponent_wounded
-				character_event = { id = CHALLENGE.34 days = 1 }
+				repeat_event = { id = CHALLENGE.34 days = 1 }
 			}
 			# You are wounded
 			2 = {
@@ -2203,7 +2203,7 @@ character_event = {
 					NOT = { check_variable = { which = combat_hp value = 10 } }
 				}
 				set_character_flag = event_wounded
-				character_event = { id = CHALLENGE.35 days = 1 }
+				repeat_event = { id = CHALLENGE.35 days = 1 }
 			}
 			# Magic
 			2 = {
@@ -2228,7 +2228,7 @@ character_event = {
 					}
 				}
 				set_character_flag = event_magic
-				character_event = { id = CHALLENGE.36 days = 1 }
+				repeat_event = { id = CHALLENGE.36 days = 1 }
 			}
 			# Tired
 			1 = {
@@ -2275,7 +2275,7 @@ character_event = {
 					}
 				}
 				set_character_flag = event_tired
-				character_event = { id = CHALLENGE.37 days = 1 }
+				repeat_event = { id = CHALLENGE.37 days = 1 }
 			}
 			# Sabotage by supporter
 			1 = {
@@ -2312,7 +2312,7 @@ character_event = {
 					check_variable = { which = supporters value = 23 }
 				}
 				set_character_flag = event_sabotage
-				character_event = { id = CHALLENGE.38 days = 1 }
+				repeat_event = { id = CHALLENGE.38 days = 1 }
 			}
 			# Intimidated
 			1 = {
@@ -2349,7 +2349,7 @@ character_event = {
 					NOT = { check_variable = { which = combat_morale value = -5 } }
 				}
 				set_character_flag = event_intimidated
-				character_event = { id = CHALLENGE.39 days = 1 }
+				repeat_event = { id = CHALLENGE.39 days = 1 }
 			}
 		}
 	}
@@ -2485,7 +2485,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -2547,7 +2547,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -2933,7 +2933,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3055,7 +3055,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3156,7 +3156,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3259,7 +3259,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3384,7 +3384,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3428,7 +3428,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3529,7 +3529,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -3689,7 +3689,7 @@ character_event = {
 				save_event_target_as = current_turn
 				event_target:second_turn = { save_event_target_as = enemy_turn }
 				# Call event to calculate turn result
-				character_event = { id = CHALLENGE.78 days = 1 }
+				repeat_event = { id = CHALLENGE.78 days = 1 }
 			}
 		}
 	}
@@ -4915,7 +4915,7 @@ character_event = {
 					trait = shy
 				}
 				set_character_flag = event_secret_werewolf
-				character_event = { id = CHALLENGE.43 days = 1 }
+				repeat_event = { id = CHALLENGE.43 days = 1 }
 			}
 			# Reserved for low control
 			2 = {
@@ -4937,7 +4937,7 @@ character_event = {
 					check_variable = { which = control value == 1 }
 				}
 				set_character_flag = event_berserk
-				character_event = { id = CHALLENGE.44 days = 1 }
+				repeat_event = { id = CHALLENGE.44 days = 1 }
 			}
 			# Untransformed werewolf can take turn to transform
 			1 = {
@@ -4957,7 +4957,7 @@ character_event = {
 					check_variable = { which = control value = 3 }
 				}
 				set_character_flag = event_transform
-				character_event = { id = CHALLENGE.88 days = 1 }
+				repeat_event = { id = CHALLENGE.88 days = 1 }
 			}
 			# Take advantage of miss
 			8 = {
@@ -5007,7 +5007,7 @@ character_event = {
 					trait = blinded
 				}
 				set_character_flag = event_advantage_miss
-				character_event = { id = CHALLENGE.45 days = 1 }
+				repeat_event = { id = CHALLENGE.45 days = 1 }
 			}
 			# Opponent defending
 			8 = {
@@ -5029,7 +5029,7 @@ character_event = {
 					}
 				}
 				set_character_flag = event_overcome_defense
-				character_event = { id = CHALLENGE.46 days = 1 }
+				repeat_event = { id = CHALLENGE.46 days = 1 }
 			}
 			# Opponent swung wide
 			16 = {
@@ -5079,7 +5079,7 @@ character_event = {
 					trait = blinded
 				}
 				set_character_flag = event_advantage_wide
-				character_event = { id = CHALLENGE.47 days = 1 }
+				repeat_event = { id = CHALLENGE.47 days = 1 }
 			}
 			# Standard round
 			4 = {
@@ -5097,7 +5097,7 @@ character_event = {
 					trait = stubborn
 				}
 				set_character_flag = event_normal
-				character_event = { id = CHALLENGE.48 days = 1 }
+				repeat_event = { id = CHALLENGE.48 days = 1 }
 			}
 			# Attacker has poor footing
 			1 = {
@@ -5159,7 +5159,7 @@ character_event = {
 					trait = blinded
 				}
 				set_character_flag = event_poor_footing
-				character_event = { id = CHALLENGE.49 days = 1 }
+				repeat_event = { id = CHALLENGE.49 days = 1 }
 			}
 			# Intimidated
 			1 = {
@@ -5196,7 +5196,7 @@ character_event = {
 					NOT = { check_variable = { which = combat_morale value = -5 } }
 				}
 				set_character_flag = event_intimidated
-				character_event = { id = CHALLENGE.50 days = 1 }
+				repeat_event = { id = CHALLENGE.50 days = 1 }
 			}
 			# Wounded
 			2 = {
@@ -5234,7 +5234,7 @@ character_event = {
 					has_character_flag = status_pain
 				}
 				set_character_flag = event_wounded
-				character_event = { id = CHALLENGE.51 days = 1 }
+				repeat_event = { id = CHALLENGE.51 days = 1 }
 			}
 			# Opponent wounded
 			2 = {
@@ -5270,7 +5270,7 @@ character_event = {
 					event_target:first_turn = { NOT = { check_variable = { which = combat_hp value = 10 } } }
 				}
 				set_character_flag = event_opponent_wounded
-				character_event = { id = CHALLENGE.52 days = 1 }
+				repeat_event = { id = CHALLENGE.52 days = 1 }
 			}
 			# Magic
 			2 = {
@@ -5301,7 +5301,7 @@ character_event = {
 					}
 				}
 				set_character_flag = event_magic
-				character_event = { id = CHALLENGE.53 days = 1 }
+				repeat_event = { id = CHALLENGE.53 days = 1 }
 			}
 			# Tired
 			1 = {
@@ -5352,7 +5352,7 @@ character_event = {
 					has_character_flag = status_pain
 				}
 				set_character_flag = event_tired
-				character_event = { id = CHALLENGE.54 days = 1 }
+				repeat_event = { id = CHALLENGE.54 days = 1 }
 			}
 			# Sabotage by supporter
 			1 = {
@@ -5389,7 +5389,7 @@ character_event = {
 					check_variable = { which = supporters value = 23 }
 				}
 				set_character_flag = event_sabotage
-				character_event = { id = CHALLENGE.55 days = 1 }
+				repeat_event = { id = CHALLENGE.55 days = 1 }
 			}
 		}
 	}
@@ -5509,7 +5509,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -5571,7 +5571,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -5613,7 +5613,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -5727,7 +5727,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -5806,7 +5806,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6019,7 +6019,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6141,7 +6141,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6301,7 +6301,7 @@ character_event = {
 				save_event_target_as = current_turn
 				event_target:first_turn = { save_event_target_as = enemy_turn }
 				# Call event to calculate turn result
-				character_event = { id = CHALLENGE.78 days = 1 }
+				repeat_event = { id = CHALLENGE.78 days = 1 }
 			}
 		}
 	}
@@ -6372,7 +6372,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6473,7 +6473,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6598,7 +6598,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6642,7 +6642,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6744,7 +6744,7 @@ character_event = {
 			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
-			character_event = { id = CHALLENGE.78 days = 1 }
+			repeat_event = { id = CHALLENGE.78 days = 1 }
 		}
 	}
 }
@@ -6803,7 +6803,7 @@ character_event = {
 				limit = {
 					NOT = { character = event_target:champion }
 				}
-				character_event = { id = CHALLENGE.77 days = 1 }
+				repeat_event = { id = CHALLENGE.77 days = 1 }
 			}
 			break = yes
 		}
@@ -6814,7 +6814,7 @@ character_event = {
 					NOT = { check_variable = { which = combat_hp value = 0 } }
 				}
 			}
-			character_event = { id = CHALLENGE.60 days = 1 }
+			repeat_event = { id = CHALLENGE.60 days = 1 }
 			break = yes
 		}
 		# Champion wins
@@ -6824,7 +6824,7 @@ character_event = {
 					NOT = { check_variable = { which = combat_hp value = 0 } }
 				}
 			}
-			character_event = { id = CHALLENGE.65 days = 1 }
+			repeat_event = { id = CHALLENGE.65 days = 1 }
 			break = yes
 		}
 		# The fight continues. Each party has a chance to be injured.  Don't break after this.
@@ -7032,7 +7032,7 @@ character_event = {
 			}
 		}
 		# Neither feel weak - loop to the next round
-		character_event = { id = CHALLENGE.28 days = 2 }
+		repeat_event = { id = CHALLENGE.28 days = 2 }
 	}
 }
 

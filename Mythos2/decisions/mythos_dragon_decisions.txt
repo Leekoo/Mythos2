@@ -2563,6 +2563,28 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
+				factor = 0
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan_reformed
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
+				factor = 0.25
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
 				factor = 1.5
 				FROM = { ai_ambition = 40 }
 			}
@@ -2610,9 +2632,9 @@ targetted_decisions = {
 		}
 		allow = {
 			FROM = {
-				wealth = 1
+				wealth = 10
 			}
-			wealth = 1
+			wealth = 10
 			NOR = { 
 				has_opinion_modifier = { who = FROM modifier = opinion_ally }
 				has_opinion_modifier = { who = FROM modifier = opinion_at_war }
@@ -2627,7 +2649,7 @@ targetted_decisions = {
 			opinion = { who = FROM modifier = opinion_raided years = 2 }
 		}
 		ai_will_do = {
-			factor = 0.05
+			factor = 0.02
 			modifier = {
 				factor = 2
 				FROM = { trait = wroth }
@@ -2693,7 +2715,7 @@ targetted_decisions = {
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.5
 				has_injury_trigger = yes
 			}
 			modifier = {
@@ -2712,7 +2734,7 @@ targetted_decisions = {
 				trait = craven
 			}
 			modifier = {
-				factor = 2
+				factor = 1.5
 				is_maimed_trigger = yes
 			}
 			modifier = {

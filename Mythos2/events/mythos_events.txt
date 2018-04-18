@@ -152,7 +152,7 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTAMYTH.2"
-		scaled_wealth = { value = -2 min = -20 max = -300 }
+		scaled_wealth = { value = -2 min = -20 max = -500 }
 	}
 }
 # Summoning Success
@@ -1968,6 +1968,11 @@ character_event = {
 	weight_multiplier = { days = 100 }
 	option = {
 		name = "EVTOPTAMYTH.34"
+		# Remove anything blocking seduction
+		remove_trait = celibate
+		remove_trait = eunuch
+		remove_trait = chaste
+		
 		set_focus = focus_seduction
 	}
 }
