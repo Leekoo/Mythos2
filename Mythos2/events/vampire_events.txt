@@ -420,6 +420,7 @@ letter_event = {
 			limit = { NOT = { trait = known_vampire } }
 			add_trait = known_vampire
 			hidden_tooltip = { 
+				remove_character_modifier = known_monster
 				remove_trait = secret_vampire
 			}
 			any_realm_character = { character_event = { id = VAMPIRE.23 } } # Court finds out character is a werewolf
@@ -1799,6 +1800,7 @@ character_event = {
 					remove_trait = secret_vampire
 				}
 				add_trait = known_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				FROMFROM = { save_event_target_as = target_victim }
 				if = {
 					limit = { has_character_flag = vampire_feed_kill }
@@ -2579,6 +2581,7 @@ character_event = {
 		}
 		add_trait = known_vampire
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			remove_trait = secret_vampire
 		}
 	}
@@ -3366,6 +3369,7 @@ character_event = {
 	option = { # Refuse and get exposed
 		name = EVTOPTB_VAMPIRE.22
 		add_trait = known_vampire
+		hidden_tooltip = { remove_character_modifier = known_monster }
 		any_realm_character = { character_event = { id = VAMPIRE.23 } }
 		FROM = {
 			opinion = { 
@@ -3582,6 +3586,7 @@ character_event = {
 		}
 		remove_trait = secret_vampire
 		add_trait = known_vampire
+		hidden_tooltip = { remove_character_modifier = known_monster }
 	}
 }
 
@@ -3611,6 +3616,7 @@ character_event = {
 		}
 		remove_trait = secret_vampire
 		add_trait = known_vampire
+		hidden_tooltip = { remove_character_modifier = known_monster }
 	}
 }
 
@@ -3732,6 +3738,7 @@ character_event = {
 		add_trait = known_vampire
 		hidden_tooltip = {
 			remove_trait = secret_vampire
+			remove_character_modifier = known_monster
 		}
 		any_realm_character = { character_event = { id = VAMPIRE.23 } }
 	}
@@ -4240,6 +4247,7 @@ character_event = {
 			add_trait = known_vampire
 			hidden_tooltip = { 
 				remove_trait = secret_vampire
+				remove_character_modifier = known_monster
 				any_realm_character = {
 					limit = { NOT = { character = ROOT } }
 					character_event = { id = VAMPIRE.23 }
@@ -4265,6 +4273,7 @@ character_event = {
 			add_trait = known_vampire
 			hidden_tooltip = { 
 				remove_trait = secret_vampire
+				remove_character_modifier = known_monster
 				any_realm_character = {
 					limit = { NOT = { character = ROOT } }
 					character_event = { id = VAMPIRE.23 }
@@ -4490,6 +4499,7 @@ character_event = {
 		tooltip = {
 			FROMFROM = {
 				add_trait = known_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				imprison = no
 			}
 		}
@@ -4514,6 +4524,7 @@ character_event = {
 		prisoner = no
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			any_realm_character = {
 				character_event = { id = WEREWOLF.33 }
 			}

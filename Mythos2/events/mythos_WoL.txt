@@ -826,6 +826,7 @@ character_event = {
 		}
 		add_trait = known_werewolf
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			remove_trait = secret_werewolf
 		}
 	}
@@ -1001,6 +1002,7 @@ character_event = {
 		add_trait = known_werewolf
 		increase_control = yes
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			event_target:target_discovered_werewolf = { character_event = { id = MYTH_WoL.14 days = 1 } }
 			any_realm_character = { character_event = { id = MYTH_WoL.15 days = 1 } } # Court finds out character is a werewolf
 			liege = { character_event = { id = MYTH_WoL.15 days = 1} } # Liege finds out character is a werewolf
@@ -1888,6 +1890,7 @@ character_event = {
 	option = { # Refuse and get exposed
 		name = EVTOPTB_MYTH_WoL.19
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
 		any_realm_character = { character_event = { id = WEREWOLF.33 } }
 		FROM = {
 			opinion = { 

@@ -172,6 +172,7 @@ character_event = {
 		prestige = 20
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			event_target:challenger = {
 				character_event = { id = CHALLENGE.6 }
 			}
@@ -202,6 +203,7 @@ character_event = {
 		prestige = 20
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			event_target:challenger = {
 				character_event = { id = CHALLENGE.7 }
 			}
@@ -2371,6 +2373,7 @@ character_event = {
 		add_trait = known_werewolf
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			set_character_flag = choice_shift_attack
 		}
 		custom_tooltip = {
@@ -5411,6 +5414,7 @@ character_event = {
 		add_trait = known_werewolf
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			set_character_flag = choice_shift_attack
 		}
 		custom_tooltip = {
@@ -8454,7 +8458,10 @@ character_event = {
 		if = {
 			limit = { trait = secret_werewolf }
 			add_trait = known_werewolf
-			hidden_tooltip = { remove_trait = secret_werewolf }
+			hidden_tooltip = {
+				remove_character_modifier = known_monster
+				remove_trait = secret_werewolf
+			}
 		}
 		if = {
 			limit = { check_variable = { which = control value <= 3 } }
@@ -8524,7 +8531,10 @@ character_event = {
 		if = {
 			limit = { trait = secret_werewolf }
 			add_trait = known_werewolf
-			hidden_tooltip = { remove_trait = secret_werewolf }
+			hidden_tooltip = {
+				remove_character_modifier = known_monster
+				remove_trait = secret_werewolf
+			}
 		}
 		if = {
 			limit = { check_variable = { which = control value <= 3 } }
