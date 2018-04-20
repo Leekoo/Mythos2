@@ -2,6 +2,9 @@ law_groups = {
 	werewolf_law = {
 		law_type = realm
 	}
+	werewolf_wait_law = {
+		law_type = realm
+	}
 }
 
 de_jure_laws = {
@@ -134,9 +137,6 @@ laws = {
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_INFAMOUS
 				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_2
-				}
 			}
 			if = {
 				limit = {
@@ -147,9 +147,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_2
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -167,9 +164,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_2
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -190,9 +184,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_2
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -282,9 +273,6 @@ laws = {
 				custom_tooltip = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_INFAMOUS
 				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_3
-				}
 			}
 			if = {
 				limit = {
@@ -292,9 +280,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_CHILD
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_3
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -309,9 +294,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_3
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -329,9 +311,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_3
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_5
@@ -435,9 +414,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_4
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
 				}
 			}
@@ -449,9 +425,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_CHILD
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_4
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
 				}
 			}
@@ -461,9 +434,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_DEFORMED
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_4
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
@@ -478,9 +448,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_4
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
@@ -600,9 +567,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_5
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
 				}
 			}
@@ -617,9 +581,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_5
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
 				}
 			}
@@ -631,9 +592,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_DEFORMED
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_5
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
 				}
 			}
@@ -643,9 +601,6 @@ laws = {
 				}
 				custom_tooltip = {
 					text = TOOLTIP_ALLOW_CHALLENGE_WEAK
-				}
-				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_5
 				}
 				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_4
@@ -725,9 +680,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_LIFE
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_3
 				}
 			}
@@ -745,9 +697,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_LIFE
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_3
 				}
 			}
@@ -762,9 +711,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_LIFE
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_3
 				}
 			}
@@ -776,9 +722,6 @@ laws = {
 					text = TOOLTIP_DISALLOW_CHALLENGE_WEAK
 				}
 				custom_tooltip = {
-					text = TOOLTIP_CHALLENGE_WAIT_LIFE
-				}
-				custom_tooltip = {
 					text = TOOLTIP_SHORT_REIGN_3
 				}
 			}
@@ -787,6 +730,544 @@ laws = {
 				revoke_law = werewolf_law_1
 				revoke_law = werewolf_law_2
 				revoke_law = werewolf_law_3
+			}
+		}
+	}
+	
+	# WEREWOLF CHALLENGE TIME RESTRICTIONS
+	######################################
+	
+	werewolf_wait_law_0 = {
+		group = werewolf_wait_law
+		
+		potential = {
+			higher_tier_than = count
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_2
+				has_law = werewolf_wait_law_3
+				has_law = werewolf_wait_law_4
+			}
+			holder_scope = { culture = werewolf_culture }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 10
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				independent = no
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_0 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_LIFE
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_NONE
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_1 = {
+		group = werewolf_wait_law
+		
+		potential = {
+			higher_tier_than = count
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_3
+				has_law = werewolf_wait_law_4
+			}
+			holder_scope = { culture = werewolf_culture }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 15
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 10
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
+			}
+			modifier = {
+				factor = 0.2
+				has_law = werewolf_wait_law_2
+				independent = no
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_0
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 50
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_0
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 60
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_1 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_10
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_3_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_2 = {
+		group = werewolf_wait_law
+		default = yes
+		
+		potential = {
+			higher_tier_than = count
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_0
+				has_law = werewolf_wait_law_4
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 7
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 4
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 20
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 25
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_1
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 30
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_2 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_5
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_6_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_3
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_3 = {
+		group = werewolf_wait_law
+		
+		potential = {
+			higher_tier_than = count
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_0
+				has_law = werewolf_wait_law_1
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 2
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_4
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				independent = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 8
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 10
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 15
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_3 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_3
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_9_MONTH
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_4
+			}
+		}
+	}
+	werewolf_wait_law_4 = {
+		group = werewolf_wait_law
+		
+		potential = {
+			higher_tier_than = count
+			holder_scope = {
+				culture = werewolf_culture
+				independent = yes
+				OR = {
+					is_feudal = yes
+					is_tribal = yes
+				}
+			}
+		}
+		allow = {
+			NOR = {
+				has_law = werewolf_wait_law_0
+				has_law = werewolf_wait_law_1
+				has_law = werewolf_wait_law_2
+			}
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0 # Don't bother changing this law without vassals
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				independent = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_3
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 4
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 8
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_law = werewolf_wait_law_2
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 12
+				}
+			}
+		}
+		pass_effect = {
+			
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_law = werewolf_wait_law_4 }
+				}
+				custom_tooltip = {
+					text = TOOLTIP_CHALLENGE_WAIT_NONE
+				}
+				custom_tooltip = {
+					text = TOOLTIP_PROTECTION_YEAR
+				}
+			}
+			hidden_tooltip = {
+				revoke_law = werewolf_wait_law_0
+				revoke_law = werewolf_wait_law_1
+				revoke_law = werewolf_wait_law_2
+				revoke_law = werewolf_wait_law_3
 			}
 		}
 	}
