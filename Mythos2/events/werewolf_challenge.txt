@@ -44,7 +44,7 @@ character_event = {
 		
 		# You are a capable adult.  You are your own champion, and the defending party
 		save_event_target_as = champion
-		save_event_target_as = defending_party
+		set_character_flag = defending_party
 		
 		# Is this a challenge just over culture or known werewolf status?
 		if = {
@@ -424,7 +424,7 @@ character_event = {
 			set_character_flag = facing_challenge
 			save_event_target_as = champion
 			event_target:challenged_party = { 
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
 			}
@@ -660,7 +660,7 @@ character_event = {
 			save_event_target_as = champion
 			event_target:challenged_party = {
 				set_character_flag = facing_challenge
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
 			}
@@ -817,7 +817,7 @@ character_event = {
 			set_character_flag = facing_challenge
 			save_event_target_as = champion
 			event_target:challenged_party = { 
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
 			}
@@ -976,7 +976,7 @@ character_event = {
 				limit = { has_character_flag = counterchallenge }
 				set_character_flag = facing_challenge
 				save_event_target_as = champion
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 			}
 		}
 		if = {
@@ -995,21 +995,21 @@ character_event = {
 				}
 				set_character_flag = facing_challenge
 				save_event_target_as = champion
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 			}
 			
 			# Alert the losers that the elders selected someone else
 			any_vassal = {
 				limit = {
 					has_character_flag = counterchallenge
-					NOT = { character = event_target:defending_party }
+					NOT = { has_character_flag = defending_party }
 				}
 				character_event = { id = CHALLENGE.28 days = 1 }
 			}
 		}
 		
 		# Alert the selected party
-		event_target:defending_party = {
+		event_target:champion = {
 			character_event = { id = CHALLENGE.27 days = 1 }
 		}
 		
@@ -1212,7 +1212,7 @@ character_event = {
 		if = {
 			limit = {
 				event_target:challenged_party = {
-					character = event_target:defending_party
+					has_character_flag = defending_party
 				}
 			}
 			character_event = { id = CHALLENGE.23 days = 1 }
@@ -1221,7 +1221,7 @@ character_event = {
 		if = {
 			limit = {
 				event_target:challenged_party = {
-					NOT = { character = event_target:defending_party }
+					NOT = { has_character_flag = defending_party }
 				}
 			}
 			character_event = { id = CHALLENGE.26 days = 1 }
@@ -1230,7 +1230,6 @@ character_event = {
 		# Clear any old support info, just in case
 		event_target:challenged_party = { set_variable = { which = supporters value = 0 } }
 		event_target:challenger = { set_variable = { which = supporters value = 0 } }
-		event_target:defending_party = { set_variable = { which = supporters value = 0 } }
 		event_target:champion = { set_variable = { which = supporters value = 0 } }
 		
 		# Alert vassals to choose who to support
@@ -1243,7 +1242,6 @@ character_event = {
 						character = event_target:challenger
 						character = event_target:challenged_party
 						character = event_target:champion
-						character = event_target:defending_party
 					}
 				}
 				character_event = { id = CHALLENGE.20 days = 1 }
@@ -1252,13 +1250,14 @@ character_event = {
 		
 		# Alert combatants of their support
 		event_target:challenger = { character_event = { id = CHALLENGE.21 days = 5 } }
-		event_target:defending_party = { character_event = { id = CHALLENGE.21 days = 5 } }
 		if = {
 			limit = {
-				event_target:defending_party = {
-					NOT = { character = event_target:champion }
-				}
+				event_target:champion = { has_character_flag = defending_party }
 			}
+			event_target:champion = { character_event = { id = CHALLENGE.21 days = 5 } }
+		}
+		else = {
+			event_target:challenged_party = { character_event = { id = CHALLENGE.21 days = 5 } }
 			event_target:champion = { character_event = { id = CHALLENGE.18 days = 5 } }
 		}
 		
@@ -1270,13 +1269,11 @@ character_event = {
 			limit = {
 				NOR = {
 					event_target:challenged_party = { always = yes }
-					event_target:defending_party = { always = yes }
 					event_target:champion = { always = yes }
 					event_target:challenger = { always = yes }
 				}
 			}
 			event_target:challenged_party = { character_event = { id = CHALLENGE.25 } }
-			event_target:defending_party = { character_event = { id = CHALLENGE.25 } }
 			event_target:champion = { character_event = { id = CHALLENGE.25 } }
 			event_target:challenger = { character_event = { id = CHALLENGE.25 } }
 		}
@@ -1290,7 +1287,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:challenged_party = {
-				character = event_target:defending_party
+				has_character_flag = defending_party
 				character = event_target:champion
 			}
 		}
@@ -1300,7 +1297,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:challenged_party = {
-				character = event_target:defending_party
+				has_character_flag = defending_party
 				NOT = { character = event_target:champion }
 			}
 		}
@@ -1310,7 +1307,7 @@ character_event = {
 	desc = {
 		trigger = {
 			event_target:challenged_party = {
-				NOT = { character = event_target:defending_party }
+				NOT = { has_character_flag = defending_party }
 			}
 		}
 		text = EVTDESCC_CHALLENGE.20
@@ -1322,7 +1319,21 @@ character_event = {
 	immediate = {
 		# Check if you are forced to support someone
 		if = {
-			limit = { owes_favor_to = event_target:defending_party }
+			limit = { 
+				event_target:challenged_party = {
+					has_character_flag = defending_party
+				}
+				owes_favor_to = event_target:challenged_party
+			}
+			set_character_flag = forced_support_defender
+		}
+		else_if = {
+			limit = {
+				event_target:challenged_party = {
+					NOT = { has_character_flag = defending_party }
+				}
+				owes_favor_to = event_target:champion
+			}
 			set_character_flag = forced_support_defender
 		}
 		if = {
@@ -1340,24 +1351,27 @@ character_event = {
 		}
 	}
 	
-	# Support the defender
+	# Support the defender (challenged_party)
 	option = {
-		trigger = { NOT = { has_character_flag = forced_support_challenger } }
+		trigger = {
+			NOT = { has_character_flag = forced_support_challenger }
+			event_target:challenged_party = { has_character_flag = defending_party }
+		}
 		name = EVTOPTA_CHALLENGE.20
-		reverse_opinion = { modifier = opinion_supported_challenge who = event_target:defending_party years = 5 }
-		reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:challenger years = 5 }
+		reverse_opinion = { modifier = opinion_supported_challenge who = event_target:challenged_party years = 5 }
 		hidden_tooltip = {
-			event_target:defending_party = {
+			event_target:challenged_party = {
 				change_variable = { which = supporters value = 1 }
 			}
 		}
+		reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:challenger years = 5 }
 		if = {
 			limit = { has_character_flag = forced_support_defender }
-			custom_tooltip = { text = TT_defender_favor }
+			custom_tooltip = { text = TT_defender_challenger_favor }
 			hidden_tooltip = {
 				clr_character_flag = forced_support_defender
-				reverse_remove_favor = event_target:defending_party
-				event_target:defending_party = {
+				reverse_remove_favor = event_target:challenged_party
+				event_target:challenged_party = {
 					letter_event = { id = CHALLENGE.16 }
 				}
 			}
@@ -1366,19 +1380,77 @@ character_event = {
 			factor = 1
 			modifier = {
 				factor = 2
-				opinion = { who = event_target:defending_party value = 25 }
+				opinion = { who = event_target:challenged_party value = 25 }
 			}
 			modifier = {
 				factor = 2
-				opinion = { who = event_target:defending_party value = 50 }
+				opinion = { who = event_target:challenged_party value = 50 }
 			}
 			modifier = {
 				factor = 2
-				opinion = { who = event_target:defending_party value = 75 }
+				opinion = { who = event_target:challenged_party value = 75 }
 			}
 			modifier = {
 				factor = 2
-				opinion = { who = event_target:defending_party value = 100 }
+				opinion = { who = event_target:challenged_party value = 100 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:challenger value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:challenger value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:challenger value = -75 } }
+			}
+		}
+	}
+	
+	# Support the defender (champion)
+	option = {
+		trigger = {
+			NOT = { has_character_flag = forced_support_challenger }
+			NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
+		}
+		name = EVTOPTD_CHALLENGE.20
+		reverse_opinion = { modifier = opinion_supported_challenge who = event_target:champion years = 5 }
+		hidden_tooltip = {
+			event_target:champion = {
+				change_variable = { which = supporters value = 1 }
+			}
+		}
+		reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:challenger years = 5 }
+		if = {
+			limit = { has_character_flag = forced_support_defender }
+			custom_tooltip = { text = TT_defender_champion_favor }
+			hidden_tooltip = {
+			clr_character_flag = forced_support_defender
+				reverse_remove_favor = event_target:champion
+				event_target:champion = {
+					letter_event = { id = CHALLENGE.16 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				opinion = { who = event_target:champion value = 25 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = event_target:champion value = 50 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = event_target:champion value = 75 }
+			}
+			modifier = {
+				factor = 2
+				opinion = { who = event_target:champion value = 100 }
 			}
 			modifier = {
 				factor = 2
@@ -1399,7 +1471,15 @@ character_event = {
 	option = {
 		trigger = { NOT = { has_character_flag = forced_support_challenger } }
 		name = EVTOPTB_CHALLENGE.20
-		reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:defending_party years = 5 }
+		if = {
+			limit = {
+				event_target:challenged_party = { has_character_flag = defending_party }
+			}
+			reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:challenged_party years = 5 }
+		}
+		else = {
+			reverse_opinion = { modifier = opinion_opposed_challenge who = event_target:champion years = 5 }
+		}
 		reverse_opinion = { modifier = opinion_supported_challenge who = event_target:challenger years = 5 }
 		hidden_tooltip = {
 			event_target:challenger = {
@@ -1437,15 +1517,33 @@ character_event = {
 			}
 			modifier = {
 				factor = 2
-				NOT = { opinion = { who = event_target:defending_party value = -25 } }
+				event_target:challenged_party = { has_character_flag = defending_party }
+				NOT = { opinion = { who = event_target:challenged_party value = -25 } }
 			}
 			modifier = {
 				factor = 2
-				NOT = { opinion = { who = event_target:defending_party value = -50 } }
+				event_target:challenged_party = { has_character_flag = defending_party }
+				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
 			}
 			modifier = {
 				factor = 2
-				NOT = { opinion = { who = event_target:defending_party value = -75 } }
+				event_target:challenged_party = { has_character_flag = defending_party }
+				NOT = { opinion = { who = event_target:challenged_party value = -75 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
+				NOT = { opinion = { who = event_target:champion value = -25 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
+				NOT = { opinion = { who = event_target:champion value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
+				NOT = { opinion = { who = event_target:champion value = -75 } }
 			}
 		}
 	}
@@ -1493,8 +1591,21 @@ character_event = {
 	desc = {
 		# challenger, ahead
 		trigger = {
-			NOT = { character = event_target:defending_party }
-			check_variable = { which = supporters which = event_target:defending_party }
+			NOT = { has_character_flag = defending_party }
+			OR = {
+				event_target:challenged_party = {
+					AND = {
+						has_character_flag = defending_party
+						NOT = { check_variable = { which = supporters which = ROOT } }
+					}
+				}
+				event_target:champion = {
+					AND = {
+						has_character_flag = defending_party
+						NOT = { check_variable = { which = supporters which = ROOT } }
+					}
+				}
+			}
 		}
 		text = EVTDESCA_CHALLENGE.21
 		picture = GFX_evt_council_agreement
@@ -1502,8 +1613,21 @@ character_event = {
 	desc = {
 		# challenger, behind
 		trigger = {
-			NOT = { character = event_target:defending_party }
-			NOT = { check_variable = { which = supporters which = event_target:defending_party } }
+			NOT = { has_character_flag = defending_party }
+			OR = {
+				event_target:challenged_party = {
+					AND = {
+						has_character_flag = defending_party
+						check_variable = { which = supporters which = ROOT }
+					}
+				}
+				event_target:champion = {
+					AND = {
+						has_character_flag = defending_party
+						check_variable = { which = supporters which = ROOT }
+					}
+				}
+			}
 		}
 		text = EVTDESCB_CHALLENGE.21
 		picture = GFX_evt_council_quarrelling
@@ -1734,7 +1858,11 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	immediate = {		
+	immediate = {	
+		# Clear some unneeded event targets
+		clear_event_target = first_turn
+		clear_event_target = second_turn
+		clear_event_target = enemy_turn
 		# Set challenger's stats and clear previous combat round
 		event_target:challenger = {
 			clear_combat_flags = yes
@@ -1774,7 +1902,15 @@ character_event = {
 		if = {
 			limit = { NOT = { event_target:challenger = { always = yes } } }
 			# Defender wins
-			event_target:defending_party = { character_event = { id = CHALLENGE.66 } }
+			if = {
+				limit = {
+					event_target:challenged_party = { has_character_flag = defending_party }
+				}
+				event_target:challenged_party = { character_event = { id = CHALLENGE.66 } }
+			}
+			else = {
+				event_target:champion = { character_event = { id = CHALLENGE.66 } }
+			}
 			
 			break = yes
 		}
@@ -2485,7 +2621,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -2547,7 +2682,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -2933,7 +3067,6 @@ character_event = {
 		hidden_tooltip = {
 			clr_character_flag = alt_attack
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3055,7 +3188,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3156,7 +3288,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3259,7 +3390,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3384,7 +3514,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3428,7 +3557,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3529,7 +3657,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -3569,14 +3696,20 @@ character_event = {
 		if = {
 			# Challenger fled
 			limit = { character = event_target:challenger }
-			event_target:defending_party = {
-				character_event = { id = CHALLENGE.66 days = 1 }
+			if = {
+				limit = {
+					event_target:challenged_party = { has_character_flag = defending_party }
+				}
+				event_target:challenged_party = { character_event = { id = CHALLENGE.66 } }
+			}
+			else = {
+				event_target:champion = { character_event = { id = CHALLENGE.66 } }
 			}
 			character_event = { id = CHALLENGE.73 days = 1 }
 		}
 		if = {
 			# Defender fled
-			limit = { character = event_target:defending_party }
+			limit = { has_character_flag = defending_party }
 			event_target:challenger = {
 				character_event = { id = CHALLENGE.61 days = 1 }
 			}
@@ -3689,7 +3822,6 @@ character_event = {
 					}
 				}
 				# Set turn variables
-				save_event_target_as = current_turn
 				event_target:second_turn = { save_event_target_as = enemy_turn }
 				# Call event to calculate turn result
 				repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -4365,7 +4497,7 @@ character_event = {
 	}
 }
 
-# CHALLENGE.41 - Result of your attack  - IMPORTANT - Set current_turn and enemy_turn before calling
+# CHALLENGE.41 - Result of your attack  - IMPORTANT - Set enemy_turn before calling
 character_event = {
 	id = CHALLENGE.41
 	picture = GFX_evt_werewolf_fight
@@ -4887,6 +5019,7 @@ character_event = {
 					character_event = { id = CHALLENGE.59 days = 1 }
 				}
 			}
+			clear_event_target = enemy_turn
 		}
 	}
 }
@@ -5510,7 +5643,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -5572,7 +5704,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -5614,7 +5745,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -5728,7 +5858,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -5807,7 +5936,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6020,7 +6148,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6142,7 +6269,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6182,14 +6308,20 @@ character_event = {
 		if = {
 			# Challenger fled
 			limit = { character = event_target:challenger }
-			event_target:defending_party = {
-				character_event = { id = CHALLENGE.66 days = 2 }
+			if = {
+				limit = {
+					event_target:challenged_party = { has_character_flag = defending_party }
+				}
+				event_target:challenged_party = { character_event = { id = CHALLENGE.66 days = 2 } }
+			}
+			else = {
+				event_target:champion = { character_event = { id = CHALLENGE.66 days = 2 } }
 			}
 			character_event = { id = CHALLENGE.73 days = 2 }
 		}
 		if = {
 			# Defender fled
-			limit = { character = event_target:defending_party }
+			limit = { has_character_flag = defending_party }
 			event_target:challenger = {
 				character_event = { id = CHALLENGE.61 days = 2 }
 			}
@@ -6302,7 +6434,6 @@ character_event = {
 					}
 				}
 				# Set turn variables
-				save_event_target_as = current_turn
 				event_target:first_turn = { save_event_target_as = enemy_turn }
 				# Call event to calculate turn result
 				repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6373,7 +6504,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6474,7 +6604,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6599,7 +6728,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6643,7 +6771,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6745,7 +6872,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			repeat_event = { id = CHALLENGE.78 days = 1 }
@@ -6776,6 +6902,9 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		# Clear turn order
+		clear_event_target = first_turn
+		clear_event_target = second_turn
 		# Make sure the title hasn't been taken in an unrelated event
 		event_target:challenged_title = {
 			holder_scope = {
@@ -7361,7 +7490,7 @@ character_event = {
 	# Usurp
 	option = {
 		trigger = {
-			character = event_target:defending_party
+			has_character_flag = defending_party
 			NOT = { character = event_target:challenged_party }
 		}
 		name = EVTOPTA_CHALLENGE.66
@@ -7377,7 +7506,7 @@ character_event = {
 	# Defended for liege
 	option = {
 		trigger = {
-			NOT = { character = event_target:defending_party }
+			NOT = { has_character_flag = defending_party }
 		}
 		name = EVTOPTB_CHALLENGE.66
 		prestige = 100
@@ -7397,7 +7526,7 @@ character_event = {
 			# If usurped
 			if = {
 				limit = {
-					character = event_target:defending_party
+					has_character_flag = defending_party
 					NOT = { character = event_target:challenged_party }
 				}
 				# Inform new vassals
@@ -7415,7 +7544,7 @@ character_event = {
 			# If defending for liege
 			if = {
 				limit = {
-					NOT = { character = event_target:defending_party }
+					NOT = { has_character_flag = defending_party }
 				}
 				event_target:challenged_party = {
 					character_event = { id = CHALLENGE.67 }
@@ -7968,9 +8097,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_CHALLENGE.77
 		trigger = {
-			event_target:defending_party = {
-				character = ROOT
-			}
+			has_character_flag = defending_party
 		}
 	}
 	
@@ -7979,15 +8106,13 @@ character_event = {
 		name = EVTOPTB_CHALLENGE.77
 		trigger = {
 			NOT = {
-				event_target:defending_party = {
-					character = ROOT
-				}
+				has_character_flag = defending_party
 			}
 		}
 	}
 }
 
-# CHALLENGE.78 - First Turn - Calculate results of attack - IMPORTANT: Make sure current_turn and enemy_turn are set first
+# CHALLENGE.78 - First Turn - Calculate results of attack - IMPORTANT: Make sure enemy_turn is set first
 character_event = {
 	id = CHALLENGE.78
 	hide_window = yes
@@ -8503,7 +8628,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:second_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			character_event = { id = CHALLENGE.78 days = 1 }
@@ -8576,7 +8700,6 @@ character_event = {
 	after = {
 		hidden_tooltip = {
 			# Set turn variables
-			save_event_target_as = current_turn
 			event_target:first_turn = { save_event_target_as = enemy_turn }
 			# Call event to calculate turn result
 			character_event = { id = CHALLENGE.78 days = 1 }
@@ -8600,7 +8723,7 @@ character_event = {
 		hidden_tooltip = {
 			save_event_target_as = champion
 			event_target:challenged_party = { 
-				save_event_target_as = defending_party
+				set_character_flag = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
 			}
