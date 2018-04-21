@@ -763,27 +763,48 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = { num_of_vassals = 1 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = { num_of_vassals = 40 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 30
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = { num_of_vassals = 30 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 20
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = { num_of_vassals = 20 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 10
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = { num_of_vassals = 15 }
-			}
-			modifier = {
-				factor = 1.5
-				trait = patient
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
 			}
 			modifier = {
 				factor = 0.2
@@ -841,27 +862,52 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = { num_of_vassals = 1 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = { num_of_vassals = 25 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 15
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = { num_of_vassals = 20 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 10
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = { num_of_vassals = 15 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = { num_of_vassals = 13 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
 			}
 			modifier = {
 				factor = 0.2
@@ -870,23 +916,19 @@ laws = {
 			}
 			modifier = {
 				factor = 1.5
-				has_law = werewolf_wait_law_2
-				trait = patient
+				has_law = werewolf_wait_law_0
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 50
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_0
-				num_of_vassals = 50
-			}
-			modifier = {
-				factor = 1.5
-				has_law = werewolf_wait_law_0
-				num_of_vassals = 60
-			}
-			modifier = {
-				factor = 1.5
-				has_law = werewolf_wait_law_0
-				trait = wroth
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 60
+				}
 			}
 		}
 		pass_effect = {
@@ -937,53 +979,76 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = { num_of_vassals = 1 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				# These numbers are all increased by 10 to counter the fact that it includes barons
-				NOT = { num_of_vassals = 17 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 7
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = { num_of_vassals = 15 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 5
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = { num_of_vassals = 11 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 4
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = { num_of_vassals = 13 }
-			}
-			modifier = {
-				factor = 1.5
-				has_law = werewolf_wait_law_3
-				trait = patient # Lower laws favor the long term
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				num_of_vassals = 30
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 20
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				num_of_vassals = 35
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 25
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				num_of_vassals = 40
-			}
-			modifier = {
-				factor = 1.5
-				has_law = werewolf_wait_law_1
-				trait = wroth # Higher laws give a more immediate benefit
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 30
+				}
 			}
 		}
 		pass_effect = {
@@ -1033,47 +1098,70 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = { num_of_vassals = 1 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = { num_of_vassals = 13 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 3
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = { num_of_vassals = 10 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 2
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = { num_of_vassals = 8 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				has_law = werewolf_wait_law_4
-				trait = patient
-			}
-			modifier = {
-				factor = 1.5
-				has_law = werewolf_wait_law_2
 				independent = yes
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				num_of_vassals = 18
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 8
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				num_of_vassals = 20
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 10
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				num_of_vassals = 25
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 15
+				}
 			}
 		}
 		pass_effect = {
@@ -1124,27 +1212,40 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = { num_of_vassals = 1 }
+				NOT = {
+					any_vassal = {
+						limit = { higher_tier_than = BARON }
+						count = 1
+					}
+				}
 			}
 			modifier = {
 				factor = 1.5
-				has_law = werewolf_wait_law_3
 				independent = yes
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				num_of_vassals = 14
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 4
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				num_of_vassals = 18
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 8
+				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				num_of_vassals = 22
+				any_vassal = {
+					limit = { higher_tier_than = BARON }
+					count = 12
+				}
 			}
 		}
 		pass_effect = {
