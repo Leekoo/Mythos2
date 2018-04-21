@@ -519,12 +519,14 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = known_vampire }
-			OR = {
-				has_law = tribal_organization_1
-				has_law = tribal_organization_2
-				has_law = tribal_organization_3
-				has_law = tribal_organization_4
+			FROM = {
+				trait = known_vampire
+				OR = {
+					has_law = tribal_organization_1
+					has_law = tribal_organization_2
+					has_law = tribal_organization_3
+					has_law = tribal_organization_4
+				}
 			}
 			is_capital = yes 
 		}
