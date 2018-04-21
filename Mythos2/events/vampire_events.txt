@@ -2933,7 +2933,7 @@ character_event = {
 		
 		custom_tooltip = { text = EVTTOOLTIPA_VAMPIRE.17 }
 		hidden_tooltip = {
-			event_target:target_discovered_werewolf = { character_event = { id = VAMPIRE.14 } } # Character uncovered as a vampire
+			event_target:target_discovered_vampire = { character_event = { id = VAMPIRE.14 } } # Character uncovered as a vampire
 			any_realm_character = { character_event = { id = VAMPIRE.15 } } # Court finds out character is a vampire
 			if = {
 				limit = {
