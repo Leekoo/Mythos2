@@ -1940,3 +1940,351 @@ is_injured_in_dragon_raid = {
 		has_character_flag = dragon_raid_mangled
 	}
 }
+
+is_monster_to_root = {
+	ROOT = {
+		NOR = {
+			trait = demon_trait
+			trait = ethereal_trait
+		}
+	}
+	OR = {
+		AND = {
+			trait = dragon
+			ROOT = {
+				NOR = {
+					trait = dragon
+					trait = dragonborn
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+		AND = {
+			trait = known_werewolf
+			ROOT = {
+				NOR = {
+					trait = werewolf
+					trait = pup
+					culture = werewolf_culture
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = known_vampire
+			}
+			ROOT = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					culture = vampire_culture
+				}
+			}
+		}
+		AND = {
+			trait = demon_trait
+			ROOT = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					society_member_of = the_satanists
+				}
+			}
+		}
+		AND = {
+			trait = djinn
+			ROOT = {
+				NOR = {
+					religion_group = muslim
+					culture = djinni
+					culture_group = arabic
+					trait = djinn
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = giant
+				trait = half_giant
+			}
+			ROOT = {
+				NOR = {
+					trait = giant
+					trait = half_giant
+					religion = jotnar
+					religion = jotnar_reformed
+					culture = jotunn
+					society_member_of = the_trollcrafters
+				}
+			}
+		}
+		AND = {
+			trait = zombie
+			ROOT = {
+				NOR = {
+					trait = zombie
+					society_member_of = the_cold_ones
+				}
+			}
+		}
+		AND = {
+			trait = mummy
+			ROOT = {
+				NOR = {
+					trait = mummy
+					religion = kemetic_pagan
+					religion = atenist
+				}
+			}
+		}
+		AND = {
+			trait = ethereal_trait
+			ROOT = {
+				NOR = {
+					trait = ethereal_trait
+					trait = summoner
+				}
+			}
+		}
+	}
+	NOR = {
+		any_lover = { character = ROOT }
+		any_spouse = { character = ROOT }
+	}
+}
+
+is_monster_to_prev = {
+	PREV = {
+		NOR = {
+			trait = demon_trait
+			trait = ethereal_trait
+		}
+	}
+	OR = {
+		AND = {
+			trait = dragon
+			PREV = {
+				NOR = {
+					trait = dragon
+					trait = dragonborn
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+		AND = {
+			trait = known_werewolf
+			PREV = {
+				NOR = {
+					trait = werewolf
+					trait = pup
+					culture = werewolf_culture
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = known_vampire
+			}
+			PREV = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					culture = vampire_culture
+				}
+			}
+		}
+		AND = {
+			trait = demon_trait
+			PREV = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					society_member_of = the_satanists
+				}
+			}
+		}
+		AND = {
+			trait = djinn
+			PREV = {
+				NOR = {
+					religion_group = muslim
+					culture = djinni
+					culture_group = arabic
+					trait = djinn
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = giant
+				trait = half_giant
+			}
+			PREV = {
+				NOR = {
+					trait = giant
+					trait = half_giant
+					religion = jotnar
+					religion = jotnar_reformed
+					culture = jotunn
+					society_member_of = the_trollcrafters
+				}
+			}
+		}
+		AND = {
+			trait = zombie
+			PREV = {
+				NOR = {
+					trait = zombie
+					society_member_of = the_cold_ones
+				}
+			}
+		}
+		AND = {
+			trait = mummy
+			PREV = {
+				NOR = {
+					trait = mummy
+					religion = kemetic_pagan
+					religion = atenist
+				}
+			}
+		}
+		AND = {
+			trait = ethereal_trait
+			PREV = {
+				NOR = {
+					trait = ethereal_trait
+					trait = summoner
+				}
+			}
+		}
+	}
+	NOR = {
+		any_lover = { character = PREV }
+		any_spouse = { character = PREV }
+	}
+}
+
+is_monster_to_from = {
+	FROM = {
+		NOR = {
+			trait = demon_trait
+			trait = ethereal_trait
+		}
+	}
+	OR = {
+		AND = {
+			trait = dragon
+			FROM = {
+				NOR = {
+					trait = dragon
+					trait = dragonborn
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+		AND = {
+			trait = known_werewolf
+			FROM = {
+				NOR = {
+					trait = werewolf
+					trait = pup
+					culture = werewolf_culture
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = known_vampire
+			}
+			FROM = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					culture = vampire_culture
+				}
+			}
+		}
+		AND = {
+			trait = demon_trait
+			FROM = {
+				NOR = {
+					trait = vampire
+					trait = demon_trait
+					religion = satanist
+					society_member_of = the_satanists
+				}
+			}
+		}
+		AND = {
+			trait = djinn
+			FROM = {
+				NOR = {
+					religion_group = muslim
+					culture = djinni
+					culture_group = arabic
+					trait = djinn
+				}
+			}
+		}
+		AND = {
+			OR = {
+				trait = giant
+				trait = half_giant
+			}
+			FROM = {
+				NOR = {
+					trait = giant
+					trait = half_giant
+					religion = jotnar
+					religion = jotnar_reformed
+					culture = jotunn
+					society_member_of = the_trollcrafters
+				}
+			}
+		}
+		AND = {
+			trait = zombie
+			FROM = {
+				NOR = {
+					trait = zombie
+					society_member_of = the_cold_ones
+				}
+			}
+		}
+		AND = {
+			trait = mummy
+			FROM = {
+				NOR = {
+					trait = mummy
+					religion = kemetic_pagan
+					religion = atenist
+				}
+			}
+		}
+		AND = {
+			trait = ethereal_trait
+			FROM = {
+				NOR = {
+					trait = ethereal_trait
+					trait = summoner
+				}
+			}
+		}
+	}
+	NOR = {
+		any_lover = { character = FROM }
+		any_spouse = { character = FROM }
+	}
+}
