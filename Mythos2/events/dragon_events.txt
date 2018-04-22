@@ -7794,111 +7794,6 @@ letter_event = {
 	}
 }
 
-# Sapphire Flame sells absolution for kinslaying
-character_event = {
-	id = DRAGON.142
-	desc = EVTDESC_DRAGON.142
-	picture = GFX_evt_dragon_face
-	border = GFX_event_normal_frame_religion
-	
-	min_age = 16
-	only_capable = yes
-	prisoner = no
-	only_playable = yes
-	religion = draconic_pagan_reformed
-	war = no
-	
-	trigger = {
-		controls_religion = yes
-		
-		any_independent_ruler = {
-			religion = ROOT
-			rightful_religious_head = ROOT
-			OR = {
-				AND = {
-					trait = dynastic_kinslayer
-					wealth = 100
-				}
-				AND = {
-					trait = familial_kinslayer
-					wealth = 200
-				}
-				AND = {
-					trait = kinslayer
-					wealth = 300
-				}
-			}
-			piety = 100
-			reverse_opinion  = { who = ROOT value = 0 }
-			NOT = { has_character_flag = kinslaying_offered }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 48
-	}
-	immediate = {
-		random_independent_ruler = {
-			limit = {
-				religion = ROOT
-				rightful_religious_head = ROOT
-				OR = {
-					AND = {
-						trait = dynastic_kinslayer
-						wealth = 100
-					}
-					AND = {
-						trait = familial_kinslayer
-						wealth = 200
-					}
-					AND = {
-						trait = kinslayer
-						wealth = 300
-					}
-				}
-				piety = 100
-				reverse_opinion  = { who = ROOT value = 0 }
-			}
-			set_character_flag = kinslaying_offered
-		}
-	}
-	
-	option = {
-		name = EVTOPTA_DRAGON.142
-		ai_chance = { factor = 100 }
-		
-		random_independent_ruler = {
-			limit = {
-				religion = ROOT
-				rightful_religious_head = ROOT
-				OR = {
-					AND = {
-						trait = dynastic_kinslayer
-						wealth = 100
-					}
-					AND = {
-						trait = familial_kinslayer
-						wealth = 200
-					}
-					AND = {
-						trait = kinslayer
-						wealth = 300
-					}
-				}
-				piety = 100
-				reverse_opinion  = { who = ROOT value = 0 }
-			}
-			
-			character_event = { id = DRAGON.143 tooltip = EVTTOOLTIP39211 }
-		}
-	}
-	
-	option = {
-		name = EVTOPTB_DRAGON.142	#incase someone plays the Sapphire Flame... players will mod it in, so might as well give them a fun option here...
-		ai_chance = { factor = 0 }
-	}
-}
-
 character_event = {
 	id = DRAGON.143
 	desc = EVTDESC_DRAGON.143
@@ -8320,5 +8215,111 @@ character_event = {
 	option = {
 		name = EVTOPTA_DRAGON.152
 		tooltip = { add_rival = FROM }
+	}
+}
+
+
+# Sapphire Flame sells absolution for kinslaying
+character_event = {
+	id = DRAGON.153
+	desc = EVTDESC_DRAGON.153
+	picture = GFX_evt_dragon_face
+	border = GFX_event_normal_frame_religion
+	
+	min_age = 16
+	only_capable = yes
+	prisoner = no
+	only_playable = yes
+	religion = draconic_pagan_reformed
+	war = no
+	
+	trigger = {
+		controls_religion = yes
+		
+		any_independent_ruler = {
+			religion = ROOT
+			rightful_religious_head = ROOT
+			OR = {
+				AND = {
+					trait = dynastic_kinslayer
+					wealth = 100
+				}
+				AND = {
+					trait = familial_kinslayer
+					wealth = 200
+				}
+				AND = {
+					trait = kinslayer
+					wealth = 300
+				}
+			}
+			piety = 100
+			reverse_opinion  = { who = ROOT value = 0 }
+			NOT = { has_character_flag = kinslaying_offered }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	immediate = {
+		random_independent_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				OR = {
+					AND = {
+						trait = dynastic_kinslayer
+						wealth = 100
+					}
+					AND = {
+						trait = familial_kinslayer
+						wealth = 200
+					}
+					AND = {
+						trait = kinslayer
+						wealth = 300
+					}
+				}
+				piety = 100
+				reverse_opinion  = { who = ROOT value = 0 }
+			}
+			set_character_flag = kinslaying_offered
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.153
+		ai_chance = { factor = 100 }
+		
+		random_independent_ruler = {
+			limit = {
+				religion = ROOT
+				rightful_religious_head = ROOT
+				OR = {
+					AND = {
+						trait = dynastic_kinslayer
+						wealth = 100
+					}
+					AND = {
+						trait = familial_kinslayer
+						wealth = 200
+					}
+					AND = {
+						trait = kinslayer
+						wealth = 300
+					}
+				}
+				piety = 100
+				reverse_opinion  = { who = ROOT value = 0 }
+			}
+			
+			character_event = { id = DRAGON.143 tooltip = EVTTOOLTIP39211 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.153	#incase someone plays the Sapphire Flame... players will mod it in, so might as well give them a fun option here...
+		ai_chance = { factor = 0 }
 	}
 }
