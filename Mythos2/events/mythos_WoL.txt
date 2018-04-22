@@ -14972,6 +14972,8 @@ letter_event = {
 		trigger = {
 			has_character_flag = exposed_sexual
 			NOT = { trait = homosexual }
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCAMYTH_WoL.199
 	}
@@ -14979,38 +14981,122 @@ letter_event = {
 		trigger = {
 			has_character_flag = exposed_sexual
 			trait = homosexual
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCBMYTH_WoL.199
 	}
 	desc = {
 		trigger = {
 			has_character_flag = exposed_lover
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCCMYTH_WoL.199
 	}
 	desc = {
 		trigger = {
 			has_character_flag = exposed_religion
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCDMYTH_WoL.199
 	}
 	desc = {
 		trigger = {
 			has_character_flag = exposed_society
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCEMYTH_WoL.199
 	}
 	desc = {
 		trigger = {
 			has_character_flag = exposed_werewolf
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCFMYTH_WoL.199
 	}
 	desc = {
 		trigger = {
 			has_character_flag = exposed_vampire
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
 		}
 		text = EVTDESCGMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			NOT = { trait = homosexual }
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCHMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			trait = homosexual
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCIMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_lover
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCJMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_religion
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCKMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_society
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCLMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_werewolf
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCMMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_vampire
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCNMYTH_WoL.199
 	}
 	
 	is_triggered_only = yes
@@ -15025,10 +15111,21 @@ letter_event = {
 				years = 2
 			}
 		}
-		opinion = {
-			modifier = opinion_coerced_into_leaving_faction
-			who = FROM
-			months = 1200
+		if = {
+			limit = {
+				is_landed = yes
+				NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+			}
+			opinion = {
+				modifier = opinion_coerced_into_leaving_faction
+				who = FROM
+				months = 1200
+			}
+		}
+		else = {
+			tooltip = {
+				transfer_scaled_wealth = { to = FROM value = 0.3 }
+			}
 		}
 		hidden_tooltip = {
 			clr_character_flag = exposed_sexual
@@ -15223,10 +15320,23 @@ letter_event = {
 				who = FROM
 				years = 2
 			}
-			reverse_opinion = {
-				modifier = opinion_coerced_into_leaving_faction
-				who = FROM
-				months = 1200
+		}
+		if = {
+			limit = {
+				OR = {
+					is_landed = no
+					has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+				}
+			}
+			FROM = { transfer_scaled_wealth = { to = ROOT value = 0.3 } }
+		}
+		else = {
+			tooltip = {
+				reverse_opinion = {
+					modifier = opinion_coerced_into_leaving_faction
+					who = FROM
+					months = 1200
+				}
 			}
 		}
 	}
