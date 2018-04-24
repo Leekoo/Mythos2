@@ -16219,3 +16219,280 @@ character_event = {
 		}
 	}
 }
+
+# Perfect time to commune with spirits
+character_event = {
+	id = MYTH_WoL.208
+	desc = EVTDESCMYTH_WoL.208
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_conjuration
+	}
+	
+	# Speak to the ghost of an old ruler
+	option = {
+		name = EVTOPTAMYTH_WoL.208
+		add_character_modifier = { modifier = ancient_advice years = 2 }
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.209 days = 3 random = 2 tooltip = TT_haunted_castle }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+	}
+	# Ask a demon for secrets about your enemies
+	option = {
+		id = OPTBMYTH_WoL.208
+		add_character_modifier = { modifier = seeker_of_secrets years = 2 }
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.210 days = 3 random = 2 tooltip = TT_consorted_with_demons }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+	}
+	# Ask local spirits to bless the crops
+	option = {
+		id = OPTCMYTH_WoL.208
+		any_demesne_province = {
+			add_province_modifier = { modifier = spirit_blessed_farmlands years = 2 }
+		}
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.211 days = 3 random = 2 tooltip = TT_night_spirits }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+	}
+	# Don't risk it
+	option = {
+		name = EVTOPTDMYTH_WoL.208
+	}
+}
+
+# Haunted Castle
+character_event = {
+	id = MYTH_WoL.209
+	desc = EVTDESCMYTH_WoL.209
+	picture = GFX_evt_magnificent_castle
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		add_character_modifier = { modifier = haunted_castle years = 2 }
+	}
+}
+
+# Consorted with Demons
+character_event = {
+	id = MYTH_WoL.210
+	desc = EVTDESCMYTH_WoL.210
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		add_character_modifier = { modifier = consorted_with_demons years = 2 }
+	}
+}
+
+# Night Spirits
+character_event = {
+	id = MYTH_WoL.211
+	desc = EVTDESCMYTH_WoL.211
+	picture = GFX_evt_doctor_tending_to_sick
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		any_demesne_province = {
+			add_province_modifier = { modifier = night_spirits years = 2 }
+		}
+	}
+}
+
+# Conjuration, Remove a disease
+character_event = {
+	id = MYTH_WoL.212
+	desc = EVTDESCMYTH_WoL.212
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	
+	trigger = {
+		any_demesne_province = { has_disease = yes }
+		has_focus = focus_magic
+		has_character_modifier = studying_conjuration
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.212
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			add_province_modifier = { modifier = sacrificed_crops years = 2 }
+			random_list = {
+				7 = { reduce_disease = 0.33 }
+				3 = { reduce_disease = 1 }
+			}
+			if = {
+				limit = { 
+					NOR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+					}
+				}
+				owner = { piety = -20 }
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.212
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			add_province_modifier = { modifier = sacrificed_livestock years = 2 }
+			random_list = {
+				4 = { reduce_disease = 0.33 }
+				6 = { reduce_disease = 1 }
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				owner = { piety = -20 }
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.212
+		trigger = { trait = summoner }
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			reduce_disease = 1
+			owner = { piety = -20 }
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+	}
+	option = {
+		name = EVTOPTDMYTH_WoL.212
+		piety = 30
+	}
+}
