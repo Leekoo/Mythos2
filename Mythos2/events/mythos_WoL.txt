@@ -16276,6 +16276,21 @@ character_event = {
 			}
 		}
 		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = scholar
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+		}
 	}
 	# Ask a demon for secrets about your enemies
 	option = {
@@ -16317,6 +16332,29 @@ character_event = {
 			}
 		}
 		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+			modifier = {
+				factor = 2
+				trait = mystic
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
 	}
 	# Ask local spirits to bless the crops
 	option = {
@@ -16360,10 +16398,40 @@ character_event = {
 			}
 		}
 		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = administrator
+			}
+			modifier = {
+				factor = 2
+				trait = mystic
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+		}
 	}
 	# Don't risk it
 	option = {
 		name = EVTOPTDMYTH_WoL.208
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 6
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				trait = theologian
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+		}
 	}
 }
 
@@ -16454,6 +16522,20 @@ character_event = {
 		hidden_tooltip = {
 			character_event = { id = MYTH_WoL.40 days = 3 }
 		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				any_demesne_province = {
+					has_disease = yes
+					OR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+					}
+				}
+				factor = 2
+			}
+		}
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.212
@@ -16478,6 +16560,20 @@ character_event = {
 		hidden_tooltip = {
 			character_event = { id = MYTH_WoL.40 days = 3 }
 		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				any_demesne_province = {
+					has_disease = yes
+					NOR = {
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				factor = 2
+			}
+		}
 	}
 	option = {
 		name = EVTOPTCMYTH_WoL.212
@@ -16490,10 +16586,16 @@ character_event = {
 		hidden_tooltip = {
 			character_event = { id = MYTH_WoL.40 days = 3 }
 		}
+		ai_chance = {
+			factor = 4
+		}
 	}
 	option = {
 		name = EVTOPTDMYTH_WoL.212
 		piety = 30
+		ai_chance = {
+			factor = 1
+		}
 	}
 }
 
