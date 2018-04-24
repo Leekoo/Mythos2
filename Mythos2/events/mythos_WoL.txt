@@ -16496,3 +16496,196 @@ character_event = {
 		piety = 30
 	}
 }
+
+# Herbalism - Work to cure Stressed/Depressed
+character_event = {
+	id = MYTH_WoL.213
+	desc = EVTDESCMYTH_WoL.213
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_herbalism
+		OR = {
+			trait = stressed
+			trait = depressed
+		}
+	}
+	
+	immediate = {
+		# Will select two ingredients, by prioritizing from the top, until it hits two available ones...
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+	}
+	
+	# All effort
+	option = {
+		name = EVTOPTAMYTH_WoL.213
+		random_list = {
+			4 = {
+				if = {
+					limit = { has_dlc = "Reapers" }
+					custom_tooltip = {
+						text = TT_get_sick
+					}
+					hidden_tooltip = {
+						random_list = {
+							1 = {
+								set_character_flag = got_pneumonia
+							}
+							3 = {
+								set_character_flag = got_flu
+							}
+						}
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5000 days = 2 random = 4 }
+					}
+				}
+				else = {
+					add_trait = ill
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 1.5
+					health = 5
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+			}
+		}
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 70
+				remove_trait = stressed
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 70
+				remove_trait = depressed
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				modifier = {
+					factor = 1.5
+					health = 5
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+			}
+		}
+	}
+	# Use easy to access ingredients
+	option = {
+		name = EVTOPTBMYTH_WoL.213
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 30
+				remove_trait = stressed
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 30
+				remove_trait = depressed
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	# Use an ingredient on-hand
+	option = {
+		name = EVTOPTCMYTH_WoL.213
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = ingredient
+			}
+		}
+		tooltip_info = yes
+		custom_tooltip = { text = tt_ingredient_available }
+		if = {
+			limit = { trait = stressed }
+				random = {
+					changce = 50
+					modifier = {
+						factor = 1.9
+						has_selected_herb_ingredient_1_trigger = yes
+					}
+					remove_trait = stressed
+				}
+			}
+			if = {
+				limit = { trait = depressed }
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.9
+						has_selected_herb_ingredient_1_trigger = yes
+					}
+					remove_trait = depressed
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				has_selected_herb_ingredient_1_trigger = yes
+			}
+		}
+	}
+	# Just accept your issues
+	option = {
+		name = EVTOPTDMYTH_WoL.213
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
