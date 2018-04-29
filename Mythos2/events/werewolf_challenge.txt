@@ -7508,6 +7508,7 @@ character_event = {
 	option = {
 		trigger = {
 			NOT = { has_character_flag = defending_party }
+			NOT = { character = event_target:challenged_party }
 		}
 		name = EVTOPTB_CHALLENGE.66
 		prestige = 100
@@ -7546,6 +7547,7 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = defending_party }
+					NOT = { character = event_target:challenged_party }
 				}
 				event_target:challenged_party = {
 					character_event = { id = CHALLENGE.67 }
