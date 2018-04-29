@@ -1216,7 +1216,7 @@ character_event = {
 					has_character_flag = defending_party
 				}
 			}
-			character_event = { id = CHALLENGE.23 days = 1 }
+			event_target:challenger = { character_event = { id = CHALLENGE.23 days = 1 } }
 		}
 		# If facing someone else over an undefended title, get this event
 		if = {
@@ -1225,7 +1225,7 @@ character_event = {
 					NOT = { has_character_flag = defending_party }
 				}
 			}
-			character_event = { id = CHALLENGE.26 days = 1 }
+			event_target:challenger = { character_event = { id = CHALLENGE.26 days = 1 } }
 		}
 		
 		# Clear any old support info, just in case
