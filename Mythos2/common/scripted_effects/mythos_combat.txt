@@ -292,6 +292,7 @@ combat_cleanup = { # Run in character scope, out of combat
 	set_variable = { which = combat_accuracy value = 0 }
 	set_variable = { which = combat_speed value = 0 }
 	set_variable = { which = combat_morale value = 0 }
+	remove_character_modifier = facing_challenge
 }
 
 combat_set_support_multiplier = { # In a character scope

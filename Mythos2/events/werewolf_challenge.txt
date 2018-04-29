@@ -233,6 +233,7 @@ character_event = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
 			}
+			remove_character_modifier = facing_challenge
 		}
 	}
 }
@@ -251,6 +252,7 @@ character_event = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
 			}
+			remove_character_modifier = facing_challenge
 		}
 	}
 }
@@ -269,6 +271,7 @@ character_event = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
 			}
+			remove_character_modifier = facing_challenge
 		}
 	}
 }
@@ -422,7 +425,7 @@ character_event = {
 		name = EVTOPTA_CHALLENGE.9
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
-			set_character_flag = facing_challenge
+			add_character_modifier = { name = facing_challenge months = 3 }
 			save_event_target_as = champion
 			event_target:challenged_party = { 
 				set_character_flag = defending_party
@@ -474,7 +477,7 @@ character_event = {
 					same_realm = PREV
 					is_incapable = no
 					prisoner = no
-					NOT = { has_character_flag = facing_challenge }
+					NOT = { has_character_modifier = facing_challenge }
 				}
 				NOT = { age = 16 }
 			}
@@ -526,12 +529,12 @@ character_event = {
 						NOT = { same_realm = PREV }
 						is_incapable = yes
 						prisoner = yes
-						has_character_flag = facing_challenge
+						has_character_modifier = facing_challenge
 					}
 				}
 				mother = { 
 					same_realm = PREV
-					NOT = { has_character_flag = facing_challenge }
+					NOT = { has_character_modifier = facing_challenge }
 				}
 				NOT = { age = 16 }
 			}
@@ -585,7 +588,7 @@ character_event = {
 								NOT = { same_realm = PREV }
 								is_incapable = yes
 								prisoner = yes
-								has_character_flag = facing_challenge
+								has_character_modifier = facing_challenge
 							}
 						}
 						mother = { 
@@ -593,7 +596,7 @@ character_event = {
 								NOT = { same_realm = PREV }
 								is_incapable = yes
 								prisoner = yes
-								has_character_flag = facing_challenge
+								has_character_modifier = facing_challenge
 							}
 						}
 					}
@@ -660,7 +663,7 @@ character_event = {
 		hidden_tooltip = {
 			save_event_target_as = champion
 			event_target:challenged_party = {
-				set_character_flag = facing_challenge
+				add_character_modifier = { name = facing_challenge months = 3 }
 				set_character_flag = defending_party
 				clr_character_flag = asked_champion
 				character_event = { id = CHALLENGE.24 days = 1 }
@@ -710,7 +713,7 @@ character_event = {
 					same_realm = PREV
 					is_incapable = no
 					prisoner = no
-					NOT = { has_character_flag = facing_challenge }
+					NOT = { has_character_modifier = facing_challenge }
 				}
 			}
 		}
@@ -757,7 +760,7 @@ character_event = {
 						NOT = { same_realm = PREV }
 						is_incapable = yes
 						prisoner = yes
-						has_character_flag = facing_challenge
+						has_character_modifier = facing_challenge
 					}
 				}
 			}
@@ -815,7 +818,7 @@ character_event = {
 		name = EVTOPTA_CHALLENGE.9
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
-			set_character_flag = facing_challenge
+			add_character_modifier = { name = facing_challenge months = 3 }
 			save_event_target_as = champion
 			event_target:challenged_party = { 
 				set_character_flag = defending_party
@@ -975,7 +978,7 @@ character_event = {
 			# exactly one counter-challenge - they are the opposition
 			any_vassal = {
 				limit = { has_character_flag = counterchallenge }
-				set_character_flag = facing_challenge
+				add_character_modifier = { name = facing_challenge months = 3 }
 				save_event_target_as = champion
 				set_character_flag = defending_party
 			}
@@ -994,7 +997,7 @@ character_event = {
 					has_character_flag = counterchallenge
 					is_variable_equal = { which = fitness which = global_best_fitness }
 				}
-				set_character_flag = facing_challenge
+				add_character_modifier = { name = facing_challenge months = 3 }
 				save_event_target_as = champion
 				set_character_flag = defending_party
 			}
@@ -1152,6 +1155,9 @@ character_event = {
 		prestige = 200
 		hidden_tooltip = {
 			event_target:challenged_party = {
+				remove_character_modifier = facing_challenge
+			}
+			event_target:challenger = {
 				remove_character_modifier = facing_challenge
 			}
 		}
@@ -1781,6 +1787,10 @@ character_event = {
 		}
 		if = {
 			limit = { character = event_target:challenged_party }
+			remove_character_modifier = facing_challenge
+		}
+		if = {
+			limit = { character = event_target:champion }
 			remove_character_modifier = facing_challenge
 		}
 	}
@@ -7235,6 +7245,7 @@ character_event = {
 	immediate = {
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
+		event_target:challenged_party = { remove_character_modifier = facing_challenge }
 	}
 	
 	option = {
@@ -7279,6 +7290,7 @@ character_event = {
 	immediate = {
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
+		event_target:challenged_party = { remove_character_modifier = facing_challenge }
 	}
 	
 	option = {
@@ -7486,6 +7498,7 @@ character_event = {
 	immediate = {
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
+		event_target:challenged_party = { remove_character_modifier = facing_challenge }
 	}
 	
 	# Usurp
@@ -7525,6 +7538,7 @@ character_event = {
 	
 	after = {
 		hidden_tooltip = {
+			challenged_party = { remove_character_modifier = facing_challenge }
 			# If usurped
 			if = {
 				limit = {
@@ -7585,6 +7599,7 @@ character_event = {
 	immediate = {
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
+		event_target:challenged_party = { remove_character_modifier = facing_challenge }
 	}
 	
 	option = {
