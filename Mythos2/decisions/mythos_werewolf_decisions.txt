@@ -344,14 +344,20 @@ decisions = {
 			is_playable = yes
 			trait = werewolf
 			NOT = { culture = werewolf_culture }
+			NOT = { capital_scope = { culture = werewolf_culture } }
 		}
 		allow = {
 			higher_real_tier_than = DUKE
 			is_incapable = no
+			trait = werewolf
+			NOT = { culture = werewolf_culture }
+			NOT = { capital_scope = { culture = werewolf_culture } }
+			NOT = { liege = { culture = werewolf_culture } }
 		}
 		effect = {
 			prestige = 200
 			culture = werewolf_culture
+			capital_scope = { culture = werewolf_culture }
 			any_courtier = {
 				limit = {
 					NOT = { culture = werewolf_culture }
