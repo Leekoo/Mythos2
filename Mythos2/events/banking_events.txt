@@ -754,7 +754,7 @@ character_event = {
 		name = EVTOPTD_BANK.7
 		trigger = {
 			OR = {
-				NOT = { check_variable = { which = local_requirement_full value = 1 } } # If it's less than a gold, must pay it off
+				check_variable = { which = local_requirement_full value = 1 } # If it's less than a gold, must pay it off
 				NOT = { wealth = 1 } # Fix to prevent not being able to do anything if broke
 			}
 		}
