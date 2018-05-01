@@ -126,7 +126,7 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 268287 # Velnias
 		age = 32
-		name = Velnias
+		name = ERA_CHAR_NAME_268287
 		title = d_samogitia
 		title_name = Samogitia
 		
@@ -143,7 +143,7 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 268366 # Brynjolf
 		age = 17
-		name = Brynjolf
+		name = ERA_CHAR_NAME_268366
 		title = c_nordland
 		title_name = Nordland
 		
@@ -160,7 +160,7 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 268286 # Vlad
 		age = 32
-		name = Vlad
+		name = ERA_CHAR_NAME_268286
 		title = c_severin
 		title_name = Severin
 		
@@ -172,10 +172,12 @@ bm_the_old_gods = {
 			government = feudal_government
 			dynasty=1049000
 		}
-	} selectable_character = {
+	} 
+	
+	selectable_character = {
 		id = 268290 # Rhodric
 		age = 26
-		name = Rhodric
+		name = ERA_CHAR_NAME_268290
 		title = c_dyfed
 		title_name = Dyfed
 		
@@ -191,7 +193,7 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 145182 # Argos
 		age = 25
-		name = Argos
+		name = ERA_CHAR_NAME_145182
 		title = d_achaia
 		title_name = Achaia
 		
@@ -207,7 +209,7 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 268299 # Rugarth
 		age = 29
-		name = Rugarth
+		name = ERA_CHAR_NAME_268299
 		title = c_faereyar
 		title_name = Faereyar
 		
@@ -216,12 +218,28 @@ bm_the_old_gods = {
 			properties = da00b000000
 			religion="draconic_pagan"
 			culture="draconic"
-			government = tribal_government
+			government = draconic_fuedal_government
 			dynasty=1049007
 		}
 	}
 
 	### These are not shown unless the player is viewing custom bookmarks
+	
+	selectable_character = {
+		id = 268314 # Kola dragon start
+		age = 116
+		name = ERA_CHAR_NAME_268314
+		title = d_kola
+		title_name = Kola
+		
+		character = {
+			dna = eb0000ad0a0
+			religion = draconic_pagan
+			culture = draconic
+			government = draconic_tribal_government
+			dynasty = 1049011
+		}
+	}
 
 	selectable_character = {
 		id = 163112 # Halfdan Whiteshirt
