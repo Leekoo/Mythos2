@@ -7538,7 +7538,7 @@ character_event = {
 	
 	after = {
 		hidden_tooltip = {
-			challenged_party = { remove_character_modifier = facing_challenge }
+			event_target:challenged_party = { remove_character_modifier = facing_challenge }
 			# If usurped
 			if = {
 				limit = {
