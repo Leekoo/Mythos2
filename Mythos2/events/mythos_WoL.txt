@@ -14899,7 +14899,7 @@ character_event = {
 		name = EVTOPTEMYTH_WoL.197
 		trigger = {
 			has_character_flag = reason_lover
-			any_spouse = { character = { event_target:stalked } }
+			any_spouse = { character = event_target:stalked }
 		}
 		event_target:stalked = {
 			character_event = { id = MYTH_WoL.205 }
@@ -16294,7 +16294,7 @@ character_event = {
 	}
 	# Ask a demon for secrets about your enemies
 	option = {
-		id = OPTBMYTH_WoL.208
+		name = OPTBMYTH_WoL.208
 		add_character_modifier = { modifier = seeker_of_secrets years = 2 }
 		random_list = {
 			2 = {
@@ -16358,7 +16358,7 @@ character_event = {
 	}
 	# Ask local spirits to bless the crops
 	option = {
-		id = OPTCMYTH_WoL.208
+		name = OPTCMYTH_WoL.208
 		any_demesne_province = {
 			add_province_modifier = { modifier = spirit_blessed_farmlands years = 2 }
 		}
