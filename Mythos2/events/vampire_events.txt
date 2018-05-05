@@ -2040,14 +2040,14 @@ character_event = {
 						FROM = {
 							OR = {
 								trait = duelist
-								trait = hunter
+								trait = strategist
 								trait = schemer
 							}
 						}
 					}
 					modifier = {
-						factor = 1.5
-						FROM = { trait = wroth }
+						factor = 1.2
+						FROM = { trait = deceitful }
 					}
 					modifier = {
 						factor = 3
@@ -2092,6 +2092,50 @@ character_event = {
 					modifier = {
 						factor = 1.5
 						FROM = { combat_rating_diff = { character = ROOT value = 5 } }
+					}
+					modifier = {
+						factor = 0.75
+						FROM = { intrigue < 5 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 10 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 15 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 20 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 25 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 30 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 35 }
+					}
+					modifier = {
+						factor = 1.2
+						FROM = { intrigue = 40 }
+					}
+					modifier = {
+						factor = 1.2
+						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+					}
+					modifier = {
+						factor = 1.2
+						has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+					}
+					modifier = {
+						factor = 1.2
+						has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
 					}
 					set_character_flag = vampire_feed_failure
 				}
@@ -2139,6 +2183,38 @@ character_event = {
 						combat_rating_diff = { character = FROM value = 5 }
 					}
 					modifier = {
+						factor = 0.75
+						intrigue < 5
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 10
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 15
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 20
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 25
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 30
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 35
+					}
+					modifier = {
+						factor = 1.2
+						intrigue = 40
+					}
+					modifier = {
 						factor = 1.5
 						FROM = { trait = pregnant } # Only 1.5 since it also has a combat rating penalty
 					}
@@ -2170,6 +2246,14 @@ character_event = {
 						FROM = { trait = drunkard }
 					}
 					modifier = {
+						factor = 3
+						OR = {
+							trait = duelist
+							trait = hunter
+							trait = schemer
+						}
+					}
+					modifier = {
 						factor = 0.9
 						has_character_flag = vampire_feed_minor
 					}
@@ -2191,16 +2275,12 @@ character_event = {
 						trait = wroth
 					}
 					modifier = {
+						factor = 1.25
+						trait = cruel
+					}
+					modifier = {
 						factor = 1.5
 						trait = gluttonous
-					}
-					modifier = {
-						factor = 0.8
-						trait = kind
-					}
-					modifier = {
-						factor = 0.6
-						trait = temperate
 					}
 					modifier = {
 						factor = 1.2
@@ -2240,12 +2320,33 @@ character_event = {
 						has_character_flag = vampire_feed_minor
 					}
 					modifier = {
+						factor = 1.5
+						trait = kind
+					}
+					modifier = {
+						factor = 1.5
+						trait = temperate
+					}
+					modifier = {
+						factor = 2
+						FROM = { health = 10 }
+					}
+					modifier = {
 						factor = 2
 						FROM = { trait = demi_god }
 					}
 					modifier = {
 						factor = 8
 						FROM = { trait = god }
+					}
+					modifier = {
+						factor = 2
+						FROM = {
+							OR = {
+								trait = strong
+								trait = robust
+							}
+						}
 					}
 					set_character_flag = vampire_feed_survive
 				}
@@ -2266,8 +2367,8 @@ character_event = {
 						}
 					}
 					modifier = {
-						factor = 0.5
-						FROM = { health = 10 }
+						factor = 0.2
+						FROM = { trait = monster_hunter }
 					}
 					modifier = {
 						factor = 0.5
@@ -2354,6 +2455,26 @@ character_event = {
 					NOT = { has_character_flag = vampire_feed_kill }
 				}
 				modifier = {
+					factor = 1.3
+					intrigue < 5
+				}
+				modifier = {
+					factor = 1.3
+					diplomacy < 5
+				}
+				modifier = {
+					factor = 1.5
+					has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+				}
+				modifier = {
+					factor = 1.5
+					has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+				}
+				modifier = {
 					factor = 2
 					has_game_rule = { name = secrecy value = more }
 				}
@@ -2371,12 +2492,49 @@ character_event = {
 					# And gives suspected murderer instead of suspected monster
 				}
 				modifier = {
+					factor = 1.05
+					trait = hunger_2
+				}
+				modifier = {
+					factor = 1.1
+					trait = hunger_3
+				}
+				modifier = {
+					factor = 1.15
+					trait = hunger_4
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunger_5
+				}
+				modifier = {
+					factor = 1.1
+					trait = wroth
+				}
+				modifier = {
 					factor = 1.2
 					FROM = { trait = paranoid }
+					NOT = { has_character_flag = vampire_feed_kill }
 				}
 				modifier = {
 					factor = 1.2
 					FROM = { trait = gregarious }
+					NOT = { has_character_flag = vampire_feed_kill }
+				}
+				modifier = {
+					factor = 1.3
+					FROM = { trait = genius }
+					NOT = { has_character_flag = vampire_feed_kill }
+				}
+				modifier = {
+					factor = 1.1
+					FROM = {
+						OR = {
+							trait = quick
+							trait = shrewd
+						}
+					}
+					NOT = { has_character_flag = vampire_feed_kill }
 				}
 				modifier = {
 					factor = 1.2
@@ -2385,13 +2543,11 @@ character_event = {
 				}
 				modifier = {
 					factor = 1.2
-					FROM = { trait = temperate }
-					has_character_flag = vampire_feed_survive
+					has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
 				}
 				modifier = {
-					factor = 1.5
-					FROM = { trait = drunkard }
-					has_character_flag = vampire_feed_survive
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
 				}
 				modifier = {
 					factor = 2
@@ -2440,6 +2596,14 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
 				}
 				set_character_flag = vampire_feed_escape
 			}
