@@ -1822,7 +1822,7 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vampire_feed_suspected }
 			if = {
-				limit = { has_character_flag = known_vampire }
+				limit = { trait = known_vampire }
 				hidden_tooltip = {
 					any_realm_character = {
 						opinion = { who = ROOT modifier = suspect_of_murder years = 10 }
