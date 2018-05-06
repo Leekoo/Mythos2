@@ -763,46 +763,56 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 30
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 30
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 20
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 20
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 10
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 10
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
 					}
 				}
 			}
@@ -862,50 +872,60 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 15
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 15
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 10
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 10
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
 					}
 				}
 			}
@@ -917,17 +937,21 @@ laws = {
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_0
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 50
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 50
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_0
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 60
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 60
+					}
 				}
 			}
 		}
@@ -989,65 +1013,79 @@ laws = {
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 7
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 7
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 5
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 5
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 4
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 4
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 20
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 20
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 25
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 25
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_1
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 30
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 30
+					}
 				}
 			}
 		}
@@ -1098,40 +1136,48 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 3
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 3
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 2
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 2
+						}
 					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_4
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
 					}
 				}
 			}
@@ -1142,25 +1188,31 @@ laws = {
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 8
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 8
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 10
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 10
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 15
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 15
+					}
 				}
 			}
 		}
@@ -1212,10 +1264,12 @@ laws = {
 			factor = 0.01
 			modifier = {
 				factor = 0 # Don't bother changing this law without vassals
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							higher_tier_than = BARON
+							count = 1
+						}
 					}
 				}
 			}
@@ -1226,25 +1280,31 @@ laws = {
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 4
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 4
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 8
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 8
+					}
 				}
 			}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_2
-				any_vassal = {
-					higher_tier_than = BARON
-					count = 12
+				holder_scope = {
+					any_vassal = {
+						higher_tier_than = BARON
+						count = 12
+					}
 				}
 			}
 		}
