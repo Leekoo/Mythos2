@@ -373,7 +373,7 @@ decisions = {
 				hidden_tooltip = {
 					any_playable_ruler = {
 						trait = banker
-						NOT = { distance = { who = ROOT value = 300 } }
+						ROOT = { NOT = { distance = { who = PREV value = 300 } } }
 						# If I can find a clean way to require enough to cover the smallest loan, add it here
 						check_variable = { which = bank_total value = 1 }
 					}
