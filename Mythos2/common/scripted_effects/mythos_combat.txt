@@ -7,10 +7,10 @@ set_werewolf_fitness = {
 	export_to_variable = { which = temp value = combat_rating }
 	divide_variable = { which = temp value = 2 }
 	change_variable = { which = fitness which = temp }
-#	export_to_variable = { which = temp value = health }
-	get_health = yes
-	set_variable = { which = temp which = var_health }
-	set_variable = { which = var_health value = 0 }
+	export_to_variable = { which = temp value = health }
+	#get_health = yes
+	#set_variable = { which = temp which = var_health }
+	#set_variable = { which = var_health value = 0 }
 	divide_variable = { which = temp value = 2 }
 	change_variable = { which = fitness which = temp }
 	set_variable = { which = temp value = 0 }
@@ -301,10 +301,10 @@ combat_set_support_multiplier = { # In a character scope
 }
 
 combat_set_hp = { # Run in a character scope.  Support_multiplier MUST be set, or the character will have 0 hp
-	#export_to_variable = { which = combat_hp value = health }
-	get_health = yes
-	set_variable = { which = combat_hp which = var_health }
-	set_variable = { which = var_health value = 0 }
+	export_to_variable = { which = combat_hp value = health }
+	#get_health = yes
+	#set_variable = { which = combat_hp which = var_health }
+	#set_variable = { which = var_health value = 0 }
 	# Need minimum 1 hp at start, even with terrible health
 	if = {
 		limit = { NOT = { check_variable = { which = combat_hp value = 1 } } }
@@ -1534,8 +1534,8 @@ get_health = {
 }
 
 set_draconic_raid_hp = {
-	# export_to_variable = { which = draconic_raid_hp value = health }
-	get_health = yes
+	export_to_variable = { which = draconic_raid_hp value = health }
+	#get_health = yes
 	change_variable = { which = draconic_raid_hp value = 1 }
 	multiply_variable = { which = draconic_raid_hp value = 3 }
 	if = {
