@@ -84,8 +84,8 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
-			duchy = {
+			FROM = { 
+				trait = dragon
 				OR = {
 					has_law = tribal_organization_2
 					has_law = tribal_organization_3
@@ -148,8 +148,10 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
-			duchy = { has_law = tribal_organization_4 }
+			FROM = { 
+				trait = dragon
+				has_law = tribal_organization_4
+			}
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes					 
 		}
@@ -207,8 +209,8 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
-			duchy = {
+			FROM = { 
+				trait = dragon
 				OR = {
 					has_law = tribal_organization_1
 					has_law = tribal_organization_2
@@ -268,8 +270,8 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = dragon }
-			duchy = {
+			FROM = {
+				trait = dragon 
 				OR = {
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
@@ -517,8 +519,8 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = vampire }
-			duchy = {
+			FROM = {
+				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_1
 					has_law = tribal_organization_2
@@ -529,7 +531,7 @@ tribal = {
 			is_capital = yes 
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		
 		prerequisites = { tb_hillfort_2 }
@@ -572,8 +574,8 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = vampire }
-			duchy = {
+			FROM = {
+				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
@@ -582,7 +584,7 @@ tribal = {
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		
 		upgrades_from = tb_vampire_citadel_1
@@ -630,18 +632,18 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = vampire }
-			duchy = {
+			FROM = {
+				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_1
 					has_law = tribal_organization_2
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
 				}
-			}				 
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		prerequisites = { tb_hillfort_2 }
 		ai_creation_factor = 100
@@ -704,8 +706,8 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
-			duchy = {
+			FROM = {
+				trait = giant
 				OR = {
 					has_law = tribal_organization_1
 					has_law = tribal_organization_2
@@ -768,8 +770,8 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = giant }
-			duchy = {
+			FROM = {
+				trait = giant
 				OR = {
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
@@ -831,15 +833,15 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = giant }
-			duchy = {
+			FROM = {
+				trait = giant
 				OR = {
 					has_law = tribal_organization_1
 					has_law = tribal_organization_2
 					has_law = tribal_organization_3
 					has_law = tribal_organization_4
 				}
-			}			 
+			}
 		}
 		is_active_trigger = {
 			FROM = {
@@ -943,8 +945,6 @@ tribal = {
 					trait = veteran_wizard
 					trait = arcane_master
 				}
-			}
-			duchy = {
 				OR = {
 					has_law = tribal_organization_2
 					has_law = tribal_organization_3

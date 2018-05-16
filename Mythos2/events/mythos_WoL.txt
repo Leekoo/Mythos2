@@ -826,6 +826,7 @@ character_event = {
 		}
 		add_trait = known_werewolf
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			remove_trait = secret_werewolf
 		}
 	}
@@ -1001,6 +1002,7 @@ character_event = {
 		add_trait = known_werewolf
 		increase_control = yes
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			event_target:target_discovered_werewolf = { character_event = { id = MYTH_WoL.14 days = 1 } }
 			any_realm_character = { character_event = { id = MYTH_WoL.15 days = 1 } } # Court finds out character is a werewolf
 			liege = { character_event = { id = MYTH_WoL.15 days = 1} } # Liege finds out character is a werewolf
@@ -1888,6 +1890,7 @@ character_event = {
 	option = { # Refuse and get exposed
 		name = EVTOPTB_MYTH_WoL.19
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
 		any_realm_character = { character_event = { id = WEREWOLF.33 } }
 		FROM = {
 			opinion = { 
@@ -4264,11 +4267,7 @@ character_event = {
 			trait = arcane_master
 		}
 		piety = 300
-		#prisoner = no
-		NOR = { 
-			trait = cynical
-			#trait = incapable
-		}
+		NOT = { trait = cynical }
 	}
 	
 	weight_multiplier = {
@@ -6071,26 +6070,324 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		random_list = {
+			1 = {
+				random_courtier = {
+					save_event_target_as = stalked
+				}
+			}
+			1 = {
+				random_vassal = {
+					save_event_target_as = stalked
+				}
+			}
+		}
+	}
+	
+	# Tail someone and learn their secrets
 	option = {
 		name = EVTOPTAMYTH_WoL.85
+		custom_tooltip = {
+			text = TT_find_stalked_secrets
+		}
 		hidden_tooltip = {
-			character_event = { id = MYTH_WoL.40 days = 3 }
+			event_target:stalked = {
+				random_list = {
+					# Sexual proclivities
+					5 = {
+						trigger = {
+							OR = {
+								trait = homosexual
+								trait = hedonist
+								trait = syphilitic
+								trait = seducer
+								trait = seductress
+								AND = {
+									is_married = no
+									num_of_lovers = 1
+									has_concubinage = no # If they allow concubines, they probably don't care too much about fornication
+								}
+							}
+						}
+						modifier = {
+							factor = 0
+							trait = celibate
+						}
+						modifier = {
+							factor = 0.2
+							trait = chaste
+						}
+						modifier = {
+							factor = 2
+							trait = lustful
+						}
+						ROOT = {
+							set_character_flag = reason_sexual
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Secret lover
+					5 = {
+						trigger = {
+							is_married = yes
+							any_lover = {
+								NOT = {
+									any_spouse = {
+										character = PREVPREV
+									}
+								}
+								is_abroad = no
+								prisoner = no
+								NOT = { trait = incapable }
+								NOT = { character = ROOT }
+							}
+						}
+						modifier = {
+							factor = 0.2
+							trait = chaste
+						}
+						modifier = {
+							factor = 2
+							trait = lustful
+						}
+						ROOT = {
+							set_character_flag = reason_lover
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Secret Religion
+					5 = {
+						trigger = {
+							has_secret_religion = yes
+							religion = ROOT
+							NOT = { ROOT = { has_prevs_secret_religion_truly_trigger = yes } }
+						}
+						ROOT = {
+							set_character_flag = reason_religion
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Secret Society
+					5 = {
+						trigger = {
+							is_in_society = yes
+							NOT = { same_society_as = ROOT }
+							OR = {
+								society_is_criminal = yes
+								AND = {
+									society_is_devil_worshiper = yes
+									religion = ROOT
+								}
+							}
+						}
+						ROOT = {
+							set_character_flag = reason_society
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Secret Werewolf
+					5 = {
+						trigger = {
+							trait = secret_werewolf
+							ROOT = {
+								NOR = { 
+									trait = werewolf
+									culture = werewolf_culture
+								}
+							}
+						}
+						ROOT = {
+							set_character_flag = reason_werewolf
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Secret Vampire
+					5 = {
+						trigger = {
+							trait = secret_vampire
+							ROOT = {
+								NOR = { 
+									trait = vampire
+									culture = vampire_culture
+								}
+							}
+						}
+						ROOT = {
+							set_character_flag = reason_vampire
+							character_event = { id = MYTH_WoL.197 days = 3 }
+						}
+					}
+					# Nothing found
+					10 = {
+						additive_modifier = {
+							value = 2
+							intrigue = 10
+						}
+						additive_modifier = {
+							value = 2
+							intrigue = 15
+						}
+						additive_modifier = {
+							value = 2
+							intrigue = 20
+						}
+						additive_modifier = {
+							value = 2
+							intrigue = 25
+						}
+						additive_modifier = {
+							value = 2
+							intrigue = 30
+						}
+						additive_modifier = {
+							value = -2
+							ROOT = { intrigue = 10 }
+						}
+						additive_modifier = {
+							value = -2
+							ROOT = { intrigue = 15 }
+						}
+						additive_modifier = {
+							value = -2
+							ROOT = { intrigue = 20 }
+						}
+						additive_modifier = {
+							value = -2
+							ROOT = { intrigue = 25 }
+						}
+						additive_modifier = {
+							value = -2
+							ROOT = { intrigue = 30 }
+						}
+						modifier = {
+							factor = 1.2
+							trait = deceitful
+						}
+						modifier = {
+							factor = 1.2
+							ROOT = { trait = trusting }
+						}
+						modifier = {
+							factor = 0.8
+							trait = trusting
+						}
+						ROOT = {
+							# Nothing found
+							character_event = { id = MYTH_WoL.198 days = 3 }
+						}
+					}
+				}
+			}
+			character_event = { id = MYTH_WoL.40 days = 6 }
 			if = {
 				limit = { NOT = { intrigue = 10 } }
 				random = {
 					chance = 30
-					character_event = { id = MYTH_WoL.88 days = 1 }
+					character_event = { id = MYTH_WoL.88 days = 5 }
 				}
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 4
+				is_rival = event_target:stalked
+			}
+		}
+	}
+	
+	# Search for hidden passageways
+	option = {
+		name = EVTOPTEMYTH_WoL.85
+		add_character_modifier = { modifier = secret_passageways years = 2 }
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = architect
+			}
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+		}
+	}
+	# Listen to what people say about you
+	option = {
+		name = EVTOPTFMYTH_WoL.85
+		add_character_modifier = { modifier = overheard_rumors years = 2 }
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = shy
 			}
 		}
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.85
 		trigger = {	trait = dragon }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
 	}
 	option = {
 		name = EVTOPTCMYTH_WoL.85
 		trigger = { trait = werewolf }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
 	}
 	option = {
 		name = EVTOPTDMYTH_WoL.85
@@ -6098,6 +6395,21 @@ character_event = {
 			NOR = {
 				trait = dragon
 				trait = werewolf
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = content
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
 			}
 		}
 	}
@@ -14262,6 +14574,2217 @@ character_event = {
 					years = 1000
 				}
 			}
+		}
+	}
+}
+
+# Found someone's secrets while transformed
+character_event = {
+	id = MYTH_WoL.197
+	picture = GFX_evt_courtiers_talking
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		trigger = {
+			has_character_flag = reason_sexual
+			NOT = { event_target:stalked = { trait = homosexual } }
+		}
+		text = EVTDESCAMYTH_WoL.197
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_lover
+			NOT = { event_target:stalked = { trait = homosexual } }
+		}
+		text = EVTDESCBMYTH_WoL.197
+		picture = GFX_evt_lovers
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_religion
+		}
+		text = EVTDESCCMYTH_WoL.197
+		picture = GFX_evt_secluded_in_prayer
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_society
+		}
+		text = EVTDESCDMYTH_WoL.197
+		picture = GFX_evt_shadowy_cabal
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_werewolf
+		}
+		text = EVTDESCEMYTH_WoL.197
+		picture = GFX_evt_werewolf_shadowed
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_vampire
+		}
+		text = EVTDESCFMYTH_WoL.197
+		picture = GFX_evt_whispers
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_sexual
+			event_target:stalked = { trait = homosexual }
+		}
+		text = EVTDESCGMYTH_WoL.197
+	}
+	desc = {
+		trigger = {
+			has_character_flag = reason_lover
+			event_target:stalked = { trait = homosexual }
+		}
+		text = EVTDESCBMYTH_WoL.197
+		picture = GFX_evt_lovers
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = reason_sexual
+					has_character_flag = reason_lover
+				}
+				event_target:stalked = { trait = homosexual }
+			}
+			opinion = { who = event_target:stalked modifier = opinion_discovered_homosexual years = -1 }
+		}
+	}
+	
+	# Blackmail them
+	option = {
+		name = EVTOPTAMYTH_WoL.197
+		event_target:stalked = { 
+			# Going to wipe ROOT's flags at the end of this event, so set flags on stalked
+			if = {
+				limit = { ROOT = { has_character_flag = reason_sexual } }
+				set_character_flag = exposed_sexual
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_lover } }
+				set_character_flag = exposed_lover
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_religion } }
+				set_character_flag = exposed_religion
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_society } }
+				set_character_flag = exposed_society
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_werewolf } }
+				set_character_flag = exposed_werewolf
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_vampire } }
+				set_character_flag = exposed_vampire
+			}
+			letter_event = { id = MYTH_WoL.199 days = 2 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+			modifier = {
+				factor = 1.5
+				trait = ambitious
+			}
+		}
+	}
+	# Inform their spouse
+	option = {
+		name = EVTOPTBMYTH_WoL.197
+		trigger = {
+			has_character_flag = reason_lover
+		}
+		event_target:stalked = {
+			spouse = {
+				character_event = { id = MYTH_WoL.202 days = 1 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+		}
+	}
+	# Expose them!
+	option = {
+		name = EVTOPTCMYTH_WoL.197
+		trigger = {
+			OR = {
+				has_character_flag = reason_werewolf
+				has_character_flag = reason_vampire
+				AND = {
+					OR = {
+						has_character_flag = reason_sexual
+						has_character_flag = reason_lover
+					}
+					trait = homosexual
+					NOT = { any_lover = { character = ROOT } }
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = reason_werewolf }
+			
+			reverse_opinion = {
+				who = event_target:stalked
+				modifier = exposed_me
+			}
+		
+			custom_tooltip = { text = EVTTOOLTIPA_MYTH_WoL.9 }
+			hidden_tooltip = {
+				event_target:stalked = { 
+					character_event = { id = MYTH_WoL.6 } # Character uncovered as a werewolf
+					save_event_target_as = target_discovered_werewolf
+				}
+				any_realm_character = { character_event = { id = MYTH_WoL.7 } } # Court finds out character is a werewolf
+				if = {
+					limit = {
+						NOT = { event_target:stalked = { liege = { character = ROOT } } }
+					}
+					event_target:stalked = { liege = { character_event = { id = MYTH_WoL.8 } } } # Liege finds out character is a werewolf
+				}
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = reason_vampire }
+			
+			reverse_opinion = {
+				who = event_target:stalked
+				modifier = exposed_me
+			}
+			
+			custom_tooltip = { text = EVTTOOLTIPA_VAMPIRE.17 }
+			hidden_tooltip = {
+				event_target:stalked = {
+					character_event = { id = VAMPIRE.14 }# Character uncovered as a vampire
+					save_event_target_as = target_discovered_vampire
+				}
+				any_realm_character = { character_event = { id = VAMPIRE.15 } } # Court finds out character is a vampire
+				if = {
+					limit = {
+						NOT = { event_target:stalked = { liege = { character = ROOT } } }
+					}
+					event_target:stalked = { liege = { character_event = { id = VAMPIRE.16 } } } # Liege finds out character is a vampire
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_character_flag = reason_sexual
+					has_character_flag = reason_lover
+				}
+				event_target:stalked = { trait = homosexual }
+			}
+			
+			reverse_opinion = {
+				who = event_target:stalked
+				modifier = exposed_me
+			}
+			event_target:stalked = {
+				character_event = { id = MYTH_WoL.203 }
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = {
+					has_character_flag = reason_sexual
+					has_character_flag = reason_lover
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+		}
+	}
+	# Arrest them!
+	option = {
+		name = EVTOPTDMYTH_WoL.197
+		trigger = {
+			NOR = {
+				has_character_flag = reason_sexual
+				has_character_flag = reason_lover
+			}
+		}
+		tooltip = {
+			imprison = event_target:stalked
+		}
+		event_target:stalked = { 
+			# Going to wipe ROOT's flags at the end of this event, so set flags on stalked
+			if = {
+				limit = { ROOT = { has_character_flag = reason_sexual } }
+				set_character_flag = exposed_sexual
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_lover } }
+				set_character_flag = exposed_lover
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_religion } }
+				set_character_flag = exposed_religion
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_society } }
+				set_character_flag = exposed_society
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_werewolf } }
+				set_character_flag = exposed_werewolf
+			}
+			else_if = {
+				limit = { ROOT = { has_character_flag = reason_vampire } }
+				set_character_flag = exposed_vampire
+			}
+			character_event = { id = MYTH_WoL.204 }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 4
+				trait = monster_hunter
+				OR = {
+					has_character_flag = reason_werewolf
+					has_character_flag = reason_vampire
+				}
+			}
+			modifier = {
+				factor = 2 # Not the reason for the arrest, but you want to lock them up anyway
+				trait = monster_hunter
+				event_target:stalked = {
+					is_monster_to_root = yes
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+	}
+	# Demand breakup
+	option = {
+		name = EVTOPTEMYTH_WoL.197
+		trigger = {
+			has_character_flag = reason_lover
+			any_spouse = { character = event_target:stalked }
+		}
+		event_target:stalked = {
+			character_event = { id = MYTH_WoL.205 }
+		}
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 1.5
+				is_lover = event_target:stalker
+			}
+			modifier = {
+				factor = 1.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 1.5
+				trait = envious
+			}
+			modifier = {
+				factor = 0.6
+				trait = shy
+			}
+		}
+	}
+	# Let it slide
+	option = {
+		name = EVTOPTFMYTH_WoL.197
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+		}
+	}
+	
+	after = {
+		clr_character_flag = reason_sexual
+		clr_character_flag = reason_lover
+		clr_character_flag = reason_religion
+		clr_character_flag = reason_society
+		clr_character_flag = reason_werewolf
+		clr_character_flag = reason_vampire
+	}
+}
+
+# Nothing found
+character_event = {
+	id = MYTH_WoL.198
+	desc = EVTDESCMYTH_WoL.198
+	picture = GFX_evt_prospering_province
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.198
+	}
+}
+
+# Blackmailed after being stalked by enchanter
+letter_event = {
+	id = MYTH_WoL.199
+	border = GFX_event_letter_frame_intrigue
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			NOT = { trait = homosexual }
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCAMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			trait = homosexual
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCBMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_lover
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCCMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_religion
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCDMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_society
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCEMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_werewolf
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCFMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_vampire
+			is_landed = yes
+			NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+		}
+		text = EVTDESCGMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			NOT = { trait = homosexual }
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCHMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_sexual
+			trait = homosexual
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCIMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_lover
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCJMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_religion
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCKMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_society
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCLMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_werewolf
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCMMYTH_WoL.199
+	}
+	desc = {
+		trigger = {
+			has_character_flag = exposed_vampire
+			OR = {
+				is_landed = no
+				has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+			}
+		}
+		text = EVTDESCNMYTH_WoL.199
+	}
+	
+	is_triggered_only = yes
+	
+	# Accept - stay out of factions
+	option = {
+		name = EVTOPTAMYTH_WoL.199
+		FROM = {
+			opinion = {
+				modifier = opinion_pleased
+				who = ROOT
+				years = 2
+			}
+		}
+		if = {
+			limit = {
+				is_landed = yes
+				NOT = { has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction } }
+			}
+			opinion = {
+				modifier = opinion_coerced_into_leaving_faction
+				who = FROM
+				months = 1200
+			}
+		}
+		else = {
+			tooltip = {
+				transfer_scaled_wealth = { to = FROM value = 0.3 }
+			}
+		}
+		hidden_tooltip = {
+			clr_character_flag = exposed_sexual
+			clr_character_flag = exposed_lover
+			clr_character_flag = exposed_religion
+			clr_character_flag = exposed_society
+			clr_character_flag = exposed_werewolf
+			clr_character_flag = exposed_vampire
+			FROM = {
+				letter_event = { id = MYTH_WoL.200 }
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 5.0
+				trait = craven
+			}
+			modifier = {
+				factor = 3.0
+				trait = proud
+			}
+			modifier = {
+				factor = 3.0
+				trait = content
+			}
+			modifier = {
+				factor = 2.0
+				trait = trusting
+			}
+			modifier = {
+				factor = 2.0
+				trait = patient
+			}
+			modifier = {
+				factor = 2.0
+				has_character_flag = exposed_werewolf
+				liege = {
+					NOR = {
+						culture = werewolf_culture
+						trait = werewolf
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				has_character_flag = exposed_vampire
+				liege = {
+					NOR = {
+						culture = vampire_culture
+						trait = vampire
+					}
+				}
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTBMYTH_WoL.199
+		opinion = {
+			who = FROM
+			modifier = opinion_slandered
+			months = 24
+		}
+		
+		hidden_tooltip = {
+			FROM = { letter_event = { id = MYTH_WoL.201 } }
+		}
+		
+		tooltip = {
+			if = {
+				limit = { has_character_flag = exposed_sexual }
+				reverse_opinion = {
+					who = FROM
+					modifier = opinion_charge_deviant
+					months = 24
+				}
+			}
+			if = {
+				limit = {
+					trait = homosexual
+					is_female = no
+					NOR = {
+						has_character_modifier = known_sodomite
+						has_character_modifier = known_sodomite_pagan
+					}
+					OR = {
+						has_character_flag = exposed_sexual
+						has_character_flag = exposed_lover
+					}
+				}
+				add_character_modifier = { name = known_sodomite years = 20 }
+			}
+			if = {
+				limit = { has_character_flag = exposed_lover }
+				reverse_opinion = {
+					who = FROM
+					modifier = opinion_charge_deviant
+					months = 24
+				}
+				spouse = {
+					opinion = {
+						who = ROOT
+						modifier = opinion_angry
+						years = 2
+					}
+				}
+			}
+			if = {
+				limit = { has_character_flag = exposed_religion }
+				reverse_opinion = {
+					who = FROM
+					modifier = opinion_accused_apostate
+					months = 240
+				}
+			}
+			if = {
+				limit = { has_character_flag = exposed_society }
+				reverse_opinion = {
+					who = FROM
+					modifier = opinion_charge_cultist
+					months = 24
+				}
+			}
+			if = {
+				limit = { has_character_flag = exposed_werewolf }
+				reverse_opinion = {
+					who = FROM
+					modifier = newly_found_werewolf
+					months = 12
+				}
+			}
+			if = {
+				limit = { has_character_flag = exposed_vampire }
+				reverse_opinion = {
+					who = FROM
+					modifier = newly_found_vampire
+					months = 12
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 3.0
+				trait = brave
+			}
+			modifier = {
+				factor = 3.0
+				trait = wroth
+			}
+			modifier = {
+				factor = 3.0
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_character_flag = exposed_sexual
+					has_character_flag = exposed_lover
+				}
+				OR = {
+					has_character_modifier = known_sodomite
+					has_character_modifier = known_sodomite_pagan
+				}
+			}
+			modifier = {
+				factor = 3.0
+				any_rival = { character = FROM }
+			}
+			modifier = {
+				factor = 2.0
+				NOT = { opinion = { who = FROM value = -20 } }
+			}
+		}
+	}
+}
+
+# Blackmail accepted
+letter_event = {
+	id = MYTH_WoL.200
+	desc = EVTDESCMYTH_WoL.200
+	border = GFX_event_letter_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			opinion = {
+				modifier = opinion_pleased
+				who = FROM
+				years = 2
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					is_landed = no
+					has_opinion_modifier = { who = FROM modifier = opinion_coerced_into_leaving_faction }
+				}
+			}
+			FROM = { transfer_scaled_wealth = { to = ROOT value = 0.3 } }
+		}
+		else = {
+			tooltip = {
+				reverse_opinion = {
+					modifier = opinion_coerced_into_leaving_faction
+					who = FROM
+					months = 1200
+				}
+			}
+		}
+	}
+}
+
+# Blackmail rejected
+letter_event = {
+	id = MYTH_WoL.201
+	desc = EVTDESCMYTH_WoL.201
+	border = GFX_event_letter_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	# Expose them
+	option = {
+		name = EVTOPTAMYTH_WoL.201
+		trigger = {
+			FROM = {
+				OR = {
+					has_character_flag = exposed_werewolf
+					has_character_flag = exposed_vampire
+					AND = {
+						OR = {
+							has_character_flag = expoosed_sexual
+							has_character_flag = exposed_lover
+						}
+						trait = homosexual
+						NOT = { any_lover = { character = ROOT } }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { FROM = { has_character_flag = exposed_werewolf } }
+			
+			reverse_opinion = {
+				who = FROM
+				modifier = exposed_me
+			}
+		
+			custom_tooltip = { text = EVTTOOLTIPA_MYTH_WoL.9 }
+			hidden_tooltip = {
+				FROM = { 
+					character_event = { id = MYTH_WoL.6 } # Character uncovered as a werewolf
+					save_event_target_as = target_discovered_werewolf
+				}
+				any_realm_character = { character_event = { id = MYTH_WoL.7 } } # Court finds out character is a werewolf
+				if = {
+					limit = {
+						NOT = { FROM = { liege = { character = ROOT } } }
+					}
+					FROM = { liege = { character_event = { id = MYTH_WoL.8 } } } # Liege finds out character is a werewolf
+				}
+			}
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = exposed_vampire } }
+			
+			reverse_opinion = {
+				who = FROM
+				modifier = exposed_me
+			}
+			
+			custom_tooltip = { text = EVTTOOLTIPA_VAMPIRE.17 }
+			hidden_tooltip = {
+				FROM = {
+					character_event = { id = VAMPIRE.14 }# Character uncovered as a vampire
+					save_event_target_as = target_discovered_vampire
+				}
+				any_realm_character = { character_event = { id = VAMPIRE.15 } } # Court finds out character is a vampire
+				if = {
+					limit = {
+						NOT = { FROM = { liege = { character = ROOT } } }
+					}
+					FROM = { liege = { character_event = { id = VAMPIRE.16 } } } # Liege finds out character is a vampire
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				FROM = { 
+					OR = {
+						has_character_flag = exposed_sexual
+						has_character_flag = exposed_lover
+					}
+					trait = homosexual
+				}
+			}
+			
+			reverse_opinion = {
+				who = FROM
+				modifier = exposed_me
+			}
+			FROM = {
+				character_event = { id = MYTH_WoL.203 }
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				clr_character_flag = exposed_sexual
+				clr_character_flag = exposed_lover
+				clr_character_flag = exposed_religion
+				clr_character_flag = exposed_society
+				clr_character_flag = exposed_werewolf
+				clr_character_flag = exposed_vampire
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				FROM = { 
+					NOR = {
+						has_character_flag = exposed_sexual 
+						has_character_flag = exposed_lover
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+		}
+	}
+	# Inform spouse
+	option = {
+		name = EVTOPTBMYTH_WoL.201
+		trigger = {
+			FROM = {
+				has_character_flag = exposed_lover
+				NOT = { spouse = { character = ROOT } }
+				any_lover = { NOT = {  character = ROOT } }
+				NOT = {
+					AND = {
+						trait = homosexual
+						OR = {
+							has_character_modifier = known_sodomite
+							has_character_modifier = known_sodomite_pagan
+						}
+					}
+				}
+			}
+		}
+		event_target:stalked = {
+			spouse = {
+				character_event = { id = MYTH_WoL.202 days = 1 }
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				clr_character_flag = exposed_sexual
+				clr_character_flag = exposed_lover
+				clr_character_flag = exposed_religion
+				clr_character_flag = exposed_society
+				clr_character_flag = exposed_werewolf
+				clr_character_flag = exposed_vampire
+			}
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 1.5
+				trait = honest
+			}
+			modifier = {
+				factor = 1.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0.5
+				trait = shy
+			}
+		}
+	}
+	# Arrest them
+	option = {
+		name = EVTOPTCMYTH_WoL.201
+		trigger = {
+			FROM = {
+				OR = {
+					has_character_flag = exposed_religion
+					has_character_flag = exposed_society
+				}
+			}
+		}
+		tooltip = {
+			imprison = event_target:stalked
+		}
+		event_target:stalked = { character_event = { id = MYTH_WoL.204 } }
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 4
+				trait = monster_hunter
+				OR = {
+					has_character_flag = reason_werewolf
+					has_character_flag = reason_vampire
+				}
+			}
+			modifier = {
+				factor = 2 # Not the reason for the arrest, but you want to lock them up anyway
+				trait = monster_hunter
+				event_target:stalked = {
+					is_monster_to_root = yes
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = just
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+		}
+	}
+	# Do nothing
+	option = {
+		name = EVTOPTDMYTH_WoL.201
+		hidden_tooltip = {
+			FROM = {
+				clr_character_flag = exposed_sexual
+				clr_character_flag = exposed_lover
+				clr_character_flag = exposed_religion
+				clr_character_flag = exposed_society
+				clr_character_flag = exposed_werewolf
+				clr_character_flag = exposed_vampire
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				trait = arbitrary
+			}
+			modifier = {
+				factor = 1.5
+				trait = shy
+			}
+		}
+	}
+}
+
+# Spouse informed of affair
+character_event = {
+	id = MYTH_WoL.202
+	desc = EVTDESCMYTH_WoL.202
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:stalked = {
+			random_lover = {
+				limit = {
+					NOR = {
+						character = FROM
+						character = ROOT
+					}
+				}
+				save_event_target_as = target_adulterer
+				if = {
+					limit = { same_sex = PREV }
+					reverse_opinion = { who = ROOT modifier = opinion_discovered_homosexual years = -1 }
+					reverse_opinion = { who = FROM modifier = opinion_discovered_homosexual years = -1 }
+				}
+			}
+			
+		}
+	}
+	
+	# Confront Spouse
+	option = {
+		name = EVTOPTAMYTH_WoL.202
+		event_target:stalked = {
+			character_event = { 
+				id = 64001
+				tooltip = "EVTTOOLTIP64001"
+			}
+			character_event = { id = 20 }
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				any_lover = { character = event_target:stalked }
+			}
+			modifier = {
+				factor = 2
+				event_target:stalked = {
+					OR = {
+						trait = lustful
+						trait = seducer
+						trait = seductress
+						trait = hedonist
+					}
+				}
+			}
+		}
+	}
+	# Confront Lover
+	option = {
+		name = EVTOPTBMYTH_WoL.202
+		event_target:stalked = {
+			reverse_opinion = { who = ROOT modifier = committed_adultery_rumour years = 2 }
+			character_event = { id = 20 }
+		}
+		event_target:target_adulterer = {
+			character_event = { 
+				id = 64002
+				tooltip = "EVTTOOLTIP64002"
+			}
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = wroth
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+		}
+	}
+	# Disbelieve
+	option = {
+		name = EVTOPTCMYTH_WoL.202
+		opinion = { who = FROM modifier = opinion_liar years = 1 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = paranoid
+			}
+		}
+	}
+	# Keep private
+	option = {
+		name = EVTOPTDMYTH_WoL.202
+		opinion = { who = event_target:stalked modifier = opinion_unfaithful_private years = 2 }
+		opinion = { who = event_target:target_adulterer modifier = opinion_cuckolded_private years = 2 }
+		if = {
+			limit = { trait = trusting }
+			random = {
+				chance = 30
+				remove_trait = trusting
+				hidden_tooltip = {
+					character_event = { id = 38306 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = shy
+			}
+			modifier = {
+				factor = 0.5
+				trait = gregarious
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+		}
+	}
+}
+
+# Homosexuality exposed
+character_event = {
+	id = MYTH_WoL.203
+	desc = EVTDESCMYTH_WoL.203
+	picture = GFX_evt_scandal
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.203
+		if = {
+			limit = { is_female = no }
+			if = {
+				limit = { religion_group = pagan_group }
+				add_character_modifier = {
+					name = known_sodomite_pagan
+					years = 20
+				}
+			}
+			else = {
+				add_character_modifier = {
+					name = known_sodomite
+					years = 20
+				}
+			}
+			prestige = -500
+			piety = -250
+		}
+		if = {
+			limit = { is_female = yes }
+			prestige = -100
+			piety = -50
+		}
+		hidden_tooltip = {
+			clr_character_flag = exposed_sexual
+			clr_character_flag = exposed_lover
+			clr_character_flag = exposed_religion
+			clr_character_flag = exposed_society
+			clr_character_flag = exposed_werewolf
+			clr_character_flag = exposed_vampire
+		}
+	}
+}
+
+# Imprisoned from findings
+character_event = {
+	id = MYTH_WoL.204
+	picture = GFX_evt_into_the_dungeon
+	border = GFX_event_normal_frame_intrigue
+	desc = {
+		# Apostacy
+		trigger = {
+			has_character_flag = exposed_religion
+		}
+		text = EVTDESCAMYTH_WoL.204
+	}
+	desc = {
+		# Sedition
+		trigger = {
+			has_character_flag = exposed_society
+		}
+		text = EVTDESCBMYTH_WoL.204
+	}
+	desc = {
+		# Lycanthropy
+		trigger = {
+			has_character_flag = exposed_werewolf
+		}
+		text = EVTDESCCMYTH_WoL.204
+	}
+	desc = {
+		# Vampirism
+		trigger = {
+			has_character_flag = exposed_vampire
+		}
+		text = EVTDESCDMYTH_WoL.204
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.204
+		imprison = FROM
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = exposed_religion
+					AND = {
+						has_character_flag = exposed_society
+						OR = {
+							is_devil_worshiper_trigger = yes
+							is_secret_religious_society_member_trigger = yes
+						}
+					}
+				}
+			}
+			reverse_opinion = {
+				modifier = opinion_accused_apostate 
+				who = FROM
+				years = 100
+			}
+			if = {
+				limit = { is_devil_worshiper_trigger = yes }
+				add_character_modifier = {
+					name = known_satanist
+					duration = -1
+				}
+			}
+			else = {
+				add_character_modifier = {
+					name = accused_apostate
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					religion = FROM
+					controls_religion = no
+					OR = {
+						religion = catholic
+						religion = fraticelli
+						religion = orthodox
+						religion = miaphysite
+						religion = monophysite
+						religion = monothelite
+						religion = paulician
+						religion = nestorian
+						religion = yazidi
+					}
+				}
+				add_trait = excommunicated
+			}
+			hidden_tooltip = {
+				if = {
+					limit = {
+						OR = {
+							is_devil_worshiper_trigger = yes
+							is_secret_religious_society_member_trigger = yes
+						}
+					}
+					set_discovered_society = yes
+					FROM = {
+						save_event_target_as = my_liege
+					}
+					any_player = {
+						limit = {
+							primary_title = { always = yes }
+							OR = {
+								same_realm = ROOT
+								is_close_relative = ROOT
+								is_friend = ROOT
+							}
+							same_society_as = ROOT
+							NOT = {
+								character = ROOT
+							}
+						}
+						character_event = { id = MNM.70400 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = exposed_society
+			}
+			# Note - society might already have been partially handled above. If so, will already be listed as discovered
+			change_society_currency = -200
+			if = {
+				limit = { is_society_grandmaster = yes }
+				add_society_modifier = { modifier = grandmaster_exposed years = 10 }
+			}
+			else = {
+				add_society_modifier = { modifier = member_exposed years = 10 }
+			}
+			if = {
+				limit = { is_society_discovered_real = no }
+				hidden_tooltip = {
+					set_discovered_society = yes
+					FROM = {
+						save_event_target_as = my_liege
+					}
+					any_player = {
+						limit = {
+							primary_title = { always = yes }
+							OR = {
+								same_realm = ROOT
+								is_close_relative = ROOT
+								is_friend = ROOT
+							}
+							same_society_as = ROOT
+							NOT = {
+								character = ROOT
+							}
+						}
+						character_event = { id = MNM.70400 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = exposed_werewolf }
+			opinion = {
+				who = FROM
+				modifier = exposed_me
+			}
+			add_trait = known_werewolf
+			hidden_tooltip = {
+				remove_character_modifier = known_monster
+				remove_trait = secret_werewolf
+			}
+			any_realm_character = {
+				limit = { NOT = { character = FROM } }
+				character_event = { id = MYTH_WoL.7 }
+			}
+		}
+		if = {
+			limit = { has_character_flag = exposed_vampire }
+			opinion = {
+				who = FROM
+				modifier = exposed_me
+			}
+			add_trait = known_vampire
+			hidden_tooltip = {
+				remove_character_modifier = known_monster
+				remove_trait = secret_vampire
+			}
+			any_realm_character = {
+				limit = { NOT = { character = FROM } }
+				character_event = { id = VAMPIRE.23 }
+			}
+		}
+	}
+}
+
+# Spouse demands you break up with lovers
+character_event = {
+	id = MYTH_WoL.205
+	desc = EVTDESCMYTH_WoL.205
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	# Break up with lovers except spouses and concubines
+	option = {
+		name = EVTOPTAMYTH_WoL.205
+		trigger = {
+			any_lover = {
+				NOT = { any_spouse = { character = ROOT } }
+				NOT = { any_consort = { character = ROOT } }
+			}
+		}
+		FROM = {
+			opinion = { modifier = opinion_unfaithful_private who = ROOT years = 2 }
+		}
+		any_lover = {
+			limit = {
+				NOT = { any_spouse = { character = ROOT } }
+				NOT = { any_consort = { character = ROOT } }
+			}
+			remove_lover = ROOT
+			character_event = { id = WoL.1005 tooltip = EVTTOOLTIP_WoL_1005 }
+		}
+		FROM = { character_event = { id = MYTH_WoL.206 } }
+		if = {
+			limit = { is_female = yes }
+			reverse_opinion = {
+				who = ROOT
+				modifier = slut_seductress
+				months = 24
+			}
+		}
+		else = {
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_cuckolded_private
+				months = 24
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				any_lover = { character = FROM }
+			}
+			modifier = {
+				factor = 2
+				any_friend = { character = FROM }
+			}
+			modifier = {
+				factor = 0.5
+				any_rival = { character = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				trait = chaste
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+		}
+	}
+	# Break up with lovers except spouses but including concubines
+	option = {
+		name = EVTOPTBMYTH_WoL.205
+		trigger = {
+			any_lover = {
+				NOT = { any_spouse = { character = ROOT } }
+				NOT = { any_consort = { character = ROOT } }
+			}
+		}
+		FROM = {
+			opinion = { modifier = opinion_angry who = ROOT years = 2 }
+		}
+		any_lover = {
+			limit = {
+				NOT = { any_spouse = { character = ROOT } }
+			}
+			if = {
+				limit = { any_consort = { character = ROOT } }
+				opinion = { modifier = opinion_set_aside who = ROOT months = 1200 }
+				remove_consort = ROOT
+			}
+			remove_lover = ROOT
+			character_event = { id = WoL.1005 tooltip = EVTTOOLTIP_WoL_1005 }
+		}
+		FROM = { character_event = { id = MYTH_WoL.206 } }
+		if = {
+			limit = { is_female = yes }
+			reverse_opinion = {
+				who = ROOT
+				modifier = slut_seductress
+				months = 24
+			}
+		}
+		else = {
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_cuckolded_private
+				months = 24
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				any_lover = { character = FROM }
+			}
+			modifier = {
+				factor = 2
+				any_friend = { character = FROM }
+			}
+			modifier = {
+				factor = 0.5
+				any_rival = { character = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				trait = chaste
+			}
+			modifier = {
+				factor = 1.5
+				trait = arbitrary
+			}
+		}
+	}
+	# Refuse
+	option = {
+		name = EVTOPTCMYTH_WoL.205
+		remove_lover = FROM
+		remove_friend = FROM
+		if = {
+			limit = {
+				any_lover = {
+					NOT = { any_spouse = { character = ROOT } }
+					NOT = { any_consort = { character = ROOT } }
+				}
+			}
+			reverse_opinion = { modifier = opinion_unfaithful_private who = FROM years = 10 }
+		}
+		else = {
+			reverse_opinion = { modifier = opinion_angry who = FROM years = 10 }
+		}
+		if = {
+			limit = { is_female = yes }
+			reverse_opinion = {
+				who = ROOT
+				modifier = slut_seductress
+				months = 240
+			}
+		}
+		else = {
+			reverse_opinion = {
+				who = ROOT
+				modifier = opinion_cuckolded_private
+				months = 240
+			}
+		}
+		FROM = {
+			character_event = { id = MYTH_WoL.207 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				trait = lustful
+			}
+			modifier = {
+				factor = 1.5
+				OR = {
+					trait = seducer
+					trait = seductress
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = hedonist
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+		}
+	}
+}
+
+# Spouse broke up with lovers.
+character_event = {
+	id = MYTH_WoL.206
+	desc = EVTDESCMYTH_WoL.206
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.206
+		tooltip = {
+			opinion = { modifier = opinion_unfaithful_private who = FROM years = 2 }
+			if = {
+				limit = { FROM = { is_female = yes } }
+				opinion = {
+					who = FROM
+					modifier = slut_seductress
+					months = 24
+				}
+			}
+			else = {
+				opinion = {
+					who = FROM
+					modifier = opinion_cuckolded_private
+					months = 24
+				}
+			}
+		}
+	}
+}
+
+# Spouse refused to break up with lovers
+character_event = {
+	id = MYTH_WoL.207
+	desc = EVTDESCMYTH_WoL.207
+	picture = GFX_evt_quarrel
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.207
+		tooltip = {
+			opinion = { modifier = opinion_unfaithful_private who = FROM years = 10 }
+			remove_lover = FROM
+			remove_friend = FROM
+			if = {
+				limit = { FROM = { is_female = yes } }
+				opinion = {
+					who = FROM
+					modifier = slut_seductress
+					months = 240
+				}
+			}
+			else = {
+				opinion = {
+					who = FROM
+					modifier = opinion_cuckolded_private
+					months = 240
+				}
+			}
+		}
+	}
+}
+
+# Perfect time to commune with spirits
+character_event = {
+	id = MYTH_WoL.208
+	desc = EVTDESCMYTH_WoL.208
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_conjuration
+	}
+	
+	# Speak to the ghost of an old ruler
+	option = {
+		name = EVTOPTAMYTH_WoL.208
+		add_character_modifier = { modifier = ancient_advice years = 2 }
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.209 days = 3 random = 2 tooltip = TT_haunted_castle }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = scholar
+			}
+			modifier = {
+				factor = 2
+				trait = humble
+			}
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+		}
+	}
+	# Ask a demon for secrets about your enemies
+	option = {
+		name = OPTBMYTH_WoL.208
+		add_character_modifier = { modifier = seeker_of_secrets years = 2 }
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.210 days = 3 random = 2 tooltip = TT_consorted_with_demons }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = schemer
+			}
+			modifier = {
+				factor = 2
+				trait = mystic
+			}
+			modifier = {
+				factor = 2
+				trait = envious
+			}
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	# Ask local spirits to bless the crops
+	option = {
+		name = OPTCMYTH_WoL.208
+		any_demesne_province = {
+			add_province_modifier = { modifier = spirit_blessed_farmlands years = 2 }
+		}
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = deceitful
+				}
+			}
+			3 = {
+				character_event = { id = MYTH_WoL.211 days = 3 random = 2 tooltip = TT_night_spirits }
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 6 }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = administrator
+			}
+			modifier = {
+				factor = 2
+				trait = mystic
+			}
+			modifier = {
+				factor = 2
+				trait = charitable
+			}
+		}
+	}
+	# Don't risk it
+	option = {
+		name = EVTOPTDMYTH_WoL.208
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 6
+				trait = zealous
+			}
+			modifier = {
+				factor = 2
+				trait = theologian
+			}
+			modifier = {
+				factor = 2
+				trait = craven
+			}
+		}
+	}
+}
+
+# Haunted Castle
+character_event = {
+	id = MYTH_WoL.209
+	desc = EVTDESCMYTH_WoL.209
+	picture = GFX_evt_magnificent_castle
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		add_character_modifier = { modifier = haunted_castle years = 2 }
+	}
+}
+
+# Consorted with Demons
+character_event = {
+	id = MYTH_WoL.210
+	desc = EVTDESCMYTH_WoL.210
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		add_character_modifier = { modifier = consorted_with_demons years = 2 }
+	}
+}
+
+# Night Spirits
+character_event = {
+	id = MYTH_WoL.211
+	desc = EVTDESCMYTH_WoL.211
+	picture = GFX_evt_doctor_tending_to_sick
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.209
+		any_demesne_province = {
+			add_province_modifier = { modifier = night_spirits years = 2 }
+		}
+	}
+}
+
+# Conjuration, Remove a disease
+character_event = {
+	id = MYTH_WoL.212
+	desc = EVTDESCMYTH_WoL.212
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_capable = yes
+	
+	trigger = {
+		any_demesne_province = { has_disease = yes }
+		has_focus = focus_magic
+		has_character_modifier = studying_conjuration
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.212
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			add_province_modifier = { modifier = sacrificed_crops years = 2 }
+			random_list = {
+				7 = { reduce_disease = 0.33 }
+				3 = { reduce_disease = 1 }
+			}
+			if = {
+				limit = { 
+					NOR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+					}
+				}
+				owner = { piety = -20 }
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				any_demesne_province = {
+					has_disease = yes
+					OR = {
+						has_province_modifier = depopulated_1
+						has_province_modifier = depopulated_2
+						has_province_modifier = depopulated_3
+					}
+				}
+				factor = 2
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.212
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			add_province_modifier = { modifier = sacrificed_livestock years = 2 }
+			random_list = {
+				4 = { reduce_disease = 0.33 }
+				6 = { reduce_disease = 1 }
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				owner = { piety = -20 }
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				any_demesne_province = {
+					has_disease = yes
+					NOR = {
+						has_province_modifier = prosperity_modifier_1
+						has_province_modifier = prosperity_modifier_2
+						has_province_modifier = prosperity_modifier_3
+					}
+				}
+				factor = 2
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.212
+		trigger = { trait = summoner }
+		any_demesne_province = {
+			limit = { has_disease = yes }
+			reduce_disease = 1
+			owner = { piety = -20 }
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	option = {
+		name = EVTOPTDMYTH_WoL.212
+		piety = 30
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Herbalism - Work to cure Stressed/Depressed
+character_event = {
+	id = MYTH_WoL.213
+	desc = EVTDESCMYTH_WoL.213
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_herbalism
+		OR = {
+			trait = stressed
+			trait = depressed
+		}
+	}
+	
+	immediate = {
+		# Will select two ingredients, by prioritizing from the top, until it hits two available ones...
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+	}
+	
+	# All effort
+	option = {
+		name = EVTOPTAMYTH_WoL.213
+		random_list = {
+			4 = {
+				if = {
+					limit = { has_dlc = "Reapers" }
+					custom_tooltip = {
+						text = TT_get_sick
+					}
+					hidden_tooltip = {
+						random_list = {
+							1 = {
+								set_character_flag = got_pneumonia
+							}
+							3 = {
+								set_character_flag = got_flu
+							}
+						}
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5000 days = 2 random = 4 }
+					}
+				}
+				else = {
+					add_trait = ill
+				}
+			}
+			2 = {
+				modifier = {
+					factor = 1.5
+					health = 5
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+			}
+		}
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 70
+				remove_trait = stressed
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 70
+				remove_trait = depressed
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				health = 5
+			}
+			modifier = {
+				factor = 1.5
+				health = 7
+			}
+			modifier = {
+				factor = 1.5
+				health = 10
+			}
+			modifier = {
+				factor = 1.5
+				health = 15
+			}
+		}
+	}
+	# Use easy to access ingredients
+	option = {
+		name = EVTOPTBMYTH_WoL.213
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 30
+				remove_trait = stressed
+			}
+		}
+		if = {
+			limit = { trait = depressed }
+			random = {
+				chance = 30
+				remove_trait = depressed
+			}
+		}
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	# Use an ingredient on-hand
+	option = {
+		name = EVTOPTCMYTH_WoL.213
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = ingredient
+			}
+		}
+		tooltip_info = yes
+		custom_tooltip = { text = tt_ingredient_available }
+		if = {
+			limit = { trait = stressed }
+			random = {
+				chance = 50
+				modifier = {
+					factor = 1.9
+					has_selected_herb_ingredient_1_trigger = yes
+				}
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.9
+						has_selected_herb_ingredient_1_trigger = yes
+					}
+					remove_trait = depressed
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = {
+			character_event = { id = MYTH_WoL.40 days = 3 }
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				has_selected_herb_ingredient_1_trigger = yes
+			}
+		}
+	}
+	# Just accept your issues
+	option = {
+		name = EVTOPTDMYTH_WoL.213
+		ai_chance = {
+			factor = 1
 		}
 	}
 }

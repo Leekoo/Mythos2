@@ -1517,6 +1517,8 @@ character_event = {
 			has_job_action = action_organize_spies_mystics
 		}
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_lord = {
 				NOT = { is_liege_of = ROOT }
@@ -1702,6 +1704,8 @@ character_event = {
 	trigger = {
 		has_job_action = action_squeeze_peasants
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			owner = {
 				job_treasurer = {
@@ -1866,12 +1870,24 @@ character_event = {
 		has_job_action = action_settle_tribe
 		NOT = { trait = ethereal_trait }
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			owner = {
 				job_treasurer = {
 					character = ROOT
 				}
 				NOT = { culture = PREV }
+			}
+			OR = { #Otherwise if the Settle Tribe is picked and the province cannot be converted, the Steward will always be attacked no matter what.
+				NOT = { 
+					has_game_rule = {
+						name = culture_conversion
+						value = restricted
+					}
+				}
+				any_neighbor_province = { ROOT = { liege = { culture = PREVPREV } } }
+				any_neighbor_province = { port = yes } 
 			}
 		}
 	}
@@ -3747,6 +3763,7 @@ character_event = {
 	prisoner = no
 	
 	trigger = {
+		has_regent = yes
 		NOT = { has_character_flag = pushed_regent }
 		is_nomadic = no
 	}
@@ -3781,8 +3798,13 @@ character_event = {
 		set_character_flag = pushed_regent
 		random_list = {
 			50 = {
-				random_courtier = {
-					limit = { has_minor_title = title_regent }
+				random_courtier_or_vassal = {
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent 
+						} 
+					}
 					death = {
 						death_reason = death_murder_unknown_fall
 						killer = ROOT
@@ -3790,8 +3812,13 @@ character_event = {
 				}
 			}
 			50 = { 
-				random_courtier = {
-					limit = { has_minor_title = title_regent }
+				random_courtier_or_vassal = {
+					limit = { 
+						OR = { 
+							has_minor_title = title_regent 
+							has_minor_title = title_appointed_regent 
+						} 
+					}
 					add_wounded_effect = yes
 					opinion = {
 						modifier = opinion_mad_as_hell

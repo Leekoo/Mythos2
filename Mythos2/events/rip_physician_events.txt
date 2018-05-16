@@ -608,9 +608,11 @@ character_event = {
 							NOT = {
 								AND = {
 									c_asyut = {
-										OR = {
-											religion = kemetic_pagan
-											religion = atenist
+										location = {
+											OR = {
+												religion = kemetic_pagan
+												religion = atenist
+											}
 										}
 									}
 									OR = {

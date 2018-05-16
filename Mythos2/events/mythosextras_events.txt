@@ -1653,3 +1653,52 @@ character_event = {
 		}
 	}
 }
+
+# Remove and re-add immortality traits for player characters at start
+character_event = {
+	id = MYTHMORE.39
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	ai = no
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = vampire
+			trait = zombie
+			trait = mummy
+			trait = djinn
+			# Demon and Ethereal aren't playable. Can't start with Philosopher's Stone
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = god }
+			remove_trait = god
+			add_trait = god
+		}
+		if = {
+			limit = { trait = vampire }
+			remove_trait = vampire
+			add_trait = vampire
+		}
+		if = {
+			limit = { trait = zombie }
+			remove_trait = zombie
+			add_trait = zombie
+		}
+		if = {
+			limit = { trait = mummy }
+			remove_trait = mummy
+			add_trait = mummy
+		}
+		if = {
+			limit = { trait = djinn }
+			remove_trait = djinn
+			add_trait = djinn
+		}
+	}
+}

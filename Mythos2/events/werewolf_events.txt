@@ -959,6 +959,7 @@ letter_event = {
 			add_trait = known_werewolf
 			hidden_tooltip = { 
 				remove_trait = secret_werewolf
+				remove_character_modifier = known_monster
 			}
 			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
 			if = {
@@ -1779,6 +1780,7 @@ character_event = {
 				NOT = { trait = known_werewolf }
 			}
 			add_trait = known_werewolf
+			hidden_tooltip = { remove_character_modifier = known_monster }
 			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
 			if = {
 				limit = {
@@ -2491,6 +2493,7 @@ character_event = {
 		add_trait = known_werewolf
 		hidden_tooltip = {
 			remove_trait = secret_werewolf
+			remove_character_modifier = known_monster
 			any_realm_character = { # Commanders find out character is a werewolf
 				if = {
 					limit = { in_command = yes }
@@ -3158,6 +3161,7 @@ character_event = {
 		}
 		remove_trait = secret_werewolf
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
 	}
 }
 
@@ -4459,6 +4463,7 @@ character_event = {
 		add_trait = known_werewolf
 		increase_control = yes
 		hidden_tooltip = {
+			remove_character_modifier = known_monster
 			FROM = { character_event = { id = WEREWOLF.85 days = 1 } }
 		}
 		ai_chance = {
@@ -4567,6 +4572,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_WEREWOLF.86
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
 		update_control = yes
 		host = { ROOT = { opinion = { modifier = exposed_me who = PREV } } }
 	}
@@ -4756,10 +4762,6 @@ character_event = {
 			modifier = {
 				factor = 1.5
 				trait = strategist
-			}
-			modifier = {
-				factor = 1.5
-				trait = patient
 			}
 			modifier = {
 				factor = 1.5

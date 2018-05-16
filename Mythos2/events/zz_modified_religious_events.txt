@@ -105,19 +105,136 @@ province_event = {
 	immediate = {
 		if = {
 			limit = { religion = norse_pagan_reformed }
-			religion = norse_pagan
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar_reformed
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = norse_pagan }
-			religion = norse_pagan_reformed
+			random_list = {
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = jotnar_reformed }
-			religion = jotnar
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = jotnar }
-			religion = jotnar_reformed
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = draconic_pagan }
+			random_list = {
+				1 = {
+					trigger = { has_global_flag = draconic_pagan_reformation }
+					religion = draconic_pagan_reformed
+				}
+				# 1 = {
+				#	Black Flame Trigger
+				#	religion = black_flame
+				# }
+			}
+		}
+		else_if = {
+			limit = { religion = draconic_pagan_reformed }
+			random_list = {
+				1 = {
+					religion = draconic_pagan
+				}
+				# 1 = {
+				#	Black Flame Trigger
+				#	religion = black_flame
+				# }
+			}
 		}
 		else = {
 			become_heretic = yes
@@ -227,6 +344,20 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = flag_converting_baptism }
+		OR = {
+			ai = yes
+			FROMs_religion_is_playable_trigger = yes
+		}
+	}
+	
+	fail_trigger_effect = {
+		FROM = {
+			clr_character_flag = preacher_arrives
+		}
+	}
 	
 	option = {
 		name = EVTOPTA39600 # Throw the preacher in jail

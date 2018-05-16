@@ -2416,16 +2416,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		any_realm_character = {
-			limit = {
-				has_character_flag = die_on_war_end
-			}
-			death = {
-				death_reason = death_battle
-			}
-		}
-		disband_event_forces = unit_summoned
-		FROM = {
+		if = {
+			limit = { war = no }
 			any_realm_character = {
 				limit = {
 					has_character_flag = die_on_war_end
@@ -2435,6 +2427,20 @@ character_event = {
 				}
 			}
 			disband_event_forces = unit_summoned
+		}
+		FROM = {
+			if = {
+				limit = { war = no }
+				any_realm_character = {
+					limit = {
+						has_character_flag = die_on_war_end
+					}
+					death = {
+						death_reason = death_battle
+					}
+				}
+				disband_event_forces = unit_summoned
+			}
 		}
 	}
 }
@@ -3321,6 +3327,7 @@ character_event = {
 		name = EVTOPTAMYTH.49
 		prestige = 100
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_character_modifier = known_monster }
 		increase_control = yes
 	}
 }

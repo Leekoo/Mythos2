@@ -809,6 +809,8 @@ homosexual = {
 			}
 			FROM = { has_character_modifier = known_sodomite }
 			FROM = { has_character_modifier = known_sodomite_pagan }
+			has_opinion_modifier = { who = FROM modifier = opinion_homosexual }
+			has_opinion_modifier = { who = FROM modifier = opinion_discovered_homosexual }
 		}
 	}
 }
@@ -1813,6 +1815,7 @@ arbitrary = {
 	
 	stewardship = -2
 	learning = -1
+	intrigue = 1
 	
 	vassal_opinion = -5
 	

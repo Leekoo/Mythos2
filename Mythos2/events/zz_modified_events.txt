@@ -909,7 +909,7 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					FROMFROM = { is_40 = yes }
-					#NOT = { FROMFROM = {  immortal_age = 30 } }
+					NOT = { FROMFROM = {  immortal_age = 30 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -919,7 +919,7 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					FROMFROM = { is_50 = yes }
-					#NOT = { FROMFROM = { immortal_age = 40 } }
+					NOT = { FROMFROM = { immortal_age = 40 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -929,7 +929,7 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					FROMFROM = { is_60 = yes }
-					#NOT = { FROMFROM = { immortal_age = 50 } }
+					NOT = { FROMFROM = { immortal_age = 50 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -939,7 +939,7 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					FROMFROM = { is_70 = yes }
-					#NOT = { FROMFROM = { immortal_age = 60 } }
+					NOT = { FROMFROM = { immortal_age = 60 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -949,7 +949,7 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					FROMFROM = { is_80 = yes }
-					#NOT = { FROMFROM = { immortal_age = 70 } }
+					NOT = { FROMFROM = { immortal_age = 70 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -959,7 +959,7 @@ character_event = {
 				modifier = {
 					factor = 2
 					FROMFROM = { is_90 = yes }
-					#NOT = { FROMFROM = { immortal_age = 80 } }
+					NOT = { FROMFROM = { immortal_age = 80 } }
 					NOR = { # Not immortal for non-monsterous reason
 						trait = immortal
 						trait = god
@@ -1848,13 +1848,16 @@ character_event = {
 		}
 		clr_character_flag = wild_ride
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1884,13 +1887,16 @@ character_event = {
 		}
 		clr_character_flag = wild_ride
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1933,13 +1939,16 @@ character_event = {
 		}
 		clr_character_flag = boss_in_bedchamber
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1984,13 +1993,16 @@ character_event = {
 			}
 			break = yes
 		}
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -6373,20 +6385,27 @@ character_event = {
 		religion = event_target:missionary_physician_target
 		prestige = -500
 		piety = 250
-		any_courtier = {
-			limit = { 
-				is_close_relative = ROOT
-				NOT = { trait = zealous }
+		hidden_tooltip = {
+			any_courtier = {
+				limit = { 
+					is_close_relative = ROOT
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
-		}
-		any_spouse = {
-			limit = { 
-				is_consort = no
-				NOT = { trait = zealous }
+			any_spouse = {
+				limit = { 
+					is_consort = no
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
 		}
+		custom_tooltip = { text = EVTOPTB_RIP_4101_TT }
 	}
 	
 	option = {
@@ -8585,6 +8604,8 @@ character_event = {
 	trigger = {
 		has_job_action = action_uncover_plots
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_character = {
 				NOT = { is_liege_of = ROOT }
@@ -9022,6 +9043,236 @@ character_event = {
 				}
 				opinion = { who = ROOT modifier = can_blood_bond }
 			}
+		}
+	}
+}
+
+# Friend or family member worries about dangerous research
+character_event = {
+	id = WoL.6120
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_focus = focus_scholarship
+		prisoner = no
+		NOT = { trait = incapable }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					any_courtier = {
+						ai = yes
+						is_adult = yes
+						trait = zealous
+						at_location = ROOT
+						NOT = { religion = zun_pagan }
+						NOT = { religion = zun_pagan_reformed }
+						NOT = { religion = buddhist }
+						NOT = { religion = atenist }
+						OR = {
+							mother = { character = ROOT }
+							father = { character = ROOT }
+							any_child = { character = ROOT }
+							AND = {
+								any_sibling = { character = ROOT }
+								NOT = { is_rival = ROOT }
+							}
+							is_friend = ROOT
+						}
+					}
+				}
+			}
+			character_event = { id = WoL.6130 days = 180 }
+			break = yes                                         # NOTE
+		}
+		
+		random_courtier = {
+			limit = {
+				is_adult = yes
+				trait = zealous
+				at_location = ROOT
+				NOT = { religion = zun_pagan }
+				NOT = { religion = zun_pagan_reformed }
+				NOT = { religion = buddhist }
+				NOT = { religion = atenist }
+				OR = {
+					mother = { character = ROOT }
+					father = { character = ROOT }
+					any_child = { character = ROOT }
+					AND = {
+						any_sibling = { character = ROOT }
+						NOT = { is_rival = ROOT }
+					}
+					is_friend = ROOT
+				}
+			}
+			character_event = { id = WoL.6121 } # Friend or family is worried
+		}
+	}
+}
+
+# Religious authorities find out
+character_event = {
+	id = WoL.6150
+
+	hide_window = yes
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_focus = focus_scholarship
+		prisoner = no
+		NOT = { trait = incapable }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				religion_head = { is_alive = yes }
+				religion_head = { ai = yes }
+				NOT = { religion = zun_pagan_reformed }
+				NOT = { religion = atenist }
+			}
+			religion_head = {
+				character_event = { id = WoL.6151 } # Religious head opines
+			}
+			break = yes
+		}
+		character_event = { id = WoL.6160 } # Else skip to next
+	}
+}
+
+character_event = {
+	id = WoL.6170
+	desc = EVTDESC_WoL_6170
+	picture = GFX_evt_scientist
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_focus = focus_scholarship
+		prisoner = no
+		NOT = { trait = incapable }
+	}
+
+	option = {
+		name = EVTOPTA_WoL_6170 # Publish findings
+		prestige = 300
+		if = {
+			limit = { NOT = { lifestyle_traits = 1 } }
+			remove_character_modifier = studying_the_stars
+			add_trait = scholar
+		}
+		if = {
+			limit = { has_nickname = no }
+			random_list = {
+				10 = {
+					give_nickname = nick_the_wise
+				}
+				10 = {
+					give_nickname = nick_the_able
+				}
+				10 = {
+					give_nickname = nick_the_scholar
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						OR = {
+							religion = zun_pagan
+							religion = zun_pagan_reformed
+							religion = buddhist
+							religion = atenist
+						}
+					}
+					give_nickname = nick_priest_hater
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					religion = zun_pagan
+					religion = zun_pagan_reformed
+					religion = buddhist
+					religion = atenist
+				}
+			}
+			add_character_modifier = {
+				name = annoyed_religious
+				years = -1
+			}
+		}
+		custom_tooltip = {
+			text = "WOL_6170_OPINION_EFFECT"
+			hidden_effect = {
+				any_realm_character = {
+					limit = {
+						OR = {
+							is_priest = yes
+							trait = zealous
+						}
+						NOR = {
+							religion = zun_pagan
+							religion = zun_pagan_reformed
+							religion = buddhist
+							religion = atenist
+						}
+					}
+					opinion = {
+						modifier = opinion_heretic
+						who = ROOT
+						years = 5
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTB_WoL_6170 # Keep it secret but continue dedicating myself to knowledge
+		if = {
+			limit = { NOT = { lifestyle_traits = 1 } }
+			remove_character_modifier = studying_the_stars
+			add_trait = scholar
+		}
+	}
+	option = {
+		name = EVTOPTC_WoL_6170 # Very interesting but I'm done with this
+		remove_character_modifier = studying_the_stars
+		add_character_modifier = {
+			name = heliocentrist_scholar
+			duration = -1
+		}
+	}
+	option = {
+		name = EVTOPTD_WoL_6170 # This is heretical - I must burn it!
+		trigger = {
+			NOR = {
+				religion = zun_pagan
+				religion = zun_pagan_reformed
+				religion = buddhist
+				religion = atenist
+			}
+		}
+		remove_character_modifier = studying_the_stars
+		if = {
+			limit = {
+				NOT = { trait = zealous }
+				NOT = { trait = cynical }
+			}
+			add_trait = zealous
+		}
+		if = {
+			limit = {
+				trait = cynical
+			}
+			remove_trait = cynical
 		}
 	}
 }
