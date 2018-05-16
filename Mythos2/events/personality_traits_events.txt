@@ -910,6 +910,49 @@ character_event = {
 		name = "EVTOPTB1004"
 		if = {
 			limit = {
+				trait = depressed
+					trait = stressed
+			}
+			health = -0.5
+		}
+		if = {
+			limit = {
+					trait = depressed
+				NOT = {
+					trait = stressed
+				}
+			}
+			random = {
+				chance = 60
+				add_trait = stressed
+			}
+		}
+		if = {
+			limit = {
+					trait = stressed
+				NOT = {
+					trait = depressed
+				}
+			}
+			random = {
+				chance = 60
+				add_trait = depressed
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = stressed
+					trait = depressed
+				}
+			}
+			random = {
+				chance = 60
+				add_trait = stressed
+			}
+		}
+		if = {
+			limit = {
 				trait = patient
 				NOT = {
 					trait = cynical

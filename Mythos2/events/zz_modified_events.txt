@@ -1848,13 +1848,16 @@ character_event = {
 		}
 		clr_character_flag = wild_ride
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1884,13 +1887,16 @@ character_event = {
 		}
 		clr_character_flag = wild_ride
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1933,13 +1939,16 @@ character_event = {
 		}
 		clr_character_flag = boss_in_bedchamber
 		prestige = 20
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -1984,13 +1993,16 @@ character_event = {
 			}
 			break = yes
 		}
-		random = {
-			chance = 40
-			
-			add_trait = lustful
-			hidden_tooltip = {
-				character_event = {
-					id = 38272 #Notify Lustful
+		if = {
+			limit = { NOT = { trait = lustful } }
+			random = {
+				chance = 40
+				
+				add_trait = lustful
+				hidden_tooltip = {
+					character_event = {
+						id = 38272 #Notify Lustful
+					}
 				}
 			}
 		}
@@ -6373,20 +6385,27 @@ character_event = {
 		religion = event_target:missionary_physician_target
 		prestige = -500
 		piety = 250
-		any_courtier = {
-			limit = { 
-				is_close_relative = ROOT
-				NOT = { trait = zealous }
+		hidden_tooltip = {
+			any_courtier = {
+				limit = { 
+					is_close_relative = ROOT
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
-		}
-		any_spouse = {
-			limit = { 
-				is_consort = no
-				NOT = { trait = zealous }
+			any_spouse = {
+				limit = { 
+					is_consort = no
+					NOT = { trait = zealous }
+					NOT = { has_character_flag = ai_flag_refuse_conversion }
+					NOT = { trait = stubborn }
+				}
+				religion = event_target:missionary_physician_target
 			}
-			religion = event_target:missionary_physician_target
 		}
+		custom_tooltip = { text = EVTOPTB_RIP_4101_TT }
 	}
 	
 	option = {
@@ -8585,6 +8604,8 @@ character_event = {
 	trigger = {
 		has_job_action = action_uncover_plots
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
 		location = {
 			any_province_character = {
 				NOT = { is_liege_of = ROOT }

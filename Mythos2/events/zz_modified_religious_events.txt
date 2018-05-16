@@ -345,6 +345,20 @@ character_event = {
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { has_character_flag = flag_converting_baptism }
+		OR = {
+			ai = yes
+			FROMs_religion_is_playable_trigger = yes
+		}
+	}
+	
+	fail_trigger_effect = {
+		FROM = {
+			clr_character_flag = preacher_arrives
+		}
+	}
+	
 	option = {
 		name = EVTOPTA39600 # Throw the preacher in jail
 		ai_chance = {
