@@ -618,17 +618,21 @@ character_event = {
 		change_variable = { which = loan_amount which = local_interest }
 		
 		export_to_variable = { which = local_wealth value = wealth }
+		
 		set_variable = { which = local_payment_full which = loan_amount }
 		set_variable = { which = local_requirement_full which = local_payment_full }
 		multiply_variable = { which = local_payment_full value = -1 }
+		
 		set_variable = { which = local_payment_large which = loan_amount }
-		divide_variable = { which = small_loan value = 2 }
+		divide_variable = { which = local_payment_large value = 2 }
 		set_variable = { which = local_requirement_large which = local_payment_large }
 		multiply_variable = { which = local_payment_large value = -1 }
+		
 		set_variable = { which = local_payment_small which = loan_amount }
-		divide_variable = { which = small_loan value = 7 }
+		divide_variable = { which = local_payment_small value = 7 }
 		set_variable = { which = local_requirement_small which = local_payment_small }
 		multiply_variable = { which = local_payment_small value = -1 }
+		
 		set_variable = { which = local_double_full which = local_requirement_full }
 		multiply_variable = { which = local_double_full value = 2 } # Used for AI
 	}
@@ -749,7 +753,10 @@ character_event = {
 	option = {
 		name = EVTOPTD_BANK.7
 		trigger = {
-			NOT = { check_variable = { which = local_requirement_full value = 1 } } # If it's less than a gold, must pay it off
+			OR = {
+				check_variable = { which = local_requirement_full value = 1 } # If it's less than a gold, must pay it off
+				NOT = { wealth = 1 } # Fix to prevent not being able to do anything if broke
+			}
 		}
 		wealth = local_payment_small
 		hidden_tooltip = {
@@ -1748,7 +1755,7 @@ character_event = {
 			letter_event = { id = BANK.29 }
 		}
 		ai_chance = {
-			factor = 10
+			factor = 30
 		}
 	}
 	
@@ -1766,7 +1773,7 @@ character_event = {
 			letter_event = { id = BANK.29 }
 		}
 		ai_chance = {
-			factor = 6
+			factor = 18
 		}
 	}
 	

@@ -376,7 +376,7 @@ city = {
 		is_active_trigger = {
 			FROM = { trait = known_werewolf }
 		}
-		prerequisites = { ct_werewolf_lodge_1 }
+		upgrades_from = ct_werewolf_lodge_1
 		ai_creation_factor = 100
 		
 		lycan_berzerkers = 75
@@ -489,7 +489,7 @@ city = {
 			is_capital = yes 
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		
 		prerequisites = { ct_wall_2 }
@@ -534,7 +534,7 @@ city = {
 			is_capital = yes 
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		
 		upgrades_from = ct_vampire_mansion
@@ -585,7 +585,7 @@ city = {
 		}
 		is_active_trigger = {
 			FROM = {
-				trait = vampire
+				trait = known_vampire
 			}
 		}
 		ai_creation_factor = 99

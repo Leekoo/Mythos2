@@ -407,6 +407,28 @@ dejure_duchy_claim = { # New1
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -644,6 +666,12 @@ great_realm_conflict = { # New3
 				}
 			}
 		}
+		FROM = {
+			relative_power = {
+				who = ROOT
+				power = 0.95
+			}
+		}
 	}
 	
 	can_use_title = {
@@ -831,8 +859,30 @@ great_realm_conflict = { # New3
 		factor = 100
 	}
 	
-	ai_will_do = { 
+	ai_will_do = {
 		factor = 1
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -1071,6 +1121,28 @@ ducal_county_conquest = { # New4
 			factor = 0
 			ROOT = {
 				NOT = { scaled_wealth = 1.25 }
+			}
+		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
@@ -2498,6 +2570,28 @@ unjust_conquest = { # New7
 				has_landed_title = e_china_west_governor
 			}
 		}
+		modifier = {
+			factor = 0
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
 	}
 }
 
@@ -2821,6 +2915,28 @@ tributary_permanent_cb = { # New8
 		
 		modifier = {
 			factor = 0.5  # Low prio CB
+		}
+		modifier = {
+			factor = 0.1
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
+			}
 		}
 	}
 }
@@ -3256,6 +3372,29 @@ tributary_nomad_cb = { # New9
 			factor = 0
 			ROOT = {
 				has_landed_title = e_mongol_empire
+			}
+		}
+		
+		modifier = {
+			factor = 0.1
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan_reformed
+				NOT = { any_rival = { character = FROM } }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			FROM = {
+				controls_religion = yes
+				religion = draconic_pagan_reformed
+			}
+			ROOT = {
+				religion = draconic_pagan
+				NOT = { any_rival = { character = FROM } }
 			}
 		}
 	}
@@ -4181,16 +4320,20 @@ force_open_china_cb = {
 
 	on_reverse_demand = {
 		ROOT = {
+			show_scope_change = no
 			prestige = -300
 			transfer_scaled_wealth = {
 				to = FROM
 				value = 5.0
 				min = 500
 			}
-			add_character_modifier = {
-				modifier = angered_china_modifier
-				inherit = yes
-				years = 50
+			custom_tooltip = {
+				text = angered_china_tt #Scripter! Update this is you change the value below.
+				add_character_modifier = {
+					modifier = angered_china_modifier
+					inherit = yes
+					years = 50
+				}
 			}
 		}
 		FROM = {
@@ -4373,6 +4516,7 @@ invasion_of_china_cb = {
 	max_defender_occupation_score = 50
 	max_attacker_battle_score = 100
 	capturing_defender_is_complete_victory = no
+	third_party_portrait = event_target:invasion_of_china_claimant
 
 	# attacker_unoccupied_warscore = yes - If attacker completely unoccupied, attacker will get ticking warscore. Only works if no title is targetted
 	# defender_unoccupied_warscore = yes - If defender completely unoccupied, defender will get ticking warscore. Only works if no title is targetted
@@ -4398,6 +4542,7 @@ invasion_of_china_cb = {
 			custom_tooltip = {
 				text = invasion_of_china_success_tt
 				hidden_effect = {
+					remove_character_modifier = china_raid_active
 					event_target:invasion_of_china_claimant = {
 						betrothed = { break_betrothal = PREV }
 						spouse = {
@@ -4581,10 +4726,13 @@ invasion_of_china_cb = {
 					narrative_event = { id = JD.60403 }
 				}
 			}
-			add_character_modifier = {
-				modifier = angered_china_modifier
-				inherit = yes
-				years = 50
+			custom_tooltip = {
+				text = angered_china_tt #Scripter! Update this is you change the value below.
+				add_character_modifier = {
+					modifier = angered_china_modifier
+					inherit = yes
+					years = 50
+				}
 			}
 		}
 		clear_global_event_target = invasion_of_china_claimant
@@ -4631,10 +4779,13 @@ invasion_of_china_cb = {
 					}
 				}
 			}
-			add_character_modifier = {
-				modifier = angered_china_modifier
-				inherit = yes
-				years = 50
+			custom_tooltip = {
+				text = angered_china_tt #Scripter! Update this is you change the value below.
+				add_character_modifier = {
+					modifier = angered_china_modifier
+					inherit = yes
+					years = 50
+				}
 			}
 		}
 		FROM = {

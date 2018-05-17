@@ -1147,7 +1147,7 @@ castle = {
 				}
 			}
 		}
-		is_active_Trigger = {
+		is_active_trigger = {
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1169,7 +1169,7 @@ castle = {
 			}
 		}
 		ai_creation_factor = 90
-		prerequisites = { ca_werewolf_soldiers_1 }
+		upgrades_from = ca_werewolf_soldiers_1
 
 		lycan_berzerkers = 30
 		lycan_berzerkers_offensive = 0.05
@@ -1272,7 +1272,7 @@ castle = {
 			}
 		}
 		ai_creation_factor = 90
-		prerequisites = { ca_werewolf_soldiers_2 }
+		upgrades_from = ca_werewolf_soldiers_2
 
 		lycan_berzerkers = 30
 		lycan_berzerkers_offensive = 0.05
@@ -1375,7 +1375,7 @@ castle = {
 			}
 		}
 		ai_creation_factor = 90
-		prerequisites = { ca_werewolf_soldiers_3 }
+		upgrades_from = ca_werewolf_soldiers_3
 
 		lycan_berzerkers = 40
 		lycan_berzerkers_offensive = 0.05
@@ -1433,7 +1433,7 @@ castle = {
 
 		tax_income = 1.5
 		garrison_size = 0.4
-		local_build_time_castle_modifier = -0.1
+		monthly_character_prestige = 0.05
 		local_revolt_risk = -0.02
 
 		gold_cost = 225
@@ -1490,7 +1490,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1574,7 +1574,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -2055,7 +2055,7 @@ castle = {
 			FROM = { trait = vampire }
 		}
 		is_active_trigger = {
-			FROM = { trait = vampire }
+			FROM = { trait = known_vampire }
 		}
 		
 		ai_creation_factor = 100

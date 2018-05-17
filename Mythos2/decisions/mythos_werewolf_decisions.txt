@@ -48,9 +48,15 @@ decisions = {
 						}
 					}
 				}
+				custom_tooltip = {
+					text = TT_no_recent_challenge
+					hidden_tooltip = {
+						NOT = { has_character_modifier = recently_challenged }
+					}
+				}
 			}
 			OR = {
-				liege = { NOT = { age = 16 } }
+				liege = { age = 16 }
 				custom_tooltip = {
 					text = TT_challenge_child
 					hidden_tooltip = {
@@ -187,38 +193,74 @@ decisions = {
 			}
 		}
 		effect = {
+			add_character_modifier = { name = facing_challenge months = 3 } # Time limit in case something breaks the challenge
 			liege = {
 				character_event = { id = CHALLENGE.1 tooltip = TT_issue_challenge }
 				add_character_modifier = { name = facing_challenge months = 3 } # Time limit in case something breaks the challenge
 			}
-			custom_tooltip = {
-				text = TT_restrict_challenge
-				hidden_tooltip = {
-					if = {
-						limit = { has_law = werewolf_law_0 }
-						add_character_modifier = { name = challenged_liege years = 2 }
-					}
-					if = {
-						limit = { has_law = werewolf_law_1 }
-						add_character_modifier = { name = challenged_liege years = 3 }
-					}
-					if = {
-						limit = { has_law = werewolf_law_2 }
-						add_character_modifier = { name = challenged_liege years = 4 }
-					}
-					if = {
-						limit = { has_law = werewolf_law_3 }
-						add_character_modifier = { name = challenged_liege years = 5 }
-					}
-					if = {
-						limit = { has_law = werewolf_law_4 }
-						add_character_modifier = { name = challenged_liege }
+			if = {
+				limit = { has_law = werewolf_wait_law_0 }
+				custom_tooltip = {
+					text = TT_restrict_challenge_0
+					hidden_tooltip = { add_character_modifier = { name = challenged_liege } }
+				}
+			}
+			if = {
+				limit = { has_law = werewolf_wait_law_1 }
+				custom_tooltip = {
+					text = TT_restrict_challenge_1
+					hidden_tooltip = { add_character_modifier = { name = challenged_liege years = 10 } }
+				}
+				custom_tooltip = {
+					text = TT_challenge_protect_liege_1
+					hidden_tooltip = { 
+						liege = { 
+							add_character_modifier = { name = recently_challenged months = 3 }
+						}
 					}
 				}
 			}
-		}
-		revoke_allowed = {
-			always = no
+			if = {
+				limit = { has_law = werewolf_wait_law_2 }
+				custom_tooltip = {
+					text = TT_restrict_challenge_2
+					hidden_tooltip = { add_character_modifier = { name = challenged_liege years = 5 } }
+				}
+				custom_tooltip = {
+					text = TT_challenge_protect_liege_2
+					hidden_tooltip = { 
+						liege = { 
+							add_character_modifier = { name = recently_challenged months = 6 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { has_law = werewolf_wait_law_3 }
+				custom_tooltip = {
+					text = TT_restrict_challenge_3
+					hidden_tooltip = { add_character_modifier = { name = challenged_liege years = 3 } }
+				}
+				custom_tooltip = {
+					text = TT_challenge_protect_liege_3
+					hidden_tooltip = { 
+						liege = { 
+							add_character_modifier = { name = recently_challenged months = 9 }
+						}
+					}
+				}
+			}
+			if = {
+				limit = { has_law = werewolf_wait_law_4 }
+				custom_tooltip = {
+					text = TT_challenge_protect_liege_4
+					hidden_tooltip = { 
+						liege = { 
+							add_character_modifier = { name = recently_challenged years = 1 }
+						}
+					}
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -303,14 +345,20 @@ decisions = {
 			is_playable = yes
 			trait = werewolf
 			NOT = { culture = werewolf_culture }
+			NOT = { capital_scope = { culture = werewolf_culture } }
 		}
 		allow = {
 			higher_real_tier_than = DUKE
 			is_incapable = no
+			trait = werewolf
+			NOT = { culture = werewolf_culture }
+			NOT = { capital_scope = { culture = werewolf_culture } }
+			NOT = { liege = { culture = werewolf_culture } }
 		}
 		effect = {
 			prestige = 200
 			culture = werewolf_culture
+			capital_scope = { culture = werewolf_culture }
 			any_courtier = {
 				limit = {
 					NOT = { culture = werewolf_culture }
@@ -327,9 +375,6 @@ decisions = {
 				}
 				culture = werewolf_culture
 			}
-		}
-		revoke_allowed = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 1
@@ -350,9 +395,6 @@ decisions = {
 		}
 		effect = {
 			character_event = { id = MYTH.49 }
-		}
-		revoke_allowed = {
-			always = no
 		}
 		ai_will_do = {
 			factor = 0.05
@@ -477,9 +519,6 @@ targetted_decisions = {
 			letter_event = { id = WEREWOLF.14 days = 7 } # Offeree receives event
 		}
 		
-		revoke_allowed = {
-			always = no
-		}
 		ai_will_do = {
 			factor = 1
 			modifier = {

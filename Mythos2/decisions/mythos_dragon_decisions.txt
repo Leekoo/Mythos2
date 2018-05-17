@@ -60,6 +60,64 @@ decisions = {
 		}
 	}
 	
+	reignite_flame_sjaelland_no_holding = {
+		only_playable = yes
+		
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			c_sjaelland = { has_empty_holding = yes }
+			NOT = { is_title_active = b_lejre }
+			trait = dragon
+		}
+		
+		allow = {
+			has_landed_title = c_sjaelland
+			is_incapable = no
+			war = no
+		}
+		
+		effect = {
+			hidden_tooltip = { set_character_flag = restore_flame_sjaelland }
+			character_event = { id = DRAGON.154 tooltip = flame_sacrifice }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				trait = depressed
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.1
+				NOT = {
+					current_heir = {
+						dynasty = ROOT
+						trait = dragon
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				government = draconic_theocracy_government
+			}
+		}
+	}
+	
 	reignite_flame_kent = {
 		only_playable = yes
 		
@@ -84,6 +142,64 @@ decisions = {
 		effect = {
 			hidden_tooltip = { set_character_flag = restore_flame_kent }
 			character_event = { id = DRAGON.52 tooltip = flame_sacrifice }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				trait = depressed
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.1
+				NOT = {
+					current_heir = {
+						dynasty = ROOT
+						trait = dragon
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				government = draconic_theocracy_government
+			}
+		}
+	}
+	
+	reignite_flame_kent_no_holding = {
+		only_playable = yes
+		
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			c_kent = { has_empty_holding = yes }
+			NOT = { is_title_active = b_canterbury }
+			trait = dragon
+		}
+		
+		allow = {
+			has_landed_title = c_kent
+			is_incapable = no
+			war = no
+		}
+		
+		effect = {
+			hidden_tooltip = { set_character_flag = restore_flame_kent }
+			character_event = { id = DRAGON.154 tooltip = flame_sacrifice }
 		}
 		
 		ai_will_do = {
@@ -180,6 +296,64 @@ decisions = {
 		}
 	}
 	
+	reignite_flame_plock_no_holding = {
+		only_playable = yes
+		
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			c_plock = { has_empty_holding = yes }
+			NOT = { is_title_active = b_pruszkow }
+			trait = dragon
+		}
+		
+		allow = {
+			has_landed_title = c_plock
+			is_incapable = no
+			war = no
+		}
+		
+		effect = {
+			hidden_tooltip = { set_character_flag = restore_flame_plock }
+			character_event = { id = DRAGON.154 tooltip = flame_sacrifice }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				trait = depressed
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.1
+				NOT = {
+					current_heir = {
+						dynasty = ROOT
+						trait = dragon
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				government = draconic_theocracy_government
+			}
+		}
+	}
+	
 	reignite_flame_galloway = {
 		only_playable = yes
 		
@@ -240,6 +414,64 @@ decisions = {
 		}
 	}
 	
+	reignite_flame_galloway_no_holding = {
+		only_playable = yes
+		
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			c_galloway = { has_empty_holding = yes }
+			NOT = { is_title_active = b_whithorn }
+			trait = dragon
+		}
+		
+		allow = {
+			has_landed_title = c_galloway
+			is_incapable = no
+			war = no
+		}
+		
+		effect = {
+			hidden_tooltip = { set_character_flag = restore_flame_galloway }
+			character_event = { id = DRAGON.154 tooltip = flame_sacrifice }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				trait = depressed
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.1
+				NOT = {
+					current_heir = {
+						dynasty = ROOT
+						trait = dragon
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				government = draconic_theocracy_government
+			}
+		}
+	}
+	
 	reignite_flame_uppland = {
 		only_playable = yes
 		
@@ -264,6 +496,64 @@ decisions = {
 		effect = {
 			hidden_tooltip = { set_character_flag = restore_flame_uppland }
 			character_event = { id = DRAGON.52 tooltip = flame_sacrifice }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				has_secret_religion = yes
+			}
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				trait = depressed
+			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.1
+				NOT = {
+					current_heir = {
+						dynasty = ROOT
+						trait = dragon
+					}
+				}
+			}
+			modifier = {
+				factor = 10
+				government = draconic_theocracy_government
+			}
+		}
+	}
+	
+	reignite_flame_uppland_no_holding = {
+		only_playable = yes
+		
+		potential = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			c_uppland = { has_empty_holding = yes }
+			NOT = { is_title_active = b_uppsala }
+			trait = dragon
+		}
+		
+		allow = {
+			has_landed_title = c_uppland
+			is_incapable = no
+			war = no
+		}
+		
+		effect = {
+			hidden_tooltip = { set_character_flag = restore_flame_uppland }
+			character_event = { id = DRAGON.154 tooltip = flame_sacrifice }
 		}
 		
 		ai_will_do = {
@@ -978,10 +1268,9 @@ decisions = {
 						religion = draconic_pagan_reformed
 					}
 					trait = dragon
-					character = ROOT
+					any_liege = { character = ROOT }
 					is_theocracy = yes
 					war = no
-					is_theocracy = yes
 				}
 				has_building = tp_eternal_flame
 			}
@@ -1152,7 +1441,6 @@ decisions = {
 					any_liege = { character = ROOT }
 					is_theocracy = yes
 					war = no
-					is_theocracy = yes
 				}
 				has_building = tp_eternal_flame
 			}
@@ -1322,7 +1610,6 @@ decisions = {
 					any_liege = { character = ROOT }
 					is_theocracy = yes
 					war = no
-					is_theocracy = yes
 				}
 				has_building = tp_eternal_flame
 			}
@@ -1493,7 +1780,6 @@ decisions = {
 					any_liege = { character = ROOT }
 					is_theocracy = yes
 					war = no
-					is_theocracy = yes
 				}
 				has_building = tp_eternal_flame
 			}
@@ -1664,7 +1950,6 @@ decisions = {
 					any_liege = { character = ROOT }
 					is_theocracy = yes
 					war = no
-					is_theocracy = yes
 				}
 				has_building = tp_eternal_flame
 			}
@@ -2131,7 +2416,6 @@ targetted_decisions = {
 			is_incapable = no
 			controls_religion = no
 			is_patrician = no
-			NOT = { has_assigned_minor_title = title_forced_heir }
 			trait = dragon
 		}
 		
@@ -2563,6 +2847,28 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 0.5
 			modifier = {
+				factor = 0
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan_reformed
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
+				factor = 0.25
+				ROOT = {
+					controls_religion = yes
+					religion = draconic_pagan_reformed
+				}
+				FROM = {
+					religion = draconic_pagan
+					NOT = { any_rival = { character = ROOT } }
+				}
+			}
+			modifier = {
 				factor = 1.5
 				FROM = { ai_ambition = 40 }
 			}
@@ -2610,9 +2916,9 @@ targetted_decisions = {
 		}
 		allow = {
 			FROM = {
-				wealth = 1
+				wealth = 10
 			}
-			wealth = 1
+			wealth = 10
 			NOR = { 
 				has_opinion_modifier = { who = FROM modifier = opinion_ally }
 				has_opinion_modifier = { who = FROM modifier = opinion_at_war }
@@ -2627,7 +2933,7 @@ targetted_decisions = {
 			opinion = { who = FROM modifier = opinion_raided years = 2 }
 		}
 		ai_will_do = {
-			factor = 0.05
+			factor = 0.02
 			modifier = {
 				factor = 2
 				FROM = { trait = wroth }
@@ -2693,7 +2999,7 @@ targetted_decisions = {
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 1.5
 				has_injury_trigger = yes
 			}
 			modifier = {
@@ -2712,7 +3018,7 @@ targetted_decisions = {
 				trait = craven
 			}
 			modifier = {
-				factor = 2
+				factor = 1.5
 				is_maimed_trigger = yes
 			}
 			modifier = {

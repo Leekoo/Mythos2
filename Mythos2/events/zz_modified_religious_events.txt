@@ -105,19 +105,136 @@ province_event = {
 	immediate = {
 		if = {
 			limit = { religion = norse_pagan_reformed }
-			religion = norse_pagan
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+						OR = {
+							culture = jotunn
+							holder_scope = {
+								OR = { 
+									trait = giant 
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+							any_neighbor_province = {
+								OR = {
+									religion = jotnar
+									religion = jotnar_reformed
+								}
+							}
+						}
+					}
+					religion = jotnar_reformed
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = norse_pagan }
-			religion = norse_pagan_reformed
+			random_list = {
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = jotnar_reformed }
-			religion = jotnar
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					religion = jotnar
+				}
+			}
 		}
 		else_if = {
 			limit = { religion = jotnar }
-			religion = jotnar_reformed
+			random_list = {
+				1 = {
+					religion = norse_pagan
+				}
+				1 = {
+					trigger = {
+						has_global_flag = norse_pagan_reformation
+					}
+					religion = norse_pagan_reformed
+				}
+				1 = {
+					trigger = {
+						has_global_flag = jotnar_reformation
+					}
+					religion = jotnar_reformed
+				}
+			}
+		}
+		else_if = {
+			limit = { religion = draconic_pagan }
+			random_list = {
+				1 = {
+					trigger = { has_global_flag = draconic_pagan_reformation }
+					religion = draconic_pagan_reformed
+				}
+				# 1 = {
+				#	Black Flame Trigger
+				#	religion = black_flame
+				# }
+			}
+		}
+		else_if = {
+			limit = { religion = draconic_pagan_reformed }
+			random_list = {
+				1 = {
+					religion = draconic_pagan
+				}
+				# 1 = {
+				#	Black Flame Trigger
+				#	religion = black_flame
+				# }
+			}
 		}
 		else = {
 			become_heretic = yes
@@ -227,6 +344,20 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_character_flag = flag_converting_baptism }
+		OR = {
+			ai = yes
+			FROMs_religion_is_playable_trigger = yes
+		}
+	}
+	
+	fail_trigger_effect = {
+		FROM = {
+			clr_character_flag = preacher_arrives
+		}
+	}
 	
 	option = {
 		name = EVTOPTA39600 # Throw the preacher in jail
@@ -1304,5 +1435,60 @@ character_event = {
 			modifier = head_of_religion_neglect
 			years = 10
 		}
+	}
+}
+
+# Arriving for the great holy war - non-norse Pagans and Jews
+character_event = {
+	id = 8469
+	desc = "EVTDESC8300"
+	picture = "GFX_evt_battle"
+	border = GFX_event_normal_frame_war
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		OR = {
+			religion_group = pagan_group
+			religion_group = jewish_group
+			religion_group = zoroastrian_group
+			religion_group = other_group
+		}
+		NOR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+		}
+		has_crusade_trait_trigger = no
+		in_command = yes
+		OR = {
+			AND = {
+				any_war = {
+					using_cb = crusade
+				}
+				crusade_target = {
+					is_located_in = ROOT
+				}
+			}
+			any_liege = {
+				religion = ROOT
+				any_war = {
+					using_cb = crusade
+				}
+				crusade_target = {
+					is_located_in = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "8469.a"
+		add_crusade_trait_effect = yes
 	}
 }

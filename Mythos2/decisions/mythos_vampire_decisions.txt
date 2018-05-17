@@ -200,14 +200,20 @@ decisions = {
 			is_playable = yes
 			trait = known_vampire
 			NOT = { culture = vampire_culture }
+			NOT = { capital_scope = { culture = vampire_culture } }
 		}
 		allow = {
 			higher_tier_than = DUKE
 			is_incapable = no
+			trait = known_vampire
+			NOT = { culture = vampire_culture }
+			NOT = { capital_scope = { culture = vampire_culture } }
+			NOT = { liege = { culture = vampire_culture } }
 		}
 		effect = {
 			prestige = 200
 			culture = vampire_culture
+			capital_scope = { culture = vampire_culture }
 			any_courtier = {
 				limit = {
 					NOT = { culture = vampire_culture }

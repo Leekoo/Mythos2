@@ -1611,3 +1611,94 @@ character_event = {
 		give_nickname = nick_the_posthumous
 	}
 }
+# MYTHMORE.38 - Alchemy critical failure
+character_event = {
+	id = MYTHMORE.38
+	desc = EVTDESC_MYTHMORE.38
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.38
+		clear_wealth = yes
+		capital_scope = {
+			set_variable = { which = prosperity_value value = 0 }
+			random = {
+				chance = 75 #chance to lower by 1 step
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_1
+					}
+					remove_province_modifier = prosperity_modifier_1
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_2
+					}
+					remove_province_modifier = prosperity_modifier_2
+					add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+					break = yes
+				}
+				if = {
+					limit = {
+						has_province_modifier = prosperity_modifier_3
+					}
+					remove_province_modifier = prosperity_modifier_3
+					add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+				}
+			}
+		}
+	}
+}
+
+# Remove and re-add immortality traits for player characters at start
+character_event = {
+	id = MYTHMORE.39
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	ai = no
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = vampire
+			trait = zombie
+			trait = mummy
+			trait = djinn
+			# Demon and Ethereal aren't playable. Can't start with Philosopher's Stone
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = god }
+			remove_trait = god
+			add_trait = god
+		}
+		if = {
+			limit = { trait = vampire }
+			remove_trait = vampire
+			add_trait = vampire
+		}
+		if = {
+			limit = { trait = zombie }
+			remove_trait = zombie
+			add_trait = zombie
+		}
+		if = {
+			limit = { trait = mummy }
+			remove_trait = mummy
+			add_trait = mummy
+		}
+		if = {
+			limit = { trait = djinn }
+			remove_trait = djinn
+			add_trait = djinn
+		}
+	}
+}

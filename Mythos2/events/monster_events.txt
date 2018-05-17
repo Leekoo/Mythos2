@@ -917,6 +917,7 @@ character_event = {
 						limit = { trait = secret_vampire }
 						add_trait = known_vampire
 						remove_trait = secret_vampire
+						hidden_tooltip = { remove_character_modifier = known_monster }
 						any_realm_character = {
 							limit = {
 								NOR = {
@@ -932,6 +933,7 @@ character_event = {
 						limit = { trait = secret_werewolf }
 						add_trait = known_werewolf
 						remove_trait = secret_werewolf
+						hidden_tooltip = { remove_character_modifier = known_monster }
 						any_realm_character = {
 							limit = {
 								NOR = {
@@ -1025,6 +1027,7 @@ character_event = {
 					limit = { trait = secret_vampire }
 					add_trait = known_vampire
 					remove_trait = secret_vampire
+					hidden_tooltip = { remove_character_modifier = known_monster }
 					any_realm_character = {
 						limit = {
 							NOR = {
@@ -1040,6 +1043,7 @@ character_event = {
 					limit = { trait = secret_werewolf }
 					add_trait = known_werewolf
 					remove_trait = secret_werewolf
+					hidden_tooltip = { remove_character_modifier = known_monster }
 					any_realm_character = {
 						limit = {
 							NOR = {
@@ -1097,6 +1101,7 @@ character_event = {
 				limit = { trait = secret_vampire }
 				add_trait = known_vampire
 				remove_trait = secret_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				any_realm_character = {
 					limit = {
 						NOR = {
@@ -1112,6 +1117,7 @@ character_event = {
 				limit = { trait = secret_werewolf }
 				add_trait = known_werewolf
 				remove_trait = secret_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				any_realm_character = {
 					limit = {
 						NOR = {
@@ -1150,6 +1156,7 @@ character_event = {
 				limit = { trait = secret_vampire }
 				add_trait = known_vampire
 				remove_trait = secret_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				any_realm_character = {
 					limit = {
 						NOR = {
@@ -1165,6 +1172,7 @@ character_event = {
 				limit = { trait = secret_werewolf }
 				add_trait = known_werewolf
 				remove_trait = secret_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				any_realm_character = {
 					limit = {
 						NOR = {
@@ -1262,11 +1270,13 @@ character_event = {
 			if = {
 				limit = { trait = vampire }
 				add_trait = known_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				hidden_tooltip = { remove_trait = secret_vampire }
 			}
 			if = {
 				limit = { trait = werewolf }
 				add_trait = known_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				hidden_tooltip = { remove_trait = secret_werewolf }
 			}
 		}
@@ -1312,11 +1322,13 @@ character_event = {
 			if = {
 				limit = { trait = vampire }
 				add_trait = known_vampire
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				hidden_tooltip = { remove_trait = secret_vampire }
 			}
 			if = {
 				limit = { trait = werewolf }
 				add_trait = known_werewolf
+				hidden_tooltip = { remove_character_modifier = known_monster }
 				hidden_tooltip = { remove_trait = secret_werewolf }
 			}
 		}
