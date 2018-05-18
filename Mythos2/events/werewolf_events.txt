@@ -5040,3 +5040,151 @@ character_event = {
 		}
 	}
 }
+
+# WEREWOLF.97 - Child interested in werewolf heritage
+character_event = {
+	id = WEREWOLF.97
+	desc = {
+		trigger = {
+			father = { trait = known_werewolf }
+		}
+		text = EVTDESCA_WEREWOLF.97
+	}
+	desc = {
+		trigger = {
+			mother = { trait = known_werewolf }
+		}
+		text = EVTDESCB_WEREWOLF.97
+	}
+	picture = GFX_evt_child_play
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = pup
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		OR = {
+			father = { trait = known_werewolf }
+			mother = { trait = known_werewolf }
+		}
+		NOT = { culture = werewolf_culture }
+		NOT = { has_character_flag = pup_culture_event }
+	}
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.97
+		hidden_tooltip = {
+			set_character_flag = pup_culture_event
+			educator = {
+				character_event = {
+					id = WEREWOLF.98
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+# WEREWOLF.98 - Educator can encourage or discourage werewolf culture
+character_event = {
+	id = WEREWOLF.98
+	desc = EVTDESC_WEREWOLF.98
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_WEREWOLF.98
+		tooltip = {
+			FROM = { culture = werewolf_culture }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WEREWOLF.99 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = werewolf_culture
+			}
+			modifier = {
+				factor = 3
+				trait = werewolf
+			}
+			modifier = {
+				factor = 2
+				trait = known_werewolf
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_WEREWOLF.98
+		trigger = { NOT = { trait = werewolf } }
+		tooltip = {
+			reverse_opinion = { who = FROM modifier = opinion_horrified years = 3 }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = WEREWOLF.100 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = monster_hunter
+				NOT = { culture = werewolf_culture }
+			}
+			modifier = {
+				factor = 4
+				trait = vampire
+			}
+			modifier = {
+				factor = 2
+				culture = werewolf_culture
+			}
+		}
+	}
+}
+
+# WEREWOLF.99 - Werewolf Encouraged
+character_event = {
+	id = WEREWOLF.99
+	desc = EVTDESC_WEREWOLF.99
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.99
+		culture = werewolf_culture
+	}
+}
+
+# WEREWOLF.100 - Werewolf Discouraged
+character_event = {
+	id = WEREWOLF.100
+	desc = EVTDESC_WEREWOLF.100
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.100
+		opinion = { who = FROM modifier = opinion_horrified years = 3 }
+		father = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
+		mother = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
+	}
+}
