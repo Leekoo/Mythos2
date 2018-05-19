@@ -1702,3 +1702,212 @@ character_event = {
 		}
 	}
 }
+
+# MYTHMORE.40 - Djinn child religion
+character_event = {
+	id = MYTHMORE.40
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { religion_group = muslim }
+		NOT = { has_character_flag = djinn_religion_childhood_event }
+	}
+	
+	immediate = {
+		# Select branch
+		if = {
+			limit = {
+				educator = { religion_group = muslim }
+			}
+			educator = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				father = { religion_group = muslim }
+			}
+			father = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				mother = { religion_group = muslim }
+			}
+			mother = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				any_courtier = {
+					religion_group = muslim
+					is_heretic = no
+				}
+			}
+			random_courtier = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		else = {
+			random_character = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		
+		# Ping for localization
+		set_character_flag = djinn_religion_childhood_event
+		educator = {
+			character_event = { id = MYTHMORE.41 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = MYTHMORE.42 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.42
+	desc = EVTDESC_MYTHMORE.42
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.42
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = MYTHMORE.43
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MYTHMORE.42
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTHMORE.43
+	desc = EVTDESC_MYTHMORE.43
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_MYTHMORE.43
+		tooltip = {
+			FROM = {
+				religion = event_target:target_muslim
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.44 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				religion_group = muslim
+			}
+			modifier = {
+				factor = 3
+				culture_group = arabic
+			}
+			modifier = {
+				factor = 2
+				trait = djinn
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_MYTHMORE.43
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.45 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = djinn
+					religion _group = muslim
+				}
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion_group = christian
+					religion_group = jewish_group
+				}
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOT = { religion_group = muslim }
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOT = { religion_group = muslim }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.44
+	desc = EVTDESC_MYTHMORE.44
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.44
+		religion = event_target:target_muslim
+	}
+}
+
+character_event = {
+	id = MYTHMORE.45
+	desc = EVTDESC_MYTHMORE.45
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.45
+	}
+}
