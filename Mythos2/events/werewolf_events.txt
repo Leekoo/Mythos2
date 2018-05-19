@@ -5057,26 +5057,7 @@ character_event = {
 		text = EVTDESCB_WEREWOLF.97
 	}
 	picture = GFX_evt_child_play
-	
-	min_age = 6
-	max_age = 11
-	prisoner = no
-	
 	is_triggered_only = yes
-	
-	trigger = {
-		trait = pup
-		OR = {
-			NOT = { has_dlc = Conclave }
-			has_focus = focus_ch_heritage
-		}
-		OR = {
-			father = { trait = known_werewolf }
-			mother = { trait = known_werewolf }
-		}
-		NOT = { culture = werewolf_culture }
-		NOT = { has_character_flag = pup_culture_event }
-	}
 	
 	option = {
 		name = EVTOPTA_WEREWOLF.97
@@ -5186,5 +5167,50 @@ character_event = {
 		opinion = { who = FROM modifier = opinion_horrified years = 3 }
 		father = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
 		mother = { reverse_opinion = { who = ROOT modifier = opinion_horrified years = 3 } }
+	}
+}
+
+# WEREWOLF.101 - Start wolf heritage childhood event
+character_event = {
+	id = WEREWOLF.101
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = pup
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		OR = {
+			father = { trait = known_werewolf }
+			mother = { trait = known_werewolf }
+		}
+		NOT = { culture = werewolf_culture }
+		NOT = { has_character_flag = pup_culture_event }
+	}
+	
+	immediate = {
+		# Ping educator for localization
+		educator = {
+			character_event = { id = WEREWOLF.102 }
+		}
+	}
+}
+
+character_event = {
+	id = WEREWOLF.102
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = WEREWOLF.97 }
+		}
 	}
 }

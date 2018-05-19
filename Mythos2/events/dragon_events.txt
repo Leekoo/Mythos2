@@ -8712,3 +8712,190 @@ character_event = {
 		}
 	}
 }
+
+# Dragon child adopts dragon culture - start
+character_event = {
+	id = DRAGON.155
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { culture = draconic }
+		NOT = { has_character_flag = dragon_culture_event }
+	}
+	
+	immediate = {
+		# Ping for localization
+		educator = {
+			character_event = { id = DRAGON.156 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.156
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = DRAGON.157 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.157
+	desc = EVTDESC_DRAGON.157
+	picture = GFX_evt_child_play
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { culture = draconic }
+		NOT = { has_character_flag = dragon_culture_event }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_DRAGON.157
+		hidden_tooltip = {
+			set_character_flag = dragon_culture_event
+			educator = {
+				character_event = {
+					id = DRAGON.158
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.157
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = DRAGON.158
+	desc = EVTDESC_DRAGON.158
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_DRAGON.158
+		tooltip = {
+			FROM = { culture = draconic }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.159 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = draconic
+			}
+			modifier = {
+				factor = 2
+				trait = dragon
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_DRAGON.158
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.160 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = dragon
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion_group = jewish_group
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.159
+	desc = EVTDESC_DRAGON.159
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.159
+		culture = draconic
+	}
+}
+
+character_event = {
+	id = DRAGON.160
+	desc = EVTDESC_DRAGON.160
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.160
+	}
+}
