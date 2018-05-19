@@ -5062,7 +5062,6 @@ character_event = {
 	option = {
 		name = EVTOPTA_WEREWOLF.97
 		hidden_tooltip = {
-			set_character_flag = pup_culture_event
 			educator = {
 				character_event = {
 					id = WEREWOLF.98
@@ -5196,6 +5195,7 @@ character_event = {
 	}
 	
 	immediate = {
+		set_character_flag = pup_culture_event
 		# Ping educator for localization
 		educator = {
 			character_event = { id = WEREWOLF.102 }
