@@ -461,6 +461,88 @@ decisions = {
 			}
 		}
 	}
+	
+	# Establich Satanic Papacy in Rome
+	satanic_papacy_rome = {
+		is_high_prio = yes
+		potential = {
+			religion = satanist
+			d_satanist = { has_holder = no }
+			OR = {
+				independent = yes
+				top_liege = { NOT = { religion = satanist } }
+			}
+		}
+		allow = {
+			religion = satanist
+			higher_tier_than = DUKE
+			is_liege_or_above = b_roma
+			religion_authority = 0.3
+			piety = 500
+		}
+		effect = {
+			activate_title = { title = d_satanist status = yes }
+			create_character = {
+				attributes = {
+					martial = 5
+					diplomacy = 7
+					stewardship = 5
+					intrigue = 8
+					learning = 9
+				}
+				trait = greedy
+				trait = gluttonous
+				trait = wroth
+				trait = lustful
+				trait = envious
+				trait = slothful
+				trait = proud
+				female = no
+				religion = satanist
+				race = ROOT
+				culture = ROOT
+			}
+			new_character = {
+				d_satanist = {
+					gain_title = PREV
+				}
+				b_roma = {
+					grant_title = PREV
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_title = c_rome
+								is_liege_or_above = c_rome
+							}
+						}
+					}
+					c_rome = {
+						grant_title = PREV
+					}
+				}
+				piety = 800
+				prestige = 800
+				set_defacto_liege = ROOT
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 0.03
+		modifier = {
+			factor = 2
+			trait = zealous
+		}
+		modifier = {
+			factor = 0.5
+			trait = cynical
+		}
+		modifier = {
+			factor = 1.5
+			trait = hell_knight
+		}
+	}
 }
 
 targetted_decisions = {
