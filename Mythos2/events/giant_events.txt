@@ -408,3 +408,296 @@ character_event = {
 		name = EVTOPTA_GIANT.8
 	}
 }
+
+# GIANT.9 - Giant child adopts jotnar religion - start
+character_event = {
+	id = GIANT.9
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = giant
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOR = {
+			religion = jotnar
+			religion = jotnar_reformed
+		}
+		OR = {
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			religion = baltic_pagan
+			religion = baltic_pagan_reformed
+			religion = finnish_pagan
+			religion = finnish_pagan_reformed
+			religion = slavic_pagan
+			religion = slavic_pagan_reformed
+			culture = jotunn
+		}
+		NOT = { has_character_flag = giant_religion_childhood_event }
+	}
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.7
+			is_reformed_religion = yes
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 0.5
+			father = {
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			mother = {
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+		}
+		modifier = {
+			factor = 1.5
+			father = { 
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			mother = { 
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			father = { 
+				is_reformed_religion = yes
+				NOR = {
+					religion = norse_pagan_reformed
+					religion = jotnar_reformed
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			mother = { 
+				is_reformed_religion = yes
+				NOR = {
+					religion = norse_pagan_reformed
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		# Ping for localization
+		educator = {
+			character_event = { id = GIANT.10 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = GIANT.11 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.11
+	desc = EVTDESC_GIANT.11
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.11
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = GIANT.12
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_GIANT.11
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = GIANT.12
+	desc = EVTDESC_GIANT.12
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_GIANT.12
+		tooltip = {
+			FROM = {
+				if = {
+					limit = { has_global_flag = jotnar_reformation  }
+					religion = jotnar_reformed
+				}
+				else = {
+					religion = jotnar
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.13 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 4
+				culture = jotunn
+			}
+			modifier = {
+				factor = 2
+				trait = giant
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = {
+			trigger = {
+				NOR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+					religion = jotnar
+					religion = jotnar_pagan
+				}
+			}
+			text = EVTOPTB_GIANT.12
+		}
+		name = {
+			trigger = {
+				OR = {
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+				}
+			}
+			text = EVTOPTC_GIANT.12
+		}
+		name = {
+			trigger = {
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			text = EVTOPTD_GIANT.12
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.14 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = giant
+					trait = half_giant
+					culture = jotunn
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 3
+				is_reformed_religion = yes
+				NOT = { religion = jotnar_reformed }
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.13
+	desc = EVTDESC_GIANT.13
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.13
+		if = {
+			limit = { has_global_flag = jotnar_reformation  }
+			religion = jotnar_reformed
+		}
+		else = {
+			religion = jotnar
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.14
+	desc = EVTDESC_GIANT.14
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.14
+	}
+}
