@@ -221,3 +221,190 @@ character_event = {
 		prestige = 10
 	}
 }
+
+# GIANT.3 - Start for giant child culture event
+character_event = {
+	id = GIANT.3
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = giant
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		OR = {
+			religion = jotnar
+			religion = jotnar_reformed
+			religion = norse_pagan
+			religion = norse_pagan_reformed
+			culture_group = north_germanic
+			culture_group = central_germanic
+		}
+		NOT = { culture = jotunn }
+		NOT = { has_character_flag = giant_culture_childhood_event }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = giant_culture_childhood_event
+		# Ping for localization
+		educator = {
+			character_event = { id = GIANT.4 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = GIANT.5 }
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.5
+	desc = EVTDESC_GIANT.5
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.5
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = GIANT.6
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_GIANT.5
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = GIANT.6
+	desc = EVTDESC_GIANT.6
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_GIANT.6
+		tooltip = {
+			FROM = { culture = jotunn }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.7 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = jotunn
+			}
+			modifier = {
+				factor = 2
+				trait = giant
+				OR = {
+					culture_group = north_germanic
+					culture_group = central_germanic
+				}
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_GIANT.6
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = GIANT.8 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = giant
+					trait = half_giant
+					culture = jotunn
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion_group = jewish_group
+					religion = norse_pagan
+					religion = norse_pagan_reformed
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = GIANT.7
+	desc = EVTDESC_GIANT.7
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.7
+		culture = jotunn
+	}
+}
+
+character_event = {
+	id = GIANT.8
+	desc = EVTDESC_GIANT.8
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_GIANT.8
+	}
+}
