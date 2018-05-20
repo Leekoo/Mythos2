@@ -214,6 +214,50 @@ decisions = {
 			prestige = 200
 			culture = vampire_culture
 			capital_scope = { culture = vampire_culture }
+			if = {
+				limit = {
+					government_type = feudal_government
+					has_dlc = "Zeus"
+					higher_tier_than = BARON
+					NAND = {
+						controls_religion = yes
+						NOT = { religion_group = muslim }
+						NOT = { religion = norse_pagan_reformed }
+						NOT = { religion = jotnar_reformed }
+						NOT = { religion = roman_pagan }
+					}
+					NAND = {
+						culture = draconic
+						OR = {
+							trait = dragon
+							trait = dragonborn
+						}
+						religion_group = pagan_group
+					}
+					NAND = { 
+						culture_group = tibetan_group
+						OR = {
+							religion = bon
+							religion = buddhist
+						}
+						higher_tier_than = BARON
+					}
+					NAND = { 
+						tier = EMPEROR
+						primary_title = { has_title_flag = pretender_chinese_empire }
+						OR = {
+							culture_group = chinese_group
+							culture = khitan
+							culture = tangut
+							culture = jurchen
+							has_character_flag = chinese_imperial_government_preserve
+						}
+					}
+					is_patrician = no
+				}
+				government_type = blood_court_government
+				character_event = { id = VAMPIRE.155 }
+			}
 			any_courtier = {
 				limit = {
 					NOT = { culture = vampire_culture }
@@ -229,6 +273,50 @@ decisions = {
 					trait = vampire
 				}
 				culture = vampire_culture
+				if = {
+					limit = {
+						government_type = feudal_government
+						has_dlc = "Zeus"
+						higher_tier_than = BARON
+						NAND = {
+							controls_religion = yes
+							NOT = { religion_group = muslim }
+							NOT = { religion = norse_pagan_reformed }
+							NOT = { religion = jotnar_reformed }
+							NOT = { religion = roman_pagan }
+						}
+						NAND = {
+							culture = draconic
+							OR = {
+								trait = dragon
+								trait = dragonborn
+							}
+							religion_group = pagan_group
+						}
+						NAND = { 
+							culture_group = tibetan_group
+							OR = {
+								religion = bon
+								religion = buddhist
+							}
+							higher_tier_than = BARON
+						}
+						NAND = { 
+							tier = EMPEROR
+							primary_title = { has_title_flag = pretender_chinese_empire }
+							OR = {
+								culture_group = chinese_group
+								culture = khitan
+								culture = tangut
+								culture = jurchen
+								has_character_flag = chinese_imperial_government_preserve
+							}
+						}
+						is_patrician = no
+					}
+					government_type = blood_court_government
+					character_event = { id = VAMPIRE.155 }
+				}
 			}
 		}
 		ai_will_do = {
