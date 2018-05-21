@@ -476,7 +476,7 @@ decisions = {
 		allow = {
 			religion = satanist
 			higher_tier_than = DUKE
-			is_liege_or_above = b_roma
+			completely_controls = c_rome
 			religion_authority = 0.3
 			piety = 500
 		}
@@ -509,18 +509,8 @@ decisions = {
 				b_roma = {
 					grant_title = PREV
 				}
-				if = {
-					limit = {
-						ROOT = {
-							OR = {
-								has_title = c_rome
-								is_liege_or_above = c_rome
-							}
-						}
-					}
-					c_rome = {
-						grant_title = PREV
-					}
+				c_rome = {
+					grant_title = PREV
 				}
 				piety = 800
 				prestige = 800
