@@ -11436,3 +11436,55 @@ character_event = {
 		}
 	}
 }
+
+narrative_event = {
+	id = VAMPIRE.159
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCA_VAMPIRE.159
+	}
+	desc = {
+		trigger = {
+			religion = satanist
+			NOT = { character = FROM }
+		}
+		text = EVTDESCB_VAMPIRE.159
+	}
+	desc = {
+		trigger = {
+			NOT = { religion = satanist }
+		}
+		text = EVTDESCC_VAMPIRE.159
+	}
+	picture = GFX_evt_sacrifice
+	border = GFX_event_narrative_frame_religion
+	
+	ai = no
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.159
+		trigger = { religion = satanist }
+	}
+	option = {
+		name = EVTOPTB_VAMPIRE.159
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_VAMPIRE.159
+		trigger = {
+			COR = {
+				religion = satanist
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}
+	}
+}
