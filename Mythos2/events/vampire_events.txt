@@ -105,31 +105,31 @@ character_event = {
 }
 
 # VAMPIRE.4 - was MYTH.48 - Force Congatic Seniority Succession
-character_event = {
-	id = "VAMPIRE.4"
-	title = EVTNAME_VAMPIRE.4
-	desc = "EVTDESC_VAMPIRE.4"
-	picture = GFX_evt_throne_room
-	border = GFX_event_normal_frame_war
-	
-	is_patrician = no
-	
-	trigger = {
-		has_landed_title = e_vampire
-		NOT = { government = merchant_republic_government }
-		NOT = { has_law = succ_seniority }
-	}
-	
-	mean_time_to_happen = { months = 1 }
-	
-	option = {
-		name = "EVTOPTA_VAMPIRE.4"
-		e_vampire = {
-			succession = seniority
-			gender_succ = true_cognatic
-		}
-	}
-}
+#character_event = {
+#	id = "VAMPIRE.4"
+#	title = EVTNAME_VAMPIRE.4
+#	desc = "EVTDESC_VAMPIRE.4"
+#	picture = GFX_evt_throne_room
+#	border = GFX_event_normal_frame_war
+#	
+#	is_patrician = no
+#	
+#	trigger = {
+#		has_landed_title = e_vampire
+#		NOT = { government = merchant_republic_government }
+#		NOT = { has_law = succ_seniority }
+#	}
+#	
+#	mean_time_to_happen = { months = 1 }
+#	
+#	option = {
+#		name = "EVTOPTA_VAMPIRE.4"
+#		e_vampire = {
+#			succession = seniority
+#			gender_succ = true_cognatic
+#		}
+#	}
+#}
 
 # VAMPIRE.5 - was MYTH.80 - Offer of vampirism
 letter_event = {

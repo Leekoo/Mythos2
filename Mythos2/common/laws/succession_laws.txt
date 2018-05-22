@@ -45,7 +45,10 @@ succession_laws = {
 			}
 			is_primary_type_title = no
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			holder_scope = {
@@ -140,7 +143,10 @@ succession_laws = {
 			is_primary_type_title = no
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
@@ -217,6 +223,8 @@ succession_laws = {
 						}
 					}
 				}
+				government = blood_court_government
+				title = e_vampire
 			}
 			OR = {
 				is_landless_type_title = no
@@ -275,6 +283,8 @@ succession_laws = {
 							has_law = crown_authority_4
 						}
 					}
+					government = blood_court_government
+					title = e_vampire
 				}
 			}
 			custom_tooltip = {
@@ -368,7 +378,10 @@ succession_laws = {
 				}
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
@@ -504,7 +517,10 @@ succession_laws = {
 			holder_scope = { is_feudal = yes }
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			custom_tooltip = {
@@ -569,7 +585,10 @@ succession_laws = {
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			OR = {
@@ -682,7 +701,10 @@ succession_laws = {
 				}
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
