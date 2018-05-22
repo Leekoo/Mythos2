@@ -2634,6 +2634,52 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetHouseOfWorshipCap # Returns a suitable name for the house of worship of your religion (WIP)
+
+	text = {
+		localisation_key = string_Church
+		trigger = { 
+			OR = {
+				religion_group = christian
+				religion_group = other_group
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Mosque
+		trigger = { religion_group = muslim }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion_group = pagan_group }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion_group = zoroastrian_group }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion_group = jewish_group }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = hindu }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = buddhist }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = jain }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = taoist }
+	}
+}
+
+defined_text = {
 	name = GetReligiousRite # Returns a suitable name for a common rite in the character's religion
 
 	text = {
