@@ -1738,7 +1738,7 @@ character_event = {
 		random_list = {
 			10 = {
 				# Attempt to bury the flame
-				character_event = { id = DRAGON.37 days = 60 random = 60 }
+				character_event = { id = DRAGON.37 days = 60 random = 90 }
 			}
 			10 = {
 				# Cast a counterspell
@@ -1758,7 +1758,7 @@ character_event = {
 					factor = 1.2
 					trait = erudite
 				}
-				character_event = { id = DRAGON.39 days = 30 random = 50 }
+				character_event = { id = DRAGON.39 days = 30 random = 75 }
 			}
 			10 = {
 				# Pray for the flame to be stopped
@@ -1797,7 +1797,7 @@ character_event = {
 					factor = 1.2
 					trait = humble
 				}
-				character_event = { id = DRAGON.41 days = 30 random = 50 }
+				character_event = { id = DRAGON.41 days = 30 random = 75 }
 			}
 			10 = {
 				# Attempt to bombard the flame with siege weapons
@@ -1824,7 +1824,7 @@ character_event = {
 					factor = 1.2
 					trait = wroth
 				}
-				character_event = { id = DRAGON.43 days = 60 random = 60 }
+				character_event = { id = DRAGON.43 days = 60 random = 90 }
 			}
 			10 = {
 				# Try to flood the flame
@@ -1851,7 +1851,7 @@ character_event = {
 					factor = 1.2
 					trait = patient
 				}
-				character_event = { id = DRAGON.45 days = 90 random = 90 }
+				character_event = { id = DRAGON.45 days = 90 random = 135 }
 			}
 			10 = {
 				# Ritual Sacrifice
@@ -1903,7 +1903,7 @@ character_event = {
 					factor = 1.1
 					trait = possessed
 				}
-				character_event = { id = DRAGON.47 days = 20 random = 100 }
+				character_event = { id = DRAGON.47 days = 20 random = 150 }
 			}
 			10 = {
 				# Butcher the dragons
@@ -1957,7 +1957,7 @@ character_event = {
 					factor = 1.1
 					trait = paranoid
 				}
-				character_event = { id = DRAGON.49 days = 80 random = 120 }
+				character_event = { id = DRAGON.49 days = 80 random = 180 }
 			}
 		}
 	}
@@ -2984,7 +2984,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			19 = {
+			23 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3115,7 +3115,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			17 = {
+			22 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3250,7 +3250,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			17 = {
+			22 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3480,7 +3480,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			19 = {
+			29 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3504,7 +3504,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_DRAGON.44
 		random_list ={
-			2 = {
+			3 = {
 				modifier = {
 					factor = 1.2
 					trait = misguided_warrior
@@ -3567,7 +3567,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			18 = {
+			27 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3592,7 +3592,7 @@ character_event = {
 	option = {
 		name = EVTOPTC_DRAGON.44
 		random_list = {
-			4 = {
+			6 = {
 				modifier = {
 					factor = 1.2
 					trait = misguided_warrior
@@ -3655,7 +3655,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			16 = {
+			24 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3814,7 +3814,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.46
-		scaled_wealth = { value = -0.25 max = -100 }
+		scaled_wealth = { value = -0.25 max = -400 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -3894,7 +3894,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTB_DRAGON.46
-		scaled_wealth = { value = -1 max = -400 }
+		scaled_wealth = { value = -1 max = -800 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -3974,7 +3974,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_DRAGON.46
-		scaled_wealth = { value = -3 max = -800 }
+		scaled_wealth = { value = -3 max = -2000 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -5049,7 +5049,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			3 = {
+			4 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
