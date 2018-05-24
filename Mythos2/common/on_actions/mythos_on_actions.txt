@@ -129,12 +129,17 @@ on_five_year_pulse = {
 	}
 }
 on_yearly_childhood_pulse = {
+	events = {
+		MYTHMORE.46
+	}
+	
 	random_events = {
 		# Werewolf Pup events
 		100 = WEREWOLF.60		# Child plays in the forest, talks to wolves.
 		150 = WEREWOLF.63		# Child behaves strangely
 		50 = WEREWOLF.66		# Child gets wolf pet
 		150 = WEREWOLF.101		# Pup Heritage event
+		
 		100 = DRAGON.155		# Dragon child culture event
 		80 = DRAGON.161			# Dragon child religion event
 		120 = GIANT.3			# Giant child culture event
@@ -227,6 +232,7 @@ on_adulthood = {
 		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
 		SPECIES.9		# Remove and re-add God trait
+		MYTHMORE.50		# Childhood sweethearts become lovers
 	}
 }
 # Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
