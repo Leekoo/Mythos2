@@ -1492,3 +1492,1501 @@ character_event = {
 		add_crusade_trait_effect = yes
 	}
 }
+
+# Way of Life Theology secluded in prayer event
+character_event = {
+	id = WoL.7091
+	picture = GFX_evt_religious_exultation
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	capable_only = yes
+	prisoner = no
+	
+	desc = {
+		text = EVTDESC_WoL_7091
+		trigger = {
+			NOR = {
+				trait = lunatic
+				religion_group = pagan_group
+				has_dharmic_religion_trigger = yes
+			}
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_PAGAN
+		trigger = {
+			NOT = {
+				trait = lunatic				
+			}
+			religion_group = pagan_group
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_INDIAN
+		trigger = {
+			NOT = {
+				trait = lunatic				
+			}
+			has_dharmic_religion_trigger = yes
+		}
+	}
+	desc = {
+		text = EVTDESC_WoL_7091_LUNATIC
+		trigger = {
+			trait = lunatic
+		}
+	}
+
+	trigger = {
+		NOT = { trait = on_pilgrimage }
+		NOT = { trait = on_hajj }
+	}
+	
+	immediate = {		
+		# Select 3 options to use
+		while = {
+			count = 3
+			random_list = {
+				# Lose Drunkard
+				6 = {
+					trigger = {
+						trait = drunkard
+						NOT = { has_character_flag = theology_option_drunkard }
+					}
+					modifier = {
+						factor = 2
+						trait = temperate
+					}
+					set_character_flag = theology_option_drunkard
+				}
+				# Lose Gluttony
+				4 = {
+					trigger = {
+						trait = gluttonous
+						# Views gluttony as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_gluttonous }
+					}
+					modifier = {
+						factor = 0.25
+						trait = hedonist
+					}
+					set_character_flag = theology_option_gluttonous
+				}
+				# Lose Slothful
+				4 = {
+					trigger = {
+						trait = slothful
+						# Views sloth as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_draconic_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_slothful }
+					}
+					modifier = {
+						factor = 0.5
+						trait = content
+					}
+					set_character_flag = theology_option_slothful
+				}
+				# Lose Lustful
+				4 = {
+					trigger = {
+						trait = lustful
+						# Views lust as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_lustful }
+					}
+					modifier = {
+						factor = 0.25
+						trait = hedonist
+					}
+					modifier = {
+						factor = 0.25
+						OR = {
+							trait = seducer
+							trait = seductress
+						}
+					}
+					set_character_flag = theology_option_lustful
+				}
+				# Lose Greedy
+				4 = {
+					trigger = {
+						trait = greedy
+						# Views greed as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_greedy }
+					}
+					modifier = {
+						factor = 0.75
+						OR = {
+							government = government_merchant_republic
+							government = government_draconic_merchant_republic
+						}
+					}
+					set_character_flag = theology_option_greedy
+				}
+				# Lose Wroth
+				4 = {
+					trigger = {
+						trait = wroth
+						# Views wrath as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_wroth }
+					}
+					modifier = {
+						factor = 0.5
+						trait = impaler
+					}
+					set_character_flag = theology_option_wroth
+				}
+				# Lose Envious
+				4 = {
+					trigger  = {
+						trait = envious
+						# Views envy as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_envious }
+					}
+					modifier = {
+						factor = 0.5
+						trait = paranoid
+					}
+					set_character_flag = theology_option_envious
+				}
+				# Lose Proud
+				4 = {
+					trigger = {
+						trait = proud
+						# Views pride as a vice
+						OR = {
+							use_christian_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_proud }
+					}
+					modifier = {
+						factor = 0.5
+						trait = ambitious
+					}
+					set_character_flag = theology_option_proud
+				}
+				# Lose Craven
+				4 = {
+					trigger = {
+						trait = craven
+						# Views cowardace as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_aztec_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_craven }
+					}
+					modifier = {
+						factor = 0.75
+						trait = shy
+					}
+					set_character_flag = theology_option_craven
+				}
+				# Lose Charitable
+				4 = {
+					trigger = {
+						trait = charitable
+						# Views charity as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_charitable }
+					}
+					modifier = {
+						factor = 0.75
+						trait = kind
+					}
+					modifier = {
+						factor = 0.75
+						trait = trusting
+					}
+					set_character_flag = theology_option_charitable
+				}
+				# Lose Humble
+				4 = {
+					trigger = {
+						trait = humble
+						# Views humility as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_humble }
+					}
+					modifier = {
+						factor = 0.75
+						trait = content
+					}
+					modifier = {
+						factor = 0.75
+						trait = shy
+					}
+					set_character_flag = theology_option_humble
+				}
+				# Lose Arbitrary
+				4 = {
+					trigger = {
+						trait = arbitrary
+						# Views arbitrariness as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+							use_norse_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_arbitrary }
+					}
+					modifier = {
+						factor = 0.5
+						trait = lunatic
+					}
+					set_character_flag = theology_option_arbitrary
+				}
+				# Lose Paranoid
+				4 = {
+					trigger = {
+						trait = paranoid
+						# Views paranoia as a vice
+						OR = {
+							use_draconic_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_paranoid }
+					}
+					modifier = {
+						factor = 0.5
+						trait = lunatic
+					}
+					modifier = {
+						factor = 0.5
+						trait = craven
+					}
+					set_character_flag = theology_option_paranoid
+				}
+				# Lose Kind
+				4 = {
+					trigger = {
+						trait = kind
+						# Views kindness as a vice
+						OR = {
+							use_aztec_vice_virtue = yes
+							use_satanist_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_kind }
+					}
+					modifier = {
+						factor = 0.5
+						trait = charitable
+					}
+					modifier = {
+						factor = 0.5
+						trait = gregarious
+					}
+					set_character_flag = theology_option_kind
+				}
+				# Lose Cruel
+				4 = {
+					trigger = {
+						trait = cruel
+						# Views cruelty as a vice
+						OR = {
+							use_zoroastrian_vice_virtue = yes
+							use_tengri_vice_virtue = yes
+						}
+						NOT = { has_character_flag = theology_option_cruel }
+					}
+					modifier = {
+						factor = 0.25
+						trait = impaler
+					}
+					set_character_flag = theology_option_cruel
+				}
+				# Lose Chaste
+				4 = {
+					trigger = {
+						trait = chaste
+						# Views chastity as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_chaste }
+					}
+					modifier = {
+						factor = 0.25
+						trait = celibate
+					}
+					set_character_flag = theology_option_chaste
+				}
+				# Lose Temperate
+				4 = {
+					trigger = {
+						trait = temperate
+						# Views temperance as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_temperate }
+					}
+					set_character_flag = theology_option_temperate
+				}
+				# Lose Diligent
+				4 = {
+					trigger = {
+						trait = diligent
+						# Views diligence as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_diligent }
+					}
+					modifier = {
+						factor = 0.25
+						trait = administrator
+					}
+					modifier = {
+						factor = 0.5
+						trait = gardener
+					}
+					modifier = {
+						factor = 0.5
+						trait = architect
+					}
+					set_character_flag = theology_option_diligent
+				}
+				# Lose Patient
+				4 = {
+					trigger = {
+						trait = patient
+						# Views patience as a vice
+						use_satanist_vice_virtue = yes
+						NOT = { has_character_flag = theology_option_patient }
+					}
+					modifier = {
+						factor = 0.5
+						OR = {
+							trait = gamer
+							trait = hunter
+							trait = strategist
+						}
+					}
+					set_character_flag = theology_option_patient
+				}
+				# Gain Zealous
+				3 = {
+					trigger = {
+						NOR = {
+							trait = zealous
+							trait = cynical
+							has_character_flag = theology_option_zealous
+						}
+					}
+					modifier = {
+						factor = 1.3
+						OR = {
+							trait = theologian
+							trait = mystic
+						}
+					}
+					modifier = {
+						factor = 1.3
+						trait = celibate
+					}
+					modifier = {
+						factor = 1.3
+						is_ascetic_trigger = yes
+					}
+					set_character_flag = theology_option_zealous
+				}
+				# Lose Cynical
+				3 = {
+					trigger = {
+						trait = cynical
+						NOT = { has_character_flag = theology_option_cynical }
+					}
+					modifier = {
+						factor = 1.3
+						OR = {
+							trait = theologian
+							trait = mystic
+						}
+					}
+					modifier = {
+						factor = 1.3
+						trait = celibate
+					}
+					modifier = {
+						factor = 1.3
+						is_ascetic_trigger = yes
+					}
+					set_character_flag = theology_option_cynical
+				}
+				# Lose Blinded
+				1 = {
+					trigger = {
+						trait = blinded
+						NOT = {
+							has_game_rule = {
+								name = supernatural_events
+								value = off
+							}
+						}
+						NOT = { has_character_flag = theology_option_blinded }
+					}
+					set_character_flag = theology_option_blinded
+				}
+				# Lose Pox
+				2 = {
+					trigger = {
+						trait = syphilitic
+						NOT = { has_character_flag = theology_option_syphilitic }
+					}
+					set_character_flag = theology_option_syphilitic
+				}
+				# Lose Lunatic
+				2 = {
+					trigger = {
+						trait = lunatic
+						NOT = { trait = possessed }
+						NOT = { has_character_flag = theology_option_lunatic }
+					}
+					set_character_flag = theology_option_lunatic
+				}
+				# Lose Leper
+				1 = {
+					trigger = {
+						trait = leper
+						NOT = {
+							has_game_rule = {
+								name = supernatural_events
+								value = off
+							}
+						}
+						NOT = { has_character_flag = theology_option_leper }
+					}
+					set_character_flag = theology_option_leper
+				}
+				# Gain Piety and virtue
+				2 = {
+					trigger = {
+						has_vice_trigger = no
+						NOT = { has_character_flag = theology_option_piety }
+					}
+					set_character_flag = theology_option_piety
+				}
+			}
+		}
+	}
+	
+	# Lose Drunkard
+	option = {
+		name = EVTOPT_WoL_7091_DRUNKARD
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_drunkard }
+		remove_trait = drunkard
+		
+		if = {
+			limit = {
+				NOT = { trait = temperate }
+				NOT = { trait = gluttonous }
+				# Views temperance as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = temperate
+				character_event = { id = 38276 } # Notify Temperate
+			}
+		}
+		else_if = {
+			limit = {
+				trait = gluttonous
+				# Views gluttony as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				remove_trait = gluttonous
+			}
+		}
+		if = {
+			limit = {
+				NOT = { trait = diligent }
+				NOT = { trait = slothful }
+				# Views diligence as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				add_trait = diligent
+				character_event = { id = 38256 } # Notify Diligent
+			}
+		}
+		else_if = {
+			limit = {
+				trait = slothful
+				# Views sloth as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 10
+				remove_trait = slothful
+				character_event = { id = 38298 } # Notify Slothful
+			}
+		}
+	}
+	
+	# Lose Gluttony
+	option = {
+		name = EVTOPT_WoL_7091_GLUTTON
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_gluttonous }
+		remove_trait = gluttonous
+		
+		if = {
+			limit = {
+				# Views temperance as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = temperate
+				character_event = { id = 38276 } # Notify Temperate
+			}
+		}
+	}
+	
+	# Lose Slothful
+	option = {
+		name = EVTOPT_WoL_7091_SLOTHFUL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_slothful }
+		remove_trait = slothful
+		
+		if = {
+			limit = {
+				# Views diligence as a virtue
+				use_satanist_vice_virtue = no
+			}
+			random = {
+				chance = 20
+				add_trait = diligent
+				character_event = { id = 38256 } # Notify Diligent
+			}
+		}
+	}
+	
+	# Lose Lustful
+	option = {
+		name = EVTOPT_WoL_7091_LUSTFUL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_lustful }
+		remove_trait = lustful
+		
+		if = {
+			limit = {
+				# Views chastity as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = chaste
+				character_event = { id = 38274 } # Notify Chaste
+			}
+		}
+	}
+	
+	# Lose Greedy
+	option = {
+		name = EVTOPT_WoL_7091_GREEDY
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_greedy }
+		remove_trait = greedy
+		
+		if = {
+			limit = {
+				# Views charity as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = charitable
+				character_event = { id = 38273 } # Notify Charitable
+			}
+		}
+	}
+	
+	# Lose Wroth
+	option = {
+		name = EVTOPT_WoL_7091_WROTH
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_wroth }
+		remove_trait = wroth
+		
+		if = {
+			limit = {
+				trait = cruel
+				# Does not view cruelty as a virtue
+				# That's everyone
+			}
+			random = {
+				chance = 20
+				remove_trait = cruel
+			}
+		}
+		if = {
+			limit = {
+				# Views patience as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = patient
+				character_event = { id = 38264 } # Notify Patient
+			}
+		}
+	}
+	
+	# Lose Envious
+	option = {
+		name = EVTOPT_WoL_7091_ENVIOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_envious }
+		remove_trait = envious
+		
+		if = {
+			limit = {
+				trait = paranoid
+			}
+			random = {
+				chance = 20
+				remove_trait = paranoid
+				character_event = { id = 38305 } # Notify Paranoid
+			}
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					trait = trusting
+					trait = paranoid
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+		if = {
+			limit = {
+				# Views kindness as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = kind
+				character_event = { id = 38268 } # Notify kind
+			}
+		}
+	}
+	
+	# Lose Proud
+	option = {
+		name = EVTOPT_WoL_7091_PROUD
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_proud }
+		remove_trait = proud
+		
+		if = {
+			limit = {
+				trait = ambitious
+				# Does not view ambitions as a virtue
+				use_draconic_vice_virtue = no
+			}
+			random = {
+				chance = 5
+				remove_trait = ambitious
+			}
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					trait = ambitious
+					trait = content
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = content
+				character_event = { id = 38279 } # Notify Content
+			}
+		}
+		if = {
+			limit = {
+				# Views humility as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = humble
+				character_event = { id = 38260 } # Notify Humble
+			}
+		}
+	}
+	
+	# Lose Craven
+	option = {
+		name = EVTOPT_WoL_7091_CRAVEN
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_craven }
+		remove_trait = craven
+		
+		if = {
+			limit = {
+				trait = shy
+				# Does not view shyness as a virtue
+				# That's everyone
+			}
+			random = {
+				chance = 20
+				remove_trait = shy
+			}
+		}
+		if = {
+			limit = {
+				# Views bravery as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = brave
+				character_event = { id = 38270 } # Notify Brave
+			}
+		}
+	}
+	
+	# Lose Charitable
+	option = {
+		name = EVTOPT_WoL_7091_CHARITABLE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_charitable }
+		remove_trait = charitable
+		
+		if = {
+			limit = {
+				# Views greed as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = greedy
+				character_event = { id = 38252 } # Notify Greedy
+			}
+		}
+	}
+	
+	# Lose Humble
+	option = {
+		name = EVTOPT_WoL_7091_HUMBLE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_humble }
+		remove_trait = humble
+		
+		if = {
+			limit = {
+				# Views pride as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = proud
+				character_event = { id = 38260 } # Notify Proud
+			}
+		}
+	}
+	
+	# Lose Arbitrary
+	option = {
+		name = EVTOPT_WoL_7091_ARBITRARY
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_arbitrary }
+		remove_trait = arbitrary
+		
+		if = {
+			limit = {
+				# Views justice as a virtue
+				OR = {
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = just
+				character_event = { id = 38267 } # Notify Proud
+			}
+		}
+	}
+	
+	# Lose Paranoid
+	option = {
+		name = EVTOPT_WoL_7091_PARANOID
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_paranoid }
+		remove_trait = paranoid
+		
+		if = {
+			limit = {
+				trait = craven
+			}
+			random = {
+				chance = 20
+				remove_trait = craven
+				character_event = { id = 38296 } # Notify Craven
+			}
+		}
+		if = {
+			limit = {
+				# Views trust as a virtue
+				use_tengri_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+	}
+	
+	# Lose Kind
+	option = {
+		name = EVTOPT_WoL_7091_KIND
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_kind }
+		remove_trait = kind
+		
+		if = {
+			limit = {
+				# Does not view cruelty as a vice
+				OR = {
+					use_christian_vice_virtue = yes
+					use_draconic_vice_virtue = yes
+					use_aztec_vice_virtue = yes
+					use_norse_vice_virtue = yes
+					use_satanist_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = cruel
+				character_event = { id = 38259 } # Notify Cruel
+			}
+		}
+		if = {
+			limit = {
+				# Views ency as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = envious
+				character_event = { id = 38271 } # Notify Envious
+			}
+		}
+	}
+	
+	# Lose Cruel
+	option = {
+		name = EVTOPT_WoL_7091_CRUEL
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_cruel }
+		remove_trait = cruel
+		
+		if = {
+			limit = {
+				# Views kindness as a virtue
+				OR = {
+					use_christian_vice_virtue = yes
+					use_zoroastrian_vice_virtue = yes
+					use_tengri_vice_virtue = yes
+					use_norse_vice_virtue = yes
+				}
+			}
+			random = {
+				chance = 20
+				add_trait = kind
+				character_event = { id = 38268 } # Notify Kind
+			}
+		}
+	}
+	
+	# Lose Chaste
+	option = {
+		name = EVTOPT_WoL_7091_CHASTE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_chaste }
+		remove_trait = chaste
+		
+		if = {
+			limit = {
+				trait = celibate
+			}
+			remove_trait = celibate
+		}
+		if = {
+			limit = {
+				# Views lust as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = trusting
+				character_event = { id = 38250 } # Notify Trusting
+			}
+		}
+	}
+	
+	# Lose Temperate
+	option = {
+		name = EVTOPT_WoL_7091_TEMPERATE
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_temperate }
+		remove_trait = temperate
+		
+		if = {
+			limit = {
+				# Views gluttony as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = gluttonous
+				character_event = { id = 38277 } # Notify Gluttonous
+			}
+		}
+	}
+	
+	# Lose Diligent
+	option = {
+		name = EVTOPT_WoL_7091_DILIGENT
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_diligent }
+		remove_trait = diligent
+		
+		if = {
+			limit = {
+				# Views sloth as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = slothful
+				character_event = { id = 38251 } # Notify Gluttonous
+			}
+		}
+		if = {
+			limit = {
+				trait = stressed
+			}
+			random = {
+				chance = 20
+				remove_trait = stressed
+				character_event = { id = 38313 } # Notify Stressed
+			}
+		}
+		if = {
+			limit = {
+				trait = depressed
+			}
+			random = {
+				chance = 20
+				remove_trait = depressed
+				character_event = { id = 38314 } # Notify Depressed
+			}
+		}
+		if = {
+			limit = {
+				trait = ambitious
+			}
+			random = {
+				chance = 10
+				remove_trait = ambitious
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { trait = content }
+			}
+			random = {
+				chance = 20
+				add_trait = content
+				character_event = { id = 38279 } # Notify Content
+			}
+		}
+	}
+	
+	# Lose Patient
+	option = {
+		name = EVTOPT_WoL_7091_PATIENT
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_patient }
+		remove_trait = patient
+		
+		if = {
+			limit = {
+				# Views wrath as a virtue
+				use_satanist_vice_virtue = yes
+			}
+			random = {
+				chance = 20
+				add_trait = worht
+				character_event = { id = 38254 } # Notify Wroth
+			}
+		}
+	}
+	
+	# Gain Zealous
+	option = {
+		name = EVTOPT_WoL_7091_ZEALOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_zealous }
+		add_trait = zealous
+	}
+	
+	# Lose Cynical
+	option = {
+		name = EVTOPT_WoL_7091_ZEALOUS
+		ai_chance = {
+			factor = 100
+		}
+		trigger = { has_character_flag = theology_option_cynical }
+		remove_trait = cynical
+	}
+	
+	# Lose Blinded
+	option = {
+		name = EVTOPT_WoL_7091_BLIND
+		trigger = { has_character_flag = theology_option_blinded }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = blinded
+	}
+	
+	# Lose Pox
+	option = {
+		name = EVTOPT_WoL_7091_POX
+		trigger = { has_character_flag = theology_option_syphilitic }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = syphilitic
+	}
+	
+	# Lose Lunatic
+	option = {
+		name = EVTOPT_WoL_7091_LUNATIC
+		trigger = { has_character_flag = theology_option_lunatic }
+		ai_chance = {
+			factor = 100
+		}
+		
+		random = {
+			chance = 50
+			remove_trait = lunatic
+			character_event = { id = 38309 } # Notify Lunatic lost
+		}
+		
+		random = {
+			chance = 50
+			add_trait = possessed
+			character_event = { id = 38315 } # Notify Possessed
+		}
+	}
+	
+	# Lose Leper
+	option = {
+		name = EVTOPT_WoL_7091_LEPER
+		trigger = { has_character_flag = theology_option_leper }
+		ai_chance = {
+			factor = 1000
+		}
+		remove_trait = leper
+	}
+	
+	# Gain Piety and Virtue
+	option = {
+		name = EVTOPT_WoL_7091
+		ai_chance = {
+			factor = 1
+		}
+		piety = 100
+		if = {
+			limit = { use_christian_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = chaste
+					character_event = { id = 38274 } # Notify Chaste
+				}
+				1 = {
+					add_trait = temperate
+					character_event = { id = 38276 } # Notify Temperate
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+				1 = {
+					add_trait = humble
+					character_event = { id = 38260 } # Notify Humble
+				}
+			}
+		}
+		else_if = {
+			limit = { use_draconic_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = greedy
+					character_event = { id = 38252 } # Notify Greedy
+				}
+				1 = {
+					add_trait = proud
+					character_event = { id = 38261 } # Notify Proud
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = ambitious
+					character_event = { id = 38278 } # Notify Ambitious
+				}
+			}
+		}
+		else_if = {
+			limit = { use_aztec_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = temperate
+					character_event = { id = 38276 } # Notify Temperate
+				}
+				1 = {
+					add_trait = chaste
+					character_event = { id = 38274 } # Notify Chaste
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+			}
+		}
+		else_if = {
+			limit = { use_zoroastrian_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+				1 = {
+					add_trait = humble
+					character_event = { id = 38260 } # Notify Humble
+				}
+			}
+		}
+		else_if = {
+			limit = { use_tengri_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = trusting
+					character_event = { id = 38250 } # Notify Trusting
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = patient
+					character_event = { id = 38264 } # Notify Patient
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+			}
+		}
+		else_if = {
+			limit = { use_norse_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = brave
+					character_event = { id = 38270 } # Notify Brave
+				}
+				1 = {
+					add_trait = honest
+					character_event = { id = 38262 } # Notify Honest
+				}
+				1 = {
+					add_trait = diligent
+					character_event = { id = 38256 } # Notify Diligent
+				}
+				1 = {
+					add_trait = just
+					character_event = { id = 38267 } # Notify Just
+				}
+				1 = {
+					add_trait = charitable
+					character_event = { id = 38273 } # Notify Charitable
+				}
+				1 = {
+					add_trait = kind
+					character_event = { id = 38268 } # Notify Kind
+				}
+			}
+		}
+		else_if = {
+			limit = { use_satanist_vice_virtue = yes }
+			random_list = {
+				1 = {
+					add_trait = lustful
+					character_event = { id = 38272 } # Notify Lustful
+				}
+				1 = {
+					add_trait = gluttonous
+					character_event = { id = 38277 } # Notify Gluttonous
+				}
+				1 = {
+					add_trait = greedy
+					character_event = { id = 38252 } # Notify Greedy
+				}
+				1 = {
+					add_trait = slothful
+					character_event = { id = 38251 } # Notify Slothful
+				}
+				1 = {
+					add_trait = wroth
+					character_event = { id = 38254 } # Notify Wroth
+				}
+				1 = {
+					add_trait = envious
+					character_event = { id = 38271 } # Notify Envious
+				}
+				1 = {
+					add_trait = proud
+					character_event = { id = 38261 } # Notify Proud
+				}
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			clr_character_flag = theology_option_drunkard
+			clr_character_flag = theology_option_gluttonous
+			clr_character_flag = theology_option_slothful
+			clr_character_flag = theology_option_lustful
+			clr_character_flag = theology_option_greedy
+			clr_character_flag = theology_option_wroth
+			clr_character_flag = theology_option_envious
+			clr_character_flag = theology_option_proud
+			clr_character_flag = theology_option_craven
+			clr_character_flag = theology_option_charitable
+			clr_character_flag = theology_option_humble
+			clr_character_flag = theology_option_arbitrary
+			clr_character_flag = theology_option_paranoid
+			clr_character_flag = theology_option_kind
+			clr_character_flag = theology_option_cruel
+			clr_character_flag = theology_option_chaste
+			clr_character_flag = theology_option_temperate
+			clr_character_flag = theology_option_diligent
+			clr_character_flag = theology_option_patient
+			clr_character_flag = theology_option_zealous
+			clr_character_flag = theology_option_cynical
+			clr_character_flag = theology_option_blinded
+			clr_character_flag = theology_option_syphilitic
+			clr_character_flag = theology_option_lunatic
+			clr_character_flag = theology_option_leper
+			clr_character_flag = theology_option_piety
+		}
+	}
+}

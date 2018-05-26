@@ -963,11 +963,13 @@ has_virtue_trigger = {
 		}
 		AND = {
 			use_aztec_vice_virtue = yes
-			trait = brave
-			trait = diligent
-			trait = temperate
-			trait = chaste
-			trait = just
+			OR = {
+				trait = brave
+				trait = diligent
+				trait = temperate
+				trait = chaste
+				trait = just
+			}
 		}
 		AND = {
 			use_zoroastrian_vice_virtue = yes
