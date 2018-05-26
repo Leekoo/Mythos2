@@ -4268,96 +4268,377 @@ character_event = {
 
 			if = {
 				limit = {
-					NOR = { 
-						trait = content
-						trait = ambitious 
-					} 
+					NOR = {
+						trait = chaste
+						trait = lustful
+					}
+					# Chastity is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+					}
 				}
-				add_trait = content
+				add_trait = chaste
 			}
 			if = {
-				limit = { trait = ambitious }
-				remove_trait = ambitious
-			}
-
-			if = {
-				limit = { 
-					NOR = { 
-						trait = kind
-						trait = envious 
-					} 
+				limit = {
+					trait = lustful
+					# Lust is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+					}
 				}
-				add_trait = kind
-			}
-			if = {
-				limit = { trait = envious }
-				remove_trait = envious
-			}
-
-			if = {
-				limit = { 
-					NOR = { 
-						trait = honest
-						trait = deceitful
-					} 
-				}
-				add_trait = honest
-			}
-			if = {
-				limit = { trait = deceitful }
-				remove_trait = deceitful
-			}
-			if = {
-				limit = { 
-					NOR = { 
-						trait = patient
-						trait = wroth
-					} 
-				}
-				add_trait = patient
-			}
-			if = {
-				limit = { trait = wroth }
-				remove_trait = wroth
-			}
-			if = {
-				limit = { 
-					NOR = { 
-						trait = humble
-						trait = proud
-					} 
-				}
-				add_trait = humble
-			}
-			if = {
-				limit = { trait = proud }
-				remove_trait = proud
-			}
-			if = {
-				limit = { 
-					NOR = { 
-						trait = charitable
-						trait = greedy
-					} 
-				}
-				add_trait = charitable
-			}
-			if = {
-				limit = { trait = greedy }
-				remove_trait = greedy
+				remove_trait = lustful
 			}
 			if = {
 				limit = { 
 					NOR = { 
 						trait = temperate
 						trait = gluttonous
-					} 
+					}
+					# Temperance is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+					}
 				}
 				add_trait = temperate
 			}
 			if = {
-				limit = { trait = gluttonous }
+				limit = {
+					trait = gluttonous
+					# Gluttony is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
 				remove_trait = gluttonous
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = charitable
+						trait = greedy
+					}
+					# Charity is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				add_trait = charitable
+			}
+			if = {
+				limit = {
+					trait = greedy
+					# Greed is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+					}
+				}
+				remove_trait = greedy
+			}
+			# Diligence is skipped as unrelaxing/stressful
+			if = {
+				limit = { 
+					NOR = { 
+						trait = patient
+						trait = wroth
+					}
+					# Patience is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_draconic_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+					}
+				}
+				add_trait = patient
+			}
+			if = {
+				limit = {
+					trait = wroth
+					# Wrath is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				remove_trait = wroth
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = kind
+						trait = envious
+					}
+					# Kindness is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				add_trait = kind
+			}
+			if = {
+				limit = {
+					trait = envious
+					# Envy is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				remove_trait = envious
+			}
+			if = {
+				limit = {
+					trait = cruel
+					# Cruelty is a sin
+					OR = {
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+					}
+				}
+				remove_trait = cruel
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = humble
+						trait = proud
+					}
+					# Humility is a virtue
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+					}
+				}
+				add_trait = humble
+			}
+			if = {
+				limit = {
+					trait = proud
+					# Pride is a sin
+					OR = {
+						use_christian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+					}
+				}
+				remove_trait = proud
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = brave
+						trait = craven
+					}
+					# Bravery is a virtue
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				add_trait = brave
+			}
+			if = {
+				limit = {
+					trait = craven
+					# Cowardice is a sin
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				remove_trait = craven
+			}
+			# Skipping greedy - greed is unrelaxing
+			if = {
+				limit = {
+					NOR = {
+						trait = proud
+						trait = humble
+					}
+					# Pride is a virtue
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_satanist_vice_virtue = yes
+					}
+				}
+				add_trait = proud
+			}
+			if = {
+				limit = {
+					trait = humble
+					# Humility is a sin
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_satanist_vice_virtue = yes
+					}
+				}
+				remove_trait = humble
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = just
+						trait = arbitrary
+					}
+					# Justice is a virtue
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				add_trait = just
+			}
+			if = {
+				limit = {
+					trait = arbitrary
+					# Arbitrariness is a sin
+					OR = {
+						use_draconic_vice_virtue = yes
+						use_aztec_vice_virtue = yes
+						use_zoroastrian_vice_virtue = yes
+						use_tengri_vice_virtue = yes
+						use_norse_vice_virtue = yes
+					}
+				}
+				remove_trait = arbitrary
+			}
+			# Skipping ambition as exhausting
+			if = {
+				limit = {
+					NOR = {
+						trait = trusting
+						trait = paranoid
+					}
+					# Trust is a virtue
+					use_tengri_vice_virtue = yes
+				}
+				add_trait = trusting
+			}
+			if = {
+				limit = {
+					trait = paranoid
+					OR = {
+						# Paranoia is a sin
+						use_tengri_vice_virtue = yes
+						# Paranoia is just stressful
+						random = 50
+					}
+				}
+				remove_trait = paranoid
+			}
+			if = {
+				limit = { 
+					NOR = { 
+						trait = honest
+						trait = deceitful
+					}
+					# Honesty is a virtue
+					use_norse_vice_virtue = yes
+				}
+				add_trait = honest
+			}
+			if = {
+				limit = {
+					trait = deceitful
+				}
+				remove_trait = deceitful
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = lustful
+						trait = chaste
+					}
+					# Lust is a virtue
+					use_satanist_vice_virtue = yes
+				}
+				add_trait = lustful
+			}
+			if = {
+				limit = {
+					trait = chaste
+					# Chastity is a sin
+					use_satanist_vice_virtue = yes
+				}
+				remove_trait = chaste
+			}
+			if = {
+				limit = {
+					NOR = {
+						trait = diligent
+						trait = slothful
+					}
+					OR = {
+						# Sloth is a virtue
+						use_satanist_vice_virtue = yes
+						# Sloth is relaxing
+						random = 40
+					}
+				}
+				add_trait = slothful
+			}
+			if = {
+				limit = {
+					trait = diligent
+					OR = {
+						# Diligence is a sin
+						use_satanist_vice_virtue = yes
+						# Hard work is stressful
+						random = 40
+					}
+				}
+				remove_trait = diligent
+			}
+			# Skipping wroth and envy as stressful
+			
+			if = {
+				limit = {
+					# Ambition is not a virtue
+					NOT = { use_draconic_vice_virtue = yes }
+				}
+				if = {
+					limit = {
+						NOR = { 
+							trait = content
+							trait = ambitious 
+						} 
+					}
+					add_trait = content
+				}
+				if = {
+					limit = { trait = ambitious }
+					remove_trait = ambitious
+				}
+			}
+			if = {
+				limit = { trait = stressed }
+				remove_trait = stressed
+			}
+			if = {
+				limit = { trait = depressed }
+				remove_trait = depressed
 			}
 
 		}
