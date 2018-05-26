@@ -680,6 +680,7 @@ character_event = {
 			has_character_flag = education_outcome_level_1
 		}
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -694,6 +695,7 @@ character_event = {
 			has_character_flag = education_outcome_level_2
 		}
 		add_trait = eldritch_scholar
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -708,6 +710,7 @@ character_event = {
 			has_character_flag = education_outcome_level_3
 		}
 		add_trait = veteran_wizard
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -722,6 +725,7 @@ character_event = {
 			has_character_flag = education_outcome_level_4
 		}
 		add_trait = arcane_master
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -2037,6 +2041,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_MYTH_WoL.21
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -2638,6 +2643,7 @@ character_event = {
 		add_trait = eldritch_scholar
 		hidden_tooltip = { 
 			remove_trait = novice_mage
+		update_natural_magic = yes
 			if = {
 				limit = { NOR = { trait=vampire trait=werewolf } }
 				character_event = { id=MYTH_WoL.30 days = 180 }
@@ -2768,7 +2774,8 @@ character_event = {
 		add_trait = veteran_wizard
 		hidden_tooltip = { 
 			remove_trait = eldritch_scholar
-			IF = {
+			update_natural_magic = yes
+			If = {
 				limit = { NOT = { lifestyle_traits = 1 } }
 				character_event = { id = MYTH_WoL.30 days = 180 }
 			}
@@ -3736,16 +3743,19 @@ character_event = {
 			limit = { trait = veteran_wizard }
 			hidden_tooltip = { remove_trait = veteran_wizard }
 			add_trait = arcane_master
+			update_natural_magic = yes
 		}
 		else_if = { 
 			limit = { trait = eldritch_scholar }
 			hidden_tooltip = { remove_trait = eldritch_scholar }
 			add_trait = veteran_wizard
+			update_natural_magic = yes
 		}
 		else_if = {
 			limit = { trait = novice_mage }
 			hidden_tooltip = { remove_trait = novice_mage }
 			add_trait = eldritch_scholar
+			update_natural_magic = yes
 		}
 	}
 }
@@ -14316,6 +14326,7 @@ character_event = {
 			has_character_flag = education_magic
 		}
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage

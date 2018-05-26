@@ -1550,3 +1550,32 @@ character_event = {
 		character_event = { id = GIANT.1 }
 	}
 }
+
+# Update Djinn Natural Magic (yearly and at start)
+character_event = {
+	id = SPECIES.12
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+	}
+	
+	immediate = {
+		update_natural_magic = yes
+		if = {
+			limit = {
+				NOR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
+		}
+	}
+}

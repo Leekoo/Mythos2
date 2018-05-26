@@ -7410,3 +7410,37 @@ vampire_plot_repeat_chance = {
 		}
 	}
 }
+
+update_natural_magic = {
+	if = {
+		limit = { trait = djinn }
+		if = {
+			limit = { trait = novice_mage }
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
+			add_trait = natural_magic_1
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
+			add_trait = natural_magic_2
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_4
+			add_trait = natural_magic_3
+		}
+		else_if = {
+			limit = { trait = arcane_master }
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			add_trait = natural_magic_4
+		}
+	}
+}

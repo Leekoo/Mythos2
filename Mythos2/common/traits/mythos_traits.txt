@@ -1858,3 +1858,69 @@ banker = {
 	random = no
 	cached = yes
 }
+natural_magic_1 = {
+	opposites = {
+		natural_magic_2
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = novice_mage
+		trait = djinn
+	}
+	
+	muslim_opinion = 5
+	
+	customizer = no
+}
+natural_magic_2 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = eldritch_scholar
+		trait = djinn
+	}
+	
+	health = 0.5
+	fertility = 0.1
+	muslim_opinion = 10
+	
+	customizer = no
+}
+natural_magic_3 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_4
+	}
+	potential = {
+		trait = veteran_wizard
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.2
+	muslim_opinion = 15
+	
+	customizer = no
+}
+natural_magic_4 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_3
+	}
+	potential = {
+		trait = arcane_master
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.4
+	muslim_opinion = 20
+	
+	customizer = no
+}

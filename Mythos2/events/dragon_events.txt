@@ -2555,14 +2555,17 @@ character_event = {
 		if = { limit = { trait = eldritch_scholar }
 			remove_trait = eldritch_scholar
 			add_trait = novice_mage
+			update_natural_magic = yes
 		}
 		if = { limit = { trait = veteran_wizard }
 			remove_trait = veteran_wizard
 			add_trait = eldritch_scholar
+			update_natural_magic = yes
 		}
 		if = { limit = { trait = arcane_master }
 			remove_trait = arcane_master
 			add_trait = veteran_wizard
+			update_natural_magic = yes
 		}
 		ai_chance = {
 			factor = 2
@@ -2703,6 +2706,10 @@ character_event = {
 		hidden_tooltip = {
 			remove_character_modifier = studying_conjuration
 			remove_character_modifier = studying_sorcery
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
 		}
 		add_trait = detached_priest
 		ai_chance = {
