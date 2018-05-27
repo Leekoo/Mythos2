@@ -7444,3 +7444,298 @@ update_natural_magic = {
 		}
 	}
 }
+
+update_sickly_trait = {
+	if = {
+		limit = { trait = sickly }
+		if = {
+			limit = {
+				trait = dragon
+				trait = demi_god
+				trait = giant
+				trait = djinn
+			}
+			remove_trait = sickly
+			add_trait = sickly_30
+		}
+		else_if = {
+			limit = {
+				trait = dragon
+				trait = demi_god
+				trait = half_giant
+				trait = djinn
+			}
+			remove_trait = sickly
+			add_trait = sickly_27
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragon
+						trait = demi_god
+						trait = giant
+					}
+					AND = {
+						trait = dragon
+						trait = demi_god
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_25
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragonborn
+						trait = demi_god
+						trait = giant
+						trait = djinn
+					}
+					AND = {
+						trait = dragon
+						trait = demi_god
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_22
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragon
+						trait = giant
+						trait = djinn
+					}
+					AND = {
+						trait = demi_god
+						trait = giant
+						trait = djinn
+					}
+					AND = {
+						trait = dragon
+						trait = demi_god
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_20
+		}
+		else_if = {
+			limit = {
+				AND = {
+					trait = dragonborn
+					trait = demi_god
+					trait = half_giant
+					trait = djinn
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_19
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragonborn
+						trait = demi_god
+						trait = giant
+					}
+					AND = {
+						trait = dragonborn
+						trait = demi_god
+						trait = djinn
+					}
+					AND = {
+						trait = dragon
+						trait = half_giant
+						trait = djinn
+					}
+					AND = {
+						trait = demi_god
+						trait = half_giant
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_17
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragon
+						trait = giant
+					}
+					AND = {
+						trait = dragon
+						trait = djinn
+					}
+					AND = {
+						trait = demi_god
+						trait = giant
+					}
+					AND = {
+						trait = demi_god
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_15
+		}
+		else_if = {
+			limit = {
+				AND = {
+					trait = dragonborn
+					trait = half_giant
+					trait = demi_god
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_14
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragonborn
+						trait = giant
+						trait = djinn
+					}
+					AND = {
+						trait = dragonborn
+						trait = demi_god
+					}
+					AND = {
+						trait = dragon
+						trait = half_giant
+					}
+					AND = {
+						trait = demi_god
+						trait = half_giant
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_12
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = giant
+						trait = djinn
+					}
+					AND = {
+						trait = dragon
+					}
+					AND = {
+						trait = demi_god
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_10
+		}
+		else_if = {
+			limit = {
+				AND = {
+					trait = dragonborn
+					trait = half_giant
+					trait = djinn
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_9
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragonborn
+						trait = giant
+					}
+					AND = {
+						trait = dragonborn
+						trait = djinn
+					}
+					AND = {
+						trait = half_giant
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_7
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = giant
+					}
+					AND = {
+						trait = djinn
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_5
+		}
+		else_if = {
+			limit = {
+				AND = {
+					trait = dragonborn
+					trait = half_giant
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_4
+		}
+		else_if = {
+			limit = {
+				OR = {
+					AND = {
+						trait = dragonborn
+					}
+					AND = {
+						trait = half_giant
+					}
+				}
+			}
+			remove_trait = sickly
+			add_trait = sickly_2
+		}
+	}
+}
+
+remove_sickly = {
+	trigger_switch = {
+		on_trigger = trait
+		sickly		= { remove_trait = sickly }
+		sickly_2	= { remove_trait = sickly_2 }
+		sickly_4	= { remove_trait = sickly_4 }
+		sickly_5	= { remove_trait = sickly_5 }
+		sickly_7	= { remove_trait = sickly_7 }
+		sickly_9	= { remove_trait = sickly_9 }
+		sickly_10	= { remove_trait = sickly_10 }
+		sickly_12	= { remove_trait = sickly_12 }
+		sickly_14	= { remove_trait = sickly_14 }
+		sickly_15	= { remove_trait = sickly_15 }
+		sickly_17	= { remove_trait = sickly_17 }
+		sickly_19	= { remove_trait = sickly_19 }
+		sickly_20	= { remove_trait = sickly_20 }
+		sickly_22	= { remove_trait = sickly_22 }
+		sickly_25	= { remove_trait = sickly_25 }
+		sickly_27	= { remove_trait = sickly_27 }
+		sickly_30	= { remove_trait = sickly_30 }
+	}
+}

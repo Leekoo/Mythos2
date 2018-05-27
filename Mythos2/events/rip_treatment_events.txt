@@ -8394,7 +8394,7 @@ character_event = {
 
 	is_triggered_only = yes
 
-	trigger = { event_target:sickly_infant = { trait = sickly } }
+	trigger = { event_target:sickly_infant = { is_sickly = yes } }
 
 	option = { 
 		random_list = {
@@ -8502,7 +8502,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_RIP_11069
 
-		event_target:sickly_infant = { remove_trait = sickly }
+		event_target:sickly_infant = { remove_sickly = yes }
 	}
 }
 
@@ -8561,7 +8561,7 @@ character_event = {
 
 	is_triggered_only = yes
 
-	trigger = { FROM = { trait = sickly } }
+	trigger = { FROM = { is_sickly = yes } }
 
 	option = {
 		name = EVTOPTA_RIP_11073

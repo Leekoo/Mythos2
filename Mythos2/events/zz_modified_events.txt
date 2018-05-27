@@ -9280,3 +9280,477 @@ character_event = {
 		}
 	}
 }
+
+# On-action event: Birth complications
+character_event = {
+	id = 313
+	desc = OK
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { age = 1 }
+	}
+
+	immediate = {
+		random_list = {
+			80 = {
+				# All is well
+			}
+			10 = {
+				add_trait = sickly
+				update_sickly_trait = yes
+
+				#Sickly infant treatment event
+				if = {
+					limit = { 
+						has_dlc = "Reapers" 
+						host = {
+							any_courtier_or_vassal = {
+								has_minor_title = title_court_physician 
+								liege = { character = PREVPREV }
+							}
+						}
+					}
+
+					save_event_target_as = sickly_infant
+					father = { save_event_target_as = sickly_father }
+
+					#Decided which parent will choose treatment
+					if = { 
+						limit = { 
+							father = { is_ruler = yes } 
+							host = { character = event_target:sickly_father }
+							NOT = { mother = { is_ruler = yes } }
+						}
+						father = { save_event_target_as = infant_guardian }
+					}
+
+					if = { 
+						limit = { 
+							NOT = {
+								father = { is_ruler = yes } 
+								host = { character = event_target:sickly_father }
+								NOT = { mother = { is_ruler = yes } }
+							}
+						}
+						mother = { save_event_target_as = infant_guardian }
+					}
+
+					#Makes court physician examine child
+					host = { 
+						random_courtier_or_vassal = {
+							limit = { 
+								has_minor_title = title_court_physician 
+								liege = { character = PREVPREV }
+							}
+							character_event = { id = RIP.11066 days = 7 }
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # No complications
+		name = OK
+		ai_chance = {
+			factor = 120
+			modifier = {
+				factor = 2.0
+				mother = {
+					health = 6
+				}
+			}
+			modifier = {
+				factor = 2.0
+				mother = {
+					health = 7
+				}
+			}
+			modifier = {
+				factor = 2.0
+				mother = {
+					num_of_children = 3
+				}
+			}
+			modifier = {
+				factor = 0.85
+				mother = {
+					age = 20
+				}
+			}
+			modifier = {
+				factor = 0.85
+				mother = {
+					age = 25
+				}
+			}
+			modifier = {
+				factor = 0.85
+				mother = {
+					age = 30
+				}
+			}
+		}
+	}
+	option = { # Mother gets ill
+		name = OK
+		ai_chance = {
+			factor = 12
+			modifier = {
+				factor = 0
+				mother = {
+					trait = pneumonic
+				}
+			}
+			modifier = {
+				factor = 2.0
+				mother = {
+					NOT = { health = 4.1 }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				mother = {
+					NOT = { num_of_children = 2 }
+				}
+			}
+		}
+		
+		mother = {
+			if = {
+				limit = {
+					is_ill = yes
+				}
+				character_event = { id = 316 }
+			}
+			if = {
+				limit = {
+					is_ill = no
+				}
+				character_event = { id = 315 }
+			}
+		}
+	}
+	option = { # Mother gets pneumonia
+		name = OK
+		ai_chance = {
+			factor = 8
+			
+			modifier = {
+				factor = 2.0
+				mother = {
+					NOT = { health = 4.1 }
+				}
+			}
+			modifier = {
+				factor = 6.0
+				mother = {
+					NOT = { health = 3.1 }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				mother = {
+					NOT = { num_of_children = 2 }
+				}
+			}
+		}
+		
+		mother = {
+			if = {
+				limit = {
+					OR = {
+						trait = pneumonic 
+						has_epidemic = yes
+					}
+				}
+				death = {
+					death_reason = death_childbirth
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							trait = pneumonic 
+							has_epidemic = yes
+						}
+					}
+				}
+				character_event = { id = 316 }
+			}
+		}
+	}
+	option = { # Mother dies
+		name = OK
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2.0
+				mother = {
+					NOT = { health = 4.1 }
+				}
+			}
+			modifier = {
+				factor = 6.0
+				mother = {
+					NOT = { health = 3.1 }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				mother = {
+					NOT = { num_of_children = 2 }
+				}
+			}
+		}
+		mother = {
+			death = {
+				death_reason = death_childbirth
+			}
+		}
+	}
+}
+
+character_event = { #birth
+	id = MNM.7508
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		mother = {
+			has_character_flag = DW_unholy_mother
+		}
+	}
+	
+	immediate = {
+		set_character_flag = demon_child_non_pagan
+		set_global_flag = demon_child_born
+		add_character_modifier = {
+			name = demon_child_non_pagan
+			hidden = yes
+			days = -1
+		}
+		remove_sickly = yes
+		character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
+		#random_list = {
+		#	50 = { set_character_flag = demon_child_non_pagan }
+		#	50 = { set_character_flag = demon_child_fake }
+		#}
+		mother = { 
+			clr_character_flag = DW_unholy_mother 
+			save_event_target_as = unholy_mother
+			any_quester_targeting_this = {
+				limit = { has_quest = quest_the_devil_worshipers_demonic_impregnation }
+				character_event = { id = MNM.7511 days = 10 }
+			}
+		}	
+	}
+}
+
+#Reactions to firstborn
+character_event = {
+	id = RIP.29601
+	border = GFX_event_normal_frame_religion
+	picture = GFX_evt_birth 
+
+	trigger = {
+		FROM = { is_child_of = ROOT }
+		NOT = { has_character_modifier = good_relationship_omen }
+		NOT = { has_character_modifier = bad_relationship_omen }
+	}
+
+	immediate = {
+		#Child is ugly
+		if = {
+			limit = { FROM = { trait = ugly } }
+			set_character_flag = text_ugly
+			break = yes
+		}
+
+		#Child is weak/sickly/inbred
+		if = {
+			limit = { 
+				FROM = { 
+					OR = {
+						is_sickly = yes
+						trait = inbred
+						trait = weak 
+					}
+				} 
+			}
+			set_character_flag = text_weak
+			break = yes
+		}
+
+		#Child is strong
+		if = {
+			limit = { FROM = { trait = strong } }
+			set_character_flag = text_strong
+			break = yes
+		}
+
+		#Child is bastard
+		if = {
+			limit = { FROM = { trait = bastard } }
+			set_character_flag = text_bastard
+			break = yes
+		}
+		#Female won't inherit
+		if = {
+			limit = {
+				FROM = { is_female = yes }
+				OR = {
+					primary_title = { has_law = agnatic_succession }
+					primary_title = { has_law = succ_patrician_elective }
+					religion_group = muslim
+				}	
+			}
+			set_character_flag = text_girl_cant_inherit
+			break = yes
+		}
+		#Firstborn will inherit
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						AND = {
+							is_female = yes
+							ROOT = { primary_title = { has_law = true_cognatic_succession } }
+						}
+						is_female = no
+					}
+				}
+				OR = {
+					has_law = succ_primogeniture
+					has_law = succ_gavelkind
+				}
+			}
+			set_character_flag = text_firstborn_inherits
+			break = yes
+		}
+		#All other outcomes
+		set_character_flag = text_unsure_future
+	}
+
+	desc = {
+		trigger = { has_character_flag = text_bastard }
+		text = EVTDSC_RIP_29601_A
+	}
+	desc = {
+		trigger = { has_character_flag = text_girl_cant_inherit }
+		text = EVTDSC_RIP_29601_B
+	}
+	desc = {
+		trigger = { has_character_flag = text_firstborn_inherits }
+		text = EVTDSC_RIP_29601_C
+	}
+	desc = {
+		trigger = { has_character_flag = text_unsure_future }
+		text = EVTDSC_RIP_29601_D
+	}
+	desc = {
+		trigger = { has_character_flag = text_ugly }
+		text = EVTDSC_RIP_29601_E
+	}
+	desc = {
+		trigger = { has_character_flag = text_weak }
+		text = EVTDSC_RIP_29601_F
+	}
+	desc = {
+		trigger = { has_character_flag = text_strong }
+		text = EVTDSC_RIP_29601_G
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = {
+			trigger = { has_character_flag = text_bastard }
+			text = EVTOPTA_RIP_29601_A
+		}
+		name = {
+			trigger = { has_character_flag = text_girl_cant_inherit }
+			text = EVTOPTA_RIP_29601_B
+		}
+		name = {
+			trigger = { has_character_flag = text_firstborn_inherits }
+			text = EVTOPTA_RIP_29601_C
+		}
+		name = {
+			trigger = { has_character_flag = text_unsure_future }
+			text = EVTOPTA_RIP_29601_A
+		}
+		name = {
+			trigger = { has_character_flag = text_ugly }
+			text = EVTOPTA_RIP_29601_D
+		}
+		name = {
+			trigger = { has_character_flag = text_weak }
+			text = EVTOPTA_RIP_29601_E
+		}
+		name = {
+			trigger = { has_character_flag = text_strong }
+			text = EVTOPTA_RIP_29601_F
+		}
+
+		hidden_tooltip = {
+			if = { 
+				limit = { has_character_flag = text_firstborn_inherits }
+				FROM = { prestige = 50 }
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = text_firstborn_inherits
+					has_character_flag = text_strong
+				}
+				NOT = { FROM = { mother = { character = ROOT } } }
+			}
+			
+			FROM = { mother = { save_event_target_as = firstborn_mother } }
+
+			opinion = {
+				who = event_target:firstborn_mother
+				modifier = opinion_mother_of_my_child
+				years = 5
+			}
+		}
+
+		clr_character_flag = text_bastard
+		clr_character_flag = text_girl_cant_inherit
+		clr_character_flag = text_firstborn_inherits
+		clr_character_flag = text_unsure_future
+		clr_character_flag = text_ugly
+		clr_character_flag = text_weak
+		clr_character_flag = text_strong
+	}
+}
+
+# Event triggers for the child
+# Can also be fired from event 335
+character_event = {
+	id = SoA.3001
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_character_flag = demon_child_non_pagan
+		set_global_flag = demon_child_born
+		add_character_modifier = {
+			name = demon_child_non_pagan
+			hidden = yes
+			days = -1
+		}
+		remove_sickly = yes
+		FROM = { narrative_event = { id = SoA.3002 } }
+		character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
+	}
+}
