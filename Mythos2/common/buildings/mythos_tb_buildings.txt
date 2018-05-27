@@ -6,7 +6,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -30,11 +30,11 @@ tribal = {
 			}
 		}
 		trigger = {	
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -60,7 +60,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -84,7 +84,7 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { 
+			holder_scope = { 
 				trait = dragon
 				OR = {
 					has_law = tribal_organization_2
@@ -95,7 +95,7 @@ tribal = {
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -124,7 +124,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -148,7 +148,7 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { 
+			holder_scope = { 
 				trait = dragon
 				has_law = tribal_organization_4
 			}
@@ -156,7 +156,7 @@ tribal = {
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -186,7 +186,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -209,7 +209,7 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { 
+			holder_scope = { 
 				trait = dragon
 				OR = {
 					has_law = tribal_organization_1
@@ -220,7 +220,7 @@ tribal = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -247,7 +247,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -270,7 +270,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = dragon 
 				OR = {
 					has_law = tribal_organization_3
@@ -279,7 +279,7 @@ tribal = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -327,7 +327,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -350,12 +350,12 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 		}
 		
 		prerequisites = { tb_hillfort_1 }
@@ -376,7 +376,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -399,12 +399,12 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 		}
 		
 		upgrades_from = tb_werewolf_lodge_1
@@ -430,7 +430,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					trait = werewolf
 				}
 				FROMFROM = {
@@ -450,10 +450,10 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 		}
 		
 		prerequisites = { tb_hillfort_1 }
@@ -496,7 +496,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = vampire
 						culture = vampire_culture
@@ -519,7 +519,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_1
@@ -531,7 +531,7 @@ tribal = {
 			is_capital = yes 
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 		}
 		
 		prerequisites = { tb_hillfort_2 }
@@ -551,7 +551,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = vampire
 						culture = vampire_culture
@@ -574,7 +574,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_3
@@ -584,7 +584,7 @@ tribal = {
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 		}
 		
 		upgrades_from = tb_vampire_citadel_1
@@ -610,7 +610,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = vampire
 						culture = vampire_culture
@@ -632,7 +632,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = known_vampire
 				OR = {
 					has_law = tribal_organization_1
@@ -643,7 +643,7 @@ tribal = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 		}
 		prerequisites = { tb_hillfort_2 }
 		ai_creation_factor = 100
@@ -683,7 +683,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -706,7 +706,7 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				trait = giant
 				OR = {
 					has_law = tribal_organization_1
@@ -718,7 +718,7 @@ tribal = {
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -747,7 +747,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -770,7 +770,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = giant
 				OR = {
 					has_law = tribal_organization_3
@@ -780,7 +780,7 @@ tribal = {
 			is_capital = yes					 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -811,7 +811,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -833,7 +833,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				trait = giant
 				OR = {
 					has_law = tribal_organization_1
@@ -844,7 +844,7 @@ tribal = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -870,7 +870,7 @@ tribal = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					AND = {
 						OR = {
 							trait = god
@@ -885,7 +885,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
@@ -894,7 +894,7 @@ tribal = {
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
@@ -926,7 +926,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = novice_mage
 						trait = eldritch_scholar
@@ -938,7 +938,7 @@ tribal = {
 			}
 		}
 		trigger = { 
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -953,7 +953,7 @@ tribal = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -984,7 +984,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = mummy }
+				holder_scope = { trait = mummy }
 				FROMFROM = {
 					has_building = tb_mummy_necropolis
 					NOT = {
@@ -1002,11 +1002,11 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 		}
 		prerequisites = { tb_hillfort_2 }
 		ai_creation_factor = 95
@@ -1029,7 +1029,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					trait = mummy
 				}
 				FROMFROM = {
@@ -1049,10 +1049,10 @@ tribal = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1075,7 +1075,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = tb_djinn_caves
 					NOT = {
@@ -1093,11 +1093,11 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1119,7 +1119,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					trait = djinn
 				}
 				FROMFROM = {
@@ -1138,10 +1138,10 @@ tribal = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1163,7 +1163,7 @@ tribal = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = monster_hunter }
+				holder_scope = { trait = monster_hunter }
 				FROMFROM = {
 					has_building = tb_monster_hunter_lodge
 					NOT = {
@@ -1185,7 +1185,7 @@ tribal = {
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = monster_hunter }
+			holder_scope = { trait = monster_hunter }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101

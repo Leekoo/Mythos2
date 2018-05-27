@@ -7,7 +7,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -31,7 +31,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -55,7 +55,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -101,7 +101,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -125,7 +125,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -149,7 +149,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -194,7 +194,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -218,7 +218,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 5
 			is_capital = yes
 			# No other special troop
@@ -242,7 +242,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -288,7 +288,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_1
 					NOT = {
@@ -390,7 +390,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_2
 					NOT = {
@@ -492,7 +492,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_3
 					NOT = {
@@ -594,7 +594,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_4
 					NOT = {
@@ -698,7 +698,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -721,11 +721,11 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -749,7 +749,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -772,11 +772,11 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -802,7 +802,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -825,7 +825,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -849,7 +849,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -890,7 +890,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -913,7 +913,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -937,7 +937,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -979,7 +979,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_1
 					NOT = {
@@ -1082,7 +1082,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_2
 					NOT = {
@@ -1185,7 +1185,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_3
 					NOT = {
@@ -1288,7 +1288,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_4
 					NOT = {
@@ -1393,7 +1393,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -1416,13 +1416,13 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = {
+			holder_scope = {
 				culture = werewolf_culture
 				trait = known_werewolf
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = known_werewolf
 					culture = werewolf_culture
@@ -1448,7 +1448,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_citadel_1
 					NOT = {
@@ -1466,7 +1466,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -1490,7 +1490,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1532,7 +1532,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_citadel_2
 					NOT = {
@@ -1550,7 +1550,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -1574,7 +1574,7 @@ castle = {
 			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1617,7 +1617,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_1
 					NOT = {
@@ -1720,7 +1720,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_2
 					NOT = {
@@ -1824,7 +1824,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_3
 					NOT = {
@@ -1928,7 +1928,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_4
 					NOT = {
@@ -2034,7 +2034,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_spy_network
 					NOT = {
@@ -2052,10 +2052,10 @@ castle = {
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 		}
 		
 		ai_creation_factor = 100
@@ -2077,7 +2077,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2100,12 +2100,12 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -2132,7 +2132,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2155,12 +2155,12 @@ castle = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes		 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -2189,7 +2189,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_1
 					NOT = {
@@ -2250,7 +2250,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_2
 					NOT = {
@@ -2310,7 +2310,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_3
 					NOT = {
@@ -2370,7 +2370,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_4
 					NOT = {
@@ -2431,7 +2431,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2453,11 +2453,11 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
@@ -2482,7 +2482,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					AND = {
 						OR = {
 							trait = god
@@ -2497,7 +2497,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
@@ -2506,7 +2506,7 @@ castle = {
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
@@ -2533,7 +2533,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = novice_mage
 						trait = eldritch_scholar
@@ -2545,7 +2545,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -2556,7 +2556,7 @@ castle = {
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -2661,7 +2661,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = mummy }
+				holder_scope = { trait = mummy }
 				FROMFROM = {
 					has_building = ca_mummy_necropolis
 					NOT = {
@@ -2683,7 +2683,7 @@ castle = {
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2702,7 +2702,7 @@ castle = {
 		desc = ca_mummy_pyramid_desc
 		potential = {
 			OR = {
-				FROM = { trait = mummy }
+				holder_scope = { trait = mummy }
 				FROMFROM = {
 					has_building = ca_mummy_necropolis
 					NOT = {
@@ -2721,11 +2721,11 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2745,7 +2745,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = ca_djinni_caves
 					NOT = {
@@ -2763,12 +2763,12 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2786,7 +2786,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = ca_djinni_town
 					NOT = {
@@ -2805,11 +2805,11 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2828,7 +2828,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = monster_hunter }
+				holder_scope = { trait = monster_hunter }
 				FROMFROM = {
 					has_building = ca_monster_hunter_lodge
 					NOT = {
@@ -2850,7 +2850,7 @@ castle = {
 			is_capital = yes
 		}
 		is_active_trigger = {
-			FROM = { trait = monster_hunter }
+			holder_scope = { trait = monster_hunter }
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
