@@ -7397,42 +7397,22 @@ character_event = {
 					1 = {
 						trigger = { NOT = { trait = one_eyed } }
 						add_trait = one_eyed
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = one_legged } }
 						add_trait = one_legged
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = one_handed } }
 						add_trait = one_handed
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = disfigured } }
 						add_trait = disfigured
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = mangled } }
 						add_trait = mangled
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 				}
 			}
@@ -7706,32 +7686,22 @@ character_event = {
 					1 = {
 						trigger = { NOT = { trait = one_eyed } }
 						add_trait = one_eyed
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = one_legged } }
 						add_trait = one_legged
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = one_handed } }
 						add_trait = one_handed
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = disfigured } }
 						add_trait = disfigured
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = mangled } }
 						add_trait = mangled
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 				}
 			}
@@ -8321,32 +8291,22 @@ character_event = {
 		if = {
 			limit = { has_character_flag = status_gain_one_eyed }
 			add_trait = one_eyed
-			add_trait = severely_injured
-			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_one_handed }
 			add_trait = one_handed
-			add_trait = severely_injured
-			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_one_legged }
 			add_trait = one_legged
-			add_trait = severely_injured
-			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_disfigured }
 			add_trait = disfigured
-			add_trait = severely_injured
-			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_mangled }
 			add_trait = mangled
-			add_trait = severely_injured
-			resolve_severely_injured_effect = yes
 		}
 	}
 }
@@ -8392,8 +8352,6 @@ character_event = {
 					}
 				}
 				add_trait = one_eyed
-				add_trait = severely_injured
-				resolve_severely_injured_effect = yes
 			}
 			2 = {
 				modifier = {
@@ -8404,8 +8362,6 @@ character_event = {
 					}
 				}
 				add_trait = one_handed
-				add_trait = severely_injured
-				resolve_severely_injured_effect = yes
 			}
 			2 = {
 				modifier = {
@@ -8416,8 +8372,6 @@ character_event = {
 					}
 				}
 				add_trait = one_legged
-				add_trait = severely_injured
-				resolve_severely_injured_effect = yes
 			}
 			2 = {
 				modifier = {
@@ -8428,8 +8382,6 @@ character_event = {
 					}
 				}
 				add_trait = disfigured
-				add_trait = severely_injured
-				resolve_severely_injured_effect = yes
 			}
 			2 = {
 				modifier = {
@@ -8440,8 +8392,6 @@ character_event = {
 					}
 				}
 				add_trait = mangled
-				add_trait = severely_injured
-				resolve_severely_injured_effect = yes
 			}
 		}
 	}

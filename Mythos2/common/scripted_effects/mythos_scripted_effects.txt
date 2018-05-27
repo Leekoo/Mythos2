@@ -7739,3 +7739,80 @@ remove_sickly = {
 		sickly_30	= { remove_trait = sickly_30 }
 	}
 }
+
+add_maimed_trait_effect_without_severely_injured = {
+	if = {
+		limit = { NOT = { trait = ethereal_trait } }
+		custom_tooltip = {
+			text = maimed_effect_tooltip
+			hidden_tooltip = {
+				random_list = {
+					10 = {
+						modifier = {
+							factor = 0
+							has_dlc = "Reapers"
+						}
+						add_trait = maimed
+						character_event = { id = 38281 }
+					}
+					15 = {
+						modifier = {
+							factor = 0
+							OR = {
+								trait = one_eyed
+								trait = blinded
+								NOT = { has_dlc = "Reapers" }
+							}
+						}
+						add_trait = one_eyed
+						character_event = { id = RIP.11501 }
+					}
+					10 = {
+						modifier = {
+							factor = 0
+							OR = {
+								trait = one_legged
+								NOT = { has_dlc = "Reapers" }
+							}
+						}
+						add_trait = one_legged
+						character_event = { id = RIP.11503 }
+					}
+					20 = {
+						modifier = {
+							factor = 0
+							OR = {
+								trait = one_handed
+								NOT = { has_dlc = "Reapers" }
+							}
+						}
+						add_trait = one_handed
+						character_event = { id = RIP.11502 }
+					}
+					10 = {
+						modifier = {
+							factor = 0
+							OR = {
+								trait = disfigured
+								NOT = { has_dlc = "Reapers" }
+							}
+						}
+						add_trait = disfigured
+						character_event = { id = RIP.11504 }
+					}
+					5 = {
+						modifier = {
+							factor = 0
+							OR = {
+								trait = mangled
+								NOT = { has_dlc = "Reapers" }
+							}
+						}
+						add_trait = mangled
+						character_event = { id = RIP.11505 }
+					}
+				}
+			}
+		}
+	}
+}

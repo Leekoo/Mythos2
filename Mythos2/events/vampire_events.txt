@@ -1693,6 +1693,7 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vf_heal_severely_injured }
 			remove_trait = severely_injured
+			clear_delayed_event = { id = RIP.11000 }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_diplomacy }

@@ -40,6 +40,7 @@ character_event = {
 		name = EVTOPTA_RIP_11000
 		trigger = { NOT = { has_character_flag = pending_infection } }
 		remove_trait = severely_injured
+		clear_delayed_event = { id = RIP.11000 }
 		if = {
 			limit = { NOT = { trait = scarred } }
 			add_trait = scarred
@@ -50,6 +51,7 @@ character_event = {
 		name = EVTOPTB_RIP_11000
 		trigger = { has_character_flag = pending_infection }
 		remove_trait = severely_injured
+		clear_delayed_event = { id = RIP.11000 }
 		add_trait = infection
 		if = {
 			limit = { NOT = { trait = scarred } }

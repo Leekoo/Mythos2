@@ -2507,7 +2507,7 @@ character_event = {
 		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
-		if = { limit = { trait = severely_injured } remove_trait = severely_injured }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
 			clear_disease_level_effect = yes
@@ -2605,7 +2605,7 @@ character_event = {
 		if = { limit = { trait = eunuch } remove_trait = eunuch }
 		if = { limit = { trait = blinded } remove_trait = blinded }
 		if = { limit = { trait = scarred } remove_trait = scarred }
-		hidden_tooltip = { remove_trait = severely_injured }
+		hidden_tooltip = { remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 	}
 }
 
@@ -2623,7 +2623,7 @@ character_event = {
 		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
-		if = { limit = { trait = severely_injured } remove_trait = severely_injured }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
 			clear_disease_level_effect = yes
