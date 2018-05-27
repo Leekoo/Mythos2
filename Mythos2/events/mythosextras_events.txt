@@ -1587,7 +1587,7 @@ character_event = {
 }
 # MYTHMORE.37 - If undead and gaining first title, may gain title Posthumous
 character_event = {
-	id = MYTHMORE.36
+	id = MYTHMORE.37
 	hide_window = yes
 	is_triggered_only = yes
 	
@@ -1706,6 +1706,7 @@ character_event = {
 # MYTHMORE.40 - Djinn child religion
 character_event = {
 	id = MYTHMORE.40
+	hide_window = yes
 	min_age = 6
 	max_age = 11
 	prisoner = no
@@ -1919,8 +1920,8 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	age = 13
-	is_adult = no
+	min_age = 13
+	max_age = 14
 	
 	trigger = {
 		NOT = { has_character_flag = magic_child_event }
@@ -1987,6 +1988,7 @@ character_event = {
 	picture = GFX_evt_monk
 	
 	capable_only = yes
+	is_triggered_only = yes
 	
 	immediate = {
 		random_list = {
@@ -2794,6 +2796,8 @@ character_event = {
 		FROM = {
 			set_variable = { which = local_gain which = ROOT }
 			set_variable = { which = local_gain_health which = ROOT }
+			set_variable = { which = temp_gain which = local_gain }
+			set_variable = { which = temp_gain_health which = local_gain_health }
 		}
 		
 		if = {
@@ -2816,9 +2820,9 @@ character_event = {
 			has_character_flag = temp_choose_diplomacy
 			diplomacy = 12
 		}
-		diplomacy = local_loss
+		change_diplomacy = local_loss
 		FROM = {
-			diplomacy = local_gain
+			change_diplomacy = local_gain
 			add_trait = gregarious
 		}
 		hidden_tooltip = {
@@ -2870,9 +2874,9 @@ character_event = {
 			has_character_flag = temp_choose_martial
 			martial = 12
 		}
-		martial = local_loss
+		change_martial = local_loss
 		FROM = {
-			martial = local_gain
+			change_martial = local_gain
 			add_trait = brave
 		}
 		hidden_tooltip = {
@@ -2924,9 +2928,9 @@ character_event = {
 			has_character_flag = temp_choose_stewardship
 			stewardship = 12
 		}
-		stewardship = local_loss
+		change_stewardship = local_loss
 		FROM = {
-			stewardship = local_gain
+			change_stewardship = local_gain
 			add_trait = temperate
 		}
 		hidden_tooltip = {
@@ -2978,9 +2982,9 @@ character_event = {
 			has_character_flag = temp_choose_intrigue
 			intrigue = 12
 		}
-		intrigue = local_loss
+		change_intrigue = local_loss
 		FROM = {
-			intrigue = local_gain
+			change_intrigue = local_gain
 			add_trait = deceitful
 		}
 		hidden_tooltip = {
@@ -3032,9 +3036,9 @@ character_event = {
 			has_character_flag = temp_choose_learning
 			learning = 12
 		}
-		learning = local_loss
+		change_learning = local_loss
 		FROM = {
-			learning = local_gain
+			change_learning = local_gain
 			add_trait = erudite
 		}
 		ai_chance = {
@@ -3166,8 +3170,8 @@ character_event = {
 		}
 		FROM = {
 			betrothed = {
-				option = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
-				reverse_option = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				reverse_opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
 				if = {
 					limit = { has_character_flag = flag_older }
 					set_character_flag = become_adult_lover
@@ -3206,7 +3210,7 @@ character_event = {
 				factor = 2
 				OR = {
 					trait = seducer
-					trait = seducress
+					trait = seductress
 				}
 			}
 			modifier = {
@@ -3228,6 +3232,10 @@ character_event = {
 	option = {
 		name = EVTOPTH_MYTHMORE.47
 		hidden_tooltip = {
+			FROM = {
+				set_variable = { which = temp_gain value = 0 }
+				set_variable = { which = temp_gain_health value = 0 }
+			}
 			clr_character_flag = temp_choose_diplomacy
 			clr_character_flag = temp_choose_martial
 			clr_character_flag = temp_choose_stewardship
@@ -3275,12 +3283,12 @@ character_event = {
 		name = EVTOPTA_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_diplomacy } }
 		tooltip = {
-			diplomacy = local_gain
+			change_diplomacy = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = gregarious }
-					add_trait = gregarious
 				}
+				add_trait = gregarious
 			}
 		}
 		hidden_tooltip = {
@@ -3292,12 +3300,12 @@ character_event = {
 		name = EVTOPTB_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_martial } }
 		tooltip = {
-			martial = local_gain
+			change_martial = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = brave }
-					add_trait = brave
 				}
+				add_trait = brave
 			}
 		}
 		hidden_tooltip = {
@@ -3309,12 +3317,12 @@ character_event = {
 		name = EVTOPTC_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_stewardship } }
 		tooltip = {
-			stewardship = local_gain
+			change_stewardship = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = temperate }
-					add_trait = temperate
 				}
+				add_trait = temperate
 			}
 		}
 		hidden_tooltip = {
@@ -3326,12 +3334,12 @@ character_event = {
 		name = EVTOPTD_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_intrigue } }
 		tooltip = {
-			intrigue = local_gain
+			change_intrigue = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = deceitful }
-					add_trait = deceitful
 				}
+				add_trait = deceitful
 			}
 		}
 		hidden_tooltip = {
@@ -3343,12 +3351,12 @@ character_event = {
 		name = EVTOPTE_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_learning } }
 		tooltip = {
-			learning = local_gain
+			change_learning = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = erudite }
-					add_trait = erudite
 				}
+				add_trait = erudite
 			}
 		}
 		hidden_tooltip = {
@@ -3360,12 +3368,12 @@ character_event = {
 		name = EVTOPTF_MYTHMORE.48
 		trigger = { FROM = { has_character_flag = temp_choose_health } }
 		tooltip = {
-			health = local_gain_health
+			health = temp_gain
 			if = {
 				limit = {
 					NOT = { trait = robust }
-					add_trait = robust
 				}
+				add_trait = robust
 			}
 		}
 		hidden_tooltip = {
@@ -3378,13 +3386,18 @@ character_event = {
 		trigger = { FROM = { has_character_flag = temp_choose_love } }
 		tooltip = {
 			betrothed = {
-				option = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
 				reverse_option = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
 			}
 		}
 		hidden_tooltip = {
 			FROM = { clr_character_flag = temp_choose_love }
 		}
+	}
+	
+	after = {
+		set_variable = { which = temp_gain value = 0 }
+		set_variable = { which = temp_gain_health value = 0 }
 	}
 }
 

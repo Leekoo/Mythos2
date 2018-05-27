@@ -8629,7 +8629,7 @@ character_event = {
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
 			c_sjaelland = {
-				build_holding = { title = b_lejre type = temple holder = ROOT }
+				location = { build_holding = { title = b_lejre type = temple holder = ROOT } }
 			}
 			b_lejre = { 
 				add_building = tp_eternal_flame
@@ -8639,7 +8639,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
 			c_kent = {
-				build_holding = { title = b_canterbury type = temple holder = ROOT }
+				location = { build_holding = { title = b_canterbury type = temple holder = ROOT } }
 			}
 			b_canterbury = { 
 				add_building = tp_eternal_flame
@@ -8649,7 +8649,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
 			c_plock = {
-				build_holding = { title = b_pruszkow type = temple holder = ROOT }
+				location = { build_holding = { title = b_pruszkow type = temple holder = ROOT } }
 			}
 			b_pruszkow = { 
 				add_building = tp_eternal_flame
@@ -8659,7 +8659,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
 			c_galloway = {
-				build_holding = { title = b_whithorn type = temple holder = ROOT }
+				location = { build_holding = { title = b_whithorn type = temple holder = ROOT } }
 			}
 			b_whithorn = { 
 				add_building = tp_eternal_flame
@@ -8669,7 +8669,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
 			c_uppland = {
-				build_holding = { title = b_uppsala type = temple holder = ROOT }
+				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
 			}
 			b_uppsala = { 
 				add_building = tp_eternal_flame
@@ -8936,7 +8936,7 @@ character_event = {
 				NOT = { religion = draconic_pagan_reformed }
 			}
 		}
-		modifer = {
+		modifier = {
 			factor = 2
 			religion_group = pagan_group
 		}

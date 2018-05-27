@@ -1639,8 +1639,8 @@ character_event = {
 					modifier = {
 						factor = 0.75
 						OR = {
-							government = government_merchant_republic
-							government = government_draconic_merchant_republic
+							government = merchant_republic_government
+							government = draconic_merchant_republic_government
 						}
 					}
 					set_character_flag = theology_option_greedy
@@ -2662,7 +2662,7 @@ character_event = {
 			}
 			random = {
 				chance = 20
-				add_trait = worht
+				add_trait = wroth
 				character_event = { id = 38254 } # Notify Wroth
 			}
 		}

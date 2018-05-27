@@ -2775,7 +2775,7 @@ character_event = {
 		hidden_tooltip = { 
 			remove_trait = eldritch_scholar
 			update_natural_magic = yes
-			If = {
+			if = {
 				limit = { NOT = { lifestyle_traits = 1 } }
 				character_event = { id = MYTH_WoL.30 days = 180 }
 			}
@@ -17297,58 +17297,58 @@ character_event = {
 
 # Intrigued by an ancient religion
 character_event = {
-	id = MYTH_WoL.251
+	id = MYTH_WoL.215
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_norse }
-		text = EVTDESC_MYTH_WoL_251_NORSE
+		text = EVTDESC_MYTH_WoL_215_NORSE
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_tengri }
-		text = EVTDESC_MYTH_WoL_251_TENGRI
+		text = EVTDESC_MYTH_WoL_215_TENGRI
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_baltic }
-		text = EVTDESC_MYTH_WoL_251_BALTIC
+		text = EVTDESC_MYTH_WoL_215_BALTIC
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_finnish }
-		text = EVTDESC_MYTH_WoL_251_FINNISH
+		text = EVTDESC_MYTH_WoL_215_FINNISH
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_slavic }
-		text = EVTDESC_MYTH_WoL_251_SLAVIC
+		text = EVTDESC_MYTH_WoL_215_SLAVIC
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_west_african }
-		text = EVTDESC_MYTH_WoL_251_WEST_AFRICAN
+		text = EVTDESC_MYTH_WoL_215_WEST_AFRICAN
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_zun }
-		text = EVTDESC_MYTH_WoL_251_ZUN
+		text = EVTDESC_MYTH_WoL_215_ZUN
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_draconic }
-		text = EVTDESC_MYTH_WoL_251_DRACONIC
+		text = EVTDESC_MYTH_WoL_215_DRACONIC
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_celtic }
-		text = EVTDESC_MYTH_WoL_251_CELTIC
+		text = EVTDESC_MYTH_WoL_215_CELTIC
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_jotnar }
-		text = EVTDESC_MYTH_WoL_251_JOTNAR
+		text = EVTDESC_MYTH_WoL_215_JOTNAR
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_greek }
-		text = EVTDESC_MYTH_WoL_251_GREEK
+		text = EVTDESC_MYTH_WoL_215_GREEK
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_roman }
-		text = EVTDESC_MYTH_WoL_251_ROMAN
+		text = EVTDESC_MYTH_WoL_215_ROMAN
 	}
 	desc = {
 		trigger = { has_character_flag = event_ancient_religion_egyptian }
-		text = EVTDESC_MYTH_WoL_251_EGYPTIAN
+		text = EVTDESC_MYTH_WoL_215_EGYPTIAN
 	}
 	picture = GFX_evt_monk
 	border = GFX_event_normal_frame_religion
@@ -17357,7 +17357,7 @@ character_event = {
 	
 	# Convert
 	option = {
-		name = EVTOPTA_MYTH_WoL.251
+		name = EVTOPTA_MYTH_WoL.215
 		trigger_switch = {
 			on_trigger = has_character_flag
 			event_ancient_religion_norse		= { religion = norse_pagan }
@@ -17385,7 +17385,7 @@ character_event = {
 	
 	# Convert in secret
 	option = {
-		name = EVTOPTB_MYTH_WoL.251
+		name = EVTOPTB_MYTH_WoL.215
 		trigger_switch = {
 			on_trigger = has_character_flag
 			event_ancient_religion_norse		= { secret_religion = norse_pagan }
@@ -17413,7 +17413,7 @@ character_event = {
 	
 	# Refuse
 	option = {
-		name = EVTOPTC_MYTH_WoL.251
+		name = EVTOPTC_MYTH_WoL.215
 		add_trait = zealous
 		trigger = { NOT = { trait = cynical } }
 		ai_chance = {
@@ -17427,7 +17427,7 @@ character_event = {
 	
 	# Disappointed
 	option = {
-		name = EVTOPTD_MYTH_WoL.251
+		name = EVTOPTD_MYTH_WoL.215
 		if = {
 			limit = { NOT = { trait = cynical } }
 			add_trait = cynical

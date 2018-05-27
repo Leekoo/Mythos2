@@ -7082,9 +7082,11 @@ province_event = {
 			has_global_flag = atenist_revived
 			AND = {
 				c_asyut = {
-					OR = {
-						religion = kemetic_pagan
-						religion = atenist
+					location = {
+						OR = {
+							religion = kemetic_pagan
+							religion = atenist
+						}
 					}
 				}
 				OR = {
