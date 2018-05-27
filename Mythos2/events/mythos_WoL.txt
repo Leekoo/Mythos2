@@ -16799,3 +16799,661 @@ character_event = {
 		}
 	}
 }
+
+# Theology - ancient religion appeals to you
+# First event handles things to avoid issues if no religion qualifies
+character_event = {
+	id = MYTH_WoL.214
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_theology
+		NOT = { trait = zealous }
+		OR = {
+			religion_authority = 0.31
+			is_reformed_religion = yes
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.2
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.3
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.4
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.5
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			religion_authority = 1
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			# Norse
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = norse_reformation
+						norse_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = norse_pagan }
+						any_vassal = { religion = norse_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 2
+					culture = norse
+				}
+				modifier = {
+					factor = 1.5
+					OR = {
+						culture = swedish
+						culture = norwegian
+						culture = danish
+					}
+				}
+				set_character_flag = event_ancient_religion_norse
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Tengri
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = tengri_reformation
+						tengri_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = tengri_pagan }
+						any_vassal = { religion = tengri_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_steppe }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_steppe }
+				}
+				modifier = {
+					factor = 2
+					culture_group = altaic
+				}
+				set_character_flag = event_ancient_religion_tengri
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Baltic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = baltic_reformation
+						baltic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = baltic_pagan }
+						any_vassal = { religion = baltic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 2
+					culture_group = baltic
+				}
+				set_character_flag = event_ancient_religion_baltic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Finnish
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = finnish_reformation
+						finnish_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = finnish_pagan }
+						any_vassal = { religion = finnish_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 2
+					culture_group = finno_ugric
+				}
+				set_character_flag = event_ancient_religion_finnish
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Slavic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = slavic_reformation
+						slavic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = slavic_pagan }
+						any_vassal = { religion = slavic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+				}
+				set_character_flag = event_ancient_religion_slavic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# West African
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = west_african_reformation
+						west_african_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = west_african_pagan }
+						any_vassal = { religion = west_african_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_africa }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_africa }
+				}
+				modifier = {
+					factor = 2
+					culture_group = west_african
+				}
+				set_character_flag = event_ancient_religion_west_african
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Zunist
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = zun_reformation
+						zun_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = zun_pagan }
+						any_vassal = { religion = zun_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_persia }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_persia }
+				}
+				modifier = {
+					factor = 2
+					culture_group = iranian
+				}
+				set_character_flag = event_ancient_religion_zun
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Draconic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = draconic_reformation
+						draconic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = draconic_pagan }
+						any_vassal = { religion = draconic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					trait = dragon
+				}
+				modifier = {
+					factor = 1.5
+					trait = dragonborn
+				}
+				modifier = {
+					factor = 2
+					culture = draconic
+				}
+				set_character_flag = event_ancient_religion_draconic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Celtic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = druidic_reformation
+						druidic = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = druidic }
+						any_vassal = { religion = druidic }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = {
+						OR = {
+							de_jure_liege_or_above = e_britannia
+							de_jure_liege_or_above = e_france
+							de_jure_liege_or_above = e_spain
+						}
+					}
+				}
+				modifier = {
+					factor = 3
+					location = {
+						OR = {
+							de_jure_liege_or_above = e_britannia
+							de_jure_liege_or_above = e_france
+							de_jure_liege_or_above = e_spain
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					culture_group = celtic
+				}
+				set_character_flag = event_ancient_religion_celtic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Jotnar
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = jotnar_reformation
+						jotnar = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = jotnar }
+						any_vassal = { religion = jotnar }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 0.5
+					culture = norse
+				}
+				modifier = {
+					factor = 2
+					trait = giant
+				}
+				modifier = {
+					factor = 1.5
+					trait = half_giant
+				}
+				set_character_flag = event_ancient_religion_jotnar
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Hellenic
+			1 = {
+				modifier = {
+					factor = 0
+					hellenic_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = hellenic_pagan }
+						any_vassal = { religion = hellenic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = {
+						de_jure_liege_or_above = k_byzantium
+					}
+				}
+				modifier = {
+					factor = 3
+					location = {
+						de_jure_liege_or_above = k_byzantium
+					}
+				}
+				modifier = {
+					factor = 2
+					culture_group = byzantine
+				}
+				set_character_flag = event_ancient_religion_greek
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Roman
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { has_global_flag = roman_pagan_restoration }
+					roman_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = roman_pagan }
+						any_vassal = { religion = roman_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_south_italy }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_south_italy }
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						culture = italian
+						culture = lombard
+					}
+				}
+				set_character_flag = event_ancient_religion_roman
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Kemetic
+			1 = {
+				modifier = {
+					factor = 0
+					kemetic_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = kemetic_pagan }
+						any_vassal = { religion = kemetic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_africa_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_africa_north }
+				}
+				modifier = {
+					factor = 2
+					culture = egyptian_arabic
+				}
+				set_character_flag = event_ancient_religion_egyptian
+				character_event = { id = MYTH_WoL.215 }
+			}
+		}
+	}
+}
+
+# Intrigued by an ancient religion
+character_event = {
+	id = MYTH_WoL.251
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_norse }
+		text = EVTDESC_MYTH_WoL_251_NORSE
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_tengri }
+		text = EVTDESC_MYTH_WoL_251_TENGRI
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_baltic }
+		text = EVTDESC_MYTH_WoL_251_BALTIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_finnish }
+		text = EVTDESC_MYTH_WoL_251_FINNISH
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_slavic }
+		text = EVTDESC_MYTH_WoL_251_SLAVIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_west_african }
+		text = EVTDESC_MYTH_WoL_251_WEST_AFRICAN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_zun }
+		text = EVTDESC_MYTH_WoL_251_ZUN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_draconic }
+		text = EVTDESC_MYTH_WoL_251_DRACONIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_celtic }
+		text = EVTDESC_MYTH_WoL_251_CELTIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_jotnar }
+		text = EVTDESC_MYTH_WoL_251_JOTNAR
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_greek }
+		text = EVTDESC_MYTH_WoL_251_GREEK
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_roman }
+		text = EVTDESC_MYTH_WoL_251_ROMAN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_egyptian }
+		text = EVTDESC_MYTH_WoL_251_EGYPTIAN
+	}
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Convert
+	option = {
+		name = EVTOPTA_MYTH_WoL.251
+		trigger_switch = {
+			on_trigger = has_character_flag
+			event_ancient_religion_norse		= { religion = norse_pagan }
+			event_ancient_religion_tengri		= { religion = tengri_pagan }
+			event_ancient_religion_baltic		= { religion = baltic_pagan }
+			event_ancient_religion_finnish		= { religion = finnish_pagan }
+			event_ancient_religion_slavic		= { religion = slavic_pagan }
+			event_ancient_religion_west_african	= { religion = west_african_pagan }
+			event_ancient_religion_zun			= { religion = zun_pagan }
+			event_ancient_religion_draconic		= { religion = draconic_pagan }
+			event_ancient_religion_celtic		= { religion = druidic }
+			event_ancient_religion_jotnar		= { religion = jotnar }
+			event_ancient_religion_greek		= { religion = hellenic_pagan }
+			event_ancient_religion_roman		= { religion = roman_pagan }
+			event_ancient_religion_egyptian		= { religion = kemetic_pagan }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = honest
+			}
+		}
+	}
+	
+	# Convert in secret
+	option = {
+		name = EVTOPTB_MYTH_WoL.251
+		trigger_switch = {
+			on_trigger = has_character_flag
+			event_ancient_religion_norse		= { secret_religion = norse_pagan }
+			event_ancient_religion_tengri		= { secret_religion = tengri_pagan }
+			event_ancient_religion_baltic		= { secret_religion = baltic_pagan }
+			event_ancient_religion_finnish		= { secret_religion = finnish_pagan }
+			event_ancient_religion_slavic		= { secret_religion = slavic_pagan }
+			event_ancient_religion_west_african	= { secret_religion = west_african_pagan }
+			event_ancient_religion_zun			= { secret_religion = zun_pagan }
+			event_ancient_religion_draconic		= { secret_religion = draconic_pagan }
+			event_ancient_religion_celtic		= { secret_religion = druidic }
+			event_ancient_religion_jotnar		= { secret_religion = jotnar }
+			event_ancient_religion_greek		= { secret_religion = hellenic_pagan }
+			event_ancient_religion_roman		= { secret_religion = roman_pagan }
+			event_ancient_religion_egyptian		= { secret_religion = kemetic_pagan }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPTC_MYTH_WoL.251
+		add_trait = zealous
+		trigger = { NOT = { trait = cynical } }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 3 
+				ai_zeal >= 50
+			}
+		}
+	}
+	
+	# Disappointed
+	option = {
+		name = EVTOPTD_MYTH_WoL.251
+		if = {
+			limit = { NOT = { trait = cynical } }
+			add_trait = cynical
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 3 
+				ai_zeal < 0
+			}
+		}
+	}
+	
+	after = {
+		clr_character_flag = event_ancient_religion_norse
+		clr_character_flag = event_ancient_religion_tengri
+		clr_character_flag = event_ancient_religion_baltic
+		clr_character_flag = event_ancient_religion_finnish
+		clr_character_flag = event_ancient_religion_slavic
+		clr_character_flag = event_ancient_religion_west_african
+		clr_character_flag = event_ancient_religion_zun
+		clr_character_flag = event_ancient_religion_draconic
+		clr_character_flag = event_ancient_religion_celtic
+		clr_character_flag = event_ancient_religion_jotnar
+		clr_character_flag = event_ancient_religion_greek
+		clr_character_flag = event_ancient_religion_roman
+		clr_character_flag = event_ancient_religion_egyptian
+	}
+}
