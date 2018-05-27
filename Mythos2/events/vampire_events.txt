@@ -463,11 +463,6 @@ letter_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.8
 		prestige = -10
-		add_character_modifier = {
-			modifier = known_monster
-			years = 5
-			stacking = yes
-		}
 		if = {
 			limit = { NOT = { trait = known_vampire } }
 			add_trait = known_vampire
@@ -481,6 +476,30 @@ letter_event = {
 					independent = no
 				}
 				liege = { character_event = { id = VAMPIRE.23 } } # Liege finds out character is a werewolf
+			}
+		}
+		else = {
+			any_courtier = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = {
+						who = ROOT
+						modifier = opinion_terrified
+						years = 5
+					}
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = {
+						who = ROOT
+						modifier = opinion_terrified
+						years = 5
+					}
+				}
 			}
 		}
 		hidden_tooltip = {
@@ -4531,7 +4550,26 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.32
-		add_character_modifier = { modifier = known_monster years = 5 stacking = yes }
+		if = {
+			limit = { NOT = { trait = known_vampire } }
+			add_character_modifier = { modifier = known_monster years = 5 stacking = yes }
+		}
+		else = {
+			any_courtier = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
 	}
 }
 
@@ -4683,7 +4721,26 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.42
-		add_character_modifier = { modifier = known_monster years = 10 stacking = yes }
+		if = {
+			limit = { trait = known_vampire }
+			any_courtier = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = { modifier = known_monster years = 10 stacking = yes }
+		}
 		hidden_tooltip = {
 			clr_character_flag = vampire_feed_success
 			clr_character_flag = vampire_feed_failure

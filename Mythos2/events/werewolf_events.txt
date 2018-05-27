@@ -457,10 +457,29 @@ character_event = {
 				months = 60
 			}
 		}
-		add_character_modifier = {
-			modifier = known_monster
-			years = 5
-			stacking = yes
+		if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				modifier = known_monster
+				years = 5
+				stacking = yes
+			}
 		}
 	}
 	option = {
@@ -475,10 +494,29 @@ character_event = {
 						months = 60
 					}
 				}
-				add_character_modifier = {
-					modifier = known_monster
-					years = 5
-					stacking = yes
+				if = {
+					limit = { trait = known_werewolf }
+					any_courtier = {
+						limit = { NOT = { trait = werewolf } }
+						random = {
+							chance = 50
+							opinion = { who = FROM modifier = opinion_terrified years = 5 }
+						}
+					}
+					any_vassal = {
+						limit = { NOT = { trait = werewolf } }
+						random = {
+							chance = 50
+							opinion = { who = FROM modifier = opinion_terrified years = 5 }
+						}
+					}
+				}
+				else = {
+					add_character_modifier = {
+						modifier = known_monster
+						years = 5
+						stacking = yes
+					}
 				}
 			}
 			50 = {
@@ -2784,10 +2822,29 @@ character_event = {
 	
 	option = {
 		name = EVTOPT_WEREWOLF.43
-		add_character_modifier = {
-			name = known_monster
-			years = 5
-			stacking = yes
+		if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				name = known_monster
+				years = 5
+				stacking = yes
+			}
 		}
 		decrease_control = yes
 	}
@@ -4907,6 +4964,23 @@ character_event = {
 						10 = { character_event = { id = HL.1470 } }
 						10 = { character_event = { id = HL.1480 } }
 					}
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = known_werewolf }
+			any_courtier = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = werewolf } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
 				}
 			}
 		}
