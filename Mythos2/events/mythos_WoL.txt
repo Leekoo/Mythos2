@@ -6605,10 +6605,40 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
+	immediate = {
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+	}
+	
 	option = {
 		name = EVTOPTAMYTH_WoL.90
 		hidden_tooltip = { FROM = { character_event = { id = MYTH_WoL.91 days = 1 } } }
 		custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.90 }
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.90
+		tooltip_info = yes
+		custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.90 }
+		hidden_tooltip = {
+			if = {
+				limit = { selected_ingredient_is_perceived_healthy_trigger = yes }
+				FROM = { set_character_flag = recieve_potion_good }
+			}
+			else_if = {
+				limit = { selected_ingredient_is_unhealthy_trigger = yes }
+				FROM = { set_character_flag = recieve_potion_bad }
+			}
+			FROM = { character_event = { id = MYTH_WoL.91 days = 1 } }
+		}
+		destroy_selected_ingredient_1_effect = yes
+
+        trigger = {
+        	any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+        }
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.90
@@ -6671,6 +6701,10 @@ character_event = {
 						factor = 1.2
 						FROM = { learning = 25 }
 					}
+					modifier = {
+						factor = 2
+						has_character_flag = recieve_potion_good
+					}
 					character_event = { id = MYTH_WoL.92 days = 1 }
 				}
 				# Good result
@@ -6715,6 +6749,10 @@ character_event = {
 						factor = 1.1
 						FROM = { learning = 25 }
 					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = recieve_potion_good
+					}
 					character_event = { id = MYTH_WoL.93 days = 1 }
 				}
 				# Neutral result
@@ -6747,6 +6785,10 @@ character_event = {
 						factor = 1.3
 						FROM = { NOT = { learning = 5 } }
 					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = recieve_potion_bad
+					}
 					character_event = { id = MYTH_WoL.95 days = 1 }
 				}
 				# Terrible Result
@@ -6754,6 +6796,10 @@ character_event = {
 					modifier = {
 						factor = 1.5
 						NOT = { learning = 5 }
+					}
+					modifier = {
+						factor = 3
+						has_character_flag = recieve_potion_bad
 					}
 					character_event = { id = MYTH_WoL.96 days = 1 }
 				}
@@ -6798,6 +6844,11 @@ character_event = {
 				is_plot_target_of = FROM
 			}
 		}
+	}
+	
+	after = {
+		clr_character_flag = recieve_potion_good
+		clr_character_flag = recieve_potion_bad
 	}
 }
 # MYTH_WoL.92 - Great result
@@ -9402,7 +9453,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAMYTH_WoL.113
-		scaled_wealth = { value = -0.8 min = -10 max = -200 }
+		scaled_wealth = { value = -0.8 min = -10 max = -600 }
 		add_trait = on_journey
 		hidden_tooltip = {
 			set_character_flag = do_not_disturb
