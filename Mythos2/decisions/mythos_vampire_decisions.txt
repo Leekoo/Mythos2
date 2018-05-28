@@ -216,7 +216,7 @@ decisions = {
 			capital_scope = { culture = vampire_culture }
 			if = {
 				limit = {
-					government_type = feudal_government
+					government = feudal_government
 					has_dlc = "Zeus"
 					higher_tier_than = BARON
 					NAND = {
@@ -255,7 +255,7 @@ decisions = {
 					}
 					is_patrician = no
 				}
-				government_type = blood_court_government
+				set_government_type = blood_court_government
 				character_event = { id = VAMPIRE.155 }
 			}
 			any_courtier = {
@@ -275,7 +275,7 @@ decisions = {
 				culture = vampire_culture
 				if = {
 					limit = {
-						government_type = feudal_government
+						government = feudal_government
 						has_dlc = "Zeus"
 						higher_tier_than = BARON
 						NAND = {
@@ -314,7 +314,7 @@ decisions = {
 						}
 						is_patrician = no
 					}
-					government_type = blood_court_government
+					set_government_type = blood_court_government
 					character_event = { id = VAMPIRE.155 }
 				}
 			}
