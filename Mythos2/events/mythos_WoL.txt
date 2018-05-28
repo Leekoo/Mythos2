@@ -6989,7 +6989,10 @@ character_event = {
 	
 	immediate = {
 		set_variable = { which = num_success value = 0 }
-		
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
 	}
 	
 	# Holy Ground
@@ -7211,41 +7214,59 @@ character_event = {
 						has_character_modifier = raven_familiar
 					}
 				}
+				modifier = { factor = 1.1 learning = 5 }
+				modifier = { factor = 1.1 learning = 10 }
+				modifier = { factor = 1.1 learning = 15 }
+				modifier = { factor = 1.1 learning = 20 }
+				modifier = { factor = 1.1 learning = 25 }
+				modifier = { factor = 1.1 learning = 30 }
+				modifier = { factor = 1.1 learning = 35 }
+				modifier = { factor = 1.1 learning = 40 }
+				modifier = { factor = 1.1 learning = 45 }
+				change_variable = { which = num_successes value = 1 }
+			}
+			character_event = { id = MYTH_WoL.103 days = 15 random = 10 }
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	# Use an ingredient
+	option = {
+		tooltip_info = yes
+		name = EVTOPTDMYTH_WoL.102
+		custom_tooltip = { text = multiple_ingredient_option_available_tt }
+		custom_tooltip = { text = EVTTOOLTIPDMYTH_WoL.102 }
+		hidden_tooltip = {
+			random = {
+				chance = 70
+				modifier = { factor = 1.1 learning = 5 }
+				modifier = { factor = 1.1 learning = 10 }
+				modifier = { factor = 1.1 learning = 15 }
+				modifier = { factor = 1.1 learning = 20 }
+				modifier = { factor = 1.1 learning = 25 }
+				modifier = { factor = 1.1 learning = 30 }
+				modifier = { factor = 1.1 learning = 35 }
+				modifier = { factor = 1.1 learning = 40 }
+				modifier = { factor = 1.1 learning = 45 }
+				# Big penalty for a non-metal
 				modifier = {
-					factor = 1.1
-					learning = 5
-				}
-				modifier = {
-					factor = 1.1
-					learning = 10
-				}
-				modifier = {
-					factor = 1.1
-					learning = 15
-				}
-				modifier = {
-					factor = 1.1
-					learning = 20
-				}
-				modifier = {
-					factor = 1.1
-					learning = 25
-				}
-				modifier = {
-					factor = 1.1
-					learning = 30
-				}
-				modifier = {
-					factor = 1.1
-					learning = 35
-				}
-				modifier = {
-					factor = 1.1
-					learning = 40
-				}
-				modifier = {
-					factor = 1.1
-					learning = 45
+					factor = 0.4
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						NOR = {
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_metal_exotic7
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+						}
+					}
 				}
 				change_variable = { which = num_successes value = 1 }
 			}
@@ -7253,6 +7274,32 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 1.5
+				NOR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			modifier = {
+				factor = 1.3
+				any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					NOR = {
+						artifact_type = ingredient_metal_exotic1
+						artifact_type = ingredient_metal_exotic2
+						artifact_type = ingredient_metal_exotic3
+						artifact_type = ingredient_metal_exotic4
+						artifact_type = ingredient_metal_exotic5
+						artifact_type = ingredient_metal_exotic6
+						artifact_type = ingredient_metal_exotic7
+						artifact_type = ingredient_metal_exotic8
+						artifact_type = ingredient_metal_exotic9
+					}
+				}
+			}
 		}
 	}
 }
