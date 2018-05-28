@@ -1001,15 +1001,15 @@ laws = {
 		}
 		ai_will_do = {
 			factor = 0.01
-			modifier = {
-				factor = 0 # Don't bother changing this law without vassals
-				NOT = {
-					any_vassal = {
-						higher_tier_than = BARON
-						count = 1
-					}
-				}
-			}
+			#modifier = {
+			#	factor = 0 # Don't bother changing this law without vassals
+			#	NOT = {
+			#		any_vassal = {
+			#			higher_tier_than = BARON
+			#			count = 1
+			#		}
+			#	}
+			#}
 			modifier = {
 				factor = 1.5
 				has_law = werewolf_wait_law_3
