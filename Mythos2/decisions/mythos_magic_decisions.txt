@@ -947,6 +947,81 @@ decisions = {
 		}
 	}
 	
+	hermetics_acquire_ingredients_decision = {
+		potential = {
+			OR = {
+				trait = herbalist
+				has_character_modifier = studying_herbalism
+			}
+		}
+		
+		allow = {
+			NOT = {
+				custom_tooltip = {
+					text = tt_no_hermetic_ingredients_decision
+					hidden_tooltip = {
+						AND = {
+							society_member_of = hermetics
+							any_courtier_or_vassal = {
+								liege = { character = ROOT }
+								has_minor_title = title_hermetics_apprentice
+							}
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = tooltip_not_busy
+				hidden_trigger = {
+					block_general_event_trigger = no
+				}
+			}
+			custom_tooltip = {
+				text = acquire_ingredients_decision_cooldown_timer_tt
+				hidden_trigger = {
+					NOT = {
+						has_character_modifier = acquire_ingredients_decision_cooldown_timer
+					}
+				}
+			}
+			custom_tooltip = {
+				text = acquire_ingredients_decision_too_many_ingredients
+				hidden_trigger = {
+					NOT = {
+						any_artifact = {
+							count = 5
+							has_artifact_flag = ingredient
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = {
+				text = acquire_herb_ingredients_effect_tooltip
+			}
+			add_character_modifier = {
+				modifier = acquire_ingredients_decision_cooldown_timer
+				years = 5
+				hidden = yes
+			}
+			character_event = { id = MYTH_WoL.216 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.001 # Slow down
+			}
+			modifier = {
+				factor = 0 # Already have ingredients
+				any_artifact = {
+					has_artifact_flag = ingredient
+				}
+			}
+		}
+	}
 }
 
 targetted_decisions = {
