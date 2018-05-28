@@ -17603,8 +17603,8 @@ character_event = {
 			value = 0
 		}
 		
-		export_to_variable = { which = search_skill which = stewardship }
-		export_to_variable = { which = temp which = learning }
+		export_to_variable = { which = search_skill value = stewardship }
+		export_to_variable = { which = temp value = learning }
 		change_variable = { which = search_skill which = temp }
 		set_variable = { which = temp value = 0 }
 		
