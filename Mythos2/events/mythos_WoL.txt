@@ -7227,6 +7227,13 @@ character_event = {
 			}
 			character_event = { id = MYTH_WoL.103 days = 15 random = 10 }
 		}
+		destroy_selected_ingredient_1_effect = yes
+
+        trigger = {
+        	any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+        }
 		ai_chance = {
 			factor = 100
 		}
@@ -7302,6 +7309,10 @@ character_event = {
 			}
 		}
 	}
+	
+	after = {
+    	remove_selection_of_ingredients_effect = yes
+    }
 }
 
 # MYTH_WoL.103 - Prepare Wind
