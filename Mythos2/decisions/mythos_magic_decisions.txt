@@ -1093,9 +1093,15 @@ targetted_decisions = {
 			}
 		}
 		allow = {
-			FROM = { wealth = 100 }
-			NOT = { FROM = { has_character_modifier = cast_spell } }
 			FROM = {
+				wealth = 20
+				custom_tooltip = {
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						has_a_herb_ingredient_Q1_trigger = yes
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
 				OR = {
 					trait = eldritch_scholar
 					trait = veteran_wizard
@@ -1108,7 +1114,12 @@ targetted_decisions = {
 			}
 		}
 		effect = {
-			FROM = { wealth = -100 }
+			FROM = {
+				wealth = -20
+				select_random_hermetic_ingredient_effect = yes
+				destroy_selected_ingredient_1_effect = yes
+				remove_selection_of_ingredients_effect = yes
+			}
 			custom_tooltip = { text = preparations_begin }
 			hidden_tooltip = {
 				save_event_target_as = target_potioned

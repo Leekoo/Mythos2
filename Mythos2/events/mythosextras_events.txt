@@ -15,206 +15,94 @@ character_event = {
 			save_event_target_as = target_potioned
 		}
 		save_event_target_as = target_potioner
+		select_random_magic_ingredient_herb_effect = yes
+		select_random_magic_ingredient_herb_effect = yes
+		set_variable = { which = potion_bonus value = 0 }
 	}
 	
 	option = {
-		name = "EVTOPTMYTHMORE.1"
+		name = EVTOPTMYTHMORE.1
 		hidden_tooltip = {
-			random_list = {
-				# Success
-				50 = {
-					modifier = {
-						factor = 9
-						trait = arcane_master
-					}
-					modifier = {
-						factor = 4
-						trait = veteran_wizard
-					}
-					modifier = {
-						factor = 2.3
-						trait = eldritch_scholar
-					}
-					modifier = {
-						factor = 1.5
-						trait = novice_mage
-					}
-					modifier = {
-						factor = 1.2
-						trait = enchanter
-					}
-					modifier = {
-						factor = 1.5
-						trait = herbalist
-					}
-					modifier = {
-						factor = 1.5
-						has_artifact = greater_key_of_solomon
-					}
-					if = {
-						limit = {
-							NOT = { same_sex = event_target:target_potioned }
-							event_target:target_potioned = { trait = homosexual }
-						}
-						# Target is different sex, but homosexual
-						character_event = {
-							id = MYTHMORE.2
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							same_sex = FROM
-							event_target:target_potioned = { NOT = { trait = homosexual } }
-						}
-						# Target is same sex, but not homosexual
-						character_event = {
-							id = MYTHMORE.3
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							event_target:target_potioned = { trait = chaste }
-						}
-						# Target has chaste
-						character_event = {
-							id = MYTHMORE.4
-							days = 1
-						}
-						break = yes
-					}
-					# Target becomes lover
-					character_event = {
-						id = MYTHMORE.5
-						days = 1
-					}
-				}
-				# Failure
-				50 = {
-					if = {
-						limit = {
-							OR = {
-								AND = {
-									same_sex = event_target:target_potioned
-									NOT = { event_target:target_potioned = { trait = homosexual } }
-								}
-								AND = {
-									NOT = { same_sex = FROM }
-									event_target:target_potioned = { trait = homosexual }
-								}
-							}
-						}
-						# Target is not attracted to your sex, becomes your rival
-						character_event = {
-							id = MYTHMORE.6
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							NOT = { event_target:target_potioned = { trait = chaste } }
-						}
-						# Target is not chaste
-						random_list = {
-							50 = {
-								# Target becomes chaste
-								character_event = {
-									id = MYTHMORE.7
-									days = 1
-								}
-							}
-							30 = {
-								# Target sexuality change
-								if = {
-									limit = {
-										same_sex = FROM
-									}
-									# Target loses homosexual
-									character_event = {
-										id = MYTHMORE.8
-										days = 1
-									}
-								}
-								if = {
-									limit = {
-										NOT = { same_sex = FROM }
-									}
-									# Target gains homosexual
-									character_event = {
-										id = MYTHMORE.9
-										days = 1
-									}
-								}
-							}
-							10 = {
-								# Target becomes Rival
-								character_event = {
-									id = MYTHMORE.6
-									days = 1
-								}
-							}
-							10 = {
-								# Target becomes Celibate
-								character_event = {
-									id = MYTHMORE.10
-									days = 1
-								}
-							}
-						}
-						break = yes
-					}
-					
-					# Target is attracted to your sex, but is already chaste
-					random_list = {
-						50 = {
-							# Target sexuality change
-							if = {
-								limit = {
-									same_sex = FROM
-								}
-								# Target loses homosexual
-								character_event = {
-									id = MYTHMORE.8
-									days = 1
-								}
-							}
-							if = {
-								limit = {
-									NOT = { same_sex = FROM }
-								}
-								# Target gains homosexual
-								character_event = {
-									id = MYTHMORE.9
-									days = 1
-								}
-							}
-						}
-						30 = {
-							# Target becomes Rival
-							character_event = {
-								id = MYTHMORE.6
-								days = 1
-							}
-						}
-						20 = {
-							# Target becomes Celibate
-							character_event = {
-								id = MYTHMORE.10
-								days = 1
-							}
-						}
-					}
-					break = yes
-				}
-			}
+			character_event = { id = MYTHMORE.51 days = 2 }
 		}
 	}
+	
+	option = {
+		name = EVTOPTBMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_1_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTCMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_2_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_2_effect = yes
+	}
+	
+	after = {
+		remove_selection_of_ingredients_effect = yes
+	}
 }
-				
 
 # MYTHMORE.2 - Potion success, target loses homosexual
 character_event = {
@@ -3444,5 +3332,332 @@ character_event = {
 			spouse = { add_lover = ROOT }
 		}
 		hidden_tooltip = { clr_character_flag = become_adult_lover }
+	}
+}
+
+# MYTHMORE.51 - Determine love potion result
+character_event = {
+	id = MYTHMORE.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			# Critical success
+			10 = {
+				modifier = {
+					factor = 10
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4.5
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.1
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.7
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 3
+					check_variable = { which = potion_bonus value = 2 }
+				}
+				character_event = { id = MYTHMORE.53 days = 1 }
+			}
+			# Success
+			50 = {
+				modifier = {
+					factor = 9
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.5
+					trait = novice_mage
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.5
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 2
+					check_variable = { which = potion_bonus value = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { same_sex = event_target:target_potioned }
+						event_target:target_potioned = { trait = homosexual }
+					}
+					# Target is different sex, but homosexual
+					character_event = {
+						id = MYTHMORE.2
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						same_sex = FROM
+						event_target:target_potioned = { NOT = { trait = homosexual } }
+					}
+					# Target is same sex, but not homosexual
+					character_event = {
+						id = MYTHMORE.3
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:target_potioned = { trait = chaste }
+					}
+					# Target has chaste
+					character_event = {
+						id = MYTHMORE.4
+						days = 1
+					}
+					break = yes
+				}
+				# Target becomes lover
+				character_event = {
+					id = MYTHMORE.5
+					days = 1
+				}
+			}
+			# No effect
+			40 = {
+				if = {
+					limit = { ai = no } # Notification event
+					character_event = { id = MYTHMORE.52 days = 1 }
+				}
+			}
+			# Failure
+			50 = {
+				modifier = {
+					factor = 2
+					NOT = { check_variable = { which = potion_bonus value = 0 } }
+				}
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								same_sex = event_target:target_potioned
+								NOT = { event_target:target_potioned = { trait = homosexual } }
+							}
+							AND = {
+								NOT = { same_sex = FROM }
+								event_target:target_potioned = { trait = homosexual }
+							}
+						}
+					}
+					# Target is not attracted to your sex, becomes your rival
+					character_event = {
+						id = MYTHMORE.6
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						NOT = { event_target:target_potioned = { trait = chaste } }
+					}
+					# Target is not chaste
+					random_list = {
+						50 = {
+							# Target becomes chaste
+							character_event = {
+								id = MYTHMORE.7
+								days = 1
+							}
+						}
+						30 = {
+							# Target sexuality change
+							if = {
+								limit = {
+									same_sex = FROM
+								}
+								# Target loses homosexual
+								character_event = {
+									id = MYTHMORE.8
+									days = 1
+								}
+							}
+							if = {
+								limit = {
+									NOT = { same_sex = FROM }
+								}
+								# Target gains homosexual
+								character_event = {
+									id = MYTHMORE.9
+									days = 1
+								}
+							}
+						}
+						10 = {
+							# Target becomes Rival
+							character_event = {
+								id = MYTHMORE.6
+								days = 1
+							}
+						}
+						10 = {
+							# Target becomes Celibate
+							character_event = {
+								id = MYTHMORE.10
+								days = 1
+							}
+						}
+					}
+					break = yes
+				}
+				
+				# Target is attracted to your sex, but is already chaste
+				random_list = {
+					50 = {
+						# Target sexuality change
+						if = {
+							limit = {
+								same_sex = FROM
+							}
+							# Target loses homosexual
+							character_event = {
+								id = MYTHMORE.8
+								days = 1
+							}
+						}
+						if = {
+							limit = {
+								NOT = { same_sex = FROM }
+							}
+							# Target gains homosexual
+							character_event = {
+								id = MYTHMORE.9
+								days = 1
+							}
+						}
+					}
+					30 = {
+						# Target becomes Rival
+						character_event = {
+							id = MYTHMORE.6
+							days = 1
+						}
+					}
+					20 = {
+						# Target becomes Celibate
+						character_event = {
+							id = MYTHMORE.10
+							days = 1
+						}
+					}
+				}
+				break = yes
+			}
+		}
+	}
+}
+
+# MYTHMORE.52 - Love potion has no effect
+character_event = {
+	id = MYTHMORE.52
+	desc = EVTDESCMYTHMORE.52
+	picture = GFX_evt_experiments_failed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.52
+	}
+}
+
+# MYTHMORE.53 - Love Potion critical success
+character_event = {
+	id = MYTHMORE.53
+	desc = EVTDESCMYTHMORE.53
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		event_target:target_potioned = {
+			tooltip = {
+				if = {
+					limit = {
+						same_sex = ROOT
+						NOT = { trait = homosexual }
+					}
+					add_trait = homosexual
+				}
+				else_if = {
+					limit = {
+						NOT = { same_sex = ROOT }
+						trait = homosexual
+					}
+					remove_trait = homosexual
+				}
+				if = {
+					limit = { trait = chaste }
+					remove_trait = chaste
+				}
+				add_lover = ROOT
+			}
+			character_event = { id = MYTHMORE.54 }
+		}
+	}
+}
+
+# MYTHMORE.54 - Informed potioned of critical success
+character_event = {
+	id = MYTHMORE.54
+	desc = EVTDESCMYTHMORE.54
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.55
+		if = {
+			limit = {
+				same_sex = FROM
+				NOT = { trait = homosexual }
+			}
+			add_trait = homosexual
+		}
+		else_if = {
+			limit = {
+				NOT = { same_sex = FROM }
+				trait = homosexual
+			}
+			remove_trait = homosexual
+		}
+		if = {
+			limit = { trait = chaste }
+			remove_trait = chaste
+		}
+		add_lover = FROM
 	}
 }

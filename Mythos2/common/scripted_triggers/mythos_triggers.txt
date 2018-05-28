@@ -2310,3 +2310,30 @@ is_sickly = {
 		trait = sickly
 	}
 }
+
+ingredient_is_good_for_love = {
+	OR = {
+		artifact_type = ingredient_herb3
+		artifact_type = ingredient_herb6
+		artifact_type = ingredient_mistletoe
+		artifact_type = ingredient_fern_flower
+		artifact_type = ingredient_sage
+	}
+}
+
+selected_ingredient_is_good_for_love = {
+	any_artifact = {
+		OR = {
+			has_artifact_flag = selected_ingredient_1
+			has_artifact_flag = selected_ingredient_2
+		}
+		ingredient_is_good_for_love = yes
+	}
+}
+
+has_a_herb_ingredient_Q1_trigger = {
+	any_artifact = {
+		is_ingredient_herb_trigger = yes
+		quality == 1
+	}
+}
