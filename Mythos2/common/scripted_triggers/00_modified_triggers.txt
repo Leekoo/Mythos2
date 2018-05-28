@@ -2259,5 +2259,77 @@ is_ingredient_herb_trigger = {
 		artifact_type = ingredient_herb7
 		artifact_type = ingredient_herb8
 		artifact_type = ingredient_herb9
+		artifact_type = ingredient_mistletoe
+		artifact_type = ingredient_fennel
+		artifact_type = ingredient_thyme
+		artifact_type = ingredient_horehound
+		artifact_type = ingredient_wolfsbane
+		artifact_type = ingredient_fern_flower
+		artifact_type = ingredient_moly
+		artifact_type = ingredient_lotus
+		artifact_type = ingredient_sage
+		artifact_type = ingredient_raskovnik
+		artifact_type = ingredient_asclepois
+	}
+}
+
+ingredient_is_unhealthy_trigger = {
+	OR = {
+		artifact_type = ingredient_herb3 #Mandrake
+		artifact_type = ingredient_mistletoe
+		artifact_type = ingredient_wolfsbane
+		artifact_type = ingredient_metal_exotic8 #Mercury
+		artifact_type = ingredient_metal_exotic8 #Iron
+		AND = {
+			is_ingredient_animal_part_trigger = yes
+			NOR = {
+				artifact_type = ingredient_animal2 #Kidney
+				artifact_type = ingredient_animal7 #Heart
+				artifact_type = ingredient_animal8 #Liver
+				artifact_type = ingredient_animal9 #Intestines
+			}
+		}
+	}
+}
+
+selected_ingredient_is_unhealthy_trigger = {
+	any_artifact = {
+		OR = {
+			has_artifact_flag = selected_ingredient_1
+			has_artifact_flag = selected_ingredient_2
+		}
+		OR = {
+			artifact_type = ingredient_herb3 #Mandrake
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_wolfsbane
+			artifact_type = ingredient_metal_exotic8 #Mercury
+			artifact_type = ingredient_metal_exotic8 #Iron
+			is_ingredient_animal_part_trigger = yes
+		}
+	}
+}
+
+selected_ingredient_is_sleep_inducing_trigger = {
+	any_artifact = {
+		OR = {
+			has_artifact_flag = selected_ingredient_1
+			has_artifact_flag = selected_ingredient_2
+		}
+		OR = {
+			artifact_type = ingredient_herb7
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb9	
+			artifact_type = ingredient_thyme
+			artifact_type = ingredient_lotus
+		}
+	}
+}
+ingredient_is_sleep_inducing_trigger = {
+	OR = {
+		artifact_type = ingredient_herb7
+		artifact_type = ingredient_herb3
+		artifact_type = ingredient_herb9
+		artifact_type = ingredient_thyme
+		artifact_type = ingredient_lotus
 	}
 }

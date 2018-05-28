@@ -6949,3 +6949,136 @@ select_random_hermetic_ingredient_effect = { #when it doesn't matter if it's a h
 		}
 	}
 }
+
+hermetic_add_herbal_ingredient_effect = {
+	hidden_effect = {
+		random_list = {
+			50 = {
+				add_artifact = ingredient_herb1
+			}
+			50 = {
+				add_artifact = ingredient_herb2
+			}
+			50 = {
+				add_artifact = ingredient_herb3
+			}
+			50 = {
+				add_artifact = ingredient_herb4
+			}
+			50 = {
+				add_artifact = ingredient_herb5
+			}
+			50 = {
+				add_artifact = ingredient_herb6
+			}
+			50 = {
+				add_artifact = ingredient_herb7
+			}
+			50 = {
+				add_artifact = ingredient_herb8
+			}
+			50 = {
+				add_artifact = ingredient_herb9
+			}
+			50 = {
+				add_artifact = ingredient_mistletoe
+			}
+			50 = {
+				add_artifact = ingredient_fennel
+			}
+			50 = {
+				add_artifact = ingredient_thyme
+			}
+			50 = {
+				add_artifact = ingredient_horehound
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_wolfsbane
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_fern_flower
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_moly
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_lotus
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_sage
+			}
+			25 = {
+				trigger = { 
+					trait = herbalist
+					has_character_modifier = studying_herbalism
+				}
+				modifier = {
+					factor = 2
+					trait = herbalist
+				}
+				add_artifact = ingredient_raskovnik
+			}
+			40 = {
+				trigger = { trait = herbalist }
+				add_artifact = ingredient_asclepois
+			}
+		}
+	}
+}
+
+destroy_selected_ingredient_1_plus_random_other_ingredient_effect = { #for removing the ingredient in question PLUS a random other one (unnamed in tooltip) - only Q1
+	custom_tooltip = { text = destroy_selected_ingredient_1_plus_random_other_ingredient_tt }
+	hidden_effect = {
+		random_artifact = {
+			limit = { has_artifact_flag = selected_ingredient_1 }
+			destroy_artifact = yes
+		}
+		random_artifact = {
+			limit = {
+				has_artifact_flag = ingredient
+				quality == 1
+			}
+			destroy_artifact = yes
+		}
+	}
+}

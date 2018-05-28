@@ -1576,6 +1576,123 @@ targetted_decisions = {
 		}
 	}
 	
+	brew_herbalism_happiness_potion = {
+		filter = realm_including_me
+		ai_target_filter = realm_including_me
+		
+		from_potential = {
+			trait = herbalist
+			has_dlc = "Mystics"
+			NAND = {
+				society_rank = {
+					rank >= 2
+					society = hermetics
+				}
+				FROM = { has_society_currency_minor_trigger = yes }
+			}
+		}
+		
+		potential = {
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+			OR = {
+				liege = {
+					character = FROM
+				}
+				character = FROM
+			}
+			OR = {
+				FROM = { ai = no }
+				is_close_relative = FROM
+				is_friend = FROM
+				is_lover = FROM
+			}
+		}
+		
+		allow = {
+			FROM = {
+				piety = 100
+				prestige = 600
+			}
+			OR = {
+				trait = stressed
+				trait = depressed
+			}
+			custom_tooltip = {
+				text = must_have_ingredients_tt
+				hidden_tooltip = {
+					FROM = {
+						any_artifact = {
+							count = 2
+							has_artifact_flag = ingredient
+						}
+					}
+				}
+			}
+			custom_tooltip = {
+				text = must_not_already_be_preparing_potion_tt
+				hidden_tooltip = { FROM = { NOT = { has_character_flag = preparing_potion } } }
+			}
+		}
+		
+		effect = {
+			FROM = {
+				piety = -100
+				prestige = -600
+				set_character_flag = preparing_potion
+			}
+			if = {
+				limit = { character = FROM } #Making yourself a potion
+				custom_tooltip = {
+					text = brew_happiness_potion_effect_self
+					set_character_flag = potion_target_is_self
+					character_event = { id = MNM.5115 }
+				}
+			}
+
+			if = {
+				limit = { NOT = { character = FROM } } #Making someone else a potion
+				save_event_target_as = potion_target
+				custom_tooltip = {
+					text = brew_happiness_potion_effect_other
+					FROM = { character_event = { id = MNM.5115 } }
+				}
+			}
+
+			tooltip = {
+				if = { 
+					limit = { trait = stressed }
+					remove_trait = stressed
+				}
+				if = { 
+					limit = { trait = depressed }
+					remove_trait = depressed
+				}
+				if = {
+					limit = { has_character_modifier = apathetic }
+					remove_character_modifier = apathetic
+				}
+			}
+		}
+		
+		ai_will_do = {
+
+			factor = 0.001
+			modifier = {	
+				factor = 100
+				character = FROM
+			}
+			modifier = {
+				factor = 10
+				reverse_opinion = {
+					who = FROM
+					value = 30
+				}
+			}
+		}
+	}
 }
 
 settlement_decisions = {
