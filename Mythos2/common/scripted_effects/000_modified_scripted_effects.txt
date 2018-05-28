@@ -6870,3 +6870,82 @@ add_maimed_trait_effect = {
 		}
 	}
 }
+
+# Now only selects quality 1 ingredients - for any level, soo select_random_magic_ingredient_herb_effect
+select_random_hermetic_ingredient_herb_effect = { # If run once, this will set a flag on ONE herbal ingredient. If run twice, it will set a second flag on another herbal ingredient...
+	if = {
+		limit = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+			}
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = selected_ingredient_2
+				}
+			}
+		}
+		random_artifact = {
+			limit = {
+				quality == 1
+				is_ingredient_herb_trigger = yes
+				NOT = { has_artifact_flag = selected_ingredient_1 }
+				NOT = { has_artifact_flag = selected_ingredient_2 }
+			}
+			set_artifact_flag = selected_ingredient_2
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+				}
+			}	
+		}
+		random_artifact = {
+			limit = {
+				quality == 1
+				is_ingredient_herb_trigger = yes
+				NOT = { has_artifact_flag = selected_ingredient_1 }
+				NOT = { has_artifact_flag = selected_ingredient_2 }
+			}
+			set_artifact_flag = selected_ingredient_1
+		}
+	}
+}
+
+# Now only selects quality 1 ingredients - for any level, soo select_random_magic_ingredient_effect
+select_random_hermetic_ingredient_effect = { #when it doesn't matter if it's a herb/animal part/metal/liquid
+	if = {
+		limit = {
+			has_selected_ingredient_1_trigger = yes
+			has_selected_ingredient_2_trigger = no
+		}
+		random_artifact = {
+			limit = {
+				quality == 1
+				NOT = { has_artifact_flag = selected_ingredient_1 }
+				NOT = { has_artifact_flag = selected_ingredient_2 }
+				has_artifact_flag = ingredient
+			}
+			set_artifact_flag = selected_ingredient_2
+		}
+	}
+	if = {
+		limit = {
+			has_selected_ingredient_1_trigger = no
+			any_artifact = {
+				has_artifact_flag = ingredient
+			}
+		}
+		random_artifact = {
+			limit = {
+				quality == 1
+				NOT = { has_artifact_flag = selected_ingredient_1 }
+				NOT = { has_artifact_flag = selected_ingredient_2 }
+				has_artifact_flag = ingredient
+			}
+			set_artifact_flag = selected_ingredient_1
+		}
+	}
+}

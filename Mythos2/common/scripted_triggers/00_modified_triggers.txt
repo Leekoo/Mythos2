@@ -2246,3 +2246,18 @@ has_disease_trigger = {
 		trait = zombie_infection
 	}
 }
+
+#to check type of ingredient... (if more are added, they need to go in here to work with the current system)
+is_ingredient_herb_trigger = {
+	OR = {
+		artifact_type = ingredient_herb1
+		artifact_type = ingredient_herb2
+		artifact_type = ingredient_herb3
+		artifact_type = ingredient_herb4
+		artifact_type = ingredient_herb5
+		artifact_type = ingredient_herb6
+		artifact_type = ingredient_herb7
+		artifact_type = ingredient_herb8
+		artifact_type = ingredient_herb9
+	}
+}
