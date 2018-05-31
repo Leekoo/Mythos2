@@ -17783,3 +17783,1101 @@ character_event = {
 		clr_character_flag = do_not_disturb
 	}
 }
+
+# Regeneration potion
+character_event = {
+	id = MYTH_WoL.219
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.219
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.219
+	}
+	picture = GFX_evt_recovery
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.219
+		random_list = {
+			1 = {
+				trigger = { trait = wounded }
+				remove_trait = wounded
+				hidden_tooltip = {
+					set_character_flag = healed_wounded
+				}
+			}
+			1 = {
+				trigger = { trait = maimed }
+				remove_trait = maimed
+				hidden_tooltip = {
+					set_character_flag = healed_maimed
+				}
+			}
+			1 = {
+				trigger = { trait = scarred }
+				remove_trait = scarred
+				hidden_tooltip = {
+					set_character_flag = healed_scarred
+				}
+			}
+			1 = {
+				trigger = { trait = disfigured }
+				remove_trait = disfigured
+				hidden_tooltip = {
+					set_character_flag = healed_disfigured
+				}
+			}
+			1 = {
+				trigger = { trait = one_eyed }
+				remove_trait = one_eyed
+				hidden_tooltip = {
+					set_character_flag = healed_one_eyed
+				}
+			}
+			1 = {
+				trigger = { trait = one_handed }
+				remove_trait = one_handed
+				hidden_tooltip = {
+					set_character_flag = healed_one_handed
+				}
+			}
+			1 = {
+				trigger = { trait = one_legged }
+				remove_trait = one_legged
+				hidden_tooltip = {
+					set_character_flag = healed_one_legged
+				}
+			}
+			1 = {
+				trigger = { trait = mangled }
+				remove_trait = mangled
+				hidden_tooltip = {
+					set_character_flag = healed_mangled
+				}
+			}
+			1 = {
+				trigger = { trait = eunuch }
+				remove_trait = eunuch
+				hidden_tooltip = {
+					set_character_flag = healed_eunuch
+				}
+			}
+			1 = {
+				trigger = { trait = blinded }
+				remove_trait = blinded
+				hidden_tooltip = {
+					set_character_flag = healed_blinded
+				}
+			}
+			1 = {
+				trigger = { trait = severely_injured }
+				remove_trait = severely_injured
+				hidden_tooltip = {
+					clear_delayed_event = { id = RIP.11000 }
+					set_character_flag = healed_severely_injured
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { character = FROM } }
+			FROM = { character_event = { id = MYTH_WoL.220 } }
+		}
+		else = {
+			clr_character_flag = healed_wounded
+			clr_character_flag = healed_maimed
+			clr_character_flag = healed_scarred
+			clr_character_flag = healed_disfigured
+			clr_character_flag = healed_one_eyed
+			clr_character_flag = healed_one_handed
+			clr_character_flag = healed_one_legged
+			clr_character_flag = healed_mangled
+			clr_character_flag = healed_eunuch
+			clr_character_flag = healed_blinded
+			clr_character_flag = healed_severely_injured
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = maimed
+			}
+			modifier = {
+				factor = 2
+				trait = disfigured
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_eyed
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_handed
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_legged
+			}
+			modifier = {
+				factor = 2
+				trait = mangled
+			}
+			modifier = {
+				factor = 2
+				trait = eunuch
+			}
+			modifier = {
+				factor = 2
+				trait = blinded
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.220
+	desc = EVTDESCMYTH_WoL.220
+	picture = GFX_evt_recovery
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		if = {
+			limit = { FROM = { has_character_flag = healed_wounded } }
+			tooltip = { remove_trait = wounded }
+			clr_character_flag = healed_wounded
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_maimed } }
+			tooltip = { remove_trait = maimed }
+			clr_character_flag = healed_maimed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_scarred } }
+			tooltip = { remove_trait = scarred }
+			clr_character_flag = healed_scarred
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_disfigured } }
+			tooltip = { remove_trait = disfigured }
+			clr_character_flag = healed_disfigured
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_eyed } }
+			tooltip = { remove_trait = one_eyed }
+			clr_character_flag = healed_one_eyed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_handed } }
+			tooltip = { remove_trait = one_handed }
+			clr_character_flag = healed_one_handed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_legged } }
+			tooltip = { remove_trait = one_legged }
+			clr_character_flag = healed_one_legged
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_mangled } }
+			tooltip = { remove_trait = mangled }
+			clr_character_flag = healed_mangled
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_eunuch } }
+			tooltip = { remove_trait = eunuch }
+			clr_character_flag = healed_eunuch
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_blinded } }
+			tooltip = { remove_trait = blinded }
+			clr_character_flag = healed_blinded
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_severely_injured } }
+			tooltip = { remove_trait = severely_injured }
+			clr_character_flag = healed_severely_injured
+		}
+	}
+}
+
+# Potion of control
+character_event = {
+	id = MYTH_WoL.221
+	desc = EVTDESCMYTH_WoL.221
+	picture = GFX_evt_werewolf_shadowed
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		increase_control = yes
+		random_list = {
+			1 = {
+				trigger = {
+					NOR = {
+						trait = temperate
+						trait = gluttonous
+					}
+				}
+				add_trait = temperate
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = patient
+						trait = wroth
+					}
+				}
+				add_trait = patient
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = ambitious
+						trait = content
+					}
+				}
+				add_trait = content
+			}
+			1 = {
+				trigger = { trait = gluttonous }
+				remove_trait = gluttonous
+			}
+			1 = {
+				trigger = { trait = wroth }
+				remove_trait = wroth
+			}
+			1 = {
+				trigger = { trait = cruel }
+				remove_trait = cruel
+			}
+			1 = {
+				trigger = { trait = paranoid }
+				remove_trait = paranoid
+			}
+		}
+	}
+}
+
+# Potion of frenzy
+character_event = {
+	id = MYTH_WoL.222
+	desc = EVTDESCMYTH_WoL.222
+	picture = GFX_evt_werewolf_moon
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		decrease_control = yes
+		random_list = {
+			1 = {
+				trigger = {
+					NOR = {
+						trait = wroth
+						trait = patient
+					}
+				}
+				add_trait = wroth
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = temperate
+						trait = gluttonous
+					}
+				}
+				add_trait = gluttonous
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = brave
+						trait = craven
+					}
+				}
+				add_trait = brave
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = arbitrary
+						trait = just
+					}
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				trigger = { trait = stubborn }
+				add_trait = stubborn
+			}
+			1 = {
+				trigger = { trait = temperate }
+				remove_trait = temperate
+			}
+			1 = {
+				trigger = { trait = patient }
+				remove_trait = patient
+			}
+			1 = {
+				trigger = { trait = kind }
+				remove_trait = kind
+			}
+			1 = {
+				trigger = { trait = slothful }
+				remove_trait = slothful
+			}
+			1 = {
+				trigger = { trait = craven }
+				remove_trait = craven
+			}
+			1 = {
+				trigger = { trait = content }
+				remove_trait = content
+			}
+			1 = {
+				trigger = { trait = shy }
+				remove_trait = shy
+			}
+		}
+	}
+}
+
+# Potion of Purity
+character_event = {
+	id = MYTH_WoL.223
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.223
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.223
+	}
+	picture = GFX_evt_dragon_face
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.223
+		add_character_modifier = { name = potion_of_purity years = 5 }
+		FROM = {
+			if = {
+				limit = { ai = no }
+				character_event = { id = MYTH_WoL.224 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.224
+	desc = EVTDESCMYTH_WoL.224
+	picture = GFX_evt_dragon_face
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		FROM = { add_character_modifier = { name = potion_of_purity years = 5 } }
+	}
+}
+
+# Battle Potion
+character_event = {
+	id = MYTH_WoL.225
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.225
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.225
+	}
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.225
+		add_character_modifier = { name = potion_of_battle years = 2 }
+		FROM = {
+			if = {
+				limit = { ai = no }
+				character_event = { id = MYTH_WoL.226 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				in_command = yes
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.226
+	desc = EVTDESCMYTH_WoL.226
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			FROM = { add_character_modifier = { name = potion_of_battle years = 2 } }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.227
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.227
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.227
+	}
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.227
+		add_character_modifier = { name = potion_of_fertility years = 3 }
+		random = {
+			chance = 20
+			if = {
+				limit = { trait = chaste }
+				remove_trait = chaste
+			}
+			else_if = {
+				limit = { NOT = { trait = lustful } }
+				add_trait = lustful
+			}
+		}
+		random = {
+			chance = 5
+			if = {
+				limit = { trait = lovers_pox }
+				remove_trait = lovers_pox
+			}
+			else_if = {
+				limit = { trait = syphilitic }
+				remove_trait = syphilitic
+			}
+			else_if = {
+				limit = { has_character_modifier = minor_disease_herpes }
+				remove_character_modifier = minor_disease_herpes
+			}
+		}
+		FROM = { character_event = { id = MYTH_WoL.228 } }
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				NOT = { num_of_children = 1 }
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.228
+	desc = EVTDESCMYTH_WoL.228
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	ai = no
+	trigger = { NOT = { character = FROM } }
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			FROM = { add_character_modifier = { name = potion_of_fertility years = 3 } }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.229
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.229
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.229
+	}
+	picture = GFX_evt_recovery
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.229
+		add_character_modifier = { name = potion_of_health years = 3 }
+		FROM = { character_event = { id = MYTH_WoL.230 } }
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				health < 1
+			}
+			modifier = {
+				factor = 1.5
+				health < 2
+			}
+			modifier = {
+				factor = 1.5
+				health < 3
+			}
+			modifier = {
+				factor = 1.5
+				health < 4
+			}
+			modifier = {
+				factor = 1.5
+				health < 5
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+character_event = {
+	id = MYTH_WoL.230
+	desc = EVTDESCMYTH_WoL.230
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	ai = no
+	trigger = { NOT = { character = FROM } }
+	
+	option = {
+		name = EXCELLENT
+		tooltip = { FROM = { add_character_modifier = { name = potion_of_health years = 3 } } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.231
+	desc = EVTDESCMYTH_WoL.231
+	picture = GFX_evt_suspicious_noble
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.231
+		add_character_modifier = { name = potion_of_secrets years = 2 }
+		random = {
+			chance = 20
+			if = {
+				limit = { trait = trusting }
+				remove_trait = trusting
+			}
+			else_if = {
+				limit = { NOT = { trait = paranoid } }
+				add_trait = paranoid
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+		}
+	}
+}
+
+# Potion poisoning - can occur if you take a potion with a linger effect while one is already present
+character_event = {
+	id = MYTH_WoL.232
+	desc = EVTDESCMYTH_WoL.232
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.232
+		if = {
+			limit = { has_dlc = Reapers }
+			add_trait = food_poisoning
+		}
+		else = {
+			add_trait = ill
+		}
+		set_character_flag = manifest_food_poisoning
+		scrying_omen_fulfilled_by_gaining_disease_effect = yes
+		father = {
+			if = {
+				limit = { 
+					ai = no 
+					is_liege_of = ROOT
+				}
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		mother = {
+			if = {
+				limit = { 
+					ai = no 
+					is_liege_of = ROOT
+				}
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		spouse = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		character_event = { id = MYTH_WoL.233 days = 30 random = 15 }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.233
+	desc = EVTDESCMYTH_WoL.233
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = food_poisoning
+			trait = ill
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.233
+		remove_trait = food_poisoning
+		remove_trait = ill
+		remove_character_modifier = potion_of_purity
+		remove_character_modifier = potion_of_battle
+		remove_character_modifier = potion_of_fertility
+		remove_character_modifier = potion_of_health
+		remove_character_modifier = potion_of_secrets
+	}
+}
+
+# Potion rejected
+character_event = {
+	id = MYTH_WoL.234
+	desc = {
+		trigger = { FROM = { has_potion_modifer_trigger = yes } }
+		text = EVTDESCMYTH_WoL.234
+	}
+	desc = {
+		trigger = { FROM = { has_potion_modifer_trigger = no } }
+		text = EVTDESCBMYTH_WoL.234
+	}
+	picture = GFX_evt_experiments_failed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.234
+	}
+}

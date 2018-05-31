@@ -1026,6 +1026,1051 @@ decisions = {
 
 targetted_decisions = {
 	
+	brew_regeneration_potion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = home_court
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 18
+		}
+		potential = {
+			OR = {
+				trait = wounded
+				trait = maimed
+				trait = scarred
+				trait = disfigured
+				trait = one_eyed
+				trait = one_handed
+				trait = one_legged
+				trait = mangled
+				trait = eunuch
+				trait = blinded
+				trait = severely_injured
+			}
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 18
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_moly
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			NOT = { has_character_modifier = regeneration_strain }
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_moly }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_moly
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = {
+					name = regeneration_strain
+					years = 1
+				}
+			}
+			custom_tooltip = { text = tt_heal_injury }
+			character_event = { id = MYTH_WoL.219 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					trait = maimed
+					trait = disfigured
+					trait = one_eyed
+					trait = one_handed
+					trait = one_legged
+					trait = mangled
+					trait = eunuch
+					trait = blinded
+				}
+			}
+			modifier = {
+				factor = 10
+				character = FROM
+			}
+			modifier = {
+				factor = 6
+				is_lover = FROM
+			}
+			modifier = {
+				factor = 4
+				spouse = { character = FROM }
+			}
+			modifier = {
+				factor = 5
+				is_child_of = FROM
+			}
+			modifier = {
+				factor = 2
+				is_father = FROM
+			}
+			modifier = {
+				factor = 2
+				is_mother = FROM
+			}
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_concubine = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				is_aunt_uncle_of = FROM
+			}
+			modifier = {
+				factor = 1.5
+				betrothed = { character = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				is_cousin_of = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_heir = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_nibling_of = FROM
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
+	brew_control_potion = {
+		only_playable = yes
+		filter = self
+		ai_target_filter = self
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			learning = 12
+			trait = herbalist
+			trait = werewolf
+		}
+		potential = { character = FROM }
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 12
+				trait = werewolf
+				any_artifact = {
+					OR = {
+						artifact_type = ingredient_lotus
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_lotus }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_lotus
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			character_event = { id = MYTH_WoL.221 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				trait = control_9
+			}
+			modifier = {
+				factor = 3
+				check_variable = { which = control value = 6 }
+			}
+			modifier = {
+				factor = 1.5
+				trait = temperate
+			}
+			modifier = {
+				factor = 1.5
+				trait = kind
+			}
+			modifier = {
+				factor = 1.5
+				trait = deceitful
+			}
+		}
+	}
+	
+	brew_frenzy_potion = {
+		only_playable = yes
+		filter = self
+		ai_target_filter = self
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			learning = 14
+			trait = herbalist
+			trait = werewolf
+		}
+		potential = { character = FROM }
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 14
+				trait = werewolf
+				any_artifact = {
+					OR = {
+						artifact_type = ingredient_wolfsbane
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_wolfsbane }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_wolfsbane
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			character_event = { id = MYTH_WoL.222 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				trait = control_1
+			}
+			modifier = {
+				factor = 3
+				NOT = { check_variable = { which = control value = 4 } }
+			}
+			modifier = {
+				factor = 1.5
+				trait = wroth
+			}
+			modifier = {
+				factor = 1.5
+				trait = gluttonous
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+		}
+	}
+	
+	brew_purity_potion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = home_court
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 16
+		}
+		potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = dragon
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 16
+				scaled_wealth = { value = 0.1 min = 2 max = 200 }
+				piety = 50
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_lotus
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			trait = dragon
+			NOT = { has_character_modifier = potion_of_purity }
+		}
+		effect = {
+			FROM = {
+				scaled_wealth = { value = -0.2 min = -2 max = -200 }
+				piety = -50
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_lotus }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_lotus
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = { name = potion_of_purity years = 5 }
+			}
+			character_event = { id = MYTH_WoL.223 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				trait = purity_10
+			}
+			modifier = {
+				factor = 3
+				has_negative_purity = yes
+			}
+			modifier = {
+				factor = 10
+				character = FROM
+			}
+			modifier = {
+				factor = 6
+				is_lover = FROM
+			}
+			modifier = {
+				factor = 4
+				spouse = { character = FROM }
+			}
+			modifier = {
+				factor = 5
+				is_child_of = FROM
+			}
+			modifier = {
+				factor = 2
+				is_father = FROM
+			}
+			modifier = {
+				factor = 2
+				is_mother = FROM
+			}
+			modifier = {
+				factor = 2
+				is_friend = FROM
+			}
+			modifier = {
+				factor = 1.5
+				FROM = { is_concubine = ROOT }
+			}
+			modifier = {
+				factor = 1.5
+				is_aunt_uncle_of = FROM
+			}
+			modifier = {
+				factor = 1.5
+				betrothed = { character = FROM }
+			}
+			modifier = {
+				factor = 1.5
+				is_cousin_of = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_heir = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_nibling_of = FROM
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
+	brew_battle_potion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = self
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 14
+		}
+		potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 14
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_wolfsbane
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			NOT = { has_character_modifier = potion_of_battle }
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_wolfsbane }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_wolfsbane
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = { name = potion_of_battle years = 2 }
+			}
+			character_event = { id = MYTH_WoL.225 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = berserker
+			}
+			modifier = {
+				factor = 5
+				war = yes
+			}
+			modifier = {
+				factor = 3
+				in_command = yes
+			}
+			modifier = {
+				factor = 1.5
+				has_focus = focus_war
+			}
+			modifier = {
+				factor = 3
+				is_primary_war_defender = yes
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
+	brew_fertility_potion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = home_court
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 16
+		}
+		potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			NOR = {
+				trait = celibate
+				trait = infertile
+				trait = eunuch
+				trait = known_vampire
+				trait = zombie
+				trait = mummy
+			}
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 16
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_fern_flower
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			NOT = { has_character_modifier = potion_of_fertility }
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_fern_flower }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_fern_flower
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = { name = potion_of_fertility years = 3 }
+			}
+			character_event = { id = MYTH_WoL.227 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					character = FROM
+					is_married = FROM
+					is_child_of = FROM
+					is_grandchild_of = FROM
+					is_lover = FROM
+					any_spouse = { is_child_of = FROM }
+					any_spouse = { is_grandchild_of = FROM }
+				}
+			}
+			modifier = {
+				factor = 4
+				OR = {
+					character = FROM
+					is_married = FROM
+				}
+				NOT = { num_of_children = 1 }
+			}
+			modifier = {
+				factor = 2
+				is_lover = FROM
+				OR = {
+					trait = lustful
+					trait = seducer
+					trait = seductress
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = chaste
+			}
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = seducer
+					trait = seductress
+					trait = hedonist
+				}
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
+	brew_health_potion = {
+		only_playable = yes
+		filter = home_court
+		ai_target_filter = home_court
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 12
+		}
+		potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 12
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_sage
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			NOT = { has_character_modifier = potion_of_health }
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_sage }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_sage
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = { name = potion_of_health years = 3 }
+			}
+			character_event = { id = MYTH_WoL.229 }
+		}
+		ai_will_do = {
+			factor = 0.02
+			modifier = {
+				factor = 0
+				NOR = {
+					character = FROM
+					is_married = FROM
+					is_close_relative = FROM
+					is_lover = FROM
+				}
+			}
+			modifier = {
+				factor = 3
+				FROM = { trait = paranoid }
+			}
+			modifier = {
+				factor = 2
+				has_disease_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				NOT = { health = 4 }
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
+	brew_secrets_potion = {
+		only_playable = yes
+		filter = self
+		ai_target_filter = self
+		
+		from_potential = {
+			is_incapable = no
+			prisoner  = no
+			has_regent = no
+			trait = herbalist
+			learning = 20
+		}
+		potential = {
+			character = FROM
+		}
+		allow = {
+			FROM = {
+				trait = herbalist
+				learning = 20
+				any_artifact = { 
+					OR = {
+						artifact_type = ingredient_raskovnik
+						artifact_type = ingredient_asclepois
+					}
+				}
+				custom_tooltip ={
+					text = tt_q1_herb_ingredient
+					hidden_tooltip = {
+						any_artifact = {
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+				}
+				NOT = { has_character_modifier = cast_spell }
+			}
+			NOT = { has_character_modifier = potion_of_secrets }
+		}
+		effect = {
+			FROM = {
+				if = {
+					limit = {
+						any_artifact = { artifact_type = ingredient_raskovnik }
+					}
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_raskovnik
+						}
+						destroy_artifact = yes
+					}
+				}
+				else = {
+					random_artifact = {
+						limit = {
+							artifact_type = ingredient_asclepois
+						}
+						destroy_artifact = yes
+					}
+				}
+				destroy_random_q1_herb_ingredient_effect = yes
+				add_character_modifier = {
+					name = cast_spell
+					days = 30
+				}
+			}
+			tooltip = {
+				add_character_modifier = { name = potion_of_secrets years = 2 }
+			}
+			character_event = { id = MYTH_WoL.231 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 5
+				trait = paranoid
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+			modifier = {
+				factor = 0.5
+				trait = trusting
+			}
+			modifier = {
+				factor = 0.8
+				trait = gregarious
+			}
+			modifier = {
+				factor = 0.9
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 0.8
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+	
 	## Targeted version of brew love potion spell
 	brew_love_potion_targetted = {
 		only_playable = yes
@@ -1103,6 +2148,7 @@ targetted_decisions = {
 				}
 				NOT = { has_character_modifier = cast_spell }
 				OR = {
+					trait = herbalist
 					trait = eldritch_scholar
 					trait = veteran_wizard
 					trait = arcane_master
@@ -1135,7 +2181,7 @@ targetted_decisions = {
 		}
 		
 		ai_will_do = {
-			factor = 0.1
+			factor = 0.03
 			modifier = {
 				factor = 1.2
 				FROM = { trait = lustful }

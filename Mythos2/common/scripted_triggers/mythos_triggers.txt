@@ -2337,3 +2337,14 @@ has_a_herb_ingredient_Q1_trigger = {
 		quality == 1
 	}
 }
+
+has_potion_modifer_trigger = {
+	OR = {
+		has_character_modifier = regeneration_strain
+		has_character_modifier = potion_of_purity
+		has_character_modifier = potion_of_battle
+		has_character_modifier = potion_of_fertility
+		has_character_modifier = potion_of_health
+		has_character_modifier = potion_of_secrets
+	}
+}

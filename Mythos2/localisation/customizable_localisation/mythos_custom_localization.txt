@@ -1927,9 +1927,25 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[GetPurityTooltip_Begger]"
+		localisation_key = "[GetPurityTooltip_Potion]"
 		trigger = {
 			NOT = { has_character_modifier = sapphire_flame_blessing }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Potion
+	text = {
+		localisation_key = tt_purity_potion
+		trigger = {
+			has_character_modifier = potion_of_purity
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Begger]"
+		trigger = {
+			NOT = { has_character_modifier = potion_of_purity }
 		}
 	}
 }

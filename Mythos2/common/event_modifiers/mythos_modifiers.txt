@@ -1508,3 +1508,34 @@ sacrificed_livestock = {
 	icon = 60
 	local_tax_modifier = -0.3
 }
+regeneration_strain = {
+	icon = 51
+	combat_rating = -2
+	health = -1
+}
+potion_of_purity = {
+	icon = 83
+	#custom_tooltip = { text = purity_plus_1 }
+}
+potion_of_battle = {
+	icon = 83
+	martial = 2
+	combat_rating = 1
+	land_morale = 0.05
+	levy_reinforce_rate = 0.2
+}
+potion_of_fertility = {
+	icon = 83
+	fertility = 0.2
+	sex_appeal_opinion = 10
+}
+potion_of_health = {
+	icon = 83
+	health = 2
+}
+potion_of_secrets = {
+	icon = 83
+	plot_power_modifier = 0.3
+	defensive_plot_power_modifier = 0.3
+	plot_discovery_chance = 0.3
+}

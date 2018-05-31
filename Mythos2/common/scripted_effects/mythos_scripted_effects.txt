@@ -781,6 +781,10 @@ determine_purity = {
 		change_variable = { which = purity value = 1 }
 	}
 	if = {
+		limit = { has_character_modifier = potion_of_purity }
+		changge_variable = { which = purity value = 1 }
+	}
+	if = {
 		limit = { 
 			OR = {
 				has_character_modifier = begger 
@@ -7887,5 +7891,16 @@ select_random_magic_ingredient_effect = { #when it doesn't matter if it's a herb
 			}
 			set_artifact_flag = selected_ingredient_1
 		}
+	}
+}
+
+destroy_random_q1_herb_ingredient_effect = {
+	random_artifact = {
+		limit = {
+			has_artifact_flag = ingredient
+			is_ingredient_herb_trigger = yes
+			quality == 1
+		}
+		destroy_artifact = yes
 	}
 }
