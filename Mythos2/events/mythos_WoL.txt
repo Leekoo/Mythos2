@@ -11676,6 +11676,9 @@ character_event = {
 			limit = { has_character_flag = built_medical_supplies }
 			clr_character_flag = built_medical_supplies
 			add_artifact = medical_supplies
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			add_artifact = ingredient_asclepois
 		}
 	}
 	
@@ -12468,7 +12471,10 @@ character_event = {
 	option = {
 		name = EVTOPTAMYTH_WoL.149
 		random_list = {
-			80 = {
+			50 = {
+			}
+			30 = {
+				hermetic_add_herbal_q1_ingredient_effect = yes
 			}
 			10 = {
 				modifier = {
@@ -12480,6 +12486,7 @@ character_event = {
 					NOT = { learning = 5 }
 				}
 				change_learning = 1
+				hermetic_add_herbal_q1_ingredient_effect = yes
 			}
 			10 = {
 				custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.149 }
