@@ -12381,6 +12381,9 @@ character_event = {
 			limit = { has_character_flag = built_medical_supplies }
 			clr_character_flag = built_medical_supplies
 			add_artifact = medical_supplies
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			add_artifact = ingredient_asclepois
 		}
 	}
 }
@@ -18886,5 +18889,279 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAMYTH_WoL.234
+	}
+}
+
+# Make an experimental potion from spare ingredients
+character_event = {
+	id = MYTH_WoL.235
+	desc = EVTDESCMYTH_WoL.235
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		OR = {
+			trait = herbalist
+			has_character_modifier = studying_herbalism
+		}
+		any_artifact = {
+			has_artifact_flag = ingredient
+		}
+		NOR = {
+			has_character_modifier = experimental_potion_1
+			has_character_modifier = experimental_potion_2
+			has_character_modifier = experimental_potion_3
+			has_character_modifier = experimental_potion_4
+			has_character_modifier = experimental_potion_5
+			has_character_modifier = experimental_potion_6
+			has_character_modifier = experimental_potion_7
+			has_character_modifier = experimental_potion_8
+			has_character_modifier = experimental_potion_9
+			has_character_modifier = experimental_potion_10
+		}
+	}
+	
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.235
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+			}
+		}
+		random_list = {
+			9 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_2 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_3 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_4 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_5 months = 6 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_7 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_8 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_9 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 2 } }
+	}
+	
+	option = {
+		name = EVTOPTBMYTH_WoL.235
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+			}
+		}
+		random_list = {
+			9 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_2 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_3 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_4 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_5 months = 6 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_7 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_8 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_9 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+			}
+		}
+		destroy_selected_ingredient_2_effect = yes
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 2 } }
+	}
+	
+	option = {
+		name = EVTOPTCMYTH_WoL.235
 	}
 }
