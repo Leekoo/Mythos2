@@ -10000,10 +10000,32 @@ character_event = {
 					factor = 1.2
 					learning = 25
 				}
+				modifier = {
+					factor = 1.2
+					learning = 30
+				}
+				modifier = {
+					factor = 1.2
+					learning = 35
+				}
+				modifier = {
+					factor = 1.2
+					trait = erudite
+				}
+				modifier = {
+					factor = 1.2
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.2
+					trait = diligent
+				}
 				hidden_tooltip = { character_event = { id = MYTH_WoL.124 days = 10 random = 5 } }
+				custom_tooltip = { text = tt_research_success }
 			}
 			50 = {
 				hidden_tooltip = { character_event = { id = MYTH_WoL.123 days = 10 random = 5 } }
+				custom_tooltip = { text = tt_research_dead_end }
 			}
 		}
 	}
@@ -10086,6 +10108,10 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	
+	immediate = {
+		select_random_hermetic_ingredient_herb_effect = yes
+	}
+	
 	option = {
 		name = EVTOPTAMYTH_WoL.125
 		custom_tooltip = { text = EVTTOOLTIPAMYTH_WoL.125 }
@@ -10123,6 +10149,14 @@ character_event = {
 					character_event = { id = MYTH_WoL.127 days = 20 random = 10 }
 				}
 				50 = {
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 5 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 3 }
+					}
 					character_event = { id = MYTH_WoL.126 days = 20 random = 10 }
 				}
 			}
@@ -10165,7 +10199,7 @@ character_event = {
 			factor = 10
 			modifier = {
 				factor = 2
-				scaled_wealth =1
+				scaled_wealth = 1
 			}
 			modifier = {
 				factor = 0.5
@@ -10192,6 +10226,52 @@ character_event = {
 		}
 		ai_chance = { factor = 8 }
 	}
+	option = {
+		name = EVTOPTDMYTH_WoL.125
+		trigger = {
+			any_ingredient = { has_artifact_flag = selected_ingredient_1 }
+		}
+		custom_tooltip = { text = EVTTOOLTIPDMYTH_WoL.125 }
+		hidden_tooltip = {
+			random_list = {
+				30 = {
+					modifier = {
+						factor = 2.5
+						selected_ingredient_is_perceived_healthy_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						selected_ingredient_is_antipyretic_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							quality >= 2
+						}
+					}
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							quality >= 3
+						}
+					}
+					character_event = { id = MYTH_WoL.127 days = 20 random = 10 }
+				}
+				70 = {
+					modifier = {
+						factor = 1.5
+						selected_ingredient_is_unhealthy_trigger = yes
+					}
+					character_event = { id = MYTH_WoL.126 days = 20 random = 10 }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	after = { remove_selection_of_ingredients_effect = yes }
 }
 
 # MYTH_WoL.126 - Failed creating Panacea
