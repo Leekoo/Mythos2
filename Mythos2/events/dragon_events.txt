@@ -2069,6 +2069,13 @@ character_event = {
 		name = EVTOPTA_DRAGON.36
 		scaled_wealth = { value = -0.25 max = -200 }
 		character_event = { id = DRAGON.34 days = 3 tooltip = keep_searching_flame }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+		}
 	}
 	option = {
 		name = EVTOPTB_DRAGON.36
@@ -2079,6 +2086,13 @@ character_event = {
 			clr_character_flag = destroy_flame_galloway
 			clr_character_flag = destroy_flame_plock
 			clr_character_flag = destroy_flame_uppland
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
 		}
 	}
 }
