@@ -2710,7 +2710,8 @@ character_event = {
 		}
 		change_diplomacy = local_loss
 		FROM = {
-			change_diplomacy = local_gain
+			custom_tooltip = { text = tt_same_gain_diplomacy }
+			hidden_tooltip = { change_diplomacy = local_gain }
 			add_trait = gregarious
 		}
 		hidden_tooltip = {
@@ -2764,7 +2765,8 @@ character_event = {
 		}
 		change_martial = local_loss
 		FROM = {
-			change_martial = local_gain
+			custom_tooltip = { text = tt_same_gain_martial }
+			hidden_tooltip = { change_martial = local_gain }
 			add_trait = brave
 		}
 		hidden_tooltip = {
@@ -2818,7 +2820,8 @@ character_event = {
 		}
 		change_stewardship = local_loss
 		FROM = {
-			change_stewardship = local_gain
+			custom_tooltip = { text = tt_same_gain_stewardship }
+			hidden_tooltip = { change_stewardship = local_gain }
 			add_trait = temperate
 		}
 		hidden_tooltip = {
@@ -2872,7 +2875,8 @@ character_event = {
 		}
 		change_intrigue = local_loss
 		FROM = {
-			change_intrigue = local_gain
+			custom_tooltip = { text = tt_same_gain_intrigue }
+			hidden_tooltip = { change_intrigue = local_gain }
 			add_trait = deceitful
 		}
 		hidden_tooltip = {
@@ -2926,7 +2930,8 @@ character_event = {
 		}
 		change_learning = local_loss
 		FROM = {
-			change_learning = local_gain
+			custom_tooltip = { text = tt_same_gain_learning }
+			hidden_tooltip = { change_learning = local_gain }
 			add_trait = erudite
 		}
 		ai_chance = {
@@ -2980,7 +2985,8 @@ character_event = {
 		}
 		health = local_loss_health
 		FROM = {
-			health = local_gain_health
+			custom_tooltip = { text = tt_same_gain_health }
+			hidden_tooltip = { health = local_gain_health }
 			if = {
 				limit = { trait = feeble }
 				remove_trait = feeble
