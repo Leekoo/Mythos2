@@ -833,7 +833,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_1
 				}
 			}
-			add_objective = obj_build_horde_1
+			add_ambition = obj_build_horde_1
 			add_character_modifier = { modifier = can_ambition_dragon_gold_1 months = 36 }
 		}
 		if = {
@@ -848,7 +848,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_2
 				}
 			}
-			add_objective = obj_build_horde_2
+			add_ambition = obj_build_horde_2
 			add_character_modifier = { modifier = can_ambition_dragon_gold_2 months = 36 }
 		}
 		if = {
@@ -862,7 +862,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_3
 				}
 			}
-			add_objective = obj_build_horde_3
+			add_ambition = obj_build_horde_3
 			add_character_modifier = { modifier = can_ambition_dragon_gold_3 months = 36 }
 		}
 		if = {
@@ -875,7 +875,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_4
 				}
 			}
-			add_objective = obj_build_horde_4
+			add_ambition = obj_build_horde_4
 			add_character_modifier = { modifier = can_ambition_dragon_gold_4 months = 36 }
 		}
 		if = {
@@ -887,7 +887,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_5
 				}
 			}
-			add_objective = obj_build_horde_5
+			add_ambition = obj_build_horde_5
 			add_character_modifier = { modifier = can_ambition_dragon_gold_5 months = 36 }
 		}
 		if = {
@@ -898,12 +898,12 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_gold_6
 				}
 			}
-			add_objective = obj_build_horde_6
+			add_ambition = obj_build_horde_6
 			add_character_modifier = { modifier = can_ambition_dragon_gold_6 months = 36 }
 		}
 		if = {
 			limit = { has_ambition = no }
-			add_objective = obj_build_horde_7
+			add_ambition = obj_build_horde_7
 			add_character_modifier = { modifier = can_ambition_dragon_gold_7 months = 36 }
 		}
 		hidden_tooltip = {
@@ -1118,7 +1118,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_piety_1
 				}
 			}
-			add_objective = obj_become_pious_1
+			add_ambition = obj_become_pious_1
 			add_character_modifier = { modifier = can_ambition_dragon_piety_1 months = 36 }
 		}
 		if = {
@@ -1129,12 +1129,12 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_piety_2
 				}
 			}
-			add_objective = obj_become_pious_2
+			add_ambition = obj_become_pious_2
 			add_character_modifier = { modifier = can_ambition_dragon_piety_2 months = 36 }
 		}
 		if = {
 			limit = { has_ambition = no }
-			add_objective = obj_become_pious_3
+			add_ambition = obj_become_pious_3
 			add_character_modifier = { modifier = can_ambition_dragon_piety_3 months = 36 }
 		}
 		hidden_tooltip = {
@@ -1700,7 +1700,7 @@ character_event = {
 					has_character_flag = finished_human_ambition_prestige_1
 				}
 			}
-			add_objective = obj_gain_prestige_human_1
+			add_ambition = obj_gain_prestige_human_1
 			add_character_modifier = { modifier = can_ambition_human_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -1715,7 +1715,7 @@ character_event = {
 					has_character_flag = finished_human_ambition_prestige_2
 				}
 			}
-			add_objective = obj_gain_prestige_human_2
+			add_ambition = obj_gain_prestige_human_2
 			add_character_modifier = { modifier = can_ambition_human_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -1729,7 +1729,7 @@ character_event = {
 					has_character_flag = finished_human_ambition_prestige_3
 				}
 			}
-			add_objective = obj_gain_prestige_human_3
+			add_ambition = obj_gain_prestige_human_3
 			add_character_modifier = { modifier = can_ambition_human_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -1742,7 +1742,7 @@ character_event = {
 					has_character_flag = finished_human_ambition_prestige_4
 				}
 			}
-			add_objective = obj_gain_prestige_human_4
+			add_ambition = obj_gain_prestige_human_4
 			add_character_modifier = { modifier = can_ambition_human_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -1754,7 +1754,7 @@ character_event = {
 					has_character_flag = finished_human_ambition_prestige_5
 				}
 			}
-			add_objective = obj_gain_prestige_human_5
+			add_ambition = obj_gain_prestige_human_5
 			add_character_modifier = { modifier = can_ambition_human_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -2322,7 +2322,7 @@ character_event = {
 					has_character_flag = finished_dragon_ambition_prestige_1
 				}
 			}
-			add_objective = obj_gain_prestige_dragon_1
+			add_ambition = obj_gain_prestige_dragon_1
 			add_character_modifier = { modifier = can_ambition_dragon_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
@@ -2330,7 +2330,7 @@ character_event = {
 			limit = { 
 				has_ambition = no
 			}
-			add_objective = obj_gain_prestige_dragon_2
+			add_ambition = obj_gain_prestige_dragon_2
 			add_character_modifier = { modifier = can_ambition_dragon_prestige_1 months = 36 }
 			custom_tooltip = { text = GAIN_AMBITION }
 		}
