@@ -38,6 +38,7 @@ dejure_duchy_claim = { # New1
 	can_use_gui = {
 		ROOT = {
 			show_scope_change = no
+			NOT = { trait = zombie }
 			conditional_tooltip = {
 				trigger = { 
 					tier = DUKE
@@ -329,6 +330,7 @@ dejure_duchy_claim = { # New1
 					value = off
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -476,6 +478,7 @@ force_vassalization = { # New2
 		}
 		ROOT = {
 			NOT = { government = draconic_tribal_government }
+			NOT = { government = zombie_horde }
 		}
 	}
 	
@@ -665,6 +668,7 @@ great_realm_conflict = { # New3
 					value = off
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		FROM = {
 			relative_power = {
@@ -955,6 +959,7 @@ ducal_county_conquest = { # New4
 					value = off
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -1164,6 +1169,7 @@ hostages_cb = { # New5
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 		}
 		FROM = {
 			any_realm_character = {
@@ -1501,6 +1507,7 @@ liberate_religion = { # New6
 					value = off
 				}
 			}
+			NOT = { trait = zombie }
 			independent = yes
 			has_character_flag = had_liberate_opportunity
 			NOT = {
@@ -2357,6 +2364,7 @@ unjust_conquest = { # New7
 					value = off
 				}
 			}
+			NOT = { trait = zombie }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
 			NOT = { pacifist = yes }
@@ -2648,6 +2656,7 @@ tributary_permanent_cb = { # New8
 					value = off
 				}
 			}
+			NOT = { government = zombie_horde }
 			NOT = { government = draconic_tribal_government }
 			is_nomadic = no
 			independent = yes
@@ -2963,6 +2972,7 @@ tributary_nomad_cb = { # New9
 	can_use = {
 		ROOT = {
 			is_nomadic = yes
+			NOT = { government = zombie_horde }
 			mercenary = no
 			OR = {
 				is_tributary = no
@@ -3415,6 +3425,7 @@ offmap_submission = {
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
@@ -3942,6 +3953,7 @@ tributary_offmap_cb = {
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
@@ -4102,6 +4114,7 @@ dismantle_pretender_china_cb = {
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
@@ -4240,6 +4253,7 @@ force_open_china_cb = {
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
@@ -4399,6 +4413,7 @@ destabilization_china_cb = {
 	can_use = {
 		ROOT = {
 			independent = yes
+			NOT = { trait = zombie }
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no

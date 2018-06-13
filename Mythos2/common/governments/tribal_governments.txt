@@ -59,6 +59,7 @@ tribal_governments = {
 			is_patrician = no
 			mercenary = no
 			holy_order = no
+			NOT = { trait = zombie }
 		}
 		
 		color = { 92 31 23 }
@@ -133,6 +134,7 @@ tribal_governments = {
 			mercenary = no
 			holy_order = no
 			controls_religion = no
+			NOT = { trait = zombie }
 		}
 		
 		color = { 8 120 41 }
@@ -159,4 +161,41 @@ tribal_governments = {
 		
 		capital_move_delay = 600
 	}
+	
+	# Uncomment if hordes won't appear without Horse Lords or can't be added to history
+	#zombie_horde_no_HL = {
+	#	preferred_holdings = { TRIBAL }
+	#	allowed_holdings = {
+	#		TRIBAL
+	#		FORT
+	#		CASTLE
+	#		CITY
+	#		TEMPLE
+	#	}
+	#	accepts_liege_governments_culture = { zombie_horde }
+	#	vassal_call_to_arms = {
+	#		zombie_horde_no_HL
+	#	}
+	#	frame_suffix = "_tribal"
+	#	title_prefix = "tribal_"
+	#	potential = {
+	#		trait = zombie
+	#		NOT = { has_dlc = "Horse Lords" }
+	#	}
+	#	
+	#	color = { 50 50 50 }
+	#	
+	#	ignores_de_jure_laws = yes
+	#	can_build_castle = no
+	#	can_build_city = no
+	#	can_build_temple = no
+	#	can_build_tribal = no
+	#	can_build_hospitals = no
+	#	can_change_to_nomad_on_start = yes
+	#	
+	#	demesne_size = 2
+	#	vassal_limit = -10
+	#	
+	#	capital_move_delay = 600
+	#}
 }

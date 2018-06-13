@@ -9174,13 +9174,11 @@ character_event = {
 		trigger = { has_character_flag = usurp_military_influence }
 		text = EVTDESCB_VAMPIRE.121
 		picture = GFX_evt_knights
-		border = GFX_event_normal_frame_war
 	}
 	desc = {
 		trigger = { has_character_flag = usurp_economic_influence }
 		text = EVTDESCC_VAMPIRE.121
 		picture = GFX_evt_stressed_ruler
-		border = GFX_event_normal_frame_war_economy
 	}
 	
 	is_triggered_only = yes
@@ -11497,6 +11495,7 @@ character_event = {
 
 narrative_event = {
 	id = VAMPIRE.159
+	title = EVTTITLE_VAMPIRE.159
 	desc = {
 		trigger = { character = FROM }
 		text = EVTDESCA_VAMPIRE.159
@@ -11537,7 +11536,7 @@ narrative_event = {
 	option = {
 		name = EVTOPTC_VAMPIRE.159
 		trigger = {
-			COR = {
+			NOR = {
 				religion = satanist
 				religion_group = christian
 				religion_group = muslim

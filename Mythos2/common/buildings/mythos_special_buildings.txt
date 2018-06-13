@@ -14,6 +14,7 @@ temple = {
 				# Only appears it you have it.  Built by event
 				has_building = tp_eternal_flame
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			FROM = {
@@ -22,6 +23,7 @@ temple = {
 					religion = draconic_pagan_reformed
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		gold_cost = 8000
 		build_time = 8000

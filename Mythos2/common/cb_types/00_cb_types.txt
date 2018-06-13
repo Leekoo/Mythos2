@@ -66,6 +66,7 @@ claim = {
 					}
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		
 		OR = { 
@@ -301,6 +302,7 @@ other_claim = {
 	can_use = {
 		ROOT = {
 			mercenary = no
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -320,6 +322,7 @@ other_claim = {
 				is_liege_or_above = FROM
 			}
 		}
+		ROOT = { NOT = { trait = zombie } }
 		
 		ROOT = {
 			OR = {
@@ -724,6 +727,7 @@ claim_on_liege = {
 				is_liege_or_above = FROM
 			}
 		}
+		ROOT = { NOT = { trait = zombie } }
 		OR = { 
 			ROOT = { has_strong_claim = PREV }
 			ROOT = { has_character_flag = faction_claimant_ultimatum_taken } # Faction war. Ignore claim strength.
@@ -1740,6 +1744,7 @@ claim_all = {
 				strong = yes # Count only strong claims
 				value = 2
 			}
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -1944,7 +1949,8 @@ change_seniority_succession_law = {
 	
 	can_use = {
 		ROOT = {
-			vassal_of = FROM	
+			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -2138,7 +2144,8 @@ change_primogeniture_succession_law = {
 	
 	can_use = {
 		ROOT = {
-			vassal_of = FROM	
+			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -2333,7 +2340,8 @@ change_feudal_elective_succession_law = {
 	
 	can_use = {
 		ROOT = {
-			vassal_of = FROM	
+			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -2538,6 +2546,7 @@ invasion = {
 	can_use = {
 		ROOT = {
 			mercenary = no
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -2920,6 +2929,7 @@ tribal_invasion = {
 	can_use_gui = {
 		ROOT = {
 			prestige = 500
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -3890,6 +3900,7 @@ religious = {
 	can_use = {
 		ROOT = {
 			is_nomadic = no
+			NOT = { trait = zombie }
 			NOT = { religion_group = pagan_group }
 			NOT = { pacifist = yes }
 			NOT = { religion = taoist }
@@ -4418,6 +4429,7 @@ excommunicated_ruler = {
 		}
 		ROOT = {
 			mercenary = no
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -4784,6 +4796,10 @@ bid_for_independence = {
 		any_attacker = {
 			limit = { NOT = { character = ROOT } }
 			hidden_tooltip = { participation_scaled_prestige = -100 }
+		}
+		any_attacker = {
+			limit = { trait = zombie }
+			death = death_vanished
 		}
 		FROM = {
 			prestige = 50
@@ -5351,7 +5367,8 @@ change_gavelkind_succession_law = {
 	
 	can_use = {
 		ROOT = {
-			vassal_of = FROM	
+			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -5544,6 +5561,7 @@ lower_crown_authority_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 		NOT = { has_dlc = "Zeus" }
 	}
@@ -5731,6 +5749,7 @@ lower_tribal_organization_law = {
 	can_use = {
 		ROOT = {
 			vassal_of = FROM
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -5928,6 +5947,7 @@ coastal_republic = {
 			NOT = { is_liege_or_above = FROM }
 			NOT = { is_vassal_or_below = FROM }
 			NOT = { same_liege = FROM }
+			NOT = { trait = zombie }
 			mercenary = no
 		}
 	}
@@ -6123,6 +6143,7 @@ coastal_county_republic = {
 			NOT = { is_liege_or_above = FROM }
 			NOT = { is_vassal_or_below = FROM }
 			NOT = { same_liege = FROM }
+			NOT = { trait = zombie }
 			mercenary = no
 		}
 	}
@@ -6733,6 +6754,7 @@ muslim_invasion = {
 	can_use_gui = {
 		ROOT = {
 			piety = 1000
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -7316,6 +7338,7 @@ imperial_reconquest = {
 			religion_group = christian
 			NOT = { same_realm = FROM }
 			mercenary = no
+			NOT = { trait = zombie }
 		}
 		FROM = {
 			NOT = { religion_group = muslim }
@@ -7482,6 +7505,7 @@ embargo_cb = {
 		ROOT = {
 			independent = yes
 			NOT = { has_embargo = FROM }
+			NOT = { trait = zombie }
 			mercenary = no
 		}
 		FROM = {
@@ -7710,6 +7734,7 @@ seize_trade_post = {
 					}
 				}
 			}
+			NOT = { trait = zombie }
 			mercenary = no
 		}
 		FROM = {
@@ -8067,6 +8092,7 @@ pagan_subjugation = {
 			is_reformed_religion = no
 			NOT = { same_realm = FROM }
 			NOT = { is_liege_or_above = FROM }
+			NOT = { trait = zombie }
 			mercenary = no
 			OR = {
 				AND = {
@@ -9322,6 +9348,7 @@ pagan_holy_war = {
 	can_use_gui = {
 		ROOT = {
 			piety = 100
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -9643,6 +9670,7 @@ caliphal_subjugation = {
 	can_use_gui = {
 		ROOT = {
 			piety = 200
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -9830,6 +9858,7 @@ muslim_county_conquest = {
 	can_use_gui = {
 		ROOT = {
 			piety = 50
+			NOT = { trait = zombie }
 		}
 	}
 	
@@ -10040,6 +10069,7 @@ pagan_county_conquest = {
 		ROOT = {
 			mercenary = no
 			NOT = { government = draconic_tribal_government }
+			NOT = { trait = zombie }
 		}
 		OR = {
 			ROOT = {
@@ -10355,6 +10385,7 @@ dejure_county_claim = {
 
 	infamy_modifier = 0.5
 	
+	
 	can_use_title = {
 		tier = count
 		
@@ -10380,6 +10411,7 @@ dejure_county_claim = {
 		}
 		
 		NOT = {
+			ROOT = { trait = zombie }
 			OR = {
 				ROOT = {
 					has_landed_title = PREV
@@ -10717,6 +10749,7 @@ dejure_barony_claim = {
 	infamy_modifier = 0.5
 	
 	can_use = {
+		ROOT = { NOT = { trait = zombie } }
 		FROM = {
 			NOT = { is_vassal_or_below = ROOT }
 			OR = {
@@ -11031,6 +11064,7 @@ other_dejure_county_claim = {
 		NOT = {
 			character = ROOT
 		}
+		NOT = { trait = zombie }
 		
 		FROM = {
 			OR = {
@@ -11569,6 +11603,7 @@ depose_antipope = {
 	can_use = {
 		ROOT = {
 			religion = FROM
+			NOT = { trait = zombie }
 			OR = {
 				religion = catholic
 				religion = fraticelli
@@ -11739,6 +11774,7 @@ cb_install_antiking = {
 		ROOT = {
 			vassal_of = FROM
 			religion = FROM
+			NOT = { trait = zombie }
 			OR = {
 				religion = catholic
 				religion = fraticelli
@@ -12510,6 +12546,7 @@ manifest_destiny_invasion = {
 				}
 				dynasty = 800 # Timurids
 			}
+			NOT = { trait = zombie }
 		}
 		
 		ROOT = {
@@ -12862,6 +12899,7 @@ rivalry_cb = {
 	can_use = {
 		ROOT = {
 			is_rival = FROM
+			NOT = { trait = zombie }
 		}
 		FROM = {
 			NOT = {
@@ -13012,6 +13050,7 @@ tributary_cb = {
 
 		ROOT = {
 			NOT = { government = draconic_tribal_government } # Use dragon_tribal_tribute_cb
+			NOT = { trait = zombie }
 			mercenary = no
 			OR = {
 				is_tributary = no
@@ -13444,6 +13483,7 @@ free_tributary_cb = {
 
 	can_use = {
 		ROOT = {
+			NOT = { trait = zombie }
 			OR = {
 				AND = {
 					is_tributary = yes
@@ -13811,6 +13851,7 @@ cb_install_khan = {
 		
 		ROOT = {
 			is_nomadic = yes
+			NOT = { trait = zombie }
 		}
 	}
 
@@ -13947,11 +13988,13 @@ nomad_dispute = {
 
 		FROM = {
 			is_nomadic = yes
+			NOT = { government = zombie_horde }
 		}
 		ROOT = {
 			is_nomadic = yes
 			same_realm = FROM
 			has_feud_with = FROM
+			NOT = { government = zombie_horde }
 		}
 		
 		ROOT = {
@@ -14295,6 +14338,7 @@ cb_minor_clan_revolt = {
 	can_use = {
 		ROOT = {
 			primary_title = { temporary = yes } # Revolter or adventurer trigger
+			NOT = { government = zombie_horde }
 			war = no
 			NOT = { is_liege_or_above = FROM }
 			mercenary = no
@@ -14436,6 +14480,7 @@ nomad_subjugation = {
 	
 	can_use_gui = {
 	#higher_tier_than between ROOT and FROM would be better but its tooltip doesn't say anything about comparing character tiers
+		NOT = { trait = zombie }
 		OR = {
 			ROOT = {
 				higher_tier_than = king
@@ -14477,6 +14522,7 @@ nomad_subjugation = {
 	
 	can_use = {
 		ROOT = {
+			NOT = { trait = zombie }
 			OR = {
 				ai = yes
 				multiplayer = no
@@ -14808,6 +14854,7 @@ nomad_invasion = {
 	
 	can_use_gui = {
 		ROOT = {
+			NOT = { trait = zombie }
 			prestige = 100
 			population = 30000
 			population_factor = 0.75 # 75% of max
@@ -15167,6 +15214,7 @@ nomad_expansion = {
 	
 	can_use_gui = {
 		ROOT = {
+			NOT = { government = zombie_horde }
 			prestige = 300
 			population_factor = 0.5
 		}
@@ -15195,6 +15243,7 @@ nomad_expansion = {
 
 	can_use = {
 		ROOT = {
+			NOT = { government = zombie_horde }
 			is_nomadic = yes
 			NOT = { same_realm = FROM }
 			mercenary = no
@@ -15678,10 +15727,12 @@ nomad_humiliate_cb = {
 		
 		FROM = {
 			is_nomadic = yes
+			NOT = { government = zombie_horde }
 		}
 
 		ROOT = {
 			is_nomadic = yes
+			NOT = { government = zombie_horde }
 			mercenary = no
 			OR = {
 				AND = {

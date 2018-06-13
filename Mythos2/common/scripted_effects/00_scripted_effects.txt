@@ -1940,7 +1940,7 @@ increase_depopulation_effect = {
 		limit = {
 			has_province_modifier = depopulated_2
 		}
-		random_list = {		
+		random_list = {
 			40 = {
 				modifier = {
 					factor = 1.5
@@ -16947,6 +16947,9 @@ set_new_character_race = {
 		random = {
 			chance = 70
 			add_trait = zombie
+			set_graphical_culture = undead_revenant
+			set_undead_culture = yes
+			religion = the_damned
 		}
 	}
 	if = {

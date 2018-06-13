@@ -1004,11 +1004,25 @@ character_event = {
 				limit = { graphical_culture = etherealgfx }
 				add_trait = ethereal_trait
 			}
+			else_if = {
+				limit = {
+					OR = {
+						graphical_culture = undeadgfx
+						culture_group = undead_culture_group
+					}
+				}
+				add_trait = zombie
+				set_graphical_culture = undead_revenant
+				set_undead_culture = yes
+				religion = the_damned
+				any_claim = { remove_claim = PREV }
+			}
 			else = {
 				remove_trait = dragon
 				remove_trait = demon_trait
 				remove_trait = ethereal_trait
 				remove_trait = dragonborn
+				remove_trait = zombie
 			}
 			if = {
 				limit = {

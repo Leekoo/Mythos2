@@ -475,6 +475,10 @@ character_event = {
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		NOT = { religion = the_damned }
+	}
+	
 	# Accept
 	option = {
 		name = EVTOPTA_MYTHMORE.19
@@ -1577,6 +1581,9 @@ character_event = {
 			limit = { trait = zombie }
 			remove_trait = zombie
 			add_trait = zombie
+			set_graphical_culture = undead_revenant
+			set_undead_culture = yes
+			religion = the_damned
 		}
 		if = {
 			limit = { trait = mummy }
@@ -3665,5 +3672,96 @@ character_event = {
 			remove_trait = chaste
 		}
 		add_lover = FROM
+	}
+}
+
+# Summoned revenant courtier
+character_event = {
+	id = MYTHMORE.55
+	desc = EVTDESCMYTHMORE.55
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_NE_1
+		
+		trigger = {
+			event_target:invited_character = { has_character_flag = invited_soldier }
+			OR = {
+				AND = {
+					tier = COUNT
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = DUKE
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 6
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 8
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+			}
+		}
+		
+		event_target:invited_character = {
+			give_minor_title = title_commander
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
 	}
 }

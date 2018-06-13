@@ -230,6 +230,15 @@ studying_alchemy = {
 studying_sorcery = {
 	icon = 79
 }
+studying_necromancy = {
+	icon = 41
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = necromancer
+		}
+	}
+}
 magic_study_1 = {
 	icon = 2
 	learning = 1
@@ -1481,7 +1490,7 @@ ancient_advice = {
 }
 haunted_castle = {
 	icon = 42
-	feudal_opinion = -15
+	castle_opinion = -15
 }
 seeker_of_secrets = {
 	icon = 5
@@ -1560,7 +1569,7 @@ experimental_potion_3 = {
 # Experimental Potion - Q2 Herb, Good
 experimental_potion_4 = {
 	icon = 83
-	sex_appeal = 10
+	sex_appeal_opinion = 10
 	defensive_plot_power_modifier  = -0.1
 }
 # Experimental Potion - Q3 Herb, Good
@@ -1593,4 +1602,98 @@ experimental_potion_9 = {
 experimental_potion_10 = {
 	icon = 84
 	fertility_penalty = -0.5
+}
+# Devastation - only used without Reaper's Due
+devastation_1 = {
+	icon = 42
+	levy_size = -0.2
+}
+devastation_2 = {
+	icon = 42
+	levy_size = -0.4
+}
+devastation_3 = {
+	icon = 42
+	levy_size = -0.6
+}
+demonic_sacrifices = {
+	icon = 42
+	global_revolt_risk = 0.02
+	global_tax_modifier = -0.1
+	monthly_character_prestige = -1
+	monthly_character_piety = -1
+	vassal_opinion = -10
+	levy_size = -0.02
+	global_garrison_size = -0.02
+}
+tended_to_dead = {
+	icon = 18
+	general_opinion = 5
+	church_opinion = 5
+}
+honored_soldiers = {
+	icon = 3
+	culture_flex = -0.1
+	short_reign_length = -1
+}
+undead_laborers = {
+	icon = 41
+	local_build_cost_modifier = -0.2
+	local_build_time_modifier = -0.1
+	local_revolt_risk = 0.04
+}
+divination_room = {
+	icon = 52
+	tech_growth_modifier = 0.2
+}
+tower_crypt = {
+	icon = 41
+	zombie_troops_offensive = 0.05
+	zombie_troops_defensive = 0.05
+	zombie_troops_morale = 0.05
+}
+diplomacy_drained = {
+	icon = 21
+	diplomacy = -2
+}
+drained_diplomacy = {
+	icon = 3
+	diplomacy = 2
+	is_visible = { character = FROM }
+}
+martial_drained = {
+	icon = 19
+	martial = -2
+}
+drained_martial = {
+	icon = 1
+	martial = 2
+	is_visible = { character = FROM }
+}
+stewardship_drained = {
+	icon = 22
+	stewardship = -2
+}
+drained_stewardship = {
+	icon = 4
+	stewardship = 2
+	is_visible = { character = FROM }
+}
+intrigue_drained = {
+	icon = 23
+	intrigue = -2
+}
+drained_intrigue = {
+	icon = 5
+	intrigue = 2
+	is_visible = { character = FROM }
+}
+learning_drained = {
+	icon = 20
+	intrigue = -2
+}
+drained_learning = {
+	icon = 2
+	intrigue = 2
+	is_visible = { character = FROM }
 }

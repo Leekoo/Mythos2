@@ -259,35 +259,6 @@ north_germanic = {
 	}
 }
 
-
-undead_culture_group = {
-	graphical_cultures = { africangfx }
-	
-	zombie_culture = {
-		graphical_cultures = { westafricangfx }
-		horde = yes
-		
-		color = { 0.2 0.2 0.2 }
-
-		male_names = {
-			Abi-Bakr Abubakari Akoi Alayaman Ali_Ali Ali-Fay Ali-Kolon Ali-Zalil Badä Bakr Bakr-Kanbu Bamari Bankanu
-			Bannu Bassarou Bassi Birama Bisi Biyu Bonga Cisse Dankaran Daoud_David Dawud_David Demba Diara Düru
-			Faga-Laye Fatta Fodi Fuluku Fädazu Gane Gao Hargani Harun Igoumou Ishaq_Isaac Ismail_Ismail Kabayo Kalabi Kambine
-			Kanafa Kassa Kasseï Kaya Kayna Kinkin Kisha Kodama Koïzé Kukuray Kusoy Lahiltoul M'Bali Maammarou Maghan
-			Mahmud_Mahmud Majan Malla Mamadi Mamoudou Manding-Bory Mari-Djata Maÿroumfa Missi-Izé Morobani Musa_Moses
-			Nintasanay Nuh Ouali Ouankoÿ Ouati Reidja Sakoura Salman_Solomon Samsou-Béri Samsou-Keïna Sandaki Soumaba
-			Soumaoro Soundiata Sulayman_Solomon Takoi Tib Tomo_Thomas Tunka Umar_Umar Yama Yaqub_Jacob Yasiboy Zakoi Zenku
-		}
-		female_names = {
-			Adja Aichata Aissata Alima Aminata Amita Aoua Barakissa Bintou Deye Djeneba Djenly Djire Fadima
-			Fatim Fatoumata Halima Hawa Ina Kadi Kilia Kolonkan Lorane Mariam Nafissa Namandjé Namiss Nana
-			Safiatou Salimata Sassouma Sidibé Siya Sogolon Tekhaye Youma Zeïnab
-		}
-
-		modifier = zombie_culture_modifier
-	}
-}
-
 dragon_culture_group = {
 	graphical_cultures = { dragongfx }
 	
@@ -448,5 +419,357 @@ supernatural_culture_group = {
 		}
 		
 		modifier = ethereal_culture_modifier
+	}
+}
+
+undead_culture_group = {
+	graphical_cultures = { undeadgfx }
+	
+	undead_cold_ones = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.9 0.9 1 }
+		
+		male_names = {
+			Afanasiy_Athanasius Alexandr_Alexander Alexei_Alexis Andrei_Andrew Boris Briachislav_Bretislaus Casimir_Casimir Ctibor_Ctibor Davyd_David 
+			Dmitriy_Demetrius Feodor_Theodore Gavriil_Gabriel Grigoriy_Gregory Iakov_Jacob Igor_Ingvar Iliya Ingvar_Ingvar Ivan_John Iziaslav Kirill_Cyril 
+			Konstantin_Constantine Kupalo Lalki Lev_Leo Matfei_Matthew Mikhail_Michael Nav Nikita Oleg_Helge Pavel_Paul Piotr_Peter Rogvolod Roman_Roman
+			Rostislav Rurik_Rurik Simeon_Simon Stanislav_Stanislav Stepan_Stephen Strasz Topielec Utopiec Vasiliy_Basil Vasilko Viacheslav_Vaclav 
+			Vladimir_Vladimir Vladislav_Vladislav Vodnik Vodyanoy Wlodek Yaropolk Yaroslav_Jaroslav Yeremey Yevstafiy Yuriy_George Zygmunt_Sigmund
+		}
+		female_names = {
+			Agafya_Agatha Agnieszka_Agnes Alexandra_Alexandra Anastasia_Anastasia Anna_Anna Berta Darya Dobrava Yefimia_Euphemia Yekaterina_Catherine 
+			Yelizaveta_Elizabeth Feodora_Theodora Irina_Irene Klára_Clara Kostroma Liudmila_Liudmila Magda_Magdalena Magdalena_Magdalena Maria_Maria Marina 
+			Mavka Olena_Helen Olga Raina_Raina Regelinda Rusalka Sbyslava Sofia_Sophia Sviatoslava Tatyana Yaroslava Zofia
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_cold_ones_culture_modifier
+	}
+	undead_aptrganger = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.1 0.2 0.1 }
+		
+		male_names = {
+			Albrikt_Albert Ale Alfr_Alf Anders_Andrew Aran Arnbjörn Arne_Arne Arnfast Arngrimr Asmund Aufhocker Bagge Baldr_Balder Barid Bengt_Benedict
+			Björn_Beorn Bo Bolli Bragi_Brage Dag Dan Egill_Egil Einarr_Einar Eirikr_Erik Falki Fredrik_Frederick Frirek Froði_Frode Freyr_Frej Gandalfr Geirr 
+			Georg_George Gjenferd Glámr Gleip Grettir Gorm_Gorm	Greger_Gregory Grimr_Grim Guðfrið_Godfrey Guðmundr_Gudmund Guðrún Guðröðr_Gudröd 
+			Gunnarr_Gunnar Hakon_Hakon Hallbjörn Haugbui Haraldr_Harold	Helgi_Helge Höskuldr Hrapp Hrappr Hrolfr_Rolf Hromund Hrörekr_Rurik Hvamm 
+			Ingólfr_Ingolf Ingemar Ingjald Ivar_Ivar Jedvard_Edward Johan_John Jon_John Karl_Charles Kettil Kettilmund Kjartan Klas Knut_Knut Kotkell 
+			Magnus_Magnus Markus_Marcus Magni_Magne Mats_Matthew Nils_Nicholas Niklas_Nicholas Oddr_Odd Ola Olafr_Olaf Ormr_Orm Ottarr_Ottar Peder_Peter 
+			Ragnarr_Rainer Rögnvaldr_Ragnvald Snorri Sigbjörn Sigurðr_Sigurd Steinn_Sten Stígandi Þorbjörn_Torbjörn	Þorbrandr_Torbrand Þordr_Tord 
+			Þorgil_Torkel Þorsteinn_Torsten Þráinn Thrain Thorolf Thorstein Åke Öysteinn_Eysteinn
+		}
+		female_names = {
+			Alfhildr_Alfhild Asa_Åsa Aslaug Astrid_Astrid Birginga Björg Bothildr_Bothild Elisabet_Elizabeth Freyja_Freja Gerðr Gleip Gloð Grima 
+			Gunnhildr_Gunhild Gyða_Gytha Helena_Helen Hrefna Inga_Inga Ingibjörg Ingrid_Ingrid Karin_Catherine Katarina_Catherine Kristina_Christina Linda
+			Malmfrið_Malmfrid Margareta_Margaret Märta_Martha Melkorka Rikissa Rögnfrið_Ragnfrid Sif Sigrid_Sigrid Skuld Þora_Thora Þordis_Thordis Þyra_Thyra 
+			Þorgerðr Ulfhildr_Ulvhilde Unnr
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_aptrganger_culture_modifier
+	}
+	undead_draugr = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.2 0.1 0.2 }
+		
+		male_names = {
+			Ægir Albrikt_Albert Ale Alfr_Alf Alvaldi Anders_Andrew Aran Arnbjörn Arne_Arne Arnfast Arngrimr Asmund Aufhocker Bagge Barid Baugi Beli Bergelmir
+			Björn_Beorn Bo Bolli Bölþorn Býleistr Dan Egill_Egil Eggthér Einarr_Einar Eirikr_Erik Falki Fárbauti Fjörgynn Fornjót Fredrik_Frederick Frirek 
+			Gandalfr Gang Gangr Geirr Geirröðr Gjenferd Glámr Gleip Grettir Gorm_Gorm Grimr_Grim Guðfrið_Godfrey Guðmundr_Gudmund Guðrún Guðröðr_Gudröd 
+			Gunnarr_Gunnar Hakon_Hakon Hallbjörn Haugbui Haraldr_Harold	Helgi_Helge Höskuldr Hrapp Hrappr Hrolfr_Rolf Hromund Hrörekr_Rurik Hvamm 
+			Ingólfr_Ingolf Ingemar Ingjald Iði Ivar_Ivar Jedvard_Edward Karl_Charles Kettil Kettilmund Kjartan Klas Knut_Knut Kotkell Magnus_Magnus 
+			Magni_Magne Oddr_Odd Ola Olafr_Olaf Ölvaldi Ormr_Orm Ottarr_Ottar Ragnarr_Rainer Rögnvaldr_Ragnvald Snorri Sigbjörn Sigurðr_Sigurd Steinn_Sten 
+			Stígandi Þjazi Þráinn Thrain Þrúðgelmir Åke Öysteinn_Eysteinn Ymir
+		}
+		female_names = {
+			Alfhildr_Alfhild Angrboða Asa_Åsa Aslaug Astrid_Astrid Aurboða Bestla Birginga Björg Bothildr_Bothild Elisabet_Elizabeth Fjörgyn Gerðr Gjálp Gleip
+			Gloð Greip Grima Gunnhildr_Gunhild Gyða_Gytha Hrefna Inga_Inga Ingibjörg Ingrid_Ingrid Karin_Catherine Katarina_Catherine Kristina_Christina 
+			Laufey Linda Malmfrið_Malmfrid Margareta_Margaret Märta_Martha Melkorka Rikissa Rögnfrið_Ragnfrid Sigrid_Sigrid Skuld Þyra_Thyra Þorgerðr 
+			Ulfhildr_Ulvhilde Unnr
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_draugr_culture_modifier
+	}
+	undead_dybbuk = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.7 0.7 0.7 }
+		
+		male_names = {
+			Abba Aharon_Aaron Alechsandri_Alexander Amram Avraham_Abraham Azriel Binyamin_Benjamin Boaz Chananel Chanoch Chayim Chushiel Daniel_Daniel 
+			David_David	Efrayim Elazar Elijah Eliezer Gedalyah Gershom Giza Hadasa Hayyim Isaac_Isaac Josephus Judah Kahana Khanan Levi Manasseh 
+			Matiyahu_Matthew Meshulam Mishael Mordechai Moshe_Moses Nechemiah Peter_Peter Rava Ravi Reuven_Reuben Samson Samuel Shabbetai Shalom Shimon
+			Shlomo_Solomon Shmuel_Samuel Tamar Uri Yaakov_Jacob Yehudah_Judah Yehudai_Judah Yehoshua_Joshua Yisrael Yitzchak_Isaac Yoel Yosef_Joseph Yoshiah
+			Zakkai
+		}
+		female_names = {
+			Beila Belet Chana Doltza Dorca Esther_Esther Guta Guthela Leah Madrona Matrona Minna Pultzelina Rachel Rivkah Ruah Ruth Saris Scolaster Shluida
+			Shoinlin Shonlin Tziporah Yehudis_Judith Yeintil
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_dybbuk_culture_modifier
+	}
+	undead_ghoul = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.7 0.6 0.5 }
+		
+		male_names = {
+			Abazza Abbas_Abbas Abu-Bakr_Abu-Bakr Aarif Abdul_Abdul Abdul-Azeem Abdul-Gafur Abdul-Jaleel Abdul-Kareem Abdul-Wahab Abdullah_Abdullah
+			Adam_Adam Afer Ahmad_Ahmad Aksil_Caecilius Al'a'addin Ali_Ali Alim Amma Aram Asad Awgustin_August Ayt'ere Az'ar Badda Beddis Fadil Galla Ghalib
+			Hafiz Haidar Hamad Hasan_Hasan Hussamaddin Hussayn_Hussein Ibrahim_Abraham Iccaam Idris Ilyas_Ilyas Jabir Jaffar Jalil Jamal Kamal Khaireddin
+			Luki_Lucius Mahmud_Mahmud Malik Mansur Masmud Matiya_Matthew Mubarak Mukhtar Murad Muslihiddin Muzaffaraddin Najib Nasr Nizam Qawurd Qutrub
+			Ramadan Sa'daddin Sadiq Sa'id Salah Salla Sami Samir Shamir Shujah Sifal Sinbad Talib T'ar'iq Tariq Ugdada Ubayd Uways Yahya_Yahya Ya'qub_Jacob
+			Yeh'lem Youkhanna_John Zeyd
+		}
+		female_names = {
+			Aaliyah Aamira Adelah_Adela Adilah Adila Amsha Asiya Bahiyya Bakka Bibya Cala Cantara Dalal Dimah Durra Edza Eleonorka_Eleanor Faghira Fahriya
+			Fedada Ghida Ghul Gulah Habiba Hanifa H'edda Hawwa Iija Jahaira Kamala Kamila Kenwa Lalla Layla Lem'an Lyaqut Maryam_Maria Massa Melek Menna 
+			Monica_Monica Myassa Nafisa Najiba Nyawela Parand Parween Paymaneh Paywand Qamara R'uza Ra'isa Rafiqa Rahima Rasa Rashida Reshawna Saaman Sabba
+			Sadiqa Saghar Sahba Sajida Samira Semeah Setara Shahrbano Shahzadah Shameem Shararah Sheeftah Sheeva Shogofa Shokouh Shola Sholah Siddiqa Siman
+			Sila Souzan Tadla Taliba Tanaszart Tanaz Taneen Tarifa Tasa Tasa'fut Tati Taweckint Tislit Titbirt Titrit Tizemt Tiziri Triya Tudert Tuh'r'ict
+			Ultafa Wenza Wnissa Yagana Yakta Yasmin_Yasmin Z'diant Z'ergha Zahida Zamba Zaynab
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_ghoul_culture_modifier
+	}
+	undead_wight = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.2 0.2 0.2 }
+		
+		male_names = {
+			Aaron_Aaron Abner_Abner Abél_Abel Adam_Adam Áed_Hugh Áedán_Hugh Áengus_Angus Ailbrenn Ailgus Alan_Alan Alastair_Alexander Albert_Albert
+			Alexander_Alexander Alfred Amlaíb_Olaf Andrew_Andrew Archibald_Archibald Arnold_Arnold Art_Arthur Artgus Arthur_Arthur Artúr_Arthur Beorhtric
+			Beorhtwine_Beorhtwine Beorn_Beorn Bhátair_Walter Bran_Bran Brian_Brian Brice_Brice Brénainn Burgheard_Bouchard Byrhtnoth Cairbre_Carbrey
+			Calum_Nicholas Carlus_Charles Cathal Cearl_Charles Cenfus Cennlachán Cenræd_Konrad Cenwulf Cerdic_Caradog Christopher_Christopher Cináed_Kenneth
+			Clemens_Clement Colin_Nicholas Colmán_Nicholas Conall_Conall Conan_Conan Conán_Conan Conn_Conn Copsige Corbán Cormac Cuthberht_Cuthbert Cuthræd
+			Cynehelm Cynewulf Dabíd_David Daniél_Daniel David_David Dermid_Dermid Domnall_Donald Donald_Donald Donn Donnchad_Duncan Douglas_Douglas Duff_Duff
+			Dugald_Dugald Duncan_Duncan Eadberht Eadgar_Edgar Eadmund_Edmund Eadmær Eadric Eadsige Eadulf_Adolf Eadweard Eadwine_Edwin Eadwulf_Adolf 
+			Ealdwine_Alwin Eardwulf Edgar_Edgar Edmund_Edmund Edward_Edward Edwin_Edwin Erc_Eric Eric_Erik Eustace_Eustace Evander_Ivar Ewan_Eugene
+			Fergus_Fergus Fingal_Finn Finn_Finn Finnlagh_Findlay Fulk_Folke Gamall Geoffrey_Godfrey George_George Gerald_Gerald Gavin_Gavin Gilbert_Gilbert
+			Godfrey_Godfrey Godwine Gregor_Gregory Gregory_Gregory Guthfrith_Godfrey Guy_Guy Hacon_Hakon Hamish_Jacob Harold_Harold Hector_Hector Henry_Henry
+			Hereberht_Herbert Hlothere_Lothair Hugh_Hugh Humphrey Iago_Jacob Iain_John Inwær_Ingvar James_Jacob Jocelyn John_John Jordan_Jordan Kenneth_Kenneth
+			Laurence_Laurence Leofhelm Leofric Lionel_Lionel Llywelyn Lugh_Leon Macbeth Maccus_Maccus Malcolm_Malcolm Mark_Marcus Martan Martin_Martin
+			Matthew_Matthew	Maurice_Maurice Michael_Michael Murdoch_Murdoch Myrddin_Martin Neil_Nigel Nicholas_Nicholas Offa_Uffe Onlaf_Olaf Oscar_Oscar 
+			Osmund Owain_Eugene Pátraic_Patrick Paul_Paul Petair_Peter Peter_Peter Petre_Peter Philip_Philip Pilib_Philip Pól_Paul Rædwulf_Ralph
+			Rægenweald_Reinhold Ralph_Ralph Randolph_Ralpholph Reginald_Rainer Richard_Richard Robert_Robert Roderick_Roderick Roger_Roger Ronald_Ragnvald
+			Ross Roy_Roy Séamas_Jacob Seán_John Shaw_Shaw Sigehelm Sigeric Simon_Simon Siweard_Sigurd Stephen_Stephen Suibne_Sweeny Sweeny_Sweeny Swegn_Sven
+			Theobald_Theobald Thomas_Thomas	Thurcytel_Torkel Tomás_Thomas Tostig_Toste Uhtræd_Uhtred Ulf_Ulf Waleran Walter_Walter Wiglaf Wihtræd_Withred
+			Wulf_Ulf William_William Ælfgar	Ælfræd_Alfred Ælfstan_Alstan Ælfwig Ælfwine_Alwin Ælle_Alwin Æthelbald Æthelwine_Alwin Æthelwulf_Adolf
+		}
+		female_names = {
+			Ada Adela_Adela Adelaide_Adelaide Agatha_Agatha Agnes_Agnes Aileen_Helen Áine_Agnes Alice_Alice Anna_Anna Annabella Anne_Anna Aveline_Avelina
+			Balthild Beatrice_Beatrice Beorhtflæd Beorhtgifu Beorhtwynn Beornflæd Blæja Blanche_Blanche Brigit_Brigit Caitilín_Catherine Catherine_Catherine
+			Catríona_Catherine Cecilia_Cecilia Ceolflæd Constance_Constance Cristina_Christina Cuthburg Cyneburg Cynehild Deirdre_Deirdre Donella Eadflæd
+			Eadgifu Eadgyth_Edith Eadhild Ealdgyth_Edith Ecgfrida Edith_Edith Edna_Eithne Ela Eleanor_Eleanor Elizabeth_Elizabeth Elspeth_Elizabeth Emma_Emma
+			Hawise Isabel_Elizabeth Godgifu Gunhilda_Gunhild Gwen_Gwen Gytha_Gyda Helga_Helga Isabella_Elizabeth Jean_Joan Joan_Joan Joanna_Joan Judith_Judith
+			Juliana_Juliana Kirstin_Christina Leofgifu Leofwynn Lorna Lucia_Lucia Maisie_Margaret Margaret_Margaret Marjory_Marjory Martha_Martha Mary_Maria
+			Matilda_Matilda Maud_Matilda Mauda_Matilda Muriel_Muriel Philippa_Philippa Rhiannon_Rhiannon Rhonda Ros_Ros Saundra_Alexandra Sheena_Joan
+			Sigrid_Sigrid Sybilla_Sibylla Wulfgifu Wulfhild Wynnflæd Æbba Ælfflæd_Ælflæda Ælfgifu Ælflæda_Ælflæda Ælfrida Æthelgifu
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_wight_culture_modifier
+	}
+	undead_zombie = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.3 0.3 0.3 }
+		
+		male_names = {
+			Abidemi Abimbola Abioye Ade Adebiku Amadi Babajide Babatunde Badä Bakr Bakr-Kanbu Bamari Bamidele Bankanu Bannu Bassarou Bassi Birama Bisi Biyu
+			Bokor Bokorwaseyi Bonga Cisse Dankaran Demba Diara Diku Düru Faga-Laye Fatta Fodi Fuluku Fädazu Gane Gao Hargani Harun Idowu Igoumou Iku Ikubowale
+			Ikudele Ikujimi Ikutunde Ikuwasegun Ikuwayemisi Jumbee Kabayo Kalabi Kambine Kanafa Kassa Kasseï Kaya Kayna Kinkin Kisha Kodama Koïzé Kukuray
+			Kusoy Lahiltoul M'Bali Maammarou Maghan Majan Malla Mamadi Mamoudou Manding-Bory Mari-Djata Maÿroumfa Missi-Izé Morobani Nintasanay Nuh Ouali
+			Ouankoÿ	Ouati Reidja Sakoura Sandaki Soumaba Soumaoro Soundiata Takoi Tib Tomo_Thomas Tunka Umar_Umar Yama Yasiboy Zakoi Zenku
+		}
+		female_names = {
+			Abeni Abimbola Abioye Ade Adja Aichata Aissata Alaba Alima Aminata Amita Aoua Ayodekun Barakissa Bintou Bosede Dada Deye Diku Djeneba Djenly
+			Djire Fadima Fatoumata Halima Hawa Ife Ige Iku Ikudele Ikufemi Ikumide Ikuyinka Ina Kadi Kilia Kolonkan	Lorane Nafissa Namandjé Namiss Nana
+			Olubunmi Opyemi Safiatou Salimata Sassouma Sidibé Simisiku Siya Sogolon Tekhaye Titiliku Yejide Yetunde Yewande Youma Zeïnab
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_zombie_culture_modifier
+	}
+	undead_vetala = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.6 0.6 0.6 }
+		
+		male_names = {
+			Achalraj_Achalraja Ajmal Amritnarayan Anangabhima Betal Balabhadra Ballalsen Chandrasen Charamparaja Danai Danujmadhava Dhanga_Dhanga Durjaya 
+			Gangadhara Gopala Hajo Harendranarayan Hastivarman Hirapal_Hirapala Indranarayan Indranatha Jadu Jahangir Jaspal_Jasapala Jatakhadga Jayamala
+			Kalaha Kalyanachandra Krishnaroy Kunwar_Kunwar Lakshmichandra Lakshmikaradeva Lomapada Madanapala Manamatra Nandaprabhanjanavarman Narasingha
+			Netta Nihaal Parikshitnayaran Pishacha Prithivimaharaja Raghudev Ramnath Ranga Samudrasen Satru Shurapala Teja Traillokyachandra Udirnakhadga
+			Ummoka Vakapala Vijaya Vijaysen Vikramaditya Yayati "Bhairav Singh" Dhireshwar "Laxman Sen" "Shakrasingh Dev" Gopal 
+		}
+		female_names = {
+			Ahiavadevi Akal Amrapali Asima "Bishwas Devi" Bibibai Dandi Dattadevi Gandharavati Himadrija Hira Jira Kanchani Kanchuka Kuladevi Lakshmi
+			Mahendrani Malavyadevi Nayanadevi Rani Ratnadevi Suvrata Syamadevi Vasumati Vijnayavati Vina Yajnavati
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_vetala_culture_modifier
+	}
+	undead_vrykolakas = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.6 0.6 0.6 }
+		
+		male_names = {
+			Abas Adrianos_Adrian Alastore Alexander_Alexander Aleksandr_Alexander Alexandros_Alexander Alexios_Alexis Anastasios_Anastasius Antonius_Antonius
+			Antoninus Andreas_Andrew Andronikos_Andronicus Anthemios Anthimos Antiochos Antonios_Antonius Aorous Apollonios Aurelius Arsenios Ataphous
+			Bartholomaios_Bartolomeus Basileios_Basil Bedros_Peter Belisarios_Belisarius Belisarius_Belisarius Biaiothanatous Boghos_Paul Britannicus
+			Caesar_Caesar Cassius Christophoros_Christopher Claudius_Claudius Clementius Constantine_Constantine Cornelius_Cornelius Damianos_Damian
+			Daniel_Daniel David_David Davit_David Decimus Demetrios_Demetrius Diocletian Diogenes Dionysios_Dionysus Eirenaios Eudoxios Eustratios
+			Eugenios_Eugene Eustathios_Eustace Evangelos Faustus Gabriel_Gabriel Gagik_Gagik Gaius Gallus Georgios_George Germanos_Germanus Gevorg_George
+			Gosdantin_Constantine Gregoras_Gregory Gregorios_Gregory Grigor_Gregory Gurgen_Lupo Hadrian_Adrian Hektorios_Hector Helias_Elijah
+			Herakleios_Heracles Herculius_Heracles Hippolytos_Hippolytus Honorius Hovhannes_John Hovsep_Joseph Ianettis Iakobos_Jacob Ignatios_Ignatius
+			Innokentios Ioannes_John Iordanes_Jordan Ioseph_Joseph Isaakios_Isaac Ioulianos_Julian Ioustinianos_Justinian Ioustinos_Justin Ivane_John
+			Joannes_John Jovian Julian_Julian Julius_Julius Justin_Justin Justinian_Justinian Kaisarios_Caesar Kallinikos Kallistos_Callistus Kapriel_Gabriel
+			Khosrov_Khosrau Konstantinos_Constantine Konstantios_Constantius Kosmas_Cosmas Kyrillos_Cyril Laurentios_Laurence Lazaros_Lazarus Leo_Leo Leon_Leo
+			Leontios_Leontius Levon_Leo Loukas Lucius Malkhas_Malkhas Manuel_Manuel Marcellus Marcus_Marcus Margos_Marcus Markos_Marcus Matthaios_Matthew
+			Maurikios_Maurice Maximos_Maximus Maximus_Maximus Megistos_Magnus Miastore Michael_Michael Mikayel_Michael Mormo Nikodemos Nikolaos_Nicholas
+			Octavianus Octavius Patino Paulus_Paul Pavlos_Paul Petros_Peter Philippos_Philip Prostropaius Raphail_Raphael Romanos_Roman Roupen_Reuben
+			Sahag_Isaac Samuel_Samuel Sarkis_Sergius Sebastianos_Sebastian Sergios_Sergius Shahanshah_Shahanshah Stepanos_Stephen Symeon_Simon Taniel_Daniel
+			Tiresias Theocharistos Theodoros_Theodore Theophanes Thomas_Thomas Thoros_Theodore Tiberios_Tiberius Timotheos_Timothy Tovmas_Thomas
+			Traianos_Trajan Tympaniaios Valerios_Valerius Vourdoulakas Zacharias_Zachary
+		}
+		female_names = {
+			Agathe_Agatha Aghavni Agne_Agnes Agrippina Alexandra_Alexandra Alexeia Alitz_Alice Anastasia_Anastasia Anna_Anna Antonia_Antonia Apollonia Aquilia
+			Arin Barbara_Barbara Candida Claudia_Claudia Constantina_Constantina Demetra Dionysia Dorothea_Dorothy Eirene_Irene Empusa Eudokia_Eudocia Eugenia
+			Euphemia_Euphemia Eupraxia Gelloud Georgia Helene_Helen Hypatia Ioanna_Joan Ioulia_Julia Iouliana_Juliana Ioustina_Justina Kale Keghanoush Keran
+			Konstantia_Constantia Constantine_Constantina Kyra Lamia Leyli Mara Margarid_Margaret Margarita_Margaret Maria_Maria Mariyam_Maria Markia_Marcia
+			Martha_Martha Melissa_Melisende Nonna Pavlina_Paulina Petronia_Petronia Philippa_Philippa Phyllis Pulcheria_Pulcheria Rita Romane Sergia_Sergia
+			Sibylla_Sibylla Sophia_Sophia Stephania_Stephania Stringle Tamar_Tamar Theodora_Theodora Theodosia_Theodosia Valeria_Valeria Viviana_Viviana Xene
+			Zabel_Elizabeth Zenobia Zoe
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_vrykolakas_culture_modifier
+	}
+	undead_revenant = {
+		graphical_cultures = { undeadgfx }
+		
+		color = { 0.6 0.6 0.6 }
+		
+		male_names = {
+			Abhartach Abram Adalbert_Albert Adam_Adam Adolf_Adolf Aiulf_Aiulf Alfonso_Alphonse Alois_Louis Alonso_Alphonse Alp Baldewin_Baldwin Benoît_Benedict
+			Bernard_Bernard Bertrand_Bertrand Berwick Bouchard_Bouchard Diego_Diaco Donnolo Drogo_Drogo Emmerich_Aymeric Ezra François_Francis Frédéric_Frederick
+			Geoffroy_Godfrey Géraud_Gerard Gilbert_Gilbert Gjenganger Gunthar_Günther Guy_Guy Halpin Heinrich_Henry Isaac Jacques_Jacob Jaufré_Godfrey Jean_John
+			Karl_Charles Karlmann_Carloman Kaspar_Caspar Lambert_Lambert Léon Léonard Lothaire_Lothair Louis_Louis Loup_Lupo Magnus_Magnus Martín_Martin
+			Maurice_Maurice Munio_Munio Nachzehrer Nav Nicolas_Nicholas Nuño_Nuno Otto_Otto Peter_Peter Philipp_Philip Pierre_Peter Reinhard_Renard
+			Reinhold_Reinhold Raymond_Raymond Richard_Richard Rodrigo_Roderick Roger_Roger Roland_Roland Robert_Robert Rudolf_Ralph Sico_Sicco Siegmund_Sigmund
+			Sigismund_Sigmund Simon_Simon Stefan_Stephen Theoderich_Thierry Thierry_Thierry Thomas_Thomas Ulrich_Ulrich Vasco_Vasco Viktor_Victor Walter
+			Wiedergänger Wilhelm_William William_William
+		}
+		female_names = {
+			Adela_Adela Adelberga Adelinde_Adelinde Agathe_Agatha Amalie_Amelia Ansa_Ansa Barbara_Barbara Beatrix_Beatrice Brunhilde_Brunhilda Cecilie_Cecilia
+			Charlotte Christine_Christina Constance_Constance Denise_Denise Dorothea_Dorothy Elisabeth_Elisabeth Emma_Emma Gertrude_Gertrude Gisela_Gisela
+			Gudrun_Gudrun Hedwig_Hedwig Helene_Helen Hildegard_Hildegard Ida_Ida Ilsa Inga_Inga Joana_Joan Konstanze_Constance Leonor_Eleanor Maria_Maria
+			Mélusine Munia_Munia Nuña Sibel_Sibylla Sofie_Sophia Sybille_Sibylla Urraca_Urraca Wilhelmina_Wilhelmina Zehra
+		}
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 50
+		mat_grf_name_chance = 10
+		father_name_chance = 5
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 5
+		
+		modifier = undead_revenant_culture_modifier
 	}
 }

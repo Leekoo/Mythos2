@@ -167,6 +167,7 @@ character_event = {
 		text = EVTDESCAMYTH.3
 		trigger = {
 			true_religion_group = christian
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -176,12 +177,14 @@ character_event = {
 				true_religion = norse_pagan
 				true_religion = norse_pagan_reformed
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCCMYTH.3
 		trigger = {
 			true_religion_group = muslim
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -191,6 +194,7 @@ character_event = {
 				true_religion = druidic_reformed
 				true_religion = druidic
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -200,6 +204,7 @@ character_event = {
 				true_religion = atenist
 				true_religion = kemetic_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -209,6 +214,7 @@ character_event = {
 				true_religion = jotnar_reformed
 				true_religion = jotnar
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -218,12 +224,14 @@ character_event = {
 				true_religion = hellenic_pagan
 				true_religion = roman_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCHMYTH.3
 		trigger = {
 			true_religion = satanist
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -233,6 +241,7 @@ character_event = {
 				true_religion = finnish_pagan_reformed
 				true_religion = finnish_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -242,30 +251,37 @@ character_event = {
 				true_religion = aztec_reformed
 				true_religion = aztec
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCKMYTH.3
 		trigger = {
 			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCLMYTH.3
 		trigger = {
 			true_religion_group = indian_group
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCMMYTH.3
 		trigger = {
-			true_religion = voodoo
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
 		}
 	}
 	# Misc - either generic groups, or ones where I can't find appropriate myths
 	desc = {
 		text = EVTDESCMYTH.3
 		trigger = {
+			NOT = { trait = necromancer }
 			OR = {
 				true_religion = tengri_pagan_reformed
 				true_religion = tengri_pagan
@@ -294,6 +310,7 @@ character_event = {
 				true_religion = norse_pagan
 				true_religion = norse_pagan_reformed
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -362,6 +379,7 @@ character_event = {
 				true_religion_group = christian
 				true_religion_group = muslim
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -431,6 +449,7 @@ character_event = {
 				true_religion = jotnar_reformed
 				true_religion = jotnar
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -512,6 +531,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			true_religion = satanist
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -576,6 +596,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -642,11 +663,14 @@ character_event = {
 		}
 	}
 	
-	# Voodoo
+	# The Damned
 	option = {
 		name = EVTOPTAMYTH.3
 		trigger = {
-			true_religion = voodoo
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
 		}
 		location = {
 			tooltip = {
@@ -706,7 +730,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			NOR = {
-				true_religion = voodoo
+				true_religion = the_damned
 				true_religion_group = jewish_group
 				true_religion_group = christian
 				true_religion_group = muslim
@@ -716,6 +740,7 @@ character_event = {
 				true_religion = norse_pagan_reformed
 				true_religion = norse_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -2074,75 +2099,8 @@ character_event = {
 	}
 }
 
-# Voodoo becoming a wicked priest
-character_event = {
-	id = MYTH.36
-	#desc = EVTDESCMYTH.36
-	picture = GFX_evt_scandal
-	border = GFX_event_normal_frame_religion
-	title = EVTWICKEDPRIEST
-	
-	desc = {
-		picture = GFX_evt_scandal
-		text = EVTDESCMYTH.36a
-		trigger = { trait = immortal }
-	}
-	desc = {
-		picture = GFX_evt_scandal
-		text = EVTDESCMYTH.36b
-		trigger = { NOT = { trait = immortal } }
-	}
-	
-	is_triggered_only = yes
-	min_age = 16
-	only_capable = yes
-	prisoner = no	
-	religion = voodoo
-	
-	has_dlc = "Sons of Abraham"
-	
-	trigger = {
-		NOR = {
-			intrigue = 3
-			diplomacy = 3
-			trait = bad_priest_voodoo
-		}
-		is_priest = yes
-		OR = {
-			trait = cynical
-			trait = slothful
-			trait = immortal
-		}
-	}
-	
-	option = {
-		name = EVTOPTMYTH.36
-		add_trait = bad_priest_voodoo
-		if = {
-			limit = {
-				is_ruler = yes
-				has_nickname = no
-				NOT = { trait = immortal }
-			}
-			random_list = {
-				70 = {
-					give_nickname = nick_the_wicked
-				}
-				10 = {
-					give_nickname = nick_the_black
-				}
-			}
-		}
-		if = {
-			limit = {
-				is_ruler = yes
-				has_nickname = no
-				trait = immortal
-			}
-			give_nickname = nick_the_monster
-		}
-	}
-}
+# MYTH.36 - removed
+
 # Druid becoming a wicked priest
 character_event = {
 	id = MYTH.37

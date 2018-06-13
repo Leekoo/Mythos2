@@ -31,7 +31,8 @@ tribal = {
 		}
 		trigger = {	
 			holder_scope = { trait = dragon }
-			is_capital = yes					 
+			is_capital = yes	
+			owner = { NOT = { government = zombie_horde } }				 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -40,6 +41,7 @@ tribal = {
 					trait = dragonborn
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		prerequisites = { tb_hillfort_2 }
@@ -92,7 +94,8 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
-			is_capital = yes					 
+			is_capital = yes	
+			owner = { NOT = { government = zombie_horde } }				 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -101,6 +104,7 @@ tribal = {
 					trait = dragonborn
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_dragon_tower_1
@@ -153,7 +157,8 @@ tribal = {
 				has_law = tribal_organization_4
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
-			is_capital = yes					 
+			is_capital = yes	
+			owner = { NOT = { government = zombie_horde } }				 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -162,6 +167,7 @@ tribal = {
 					trait = dragonborn
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_dragon_tower_2
@@ -218,6 +224,7 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -226,6 +233,7 @@ tribal = {
 					trait = dragonborn
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		prerequisites = { tb_hillfort_1  }
@@ -277,6 +285,7 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -285,6 +294,7 @@ tribal = {
 					trait = dragonborn
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_dragon_vault_1
@@ -306,7 +316,13 @@ tribal = {
 		desc = tb_resident_dragons_desc
 		
 		potential = { culture = draconic }
-		trigger = { culture = draconic }
+		trigger = {
+			culture = draconic
+			owner = { NOT = { government = zombie_horde } }
+		}
+		is_active_trigger = {
+			owner = { NOT = { government = zombie_horde } }
+		}
 		ai_creation_factor = 90
 		
 		gold_cost = 100
@@ -352,10 +368,12 @@ tribal = {
 		trigger = { 
 			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
-			is_capital = yes					 
+			is_capital = yes
+			owner = { NOT = { government = zombie_horde } }					 
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		prerequisites = { tb_hillfort_1 }
@@ -401,10 +419,12 @@ tribal = {
 		trigger = { 
 			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
-			is_capital = yes					 
+			is_capital = yes		
+			owner = { NOT = { government = zombie_horde } }			 
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_werewolf_lodge_1
@@ -451,9 +471,11 @@ tribal = {
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
 			holder_scope = { trait = known_werewolf }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		prerequisites = { tb_hillfort_1 }
@@ -477,7 +499,12 @@ tribal = {
 		desc = tb_werewolf_raiders_desc
 		
 		potential = { culture = werewolf_culture }
-		trigger = { }
+		trigger = {
+			owner = { NOT = { government = zombie_horde } }
+		}
+		is_active_trigger = {
+			owner = { NOT = { government = zombie_horde } }
+		}
 		ai_creation_factor = 90
 		
 		lycan_berzerkers = 20
@@ -529,9 +556,11 @@ tribal = {
 				}
 			}
 			is_capital = yes 
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		prerequisites = { tb_hillfort_2 }
@@ -581,10 +610,12 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
-			is_capital = yes					 
+			is_capital = yes	
+			owner = { NOT = { government = zombie_horde } }				 
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_vampire_citadel_1
@@ -641,9 +672,11 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_2 }
 		ai_creation_factor = 100
@@ -663,7 +696,12 @@ tribal = {
 		desc = tb_vampire_raiders_desc
 		
 		potential = { culture = vampire_culture }
-		trigger = { }
+		trigger = {
+			owner = { NOT = { government = zombie_horde } }
+		}
+		is_active_trigger = {
+			owner = { NOT = { government = zombie_horde } }
+		}
 		
 		ai_creation_factor = 90
 		
@@ -716,6 +754,7 @@ tribal = {
 				}
 			}
 			is_capital = yes
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -724,6 +763,7 @@ tribal = {
 					trait = half_giant
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 			
 		prerequisites = { tb_hillfort_1 }
@@ -777,7 +817,8 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
-			is_capital = yes					 
+			is_capital = yes	
+			owner = { NOT = { government = zombie_horde } }				 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -786,6 +827,7 @@ tribal = {
 					trait = half_giant
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		upgrades_from = tb_giant_shield
@@ -842,6 +884,7 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -850,6 +893,7 @@ tribal = {
 					trait = half_giant
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		ai_creation_factor = 100
 		
@@ -892,6 +936,7 @@ tribal = {
 				}
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -901,6 +946,7 @@ tribal = {
 					trait = blood_of_the_gods
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}		
 		
 		prerequisites = { tb_hillfort_1 }
@@ -951,6 +997,7 @@ tribal = {
 					has_law = tribal_organization_4
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -961,6 +1008,7 @@ tribal = {
 					trait = arcane_master
 				}
 			}
+			owner = { NOT = { government = zombie_horde } }
 		}
 		
 		ai_creation_factor = 95
@@ -1004,9 +1052,11 @@ tribal = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			is_capital = yes
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_2 }
 		ai_creation_factor = 95
@@ -1050,9 +1100,11 @@ tribal = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			holder_scope = { trait = mummy }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1095,9 +1147,11 @@ tribal = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			is_capital = yes
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1139,9 +1193,11 @@ tribal = {
 		}
 		trigger = {
 			holder_scope = { trait = djinn }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101
@@ -1183,9 +1239,11 @@ tribal = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
+			owner = { NOT = { government = zombie_horde } }
 		}
 		is_active_trigger = {
 			holder_scope = { trait = monster_hunter }
+			owner = { NOT = { government = zombie_horde } }
 		}
 		prerequisites = { tb_hillfort_1 }
 		ai_creation_factor = 101

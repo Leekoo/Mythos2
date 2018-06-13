@@ -782,7 +782,7 @@ determine_purity = {
 	}
 	if = {
 		limit = { has_character_modifier = potion_of_purity }
-		changge_variable = { which = purity value = 1 }
+		change_variable = { which = purity value = 1 }
 	}
 	if = {
 		limit = { 
@@ -6841,6 +6841,838 @@ spawn_monster_hunter_reinforcements_effect = {
 		}
 	}
 }
+
+
+spawn_zombie_army_effect = {
+	if = {
+		limit = {
+			has_game_rule = {
+				name = provincial_revolt_strength
+				value = default
+			}
+		}
+		random_list = {
+			17 = {
+				
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.75
+					troops = {
+						zombie_troops = { 15 15 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 15 15 }
+						}
+						attrition = 1.0
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 20 20 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			17 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 15 15 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 15 15 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 15 15 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			16 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.75
+					troops = {
+						zombie_troops = { 10 10 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.2
+						troops = {
+							zombie_troops = { 15 15 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+						reinforces = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = peasant_leader
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 15 15 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			17 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 10 10 }
+						light_cavalry = { 3 3 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 10 10 }
+							light_cavalry = { 3 3 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 10 10 }
+							heavy_infantry = { 3 3 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			16 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.75
+					troops = {
+						archers = { 6 6 }
+						zombie_troops = { 14 14 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							archers = { 6 6 }
+							zombie_troops = { 14 14 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							archers = { 6 6 }
+							zombie_troops = { 14 14 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			17 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						archers = { 2 2 }
+						zombie_troops = { 14 14 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = skilled_tactician
+					trait = narrow_flank_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							archers = { 2 2 }
+							zombie_troops = { 14 14 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+					trait = aggressive_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							archers = { 2 2 }
+							zombie_troops = { 14 14 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_game_rule = {
+					name = provincial_revolt_strength
+					value = default
+				}
+			}
+		}
+		random_list = {
+			17 = {
+				
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.75
+					troops = {
+						zombie_troops = { 20 20 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = skilled_tactician
+					trait = tough_soldier
+					trait = experimenter
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 20 20 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = skilled_tactician
+					trait = defensive_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 10 10 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			17 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 10 10 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = skilled_tactician
+					trait = flanker
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 10 10 }
+						}
+						attrition = 1.0
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = skilled_tactician
+					trait = organizer
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 10 10 }
+						}
+						attrition = 1.0
+					}
+				}
+			}
+			16 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.75
+					troops = {
+						light_cavalry = { 3 3 }
+						zombie_troops = { 11 11 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = skilled_tactician
+					trait = holy_warrior
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							light_cavalry = { 3 3 }
+							zombie_troops = { 11 11 }
+						}
+						attrition = 1.0
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = skilled_tactician
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.75
+						troops = {
+							zombie_troops = { 11 11 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			17 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 11 11 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = brilliant_strategist
+					trait = flanker
+					trait = inspiring_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							archers = { 2 2 }
+							light_cavalry = { 1 1 }
+							zombie_troops = { 11 11 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = brilliant_strategist
+					trait = organizer
+					trait = narrow_flank_leader
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 11 11 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			16 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.8
+					troops = {
+						zombie_troops = { 20 20 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.8
+						troops = {
+							zombie_troops = { 20 20 }
+						}
+						attrition = 1.0
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 31
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.9
+						troops = {
+							zombie_troops = { 20 20 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+			}
+			1 = {
+				spawn_unit = {
+					province = ROOT
+					home = ROOT
+					owner = THIS
+					#leader = THIS
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 6 6 }
+					}
+					attrition = 1.0
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = THIS
+					female = no
+					age = 30
+					trait = zombie
+					trait = tough_soldier
+				}
+				new_character = {
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							zombie_troops = { 10 10 }
+						}
+						attrition = 1.0
+						disband_on_peace = yes
+					}
+				}
+				create_character = {
+					random_traits = yes
+					dynasty = none
+					religion = THIS
+					culture = draconic
+					female = no
+					age = 31
+					trait = brilliant_strategist
+					trait = dragon
+					trait = zombie
+				}
+				new_character = {
+					culture = ROOT
+					spawn_unit = {
+						province = ROOT
+						home = ROOT
+						owner = PREV
+						scaled_by_biggest_garrison = 0.5
+						troops = {
+							dragon_cavalry = { 1 1 }
+							zombie_troops = { 30 30 }
+						}
+						attrition = 1.0
+					}
+				}
+			}
+		}
+	}
+}
+
+spawn_zombie_reinforcements_effect = {
+	create_character = {
+		random_traits = yes
+		dynasty = none
+		religion = the_damned
+		culture = ROOT
+		female = no
+		age = 24
+		attributes = {
+			martial = 7
+		}
+		trait = skilled_tactician
+	}
+	new_character = {
+		set_undead_culture = yes
+		set_graphical_culture = undead_revenant
+		spawn_unit = {
+			province = ROOT
+			home = ROOT
+			owner = PREV
+			#leader = THIS
+			scaled_by_biggest_garrison = 1.0
+			troops = {
+				zombie_troops = { 20 20 }
+			}
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = PREV
+			culture = PREV
+			female = no
+			age = 27
+			attributes = {
+				martial = 7
+			}
+			trait = skilled_tactician
+		}
+		spawn_unit = {
+			province = ROOT
+			home = ROOT
+			owner = PREV
+			#leader = THIS
+			scaled_by_biggest_garrison = 0.8
+			troops = {
+				zombie_troops = { 20 20 }
+			}
+		}
+		create_character = {
+			random_traits = yes
+			dynasty = none
+			religion = PREV
+			culture = PREV
+			female = no
+			age = 30
+			attributes = {
+				martial = 7
+			}
+			trait = skilled_tactician
+		}
+		spawn_unit = {
+			province = ROOT
+			home = ROOT
+			owner = PREV
+			#leader = THIS
+			scaled_by_biggest_garrison = 0.7
+			troops = {
+				zombie_troops = { 20 20 }
+			}
+		}
+	}
+}
+
 update_control = {
 	if = {
 		limit = { is_variable_equal = { which = control value = 1 } }
@@ -7973,5 +8805,299 @@ hermetic_add_herbal_q1_ingredient_effect = {
 				add_artifact = ingredient_horehound
 			}
 		}
+	}
+}
+
+set_undead_culture = {
+	if = {
+		limit = { culture_group = undead_culture_group }
+	}
+	else_if = {
+		limit = { liege = { culture_group = undead_culture_group } }
+		liege = { PREV = { culture = PREV } }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+				culture_group = east_slavic
+				culture_group = west_slavic
+				culture_group = south_slavic
+			}
+		}
+		culture = undead_cold_ones
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+		culture = undead_draugr
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+		culture = undead_aptrganger
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+		culture = undead_dybbuk
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+		culture = undead_ghoul
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+		culture = undead_wight
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+		culture = undead_zombie
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+		culture = undead_vetala
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+		culture = undead_vrykolakas
+	}
+	else_if = {
+		limit = {
+			location = { region = world_europe_north }
+		}
+		culture = undead_aptrganger
+	}
+	else_if = {
+		limit = {
+			location = { region = world_middle_east_arabia }
+		}
+		culture = undead_ghoul
+	}
+	else_if = {
+		limit = {
+			location = { region = world_europe_west_brittania }
+		}
+		culture = undead_wight
+	}
+	else_if = {
+		limit = {
+			location = { region = world_africa_west }
+		}
+		culture = undead_zombie
+	}
+	else_if = {
+		limit = {
+			location = { region = world_india }
+		}
+		culture = undead_vetala
+	}
+	else = {
+		culture = undead_revenant
+	}
+}
+set_undead_province_culture = {
+	if = {
+		limit = { culture_group = undead_culture_group }
+	}
+	else_if = {
+		limit = { owner = { culture_group = undead_culture_group } }
+		owner = { PREV = { culture = PREV } }
+	}
+	else_if = {
+		limit = {
+			OR = {
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+				culture_group = east_slavic
+				culture_group = west_slavic
+				culture_group = south_slavic
+			}
+		}
+		culture = undead_cold_ones
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+		culture = undead_draugr
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+		culture = undead_aptrganger
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+		culture = undead_dybbuk
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+		culture = undead_ghoul
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+		culture = undead_wight
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+		culture = undead_zombie
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+		culture = undead_vetala
+	}
+	else_if = {
+		limit = {
+			OR = {
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+		culture = undead_vrykolakas
+	}
+	else_if = {
+		limit = {
+			region = world_europe_north
+		}
+		culture = undead_aptrganger
+	}
+	else_if = {
+		limit = {
+			region = world_middle_east_arabia
+		}
+		culture = undead_ghoul
+	}
+	else_if = {
+		limit = {
+			region = world_europe_west_brittania
+		}
+		culture = undead_wight
+	}
+	else_if = {
+		limit = {
+			region = world_africa_west
+		}
+		culture = undead_zombie
+	}
+	else_if = {
+		limit = {
+			region = world_india
+		}
+		culture = undead_vetala
+	}
+	else = {
+		culture = undead_revenant
+	}
+}
+set_necromancy_study = {
+	if = {
+		limit = {
+			OR = {
+				has_character_modifier = studying_conjuration
+				has_character_modifier = studying_herbalism
+				has_character_modifier = studying_alchemy
+				has_character_modifier = studying_sorcery
+			}
+		}
+		remove_character_modifier = studying_conjuration
+		remove_character_modifier = studying_herbalism
+		remove_character_modifier = studying_alchemy
+		remove_character_modifier = studying_sorcery
+		add_character_modifier = { name = studying_necromancy duration = -1 }
 	}
 }

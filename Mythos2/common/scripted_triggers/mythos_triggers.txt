@@ -24,6 +24,7 @@ has_lifestyle_magic_trigger = {
 		trait = herbalist
 		trait = summoner
 		trait = enchanter
+		trait = necromancer
 	}
 }
 
@@ -579,6 +580,7 @@ race_monster = {
 		trait = zombie
 		trait = mummy
 		trait = demon_trait
+		trait = necromancer
 	}
 }
 
@@ -599,6 +601,7 @@ race_disease_immune = {
 		trait = demon_trait
 		trait = ethereal_trait
 		trait = zombie
+		trait = necromancer
 		# Vampires can't get disease normally, but can through feeding
 		AND = {
 			trait = vampire
@@ -699,6 +702,7 @@ is_unblemished = {
 		trait = blinded
 		trait = eunuch
 		trait = lovers_pox
+		trait = zombie
 	}
 }
 
@@ -1333,6 +1337,7 @@ from_god_convert_to_root_religion = {
 					OR = {
 						religion = buddhist
 						religion = taoist
+						religion = the_damned
 					}
 				}
 			}
@@ -1946,9 +1951,19 @@ is_monster_to_root = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
+			trait = zombie
 		}
 	}
 	OR = {
+		AND = {
+			trait = necromancer
+			ROOT = {
+				NOR = {
+					trait = zombie
+					trait = necromancer
+				}
+			}
+		}
 		AND = {
 			trait = dragon
 			ROOT = {
@@ -1981,6 +1996,7 @@ is_monster_to_root = {
 					trait = demon_trait
 					religion = satanist
 					culture = vampire_culture
+					trait = necromancer
 				}
 			}
 		}
@@ -2027,6 +2043,7 @@ is_monster_to_root = {
 			ROOT = {
 				NOR = {
 					trait = zombie
+					trait = necromancer
 					society_member_of = the_cold_ones
 				}
 			}
@@ -2038,6 +2055,7 @@ is_monster_to_root = {
 					trait = mummy
 					religion = kemetic_pagan
 					religion = atenist
+					trait = necromancer
 				}
 			}
 		}
@@ -2062,9 +2080,19 @@ is_monster_to_prev = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
+			trait = zombie
 		}
 	}
 	OR = {
+		AND = {
+			trait = necromancer
+			PREV = {
+				NOR = {
+					trait = zombie
+					trait = necromancer
+				}
+			}
+		}
 		AND = {
 			trait = dragon
 			PREV = {
@@ -2097,6 +2125,7 @@ is_monster_to_prev = {
 					trait = demon_trait
 					religion = satanist
 					culture = vampire_culture
+					trait = necromancer
 				}
 			}
 		}
@@ -2144,6 +2173,7 @@ is_monster_to_prev = {
 				NOR = {
 					trait = zombie
 					society_member_of = the_cold_ones
+					trait = necromancer
 				}
 			}
 		}
@@ -2154,6 +2184,7 @@ is_monster_to_prev = {
 					trait = mummy
 					religion = kemetic_pagan
 					religion = atenist
+					trait = necromancer
 				}
 			}
 		}
@@ -2178,9 +2209,19 @@ is_monster_to_from = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
+			trait = zombie
 		}
 	}
 	OR = {
+		AND = {
+			trait = necromancer
+			PREV = {
+				NOR = {
+					trait = zombie
+					trait = necromancer
+				}
+			}
+		}
 		AND = {
 			trait = dragon
 			FROM = {
@@ -2213,6 +2254,7 @@ is_monster_to_from = {
 					trait = demon_trait
 					religion = satanist
 					culture = vampire_culture
+					trait = necromancer
 				}
 			}
 		}
@@ -2260,6 +2302,7 @@ is_monster_to_from = {
 				NOR = {
 					trait = zombie
 					society_member_of = the_cold_ones
+					trait = necromancer
 				}
 			}
 		}
@@ -2270,6 +2313,7 @@ is_monster_to_from = {
 					trait = mummy
 					religion = kemetic_pagan
 					religion = atenist
+					trait = necromancer
 				}
 			}
 		}
@@ -2360,5 +2404,92 @@ is_ingredient_metal_trigger = {
 		artifact_type = ingredient_metal_exotic7
 		artifact_type = ingredient_metal_exotic8
 		artifact_type = ingredient_metal_exotic9
+	}
+}
+
+# Only checks lowest level buildings, since higher level ones require them
+has_convertable_living_building = {
+	OR = {
+		has_building = ct_wall_1
+		has_building = ct_training_grounds_1
+		has_building = ct_barracks_1
+		has_building = ct_guard_1
+		has_building = ct_marketplace_1
+		has_building = ct_port_1
+		has_building = ct_shipyard_1
+		has_building = ct_university_1
+		has_building = tp_wall_1
+		has_building = tp_monastery_1
+		has_building = tp_barracks_1
+		has_building = tp_elite_barracks_1
+		has_building = tp_town_1
+		has_building = tp_shipyard_1
+		has_building = tp_school_1
+		has_building = ca_wall_1
+		has_building = ca_keep_1
+		has_building = ca_militia_barracks_1
+		has_building = ca_training_grounds_1
+		has_building = ca_barracks_1
+		has_building = ca_stable_1
+		has_building = ca_town_1
+		has_building = ca_shipyard_1
+		has_building = ca_steppe_barracks_1
+		has_building = ca_steppe_stable_1
+		has_building = ca_desert_stable_1
+		has_building = ca_culture_saxon_english_1
+		has_building = ca_culture_scottish_1
+		has_building = ca_culture_group_baltic_1
+		has_building = ca_culture_group_altaic_1
+		has_building = ca_culture_frank_norman_german_1
+		has_building = ca_culture_group_iberian_1
+		has_building = ca_culture_italian_1
+		has_building = ca_culture_russian_1
+		has_building = ca_culture_group_north_germanic_1
+		has_building = ca_culture_hungarian_1
+		has_building = ca_culture_group_arabic_1
+		has_building = ca_culture_group_byzantine_1
+		has_building = ca_culture_irish_1
+		has_building = ca_culture_ethiopian_1
+		has_building = ca_culture_somali_1
+		has_building = ca_culture_west_african_1
+		has_building = ca_culture_group_south_slavic_1
+		has_building = ca_culture_dutch_1
+		has_building = ca_culture_nahuatl_1
+		has_building = ca_culture_jewish_1
+		has_building = ca_culture_indian_1
+		has_building = ca_culture_nubian_1
+		has_building = ca_culture_germanic_1
+		has_building = ca_culture_pictish_1
+		has_building = ca_culture_suebi_1
+		has_building = ca_culture_moors_1
+		has_building = ca_culture_chinese_han_1
+		has_building = ca_culture_altaic_jurchen_1
+		has_building = ca_culture_tibetan_1
+		has_building = ca_dragon_militia_1
+		has_building = ca_werewolf_soldiers_1
+		has_building = ca_vampire_catacomb_1
+		has_building = ca_giant_arena_1
+		has_building = tb_hillfort_1
+		has_building = tb_market_town_1
+		has_building = tb_shipyard_1
+		has_building = tb_training_grounds_1
+		has_building = tb_war_camp_1
+		has_building = tb_practice_range_1
+		has_building = tb_steppe_barracks_1
+		has_building = tb_steppe_stable_1
+		has_building = tb_arsenal_1
+		has_building = tb_desert_stable_1
+	}
+}
+
+immune_to_infection = {
+	OR = {
+		trait = god
+		trait = zombie
+		trait = demon_trait
+		trait = ethereal_trait
+		trait = vampire
+		trait = mummy
+		trait = necromancer
 	}
 }
