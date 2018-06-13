@@ -201,6 +201,8 @@ succession_laws = {
 						religion_group = indian_group 
 					}
                     is_patrician = yes
+					government = blood_court_government
+					title = e_vampire
                 }
 				
 				OR = {
@@ -209,6 +211,8 @@ succession_laws = {
 					religion = hellenic_pagan
 					religion = roman_pagan
 					is_patrician = yes
+					government = blood_court_government
+					title = e_vampire
 				}
 				
 				OR = {
@@ -222,9 +226,8 @@ succession_laws = {
 							is_vice_royalty = yes
 						}
 					}
+					government = blood_court_government
 				}
-				government = blood_court_government
-				title = e_vampire
 			}
 			OR = {
 				is_landless_type_title = no
