@@ -651,3 +651,166 @@ title_curule_aedile = {
 
 	message = yes
 }
+title_mage_apprentice = {
+	dignity = 0.02
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_prestige = 0.2
+	allowed_to_hold = {
+		is_adult = yes
+		NOT = { lifestyle_traits = 1 }
+		prisoner = no
+	}
+	allowed_to_grant = {
+		OR = {
+			trait = enchanter
+			trait = summoner
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
+	}
+	
+	gain_effect = {
+		if = {
+			limit = { ai = yes }
+			if = {
+				limit = {
+					FROM = { trait = enchanter }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_sorcery } }
+					add_character_modifier = { name = studying_sorcery duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = summoner }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_conjuration } }
+					add_character_modifier = { name = studying_conjuration duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = alchemist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_alchemy } }
+					add_character_modifier = { name = studying_alchemy duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = herbalist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_herbalism } }
+					add_character_modifier = { name = studying_herbalism duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = necromancer }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_necromancy } }
+					add_character_modifier = { name = studying_necromancy duration = -1 }
+				}
+			}
+			set_focus = focus_magic
+		}
+		else = {
+			character_event = { id = MYTH_WoL.284 }
+		}
+	}
+	lose_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+	retire_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+
+	message = yes
+}

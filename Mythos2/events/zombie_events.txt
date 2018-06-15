@@ -1299,3 +1299,189 @@ character_event = {
 		name = EVTOPTAZOMBIE.33
 	}
 }
+
+character_event = {
+	id = ZOMBIE.34
+	
+	trigger = {
+		has_character_flag = got_zombie_plague
+	}
+	
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			100 = {
+				modifier = {
+					factor = 0
+					num_of_symptoms = 3
+				}
+				add_zombie_plague_symptom_effect = yes #Disease effect
+			}
+			50 = {
+				modifier = {
+					factor = 0
+					NOR = {
+						trait = headache
+						trait = chest_pain
+						trait = cramps
+						trait = abdominal_pain
+					}
+				}
+				character_event = { id = ZOMBIE.35 days = 20 random = 20 } #Disease develops
+			}
+		}
+	}
+}
+
+# Zombie Plague: headache chest_pain cramps abdominal_pain
+character_event = {
+	id = ZOMBIE.35
+	desc = EVTDESCZOMBIE.35
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ALAS
+		add_trait = zombie_infection
+		set_character_flag = manifest_zombie_plague 
+		add_disease_level_effect = yes
+		blessing_removes_disease_effect = yes
+		deaths_gift_removes_disease_effect = yes
+		scrying_omen_fulfilled_by_gaining_disease_effect = yes
+		clr_character_flag = developing_illness
+		clr_character_flag = got_zomibe_plague
+		if = {
+			limit = {
+				trait = headache
+			}
+			remove_trait = headache
+		}
+		if = {
+			limit = {
+				trait = cramps
+			}
+			remove_trait = cramps
+		}
+		if = {
+			limit = {
+				trait = chest_pain
+			}
+			remove_trait = chest_pain
+		}
+		if = {
+			limit = {
+				trait = abdominal_pain
+			}
+			remove_trait = abdominal_pain
+		}
+		hidden_tooltip = {
+			if = {
+				limit = {
+					is_unimportant_trigger = yes
+				}
+				health = -3
+			}
+			if = { 
+				limit = { is_playable = no }
+				host = {
+					random_courtier_or_vassal = { #Markus doing
+						limit = {
+							liege = { character = PREVPREV }
+							has_minor_title = title_court_physician
+						}
+						character_event = { id = RIP.11031 days = 1 }
+					}
+				}
+			}
+			if = { 
+				limit = { is_playable = yes }
+				random_courtier_or_vassal = { #Markus doing
+					limit = {
+						has_minor_title = title_court_physician
+					}
+					character_event = { id = RIP.11031 days = 1 }
+				}
+			}
+			father = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			mother = {
+				if = {
+					limit = { 
+						ai = no 
+						is_liege_of = ROOT
+					}
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+			spouse = {
+				if = {
+					limit = { ai = no }
+					set_character_flag = announce_zombie_plague
+					character_event = { id = RIP.5060 }
+				}
+			}
+		}
+	}
+}
+
+# Zombies become more common in undead province
+province_event = {
+	id = ZOMBIE.36
+	desc = EVTDESCZOMBIE.36
+	picture = GFX_evt_plague_spreading
+	
+	trigger = {
+		culture_group = undead_culture_group
+		owner = {
+			NOR = {
+				trait = zombie
+				trait = necromancer
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		modifier = {
+			factor = 0.8
+			OR = {
+				has_province_modifier = devastation_1
+				has_province_modifier = depopulated_1
+			}
+		}
+		modifier = {
+			factor = 0.7
+			OR = {
+				has_province_modifier = devastation_2
+				has_province_modifier = depopulated_2
+			}
+		}
+		modifier = {
+			factor = 0.6
+			OR = {
+				has_province_modifier = devastation_3
+				has_province_modifier = depopulated_3
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAZOMBIE.36
+		add_province_modifier = { modifier = undead_swarm duration = 900 }
+	}
+}

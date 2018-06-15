@@ -663,6 +663,7 @@ decisions = {
 				has_character_modifier = studying_herbalism
 				has_character_modifier = studying_alchemy
 				has_character_modifier = studying_sorcery
+				has_character_modifier = studying_necromancy
 			}
 			prisoner = no
 			NOT = {
@@ -670,12 +671,14 @@ decisions = {
 				trait = summoner
 				trait = enchanter
 				trait = herbalist
+				trait = necromancer
 				trait = incapable
 			}
 		}
 		allow = {
 			is_incapable = no
 			prestige = 50
+			NOT = { has_minor_title = mage_apprentice }
 		}
 		effect = {
 			hidden_tooltip = { character_event = { id = MYTH_WoL.80 } }

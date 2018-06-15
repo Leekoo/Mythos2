@@ -52,25 +52,6 @@ expelled_satanists = {
 	diplomacy = -1
 	church_opinion = 10
 }
-# Old familiars
-#owl_familiar = {
-#	learning = 2
-#	icon = 47
-#}
-#crow_familiar = {
-#	stewardship = 2
-#	global_tax_modifier = 0.1
-#	icon = 73
-#}
-#wolf_familiar = {
-#	martial = 2
-#	combat_rating = 1
-#	icon = 71
-#}
-#rat_familiar = {
-#	intrigue = 3
-#	icon = 89
-#}
 dove_familiar = {
 	is_visible = { 
 		OR = {
@@ -1696,4 +1677,16 @@ drained_learning = {
 	icon = 2
 	intrigue = 2
 	is_visible = { character = FROM }
+}
+studied_masters_writings = {
+	icon = 2
+	learning = 2
+}
+organized_notes = {
+	icon = 4
+	stewardship = 2
+}
+undead_swarm = {
+	icon = 42
+	local_revolt_risk = 0.1
 }

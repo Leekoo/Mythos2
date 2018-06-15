@@ -9101,3 +9101,214 @@ set_necromancy_study = {
 		add_character_modifier = { name = studying_necromancy duration = -1 }
 	}
 }
+# Get a random disease, slightly weighted in favor of weaker ones. Only gives contagious diseases (nothing like cancer or food poisoning
+get_random_disease = {
+	if = {
+		limit = { has_dlc = Reapers }
+		if = {
+			limit = {
+				NOR = {
+					trait = horse
+					trait = cat
+					immune_to_infection = yes
+					
+					has_character_flag = got_bubonic_plague
+					has_character_flag = got_aztec_disease
+					has_character_flag = got_smallpox
+					has_character_flag = got_measles
+					has_character_flag = got_typhus
+					has_character_flag = got_typhoid_fever
+					has_character_flag = got_syphilis
+					has_character_flag = got_pneumonia
+					has_character_flag = got_cancer
+					has_character_flag = got_rabies
+					has_character_flag = got_gout
+					has_character_flag = got_flu
+					has_character_flag = got_dysentery
+					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
+				}
+			}
+			random_list = {
+				4 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_tuberculosis
+							has_character_flag = got_tuberculosis
+							trait = has_tuberculosis
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_tuberculosis
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5015 }
+				}
+				4 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_flu
+							has_character_flag = got_flu
+							trait = flu
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_flu
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5020 }
+				}
+				4 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_measles
+							has_character_flag = got_measles
+							trait = has_measles
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_measles
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5018 }
+				}
+				3 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_typhoid_fever
+							has_character_flag = got_typhoid_fever
+							trait = has_typhoid_fever
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_typhoid_fever
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5016 }
+				}
+				3 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_smallpox
+							has_character_flag = got_smallpox
+							trait = has_small_pox
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_smallpox
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5019 }
+				}
+				3 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_syphilis
+							has_character_flag = got_syphilis
+							trait = syphilitic
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_syphilis
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5027 }
+				}
+				2 = {
+					trigger = {
+						has_global_flag = aztec_arrival
+						NOR = {
+							has_character_flag = immune_aztec_disease
+							has_character_flag = got_aztec_disease
+							trait = has_aztec_disease
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_aztec_disease
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5019 }
+				}
+				2 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_typhus
+							has_character_flag = got_typhus
+							trait = has_typhus
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_typhus
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5017 }
+				}
+				2 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_dysentery
+							has_character_flag = got_dysentery
+							trait = dysentery
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_dysentery
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5033 }
+				}
+				2 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_pneumonia
+							has_character_flag = got_pneumonia
+							trait = pneumonic
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_pneumonia
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5026 }
+				}
+				1 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_rabies
+							has_character_flag = got_rabies
+							trait = rabies
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_rabies
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5036 }
+				}
+				1 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_bubonic_plague
+							has_character_flag = got_bubonic_plague
+							trait = has_bubonic_plague
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_bubonic_plague
+					set_character_flag = developing_illness
+					character_event = { id = RIP.5012 }
+				}
+				1 = {
+					trigger = {
+						NOR = {
+							has_character_flag = immune_zombie_plague
+							has_character_flag = got_zombie_plague
+							trait = zombie_infection
+						}
+					}
+					clr_character_flag = disease_not_serious
+					set_character_flag = got_zombie_plague
+					set_character_flag = developing_illness
+					character_event = { id = ZOMBIE.34 }
+				}
+			}
+		}
+	}
+	else = {
+		random_list = {
+			4 = { add_trait = ill }
+			3 = { add_trait = pneumonic }
+			2 = { add_trait = syphilitic }
+			1 = { add_trait = leper }
+		}
+	}
+}
