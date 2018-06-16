@@ -1996,6 +1996,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2043,6 +2044,7 @@ defined_text = {
 		localisation_key = tt_trait_vice
 		trigger = {
 			use_satanist_vice_virtue = yes
+			use_undead_vice_virtue = yes
 		}
 	}
 }
@@ -2066,6 +2068,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2091,6 +2094,7 @@ defined_text = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
 				use_aztec_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2148,6 +2152,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2191,13 +2196,17 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_satanist_vice_virtue = yes
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = no # Literally everyone else
+			use_satanist_vice_virtue = no
+			use_undead_vice_virtue = no
 		}
 	}
 }
@@ -2210,6 +2219,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2279,6 +2289,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2296,6 +2307,12 @@ defined_text = {
 				use_tengri_vice_virtue = yes
 				use_norse_vice_virtue = yes
 			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			use_undead_vice_virtue = yes
 		}
 	}
 }
@@ -2320,6 +2337,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2330,7 +2348,10 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2375,7 +2396,10 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2652,6 +2676,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2701,7 +2726,10 @@ defined_text = {
 		localisation_key = virtue_slothful
 		trigger = {
 			trait = slothful
-			use_satanist_vice_virtue = yes
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2726,6 +2754,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2804,6 +2833,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2883,7 +2913,10 @@ defined_text = {
 		localisation_key = virtue_arbitrary
 		trigger = {
 			trait = arbitrary
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2927,7 +2960,10 @@ defined_text = {
 		localisation_key = virtue_cruel
 		trigger = {
 			trait = cruel
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2953,12 +2989,34 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[HasLustfulVice]"
+		localisation_key = "[HasStubbornVirtue]"
 		trigger = {
 			OR = {
 				NOT = { trait = honest }
 				NOT = {
 					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasStubbornVirtue
+	text = {
+		localisation_key = virtue_stubborn
+		trigger = {
+			trait = stubborn
+			use_undead_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasLustfulVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = stubborn }
+				NOT = {
+					use_undead_vice_virtue = yes
 				}
 			}
 		}
@@ -3164,6 +3222,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3303,6 +3362,7 @@ defined_text = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
 				use_aztec_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3382,6 +3442,7 @@ defined_text = {
 			OR = {
 				use_draconic_vice_virtue = yes
 				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3407,6 +3468,7 @@ defined_text = {
 			trait = diligent
 			OR = {
 				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3432,6 +3494,32 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasJustVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = patient }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasJustVice
+	text = {
+		localisation_key = vice_just
+		trigger = {
+			trait = just
+			OR = {
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3439,10 +3527,9 @@ defined_text = {
 		localisation_key = "[HasContentVice]"
 		trigger = {
 			OR = {
-				NOT = { trait = patient }
+				NOT = { trait = just }
 				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
+					use_undead_vice_virtue = yes
 				}
 			}
 		}
@@ -5482,6 +5569,127 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_Corpses_Cap
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+
+defined_text = {
+	name = GetKhatunTerm
+	text = {
+		localisation_key = String_Khatun
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Master
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanumTerm
+	text = {
+		localisation_key = String_Khanum
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Archrevenant
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanTerm
+	text = {
+		localisation_key = String_Khan
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Archrevenant
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganTerm
+	text = {
+		localisation_key = String_Khagan
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Master
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanateTerm
+	text = {
+		localisation_key = String_Khanate
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Horde
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanateOfTerm
+	text = {
+		localisation_key = String_KhanateOf
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_HordeOf
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganateTerm
+	text = {
+		localisation_key = String_Khaganate
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Dominion
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganateOfTerm
+	text = {
+		localisation_key = String_KhaganateOf
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_DominionOf
 		trigger = {
 			government = zombie_horde
 		}

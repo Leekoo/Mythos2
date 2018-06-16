@@ -263,6 +263,27 @@ count_satanist_vices = {
 	if = {	limit = { trait = humble } change_variable = { which = num_vices value = 1 } }
 }
 
+count_undead_virtues = {
+	set_variable = { which = num_virtues value = 0 }
+	if = {	limit = { trait = gluttonous } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = slothful } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = wroth } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = arbitrary } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = brave } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = cruel } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = stubborn } change_variable = { which = num_virtues value = 1 } }
+}
+
+count_undead_vices = {
+	set_variable = { which = num_vices value = 0 }
+	if = {	limit = { trait = temperate } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = just } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = diligent } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = patient } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = kind } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = craven } change_variable = { which = num_vices value = 1 } }
+}
+
 count_personal_virtues = {
 	if = {
 		limit = {
@@ -299,6 +320,12 @@ count_personal_virtues = {
 			use_satanist_vice_virtue = yes
 		}
 		count_satanist_virtues = yes
+	}
+	else_if = {
+		limit = {
+			use_undead_vice_virtue = yes
+		}
+		count_undead_virtues = yes
 	}
 	else = {
 		#limit = {
@@ -344,6 +371,12 @@ count_personal_vices = {
 			use_satanist_vice_virtue = yes
 		}
 		count_satanist_vices = yes
+	}
+	else_if = {
+		limit = {
+			use_undead_vice_virtue = yes
+		}
+		count_undead_vices = yes
 	}
 	else = {
 		#limit = {
