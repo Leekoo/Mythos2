@@ -773,7 +773,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_vampire
-		trigger = { trait = vampire } # Change to known vampire once secrecy is in
+		trigger = { trait = known_vampire }
 	}
 	text = {
 		localisation_key = String_werewolf
@@ -796,8 +796,7 @@ defined_text = {
 		trigger = { trait = demi_god }
 	}
 	text = {
-		#localisation_key = GetZombieName  # Change once zombie revamp is done
-		localisation_key = String_zombie
+		localisation_key = GetRevenantTerm
 		trigger = { trait = zombie }
 	}
 	text = {
@@ -822,7 +821,7 @@ defined_text = {
 			NOR = {
 				trait = dragon
 				trait = dragonborn
-				trait = vampire # Change to known vampire once secrecy is in
+				trait = known_vampire
 				trait = known_werewolf
 				trait = giant
 				trait = half_giant
