@@ -85,13 +85,13 @@ feed_on_living_desc;Charge into a nearby realm so that the dead may feast on the
 tt_lose_prosperity_all_provinces;All affected provinces lose prosperity and may convert to undead cultures or religion;;;;;;x;;;;;;;
 tt_gain_devastation_all_provinces;All affected provinces gain devastation and may convert to undead cultures or religion;;;;;;x;;;;;;;
 tt_gain_province_based_corpses;Gain corpses from each province based on prosperity, depopulation, and devastation;;;;;;x;;;;;;;
-CB_UNDEAD_CONVERSION;Culture Conversion;;;;;;x;;;;;;;
-WAR_NAME_UNDEAD_CONVERSION;$ORDER$$SECOND_ADJ$ War to Force [Actor.Culture.GetName] dominance;;;;;;x;;;;;;;
-undead_conversion;Culture Conversion;;;;;;x;;;;;;;
+CB_UNDEAD_CONVERSION;Culture Conversion of [Title.GetBaseName];;;;;;x;;;;;;;
+WAR_NAME_UNDEAD_CONVERSION;$ORDER$$SECOND_ADJ$ War to Force [Actor.Culture.GetName] dominance of $OTHER_TITLE$;;;;;;x;;;;;;;
+undead_conversion;Culture Conversion of [Title.GetBaseName];;;;;;x;;;;;;;
 undead_conversion_desc;Attempt to force the provinces of an opposing undead to fit your kind of undeath;;;;;;x;;;;;;;
-CB_UNDEAD_CONQUEST;[Root.GetRevenantTermCap] Conquest;;;;;;x;;;;;;;
+CB_UNDEAD_CONQUEST;[Root.GetRevenantTermCap] Conquest of [Title.GetBaseName];;;;;;x;;;;;;;
 WAR_NAME_UNDEAD_CONQUEST;$ORDER$$SECOND_ADJ$ [Root.GetRevenantTermCap] Conquest of $OTHER_TITLE$;;;;;;x;;;;;;;
-undead_conquest;[Root.GetRevenantTermCap] Conquest;;;;;;x;;;;;;;
+undead_conquest;[Root.GetRevenantTermCap] Conquest of [Title.GetBaseName];;;;;;x;;;;;;;
 undead_conquest_desc;Seize control over the land that you have ravaged;;;;;;x;;;;;;;
 faction_zombie_independence;Undead Independence;;;;;;x;;;;;;;
 faction_zombie_independence_desc;Members seek complete independence. When sufficiently powerful, §Y[From.GetBestName]§! may present an ultimatum to §Y[From.Liege.GetBestName]§!. The leader of the Independence faction is likelier to take greater risks than other faction leaders, and will have fewer qualms about striking when the liege is already under attack.;;;;;;x;;;;;;;

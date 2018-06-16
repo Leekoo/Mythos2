@@ -1885,18 +1885,37 @@ undead_conversion = {
 				is_liege_or_above = FROM
 			}
 		}
-		any_realm_province = {
-			culture_group = undead_culture_group
-			NOT = { culture = ROOT }
-		}
-	}
-	on_success_title = {
-		any_realm_province = {
-			limit = {
+		OR = {
+			any_direct_de_jure_vassal_title = {
+				location = {
+					culture_group = undead_culture_group
+					NOT = { culture = ROOT }
+				}
+			}
+			location = {
 				culture_group = undead_culture_group
 				NOT = { culture = ROOT }
 			}
-			culture = ROOT
+		}
+	}
+	on_success_title = {
+		any_direct_de_jure_vassal_title = {
+			limit = {
+				location = {
+					culture_group = undead_culture_group
+					NOT = { culture = ROOT }
+				}
+			}
+			location = { culture = ROOT }
+		}
+		location = {
+			if = {
+				limit = {
+					culture_group = undead_culture_group
+					NOT = { culture = ROOT }
+				}
+			}
+			location = { culture = ROOT }
 		}
 		ROOT = {
 			prestige = 150
@@ -1977,14 +1996,14 @@ undead_conquest = {
 			AND = {
 				tier = duke
 				NOT = {
-					any_realm_province = {
-						NOT = { culture = ROOT }
+					any_direct_de_jure_vassal_title = {
+						location = { NOT = { culture = ROOT } }
 					}
 				}
 			}
 			AND = {
 				tier = count
-				culture = ROOT
+				location = { culture = ROOT }
 			}
 		}
 
@@ -2032,7 +2051,10 @@ undead_conquest = {
 				is_liege_or_above = FROM
 			}
 		}
-		any_realm_province = { culture = ROOT }
+		OR = {
+			any_direct_de_jure_vassal_title = { location = { culture = ROOT } }
+			location = { culture = ROOT }
+		}
 	}
 	
 	on_add = {
