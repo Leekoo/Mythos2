@@ -121,18 +121,22 @@ decisions = {
 		}
 		effect = {
 			manpower = -500
-			spawn_unit = {
-				owner = ROOT
-				province = closest_to_capital
-				home = ROOT
-				troops = {
-					zombie_troops = { 500 500 }
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
 				}
-				attrition = 1.0
-				maintenance_multiplier = 0.1
-				can_toggle_looting = no
-				is_looter = no
-				reinforces = no
 			}
 		}
 		ai_will_do = {
@@ -297,6 +301,452 @@ decisions = {
 			modifier = {
 				factor = 2
 				has_assigned_minor_title = { title = title_commander count = 2 }
+			}
+		}
+	}
+	
+	raise_soldier = {
+		potential = {
+			government = zombie_horde
+		}
+		allow = {
+			manpower = 200
+			prestige = 25
+			scaled_wealth = 0.1
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			prestige = -25
+			scaled_wealth = -0.1
+			manpower = -200
+			spawn_good_commander_effect = yes
+			new_character = {
+				set_undead_culture = yes
+				religion = the_damned
+				add_trait = zombie
+				set_graphical_culture = ROOT
+			}
+			character_event = { id = NE.1 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				NOT = { job_marshal = { always = yes } }
+			}
+			modifier = {
+				factor = 2
+				has_assigned_minor_title = { title = title_commander count = 2 }
+			}
+			modifier = {
+				factor = 2
+				job_marshal = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}
+		}
+	}
+	raise_priest = {
+		potential = {
+			government = zombie_horde
+		}
+		allow = {
+			manpower = 200
+			piety = 30
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			piety = -30
+			manpower = -200
+			create_random_priest = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				attributes = {
+					diplomacy = 2
+					learning = 10
+					stewardship = 2
+					intrigue = 2
+					martial = 2
+				}
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				remove_trait = enchanter
+				remove_trait = summoner
+				remove_trait = herbalist
+				remove_trait = necromancer
+				
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_learning = 2
+					}
+					20 = {
+						add_trait = theologian
+					}
+					5 = {
+						add_trait = scholar
+					}
+					5 = {
+						add_trait = mystic
+					}
+					10 = {
+						change_learning = 4
+					}
+					5 = {
+						change_learning = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+					5 = {
+						add_trait = enchanter
+					}
+					5 = {
+						add_trait = summoner
+					}
+					5 = {
+						add_trait = herbalist
+					}
+				}
+				save_event_target_as = invited_character
+				set_undead_culture = yes
+				religion = the_damned
+				add_trait = zombie
+				set_graphical_culture = ROOT
+			}
+			character_event = { id = NE.1 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				NOT = { job_spiritual = { always = yes } }
+			}
+			modifier = {
+				factor = 2
+				job_spiritual = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}
+		}
+	}
+	raise_steward = {
+		potential = {
+			government = zombie_horde
+		}
+		allow = {
+			manpower = 200
+			scaled_wealth = 0.2
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			scaled_wealth = -0.2
+			manpower = -200
+			create_random_steward = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				attributes = {
+					diplomacy = 2
+					learning = 2
+					stewardship = 10
+					intrigue = 2
+					martial = 2
+				}
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				remove_trait = enchanter
+				remove_trait = summoner
+				remove_trait = herbalist
+				remove_trait = necromancer
+				
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_stewardship = 2
+					}
+					20 = {
+						add_trait = administrator
+					}
+					5 = {
+						add_trait = architect
+					}
+					5 = {
+						add_trait = gardener
+					}
+					10 = {
+						change_stewardship = 4
+					}
+					5 = {
+						change_stewardship = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+					5 = {
+						add_trait = alchemist
+					}
+				}
+				save_event_target_as = invited_character
+				set_undead_culture = yes
+				religion = the_damned
+				add_trait = zombie
+				set_graphical_culture = ROOT
+			}
+			character_event = { id = NE.1 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				NOT = { job_treasurer = { always = yes } }
+			}
+			modifier = {
+				factor = 2
+				job_treasurer = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}
+		}
+	}
+	raise_diplomat = {
+		potential = {
+			government = zombie_horde
+		}
+		allow = {
+			manpower = 200
+			scaled_wealth = 0.2
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			scaled_wealth = -0.2
+			manpower = -200
+			create_random_diplomat = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				attributes = {
+					diplomacy = 10
+					learning = 2
+					stewardship = 2
+					intrigue = 2
+					martial = 2
+				}
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				remove_trait = enchanter
+				remove_trait = summoner
+				remove_trait = herbalist
+				remove_trait = necromancer
+				
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_diplomacy = 2
+					}
+					20 = {
+						add_trait = socializer
+					}
+					5 = {
+						add_trait = gamer
+					}
+					5 = {
+						add_trait = hedonist
+					}
+					10 = {
+						change_diplomacy = 4
+					}
+					5 = {
+						change_diplomacy = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+					5 = {
+						add_trait = enchanter
+					}
+				}
+				save_event_target_as = invited_character
+				set_undead_culture = yes
+				religion = the_damned
+				add_trait = zombie
+				set_graphical_culture = ROOT
+			}
+			character_event = { id = NE.1 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				NOT = { job_treasurer = { always = yes } }
+			}
+			modifier = {
+				factor = 2
+				job_treasurer = { NOT = { opinion = { who = ROOT value = 0 } } }
+			}
+		}
+	}
+	raise_spy = {
+		potential = {
+			government = zombie_horde
+		}
+		allow = {
+			manpower = 200
+			scaled_wealth = 0.2
+			NOT = {
+				has_character_modifier = in_seclusion
+			}
+		}
+		effect = {
+			scaled_wealth = -0.2
+			manpower = -200
+			create_random_intriguer = {
+				random_traits = yes
+				dynasty = random
+				female = no
+				attributes = {
+					diplomacy = 2
+					learning = 2
+					stewardship = 2
+					intrigue = 10
+					martial = 2
+				}
+			}
+			new_character = {
+				remove_trait = slow
+				remove_trait = imbecile
+				remove_trait = dull
+				
+				remove_trait = mystic
+				remove_trait = socializer
+				remove_trait = gamer
+				remove_trait = hedonist
+				remove_trait = duelist
+				remove_trait = hunter
+				remove_trait = strategist
+				remove_trait = administrator
+				remove_trait = architect
+				remove_trait = gardener
+				remove_trait = schemer
+				remove_trait = impaler
+				remove_trait = seducer
+				remove_trait = seductress
+				remove_trait = theologian
+				remove_trait = scholar
+				remove_trait = enchanter
+				remove_trait = summoner
+				remove_trait = herbalist
+				remove_trait = necromancer
+				
+				random_list = { # Flavor Randomization
+					35 = { 
+						# Nothing
+					}
+					15 = {
+						change_intrigue = 2
+					}
+					20 = {
+						add_trait = schemer
+					}
+					5 = {
+						add_trait = impaler
+					}
+					10 = {
+						change_intrigue = 4
+					}
+					5 = {
+						change_intrigue = 6
+					}
+					5 = {
+						add_trait = shrewd
+					}
+				}
+				save_event_target_as = invited_character
+				set_undead_culture = yes
+				religion = the_damned
+				add_trait = zombie
+				set_graphical_culture = ROOT
+			}
+			character_event = { id = NE.1 }
+		}
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 4
+				NOT = { job_treasurer = { always = yes } }
+			}
+			modifier = {
+				factor = 2
+				job_treasurer = { NOT = { opinion = { who = ROOT value = 0 } } }
 			}
 		}
 	}

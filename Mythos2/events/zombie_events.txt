@@ -962,6 +962,10 @@ province_event = {
 	is_triggered_only = yes
 	notification = yes
 	
+	trigger = {
+		any_province_holding = {  num_of_buildings = 1 }
+	}
+	
 	option = {
 		name = OK
 	}
@@ -974,6 +978,10 @@ province_event = {
 	picture = GFX_evt_construction_site
 	is_triggered_only = yes
 	notification = yes
+	
+	trigger = {
+		any_province_holding = {  num_of_buildings = 1 }
+	}
 	
 	option = {
 		name = OK
