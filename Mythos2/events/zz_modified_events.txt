@@ -12648,3 +12648,309 @@ province_event = { #prosperity gain
 		}
 	}
 }
+
+character_event = {
+	id = MNM.70013
+	desc =  MNM.70013.d
+	picture = GFX_evt_large_army
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_random_soldier = {
+			random_traits = yes
+			dynasty = none
+			female = no
+			attributes = {
+				martial = 10
+			}
+		}
+		new_character = {
+			remove_trait = weak
+			remove_trait = slow
+			remove_trait = imbecile
+			remove_trait = dull
+			remove_trait = craven
+			
+			if = {
+				limit = { graphical_culture = dragongfx }
+				add_trait = dragon
+			}
+			else_if = {
+				limit = { graphical_culture = demongfx }
+				add_trait = demon_trait
+			}
+			else_if = {
+				limit = { graphical_culture = etherealgfx }
+				add_trait = ethereal_trait
+			}
+			else_if = {
+				limit = {
+					OR = {
+						graphical_culture = undeadgfx
+						culture_group = undead_culture_group
+					}
+				}
+				add_trait = zombie
+				set_graphical_culture = undead_revenant
+				set_undead_culture = yes
+				religion = the_damned
+				any_claim = { remove_claim = PREV }
+			}
+			
+			if = {
+				limit = {
+					trait = misguided_warrior
+				}
+				remove_trait = misguided_warrior
+				add_trait = tough_soldier
+			}
+			
+			remove_trait = mystic
+			remove_trait = socializer
+			remove_trait = gamer
+			remove_trait = hedonist
+			remove_trait = duelist
+			remove_trait = hunter
+			remove_trait = strategist
+			remove_trait = administrator
+			remove_trait = architect
+			remove_trait = gardener
+			remove_trait = schemer
+			remove_trait = impaler
+			remove_trait = seducer
+			remove_trait = seductress
+			remove_trait = theologian
+			remove_trait = scholar
+			
+			random_list = { # Flavor Randomization
+				15 = {
+					change_martial = 2
+				}
+				10 = {
+					add_trait = robust
+				}
+				10 = {
+					add_trait = duelist
+				}
+				10 = {
+					add_trait = hunter
+				}
+				5 = {
+					add_trait = strategist
+				}
+				5 = {
+					change_martial = 4
+				}
+				5 = {
+					if = {
+						limit = {
+							has_dlc = "Reapers"
+						}
+						add_trait = one_eyed
+						change_martial = 1
+					}
+				}
+				5 = { 
+					add_trait = shrewd
+				}
+				character_event = { id = SPECIES.2 }
+			}
+			hidden_tooltip = {
+				if = {
+					limit = {
+						has_dharmic_religion_trigger = yes
+					}
+					add_trait = kshatriya
+					character_event = { id = RoI.30121 }
+				}
+			}
+			save_event_target_as = found_commander
+		}
+	}
+
+	
+	option = {
+		name = EXCELLENT 
+		event_target:found_commander = {
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 5
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						tier = COUNT
+						NOT = {
+							any_realm_character = {
+								count = 2
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+					AND = {
+						tier = DUKE
+						NOT = {
+							any_realm_character = {
+								count = 4
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+					AND = {
+						tier = KING
+						is_nomadic = no
+						NOT = {
+							any_realm_character = {
+								count = 6
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+					AND = {
+						tier = EMPEROR
+						is_nomadic = no
+						NOT = {
+							any_realm_character = {
+								count = 8
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+					AND = {
+						tier = KING
+						is_nomadic = yes
+						NOT = {
+							any_realm_character = {
+								count = 2
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+					AND = {
+						tier = EMPEROR
+						is_nomadic = yes
+						NOT = {
+							any_realm_character = {
+								count = 4
+								liege = { character = ROOT }
+								has_minor_title = title_commander
+							}
+						}
+					}
+				}
+			}
+			event_target:found_commander = {
+				give_minor_title = title_commander
+			}
+		}
+	}
+	
+	option = {
+		name = MNM.70013.o
+		
+		trigger = {
+			any_realm_character = {
+				NOT = {
+					higher_tier_than = BARON
+				}
+				liege = { character = ROOT }
+				has_minor_title = title_commander
+				NOT = {
+					martial = 10
+				}
+			}
+			OR = {
+				AND = {
+					tier = COUNT
+					any_realm_character = {
+						count = 2
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = DUKE
+					any_realm_character = {
+						count = 4
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					any_realm_character = {
+						count = 6
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					any_realm_character = {
+						count = 8
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					any_realm_character = {
+						count = 2
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					any_realm_character = {
+						count = 4
+						liege = { character = ROOT }
+						has_minor_title = title_commander
+					}
+				}
+			}
+		}
+		
+		random_realm_character = {
+			limit = {
+				NOT = {
+					higher_tier_than = BARON
+				}
+				liege = { character = ROOT }
+				has_minor_title = title_commander
+				NOT = {
+					martial = 10
+				}
+			}
+			remove_title = title_commander
+			opinion = {
+				modifier = insulted
+				who = ROOT
+				years = 2
+			}
+		}
+		
+		event_target:found_commander = {
+			give_minor_title = title_commander
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 5
+			}
+		}
+	}
+}
