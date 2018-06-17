@@ -1830,16 +1830,6 @@ character_event = {
 		}
 		
 		if = {
-			limit = { has_character_flag = vampire_feed_kill }
-			if = {
-				limit = { has_character_flag = vampire_feed_caught }
-				FROMFROM = { death = { death_reason = death_vampire killer = ROOT } }
-			}
-			else = {
-				FROMFROM = { death = { death_reason = death_vampire_unknown } }
-			}
-		}
-		if = {
 			limit = { has_character_flag = vampire_feed_suspected }
 			if = {
 				limit = { trait = known_vampire }
@@ -1854,6 +1844,31 @@ character_event = {
 					name = known_monster
 					years = 10
 					stacking = yes
+				}
+			}
+			if = {
+				limit = {
+					FROMFROM = {
+						has_minor_title = title_vampiric_protection
+					}
+				}
+				FROMFROM = {
+					liege = {
+						random_list = {
+							4 = {
+								ROOT = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+							1 = {
+								random_courtier = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1877,10 +1892,39 @@ character_event = {
 				if = {
 					limit = { has_character_flag = vampire_feed_kill }
 					character_event = { id = 10 }
+					FROMFROM = {
+						liege = {
+							opinion = { who = ROOT modifier = killed_protected years = 50 }
+							character_event = { id = VAMPIRE.164 }
+						}
+					}
 				}
 				else = {
 					character_event = { id = 11 }
+					if = {
+						limit = {
+							FROMFROM = {
+								has_minor_title = title_vampiric_protection
+							}
+						}
+						FROMFROM = {
+							liege = {
+								opinion = { who = ROOT modifier = attacked_protected years = 20 }
+								character_event = { id = VAMPIRE.162 }
+							}
+						}
+					}
 				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = vampire_feed_kill }
+			if = {
+				limit = { has_character_flag = vampire_feed_caught }
+				FROMFROM = { death = { death_reason = death_vampire killer = ROOT } }
+			}
+			else = {
+				FROMFROM = { death = { death_reason = death_vampire_unknown } }
 			}
 		}
 	}
@@ -11543,5 +11587,75 @@ narrative_event = {
 				religion_group = jewish_group
 			}
 		}
+	}
+}
+
+# Feeding on someone protected
+character_event = {
+	id = VAMPIRE.160
+	desc = EVTDESC_VAMPIRE.160
+	picture = GFX_evt_dark_love
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.160
+		repeat_event = { id = VAMPIRE.10 }
+	}
+	option = {
+		name = EVTOPTB_VAMPIRE.160
+		clr_character_flag = vampire_feed_minor
+	}
+}
+
+character_event = {
+	id = VAMPIRE.161
+	desc = EVTDESC_VAMPIRE.161
+	picture = GFX_evt_suspicious_noble
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.161
+		tooltip = {	opinion = { who = FROM modifier = suspected_attacked_protected years = 10 } }
+	}
+}
+character_event = {
+	id = VAMPIRE.162
+	desc = EVTDESC_VAMPIRE.162
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.162
+		tooltip = {	opinion = { who = FROM modifier = attacked_protected years = 20 } }
+	}
+}
+
+# Bounce to disguise From
+character_event = {
+	id = VAMPIRE.163
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROMFROM = { liege = { character_event = { id = VAMPIRE.161 } } }
+	}
+}
+character_event = {
+	id = VAMPIRE.164
+	desc = EVTDESC_VAMPIRE.164
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_narrative_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.164
+		tooltip = {	opinion = { who = FROM modifier = killed_protected years = 50 } }
 	}
 }

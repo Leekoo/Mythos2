@@ -814,3 +814,21 @@ title_mage_apprentice = {
 
 	message = yes
 }
+
+title_vampiric_protection = {
+	dignity = 0.01
+	grant_limit = 1
+	
+	allowed_to_grant = {
+		trait = vampire
+		ai = no
+	}
+	allowed_to_hold = {
+		always = yes
+	}
+	gain_effect = {}
+	revoke_effect = {}
+	lose_effect = {}
+	retire_effect = {}
+	death_effect = {}
+}

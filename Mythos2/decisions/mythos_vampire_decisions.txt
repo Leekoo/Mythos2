@@ -617,7 +617,16 @@ targetted_decisions = {
 			}
 		}
 		effect = {
-			FROM = { character_event = { id = VAMPIRE.10 } }
+			if = {
+				limit = {
+					FROM = { ai = no }
+					has_minor_title = title_vampiric_protection
+				}
+				FROM = { character_event = { id = VAMPIRE.160 } }
+			}
+			else = {
+				FROM = { character_event = { id = VAMPIRE.10 } }
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -724,6 +733,66 @@ targetted_decisions = {
 					count < 3
 				}
 			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				NOR = {
+					liege = { is_rival = FROM }
+					FROM = { trait = arbitrary }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = -50 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = -25 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 0 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 25 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 50 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 75 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 100 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 1.5
+				has_minor_title = title_vampiric_protection
+				FROM = { trait = deceitful }
+			}
+			modifier = {
+				factor = 1.5
+				has_minor_title = title_vampiric_protection
+				FROM = { trait = gluttonous }
+			}
 		}
 	}
 	
@@ -767,7 +836,16 @@ targetted_decisions = {
 		}
 		effect = {
 			hidden_tooltip = { FROM = { set_character_flag = vampire_feed_minor } }
-			FROM = { character_event = { id = VAMPIRE.10 } }
+			if = {
+				limit = {
+					FROM = { ai = no }
+					has_minor_title = title_vampiric_protection
+				}
+				FROM = { character_event = { id = VAMPIRE.160 } }
+			}
+			else = {
+				FROM = { character_event = { id = VAMPIRE.10 } }
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -860,6 +938,66 @@ targetted_decisions = {
 						trait = eunuch
 					}
 				}
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				NOR = {
+					liege = { is_rival = FROM }
+					FROM = { trait = arbitrary }
+				}
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = -50 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = -25 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 0 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 25 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 50 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 75 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 0.5
+				has_minor_title = title_vampiric_protection
+				liege = { reverse_opinion = { who = FROM value = 100 } }
+				NOT = { FROM = { trait = arbitrary } }
+			}
+			modifier = {
+				factor = 1.5
+				has_minor_title = title_vampiric_protection
+				FROM = { trait = deceitful }
+			}
+			modifier = {
+				factor = 1.5
+				has_minor_title = title_vampiric_protection
+				FROM = { trait = gluttonous }
 			}
 		}
 	}
