@@ -511,7 +511,7 @@ berserker_charge_tactic = {
 	etherial_soldiers_offensive = 1.2
 	zombie_troops_offensive = -0.7
 
-	demons_offensive = -0.2
+	demons_defensive = -0.2
 	heavy_infantry_defensive = -0.5
 	lycan_berzerkers_defensive = -0.5
 	einherjar_defensive = -0.5
@@ -634,7 +634,7 @@ turn_undead_tactic = {
 	group = harass
 	
 	trigger = {
-		phase = skrimish
+		phase = skirmish
 		leader = {
 			OR = {
 				trait = necromancer
@@ -662,9 +662,9 @@ turn_undead_tactic = {
 				vampires = 0.3
 				einherjar = 0.3
 				etherial_soldiers = 0.3
-				trait = zombie
-				trait = vampire
-				trait = ethereal_trait
+				leader = { trait = zombie }
+				leader = { trait = vampire }
+				leader = { trait = ethereal_trait }
 			}
 		}
 	}
@@ -673,15 +673,15 @@ turn_undead_tactic = {
 		days = 5
 		modifier = {
 			factor = 1.5
-			trait = zealous
+			leader = { trait = zealous }
 		}
 		modifier = {
 			factor = 1.5
-			trait = miracle_worker
+			leader = { trait = miracle_worker }
 		}
 		modifier = {
 			factor = 1.5
-			trait = monster_hunter
+			leader = { trait = monster_hunter }
 		}
 	}
 	
@@ -692,7 +692,7 @@ turn_undead_tactic = {
 	zombie_troops_offensive = -1
 	vampires_offensive = -1
 	demons_offensive = -1
-	einherjar_offendsive = -0.5
+	einherjar_offensive = -0.5
 	etherial_soldiers_offensive = -0.5
 	
 	light_infantry_defensive = 1.5
@@ -740,9 +740,9 @@ smite_undead_tactic = {
 				vampires = 0.3
 				einherjar = 0.3
 				etherial_soldiers = 0.3
-				trait = zombie
-				trait = vampire
-				trait = ethereal_trait
+				leader = { trait = zombie }
+				leader = { trait = vampire }
+				leader = { trait = ethereal_trait }
 			}
 		}
 	}
@@ -751,15 +751,15 @@ smite_undead_tactic = {
 		days = 5
 		modifier = {
 			factor = 1.5
-			trait = zealous
+			leader = { trait = zealous }
 		}
 		modifier = {
 			factor = 1.5
-			trait = miracle_worker
+			leader = { trait = miracle_worker }
 		}
 		modifier = {
 			factor = 1.5
-			trait = monster_hunter
+			leader = { trait = monster_hunter }
 		}
 	}
 	
@@ -770,7 +770,7 @@ smite_undead_tactic = {
 	zombie_troops_offensive = -1
 	vampires_offensive = -1
 	demons_offensive = -1
-	einherjar_offendsive = -0.5
+	einherjar_offensive = -0.5
 	etherial_soldiers_offensive = -0.5
 	
 	light_infantry_defensive = 0.5
