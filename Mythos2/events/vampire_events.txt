@@ -1829,6 +1829,38 @@ character_event = {
 			}
 		}
 		
+		# Thrall
+		if = {
+			limit = {
+				NOR = {
+					ai = no
+					trait = dragon
+					trait = demon_trait
+					trait = ethereal_trait
+					trait = werewolf
+					trait = vampire
+					trait = zombie
+					trait = god
+					trait = demi_god
+					trait = giant
+					trait = half_giant
+					trait = blood_of_the_gods
+					trait = djinn
+					trait = monster_hunter
+					trait = dragonborn
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+					trait = philosopher_stone_trait
+				}
+			}
+			random = {
+				chance = 10
+				FROMFROM = { character_event = { id = VAMPIRE.165 days = 5 random = 15 } }
+			}
+		}
+		
 		if = {
 			limit = { has_character_flag = vampire_feed_suspected }
 			if = {
@@ -2121,8 +2153,8 @@ character_event = {
 			set_character_flag = vampire_feed_success
 		}
 		else = {
-			# Fail
 			random_list = {
+				# Fail
 				10 = {
 					# Players much more likely to avoid
 					modifier = {
@@ -2373,6 +2405,10 @@ character_event = {
 						factor = 0.9
 						has_character_flag = vampire_feed_minor
 					}
+					modifier = {
+						factor = 5
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+					}
 					set_character_flag = vampire_feed_success
 				}
 			}
@@ -2464,6 +2500,10 @@ character_event = {
 							}
 						}
 					}
+					modifier = {
+						factor = 1.5
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+					}
 					set_character_flag = vampire_feed_survive
 				}
 				# Turn
@@ -2494,6 +2534,10 @@ character_event = {
 								trait = demi_god
 							}
 						}
+					}
+					modifier = {
+						factor = 1.2
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
 					}
 					set_character_flag = vampire_feed_turn
 				}
@@ -2720,6 +2764,10 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					intrigue = 40
+				}
+				modifier = {
+					factor = 5
+					reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
 				}
 				set_character_flag = vampire_feed_escape
 			}
@@ -11657,5 +11705,32 @@ character_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.164
 		tooltip = {	opinion = { who = FROM modifier = killed_protected years = 50 } }
+	}
+}
+
+chracter_event = {
+	id = VAMPIRE.165
+	desc = EVTDESC_VAMPIRE.165
+	picture = GFX_evt_stressed_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.165
+		opinion = { who = FROM modifier = opinion_thrall years = 50 }
+		FROM = { character_event = { id = VAMPIRE.166 } }
+	}
+}
+
+character_event = {
+	id = VAMPIRE.166
+	desc = EVTDESC_VAMPIRE.166
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.166
+		tooltip = { reverse_opinion = { who = FROM modifier = opinion_thrall years = 50 } }
 	}
 }
