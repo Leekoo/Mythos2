@@ -400,8 +400,10 @@
 	trait = size_10
 	1.1.1 = {
 		birth = "1.1.1"
-		effect = { set_character_flag = norse_god_ymir }
-		effect = { set_character_flag = checked_race }
+		effect = {
+			set_character_flag = norse_god_ymir
+			set_character_flag = checked_race
+		}
 	}
 }	
 
@@ -738,7 +740,7 @@
 	950.4.14={
 		birth=950.4.14
 	}
-	966.1.9={
+	976.1.9={
 		add_spouse=268326
 	}
 	1040.6.7={
@@ -761,7 +763,7 @@
 		birth=960.1.8
 		employer=268323
 	}
-	966.1.9={
+	976.1.9={
 		add_spouse=268325
 	}
 	1047.1.3={
@@ -958,7 +960,7 @@
 			set_graphical_culture = draconic
 			set_character_flag = checked_race
 		}
-		culture = french
+		culture = frankish
 	}
 	1200.1.1={
 		add_spouse=268335
@@ -2283,5 +2285,543 @@
 	}
 	1240.6.2={
 		death=yes
+	}
+}
+268406={
+	name = Gwrgi
+	female=no
+	dynasty=1049406
+	religion = catholic
+	culture = welsh
+	trait = werewolf
+	trait = secret_werewolf
+	trait = skilled_tactician
+	trait = wroth
+	trait = control_2
+	755.1.1={
+		birth=755.1.1
+		effect = { set_variable = { which = control value = 2 } }
+	}
+	844.1.1={
+		death = { death_reason = death_battle killer = 81831 }
+	}
+}
+268407={
+	name=Felman
+	female=no
+	dynasty=497
+	religion=norse_pagan
+	culture=norse
+	employer=144000
+	trait = werewolf
+	trait = secret_werewolf
+	trait = skilled_tactician
+	trait = patient
+	trait = brave
+	849.3.3={
+		birth=849.3.3
+	}
+	947.1.1={
+		death=yes
+	}
+}
+268408={
+	name=Bizuneh
+	female=no
+	dynasty=1049407
+	religion=catholic
+	culture=frankish
+	employer=455404
+	trait = werewolf
+	trait = secret_werewolf
+	trait = charismatic_negotiator
+	trait = socializer
+	trait = kind
+	trait = gregarious
+	1204.1.1={
+		birth=1204.1.1
+	}
+	1220.1.1={
+		effect={ add_friend = 455404 }
+	}
+	1286.10.8={
+		death=yes
+	}
+}
+268409={
+	name=Marie
+	female=yes
+	dynasty=716
+	religion=catholic
+	culture=frankish
+	employer=455404
+	trait = flamboyant_schemer
+	trait = lustful
+	trait = fair
+	1206.1.1={
+		birth=1206.1.1
+	}
+	1222.1.1={
+		add_spouse=268408
+		effect={add_lover=268410}
+	}
+	1245.1.1={
+		death = { death_reason = death_execution killer = 455404 }
+	}
+}
+268410={
+	name=Jean
+	female=no
+	religion=catholic
+	culture=frankish
+	employer=268408
+	trait=brilliant_strategist
+	trait=robust
+	trait=strategist
+	trait=lustful
+	trait=envious
+	trait=deceitful
+	trait=ambitious
+	1202.1.1={
+		birth=1202.1.1
+	}
+	1222.1.1={
+		effect={add_lover=268409}
+	}
+	1245.1.1={
+		death = { death_reason = death_execution killer = 455404 }
+	}
+}
+268411={
+	name=Håkon
+	female=no
+	dynasty=1049408
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1030.1.1={
+		birth=1030.1.1
+	}
+	1048.1.1={
+		add_spouse=268412
+	}
+	1092.1.1={
+		death=yes
+	}
+}
+268412={
+	name=Borghildr
+	female=yes
+	religion=catholic
+	culture=norwegian
+	1032.1.1={
+		birth=1032.1.1
+	}
+	1048.1.1={
+		add_spouse=268411
+	}
+	1051.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1096.1.1={
+		death=yes
+	}
+}
+268413={
+	name=Heimir
+	female=no
+	dynasty=1049408
+	father=268411
+	mother=268412
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1051.1.1={
+		birth=1051.1.1
+	}
+	1073.1.1={
+		add_spouse=268414
+	}
+	1112.1.1={
+		death=yes
+	}
+}
+268414={
+	name=Kara
+	female=yes
+	religion=catholic
+	culture=norwegian
+	1055.1.1={
+		birth=1055.1.1
+	}
+	1073.1.1={
+		add_spouse=268413
+	}
+	1077.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1120.1.1={
+		death=yes
+	}
+}
+268415 = {
+	name=Ulf
+	female=no
+	dynasty=1049408
+	father=268413
+	mother=268414
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	1080.1.1={
+		birth=1080.1.1
+	}
+	1101.1.1={
+		add_spouse=268416
+	}
+	1137.1.1={
+		death=yes
+	}
+}
+268416 = {
+	name = Gunvor
+	female = yes
+	religion=catholic
+	culture=norwegian
+	1083.1.1={
+		birth=1083.1.1
+	}
+	1101.1.1={
+		add_spouse=268415
+	}
+	1104.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1150.1.1={
+		death=yes
+	}
+}
+268417 = {
+	name=Heimir
+	female=no
+	dynasty=1049408
+	father=268415
+	mother=268416
+	religion=catholic
+	culture=norwegian
+	trait=werewolf
+	trait=secret_werewolf
+	trait = strong
+	1105.1.1={
+		birth=1105.1.1
+	}
+	1126.1.1={
+		add_spouse=268418
+	}
+	1170.5.5={
+		add_spouse=268419
+	}
+	1206.1.1={
+		death=yes
+	}
+}
+268418={
+	name=Deòiridh
+	female=yes
+	religion=catholic
+	culture=scottish
+	1110.1.1={
+		birth=1110.1.1
+	}
+	1126.1.1={
+		add_spouse=268417
+	}
+	1128.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1170.1.1={
+		death=yes
+	}
+}
+268419={
+	name=Eimhir
+	female=yes
+	religion=catholic
+	culture=scottish
+	1149.1.1={
+		birth=1149.1.1
+	}
+	1170.5.5={
+		add_spouse=268417
+	}
+	1172.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1210.1.1={
+		death=yes
+	}
+}
+268420={
+	name=Gilchrist
+	female=no
+	dynasty=1049408
+	father=268417
+	mother=268418
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	trait=strong
+	1130.1.1={
+		birth=1130.1.1
+	}
+	1157.1.1={
+		add_spouse=268421
+	}
+	1231.1.1={
+		death=yes
+	}
+}
+268421={
+	name=Jean
+	female=yes
+	religion=catholic
+	culture=scottish
+	1140.1.1={
+		birth=1140.1.1
+	}
+	1157.1.1={
+		add_spouse=268420
+	}
+	1157.10.5={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1210.1.1={
+		death=yes
+	}
+}
+268422={
+	name=Ulf
+	female=no
+	dynasty=1049408
+	father=268420
+	mother=268421
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1158.1.1={
+		birth=1158.1.1
+	}
+	1178.1.1={
+		add_spouse=268423
+	}
+	1239.1.1={
+		death=yes
+	}
+}
+268423={
+	name=Caoimhe
+	female=yes
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1162.1.1={
+		birth=1162.1.1
+	}
+	1178.1.1={
+		add_spouse=268422
+	}
+	1235.1.1={
+		death=yes
+	}
+}
+268424={
+	name=Lachlan
+	female=no
+	dynasty=1049408
+	father=268422
+	mother=268423
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1181.1.1={
+		birth=1181.1.1
+	}
+	1256.1.1={
+		death=yes
+	}
+}
+268425={
+	name=Màiri
+	female=yes
+	religion=catholic
+	culture=scottish
+	1190.1.1={
+		birth=1190.1.1
+	}
+	1206.1.1={
+		add_spouse=268424
+	}
+	1208.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1263.1.1={
+		death=yes
+	}
+}
+268426={
+	name=Nicol
+	female=no
+	dynasty=1049408
+	father=268424
+	mother=268425
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1210.1.1={
+		birth=1210.1.1
+	}
+	1231.1.1={
+		add_spouse=268427
+		
+	}
+	1273.1.1={
+		death=yes
+	}
+}
+268427={
+	name=Oighrig
+	female=yes
+	religion=catholic
+	culture=scottish
+	1214.1.1={
+		birth=1214.1.1
+	}
+	1231.1.1={
+		add_spouse=268426
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1282.1.1={
+		death=yes
+	}
+}
+268428={
+	name=Ranald
+	female=no
+	dynasty=1049408
+	father=268426
+	mother=268427
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1231.5.1={
+		birth=1231.5.1
+	}
+	1249.1.1={
+		add_spouse=268429
+	}
+	1312.10.28={
+		death=yes
+	}
+}
+268429={
+	name=Seonag
+	female=yes
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1233.1.1={
+		birth=1233.1.1
+	}
+	1249.1.1={
+		add_spouse=268428
+	}
+	1302.1.1={
+		death = yes
+	}
+}
+268430={
+	name=Nicol
+	female=no
+	dynasty=1049408
+	father=268428
+	mother=268429
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1252.1.1={
+		birth=1252.1.1
+	}
+	1321.1.1={
+		death=yes
+	}
+}
+268431={
+	name=Sorcha
+	female=yes
+	religion=catholic
+	culture=scottish
+	1301.1.1={
+		birth=1301.1.1
+	}
+	1317.1.1={
+		add_spouse=268430
+	}
+	1318.1.1={
+		add_trait = werewolf
+		add_trait = secret_werewolf
+		add_trait = control_4
+		effect = { set_variable = { which = control value = 4 } }
+	}
+	1378.1.1={
+		death=yes
+	}
+}
+268432={
+	name=Suibhne
+	female=no
+	dynasty=1049408
+	father=268430
+	mother=268431
+	religion=catholic
+	culture=scottish
+	trait=werewolf
+	trait=secret_werewolf
+	1319.1.1={
+		birth=1319.1.1
 	}
 }
