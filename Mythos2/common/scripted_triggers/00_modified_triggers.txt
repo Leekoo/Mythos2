@@ -2272,32 +2272,6 @@ character_disease_trigger = {
 	}
 }
 
-has_disease_trigger = {
-	OR = {
-		trait = has_tuberculosis
-		trait = has_typhoid_fever
-		trait = has_typhus
-		trait = has_bubonic_plague
-		trait = has_measles
-		trait = has_small_pox
-		trait = has_aztec_disease
-		trait = syphilitic
-		trait = flu
-		trait = dysentery
-		trait = gout
-		trait = food_poisoning
-		trait = rabies
-		trait = cancer
-		trait = pneumonic
-		trait = dancing_plague
-		trait = scurvy
-		trait = ill
-		trait = leper
-		trait = lovers_pox
-		trait = zombie_infection
-	}
-}
-
 #to check type of ingredient... (if more are added, they need to go in here to work with the current system)
 is_ingredient_herb_trigger = {
 	OR = {
