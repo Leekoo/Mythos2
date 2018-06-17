@@ -69,6 +69,7 @@ shamble_tactic_skirmish = {
 	group = skirmish
 	
 	trigger = {
+		phase = skirmish
 		OR = {
 			zombie_troops = 0.4
 			leader = { trait = zombie }
@@ -110,7 +111,6 @@ shamble_tactic_skirmish = {
 	dragon_cavalry_offensive = -0.7
 	light_infantry_offensive = -0.7
 	vampires_offensive = -0.7
-	zombie_troops_offensive = -0.7
 	etherial_soldiers_offensive = -0.7
 	heavy_infantry_offensive = -0.7
 	lycan_berzerkers_offensive = -0.7
@@ -132,11 +132,12 @@ shamble_tactic_skirmish = {
 	}
 }
 shamble_tactic_melee = {
-	days = 1
+	days = 7
 	sprite = 1
-	group = skirmish
+	group = advance
 	
 	trigger = {
+		phase = melee
 		OR = {
 			zombie_troops = 0.4
 			leader = { trait = zombie }
@@ -179,7 +180,6 @@ shamble_tactic_melee = {
 	dragon_cavalry_offensive = -0.3
 	light_infantry_offensive = -0.3
 	vampires_offensive = -0.3
-	zombie_troops_offensive = -0.3
 	etherial_soldiers_offensive = -0.3
 	heavy_infantry_offensive = -0.3
 	lycan_berzerkers_offensive = -0.3
@@ -196,8 +196,76 @@ shamble_tactic_melee = {
 		factor = 3
 	}
 	enemy = {
-		group = charge
+		group = advance
 		factor = 1
+	}
+}
+
+undead_charge = {
+	days = 7
+	sprite = 1
+	group = charge
+	
+	trigger = {
+		phase = skirmish
+		OR = {
+			zombie_troops = 0.4
+			leader = { trait = zombie }
+		}
+		location = {
+			OR = {
+				has_province_modifier = depopulated_3
+				has_province_modifier = devastation_3
+			}
+		}
+		days = 7
+	}
+	
+	change_phase_to = melee
+	
+	mean_time_to_happen = {
+		days = 2
+		modifier = {
+			factor = 2
+			zombie_troops = 0.5
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.6
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.7
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.8
+		}
+		modifier = {
+			factor = 2
+			zombie_troops = 0.9
+		}
+		modifier = {
+			factor = 5
+			zombie_troops = 1
+		}
+	}
+	
+	zombie_troops_offensive = 4
+	zombie_troops_defensive = -0.7
+	light_infantry_offensive = -0.3
+	heavy_infantry_offensive = -0.3
+	lycan_berzerkers_offensive = -0.3
+	angels_offensive = -0.3
+	fire_giants_offensive = -0.3
+	frost_giants_offensive = -0.3
+	archers_offensive = -0.3
+	horse_archers_offensive = -0.3
+	pikemen_offensive = -0.3
+	
+	enemy = {
+		group = defensive
+		factor = 3
 	}
 }
 
@@ -558,5 +626,161 @@ overpower_tactic = {
 	enemy = {
 		group = stand_fast
 		factor = 3
+	}
+}
+turn_undead_tactic = {
+	days = 18
+	sprite = 2
+	group = harass
+	
+	trigger = {
+		phase = skrimish
+		leader = {
+			OR = {
+				trait = necromancer
+				AND = {
+					is_priest = yes
+					OR = {
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+				AND = {
+					trait = holy_warrior
+					OR = {
+						trait = zealous
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+			}
+		}
+		NOT = { zombie_troops = 0.1 }
+		enemy = {
+			OR = {
+				zombie_troops = 0.3
+				vampires = 0.3
+				einherjar = 0.3
+				etherial_soldiers = 0.3
+				trait = zombie
+				trait = vampire
+				trait = ethereal_trait
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = miracle_worker
+		}
+		modifier = {
+			factor = 1.5
+			trait = monster_hunter
+		}
+	}
+	
+	light_infantry_offensive = 0.5
+	heavy_infantry_offensive = 1
+	knights_offensive = 1
+	golems_offensive = 1
+	zombie_troops_offensive = -1
+	vampires_offensive = -1
+	demons_offensive = -1
+	einherjar_offendsive = -0.5
+	etherial_soldiers_offensive = -0.5
+	
+	light_infantry_defensive = 1.5
+	heavy_infantry_defensive = 3
+	knights_defensive = 3
+	golems_defensive = 3
+	
+	light_infantry_morale = 0.5
+	enemy = {
+		group = skirmish
+		factor = 2
+	}
+}
+smite_undead_tactic = {
+	days = 18
+	sprite = 2
+	group = advance
+	
+	trigger = {
+		phase = melee
+		leader = {
+			OR = {
+				trait = necromancer
+				AND = {
+					is_priest = yes
+					OR = {
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+				AND = {
+					trait = holy_warrior
+					OR = {
+						trait = zealous
+						trait = miracle_worker
+						trait = monster_hunter
+					}
+				}
+			}
+		}
+		NOT = { zombie_troops = 0.1 }
+		enemy = {
+			OR = {
+				zombie_troops = 0.3
+				vampires = 0.3
+				einherjar = 0.3
+				etherial_soldiers = 0.3
+				trait = zombie
+				trait = vampire
+				trait = ethereal_trait
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+		modifier = {
+			factor = 1.5
+			trait = zealous
+		}
+		modifier = {
+			factor = 1.5
+			trait = miracle_worker
+		}
+		modifier = {
+			factor = 1.5
+			trait = monster_hunter
+		}
+	}
+	
+	light_infantry_offensive = 0.5
+	heavy_infantry_offensive = 2
+	knights_offensive = 3
+	golems_offensive = 3
+	zombie_troops_offensive = -1
+	vampires_offensive = -1
+	demons_offensive = -1
+	einherjar_offendsive = -0.5
+	etherial_soldiers_offensive = -0.5
+	
+	light_infantry_defensive = 0.5
+	heavy_infantry_defensive = 2
+	knights_defensive = 3
+	golems_defensive = 3
+	
+	heavy_infantry_morale = 0.5
+	enemy = {
+		group = advance
+		factor = 2
 	}
 }
