@@ -13,14 +13,12 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		#is_ruler = yes
+		NOT = { has_global_flag = ramesses_reborn }
 		NOT = { culture = egyptian }
 		NOT = { culture = egyptian_arabic }
 		location = { culture = egyptian_arabic }
 	}
 	
-	#mean_time_to_happen = { months = 900 }
-	#mean_time_to_happen = { months = 9 }
 	weight_multiplier = {
 		days = 1
 		modifier = {
@@ -125,13 +123,14 @@ province_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		set_global_flag = ramesses_reborn
 		create_character = {
 			random_traits = no
 			dynasty = 1043002
 			name = "Ramesses"
 			culture = egyptian
 			religion = kemetic_pagan
-			age = 2176
+			age = 2072
 			attributes = {
 				martial = 8
 				diplomacy = 4
