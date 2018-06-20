@@ -3234,6 +3234,7 @@
 	dynasty=1049418
 	culture=beduin_arabic
 	religion=sunni
+	trait=djinn
 	immortal_age=45
 	800.1.1={
 		birth=yes
@@ -3248,6 +3249,7 @@
 	dynasty=1049418
 	culture=beduin_arabic
 	religion=sunni
+	trait=djinn
 	immortal_age=45
 	1000.1.1={
 		birth=yes
@@ -3261,6 +3263,7 @@
 	dynasty=1049419
 	culture=persian
 	religion=sunni
+	trait=djinn
 	trait=midas_touched
 	trait=administrator
 	trait=greedy
@@ -3280,10 +3283,283 @@
 	name=Khinzab
 	female=no
 	dynasty=1049420
-	cultuer=berber_arabic
+	culture=berber_arabic
 	religion=shia
 	immortal_age=30
+	trait=djinn
 	1300.1.1={
 		birth=yes
+	}
+}
+268458={
+	name=Cormoran
+	female=no
+	dynasty=1049421
+	culture=jotunn
+	religion=celtic
+	trait=giant
+	trait=giant_bergrisar
+	730.1.1={
+		birth=yes
+	}
+	746.1.1={
+		add_trait = size_1
+	}
+	756.1.1={
+		add_spouse=268457
+	}
+	762.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	778.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	793.1.1={
+		death={ death_reason = death_battle killer = 159454 }
+	}
+}
+268459={
+	name=Cormelian
+	female=yes
+	culture=jotunn
+	religion=druidic
+	trait=giant
+	trait=giant_bergrisar
+	740.1.1={
+		birth=yes
+	}
+	756.1.1={
+		add_spouse=268458
+		add_trait=size_1
+	}
+	772.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	788.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	797.1.1={
+		death=yes
+	}
+}
+268460={
+	name=Argus
+	female=no
+	dynasty=1049422
+	culture=greek
+	religion=hellenic_pagan
+	employer=145802
+	trait=giant
+	733.1.1={
+		birth=yes
+	}
+	749.1.1={
+		add_trait=size_1
+	}
+	765.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	781.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	797.1.1={
+		effect={ remove_trait = size_3 }
+		add_trait = size_4
+	}
+	813.1.1={
+		effect={ remove_trait = size_4 }
+		add_trait = size_5
+	}
+	829.1.1={
+		effect={ remove_trait = size_5 }
+		add_trait = size_6
+	}
+	845.1.1={
+		effect={ remove_trait = size_6 }
+		add_trait = size_7
+	}
+	862.1.1={
+		effect={ remove_trait = size_7 }
+		add_trait = size_8
+	}
+	877.1.1={
+		effect={ remove_trait = size_8 }
+		add_trait = size_9
+	}
+	880.1.1={
+		death=yes
+	}
+}
+268461={
+	name=Aristatios
+	female=no
+	dynasty=1049423
+	culture=greek
+	religion=hellenic_pagan
+	employer=145797
+	731.1.1={
+		birth=yes
+	}
+	747.1.1={
+		add_trait=size_1
+	}
+	763.1.1={
+		effect={ remove_trait = size_1 }
+		add_trait = size_2
+	}
+	779.1.1={
+		effect={ remove_trait = size_2 }
+		add_trait = size_3
+	}
+	800.1.1={
+		death=yes
+	}
+}
+268462={
+	name=Brynjolf
+	female=no
+	dynasty=1049424
+	culture=jotunn
+	religion=jotnar
+	trait=giant
+	trait=giant_eldjotnar
+	trait=size_1
+	840.1.1={
+		birth=yes
+	}
+	900.1.1={
+		death=yes
+	}
+}
+268453={
+	name=Dobrozhir
+	female=no
+	dynasty=1049271
+	culture=jotunn
+	religion=norse_pagan
+	trait=giant
+	trait=giant_hrimthursar
+	trait=size_2
+	821.1.1={
+		birth=yes
+	}
+	912.1.2={
+		death=yes
+	}
+}
+268454={
+	name=Ferragut
+	female=no
+	dynasty=12308
+	father=73968
+	mother=73975
+	culture=beduin_arabic
+	religion=sunni
+	learning=7
+	trait=giant
+	trait=skilled_tactician
+	trait=duelist
+	trait=holy_warrior
+	trait=wroth
+	trait=gregarious
+	trait=brave
+	trait=zealous
+	trait=trusting
+	843.1.1={
+		birth=yes
+	}
+	931.1.1={
+		death=yes
+	}
+}
+268455={
+	name=Balor
+	female=no
+	dynasty=1049425
+	culture=irish
+	religion=druidic
+	trait=giant
+	1020.1.1={
+		birth=yes
+	}
+	1102.7.1={
+		death=yes
+	}
+}
+268456={
+	name=Ravana
+	female=no
+	dynasty=1049426
+	father=268457
+	mother=268458
+	culture=marathi
+	religion=hindu
+	trait=giant
+	trait=wroth
+	trait=erudite
+	1202.1.1={
+		birth=yes
+	}
+	1304.1.1={
+		death=yes
+	}
+}
+268457={
+	name=Vishrava
+	female=no
+	dynasty=1049426
+	culture=marathi
+	religion=hindu
+	trait=giant
+	1168.1.1={
+		birth=yes
+	}
+	1185.1.1={
+		add_spouse=268458
+	}
+	1239.1.1={
+		death=yes
+	}
+}
+268458={
+	name=Kaikeshi
+	female=yes
+	dynasty=1049427
+	culture=marathi
+	religion=hindu
+	trait=giant
+	1169.1.1={
+		birth=yes
+	}
+	1185.1.1={
+		add_spouse=268457
+	}
+	1255.1.1={
+		death=yes
+	}
+}
+268459={
+	name=Shurpanakha
+	female=yes
+	dynasty=1049426
+	father=268457
+	mother=268458
+	culture=marathi
+	religion=hindu
+	trait=giant
+	1208.1.1={
+		birth=yes
+	}
+	1226.1.1={
+		add_trait=disfigured
+	}
+	1320.1.1={
+		death=yes
 	}
 }
