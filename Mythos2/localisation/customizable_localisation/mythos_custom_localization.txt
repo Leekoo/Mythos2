@@ -5695,3 +5695,63 @@ defined_text = {
 		}
 	}
 }
+
+defined_text = {
+	name = GetCollegeOfCardinals
+	text = {
+		localisation_key = STRING_college_of_cardinals
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_of_druids
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointed
+	text = {
+		localisation_key = STRING_cardinal_appointed
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointedLetter
+	text = {
+		localisation_key = STRING_cardinal_appointed_letter
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed_letter
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointedLog
+	text = {
+		localisation_key = STRING_cardinal_appointed_log
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed_log
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPapalSuccession
+	text = {
+		localisation_key = STRING_papal_succession
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_succession
+		trigger = { religion = druidic_reformed }
+	}
+}
