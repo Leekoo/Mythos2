@@ -3564,3 +3564,44 @@
 		death=yes
 	}
 }
+
+# Mentese, c_lykia
+268460={
+	name = Terrasque
+	female = no
+	dynasty = 1049428
+	culture = draconic
+	religion = draconic_pagan
+	diplomacy=4
+	martial=7
+	stewardship=6
+	intrigue=5
+	learning=3
+	trait = dragon
+	trait = brilliant_strategist
+	trait = strategist
+	trait = adventurer
+	trait = mountain_terrain_leader
+	trait = narrow_flank_leader
+	trait = ambitious
+	trait = greedy
+	trait = proud
+	trait = stubborn
+	trait = zealous
+	1310.1.1={
+		birth = yes
+	}
+	1337.1.1={
+		effect = {
+			spawn_unit={
+				province = 747
+				home = 747
+				owner = ROOT
+				troops = {
+					dragon_cavalry = { 300 300 }
+				}
+				maintenance = no
+			}
+		}
+	}
+}
