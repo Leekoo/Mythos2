@@ -5755,3 +5755,75 @@ defined_text = {
 		trigger = { religion = druidic_reformed }
 	}
 }
+
+defined_text = {
+	name = GetPapalSuccessionDesc
+	text = {
+		localisation_key = STRING_papal_succession_desc
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_succession_desc
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalChoice
+	text = {
+		localisation_key = STRING_cardinal_choice
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_druid_choice
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalSupportOpinion
+	text = {
+		localisation_key = STRING_cardinal_support_opinion
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_support_opinion
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPopeSupportOpinion
+	text = {
+		localisation_key = STRING_pope_support_opinion
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_support_opinion
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPopeSuitability
+	text = {
+		localisation_key = STRING_pope_suitability
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_suitability
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalSuitability
+	text = {
+		localisation_key = STRING_cardinal_suitability
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_suitability
+		trigger = { religion = druidic_reformed }
+	}
+}
