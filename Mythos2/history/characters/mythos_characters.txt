@@ -405,6 +405,9 @@
 			set_character_flag = checked_race
 		}
 	}
+	316.1.1={
+		death={ death_reason = death_murder killer = 268465 }
+	}
 }	
 
 
@@ -431,6 +434,8 @@
 	stewardship=5
 	intrigue=7
 	learning=4
+	dna="h00000a00a0"
+	properties="c0000000000000"
 	729.8.14 = {
 		birth = "729.8.14"
 		effect = { set_character_flag = checked_race }
@@ -1448,7 +1453,7 @@
 	}
 }
 268363={
-	name=Alas
+	name=Ala
 	female=yes
 	dynasty=0
 	religion = draconic_pagan
@@ -2197,8 +2202,8 @@
 			set_character_flag = checked_race
 		}
 	}
-	20.3.1 = {
-		death="20.3.1"
+	30.3.1 = {
+		death="30.3.1"
 	}
 }
 268401 = {
@@ -2218,6 +2223,12 @@
 			set_character_flag = greek_god_chronos
 			set_character_flag = checked_race
 		}
+	}
+	17.1.1={
+		add_spouse=268452
+	}
+	34.1.1={
+		death = { death_reason = death_murder killer = 268457 }
 	}
 }
 
@@ -3554,6 +3565,7 @@
 	culture=marathi
 	religion=hindu
 	trait=giant
+	trait=ugly
 	1208.1.1={
 		birth=yes
 	}
@@ -3565,9 +3577,8 @@
 	}
 }
 
-# Mentese, c_lykia
 268460={
-	name = Terrasque
+	name = Tarasque
 	female = no
 	dynasty = 1049428
 	culture = draconic
@@ -3603,5 +3614,702 @@
 				maintenance = no
 			}
 		}
+	}
+}
+268461={
+	name = Apalala
+	female = no
+	dynasty = 1049429
+	culture = draconic
+	religion = draconic_pagan
+	trait = dragon
+	trait = arcane_master
+	trait = wroth
+	trait = temperate
+	728.1.1={
+		birth=yes
+	}
+	750.1.1={
+		religion=buddhism
+	}
+	852.1.1={
+		death=yes
+	}
+}
+
+# Greek Gods
+
+268452={
+	name=Rhea
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268400
+	historical = yes
+	immortal_age = 40
+	trait = god
+	trait = intricate_webweaver
+	trait = charitable
+	trait = kind
+	1.1.1={
+		birth=yes
+		set_character_flag=greek_god_rhea
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	17.1.1={
+		add_spouse=268401
+	}
+}
+268453={
+	name=Hades
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268452
+	historical = yes
+	immortal_age = 30
+	trait = just
+	trait = god
+	trait = quick
+	trait = wroth
+	trait = midas_touched
+	17.9.1={
+		birth=yes
+		set_character_flag=greek_god_hades
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268454={
+	name=Poseidon
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268452
+	historical = yes
+	immortal_age=40
+	trait = brave
+	trait = envious
+	trait = proud
+	trait = patient
+	trait = quick
+	trait = god
+	trait = midas_touched
+	18.6.1={
+		birth=yes
+		set_character_flag=greek_god_poseidon
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268455={
+	name=Aphrodite
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268400
+	historical=yes
+	immortal_age=20
+	trait = fair
+	trait = seductress
+	trait = kind
+	trait = just
+	trait = lustful
+	trait = gregarious
+	trait = god
+	trait = elusive_shadow
+	3.1.1={
+		birth=yes
+		set_character_flag=greek_god_aphrodite
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268456={
+	name=Hera
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268452
+	historical = yes
+	immortal_age = 40
+	trait = elusive_shadow
+	trait = god
+	trait = envious
+	trait = diligent
+	19.3.1={
+		birth=yes
+		set_character_flag=greek_god_hera
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	36.1.1={
+		add_spouse=268457
+	}
+}
+268457={
+	name=GOD_JUPITER # Zeus gets localized to Conclave
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268400
+	father=268401
+	mother=268452
+	historical = yes
+	immortal_age = 40
+	trait = god
+	trait = brave
+	trait = just
+	trait = proud
+	trait = lustful
+	trait = genius
+	trait = seducer
+	trait = brilliant_strategist
+	20.1.1={
+		birth=yes
+		set_character_flag=greek_god_zeus
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	36.1.1={
+		add_spouse=268456
+	}
+}
+268458={
+	name=Athena
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268457
+	historical = yes
+	immortal_age = 25
+	trait = god
+	trait = kind
+	trait = temperate
+	trait = just
+	trait = chaste
+	trait = honest
+	trait = genius
+	trait = grey_eminence
+	learning=8
+	39.1.1={
+		birth=yes
+		set_character_flag=greek_god_athena
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268459={
+	name=Ares
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268457
+	mother=268456
+	historical = yes
+	immortal_age = 30
+	trait = god
+	trait = brave
+	trait = stubborn
+	trait = wroth
+	trait = proud
+	trait = diligent
+	trait = strong
+	trait = brilliant_strategist
+	trait = ares_own
+	martial=8
+	36.9.1={
+		birth=yes
+		set_character_flag=greek_god_ares
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268460={
+	name=Hermes
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268457
+	historical = yes
+	immortal_age = 20
+	trait = god
+	trait = midas_touched
+	trait = fair
+	trait = quick
+	trait = feeble
+	trait = socializer
+	trait = charitable
+	trait = kind
+	trait = deceitful
+	trait = arbitrary
+	trait = gregarious
+	trait = organizer
+	trait = bastard
+	stewardship=8
+	37.1.1={
+		birth=yes
+		set_character_flag=greek_god_hermes
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268461={
+	name=Pan
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268460 # Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
+	historical = yes
+	immortal_age = 20
+	trait = god
+	trait = hedonist
+	trait = charismatic_negotiator
+	trait = seducer # Yes, two lifestyles.  Busy guy.
+	trait = lustful
+	trait = gluttonous
+	trait = greedy
+	trait = gregarious
+	trait = content
+	60.1.1={
+		birth=yes
+		set_character_flag=greek_god_pan
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268462={
+	name=Leto
+	female=yes
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	historical = yes
+	immortal_age = 25
+	trait=charismatic_negotiator
+	trait=fair
+	20.1.1={
+		birth=yes
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+	
+268463={
+	name=Apollo
+	female=no
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268457
+	mother=268462
+	historical = yes
+	immortal_age = 20
+	trait = charismatic_negotiator
+	trait = god
+	trait = physician
+	trait = mystic
+	trait = poet
+	trait = honest
+	trait = twin
+	trait = diligent
+	trait = patient
+	trait = bastard
+	39.1.1={
+		birth=yes
+		set_character_flag=greek_god_apollo
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268464={
+	name=Artemis
+	female=yes
+	dynasty=1049005
+	religion = hellenic_pagan
+	culture = greek
+	employer=268457
+	father=268457
+	mother=268462
+	historical = yes
+	immortal_age = 20
+	trait = god
+	trait = chaste
+	trait = hunter
+	trait = twin
+	trait = skilled_tactician
+	trait = fair
+	trait = strong
+	trait = celibate
+	trait = falconer
+	trait = proud
+	trait = envious
+	trait = patient
+	trait = rough_terrain_leader
+	39.1.1={
+		birth=yes
+		set_character_flag=greek_god_artemis
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+
+268465={
+	name=Óðinn
+	female=no
+	dynasty=1049006
+	religion=norse_pagan
+	culture=norse
+	employer=268305
+	historical = yes
+	immortal_age = 50
+	trait = god
+	trait = genius
+	trait = brave
+	trait = just
+	trait = patient
+	trait = diligent
+	trait = erudite
+	trait = midas_touched
+	trait = one_eyed
+	300.1.1={
+		birth=yes
+		set_character_flag=norse_god_odin
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	330.1.1={
+		add_spouse=268469
+	}
+}
+268466={
+	name=Þórr
+	female=no
+	dynasty = 1049006
+	religion=norse_pagan
+	culture=norse
+	employer=268465
+	historical = yes
+	immortal_age = 50
+	trait = god
+	trait = brave
+	trait = just
+	trait = trusting
+	trait = honest
+	trait = proud
+	trait = zealous
+	trait = strong
+	350.1.1={
+		birth=yes
+		set_character_flag=norse_god_thor
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	428.1.1={
+		add_spouse=268475
+		effect= { add_lover = 268475 }
+	}
+}
+268467={
+	name=Loki
+	female=no
+	dynasty=1049009
+	religion = norse_pagan # Might convert to Jotun later by event or through his wife
+	culture = norse
+	employer=268465
+	historical = yes
+	immortal_age = 25
+	trait = god
+	trait = giant
+	trait = cynical
+	trait = deceitful
+	trait = envious
+	trait = quick
+	trait = schemer
+	trait = elusive_shadow
+	trait = size_10
+	354.1.1={
+		birth=yes
+		set_character_flag=norse_god_loki
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268468={
+	name=Sleipnir
+	female=no
+	dynasty = 1049009
+	mother = 268467
+	religion=norse_pagan
+	culture=norse
+	employer=268465
+	historical=yes
+	trait = demi_god
+	trait = horse
+	trait = immortal
+	trait = tough_soldier
+	trait = half_giant
+	trait = strong
+	trait = content
+	trait = cavalry_leader
+	trait = size_5
+	trait = bastard
+	400.1.1={
+		birth=yes
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268469={
+	name=Frigg
+	female = yes
+	dynasty = 1049006
+	employer=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=25
+	trait = god
+	trait = mystic
+	trait = mastermind_theologian
+	trait = shrewd
+	310.1.1={
+		birth=yes
+		set_character_flag=norse_god_frigg
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	330.1.1={
+		add_spouse=268465
+	}
+}
+268470={
+	name=Freyja
+	female=yes
+	dynasty = 1049008
+	employer=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=25
+	trait = god
+	trait = seductress
+	trait = fair
+	trait = lustful
+	trait = greedy
+	trait = grey_eminence
+	401.1.1={
+		birth=yes
+		set_character_flag=norse_god_freyja
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268471={
+	name=Heimdallr
+	female=no
+	dynasty = 1049006
+	employer=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=35
+	trait = god
+	trait = midas_touched
+	trait = patient
+	trait = fair
+	trait = diligent
+	trait = humble
+	trait = brave
+	trait = content
+	260.1.1={
+		birth=yes
+		set_character_flag=norse_god_heimdallr
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268472={
+	name=Baldr
+	female=no
+	dynasty = 1049006
+	employer=268465
+	father=268465
+	mother=268469
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=20
+	trait = god
+	trait = fair
+	trait = quick
+	trait = strong
+	trait = mystic
+	trait = just
+	trait = grey_eminence
+	419.1.1={
+		birth=yes
+		set_character_flag=norse_god_baldr
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	439.1.1={
+		add_spouse=268473
+	}
+}
+268473={
+	name=Nanna
+	female=yes
+	dynasty = 1049010
+	employer=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=20
+	trait = god
+	trait = temperate
+	trait = just
+	423.1.1={
+		set_character_flag=norse_god_nanna
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	439.1.1={
+		add_spouse=268472
+	}
+}
+268474={
+	name=Bragi
+	female=no
+	dynasty = 1049006
+	employer=268465
+	father=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=30
+	trait = god
+	trait = poet
+	trait = grey_eminence
+	trait = socializer
+	trait = half_giant
+	trait = size_5
+	408.1.1={
+		set_character_flag=norse_god_bragi
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268475={
+	name=Sif
+	female=yes
+	dynasty = 1049006
+	employer=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=18
+	random_traits = yes
+	412.1.1={
+		birth=yes
+		set_character_flag=norse_god_sif
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	428.1.1={
+		add_spouse=268466
+		effect= { add_lover = 268466 }
+	}
+}
+268476={
+	name=Týr
+	female=no
+	dynasty = 1049006
+	employer=268465
+	father=268465
+	religion=norse_pagan
+	culture=norse
+	historical=yes
+	immortal_age=18
+	trait = god
+	trait = just
+	trait = brave
+	trait = deceitful
+	trait = brilliant_strategist
+	trait = one_handed # Flagged to not heal via divine regeneration
+	trait = strong
+	trait = temperate
+	trait = diligent
+	trait = kind
+	408.1.1={
+		birth=yes
+		set_character_flag=norse_god_tyr
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+}
+268477={
+	name=Angrboða
+	female=yes
+	employer=268465
+	religion = jotnar
+	culture=norse
+	historical=yes
+	trait = demi_god
+	trait = strong
+	trait = skilled_tactician
+	trait = giant
+	trait = wroth
+	trait = cruel
+	trait = deceitful
+	trait = size_10
+	720.1.1={
+		birth=yes
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
+	}
+	736.1.1={
+		add_spouse=268467
+	}
+}
+268478={
+	name=Hel
+	female=yes
+	employer=268465
+	father=268467
+	mother=268477
+	religion = norse_pagan
+	culture = norse
+	historical=yes
+	immortal_age=70
+	752.1.1={
+		birth=yes
+		set_character_flag=norse_god_hel
+		set_character_flag=ai_flag_refuse_conversion
+		set_character_flag=checked_race
 	}
 }
