@@ -3131,15 +3131,35 @@
 				home = 914
 				owner = c_268446
 				troops = {
-					zombie_troops = { 520 520 }
+					zombie_troops = { 620 620 }
 				}
 				reinforces = no
 				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
 			}
 		}
 	}
 	860.1.1={
 		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
 	}
 }
 
@@ -3165,15 +3185,35 @@
 				home = 396
 				owner = c_268447
 				troops = {
-					zombie_troops = { 840 840 }
+					zombie_troops = { 1000 1000 }
 				}
 				reinforces = no
 				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
 			}
 		}
 	}
 	880.1.1={
 		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
 	}
 }
 
@@ -3204,10 +3244,30 @@
 				reinforces = no
 				maintenance = no
 			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
 		}
 	}
 	1071.1.1={
 		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
 	}
 }
 
@@ -3237,10 +3297,30 @@
 				reinforces = no
 				maintenance = no
 			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
 		}
 	}
 	1111.1.1={
 		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
 	}
 }
 
@@ -3271,10 +3351,30 @@
 				reinforces = no
 				maintenance = no
 			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+			}
 		}
 	}
 	1300.1.1={
 		death=yes
+		effect = {
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					remove_province_modifier = depopulated_3
+				}
+				else = {
+					remove_province_modifier = devastation_3
+				}
+			}
+		}
 	}
 }
 
@@ -3301,6 +3401,15 @@
 				}
 				reinforces = no
 				maintenance = no
+			}
+			any_realm_province = {
+				if = {
+					limit = { has_dlc = Reapers }
+					add_province_modifier = { name = depopulated_3 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
 			}
 		}
 	}

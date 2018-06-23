@@ -64,7 +64,7 @@ scorch_tactic = {
 
 # Zombie Shamble
 shamble_tactic_skirmish = {
-	days = 3
+	days = 7
 	sprite = 1
 	group = skirmish
 	
@@ -104,7 +104,7 @@ shamble_tactic_skirmish = {
 		}
 	}
 	
-	zombie_troops_offensive = 3
+	zombie_troops_offensive = 4
 	light_cavalry_offensive = -0.7
 	knights_offensive = -0.7
 	demons_offensive = -0.7
@@ -121,6 +121,7 @@ shamble_tactic_skirmish = {
 	archers_offensive = -0.7
 	horse_archers_offensive = -0.7
 	pikemen_offensive = -0.7
+	zombie_troops_defensive = 0.5
 	
 	enemy = {
 		group = charge
@@ -173,7 +174,7 @@ shamble_tactic_melee = {
 	}
 	
 	zombie_troops_offensive = 3
-	zombie_troops_defensive = -0.7
+	zombie_troops_defensive = -0.5
 	light_cavalry_offensive = -0.3
 	knights_offensive = -0.3
 	demons_offensive = -0.3
@@ -252,7 +253,7 @@ undead_charge = {
 	}
 	
 	zombie_troops_offensive = 4
-	zombie_troops_defensive = -0.7
+	zombie_troops_defensive = -0.5
 	light_infantry_offensive = -0.3
 	heavy_infantry_offensive = -0.3
 	lycan_berzerkers_offensive = -0.3
