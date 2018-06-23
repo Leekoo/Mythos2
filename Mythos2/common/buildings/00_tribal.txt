@@ -4,12 +4,6 @@
 tribal = {	
 	tb_hillfort_1 = {
 		desc = tb_hillfort_1_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_hillfort_1 }
-			}
-		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -31,12 +25,6 @@ tribal = {
 	
 	tb_hillfort_2 = {
 		desc = tb_hillfort_2_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_hillfort_2 }
-			}
-		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -61,12 +49,6 @@ tribal = {
 	
 	tb_hillfort_3 = {
 		desc = tb_hillfort_3_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_hillfort_3 }
-			}
-		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = { NOT = { government = zombie_horde } }
@@ -89,12 +71,6 @@ tribal = {
 	
 	tb_hillfort_4 = {
 		desc = tb_hillfort_4_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_hillfort_4 }
-			}
-		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
 			owner = { NOT = { government = zombie_horde } }
@@ -119,12 +95,6 @@ tribal = {
 	
 	tb_market_town_1 = {
 		desc = tb_market_town_1_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_market_town_1 }
-			}
-		}
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -145,12 +115,6 @@ tribal = {
 	
 	tb_market_town_2 = {
 		desc = tb_market_town_2_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_market_town_2 }
-			}
-		}
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -174,12 +138,6 @@ tribal = {
 	
 	tb_market_town_3 = {
 		desc = tb_market_town_3_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_market_town_3 }
-			}
-		}
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 1
 			owner = { NOT = { government = zombie_horde } }
@@ -201,12 +159,6 @@ tribal = {
 	
 	tb_market_town_4 = {
 		desc = tb_market_town_4_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_market_town_4 }
-			}
-		}
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 1
 			owner = { NOT = { government = zombie_horde } }
@@ -231,12 +183,6 @@ tribal = {
 	tb_shipyard_1 = {
 		desc = shipyard_desc
 		port = yes
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_shipyard_1 }
-			}
-		}
 		trigger = { 
 			TECH_NAVAL = 1
 			owner = { NOT = { government = zombie_horde } }
@@ -259,12 +205,6 @@ tribal = {
 	tb_shipyard_2 = {
 		desc = shipyard_desc
 		port = yes
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_shipyard_2 }
-			}
-		}
 		trigger = { 
 			TECH_NAVAL = 2
 			owner = { NOT = { government = zombie_horde } }
@@ -288,12 +228,6 @@ tribal = {
 	tb_shipyard_3 = {
 		desc = shipyard_desc
 		port = yes
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_shipyard_3 }
-			}
-		}
 		trigger = { 
 			TECH_NAVAL = 3
 			owner = { NOT = { government = zombie_horde } }
@@ -317,12 +251,6 @@ tribal = {
 	tb_shipyard_4 = {
 		desc = shipyard_desc
 		port = yes
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_shipyard_4 }
-			}
-		}
 		trigger = { 
 			TECH_NAVAL = 4
 			owner = { NOT = { government = zombie_horde } }
@@ -345,12 +273,6 @@ tribal = {
 	
 	tb_training_grounds_1 = {
 		desc = tb_training_grounds_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_training_grounds_1 }
-			}
-		}
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -369,12 +291,6 @@ tribal = {
 	
 	tb_training_grounds_2 = {
 		desc = tb_training_grounds_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_training_grounds_2 }
-			}
-		}
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -397,12 +313,6 @@ tribal = {
 	
 	tb_training_grounds_3 = {
 		desc = tb_training_grounds_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_training_grounds_3 }
-			}
-		}
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -422,12 +332,6 @@ tribal = {
 	
 	tb_training_grounds_4 = {
 		desc = tb_training_grounds_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_training_grounds_4 }
-			}
-		}
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -450,12 +354,6 @@ tribal = {
 	
 	tb_war_camp_1 = {
 		desc = tb_war_camp_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_war_camp_1 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -473,12 +371,6 @@ tribal = {
 	
 	tb_war_camp_2 = {
 		desc = tb_war_camp_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_war_camp_2 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -500,12 +392,6 @@ tribal = {
 	
 	tb_war_camp_3 = {
 		desc = tb_war_camp_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_war_camp_3 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -524,12 +410,6 @@ tribal = {
 	
 	tb_war_camp_4 = {
 		desc = tb_war_camp_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_war_camp_4 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -551,12 +431,6 @@ tribal = {
 	
 	tb_practice_range_1 = {
 		desc = tb_practice_range_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_practice_range_1 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -574,12 +448,6 @@ tribal = {
 	
 	tb_practice_range_2 = {
 		desc = tb_practice_range_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_practice_range_2 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -601,12 +469,6 @@ tribal = {
 	
 	tb_practice_range_3 = {
 		desc = tb_practice_range_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_practice_range_3 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -625,12 +487,6 @@ tribal = {
 	
 	tb_practice_range_4 = {
 		desc = tb_practice_range_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_practice_range_4 }
-			}
-		}
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -653,10 +509,6 @@ tribal = {
 	tb_steppe_barracks_1 = {
 		desc = ca_steppe_barracks_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_barracks_1 }
-			}
 			terrain = steppe
 			FROM = {
 				OR = {
@@ -685,10 +537,6 @@ tribal = {
 	tb_steppe_barracks_2 = {
 		desc = ca_steppe_barracks_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_barracks_2 }
-			}
 			terrain = steppe
 			FROM = {
 				OR = {
@@ -721,10 +569,6 @@ tribal = {
 	tb_steppe_barracks_3 = {
 		desc = ca_steppe_barracks_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_barracks_3 }
-			}
 			terrain = steppe
 			FROM = {
 				OR = {
@@ -754,10 +598,6 @@ tribal = {
 	tb_steppe_barracks_4 = {
 		desc = ca_steppe_barracks_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_barracks_4 }
-			}
 			terrain = steppe
 			FROM = {
 				OR = {
@@ -791,10 +631,6 @@ tribal = {
 		desc = ca_steppe_stable_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_stable_1 }
-			}
-			OR = {
 				terrain = plains
 				terrain = steppe
 			}
@@ -826,10 +662,6 @@ tribal = {
 	tb_steppe_stable_2 = {
 		desc = ca_steppe_stable_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_stable_2 }
-			}
 			OR = {
 				terrain = plains
 				terrain = steppe
@@ -867,10 +699,6 @@ tribal = {
 		desc = ca_steppe_stable_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_stable_3 }
-			}
-			OR = {
 				terrain = plains
 				terrain = steppe
 			}
@@ -903,10 +731,6 @@ tribal = {
 	tb_steppe_stable_4 = {
 		desc = ca_steppe_stable_desc
 		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_steppe_stable_4 }
-			}
 			OR = {
 				terrain = plains
 				terrain = steppe
@@ -942,12 +766,6 @@ tribal = {
 	
 	tb_arsenal_1 = {
 		desc = tb_arsenal_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_arsenal_1 }
-			}
-		}
 		trigger = { 
 			TECH_RECRUITMENT = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -966,12 +784,6 @@ tribal = {
 	
 	tb_arsenal_2 = {
 		desc = tb_arsenal_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_arsenal_2 }
-			}
-		}
 		trigger = { 
 			TECH_RECRUITMENT = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -994,12 +806,6 @@ tribal = {
 	
 	tb_arsenal_3 = {
 		desc = tb_arsenal_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_arsenal_3 }
-			}
-		}
 		trigger = { 
 			TECH_RECRUITMENT = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -1019,12 +825,6 @@ tribal = {
 	
 	tb_arsenal_4 = {
 		desc = tb_arsenal_desc
-		potential = {
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_arsenal_4 }
-			}
-		}
 		trigger = { 
 			TECH_RECRUITMENT = 0
 			owner = { NOT = { government = zombie_horde } }
@@ -1057,10 +857,6 @@ tribal = {
 					culture_group = iranian
 				}
 			}
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_desert_stable_1 }
-			}
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
@@ -1090,10 +886,6 @@ tribal = {
 					culture_group = arabic
 					culture_group = iranian
 				}
-			}
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_desert_stable_2 }
 			}
 		}
 		trigger = { 
@@ -1129,10 +921,6 @@ tribal = {
 					culture_group = iranian
 				}
 			}
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_desert_stable_3 }
-			}
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
@@ -1163,10 +951,6 @@ tribal = {
 					culture_group = arabic
 					culture_group = iranian
 				}
-			}
-			OR = {
-				owner = { NOT = { government = zombie_horde } }
-				FROMFROM = { has_building = tb_desert_stable_4 }
 			}
 		}
 		trigger = { 
