@@ -149,6 +149,7 @@
 		birth="711.4.5"
 		effect = { set_character_flag = checked_race }
 	}
+	735.1.1 = { add_spouse = 268295 }
 	821.1.1 = {
 		death=yes
 	}
@@ -224,12 +225,12 @@
 			opinion = {
 				modifier = in_non_aggression_pact
 				years = 15
-				who = c_144000
+				who = 144000
 			}
 			reverse_opinion = {
 				modifier = in_non_aggression_pact
 				years = 15
-				who = c_144000
+				who = 144000
 			}
 		}
 	}
@@ -406,7 +407,7 @@
 		}
 	}
 	316.1.1={
-		death={ death_reason = death_murder killer = 268465 }
+		death={ death_reason = death_murder killer = 268485 }
 	}
 }	
 
@@ -700,7 +701,7 @@
 	father=268300
 	mother=268322
 	907.2.2={
-		birth=900.2.2
+		birth=907.2.2
 	}
 	926.9.3={
 		add_spouse=268324
@@ -790,6 +791,8 @@
 	trait = content
 	trait = kind
 	trait = charismatic_negotiator
+	dna="cb0000ad0b0"
+	properties="b0000000000000"
 	1020.3.7={
 		birth=1020.3.7
 	}
@@ -2225,10 +2228,10 @@
 		}
 	}
 	17.1.1={
-		add_spouse=268452
+		add_spouse=268472
 	}
 	34.1.1={
-		death = { death_reason = death_murder killer = 268457 }
+		death = { death_reason = death_murder killer = 268477 }
 	}
 }
 
@@ -2309,8 +2312,10 @@
 	trait = skilled_tactician
 	trait = wroth
 	trait = control_2
-	755.1.1={
-		birth=755.1.1
+	dna="0ccce0gaga0"
+	properties="0i0dga00000000"
+	750.1.1={
+		birth=750.1.1
 		effect = { set_variable = { which = control value = 2 } }
 	}
 	844.1.1={
@@ -2601,6 +2606,10 @@
 	trait=werewolf
 	trait=secret_werewolf
 	trait=strong
+	trait=ambitious
+	trait=zealous
+	dna="cfbee0a00b0"
+	properties="0i0eh000000000"
 	1130.1.1={
 		birth=1130.1.1
 	}
@@ -2832,6 +2841,11 @@
 	culture=scottish
 	trait=werewolf
 	trait=secret_werewolf
+	trait=skilled_tactician
+	trait=mountain_terrain_leader
+	trait=ambitious
+	dna="adiba0g0000"
+	properties="og0a0000000000"
 	1319.1.1={
 		birth=1319.1.1
 	}
@@ -2883,6 +2897,8 @@
 	trait=vampire
 	trait=secret_vampire
 	immortal_age=45
+	dna="cjefg0ha000"
+	properties="0d0bdd00000000"
 	805.1.1={
 		birth=805.1.1
 	}
@@ -2937,6 +2953,8 @@
 	trait=envious
 	trait=proud
 	immortal_age=40
+	dna="cd0ca000cb0"
+	properties="0j0a0000000000"
 	1133.1.1={
 		birth=1133.1.1
 	}
@@ -2994,6 +3012,8 @@
 	trait=secret_vampire
 	trait=elusive_shadow
 	immortal_age=20
+	dna="agc000aa0a0"
+	properties="0e0a0b00000000"
 	730.1.1={
 		birth=730.1.1
 	}
@@ -3030,6 +3050,8 @@
 	trait=secret_vampire
 	trait=flamboyant_schemer
 	immortal_age=27
+	dna="beheh0hbb00"
+	properties="nd0adc00000000"
 	1030.1.1={
 		birth=1030.1.1
 	}
@@ -3068,6 +3090,8 @@
 	trait=secret_vampire
 	trait=intricate_webweaver
 	immortal_age=16
+	dna="acfdc0e0000"
+	properties="og0a0000000000"
 	1290.1.1={
 		birth=1290.1.1
 	}
@@ -3075,7 +3099,7 @@
 		add_spouse=268444
 	}
 	1309.12.31={
-		set_father=268444
+		effect = { set_father=268444 }
 	}
 }
 268446={
@@ -3111,7 +3135,7 @@
 	trait=winter_soldier
 	trait=brave
 	immortal_age=35
-	831.1.1={
+	811.1.1={
 		birth=831.1.1
 	}
 	880.1.1={
@@ -3147,7 +3171,7 @@
 	culture=undead_revenant
 	trait=zombie
 	trait=tough_soldier
-	trait=defender
+	trait=defensive_leader
 	trait=cruel
 	immortal_age=24
 	1067.1.1={
@@ -3195,7 +3219,7 @@
 	name = Ramesses
 	female=no
 	dynasty = 1043002
-	culture = egyptian
+	culture = egyptian_arabic
 	religion = kemetic_pagan
 	martial = 8
 	diplomacy = 4
@@ -3210,10 +3234,13 @@
 	trait = proud
 	trait = zealous
 	trait = brave
+	dna="ajibe00ae00"
+	properties="jb00ak00000000"
 	immortal_age=30
-	770.13.3={
-		birth=03.13.1 # Will the game lie for me?
+	770.3.13={
+		birth=1.3.13 # Will the game lie for me?
 		set_global_flag = ramesses_reborn
+		give_nickname = nick_ozymandias
 	}
 }
 268453={
@@ -3258,12 +3285,15 @@
 	name=Siq
 	female=no
 	dynasty=1049418
-	culture=beduin_arabic
+	culture=bedouin_arabic
 	religion=sunni
 	trait=djinn
 	immortal_age=45
+	dna="cdlic0ac000"
+	properties="j00hbb00000000"
 	1000.1.1={
 		birth=yes
+	}
 	1170.1.1={
 		death=yes
 	}
@@ -3283,6 +3313,8 @@
 	trait=cynical
 	trait=deceitful
 	immortal_age=30
+	dna="cdfka0h0000"
+	properties="oj0a0a00000000"
 	1203.1.1={
 		birth=yes
 	}
@@ -3294,8 +3326,8 @@
 	name=Khinzab
 	female=no
 	dynasty=1049420
-	culture=berber_arabic
-	religion=shia
+	culture=maghreb_arabic
+	religion=shiite
 	immortal_age=30
 	trait=djinn
 	1300.1.1={
@@ -3307,9 +3339,11 @@
 	female=no
 	dynasty=1049421
 	culture=jotunn
-	religion=celtic
+	religion=druidic
 	trait=giant
 	trait=giant_bergrisar
+	dna="cdfbe0dada0"
+	properties="qe0ffb00000000"
 	730.1.1={
 		birth=yes
 	}
@@ -3317,7 +3351,7 @@
 		add_trait = size_1
 	}
 	756.1.1={
-		add_spouse=268457
+		add_spouse=268459
 	}
 	762.1.1={
 		effect={ remove_trait = size_1 }
@@ -3448,7 +3482,7 @@
 		death=yes
 	}
 }
-268453={
+268463={
 	name=Dobrozhir
 	female=no
 	dynasty=1049271
@@ -3464,13 +3498,13 @@
 		death=yes
 	}
 }
-268454={
+268464={
 	name=Ferragut
 	female=no
 	dynasty=12308
 	father=73968
 	mother=73975
-	culture=beduin_arabic
+	culture=bedouin_arabic
 	religion=sunni
 	learning=7
 	trait=giant
@@ -3482,6 +3516,8 @@
 	trait=brave
 	trait=zealous
 	trait=trusting
+	dna="cjcea0aa000"
+	properties="0b0edj00000000"
 	843.1.1={
 		birth=yes
 	}
@@ -3489,40 +3525,57 @@
 		death=yes
 	}
 }
-268455={
+268465={
 	name=Balor
 	female=no
 	dynasty=1049425
 	culture=irish
 	religion=druidic
 	trait=giant
+	trait = skilled_tactician
+	trait = aggressive_leader
+	trait = wroth
+	trait = cruel
+	trait = impaler
+	trait = demi_god
+	trait = proud
+	dna="cgcgh0dbga0"
+	properties="gd00id00000000"
 	1020.1.1={
 		birth=yes
+		give_nickname = nick_of_the_evil_eye
 	}
 	1102.7.1={
 		death=yes
 	}
 }
-268456={
+268466={
 	name=Ravana
 	female=no
 	dynasty=1049426
-	father=268457
-	mother=268458
+	father=268467
+	mother=268468
 	culture=marathi
 	religion=hindu
 	trait=giant
 	trait=wroth
 	trait=erudite
+	trait = demi_god
+	dna="bcfdc0e0000"
+	properties="og0a0000000000"
 	1202.1.1={
 		birth=yes
-		add_character_modifier = { name = patron_shiva duration = -1 }
+		effect = { add_character_modifier = { name = patron_shiva duration = -1 } }
+	}
+	1219.1.1={
+		add_claim = d_lanka
+		add_claim = k_lanka
 	}
 	1304.1.1={
 		death=yes
 	}
 }
-268457={
+268467={
 	name=Vishrava
 	female=no
 	dynasty=1049426
@@ -3533,13 +3586,13 @@
 		birth=yes
 	}
 	1185.1.1={
-		add_spouse=268458
+		add_spouse=268468
 	}
 	1239.1.1={
 		death=yes
 	}
 }
-268458={
+268468={
 	name=Kaikeshi
 	female=yes
 	dynasty=1049427
@@ -3550,18 +3603,18 @@
 		birth=yes
 	}
 	1185.1.1={
-		add_spouse=268457
+		add_spouse=268467
 	}
 	1255.1.1={
 		death=yes
 	}
 }
-268459={
+268469={
 	name=Shurpanakha
 	female=yes
 	dynasty=1049426
-	father=268457
-	mother=268458
+	father=268467
+	mother=268468
 	culture=marathi
 	religion=hindu
 	trait=giant
@@ -3577,7 +3630,7 @@
 	}
 }
 
-268460={
+268470={
 	name = Tarasque
 	female = no
 	dynasty = 1049428
@@ -3616,7 +3669,7 @@
 		}
 	}
 }
-268461={
+268471={
 	name = Apalala
 	female = no
 	dynasty = 1049429
@@ -3626,11 +3679,13 @@
 	trait = arcane_master
 	trait = wroth
 	trait = temperate
+	dna="fb0000aa0a0"
+	properties="k0000000000000"
 	728.1.1={
 		birth=yes
 	}
 	750.1.1={
-		religion=buddhism
+		religion=buddhist
 	}
 	852.1.1={
 		death=yes
@@ -3639,7 +3694,7 @@
 
 # Greek Gods
 
-268452={
+268472={
 	name=Rhea
 	female=yes
 	dynasty=1049005
@@ -3655,15 +3710,17 @@
 	trait = kind
 	1.1.1={
 		birth=yes
-		set_character_flag=greek_god_rhea
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_rhea
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	17.1.1={
 		add_spouse=268401
 	}
 }
-268453={
+268473={
 	name=Hades
 	female=no
 	dynasty=1049005
@@ -3671,7 +3728,7 @@
 	culture = greek
 	employer=268400
 	father=268401
-	mother=268452
+	mother=268472
 	historical = yes
 	immortal_age = 30
 	trait = just
@@ -3681,12 +3738,14 @@
 	trait = midas_touched
 	17.9.1={
 		birth=yes
-		set_character_flag=greek_god_hades
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_hades
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268454={
+268474={
 	name=Poseidon
 	female=no
 	dynasty=1049005
@@ -3694,7 +3753,7 @@
 	culture = greek
 	employer=268400
 	father=268401
-	mother=268452
+	mother=268472
 	historical = yes
 	immortal_age=40
 	trait = brave
@@ -3706,12 +3765,14 @@
 	trait = midas_touched
 	18.6.1={
 		birth=yes
-		set_character_flag=greek_god_poseidon
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_poseidon
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268455={
+268475={
 	name=Aphrodite
 	female=yes
 	dynasty=1049005
@@ -3731,12 +3792,14 @@
 	trait = elusive_shadow
 	3.1.1={
 		birth=yes
-		set_character_flag=greek_god_aphrodite
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_aphrodite
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268456={
+268476={
 	name=Hera
 	female=yes
 	dynasty=1049005
@@ -3744,7 +3807,7 @@
 	culture = greek
 	employer=268400
 	father=268401
-	mother=268452
+	mother=268472
 	historical = yes
 	immortal_age = 40
 	trait = elusive_shadow
@@ -3753,15 +3816,17 @@
 	trait = diligent
 	19.3.1={
 		birth=yes
-		set_character_flag=greek_god_hera
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_hera
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	36.1.1={
-		add_spouse=268457
+		add_spouse=268477
 	}
 }
-268457={
+268477={
 	name=GOD_JUPITER # Zeus gets localized to Conclave
 	female=no
 	dynasty=1049005
@@ -3769,7 +3834,7 @@
 	culture = greek
 	employer=268400
 	father=268401
-	mother=268452
+	mother=268472
 	historical = yes
 	immortal_age = 40
 	trait = god
@@ -3782,22 +3847,24 @@
 	trait = brilliant_strategist
 	20.1.1={
 		birth=yes
-		set_character_flag=greek_god_zeus
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_zeus
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	36.1.1={
-		add_spouse=268456
+		add_spouse=268476
 	}
 }
-268458={
+268478={
 	name=Athena
 	female=yes
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
-	father=268457
+	employer=268477
+	father=268477
 	historical = yes
 	immortal_age = 25
 	trait = god
@@ -3811,20 +3878,22 @@
 	learning=8
 	39.1.1={
 		birth=yes
-		set_character_flag=greek_god_athena
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_athena
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268459={
+268479={
 	name=Ares
 	female=no
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
+	employer=268477
 	father=268457
-	mother=268456
+	mother=268476
 	historical = yes
 	immortal_age = 30
 	trait = god
@@ -3839,19 +3908,21 @@
 	martial=8
 	36.9.1={
 		birth=yes
-		set_character_flag=greek_god_ares
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_ares
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268460={
+268480={
 	name=Hermes
 	female=no
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
-	father=268457
+	employer=268477
+	father=268477
 	historical = yes
 	immortal_age = 20
 	trait = god
@@ -3870,19 +3941,21 @@
 	stewardship=8
 	37.1.1={
 		birth=yes
-		set_character_flag=greek_god_hermes
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_hermes
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268461={
+268481={
 	name=Pan
 	female=no
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
-	father=268460 # Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
+	employer=268477
+	father=268480 # Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
 	historical = yes
 	immortal_age = 20
 	trait = god
@@ -3896,37 +3969,41 @@
 	trait = content
 	60.1.1={
 		birth=yes
-		set_character_flag=greek_god_pan
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_pan
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268462={
+268482={
 	name=Leto
 	female=yes
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
+	employer=268477
 	historical = yes
 	immortal_age = 25
 	trait=charismatic_negotiator
 	trait=fair
 	20.1.1={
 		birth=yes
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
 	
-268463={
+268483={
 	name=Apollo
 	female=no
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
-	father=268457
-	mother=268462
+	employer=268477
+	father=268477
+	mother=268482
 	historical = yes
 	immortal_age = 20
 	trait = charismatic_negotiator
@@ -3941,20 +4018,22 @@
 	trait = bastard
 	39.1.1={
 		birth=yes
-		set_character_flag=greek_god_apollo
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_apollo
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268464={
+268484={
 	name=Artemis
 	female=yes
 	dynasty=1049005
 	religion = hellenic_pagan
 	culture = greek
-	employer=268457
-	father=268457
-	mother=268462
+	employer=268477
+	father=268477
+	mother=268482
 	historical = yes
 	immortal_age = 20
 	trait = god
@@ -3972,13 +4051,15 @@
 	trait = rough_terrain_leader
 	39.1.1={
 		birth=yes
-		set_character_flag=greek_god_artemis
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=greek_god_artemis
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
 
-268465={
+268485={
 	name=Óðinn
 	female=no
 	dynasty=1049006
@@ -3998,21 +4079,23 @@
 	trait = one_eyed
 	300.1.1={
 		birth=yes
-		set_character_flag=norse_god_odin
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_odin
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	330.1.1={
-		add_spouse=268469
+		add_spouse=268489
 	}
 }
-268466={
+268486={
 	name=Þórr
 	female=no
 	dynasty = 1049006
 	religion=norse_pagan
 	culture=norse
-	employer=268465
+	employer=268485
 	historical = yes
 	immortal_age = 50
 	trait = god
@@ -4025,22 +4108,24 @@
 	trait = strong
 	350.1.1={
 		birth=yes
-		set_character_flag=norse_god_thor
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_thor
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	428.1.1={
-		add_spouse=268475
-		effect= { add_lover = 268475 }
+		add_spouse=268495
+		effect= { add_lover = 268495 }
 	}
 }
-268467={
+268487={
 	name=Loki
 	female=no
 	dynasty=1049009
 	religion = norse_pagan # Might convert to Jotun later by event or through his wife
 	culture = norse
-	employer=268465
+	employer=268485
 	historical = yes
 	immortal_age = 25
 	trait = god
@@ -4054,19 +4139,21 @@
 	trait = size_10
 	354.1.1={
 		birth=yes
-		set_character_flag=norse_god_loki
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_loki
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268468={
+268488={
 	name=Sleipnir
 	female=no
 	dynasty = 1049009
-	mother = 268467
+	mother = 268487
 	religion=norse_pagan
 	culture=norse
-	employer=268465
+	employer=268485
 	historical=yes
 	trait = demi_god
 	trait = horse
@@ -4080,15 +4167,17 @@
 	trait = bastard
 	400.1.1={
 		birth=yes
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268469={
+268489={
 	name=Frigg
 	female = yes
 	dynasty = 1049006
-	employer=268465
+	employer=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4099,19 +4188,21 @@
 	trait = shrewd
 	310.1.1={
 		birth=yes
-		set_character_flag=norse_god_frigg
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_frigg
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	330.1.1={
-		add_spouse=268465
+		add_spouse=268485
 	}
 }
-268470={
+268490={
 	name=Freyja
 	female=yes
 	dynasty = 1049008
-	employer=268465
+	employer=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4124,16 +4215,18 @@
 	trait = grey_eminence
 	401.1.1={
 		birth=yes
-		set_character_flag=norse_god_freyja
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_freyja
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268471={
+268491={
 	name=Heimdallr
 	female=no
 	dynasty = 1049006
-	employer=268465
+	employer=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4148,18 +4241,20 @@
 	trait = content
 	260.1.1={
 		birth=yes
-		set_character_flag=norse_god_heimdallr
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_heimdallr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268472={
+268492={
 	name=Baldr
 	female=no
 	dynasty = 1049006
-	employer=268465
-	father=268465
-	mother=268469
+	employer=268485
+	father=268485
+	mother=268489
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4173,19 +4268,21 @@
 	trait = grey_eminence
 	419.1.1={
 		birth=yes
-		set_character_flag=norse_god_baldr
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_baldr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	439.1.1={
-		add_spouse=268473
+		add_spouse=268493
 	}
 }
-268473={
+268493={
 	name=Nanna
 	female=yes
 	dynasty = 1049010
-	employer=268465
+	employer=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4194,20 +4291,23 @@
 	trait = temperate
 	trait = just
 	423.1.1={
-		set_character_flag=norse_god_nanna
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		birth = yes
+		effect = {
+			set_character_flag=norse_god_nanna
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	439.1.1={
-		add_spouse=268472
+		add_spouse=268492
 	}
 }
-268474={
+268494={
 	name=Bragi
 	female=no
 	dynasty = 1049006
-	employer=268465
-	father=268465
+	employer=268485
+	father=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4219,16 +4319,19 @@
 	trait = half_giant
 	trait = size_5
 	408.1.1={
-		set_character_flag=norse_god_bragi
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		birth = yes
+		effect = {
+			set_character_flag=norse_god_bragi
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268475={
+268495={
 	name=Sif
 	female=yes
 	dynasty = 1049006
-	employer=268465
+	employer=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4236,21 +4339,23 @@
 	random_traits = yes
 	412.1.1={
 		birth=yes
-		set_character_flag=norse_god_sif
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_sif
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	428.1.1={
-		add_spouse=268466
-		effect= { add_lover = 268466 }
+		add_spouse=268486
+		effect= { add_lover = 268486 }
 	}
 }
-268476={
+268496={
 	name=Týr
 	female=no
 	dynasty = 1049006
-	employer=268465
-	father=268465
+	employer=268485
+	father=268485
 	religion=norse_pagan
 	culture=norse
 	historical=yes
@@ -4267,15 +4372,17 @@
 	trait = kind
 	408.1.1={
 		birth=yes
-		set_character_flag=norse_god_tyr
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_tyr
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
-268477={
+268497={
 	name=Angrboða
 	female=yes
-	employer=268465
+	employer=268485
 	religion = jotnar
 	culture=norse
 	historical=yes
@@ -4289,27 +4396,31 @@
 	trait = size_10
 	720.1.1={
 		birth=yes
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 	736.1.1={
-		add_spouse=268467
+		add_spouse=268487
 	}
 }
-268478={
+268498={
 	name=Hel
 	female=yes
-	employer=268465
-	father=268467
-	mother=268477
+	employer=268485
+	father=268487
+	mother=268497
 	religion = norse_pagan
 	culture = norse
 	historical=yes
 	immortal_age=70
 	752.1.1={
 		birth=yes
-		set_character_flag=norse_god_hel
-		set_character_flag=ai_flag_refuse_conversion
-		set_character_flag=checked_race
+		effect = {
+			set_character_flag=norse_god_hel
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
 	}
 }
