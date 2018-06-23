@@ -276,6 +276,7 @@ character_event = {
 		remove_trait = zombie_infection
 		religion = the_damned
 		any_claim = { remove_claim = PREV }
+		set_government_type = zombie_horde
 	}
 }
 
@@ -1492,5 +1493,23 @@ province_event = {
 	option = {
 		name = EVTOPTAZOMBIE.36
 		add_province_modifier = { modifier = undead_swarm duration = 900 }
+	}
+}
+
+# Force zombies to be nomadic
+character_event = {
+	id = ZOMBIE.37
+	hide_window = yes
+	is_triggered_only = yes
+	
+	religion = the_damned
+	
+	trigger = {
+		is_landed = true
+		higher_tier_than = BARON
+	}
+	
+	immediate = {
+		set_government_type = zombie_horde
 	}
 }
