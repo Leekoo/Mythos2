@@ -2206,7 +2206,7 @@
 		}
 	}
 	30.3.1 = {
-		death="30.3.1"
+		death={ death_reason = death_murder killer = 268401 }
 	}
 }
 268401 = {
@@ -2328,7 +2328,7 @@
 	dynasty=497
 	religion=norse_pagan
 	culture=norse
-	employer=144000
+	employer=168323
 	trait = werewolf
 	trait = secret_werewolf
 	trait = skilled_tactician
@@ -2347,7 +2347,7 @@
 	dynasty=1049407
 	religion=catholic
 	culture=frankish
-	employer=455404
+	employer=455402
 	trait = werewolf
 	trait = secret_werewolf
 	trait = charismatic_negotiator
@@ -2370,7 +2370,7 @@
 	dynasty=716
 	religion=catholic
 	culture=frankish
-	employer=455404
+	employer=455402
 	trait = flamboyant_schemer
 	trait = lustful
 	trait = fair
@@ -2390,7 +2390,7 @@
 	female=no
 	religion=catholic
 	culture=frankish
-	employer=268408
+	employer=455402
 	trait=brilliant_strategist
 	trait=robust
 	trait=strategist
@@ -2400,6 +2400,9 @@
 	trait=ambitious
 	1202.1.1={
 		birth=1202.1.1
+	}
+	1221.10.21 = {
+		employer = 268408
 	}
 	1222.1.1={
 		effect={add_lover=268409}
@@ -2862,7 +2865,7 @@
 	trait=lustful
 	trait=deceitful
 	immortal_age=25
-	employer=34002
+	employer=34000
 	710.1.1={
 		birth=710.1.1
 	}
@@ -2880,7 +2883,7 @@
 	trait=elusive_shadow
 	trait=schemer
 	immortal_age=25
-	employer=34002
+	employer=34000
 	733.1.1={
 		birth=733.1.1
 	}
@@ -2912,12 +2915,15 @@
 	dynasty=1049145
 	religion=catholic
 	culture=scottish
-	employer=5996
+	employer=5998
 	trait=vampire
 	trait=secret_vampire
 	immortal_age=20
 	1020.1.1={
 		birth=1020.1.1
+	}
+	1032.7.1 = {
+		employer=5996
 	}
 	1042.1.1={
 		effect = { add_lover = 5996 }
@@ -2932,7 +2938,7 @@
 	dynasty=8634
 	religion=orthodox
 	culture=greek
-	employer=1732
+	employer=1744
 	trait=vampire
 	trait=secret_vampire
 	immortal_age=20
@@ -2973,7 +2979,7 @@
 	dynasty=1049411
 	religion=catholic
 	culture=german
-	employer=212513
+	employer=212507
 	trait=vampire
 	trait=secret_vampire
 	trait=homosexual
@@ -2994,7 +3000,7 @@
 	female=yes
 	religion=jewish
 	culture=ashkenazi
-	employer=462740
+	employer=462750
 	trait=vampire
 	trait=secret_vampire
 	trait=elusive_shadow
@@ -3338,10 +3344,12 @@
 	learning=6
 	trait=djinn
 	trait=scholarly_theologian
-	employer=145642
 	immortal_age=18
 	720.1.1={
 		birth=yes
+	}
+	745.1.1 = {
+		employer=145642
 	}
 	755.1.1={
 		effect={ opinion = { who = 145643 modifier = bound_by_magic years = 200 } }
@@ -3485,7 +3493,7 @@
 	religion=hellenic_pagan
 	employer=145802
 	trait=giant
-	733.1.1={
+	733.1.2={
 		birth=yes
 	}
 	749.1.1={
@@ -3533,7 +3541,6 @@
 	dynasty=1049423
 	culture=greek
 	religion=hellenic_pagan
-	employer=145797
 	731.1.1={
 		birth=yes
 	}
@@ -3543,6 +3550,9 @@
 	763.1.1={
 		effect={ remove_trait = size_1 }
 		add_trait = size_2
+	}
+	765.1.1={
+		employer=145797
 	}
 	779.1.1={
 		effect={ remove_trait = size_2 }
@@ -3795,7 +3805,7 @@
 	trait = intricate_webweaver
 	trait = charitable
 	trait = kind
-	1.1.1={
+	1.1.2={
 		birth=yes
 		effect = {
 			set_character_flag=greek_god_rhea
@@ -3978,7 +3988,7 @@
 	religion = hellenic_pagan
 	culture = greek
 	employer=268477
-	father=268457
+	father=268477
 	mother=268476
 	historical = yes
 	immortal_age = 30
