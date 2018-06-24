@@ -1656,6 +1656,14 @@ feed_on_living = {
 		}
 		ROOT = { custom_tooltip = {text = tt_gain_province_based_corpses } }
 		any_direct_de_jure_vassal_title = {
+			limit = {
+				owner = {
+					OR = {
+						character = FROM
+						any_liege = { character = FROM }
+					}
+				}
+			}
 			location = {
 				if = {
 					limit = { has_province_modifier = prosperity_modifier_3 }
