@@ -28,7 +28,45 @@ character_event = {
 			grant_title = ROOT
 			culture = ROOT
 		}
-		set_special_character_title = String_Zombie_Emperor
+		if = {
+			limit = { culture = undead_cold_ones }
+			set_special_character_title = String_Zombie_Emperor_Cold_ones
+		}
+		else_if = {
+			limit = { culture = undead_aptrganger }
+			set_special_character_title = String_Zombie_Emperor_Aptrganger
+		}
+		else_if = {
+			limit = { culture = undead_draugr }
+			set_special_character_title = String_Zombie_Emperor_Draugr
+		}
+		else_if = {
+			limit = { culture = undead_dybbuk }
+			set_special_character_title = String_Zombie_Emperor_Dybbuk
+		}
+		else_if = {
+			limit = { culture = undead_ghoul }
+			set_special_character_title = String_Zombie_Emperor_Ghoul
+		}
+		else_if = {
+			limit = { culture = undead_wight }
+			set_special_character_title = String_Zombie_Emperor_Wight
+		}
+		else_if = {
+			limit = { culture = undead_zombie }
+			set_special_character_title = String_Zombie_Emperor_Zombie
+		}
+		else_if = {
+			limit = { culture = undead_vetala }
+			set_special_character_title = String_Zombie_Emperor_Vetala
+		}
+		else_if = {
+			limit = { culture = undead_vrykolakas}
+			set_special_character_title = String_Zombie_Emperor_Vrykolakas
+		}
+		else = {
+			set_special_character_title = String_Zombie_Emperor
+		}
 		
 		capital_scope = {
 			ROOT = {
