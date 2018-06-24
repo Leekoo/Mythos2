@@ -28,6 +28,7 @@ character_event = {
 			grant_title = ROOT
 			culture = ROOT
 		}
+		set_special_character_title = String_Zombie_Emperor
 		
 		capital_scope = {
 			ROOT = {
@@ -277,6 +278,10 @@ character_event = {
 		religion = the_damned
 		any_claim = { remove_claim = PREV }
 		set_government_type = zombie_horde
+		if = {
+			limit = { higher_tier_than = DUKE }
+			set_special_character_title = String_Zombie_King
+		}
 	}
 }
 
@@ -459,7 +464,7 @@ character_event = {
 						has_province_modifier = depopulated_1
 					}
 				}
-				ROOT = { manpower = 2 }
+				ROOT = { manpower = 1 }
 				ROOT = { population = -1 }
 			}
 			else_if = {
@@ -469,8 +474,8 @@ character_event = {
 						has_province_modifier = depopulated_2
 					}
 				}
-				ROOT = { manpower = 4 }
-				ROOT = { population = -2 }
+				ROOT = { manpower = 2 }
+				ROOT = { population = -1 }
 			}
 			else_if = {
 				limit = {
@@ -479,8 +484,8 @@ character_event = {
 						has_province_modifier = depopulated_3
 					}
 				}
-				ROOT = { manpower = 6 }
-				ROOT = { population = -3 }
+				ROOT = { manpower = 3 }
+				ROOT = { population = -2 }
 			}
 		}
 		repeat_event = { id = ZOMBIE.11 days = 31 }
