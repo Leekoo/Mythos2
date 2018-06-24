@@ -13034,7 +13034,8 @@ character_event = {
 	}
 }
 
-# Epidemic blame game
+
+# Epidemic Blame Game
 character_event = {
 	id = RIP.13000
 
@@ -13050,8 +13051,9 @@ character_event = {
 	trigger = {
 		host = {
 			character = ROOT
-			NOT = { government = zombie_horde }
 		}
+		NOT = { government = zombie_horde }
+		NOT = { trait = undead }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
