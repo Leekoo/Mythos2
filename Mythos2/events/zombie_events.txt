@@ -363,18 +363,26 @@ character_event = {
 				}
 			}
 			if = {
-				limit = { has_province_modifier = devastation_1 }
-				remove_province_modifier = devastation_1
-			}
-			else_if = {
-				limit = { has_province_modifier = devastation_2 }
-				remove_province_modifier = devastation_2
-				add_province_modifier = { name = devastation_1 duration = -1 }
-			}
-			else_if = {
-				limit = { has_province_modifier = devastation_3 }
-				remove_province_modifier = devastation_3
-				add_province_modifier = { name = devastation_2 duration = -1 }
+				limit = {
+					OR = {
+						NOT = { has_province_modifier = undead_desolation }
+						random = 70 # Not as severe as the RIP version, since it's already slower
+					}
+				}
+				if = {
+					limit = { has_province_modifier = devastation_1 }
+					remove_province_modifier = devastation_1
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_2 }
+					remove_province_modifier = devastation_2
+					add_province_modifier = { name = devastation_1 duration = -1 }
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_3 }
+					remove_province_modifier = devastation_3
+					add_province_modifier = { name = devastation_2 duration = -1 }
+				}
 			}
 		}
 	}
@@ -1511,5 +1519,87 @@ character_event = {
 	
 	immediate = {
 		set_government_type = zombie_horde
+	}
+}
+
+# Undead increase depopulation
+province_event = {
+	id = ZOMIBE.38
+	hide_window = yes
+
+	is_triggered_only = yes
+	lacks_dlc = Reapers
+
+	trigger = {
+		NOT = { has_province_modifier = devastation_3 }
+	}
+	
+	immediate = {
+		random_list = {
+			30 = {
+				modifier = {
+					factor = 1.5
+					is_capital = yes
+				}
+				modifier = {
+					factor = 1.3
+					holder_scope = {
+						stewardship = 20
+					}
+				}
+				modifier = {
+					factor = 1.2
+					holder_scope = {
+						stewardship = 15
+					}
+				}
+				modifier = {
+					factor = 1.1
+					holder_scope = {
+						stewardship = 10
+					}
+				}
+				modifier = {
+					factor = 1.1
+					NOT = { num_of_settlements = 2 }
+				}
+				modifier = {
+					factor = 1.2
+					is_winter = yes
+				}
+				if = {
+					limit = { has_province_modifier = devastation_2 }
+					remove_province_modifier = devastation_2
+					add_province_modifier = { name = devastation_3 duration = -1 }
+				}
+				else_if = {
+					limit = { has_province_modifier = devastation_1 }
+					remove_province_modifier = devastation_1
+					add_province_modifier = { name = devastation_2 duration = -1 }
+				}
+				else = {
+					add_province_modifier = { name = devastation_1 duration = -1 }
+				}
+			}
+			70 = {
+				modifier = {
+					factor = 1.3
+					port = yes
+				}
+				modifier = {
+					factor = 1.3
+					has_trade_post = yes
+				}
+				modifier = {
+					factor = 1.5
+					has_province_modifier = devastation_2
+				}
+				modifier = {
+					factor = 2
+					has_province_modifier = devastation_3
+				}
+				# Nothing happens
+			}
+		}
 	}
 }
