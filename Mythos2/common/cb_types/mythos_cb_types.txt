@@ -1670,32 +1670,32 @@ feed_on_living = {
 					remove_province_modifier = prosperity_modifier_3
 					add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 350 } }
-					ROOT = { manpower = 200 }
+					hidden_tooltip = { ROOT = { manpower = 200 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = prosperity_modifier_2 }
 					remove_province_modifier = prosperity_modifier_2
 					add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 150 } }
-					ROOT = { manpower = 150 }
+					hidden_tooltip = { ROOT = { manpower = 150 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = prosperity_modifier_1 }
 					remove_province_modifier = prosperity_modifier_1
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 25 } }
-					ROOT = { manpower = 100 }
+					hidden_tooltip = { ROOT = { manpower = 100 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_3 }
 					culture = ROOT
 					religion = the_damned
-					ROOT = { manpower = 6 }
+					hidden_tooltip = { ROOT = { manpower = 6 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_3 }
 					culture = ROOT
 					religion = the_damned
-					ROOT = { manpower = 6 }
+					hidden_tooltip = { ROOT = { manpower = 6 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_2 }
@@ -1708,7 +1708,7 @@ feed_on_living = {
 						culture = ROOT
 						religion = the_damned
 					}
-					ROOT = { manpower = 12 }
+					hidden_tooltip = { ROOT = { manpower = 12 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_2 }
@@ -1719,7 +1719,7 @@ feed_on_living = {
 						culture = ROOT
 						religion = the_damned
 					}
-					ROOT = { manpower = 12 }
+					hidden_tooltip = { ROOT = { manpower = 12 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_1 }
@@ -1731,7 +1731,7 @@ feed_on_living = {
 						chance = 25
 						culture = ROOT
 					}
-					ROOT = { manpower = 25 }
+					hidden_tooltip = { ROOT = { manpower = 25 } }
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_1 }
@@ -1741,7 +1741,7 @@ feed_on_living = {
 						chance = 25
 						culture = ROOT
 					}
-					ROOT = { manpower = 25 }
+					hidden_tooltip = { ROOT = { manpower = 25 } }
 				}
 				else_if = {
 					limit = { has_dlc = Reapers }
@@ -1752,7 +1752,7 @@ feed_on_living = {
 						chance = 12
 						culture = ROOT
 					}
-					ROOT = { manpower = 50 }
+					hidden_tooltip = { ROOT = { manpower = 50 } }
 				}
 				else = {
 					add_province_modifier = { name = devastation_1 duration = -1 }
@@ -1760,7 +1760,7 @@ feed_on_living = {
 						chance = 12
 						culture = ROOT
 					}
-					ROOT = { manpower = 50 }
+					hidden_tooltip = { ROOT = { manpower = 50 } }
 				}
 				hidden_tooltip = { add_province_modifier = { name = undead_desolation years = 5 } }
 			}
