@@ -1595,3 +1595,21 @@ character_event = {
 		}
 	}
 }
+
+# Cancel Pregnancy from vampires
+character_event = {
+	id = SPECIES.13
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = vampire
+			father_of_unborn = { trait = vampire }
+		}
+	}
+	
+	immediate = {
+		cancel_pregnancy = yes
+	}
+}

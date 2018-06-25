@@ -13170,3 +13170,256 @@ province_event = {
 		}
 	}
 }
+
+# On-action event: Pregnancy starts showing
+character_event = {
+	id = 400
+	desc = EVTDESC400
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = pregnant
+			trait = vampire
+		}
+		father_of_unborn = {
+			any_spouse = {
+				character = ROOT
+			}
+			NOT = { trait = vampire }
+		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
+	}
+	
+	option = {
+		name = OK
+		tooltip = { add_trait = pregnant }
+		prestige = 10
+		
+		if = {
+			limit = {
+				father_of_unborn = {
+					is_alive = yes
+				}
+			}
+			
+			hidden_tooltip = {
+				if = {
+					limit = {
+						father_of_unborn = {
+							trait = paranoid
+						}
+					}
+					random = {
+						chance = 50
+						father_of_unborn = { character_event = { id = 404 } }
+						break = yes
+					}
+				}
+				if = {
+					limit = {
+						father_of_unborn = {
+							NOT = { trait = paranoid }
+							NOT = { trait = trusting }
+						}
+					}
+					random = {
+						chance = 1
+						father_of_unborn = { character_event = { id = 404 } }
+						break = yes
+					}
+				}
+			}
+			
+			father_of_unborn = { character_event = { id = 403 tooltip = EVTTOOLTIP403 } }
+		}
+	}
+}
+
+# On-action event: Pregnancy out of wedlock!
+character_event = {
+	id = 401
+	desc = EVTDESC401
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_intrigue
+	
+	is_married = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = pregnant
+			trait = vampire
+		}
+		is_consort = no
+		father_of_unborn = {
+			NOR = {
+				any_spouse = {
+					character = ROOT
+				}
+				trait = vampire			
+			}
+		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
+	}
+	
+	option = {
+		name = OK
+		tooltip = { add_trait = pregnant }
+		piety = -50
+		prestige = -50
+	}
+}
+
+# On-action event: Pregnancy in matrimony, with another father!
+character_event = {
+	id = 402
+	desc = EVTDESC402
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+
+	is_married = yes
+	
+	trigger = {
+		NOR = {
+			trait = pregnant
+			trait = vampire
+		}
+		father_of_unborn = {
+			NOR = {
+				any_spouse = {
+					character = ROOT
+				}
+				trait = vampire
+			}
+		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
+	}
+	
+	option = {
+		name = EVTOPTA402
+		tooltip = { add_trait = pregnant }
+		
+#		log = "402: [Root.GetTitledName], wife of [Root.Spouse.GetTitledName] in [Root.Employer.PrimaryTitle.GetName] gets pregnant with [Root.FatherOfUnborn.GetTitledName]."
+		
+		spouse = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+	}
+}
+
+# Consort: Pregnancy starts showing
+character_event = {
+	id = 410
+	desc = EVTDESC410
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			trait = pregnant
+			trait = vampire
+		}
+		father_of_unborn = {
+			is_consort = ROOT
+			NOT = { trait = vampire }
+		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
+	}
+	
+	option = {
+		name = ALAS
+		tooltip = { add_trait = pregnant }
+		prestige = 10
+		
+		if = {
+			limit = {
+				father_of_unborn = {
+					is_alive = yes
+				}
+			}
+			
+			hidden_tooltip = {
+				if = {
+					limit = {
+						father_of_unborn = {
+							trait = paranoid
+						}
+					}
+					random = {
+						chance = 50
+						father_of_unborn = { character_event = { id = 404 } }
+						break = yes
+					}
+				}
+				if = {
+					limit = {
+						father_of_unborn = {
+							NOT = { trait = paranoid }
+							NOT = { trait = trusting }
+						}
+					}
+					random = {
+						chance = 1
+						father_of_unborn = { character_event = { id = 404 } }
+						break = yes
+					}
+				}
+			}
+			
+			father_of_unborn = { character_event = { id = 413 tooltip = EVTTOOLTIP413 } }
+		}
+	}
+}
+
+# Consort: Pregnancy with another father!
+character_event = {
+	id = 412
+	desc = EVTDESC412
+	picture = "GFX_evt_pregnancy"
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = pregnant
+			trait = vampire
+		}
+		is_consort = yes
+		father_of_unborn = {
+			NOR = {
+				is_consort = ROOT
+				trait = vampire
+			}
+		}
+	}
+	
+	immediate = {
+		add_trait = pregnant
+	}
+	
+	option = {
+		name = EVTOPTA412
+		tooltip = { add_trait = pregnant }
+		consort = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+	}
+}
