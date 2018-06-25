@@ -75,10 +75,20 @@ castle = {
 		desc = ca_wall_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 50
 		build_time = 365
@@ -93,10 +103,20 @@ castle = {
 		desc = ca_wall_2_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_wall_1
 		gold_cost = 50
@@ -112,10 +132,20 @@ castle = {
 		desc = ca_wall_3_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_wall_2
 		gold_cost = 100
@@ -131,10 +161,20 @@ castle = {
 		desc = ca_wall_4_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 6
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_wall_3
 		gold_cost = 150
@@ -150,10 +190,20 @@ castle = {
 		desc = ca_wall_5_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 8
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_wall_4
 		gold_cost = 150
@@ -170,10 +220,20 @@ castle = {
 			FROMFROM = { title = b_constantinople }
 		}
 		trigger = { 
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		desc = ca_con_wall_6_desc
 		upgrades_from = ca_wall_5
@@ -190,10 +250,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 150
 		build_time = 547 #1.5y
@@ -207,10 +277,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_keep_1
@@ -226,10 +306,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_keep_2
@@ -245,10 +335,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_keep_3
 		gold_cost = 400
@@ -263,10 +363,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 6
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_keep_4
 		gold_cost = 500
@@ -281,10 +391,20 @@ castle = {
 		desc = ca_keep_1_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 8
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_keep_5
 		gold_cost = 500
@@ -301,10 +421,20 @@ castle = {
 		desc = ca_militia_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -318,10 +448,20 @@ castle = {
 		desc = ca_militia_barracks_2_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_militia_barracks_1
@@ -337,10 +477,20 @@ castle = {
 		desc = ca_militia_barracks_3_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_militia_barracks_2
 		gold_cost = 200
@@ -355,10 +505,20 @@ castle = {
 		desc = ca_militia_barracks_3_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 7
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_militia_barracks_3
 		gold_cost = 300
@@ -375,10 +535,20 @@ castle = {
 		desc = ca_training_grounds_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		gold_cost = 200
@@ -394,10 +564,20 @@ castle = {
 		desc = ca_training_grounds_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_training_grounds_1
 		gold_cost = 250
@@ -413,10 +593,20 @@ castle = {
 		desc = ca_training_grounds_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 6
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_training_grounds_2
 		gold_cost = 300
@@ -434,10 +624,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -451,10 +651,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_barracks_1
@@ -470,10 +680,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_barracks_2
@@ -489,10 +709,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 3
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_barracks_3
 		gold_cost = 300
@@ -507,10 +737,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 5
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_barracks_4
 		gold_cost = 400
@@ -525,10 +765,20 @@ castle = {
 		desc = ca_barracks_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 7
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_barracks_5
 		gold_cost = 500
@@ -545,10 +795,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -561,10 +821,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_stable_1
@@ -579,10 +849,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_stable_2
@@ -597,10 +877,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_stable_3
 		gold_cost = 300
@@ -615,10 +905,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 6
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_stable_4
 		gold_cost = 400
@@ -633,10 +933,20 @@ castle = {
 		desc = ca_stable_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 8
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_stable_5
 		gold_cost = 500
@@ -653,10 +963,20 @@ castle = {
 		desc = ca_town_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -669,10 +989,20 @@ castle = {
 		desc = ca_town_2_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		upgrades_from = ca_town_1
@@ -687,10 +1017,20 @@ castle = {
 		desc = ca_town_3_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		upgrades_from = ca_town_2
@@ -705,10 +1045,20 @@ castle = {
 		desc = ca_town_4_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_town_3
 		gold_cost = 300
@@ -722,10 +1072,20 @@ castle = {
 		desc = ca_town_4_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 6
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_town_4
 		gold_cost = 400
@@ -739,10 +1099,20 @@ castle = {
 		desc = ca_town_5_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 8
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_town_5
 		gold_cost = 500
@@ -758,10 +1128,20 @@ castle = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -776,10 +1156,20 @@ castle = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_shipyard_1
 		gold_cost = 100
@@ -795,10 +1185,20 @@ castle = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 3
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_shipyard_2
 		gold_cost = 100
@@ -814,10 +1214,20 @@ castle = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_shipyard_3
 		gold_cost = 100

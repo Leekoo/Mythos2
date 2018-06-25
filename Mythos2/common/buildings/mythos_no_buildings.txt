@@ -7,7 +7,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 0
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -17,7 +22,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 30
 		build_time = 365
@@ -34,7 +44,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 0
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -44,7 +59,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_1
 		gold_cost = 50
@@ -62,7 +82,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 1
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -72,7 +97,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_2
 		gold_cost = 90
@@ -90,7 +120,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 1
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -100,7 +135,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_3
 		gold_cost = 170
@@ -118,7 +158,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 2
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -128,7 +173,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_4
 		gold_cost = 170
@@ -146,7 +196,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 2
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -156,7 +211,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_5
 		gold_cost = 170
@@ -174,7 +234,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 3
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -184,7 +249,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_6
 		gold_cost = 170
@@ -202,7 +272,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 4
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -212,7 +287,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hordeguard_7
 		gold_cost = 170
@@ -232,7 +312,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 0
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -242,7 +327,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 60
 		build_time = 365
@@ -259,7 +349,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 1
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -269,7 +364,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_1
 		gold_cost = 80
@@ -287,7 +387,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 2
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -297,7 +402,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_2
 		gold_cost = 100
@@ -315,7 +425,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 3
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -325,7 +440,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_3
 		gold_cost = 130
@@ -343,7 +463,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 4
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -353,7 +478,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_4
 		gold_cost = 160
@@ -371,7 +501,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 5
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -381,7 +516,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_5
 		gold_cost = 190
@@ -399,7 +539,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 6
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -409,7 +554,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_6
 		gold_cost = 220
@@ -427,7 +577,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 7
 			}
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -437,7 +592,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hatchery_7
 		gold_cost = 250
@@ -457,7 +617,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 0
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -467,7 +632,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_1 }
 		gold_cost = 60
@@ -485,7 +655,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 1
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -495,7 +670,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_2 }
 		upgrades_from = no_flame_tournament_1
@@ -514,7 +694,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 2
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -524,7 +709,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_3 }
 		upgrades_from = no_flame_tournament_2
@@ -543,7 +733,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 3
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -553,7 +748,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_4 }
 		upgrades_from = no_flame_tournament_3
@@ -572,7 +772,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 4
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -582,7 +787,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_5 }
 		upgrades_from = no_flame_tournament_4
@@ -601,7 +811,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 5
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -611,7 +826,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_6 }
 		upgrades_from = no_flame_tournament_5
@@ -630,7 +850,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 6
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -640,7 +865,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_7 }
 		upgrades_from = no_flame_tournament_6
@@ -659,7 +889,12 @@ nomad = {
 				TECH_CASTLE_CONSTRUCTION = 7
 				government = marauding_dragon_government
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		potential = {
 			OR = {
@@ -669,7 +904,12 @@ nomad = {
 		}
 		is_active_trigger = {
 			FROM = { trait = dragon }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_hordeguard_8 }
 		upgrades_from = no_flame_tournament_7

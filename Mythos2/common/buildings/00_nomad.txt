@@ -10,16 +10,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 20
 		build_time = 365
@@ -35,16 +50,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_1
 		gold_cost = 40
@@ -61,16 +91,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_2
 		gold_cost = 80
@@ -87,16 +132,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_3
 		gold_cost = 160
@@ -113,16 +173,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_4
 		gold_cost = 160
@@ -139,16 +214,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_5
 		gold_cost = 160
@@ -165,16 +255,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_6
 		gold_cost = 160
@@ -191,16 +296,31 @@ nomad = {
 		desc = no_horse_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_horse_breeder_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_horse_breeder_7
 		gold_cost = 160
@@ -218,16 +338,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_1 }
 		gold_cost = 60
@@ -244,16 +379,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_2 }
 		upgrades_from = no_riding_contests_1
@@ -271,16 +421,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_3 }
 		upgrades_from = no_riding_contests_2
@@ -298,16 +463,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_4 }
 		upgrades_from = no_riding_contests_3
@@ -325,16 +505,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_5 }
 		upgrades_from = no_riding_contests_4
@@ -353,16 +548,31 @@ nomad = {
 		trigger = { FROM = { TECH_CASTLE_CONSTRUCTION = 3 } }
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_6 }
 		upgrades_from = no_riding_contests_5
@@ -380,16 +590,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_7 }
 		upgrades_from = no_riding_contests_6
@@ -407,16 +632,31 @@ nomad = {
 		desc = no_riding_contests_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_riding_contests_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_horse_breeder_8 }
 		upgrades_from = no_riding_contests_7
@@ -754,16 +994,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 60
 		build_time = 365
@@ -778,16 +1033,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 80
 		build_time = 365
@@ -804,16 +1074,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -830,16 +1115,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 125
 		build_time = 365
@@ -856,16 +1156,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 150
 		build_time = 365
@@ -882,16 +1197,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 175
 		build_time = 365
@@ -908,16 +1238,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 365
@@ -934,16 +1279,31 @@ nomad = {
 		desc = no_cattle_pens_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_cattle_pens_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 230
 		build_time = 365
@@ -961,16 +1321,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_1 }
 		gold_cost = 20
@@ -987,16 +1362,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_2 }
 		upgrades_from = no_ox_wagon_1
@@ -1014,16 +1404,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_3 }
 		upgrades_from = no_ox_wagon_2
@@ -1041,16 +1446,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_4 }
 		upgrades_from = no_ox_wagon_3
@@ -1068,16 +1488,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_5 }
 		upgrades_from = no_ox_wagon_4
@@ -1095,16 +1530,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_6 }
 		upgrades_from = no_ox_wagon_5
@@ -1122,16 +1572,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_7 }
 		upgrades_from = no_ox_wagon_6
@@ -1149,16 +1614,31 @@ nomad = {
 		desc = no_ox_wagon_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ox_wagon_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_8 }
 		upgrades_from = no_ox_wagon_7
@@ -1177,16 +1657,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_1 }
 		gold_cost = 60
@@ -1203,16 +1698,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_2 }
 		gold_cost = 70
@@ -1231,16 +1741,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_3 }
 		gold_cost = 90
@@ -1259,16 +1784,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_4 }
 		gold_cost = 110
@@ -1287,16 +1827,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_5 }
 		gold_cost = 140
@@ -1315,16 +1870,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_6 }
 		gold_cost = 180
@@ -1343,16 +1913,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_7 }
 		gold_cost = 230
@@ -1371,16 +1956,31 @@ nomad = {
 		desc = no_meat_preserver_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_meat_preserver_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_cattle_pens_8 }
 		gold_cost = 300
@@ -1400,16 +2000,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 50
 		build_time = 1095
@@ -1423,16 +2038,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_1
 		gold_cost = 80
@@ -1447,16 +2077,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_2
 		gold_cost = 120
@@ -1471,16 +2116,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_3
 		gold_cost = 180
@@ -1495,16 +2155,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_4
 		gold_cost = 240
@@ -1519,16 +2194,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_5
 		gold_cost = 320
@@ -1543,16 +2233,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_6
 		gold_cost = 400
@@ -1567,16 +2272,31 @@ nomad = {
 		desc = no_sheep_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_sheep_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_sheep_7
 		gold_cost = 500
@@ -1592,16 +2312,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_1 }
 		gold_cost = 60
@@ -1617,16 +2352,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_2 }
 		gold_cost = 80
@@ -1646,16 +2396,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_3 }
 		gold_cost = 100
@@ -1673,16 +2438,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_4 }
 		gold_cost = 120
@@ -1702,16 +2482,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_5 }
 		gold_cost = 150
@@ -1729,16 +2524,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_6 }
 		gold_cost = 180
@@ -1758,16 +2568,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_7 }
 		gold_cost = 210
@@ -1785,16 +2610,31 @@ nomad = {
 		desc = no_felt_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_felt_crafter_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_sheep_8 }
 		gold_cost = 250
@@ -1815,16 +2655,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_1 }
 		gold_cost = 35
@@ -1839,16 +2694,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_2 }
 		gold_cost = 50
@@ -1865,16 +2735,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_3 }
 		gold_cost = 70
@@ -1891,16 +2776,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_4 }
 		gold_cost = 90
@@ -1917,16 +2817,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_5 }
 		gold_cost = 120
@@ -1943,16 +2858,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_6 }
 		gold_cost = 150
@@ -1969,16 +2899,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_7 }
 		gold_cost = 200
@@ -1995,16 +2940,31 @@ nomad = {
 		desc = no_ger_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_ger_crafter_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { no_felt_crafter_8 }
 		gold_cost = 250
@@ -2022,16 +2982,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -2045,16 +3020,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_1
 		gold_cost = 60
@@ -2069,16 +3059,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_2
 		gold_cost = 90
@@ -2093,16 +3098,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_3
 		gold_cost = 120
@@ -2117,16 +3137,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_4
 		gold_cost = 150
@@ -2141,16 +3176,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_5
 		gold_cost = 180
@@ -2165,16 +3215,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_6
 		gold_cost = 210
@@ -2189,16 +3254,31 @@ nomad = {
 		desc = no_wrestling_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_wrestling_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_wrestling_7
 		gold_cost = 250
@@ -2214,16 +3294,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 50
 		build_time = 365
@@ -2238,16 +3333,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_1
 		gold_cost = 80
@@ -2263,16 +3373,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_2
 		gold_cost = 110
@@ -2288,16 +3413,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_3
 		gold_cost = 150
@@ -2313,16 +3453,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_4
 		gold_cost = 200
@@ -2338,16 +3493,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_5
 		gold_cost = 250
@@ -2363,16 +3533,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_6
 		gold_cost = 300
@@ -2388,16 +3573,31 @@ nomad = {
 		desc = no_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_shrine_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_shrine_7
 		gold_cost = 400
@@ -2414,16 +3614,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 20
 		build_time = 365
@@ -2437,16 +3652,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_1
 		gold_cost = 40
@@ -2461,16 +3691,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_2
 		gold_cost = 80
@@ -2485,16 +3730,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_3
 		gold_cost = 160
@@ -2509,16 +3769,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_4
 		gold_cost = 160
@@ -2533,16 +3808,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_5
 		gold_cost = 160
@@ -2557,16 +3847,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_6
 		gold_cost = 160
@@ -2581,16 +3886,31 @@ nomad = {
 		desc = no_hunting_parties_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_hunting_parties_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = no_hunting_parties_7
 		gold_cost = 160
@@ -2606,16 +3926,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 50
 		build_time = 365
@@ -2631,16 +3966,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 70
 		build_time = 365
@@ -2657,16 +4007,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 100
 		build_time = 365
@@ -2684,16 +4049,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 130
 		build_time = 365
@@ -2710,16 +4090,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 160
 		build_time = 365
@@ -2737,16 +4132,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 365
@@ -2763,16 +4173,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 240
 		build_time = 365
@@ -2790,16 +4215,31 @@ nomad = {
 		desc = no_yam_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_yam_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 280
 		build_time = 365
@@ -2817,7 +4257,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_1 }
 			}
 		}
@@ -2826,10 +4271,20 @@ nomad = {
 			holder_scope = {
 				prestige = 300
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 80
 		build_time = 1460
@@ -2844,7 +4299,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_2 }
 			}
 		}
@@ -2853,10 +4313,20 @@ nomad = {
 			holder_scope = {
 				prestige = 500
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 120
 		build_time = 1640
@@ -2874,7 +4344,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_3 }
 			}
 		}
@@ -2883,10 +4358,20 @@ nomad = {
 			holder_scope = {
 				prestige = 800
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 160
 		build_time = 1820
@@ -2903,7 +4388,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_4 }
 			}
 		}
@@ -2912,10 +4402,20 @@ nomad = {
 			holder_scope = {
 				prestige = 1100
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 2000
@@ -2933,7 +4433,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_5 }
 			}
 		}
@@ -2942,10 +4447,20 @@ nomad = {
 			holder_scope = {
 				prestige = 1500
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 250
 		build_time = 2200
@@ -2962,7 +4477,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_6 }
 			}
 		}
@@ -2971,10 +4491,20 @@ nomad = {
 			holder_scope = {
 				prestige = 2000
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 300
 		build_time = 2400
@@ -2992,7 +4522,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_7 }
 			}
 		}
@@ -3001,10 +4536,20 @@ nomad = {
 			holder_scope = {
 				prestige = 2500
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 350
 		build_time = 2600
@@ -3021,7 +4566,12 @@ nomad = {
 		desc = no_baghatur_council_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_baghatur_council_8 }
 			}
 		}
@@ -3030,10 +4580,20 @@ nomad = {
 			holder_scope = {
 				prestige = 3000
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 400
 		build_time = 2800
@@ -3052,17 +4612,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 60
@@ -3077,17 +4652,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 90
@@ -3106,17 +4696,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 120
@@ -3133,17 +4738,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 150
@@ -3162,17 +4782,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 180
@@ -3189,17 +4824,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 220
@@ -3218,17 +4868,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 260
@@ -3245,17 +4910,32 @@ nomad = {
 		desc = no_harbor_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_harbor_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_NAVAL = 7 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { port = yes }
 		}
 		gold_cost = 300
@@ -3275,13 +4955,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3291,7 +4981,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3312,13 +5007,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3328,7 +5033,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3351,13 +5061,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3367,7 +5087,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3390,13 +5115,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3406,7 +5141,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3429,13 +5169,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3445,7 +5195,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3468,13 +5223,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3484,7 +5249,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3507,13 +5277,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3523,7 +5303,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3546,13 +5331,23 @@ nomad = {
 		desc = no_fishing_village_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_fishing_village_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3562,7 +5357,12 @@ nomad = {
 			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { 
 				OR = { 
 					port = yes
@@ -3586,16 +5386,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 70
 		build_time = 365
@@ -3610,16 +5425,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 90
 		build_time = 365
@@ -3636,16 +5466,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 120
 		build_time = 365
@@ -3662,16 +5507,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 150
 		build_time = 365
@@ -3688,16 +5548,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 180
 		build_time = 365
@@ -3714,16 +5589,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 220
 		build_time = 365
@@ -3740,16 +5630,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 260
 		build_time = 365
@@ -3766,16 +5671,31 @@ nomad = {
 		desc = no_composite_bow_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_composite_bow_crafter_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 7 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 300
 		build_time = 365
@@ -3793,16 +5713,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 80
 		build_time = 365
@@ -3824,16 +5759,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 110
 		build_time = 365
@@ -3857,16 +5807,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 140
 		build_time = 365
@@ -3890,16 +5855,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 170
 		build_time = 365
@@ -3923,16 +5903,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 365
@@ -3956,16 +5951,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 250
 		build_time = 365
@@ -3989,16 +5999,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 320
 		build_time = 365
@@ -4022,16 +6047,31 @@ nomad = {
 		desc = no_lamellar_armor_crafter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_lamellar_armor_crafter_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 400
 		build_time = 365
@@ -4056,16 +6096,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4079,16 +6134,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4104,16 +6174,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4129,16 +6214,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4154,16 +6254,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4179,16 +6294,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4204,16 +6334,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 04 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4229,16 +6374,31 @@ nomad = {
 		desc = no_minority_shrine_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minority_shrine_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TEMPLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4255,16 +6415,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 485
@@ -4278,16 +6453,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 60
 		build_time = 605
@@ -4303,16 +6493,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 80
 		build_time = 730
@@ -4328,16 +6533,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 110
 		build_time = 803
@@ -4353,16 +6573,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 150
 		build_time = 876
@@ -4378,16 +6613,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 949
@@ -4403,16 +6653,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 250
 		build_time = 1022
@@ -4428,16 +6693,31 @@ nomad = {
 		desc = no_gathering_hall_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_gathering_hall_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CITY_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 350
 		build_time = 1095
@@ -4454,17 +6734,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 80
@@ -4481,17 +6776,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 110
@@ -4510,17 +6820,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 150
@@ -4539,17 +6864,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 200
@@ -4568,17 +6908,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 250
@@ -4597,17 +6952,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 350
@@ -4626,17 +6996,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 500
@@ -4655,17 +7040,32 @@ nomad = {
 		desc = no_minter_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_minter_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_TRADE_PRACTICES = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { has_trade_post = yes }
 		}
 		gold_cost = 650
@@ -4685,16 +7085,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 40
 		build_time = 365
@@ -4709,16 +7124,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 60
 		build_time = 365
@@ -4737,16 +7167,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 90
 		build_time = 475
@@ -4763,16 +7208,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 120
 		build_time = 475
@@ -4791,16 +7251,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 150
 		build_time = 730
@@ -4817,16 +7292,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 200
 		build_time = 1095
@@ -4845,16 +7335,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 300
 		build_time = 1095
@@ -4871,16 +7376,31 @@ nomad = {
 		desc = no_camp_fortifications_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camp_fortifications_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 400
 		build_time = 1095
@@ -4900,17 +7420,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 60
@@ -4925,17 +7460,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 90
@@ -4952,17 +7502,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 120
@@ -4979,17 +7544,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 150
@@ -5006,17 +7586,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 190
@@ -5033,17 +7628,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 230
@@ -5061,17 +7671,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 280
@@ -5089,17 +7714,32 @@ nomad = {
 		desc = no_camel_breeder_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_camel_breeder_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = desert }
 		}
 		gold_cost = 350
@@ -5118,17 +7758,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_1 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 0 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 60
@@ -5143,17 +7798,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_2 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 90
@@ -5170,17 +7840,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_3 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 1 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 120
@@ -5197,17 +7882,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_4 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 150
@@ -5224,17 +7924,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_5 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 3 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 190
@@ -5251,17 +7966,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_6 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 230
@@ -5279,17 +8009,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_7 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 5 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 280
@@ -5307,17 +8052,32 @@ nomad = {
 		desc = no_elephant_camp_desc
 		potential = {
 			OR = {
-				owner = { NOT = { government = zombie_horde } }
+				owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 				FROMFROM = { has_building = no_elephant_camp_8 }
 			}
 		}
 		trigger = { 
 			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 			location = { terrain = jungle }
 		}
 		gold_cost = 350

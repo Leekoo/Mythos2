@@ -33,7 +33,12 @@ city = {
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1 	
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }			
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}			
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -42,7 +47,12 @@ city = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		prerequisites = { ct_wall_2 }
@@ -91,7 +101,12 @@ city = {
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 3 	
 			is_capital = yes	
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -100,7 +115,12 @@ city = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ct_dragon_tower_1
@@ -149,7 +169,12 @@ city = {
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 5	
 			is_capital = yes	
-			owner = { NOT = { government = zombie_horde } }				 
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}				 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -158,7 +183,12 @@ city = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ct_dragon_tower_2
@@ -207,7 +237,12 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -216,7 +251,12 @@ city = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		prerequisites = { ct_marketplace_1 }
@@ -262,7 +302,12 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 3
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -271,7 +316,12 @@ city = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ct_dragon_tribute_1
@@ -294,10 +344,20 @@ city = {
 		potential = { culture = draconic }
 		trigger = {
 			culture = draconic
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 		
@@ -342,11 +402,21 @@ city = {
 			holder_scope = { trait = known_werewolf }
 			TECH_CITY_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 100
@@ -392,11 +462,21 @@ city = {
 			holder_scope = { trait = known_werewolf }
 			TECH_CITY_CONSTRUCTION = 3
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ct_werewolf_lodge_1
 		ai_creation_factor = 100
@@ -446,14 +526,24 @@ city = {
 				culture = werewolf_culture
 				trait = known_werewolf
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_werewolf
 				culture = werewolf_culture
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 100
 		
@@ -473,10 +563,20 @@ city = {
 		
 		potential = { culture = werewolf_culture }
 		trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 		
@@ -516,11 +616,21 @@ city = {
 			holder_scope = { trait = vampire }
 			TECH_CITY_CONSTRUCTION = 1
 			is_capital = yes 
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		prerequisites = { ct_wall_2 }
@@ -563,11 +673,21 @@ city = {
 			holder_scope = { trait = vampire }
 			TECH_CITY_CONSTRUCTION = 3
 			is_capital = yes 
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ct_vampire_mansion
@@ -615,13 +735,23 @@ city = {
 			holder_scope = {
 				trait = vampire
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_vampire
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 99
 		
@@ -640,10 +770,20 @@ city = {
 		
 		potential = { culture = vampire_culture }
 		trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 90
@@ -689,7 +829,12 @@ city = {
 			holder_scope = { trait = giant }
 			TECH_CITY_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -698,7 +843,12 @@ city = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		prerequisites = { ct_wall_1 }
@@ -745,7 +895,12 @@ city = {
 			holder_scope = { trait = giant }
 			TECH_CITY_CONSTRUCTION = 3
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -754,7 +909,12 @@ city = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ct_giant_shield
@@ -800,7 +960,12 @@ city = {
 		trigger = {
 			holder_scope = { trait = giant }
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -809,7 +974,12 @@ city = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 100
@@ -852,7 +1022,12 @@ city = {
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -862,7 +1037,12 @@ city = {
 					trait = blood_of_the_gods
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}		 
 		
 		prerequisites = { ct_wall_1 }
@@ -905,10 +1085,20 @@ city = {
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 95
@@ -950,11 +1140,21 @@ city = {
 			holder_scope = { trait = mummy }
 			TECH_CITY_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ct_wall_2 }
 		ai_creation_factor = 101
@@ -995,11 +1195,21 @@ city = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ct_wall_2 }
 		ai_creation_factor = 101
@@ -1040,11 +1250,21 @@ city = {
 			holder_scope = { trait = djinn }
 			TECH_CITY_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ct_wall_2 }
 		ai_creation_factor = 101
@@ -1082,11 +1302,21 @@ city = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -1114,13 +1344,23 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_enchantment
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = enchanter
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ct_mage_tower_conjuration
@@ -1155,13 +1395,23 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_conjuration
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = summoner
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ct_mage_tower_enchantment
@@ -1196,13 +1446,23 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_alchemy
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = alchemist
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ct_mage_tower_enchantment
@@ -1237,13 +1497,23 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_herbalism
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = herbalist
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ct_mage_tower_enchantment

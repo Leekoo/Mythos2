@@ -7,7 +7,14 @@ city = {
 			FROMFROM = { has_building = ct_wall_of_corpses_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		fort_level = 0.2
@@ -21,7 +28,14 @@ city = {
 			FROMFROM = { has_building = ct_wall_of_corpses_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_wall_of_corpses_1
 		gold_cost = 2000
 		build_time = 2000
@@ -36,7 +50,14 @@ city = {
 			FROMFROM = { has_building = ct_wall_of_corpses_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_wall_of_corpses_2
 		gold_cost = 2000
 		build_time = 2000
@@ -51,7 +72,14 @@ city = {
 			FROMFROM = { has_building = ct_wall_of_corpses_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_wall_of_corpses_3
 		gold_cost = 2000
 		build_time = 2000
@@ -66,7 +94,14 @@ city = {
 			FROMFROM = { has_building = ct_wall_of_corpses_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_wall_of_corpses_4
 		gold_cost = 2000
 		build_time = 2000
@@ -82,7 +117,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		manpower_growth = 0.1
@@ -97,7 +139,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_2 }
 		upgrades_from = ct_charnel_grounds_1
 		gold_cost = 2000
@@ -114,7 +163,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_charnel_grounds_2
 		gold_cost = 2000
 		build_time = 2000
@@ -130,7 +186,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_charnel_grounds_3
 		gold_cost = 2000
 		build_time = 2000
@@ -146,7 +209,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_charnel_grounds_4
 		gold_cost = 2000
 		build_time = 2190
@@ -162,7 +232,14 @@ city = {
 			FROMFROM = { has_building = ct_charnel_grounds_6 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_charnel_grounds_5
 		gold_cost = 2000
 		build_time = 2190
@@ -179,7 +256,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_1 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 3
@@ -193,7 +277,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_2 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_1 }
 		upgrades_from = ct_graveyard_1
 		gold_cost = 2000
@@ -209,7 +300,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_3 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_2 }
 		upgrades_from = ct_graveyard_2
 		gold_cost = 2000
@@ -225,7 +323,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_4 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_graveyard_3
 		gold_cost = 2000
 		build_time = 2000
@@ -240,7 +345,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_5 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_graveyard_4
 		gold_cost = 2000
 		build_time = 2000
@@ -255,7 +367,14 @@ city = {
 			FROMFROM = { has_building = ct_graveyard_6 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_graveyard_5
 		gold_cost = 2000
 		build_time = 2000
@@ -271,7 +390,14 @@ city = {
 			FROMFROM = { has_building = ct_catacomb_1 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 3
@@ -286,7 +412,14 @@ city = {
 			FROMFROM = { has_building = ct_catacomb_2 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_1 }
 		upgrades_from = ct_catacomb_1
 		gold_cost = 2000
@@ -303,7 +436,14 @@ city = {
 			FROMFROM = { has_building = ct_catacomb_3 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_2 }
 		upgrades_from = ct_catacomb_2
 		gold_cost = 2000
@@ -320,7 +460,14 @@ city = {
 			FROMFROM = { has_building = ct_catacomb_4 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_catacomb_3
 		gold_cost = 2000
 		build_time = 2000
@@ -336,7 +483,14 @@ city = {
 			FROMFROM = { has_building = ct_catacomb_5 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_catacomb_4
 		gold_cost = 2000
 		build_time = 2000
@@ -353,7 +507,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_1 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		tax_income = 0.5
@@ -369,7 +530,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_2 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_homes_1
 		gold_cost = 2000
 		build_time = 2000
@@ -385,7 +553,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_3 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_2 }
 		upgrades_from = ct_abandoned_homes_2
 		gold_cost = 2000
@@ -402,7 +577,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_4 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_homes_3
 		gold_cost = 2000
 		build_time = 2000
@@ -418,7 +600,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_5 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_homes_4
 		gold_cost = 2000
 		build_time = 2190
@@ -434,7 +623,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_homes_6 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_homes_5
 		gold_cost = 2000
 		build_time = 2190
@@ -452,7 +648,14 @@ city = {
 			FROMFROM = { has_building = ct_drowned_dead_1 }
 		}
 		trigger = { TECH_TRADE_PRACTICES = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops_offensive = 0.01
@@ -468,7 +671,14 @@ city = {
 			FROMFROM = { has_building = ct_drowned_dead_2 }
 		}
 		trigger = { TECH_TRADE_PRACTICES = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_1 }
 		upgrades_from = ct_drowned_dead_1
 		gold_cost = 2000
@@ -486,7 +696,14 @@ city = {
 			FROMFROM = { has_building = ct_drowned_dead_3 }
 		}
 		trigger = { TECH_TRADE_PRACTICES = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ct_wall_of_corpses_2 }
 		upgrades_from = ct_drowned_dead_2
 		gold_cost = 2000
@@ -504,7 +721,14 @@ city = {
 			FROMFROM = { has_building = ct_drowned_dead_4 }
 		}
 		trigger = { TECH_TRADE_PRACTICES = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_drowned_dead_3
 		gold_cost = 2000
 		build_time = 2000
@@ -521,7 +745,14 @@ city = {
 			FROMFROM = { has_building = ct_drowned_dead_5 }
 		}
 		trigger = { TECH_TRADE_PRACTICES = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_drowned_dead_4
 		gold_cost = 2000
 		build_time = 2000
@@ -539,7 +770,14 @@ city = {
 			FROMFROM = { has_building = ct_ghost_ships_1 }
 		}
 		trigger = { TECH_NAVAL = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		galleys = 2
@@ -555,7 +793,14 @@ city = {
 			FROMFROM = { has_building = ct_ghost_ships_2 }
 		}
 		trigger = { TECH_NAVAL = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_ghost_ships_1
 		gold_cost = 2000
 		build_time = 2000
@@ -572,7 +817,14 @@ city = {
 			FROMFROM = { has_building = ct_ghost_ships_3 }
 		}
 		trigger = { TECH_NAVAL = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_ghost_ships_2
 		gold_cost = 2000
 		build_time = 2000
@@ -589,7 +841,14 @@ city = {
 			FROMFROM = { has_building = ct_ghost_ships_4 }
 		}
 		trigger = { TECH_NAVAL = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_ghost_ships_3
 		gold_cost = 2000
 		build_time = 2000
@@ -606,7 +865,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_university_1 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		
@@ -622,7 +888,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_university_2 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_university_1
 		gold_cost = 2000
 		build_time = 2190
@@ -639,7 +912,14 @@ city = {
 			FROMFROM = { has_building = ct_abandoned_university_3 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ct_abandoned_university_2
 		gold_cost = 2000
 		build_time = 2190
@@ -660,7 +940,14 @@ temple = {
 			FROMFROM = { has_building = tp_wall_of_corpses_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		fort_level = 0.2
@@ -674,7 +961,14 @@ temple = {
 			FROMFROM = { has_building = tp_wall_of_corpses_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_wall_of_corpses_1
 		gold_cost = 2000
 		build_time = 2000
@@ -689,7 +983,14 @@ temple = {
 			FROMFROM = { has_building = tp_wall_of_corpses_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_wall_of_corpses_2
 		gold_cost = 2000
 		build_time = 2000
@@ -704,7 +1005,14 @@ temple = {
 			FROMFROM = { has_building = tp_wall_of_corpses_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_wall_of_corpses_3
 		gold_cost = 2000
 		build_time = 2000
@@ -719,7 +1027,14 @@ temple = {
 			FROMFROM = { has_building = tp_wall_of_corpses_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_wall_of_corpses_4
 		gold_cost = 2000
 		build_time = 2000
@@ -735,7 +1050,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		
@@ -750,7 +1072,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_1 }
 		upgrades_from = tp_halls_of_the_damned_1
 		gold_cost = 2000
@@ -767,7 +1096,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_halls_of_the_damned_2
 		gold_cost = 2000
 		build_time = 2000
@@ -783,7 +1119,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_halls_of_the_damned_3
 		gold_cost = 2000
 		build_time = 2000
@@ -799,7 +1142,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_halls_of_the_damned_4
 		gold_cost = 2000
 		build_time = 2000
@@ -815,7 +1165,14 @@ temple = {
 			FROMFROM = { has_building = tp_halls_of_the_damned_6 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_halls_of_the_damned_5
 		gold_cost = 2000
 		build_time = 2000
@@ -832,7 +1189,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 3
@@ -846,7 +1210,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_1 }
 		upgrades_from = tp_cemetary_1
 		gold_cost = 2000
@@ -862,7 +1233,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_2 }
 		upgrades_from = tp_cemetary_2
 		gold_cost = 2000
@@ -878,7 +1256,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_cemetary_3
 		gold_cost = 2000
 		build_time = 2000
@@ -893,7 +1278,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_cemetary_4
 		gold_cost = 2000
 		build_time = 2000
@@ -908,7 +1300,14 @@ temple = {
 			FROMFROM = { has_building = tp_cemetary_6 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_cemetary_5
 		gold_cost = 2000
 		build_time = 2000
@@ -924,7 +1323,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_1 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 2
@@ -940,7 +1346,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_2 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_1 }
 		upgrades_from = tp_crypt_1
 		gold_cost = 2000
@@ -958,7 +1371,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_3 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_2 }
 		upgrades_from = tp_crypt_2
 		gold_cost = 2000
@@ -976,7 +1396,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_4 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_crypt_3
 		gold_cost = 2000
 		build_time = 2095
@@ -993,7 +1420,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_5 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_crypt_4
 		gold_cost = 2000
 		build_time = 2095
@@ -1010,7 +1444,14 @@ temple = {
 			FROMFROM = { has_building = tp_crypt_6 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_crypt_5
 		gold_cost = 2000
 		build_time = 2095
@@ -1028,7 +1469,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_1 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		tax_income = 0.5
@@ -1043,7 +1491,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_2 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_1 }
 		upgrades_from = tp_ghost_town_1
 		gold_cost = 2000
@@ -1060,7 +1515,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_3 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_2 }
 		upgrades_from = tp_ghost_town_2
 		gold_cost = 2000
@@ -1077,7 +1539,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_4 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_ghost_town_3
 		gold_cost = 2000
 		build_time = 2000
@@ -1093,7 +1562,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_5 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_ghost_town_4
 		gold_cost = 2000
 		build_time = 2000
@@ -1109,7 +1585,14 @@ temple = {
 			FROMFROM = { has_building = tp_ghost_town_6 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_ghost_town_5
 		gold_cost = 2000
 		build_time = 2000
@@ -1127,7 +1610,14 @@ temple = {
 			FROMFROM = { has_building = tp_abandoned_ships_1 }
 		}
 		trigger = { TECH_NAVAL = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		galleys = 2
@@ -1143,7 +1633,14 @@ temple = {
 			FROMFROM = { has_building = tp_abandoned_ships_2 }
 		}
 		trigger = { TECH_NAVAL = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_abandoned_ships_1
 		gold_cost = 2000
 		build_time = 2000
@@ -1160,7 +1657,14 @@ temple = {
 			FROMFROM = { has_building = tp_abandoned_ships_3 }
 		}
 		trigger = { TECH_NAVAL = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_abandoned_ships_2
 		gold_cost = 2000
 		build_time = 2000
@@ -1177,7 +1681,14 @@ temple = {
 			FROMFROM = { has_building = tp_abandoned_ships_4 }
 		}
 		trigger = { TECH_NAVAL = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tp_abandoned_ships_3
 		gold_cost = 2000
 		build_time = 2000
@@ -1194,7 +1705,14 @@ temple = {
 			FROMFROM = { has_building = tp_ritual_chamber_1 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_1 }
 		gold_cost = 2000
 		build_time = 2000
@@ -1213,7 +1731,14 @@ temple = {
 			FROMFROM = { has_building = tp_ritual_chamber_2 }
 		}
 		trigger = { TECH_TEMPLE_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { tp_wall_of_corpses_2 }
 		upgrades_from = tp_ritual_chamber_1
 		gold_cost = 2000
@@ -1237,7 +1762,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		fort_level = 0.4
@@ -1251,7 +1783,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wall_of_corpses_1
 		gold_cost = 2000
 		build_time = 2000
@@ -1266,7 +1805,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wall_of_corpses_2
 		gold_cost = 2000
 		build_time = 2000
@@ -1281,7 +1827,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wall_of_corpses_3
 		gold_cost = 2000
 		build_time = 2000
@@ -1296,7 +1849,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wall_of_corpses_4
 		gold_cost = 2000
 		build_time = 2000
@@ -1312,7 +1872,14 @@ castle = {
 			FROMFROM = { has_building = ca_wall_of_corpses_6 }
 		}
 		trigger = { always = no }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wall_of_corpses_5
 		gold_cost = 2000
 		build_time = 2000
@@ -1328,7 +1895,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		levy_size = 0.05
@@ -1344,7 +1918,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_abandoned_keep_1
 		gold_cost = 2000
@@ -1362,7 +1943,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_2 }
 		upgrades_from = ca_abandoned_keep_2
 		gold_cost = 2000
@@ -1380,7 +1968,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_abandoned_keep_3
 		gold_cost = 2000
 		build_time = 2000
@@ -1397,7 +1992,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_5 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_abandoned_keep_4
 		gold_cost = 2000
 		build_time = 2190 #6y
@@ -1414,7 +2016,14 @@ castle = {
 			FROMFROM = { has_building = ca_abandoned_keep_6 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_abandoned_keep_5
 		gold_cost = 2000
 		build_time = 2190 #6y
@@ -1432,7 +2041,14 @@ castle = {
 			FROMFROM = { has_building = ca_graveyard_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 2
@@ -1448,7 +2064,14 @@ castle = {
 			FROMFROM = { has_building = ca_graveyard_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_graveyard_1
 		gold_cost = 2000
@@ -1466,7 +2089,14 @@ castle = {
 			FROMFROM = { has_building = ca_graveyard_3 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_graveyard_2
 		gold_cost = 2000
 		build_time = 2095
@@ -1483,7 +2113,14 @@ castle = {
 			FROMFROM = { has_building = ca_graveyard_4 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_graveyard_3
 		gold_cost = 2000
 		build_time = 2095
@@ -1501,7 +2138,14 @@ castle = {
 			FROMFROM = { has_building = ca_executioners_block_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_2 }
 		gold_cost = 2000
 		build_time = 2000
@@ -1518,7 +2162,14 @@ castle = {
 			FROMFROM = { has_building = ca_executioners_block_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_executioners_block_1
 		gold_cost = 2000
 		build_time = 2095
@@ -1535,7 +2186,14 @@ castle = {
 			FROMFROM = { has_building = ca_executioners_block_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_executioners_block_2
 		gold_cost = 2000
 		build_time = 2190
@@ -1553,7 +2211,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		zombie_troops = 1
@@ -1569,7 +2234,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_noble_crypts_1
 		gold_cost = 2000
@@ -1587,7 +2259,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_3 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_noble_crypts_2
 		gold_cost = 2000
@@ -1605,7 +2284,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_4 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_noble_crypts_3
 		gold_cost = 2000
 		build_time = 2095
@@ -1622,7 +2308,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_5 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 5 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_noble_crypts_4
 		gold_cost = 2000
 		build_time = 2095
@@ -1639,7 +2332,14 @@ castle = {
 			FROMFROM = { has_building = ca_noble_crypts_6 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 7 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_noble_crypts_5
 		gold_cost = 2000
 		build_time = 2095
@@ -1657,7 +2357,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 200
 		zombie_troops = 1
@@ -1672,7 +2379,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_butcher_1
 		gold_cost = 2000
@@ -1689,7 +2403,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_3 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_2 }
 		upgrades_from = ca_butcher_2
 		gold_cost = 2000
@@ -1706,7 +2427,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_4 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_butcher_3
 		gold_cost = 2000
 		build_time = 2095
@@ -1723,7 +2451,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_5 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_butcher_4
 		gold_cost = 2000
 		build_time = 2095
@@ -1740,7 +2475,14 @@ castle = {
 			FROMFROM = { has_building = ca_butcher_6 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_butcher_5
 		gold_cost = 2000
 		build_time = 2095
@@ -1758,7 +2500,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		tax_income = 0.5
@@ -1774,7 +2523,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_1 }
 		upgrades_from = ca_ruined_homes_1
 		gold_cost = 2000
@@ -1792,7 +2548,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_3 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_of_corpses_2 }
 		upgrades_from = ca_ruined_homes_2
 		gold_cost = 2000
@@ -1810,7 +2573,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_4 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_ruined_homes_3
 		gold_cost = 2000
 		build_time = 2095
@@ -1827,7 +2597,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_5 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 6 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_ruined_homes_4
 		gold_cost = 2000
 		build_time = 2295
@@ -1844,7 +2621,14 @@ castle = {
 			FROMFROM = { has_building = ca_ruined_homes_6 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 8 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_ruined_homes_5
 		gold_cost = 2000
 		build_time = 2295
@@ -1863,7 +2647,14 @@ castle = {
 			FROMFROM = { has_building = ca_wrecked_ships_1 }
 		}
 		trigger = { TECH_NAVAL = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		galleys = 2
@@ -1878,7 +2669,14 @@ castle = {
 			FROMFROM = { has_building = ca_wrecked_ships_2 }
 		}
 		trigger = { TECH_NAVAL = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wrecked_ships_1
 		gold_cost = 2000
 		build_time = 2000
@@ -1894,7 +2692,14 @@ castle = {
 			FROMFROM = { has_building = ca_wrecked_ships_3 }
 		}
 		trigger = { TECH_NAVAL = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wrecked_ships_2
 		gold_cost = 2000
 		build_time = 2000
@@ -1910,7 +2715,14 @@ castle = {
 			FROMFROM = { has_building = ca_wrecked_ships_4 }
 		}
 		trigger = { TECH_NAVAL = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_wrecked_ships_3
 		gold_cost = 2000
 		build_time = 2000
@@ -2186,7 +2998,14 @@ tribal = {
 			FROMFROM = { has_building = tb_barrow_1 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		
@@ -2202,7 +3021,14 @@ tribal = {
 			FROMFROM = { has_building = tb_barrow_2 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_barrow_1
 		gold_cost = 2000
 		build_time = 2365
@@ -2221,7 +3047,14 @@ tribal = {
 			FROMFROM = { has_building = tb_barrow_3 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_barrow_2
 		gold_cost = 2000
 		build_time = 2365
@@ -2238,7 +3071,14 @@ tribal = {
 			FROMFROM = { has_building = tb_barrow_4 }
 		}
 		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_barrow_3
 		gold_cost = 2000
 		build_time = 2365
@@ -2258,7 +3098,14 @@ tribal = {
 			FROMFROM = { has_building = tb_crossroads_1 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		gold_cost = 2000
 		build_time = 2000
 		
@@ -2274,7 +3121,14 @@ tribal = {
 			FROMFROM = { has_building = tb_crossroads_2 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_crossroads_1
 		gold_cost = 2000
 		build_time = 2365
@@ -2293,7 +3147,14 @@ tribal = {
 			FROMFROM = { has_building = tb_crossroads_3 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_crossroads_2
 		gold_cost = 2000
 		build_time = 2365
@@ -2310,7 +3171,14 @@ tribal = {
 			FROMFROM = { has_building = tb_crossroads_4 }
 		}
 		trigger = { TECH_CITY_CONSTRUCTION = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_crossroads_3
 		gold_cost = 2000
 		build_time = 2365
@@ -2331,7 +3199,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_ship_1 }
 		}
 		trigger = { TECH_NAVAL = 1 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prestige_cost = 2000
 		build_time = 2000
 		galleys = 1
@@ -2350,7 +3225,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_ship_2 }
 		}
 		trigger = { TECH_NAVAL = 2 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_ship_1
 		prestige_cost = 2000
 		build_time = 2000
@@ -2370,7 +3252,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_ship_3 }
 		}
 		trigger = { TECH_NAVAL = 3 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_ship_2
 		prestige_cost = 2000
 		build_time = 2000
@@ -2390,7 +3279,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_ship_4 }
 		}
 		trigger = { TECH_NAVAL = 4 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_ship_3
 		prestige_cost = 2000
 		build_time = 2000
@@ -2410,7 +3306,14 @@ tribal = {
 			FROMFROM = { has_building = tb_destroyed_homes_1 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prestige_cost = 2000
 		build_time = 2000
 		levy_size = 0.1
@@ -2425,7 +3328,14 @@ tribal = {
 			FROMFROM = { has_building = tb_destroyed_homes_2 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_destroyed_homes_1
 		prestige_cost = 2000
 		build_time = 2000
@@ -2444,7 +3354,14 @@ tribal = {
 			FROMFROM = { has_building = tb_destroyed_homes_3 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_destroyed_homes_2
 		prestige_cost = 2000
 		build_time = 2000
@@ -2460,7 +3377,14 @@ tribal = {
 			FROMFROM = { has_building = tb_destroyed_homes_4 }
 		}
 		trigger = { TECH_FORTIFICATIONS_CONSTRUCTION = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_destroyed_homes_3
 		prestige_cost = 2000
 		build_time = 2000
@@ -2480,7 +3404,14 @@ tribal = {
 			FROMFROM = { has_building = tb_ancient_battlefield_1 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prestige_cost = 2000
 		build_time = 2365
 		zombie_troops = 3
@@ -2494,7 +3425,14 @@ tribal = {
 			FROMFROM = { has_building = tb_ancient_battlefield_2 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_ancient_battlefield_1
 		prestige_cost = 2000
 		build_time = 2000
@@ -2512,7 +3450,14 @@ tribal = {
 			FROMFROM = { has_building = tb_ancient_battlefield_3 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_ancient_battlefield_2
 		prestige_cost = 2500
 		build_time = 2730
@@ -2527,7 +3472,14 @@ tribal = {
 			FROMFROM = { has_building = tb_ancient_battlefield_4 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_ancient_battlefield_3
 		prestige_cost = 2600
 		build_time = 2095
@@ -2546,7 +3498,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_mounds_1 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prestige_cost = 2300
 		build_time = 2365
 		zombie_troops = 1
@@ -2562,7 +3521,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_mounds_2 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_mounds_1
 		prestige_cost = 2400
 		build_time = 2547
@@ -2582,7 +3548,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_mounds_3 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_mounds_2
 		prestige_cost = 2500
 		build_time = 2730
@@ -2599,7 +3572,14 @@ tribal = {
 			FROMFROM = { has_building = tb_burial_mounds_4 }
 		}
 		trigger = { TECH_LIGHT_INFANTRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_burial_mounds_3
 		prestige_cost = 2600
 		build_time = 3095
@@ -2620,7 +3600,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_burial_1 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_ancient_battlefield_1
 		prestige_cost = 2300
 		build_time = 2365
@@ -2636,7 +3623,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_burial_2 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_ancient_battlefield_2
 		upgrades_from = tb_horse_burial_1
 		prestige_cost = 2400
@@ -2656,7 +3650,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_burial_3 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_ancient_battlefield_3
 		upgrades_from = tb_horse_burial_2
 		prestige_cost = 2500
@@ -2673,7 +3674,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_burial_4 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_ancient_battlefield_4
 		upgrades_from = tb_horse_burial_3
 		prestige_cost = 2500
@@ -2691,7 +3699,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_butchery_1 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_burial_mounds_1
 		prestige_cost = 2300
 		build_time = 2365
@@ -2707,7 +3722,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_butchery_2 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_burial_mounds_2
 		upgrades_from = tb_horse_butchery_1
 		prestige_cost = 2400
@@ -2727,7 +3749,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_butchery_3 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_burial_mounds_3
 		upgrades_from = tb_horse_butchery_2
 		prestige_cost = 2400
@@ -2744,7 +3773,14 @@ tribal = {
 			FROMFROM = { has_building = tb_horse_butchery_4 }
 		}
 		trigger = { TECH_CAVALRY = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		replaces = tb_burial_mounds_4
 		upgrades_from = tb_horse_butchery_3
 		prestige_cost = 2400
@@ -2765,7 +3801,14 @@ tribal = {
 			FROMFROM = { has_building = tb_grave_goods_1 }
 		}
 		trigger = { TECH_RECRUITMENT = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prestige_cost = 2300
 		build_time = 2547
 		zombie_troops_offensive = 0.1
@@ -2780,7 +3823,14 @@ tribal = {
 			FROMFROM = { has_building = tb_grave_goods_2 }
 		}
 		trigger = { TECH_RECRUITMENT = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_grave_goods_1
 		prestige_cost = 2400
 		build_time = 2730
@@ -2799,7 +3849,14 @@ tribal = {
 			FROMFROM = { has_building = tb_grave_goods_3 }
 		}
 		trigger = { TECH_RECRUITMENT = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_grave_goods_2
 		prestige_cost = 2500
 		build_time = 3095
@@ -2815,7 +3872,14 @@ tribal = {
 			FROMFROM = { has_building = tb_grave_goods_3 }
 		}
 		trigger = { TECH_RECRUITMENT = 0 }
-		is_active_trigger = { owner= { government = zombie_horde } }
+		is_active_trigger = {
+			owner= {
+				OR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = tb_grave_goods_3
 		prestige_cost = 2600
 		build_time = 3460

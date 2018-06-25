@@ -6,10 +6,20 @@ tribal = {
 		desc = tb_hillfort_1_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 25
 		build_time = 365
@@ -27,10 +37,20 @@ tribal = {
 		desc = tb_hillfort_2_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_hillfort_1
 		gold_cost = 50
@@ -51,10 +71,20 @@ tribal = {
 		desc = tb_hillfort_3_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_hillfort_2
 		gold_cost = 75
@@ -73,10 +103,20 @@ tribal = {
 		desc = tb_hillfort_4_desc
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_hillfort_3
 		gold_cost = 100
@@ -97,10 +137,20 @@ tribal = {
 		desc = tb_market_town_1_desc
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		gold_cost = 25
 		build_time = 365
@@ -117,10 +167,20 @@ tribal = {
 		desc = tb_market_town_2_desc
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_market_town_1
 		gold_cost = 50
@@ -140,10 +200,20 @@ tribal = {
 		desc = tb_market_town_3_desc
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_market_town_2
 		gold_cost = 75
@@ -161,10 +231,20 @@ tribal = {
 		desc = tb_market_town_4_desc
 		trigger = { 
 			TECH_CITY_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_market_town_3
 		gold_cost = 100
@@ -185,10 +265,20 @@ tribal = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prestige_cost = 300
 		build_time = 365
@@ -207,10 +297,20 @@ tribal = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_shipyard_1
 		prestige_cost = 400
@@ -230,10 +330,20 @@ tribal = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 3
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_shipyard_2
 		prestige_cost = 500
@@ -253,10 +363,20 @@ tribal = {
 		port = yes
 		trigger = { 
 			TECH_NAVAL = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_shipyard_3
 		prestige_cost = 600
@@ -275,10 +395,20 @@ tribal = {
 		desc = tb_training_grounds_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prestige_cost = 300
 		build_time = 547
@@ -293,10 +423,20 @@ tribal = {
 		desc = tb_training_grounds_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_training_grounds_1
 		prestige_cost = 400
@@ -315,10 +455,20 @@ tribal = {
 		desc = tb_training_grounds_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_training_grounds_2
 		prestige_cost = 500
@@ -334,10 +484,20 @@ tribal = {
 		desc = tb_training_grounds_desc
 		trigger = { 
 			TECH_FORTIFICATIONS_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_training_grounds_3
 		prestige_cost = 600
@@ -356,10 +516,20 @@ tribal = {
 		desc = tb_war_camp_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prestige_cost = 300
 		build_time = 365
@@ -373,10 +543,20 @@ tribal = {
 		desc = tb_war_camp_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_war_camp_1
 		prestige_cost = 400
@@ -394,10 +574,20 @@ tribal = {
 		desc = tb_war_camp_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_war_camp_2
 		prestige_cost = 500
@@ -412,10 +602,20 @@ tribal = {
 		desc = tb_war_camp_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_war_camp_3
 		prestige_cost = 600
@@ -433,10 +633,20 @@ tribal = {
 		desc = tb_practice_range_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prestige_cost = 300
 		build_time = 365
@@ -450,10 +660,20 @@ tribal = {
 		desc = tb_practice_range_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_practice_range_1
 		prestige_cost = 400
@@ -471,10 +691,20 @@ tribal = {
 		desc = tb_practice_range_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_practice_range_2
 		prestige_cost = 500
@@ -489,10 +719,20 @@ tribal = {
 		desc = tb_practice_range_desc
 		trigger = { 
 			TECH_LIGHT_INFANTRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_practice_range_3
 		prestige_cost = 600
@@ -519,10 +759,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_war_camp_1
 		prestige_cost = 300
@@ -547,10 +797,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_war_camp_2
 		upgrades_from = tb_steppe_barracks_1
@@ -579,10 +839,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_war_camp_3
 		upgrades_from = tb_steppe_barracks_2
@@ -608,10 +878,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_war_camp_4
 		upgrades_from = tb_steppe_barracks_3
@@ -644,10 +924,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_1
 		prestige_cost = 300
@@ -676,10 +966,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_2
 		upgrades_from = tb_steppe_stable_1
@@ -712,10 +1012,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_3
 		upgrades_from = tb_steppe_stable_2
@@ -745,10 +1055,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_4
 		upgrades_from = tb_steppe_stable_3
@@ -768,10 +1088,20 @@ tribal = {
 		desc = tb_arsenal_desc
 		trigger = { 
 			TECH_RECRUITMENT = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prestige_cost = 300
 		build_time = 547
@@ -786,10 +1116,20 @@ tribal = {
 		desc = tb_arsenal_desc
 		trigger = { 
 			TECH_RECRUITMENT = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_arsenal_1
 		prestige_cost = 400
@@ -808,10 +1148,20 @@ tribal = {
 		desc = tb_arsenal_desc
 		trigger = { 
 			TECH_RECRUITMENT = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_arsenal_2
 		prestige_cost = 500
@@ -827,10 +1177,20 @@ tribal = {
 		desc = tb_arsenal_desc
 		trigger = { 
 			TECH_RECRUITMENT = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = tb_arsenal_3
 		prestige_cost = 600
@@ -860,10 +1220,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_1
 		prestige_cost = 300
@@ -890,10 +1260,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_2
 		upgrades_from = tb_desert_stable_1
@@ -924,10 +1304,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_3
 		upgrades_from = tb_desert_stable_2
@@ -955,10 +1345,20 @@ tribal = {
 		}
 		trigger = { 
 			TECH_CAVALRY = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		replaces = tb_practice_range_4
 		upgrades_from = tb_desert_stable_3

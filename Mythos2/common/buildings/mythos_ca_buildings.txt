@@ -54,7 +54,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -83,7 +88,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		prerequisites = { ca_wall_2 }
@@ -152,7 +162,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -181,7 +196,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		upgrades_from = ca_dragon_tower_1
@@ -249,7 +269,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -278,7 +303,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		upgrades_from = ca_dragon_tower_2
@@ -366,7 +396,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -389,7 +424,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 			
 		ai_creation_factor = 90
@@ -473,7 +513,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -496,7 +541,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_dragon_militia_1
 		ai_creation_factor = 90
@@ -580,7 +630,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -603,7 +658,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_dragon_militia_2
 		ai_creation_factor = 90
@@ -687,7 +747,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -710,7 +775,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_dragon_militia_3
 		ai_creation_factor = 90
@@ -755,7 +825,12 @@ castle = {
 		trigger = {
 			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -764,7 +839,12 @@ castle = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		prerequisites = { ca_wall_1 }
@@ -808,7 +888,12 @@ castle = {
 		trigger = {
 			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -817,7 +902,12 @@ castle = {
 					trait = dragonborn
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		prerequisites = { ca_wall_2 }
@@ -884,7 +974,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
@@ -908,7 +1003,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		prerequisites = { ca_wall_1 }
@@ -976,7 +1076,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_werewolf }
@@ -1000,7 +1105,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		upgrades_from = ca_werewolf_lodge_1
@@ -1089,7 +1199,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1112,7 +1227,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 
@@ -1197,7 +1317,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1220,7 +1345,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 		upgrades_from = ca_werewolf_soldiers_1
@@ -1305,7 +1435,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1328,7 +1463,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 		upgrades_from = ca_werewolf_soldiers_2
@@ -1413,7 +1553,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1436,7 +1581,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 90
 		upgrades_from = ca_werewolf_soldiers_3
@@ -1484,7 +1634,12 @@ castle = {
 				culture = werewolf_culture
 				trait = known_werewolf
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -1493,7 +1648,12 @@ castle = {
 					culture = werewolf_culture
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 100
 
@@ -1555,7 +1715,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
@@ -1579,7 +1744,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		prerequisites = { ca_wall_2 }
@@ -1643,7 +1813,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
@@ -1667,7 +1842,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 
 		upgrades_from = ca_vampire_citadel_1
@@ -1757,7 +1937,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1780,7 +1965,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 99
@@ -1865,7 +2055,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1888,7 +2083,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_vampire_catacomb_1
 		
@@ -1974,7 +2174,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1997,7 +2202,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_vampire_catacomb_2
 		
@@ -2083,7 +2293,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -2106,7 +2321,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_vampire_catacomb_3
 		
@@ -2147,11 +2367,21 @@ castle = {
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
 			holder_scope = { trait = vampire }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = known_vampire }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 100
@@ -2199,7 +2429,12 @@ castle = {
 			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -2208,7 +2443,12 @@ castle = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		prerequisites = { ca_wall_1 }
@@ -2256,7 +2496,12 @@ castle = {
 			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes	
-			owner = { NOT = { government = zombie_horde } }	 
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}	 
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -2265,7 +2510,12 @@ castle = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		upgrades_from = ca_giant_shield
@@ -2335,10 +2585,20 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 0
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		
@@ -2403,10 +2663,20 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_giant_arena_1
 		gold_cost = 300
@@ -2470,10 +2740,20 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 2
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_giant_arena_2
 		gold_cost = 400
@@ -2537,10 +2817,20 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 4
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_giant_arena_3
 		gold_cost = 500
@@ -2583,7 +2873,12 @@ castle = {
 		trigger = {
 			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -2592,7 +2887,12 @@ castle = {
 					trait = half_giant
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		ai_creation_factor = 100
 		prerequisites = { ca_town_1 }
@@ -2634,7 +2934,12 @@ castle = {
 				}
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -2644,7 +2949,12 @@ castle = {
 					trait = blood_of_the_gods
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_1 }
 		ai_creation_factor = 100
@@ -2686,7 +2996,12 @@ castle = {
 				}
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
@@ -2697,7 +3012,12 @@ castle = {
 					trait = arcane_master
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 95
@@ -2815,11 +3135,21 @@ castle = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2859,11 +3189,21 @@ castle = {
 		trigger = {
 			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = mummy }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2904,11 +3244,21 @@ castle = {
 			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2947,11 +3297,21 @@ castle = {
 		trigger = {
 			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = djinn }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2991,11 +3351,21 @@ castle = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = { trait = monster_hunter }
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -3025,13 +3395,23 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_enchantment
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = enchanter
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_conjuration
@@ -3069,13 +3449,23 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_conjuration
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = summoner
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
@@ -3113,13 +3503,23 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_alchemy
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = alchemist
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
@@ -3157,13 +3557,23 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_herbalism
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = herbalist
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
@@ -3654,7 +4064,12 @@ castle = {
 					}
 				}
 			}
-			owner = { NOT = { government = zombie_horde } }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		upgrades_from = ca_ritual_crypts_3
 		ai_creation_factor = 90
