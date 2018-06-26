@@ -6100,17 +6100,8 @@ character_event = {
 	}
 	
 	immediate = {
-		random_list = {
-			1 = {
-				random_courtier = {
-					save_event_target_as = stalked
-				}
-			}
-			1 = {
-				random_vassal = {
-					save_event_target_as = stalked
-				}
-			}
+		random_courtier_or_vassal = {
+			save_event_target_as = stalked
 		}
 	}
 	
