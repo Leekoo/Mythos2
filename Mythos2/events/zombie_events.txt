@@ -902,23 +902,35 @@ character_event = {
 				}
 				if = {
 					limit = { holding_type = city }
-					convert_city_building_to_undead = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_convertable_living_building_city = yes }
+						convert_city_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = temple }
-					convert_temple_building_to_undead = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_convertable_living_building_temple = yes }
+						convert_temple_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = castle }
-					convert_castle_building_to_undead = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_convertable_living_building_castle = yes }
+						convert_castle_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = tribal }
-					convert_tribal_building_to_undead = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_convertable_living_building_tribal = yes }
+						convert_tribal_building_to_undead = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				if = {
 					limit = {
@@ -957,23 +969,35 @@ character_event = {
 				}
 				if = {
 					limit = { holding_type = city }
-					convert_city_building_to_living = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_undead_building_city = yes }
+						convert_city_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = temple }
-					convert_temple_building_to_living = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_undead_building_temple = yes }
+						convert_temple_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = castle }
-					convert_castle_building_to_living = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_undead_building_castle = yes }
+						convert_castle_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				else_if = {
 					limit = { holding_type = tribal }
-					convert_tribal_building_to_living = yes
-					ROOT = { set_character_flag = building_conversion }
+					if = {
+						limit = { has_undead_building_tribal = yes }
+						convert_tribal_building_to_living = yes
+						ROOT = { set_character_flag = building_conversion }
+					}
 				}
 				if = {
 					limit = {
