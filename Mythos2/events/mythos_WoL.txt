@@ -3591,9 +3591,9 @@ character_event = {
 				}
 				set_variable = { which = local_effect value = 1 }
 			}
-			200 = {
+			400 = {
 				modifier = {
-					factor = 0.3
+					factor = 0.15
 					OR = {
 						trait = summoner
 						trait = alchemist
@@ -3603,7 +3603,7 @@ character_event = {
 					}
 				}
 				modifier = {
-					factor = 0.5
+					factor = 0.25
 					lifestyle_traits = 1
 					has_character_modifier = magic_study_2
 				}
@@ -18084,6 +18084,7 @@ character_event = {
 			liege = { hermetic_add_herbal_ingredient_effect = yes }
 			clr_character_flag = apprentice_herb_gather
 			character_event = { id = MYTH_WoL.40 }
+			liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 		}
 		while = {
 			limit = {
@@ -23141,6 +23142,7 @@ character_event = {
 			}
 			character_event = { id = MYTH_WoL.291 }
 		}
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 } }
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.290
@@ -23411,6 +23413,7 @@ character_event = {
 		wealth = service_value
 		set_variable = { which = service_value value = 0 }
 		character_event = { id = MYTH_WoL.40 days = 1 random = 2 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 	}
 }
 
@@ -23426,6 +23429,7 @@ character_event = {
 		name = EVTOPTAMYTH_WoL.294
 		piety = 10
 		character_event = { id = MYTH_WoL.40 days = 1 random = 2 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 	}
 }
 
@@ -23516,6 +23520,7 @@ character_event = {
 			}
 		}
 		character_event = { id = MYTH_WoL.40 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 	}
 }
 
@@ -23531,6 +23536,7 @@ character_event = {
 		name = EVTOPTAMYTH_WoL.296
 		add_character_modifier = { modifier = organized_notes years = 1 }
 		character_event = { id = MYTH_WoL.40 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 	}
 }
 
