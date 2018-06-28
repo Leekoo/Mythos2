@@ -192,6 +192,10 @@ claim = {
 		}
 		FROM = {
 			participation_scaled_prestige = 150
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 300
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -671,6 +675,10 @@ other_claim = {
 		}
 		FROM = {
 			participation_scaled_prestige = 150
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 300
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -943,6 +951,10 @@ claim_on_liege = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1168,6 +1180,10 @@ claim_on_liege_plot = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1295,6 +1311,10 @@ claim_on_vassal_plot = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1691,6 +1711,10 @@ other_claim_on_liege = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1911,6 +1935,10 @@ claim_all = {
 					religion_group = christian
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
 			}
 		}
 		any_defender = {
@@ -2846,6 +2874,10 @@ invasion = {
 				}
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -3190,6 +3222,10 @@ tribal_invasion = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -3809,6 +3845,10 @@ crusade = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 300
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -4317,6 +4357,10 @@ religious = {
 					change_variable = { which = strengthen_religion value = 1 }
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 	}
 
@@ -4549,6 +4593,10 @@ excommunicated_ruler = {
 		}
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 	}
 
@@ -6071,6 +6119,10 @@ coastal_republic = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -6308,6 +6360,10 @@ coastal_county_republic = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -6495,6 +6551,10 @@ weaken_vassal_plot = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -6699,6 +6759,10 @@ decadence_invasion = {
 		}
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		ROOT = { 
 			imprison = FROM
@@ -7000,6 +7064,10 @@ muslim_invasion = {
 		}
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 			hidden_tooltip = {
 				if = {
 					limit = {
@@ -7289,6 +7357,10 @@ cb_faction_independence = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 100
+			}
 		}
 	}
 
@@ -7455,6 +7527,10 @@ imperial_reconquest = {
 					uses_decadence = yes
 				}
 				participation_scaled_decadence = -10
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
 			}
 		}
 		any_defender = {
@@ -7657,6 +7733,10 @@ embargo_cb = {
 		
 		FROM = {
 			prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 	}
 
@@ -7831,6 +7911,10 @@ seize_trade_post = {
 		}
 		FROM = {
 			participation_scaled_prestige = 50
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 100
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -8052,6 +8136,10 @@ viking_invasion = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 250
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 600
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -8274,6 +8362,10 @@ pagan_subjugation = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -9032,6 +9124,10 @@ duchy_adventure = {
 		
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		
 		ROOT = {
@@ -9295,6 +9391,10 @@ kingdom_adventure = { # Used mainly for Muslims adventuring into India
 		
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		
 		ROOT = {
@@ -9573,6 +9673,10 @@ pagan_holy_war = {
 		FROM = {
 			participation_scaled_piety = 200
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -9811,6 +9915,10 @@ caliphal_subjugation = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -10007,6 +10115,10 @@ muslim_county_conquest = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -10274,6 +10386,10 @@ pagan_county_conquest = {
 		FROM = {
 			participation_scaled_prestige = 100
 			participation_scaled_piety = 50
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -10658,6 +10774,10 @@ dejure_county_claim = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -10975,6 +11095,10 @@ dejure_barony_claim = {
 		}
 		FROM = {
 			participation_scaled_prestige = 50
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 100
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -11339,6 +11463,10 @@ other_dejure_county_claim = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -12212,6 +12340,10 @@ buddhist_holy_war = {
 					change_variable = { which = strengthen_religion value = 1 }
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -12472,6 +12604,10 @@ indian_subjugation = {
 		}
 		FROM = {
 			participation_scaled_prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -12730,6 +12866,10 @@ manifest_destiny_invasion = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -12864,6 +13004,10 @@ cb_decadence_usurption = {
 		FROM = { 
 			piety = 500
 			prestige = 250
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 500
+			}
 		}
 	}
 
@@ -13010,6 +13154,10 @@ rivalry_cb = {
 					}
 				}
 				set_character_flag = achievement_sibling_rival_war
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
 			}
 		}
 	}
@@ -13266,6 +13414,10 @@ tributary_cb = {
 
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 	}
 	
@@ -13657,6 +13809,10 @@ free_tributary_cb = {
 
 		FROM = {
 			prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 	}
 	
@@ -13931,6 +14087,10 @@ cb_install_khan = {
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 100
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -14071,6 +14231,10 @@ nomad_dispute = {
 		FROM = {
 			participation_scaled_prestige = 100
 			participation_scaled_piety = 50
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -14269,6 +14433,10 @@ cb_liberate_nomad_duchy = {
 				}
 				participation_scaled_decadence = -10
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 600
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -14433,6 +14601,10 @@ cb_minor_clan_revolt = {
 					name = crushed_revolt
 					days = 3650
 				}
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 100
 			}
 		}
 		ROOT = {
@@ -14777,6 +14949,10 @@ nomad_subjugation = {
 				hidden_tooltip = { character_event = { id = LoR.30 days = 12 } }
 			}
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -15058,6 +15234,10 @@ nomad_invasion = {
 						10 = { give_nickname = nick_the_bold }
 					}
 				}
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
 			}
 			
 			if = {
@@ -15407,6 +15587,10 @@ nomad_expansion = {
 				}
 				participation_scaled_decadence = -10
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 600
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -15671,6 +15855,10 @@ increase_council_power_war = { # Started from faction
 					}
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -15837,6 +16025,10 @@ nomad_humiliate_cb = {
 
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 	}
 	
@@ -16201,6 +16393,10 @@ powerful_vassal_takeover_war = { # Started from faction
 						modifier = opinion_traitor
 					}
 				}
+			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
 			}
 		}
 		any_defender = {

@@ -260,6 +260,10 @@ slay_monster = {
 				piety = 200
 			}
 			add_character_modifier = { name = defeated_monster_hunters years = 5 }
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 800
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -490,6 +494,10 @@ dragon_tribal_tribute_cb = {
 
 		FROM = {
 			prestige = 200
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 400
+			}
 		}
 	}
 	
@@ -769,6 +777,10 @@ cb_seize_flame = {
 		FROM = {
 			participation_scaled_piety = 200
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1130,6 +1142,10 @@ vassalize_draconic_tribute = {
 		}
 		FROM = {
 			participation_scaled_prestige = 100
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 		any_defender = {
 			limit = { NOT = { character = FROM } }
@@ -1316,6 +1332,10 @@ monster_revolt = {
 					remove_province_modifier = rally_against_monster
 				}
 			}
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 	}
 	
@@ -1436,6 +1456,10 @@ cb_reclaim_defaulted_loan = {
 		FROM = {
 			prestige = 200
 			hidden_tooltip = { set_variable = { which = loan_amount value = 0 } }
+			if = {
+				limit = { government = zombie_horde }
+				manpower = 200
+			}
 		}
 	}
 	
@@ -1949,12 +1973,12 @@ undead_conversion = {
 		FROM = {
 			prestige = 200
 			piety = 100
-			manpower = 100
+			manpower = 400
 		}
 		ROOT = {
 			prestige = -200
 			piety = -100
-			manpower = -100
+			manpower = -400
 		}
 	}
 	
@@ -2161,7 +2185,7 @@ undead_conquest = {
 			participation_scaled_piety = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				manpower = 200
 			}
 		}
 		any_defender = {

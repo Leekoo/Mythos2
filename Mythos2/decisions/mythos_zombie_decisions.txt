@@ -140,7 +140,19 @@ decisions = {
 			}
 		}
 		ai_will_do = {
-			factor = 0.2
+			factor = 0.5
+			modifier = {
+				factor = 1.5
+				war = yes
+			}
+			modifier = {
+				factor = 1.5
+				unused_manpower = 1000
+			}
+			modifier = {
+				factor = 1.5
+				population = 1000
+			}
 		}
 	}
 	
