@@ -1,6 +1,6 @@
 # Audax Validator EnableCommentMetadata
 # Audax Validator "!" Ignore_2001
-145182 = {
+268285 = {
 	name="Argos"
 	dna = bcedirmbfcy
 	dynasty=1022161
@@ -3568,7 +3568,7 @@
 	properties="qe0ffb00000000"
 	730.1.1={
 		birth=yes
-		set_government_type = feudal_government
+		effect = { set_government_type = feudal_government }
 	}
 	746.1.1={
 		add_trait = size_1
@@ -4049,7 +4049,7 @@
 	}
 }
 268477={
-	name=GOD_JUPITER # Zeus gets localized to Conclave
+	name="Zeus"
 	female=no
 	dynasty=1049005
 	religion = hellenic_pagan
@@ -4374,6 +4374,7 @@
 		effect = {
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			set_graphical_culture = horse
 		}
 		employer=268485
 	}
