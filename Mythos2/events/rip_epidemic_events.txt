@@ -31,7 +31,7 @@ character_event = {
 			character = ROOT
 		}
 		NOT = { government = zombie_horde }
-		NOT = { trait = undead }
+		NOT = { trait = zombie }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
@@ -100,7 +100,7 @@ character_event = {
 	
 	trigger = {
 		NOT = { government = zombie_horde }
-		NOT = { trait = undead }
+		NOT = { trait = zombie }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
@@ -637,7 +637,7 @@ character_event = { #blame game starts
 	is_triggered_only = yes #Should not fired for Jewish rulers or rulers with Jewish provinces in their realm, or for those who have expelled Jews already
 	trigger = {
 		NOT = { government = zombie_horde }
-		NOT = { trait = undead }
+		NOT = { trait = zombie }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
@@ -996,7 +996,7 @@ character_event = {
 	
 	trigger = {
 		NOT = { government = zombie_horde }
-		NOT = { trait = undead }
+		NOT = { trait = zombie }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
@@ -2110,7 +2110,7 @@ character_event = {
 			}
 		}
 		NOT = { government = zombie_horde }
-		NOT = { trait = undead }
+		NOT = { trait = zombie }
 		capital_scope = {
 			OR = {
 				has_province_modifier = depopulated_1
