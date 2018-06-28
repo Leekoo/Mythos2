@@ -640,6 +640,16 @@ decisions = {
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
+				factor = 0
+				NOR = {
+					c_sjaelland = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
 				factor = 2
 				trait = zealous
 			}
@@ -731,6 +741,16 @@ decisions = {
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
+				factor = 0
+				NOR = {
+					c_kent = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
 				factor = 2
 				trait = zealous
 			}
@@ -820,6 +840,16 @@ decisions = {
 		
 		ai_will_do = {
 			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					c_plock = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
 			modifier = {
 				factor = 2
 				trait = zealous
@@ -911,6 +941,16 @@ decisions = {
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
+				factor = 0
+				NOR = {
+					c_galloway = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
 				factor = 2
 				trait = zealous
 			}
@@ -1000,6 +1040,16 @@ decisions = {
 		
 		ai_will_do = {
 			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					c_uppland = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
 			modifier = {
 				factor = 2
 				trait = zealous
