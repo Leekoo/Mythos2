@@ -1616,11 +1616,14 @@ character_event = {
 					has_focus = focus_ch_heritage
 					has_character_modifier = house_arrest
 				}
-				NOT = {
+				NOR = {
 					educator = {
 						religion = ROOT
 						culture = ROOT
+						culture_group = undead_culture_group
+						religion = the_damned
 					}
+					trait = zombie
 				}
 			}
 			random_list = {
