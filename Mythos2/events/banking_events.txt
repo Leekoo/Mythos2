@@ -992,8 +992,8 @@ character_event = {
 				}
 				set_variable = { which = loan_amount which = ROOT }
 				add_character_modifier = { modifier = borrowed_from_bank years = 800 }
-				opinion = { who = event_target:banker modifier = opinion_my_banker years = 800 }
-				reverse_opinion = { who = event_target:banker modifier = opinion_gave_loan years = 800 }
+				opinion = { who = event_target:selected_banker modifier = opinion_my_banker years = 800 }
+				reverse_opinion = { who = event_target:selected_banker modifier = opinion_gave_loan years = 800 }
 				ROOT = {
 					set_variable = { which = loan_amount value = 0 }
 					remove_character_modifier = borrowed_from_bank
