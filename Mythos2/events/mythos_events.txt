@@ -4376,7 +4376,9 @@ character_event = {
 	
 	trigger = {
 		FROM = {
-			artifact_type = philosopher_stone
+			any_artifact = {
+				artifact_type = philosopher_stone
+			}
 		}
 	}
 	
