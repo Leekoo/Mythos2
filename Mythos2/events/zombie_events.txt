@@ -502,7 +502,7 @@ character_event = {
 						has_province_modifier = depopulated_1
 					}
 				}
-				ROOT = { manpower = 1 }
+				ROOT = { manpower = 2 }
 				ROOT = { population = -1 }
 			}
 			else_if = {
@@ -512,7 +512,7 @@ character_event = {
 						has_province_modifier = depopulated_2
 					}
 				}
-				ROOT = { manpower = 2 }
+				ROOT = { manpower = 4 }
 				ROOT = { population = -1 }
 			}
 			else_if = {
@@ -522,8 +522,8 @@ character_event = {
 						has_province_modifier = depopulated_3
 					}
 				}
-				ROOT = { manpower = 3 }
-				ROOT = { population = -2 }
+				ROOT = { manpower = 8 }
+				ROOT = { population = -1 }
 			}
 		}
 		repeat_event = { id = ZOMBIE.11 days = 31 }
