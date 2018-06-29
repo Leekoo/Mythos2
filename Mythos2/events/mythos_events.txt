@@ -2595,14 +2595,11 @@ character_event = {
 		}
 		if = {
 			limit = {
-				FROM = { always = yes }
+				FROMFROM = { always = yes }
 			}
-			FROM = { destroy_artifact = panacea }
+			FROMFROM = { destroy_artifact = panacea }
 		}
 		else = {
-			#limit = {
-			#	NOT = { FROM = { always = yes } }
-			#}
 			destroy_artifact = panacea
 		}
 	}
