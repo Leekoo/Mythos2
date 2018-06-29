@@ -1757,6 +1757,13 @@ set_draconic_raid_initiative = {
 		multiply_variable = { which = draconic_raid_initiative value = 13 }
 		divide_variable = { which = draconic_raid_initiative value = 10 }
 	}
+	export_to_variable = { which = temp value = combat_rating }
+	if = {
+		limit = { check_variable = { which = temp value = 10 } }
+		divide_variable = { which = temp value = 10 }
+		change_variable = { which = draconic_raid_initiative which = temp }
+	}
+	set_variable = { which = temp value = 0 }
 }
 set_draconic_raid_morale = {
 	set_variable = { which = draconic_raid_morale value = 30 }
