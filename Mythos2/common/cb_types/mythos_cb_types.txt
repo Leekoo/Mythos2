@@ -1728,7 +1728,7 @@ feed_on_living = {
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 0 } }
 					set_province_flag = recent_depopulation_3
 					random = {
-						chance = 50
+						chance = 60
 						culture = ROOT
 						religion = the_damned
 					}
@@ -1739,7 +1739,7 @@ feed_on_living = {
 					remove_province_modifier = devastation_2
 					add_province_modifier = { name = devastation_3 duration = -1 }
 					random = {
-						chance = 50
+						chance = 60
 						culture = ROOT
 						religion = the_damned
 					}
@@ -1752,7 +1752,7 @@ feed_on_living = {
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 0 } }
 					set_province_flag = recent_depopulation_2
 					random = {
-						chance = 25
+						chance = 30
 						culture = ROOT
 					}
 					hidden_tooltip = { ROOT = { manpower = 25 } }
@@ -1762,7 +1762,7 @@ feed_on_living = {
 					remove_province_modifier = devastation_1
 					add_province_modifier = { name = devastation_2 duration = -1 }
 					random = {
-						chance = 25
+						chance = 30
 						culture = ROOT
 					}
 					hidden_tooltip = { ROOT = { manpower = 25 } }
@@ -1773,7 +1773,7 @@ feed_on_living = {
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 0 } }
 					set_province_flag = recent_depopulation_1
 					random = {
-						chance = 12
+						chance = 15
 						culture = ROOT
 					}
 					hidden_tooltip = { ROOT = { manpower = 50 } }
@@ -1781,7 +1781,7 @@ feed_on_living = {
 				else = {
 					add_province_modifier = { name = devastation_1 duration = -1 }
 					random = {
-						chance = 12
+						chance = 15
 						culture = ROOT
 					}
 					hidden_tooltip = { ROOT = { manpower = 50 } }
