@@ -3590,7 +3590,16 @@ character_event = {
 						}
 					}
 				}
-				set_variable = { which = local_effect value = 1 }
+				if = {
+					limit = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+						}
+					}
+					character_event = { id = MYTH_WoL.41 }
+				}
 			}
 			400 = {
 				modifier = {
@@ -3608,35 +3617,66 @@ character_event = {
 					lifestyle_traits = 1
 					has_character_modifier = magic_study_2
 				}
-				set_variable = { which = local_effect value = 2 }
+				if = {
+					limit = {
+						NOR = {
+							trait = summoner
+							trait = alchemist
+							trait = enchanter
+							trait = herbalist
+							trait = necromancer
+						}
+					}
+					character_event = { id = MYTH_WoL.42 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = proud
 				}
-				set_variable = { which = local_effect value = 3 }
+				if = {
+					limit = {
+						NOT = { trait = proud }
+					}
+					character_event = { id = MYTH_WoL.43 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = ambitious
 				}
-				set_variable = { which = local_effect value = 4 }
+				if = {
+					limit = {
+						NOT = { trait = ambitious }
+					}
+					character_event = { id = MYTH_WoL.44 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = chaste
 				}
-				set_variable = { which = local_effect value = 5 }
+				if = {
+					limit = {
+						NOT = { trait = chaste }
+					}
+					character_event = { id = MYTH_WoL.45 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = diligent
 				}
-				set_variable = { which = local_effect value = 6 }
+				if = {
+					limit = {
+						NOT = { trait = diligent }
+					}
+					character_event = { id = MYTH_WoL.46 }
+				}
 			}
 			85 = {
 				modifier = {
@@ -3646,92 +3686,28 @@ character_event = {
 						trait = zealous
 					}
 				}
-				set_variable = { which = local_effect value = 7 }
+				if = {
+					limit = {
+						NOR = {
+							trait = cynical
+							trait = zealous
+						}
+					}
+					character_event = { id = MYTH_WoL.47 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = erudite
 				}
-				set_variable = { which = local_effect value = 8 }
-			}
-		}
-		# improve education
-		if = {
-			limit = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
+				if = {
+					limit = {
+						NOT = { trait = erudite }
+					}
+					character_event = { id = MYTH_WoL.48 }
 				}
-				is_variable_equal = { which = local_effect value = 1 }
 			}
-			character_event = { id = MYTH_WoL.41 }
-		}
-		# Progress
-		if = {
-			limit = {
-				NOR = {
-					trait = summoner
-					trait = alchemist
-					trait = enchanter
-					trait = herbalist
-					trait = necromancer
-				}
-				is_variable_equal = { which = local_effect value = 2 }
-			}
-			character_event = { id = MYTH_WoL.42 }
-		}
-		# More Proud
-		if = {
-			limit = {
-				NOT = { trait = proud }
-				is_variable_equal = { which = local_effect value = 3 }
-			}
-			character_event = { id = MYTH_WoL.43 }
-		}
-		# More Ambitious
-		if = {
-			limit = {
-				NOT = { trait = ambitious }
-				is_variable_equal = { which = local_effect value = 4 }
-			}
-			character_event = { id = MYTH_WoL.44 }
-		}
-		# More Chaste
-		if = {
-			limit = {
-				NOT = { trait = chaste }
-				is_variable_equal = { which = local_effect value = 5 }
-			}
-			character_event = { id = MYTH_WoL.45 }
-		}
-		# More Diligent
-		if = {
-			limit = {
-				NOT = { trait = diligent }
-				is_variable_equal = { which = local_effect value = 6 }
-			}
-			character_event = { id = MYTH_WoL.46 }
-		}
-		# Gain Cynical (but don't lose Zealous)
-		if = {
-			limit = {
-				NOR = {
-					trait = cynical
-					trait = zealous
-				}
-				is_variable_equal = { which = local_effect value = 7 }
-			}
-			character_event = { id = MYTH_WoL.47 }
-		}
-		# Gain Erudite
-		if = {
-			limit = {
-				NOT = { trait = erudite }
-				is_variable_equal = { which = local_effect value = 8 }
-			}
-			character_event = { id = MYTH_WoL.48 }
 		}
 	}
 }
@@ -6053,10 +6029,10 @@ character_event = {
 	option = {
 		name = EVTOPTCMYTH_WoL.84
 		trigger = {
-			event_target:random_province = {
+			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
+				NOT = { capital_scope = { province = PREV } }
 			}
-			NOT = { capital_scope = { province = event_target:random_province } }
 		}
 		event_target:random_province = {
 			any_province_holding = {
@@ -6530,9 +6506,9 @@ character_event = {
 		#	}
 		#}
 		trigger = {
-			event_target:random_province = {
+			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				has_capital = no
+				NOT = { capital_scope = { province = PREV } }
 			}
 		}
 				
@@ -6591,7 +6567,7 @@ character_event = {
 	}
 	
 	immediate = {
-		any_courtier = {
+		random_courtier = {
 			limit = { is_ill = yes }
 			save_event_target_as = sick_courtier
 			character_event = { id = MYTH_WoL.89 }
@@ -12774,7 +12750,7 @@ character_event = {
 	}
 	
 	weight_multiplier = {
-		days = 0
+		days = 1
 		modifier = {
 			factor = 0
 			NOT = { has_character_modifier = studying_herbalism }
@@ -12787,7 +12763,10 @@ character_event = {
 			50 = {
 			}
 			30 = {
-				hermetic_add_herbal_q1_ingredient_effect = yes
+				custom_tooltip = {
+					text = tt_gain_ingredient
+					hidden_tooltip = { hermetic_add_herbal_q1_ingredient_effect = yes }
+				}
 			}
 			10 = {
 				modifier = {
@@ -13140,7 +13119,7 @@ character_event = {
 	
 	immediate = {
 		random_list = {
-			90 = {
+			80 = {
 				character_event = { id = MYTH_WoL.159 days = 60 random = 30 } # Nothing found
 			}
 			10 = {
@@ -13653,7 +13632,7 @@ character_event = {
 				NOT = { learning = 5 }
 			}
 			modifier = {
-				factor = 1.5
+				factor = 0.5
 				learning = 20
 			}
 			modifier = {
@@ -13669,7 +13648,7 @@ character_event = {
 				trait = charitable
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.6
 				trait = diligent
 			}
 			modifier = {
@@ -13677,11 +13656,11 @@ character_event = {
 				trait = kind
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.6
 				trait = patient
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.5
 				trait = humble
 			}
 			modifier = {
@@ -13689,7 +13668,7 @@ character_event = {
 				trait = envious
 			}
 			modifier = {
-				factor = 1.2
+				factor = 1.3
 				trait = wroth
 			}
 			modifier = {
@@ -13697,11 +13676,11 @@ character_event = {
 				trait = proud
 			}
 			modifier = {
-				factor = 0.6
+				factor = 0.5
 				trait = theologian
 			}
 			modifier = {
-				factor = 0.8
+				factor = 0.7
 				trait = celibate
 			}
 			modifier = {
@@ -13766,51 +13745,6 @@ character_event = {
 			modifier = {
 				factor = 1.3
 				trait = cannibal_trait
-			}
-			# Abrahamic impious traits
-			modifier = {
-				factor = 1.2
-				trait = lustful
-			}
-			modifier = {
-				factor = 1.2
-				trait = gluttonous
-			}
-			modifier = {
-				factor = 1.2
-				trait = greedy
-			}
-			modifier = {
-				factor = 1.2
-				trait = slothful
-			}
-			modifier = {
-				factor = 0.8
-				trait = chaste
-			}
-			modifier = {
-				factor = 0.8
-				trait = temperate
-			}
-			modifier = {
-				factor = 0.8
-				trait = charitable
-			}
-			modifier = {
-				factor = 0.8
-				trait = diligent
-			}
-			modifier = {
-				factor = 0.8
-				trait = patient
-			}
-			modifier = {
-				factor = 0.8
-				trait = kind
-			}
-			modifier = {
-				factor = 0.8
-				trait = humble
 			}
 			modifier = {
 				factor = 0.7
@@ -18084,9 +18018,9 @@ character_event = {
 			subtract_variable = { which = gath_res value = 1 }
 			liege = { hermetic_add_herbal_ingredient_effect = yes }
 			clr_character_flag = apprentice_herb_gather
-			character_event = { id = MYTH_WoL.40 }
 			liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
 		}
+		character_event = { id = MYTH_WoL.40 }
 		while = {
 			limit = {
 				check_variable = {
@@ -19216,8 +19150,10 @@ character_event = {
 			trait = herbalist
 			has_character_modifier = studying_herbalism
 		}
-		any_artifact = {
-			has_artifact_flag = ingredient
+		ROOT = {
+			any_artifact = {
+				has_artifact_flag = ingredient
+			}
 		}
 		NOR = {
 			has_character_modifier = experimental_potion_1
@@ -19297,6 +19233,10 @@ character_event = {
 					}
 					add_character_modifier = { name = experimental_potion_5 months = 6 }
 				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
 			}
 			1 = {
 				if = {
@@ -19348,6 +19288,10 @@ character_event = {
 						}
 					}
 					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
 				}
 			}
 		}
@@ -19414,6 +19358,10 @@ character_event = {
 					}
 					add_character_modifier = { name = experimental_potion_5 months = 6 }
 				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
 			}
 			1 = {
 				if = {
@@ -19465,6 +19413,10 @@ character_event = {
 						}
 					}
 					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
 				}
 			}
 		}

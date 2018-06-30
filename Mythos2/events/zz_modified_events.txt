@@ -13501,3 +13501,111 @@ character_event = { # immortal suspicions
 	}
 	
 }
+
+#A friendly visit from spouse can result in non-aggression pact
+character_event = {
+	id = ZE.8000
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_diplomacy
+	desc = EVTDESC_ZE_8000
+
+	only_rulers = yes
+	capable_only = yes
+	prisoner = no
+	only_independent = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		mercenary = no
+		primary_title = {
+			is_landless_type_title = no
+		}
+		controls_religion = no
+		holy_order = no
+		NOT = { is_inaccessible_trigger = yes }
+		any_independent_ruler = {
+			NOR = { 
+				is_inaccessible_trigger = yes
+				trait = incapable
+				has_non_aggression_pact_with = ROOT
+				war_with = ROOT
+				trait = zombie
+			}
+			primary_title = {
+				is_landless_type_title = no
+			}
+			controls_religion = no
+			holy_order = no
+			mercenary = no
+			is_landed = yes
+			prisoner = no
+			is_married = yes
+			is_within_diplo_range = ROOT
+			spouse = {
+				NOR = { 
+					trait = incapable
+					is_inaccessible_trigger = yes
+					prisoner = yes
+				}
+			}
+		}
+		NOT = { trait = zombie }
+	}
+
+	immediate = {
+		ROOT = { capital_scope = { save_event_target_as = capital } }
+		random_independent_ruler = {
+			limit = {
+				NOR = { 
+					is_inaccessible_trigger = yes
+					trait = incapable
+					has_non_aggression_pact_with = ROOT
+					war_with = ROOT
+				}
+
+				primary_title = {
+					is_landless_type_title = no
+				}
+				controls_religion = no
+				holy_order = no
+				mercenary = no
+				is_landed = yes
+				prisoner = no
+				is_married = yes
+				is_within_diplo_range = ROOT
+				spouse = {
+					NOR = { 
+						trait = incapable
+						is_inaccessible_trigger = yes
+						prisoner = yes
+					}
+				}
+			}
+			spouse = { save_event_target_as = target_spouse }
+			save_event_target_as = target_ruler
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_ZE_8000
+		ai_chance = { 
+			factor = 90
+		}
+		custom_tooltip = {
+			text = EVTOPTA_ZE_8000_TOOLTIP
+			hidden_tooltip = {
+				event_target:target_ruler = {
+					letter_event = { id = ZE.8001 days = 3 }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EVTOPTB_ZE_8000
+		ai_chance = { 
+			factor = 10
+		}
+	}
+}

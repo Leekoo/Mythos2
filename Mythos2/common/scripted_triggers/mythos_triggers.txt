@@ -2643,3 +2643,155 @@ immune_to_infection = {
 		trait = necromancer
 	}
 }
+
+true_religion_draconic_pagan_trigger = {
+	true_religion = draconic_pagan
+}
+
+true_religion_draconic_pagan_reformed_trigger = {
+	true_religion = draconic_pagan_reformed
+}
+
+true_religion_druidic_trigger = {
+	true_religion = druidic
+}
+
+true_religion_druidic_reformed_trigger = {
+	true_religion = druidic_reformed
+}
+
+true_religion_kemetic_pagan_trigger = {
+	true_religion = kemetic_pagan
+}
+
+true_religion_atenist_trigger = {
+	true_religion = atenist
+}
+
+true_religion_jotnar_trigger = {
+	true_religion = jotnar
+}
+
+true_religion_jotnar_reformed_trigger = {
+	true_religion = jotnar_reformed
+}
+
+true_religion_roman_pagan_trigger = {
+	true_religion = roman_pagan
+}
+
+true_religion_damned_trigger = {
+	true_religion = the_damned
+}
+
+true_religion_satanist_trigger = {
+	true_religion = satanist
+}
+
+true_religion_group_other_trigger = {
+	true_religion_group = other_group
+}
+
+is_draconic_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_cult
+	OR = {
+		society_member_of = secret_religious_society_draconic_pagan_reformed
+		society_member_of = secret_religious_society_draconic_pagan
+	}
+}
+
+is_druidic_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_cult
+	OR = {
+		society_member_of = secret_religious_society_druidic_reformed
+		society_member_of = secret_religious_society_druidic
+	}
+}
+
+is_jotnar_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_cult
+	OR = {
+		society_member_of = secret_religious_society_jotnar_reformed
+		society_member_of = secret_religious_society_jotnar
+	}
+}
+
+is_kemetic_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_cult
+	OR = {
+		society_member_of = secret_religious_society_atenist
+		society_member_of = secret_religious_society_kemetic_pagan
+	}
+}
+
+is_hellenic_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_cult
+	OR = {
+		society_member_of = secret_religious_society_hellenic_pagan
+		society_member_of = secret_religious_society_roman_pagan
+	}
+}
+
+is_satanist_secret_religious_society_member_trigger = {
+	society_member_of = secret_religious_society_satanist
+}
+
+religion_openly_draconic_or_reformed_trigger = {
+	custom_tooltip = {
+		text = religion_openly_draconic_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+}
+
+religion_openly_druidic_or_reformed_trigger = {
+	custom_tooltip = {
+		text = religion_openly_druidic_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+	}
+}
+
+religion_openly_jotnar_or_reformed_trigger = {
+	custom_tooltip = {
+		text = religion_openly_jotnar_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+}
+
+religion_openly_kemetic_or_reformed_trigger = {
+	custom_tooltip = {
+		text = religion_openly_kemetic_or_reformed_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = kemetic_pagan
+				religion = atenist
+			}
+		}
+	}
+}
+
+religion_openly_hellenic_or_roman_trigger = {
+	custom_tooltip = {
+		text = religion_openly_hellenic_or_roman_tooltip
+		hidden_trigger = {
+			OR = {
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+	}
+}
