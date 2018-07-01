@@ -193,10 +193,16 @@ decisions = {
 			}
 		}
 		effect = {
-			add_character_modifier = { name = facing_challenge months = 3 } # Time limit in case something breaks the challenge
+			add_character_modifier = { name = facing_challenge months = 6 } # Time limit in case something breaks the challenge
+			# Modifier to stop ai from challenging while other challenges are ongoing. For stability reasons
+			#set_global_flag = ongoing_werewolf_challenge
+			# Have Zeus clear it, since he is unlikely to die
+			#e_olympus = {
+			#	owner = { character_event = { id = CHALLENGE.90 days = 186 } }
+			#}
 			liege = {
 				character_event = { id = CHALLENGE.1 tooltip = TT_issue_challenge }
-				add_character_modifier = { name = facing_challenge months = 3 } # Time limit in case something breaks the challenge
+				add_character_modifier = { name = facing_challenge months = 6 } # Time limit in case something breaks the challenge
 			}
 			if = {
 				limit = { has_law = werewolf_wait_law_0 }
@@ -264,6 +270,10 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				factor = 0
+				has_global_flag = ongoing_werewolf_challenge
+			}
 			modifier = {
 				factor = 1.5
 				trait = brave
