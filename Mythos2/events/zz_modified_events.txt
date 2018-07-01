@@ -5782,72 +5782,42 @@ narrative_event = {
 				religion = norse_pagan_reformed # This Holy Order now changes religion
 			}
 			set_global_flag = norse_reformation
-			norse_pagan = {
-				set_name = norse_old
-			}
 		}
 		if = {
 			limit = { religion = tengri_pagan_reformed }
 			set_global_flag = tengri_reformation
-			tengri_pagan = {
-				set_name = tengri_old
-			}
 		}
 		if = {
 			limit = { religion = baltic_pagan_reformed }
 			set_global_flag = baltic_reformation
-			baltic_pagan = {
-				set_name = baltic_old
-			}
 		}
 		if = {
 			limit = { religion = finnish_pagan_reformed }
 			set_global_flag = finnish_reformation
-			finnish_pagan = {
-				set_name = finnish_old
-			}
 		}
 		if = {
 			limit = { religion = aztec_reformed }
 			set_global_flag = aztec_reformation
-			aztec = {
-				set_name = aztec_old
-			}
 		}
 		if = {
 			limit = { religion = slavic_pagan_reformed }
 			set_global_flag = slavic_reformation
-			slavic_pagan = {
-				set_name = slavic_old
-			}
 		}
 		if = {
 			limit = { religion = west_african_pagan_reformed }
 			set_global_flag = west_african_reformation
-			west_african_pagan = {
-				set_name = west_african_old
-			}
 		}
 		if = {
 			limit = { religion = zun_pagan_reformed }
 			set_global_flag = zun_reformation
-			zun_pagan = {
-				set_name = zun_old
-			}
 		}
 		if = {
 			limit = { religion = draconic_pagan_reformed }
 			set_global_flag = draconic_reformation
-			draconic_pagan = {
-				set_name = draconic_old
-			}
 		}
 		if = {
 			limit = { religion = druidic_reformed }
 			set_global_flag = druidic_reformation
-			druidic = {
-				set_name = druidic_old
-			}
 			d_galatian_company = {
 				religion = druidic_reformed
 			}
@@ -5861,9 +5831,6 @@ narrative_event = {
 		if = {
 			limit = { religion = jotnar_reformed }
 			set_global_flag = jotnar_reformation
-			jotnar = {
-				set_name = jotnar_old
-			}
 		}
 	}
 
