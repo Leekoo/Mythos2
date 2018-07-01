@@ -14028,9 +14028,12 @@ cb_install_khan = {
 			}
 		}
 		FROM = {
-			any_demesne_title = {
-				NOT = { lower_tier_than = ROOT }
-				temporary = no
+			OR = {
+				any_demesne_title = {
+					NOT = { lower_tier_than = ROOT }
+					temporary = no
+				}
+				government = zombie_horde
 			}
 		}
 	}
