@@ -921,4 +921,123 @@ nomad = {
 		dragon_cavalry_offensive = 0.06
 		land_morale = 0.1
 	}
+	
+	no_wandering_dead_1 = {
+		desc = no_wandering_dead_desc
+		potential = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		trigger = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		is_active_trigger = {
+			owner = { government = zombie_horde }
+		}
+		gold_cost = 20
+		build_time = 100
+		ai_creation_factor = 110
+		extra_tech_building_start = 1
+		
+		garrison_size = 2
+	}
+	no_wandering_dead_2 = {
+		desc = no_wandering_dead_desc
+		potential = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		trigger = {
+			FROM = { TECH_CASTLE_CONSTRUCTION = 2 }
+			owner = {
+				government = zombie_horde
+			}
+		}
+		is_active_trigger = {
+			owner = { government = zombie_horde }
+		}
+		upgrades_from = no_wandering_dead_1
+		gold_cost = 50
+		build_time = 300
+		ai_creation_factor = 100
+		extra_tech_building_start = 1
+		
+		garrison_size = 2
+	}
+	no_wandering_dead_3 = {
+		desc = no_wandering_dead_desc
+		potential = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		trigger = {
+			FROM = { TECH_CASTLE_CONSTRUCTION = 4 }
+			owner = {
+				government = zombie_horde
+			}
+		}
+		is_active_trigger = {
+			owner = { government = zombie_horde }
+		}
+		upgrades_from = no_wandering_dead_2
+		gold_cost = 700
+		build_time = 400
+		ai_creation_factor = 99
+		extra_tech_building_start = 1
+		
+		garrison_size = 2
+	}
+	no_wandering_dead_4 = {
+		desc = no_wandering_dead_desc
+		potential = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		trigger = {
+			FROM = { TECH_CASTLE_CONSTRUCTION = 6 }
+			owner = {
+				government = zombie_horde
+			}
+		}
+		is_active_trigger = {
+			owner = { government = zombie_horde }
+		}
+		upgrades_from = no_wandering_dead_3
+		gold_cost = 800
+		build_time = 500
+		ai_creation_factor = 97
+		extra_tech_building_start = 1
+		
+		garrison_size = 2.5
+	}
+	no_wandering_dead_5 = {
+		desc = no_wandering_dead_desc
+		potential = {
+			owner = {
+				government = zombie_horde
+			}
+		}
+		trigger = {
+			FROM = { TECH_CASTLE_CONSTRUCTION = 8 }
+			owner = {
+				government = zombie_horde
+			}
+		}
+		is_active_trigger = {
+			owner = { government = zombie_horde }
+		}
+		upgrades_from = no_wandering_dead_4
+		gold_cost = 900
+		build_time = 600
+		ai_creation_factor = 95
+		extra_tech_building_start = 1
+		
+		garrison_size = 3
+	}
 }
