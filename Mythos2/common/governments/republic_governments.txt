@@ -68,7 +68,10 @@ republic_governments = {
 					}
 				}
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_merchant_republic_government }
+			}
 		}
 		
 		color = { 250 0 100 }
@@ -157,7 +160,11 @@ republic_governments = {
 					}
 				}
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_merchant_republic_government }
+				liege = { government = merchant_republic_government }
+			}
 			NOR = { 
 				is_government_potential = draconic_merchant_republic_government
 			}
@@ -219,7 +226,10 @@ republic_governments = {
 				is_government_potential = merchant_republic_government
 				is_government_potential = draconic_merchant_republic_government
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_governorship }
+			}
 		}
 		color = { 200 80 80 }
 		uses_prestige_for_law_change = yes
@@ -262,7 +272,10 @@ republic_governments = {
 				is_government_potential = draconic_merchant_republic_government
 				is_government_potential = draconic_governorship
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = republic_government }
+			}
 		}
 		
 		color = { 209 125 130 }

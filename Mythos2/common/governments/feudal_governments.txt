@@ -62,7 +62,12 @@ feudal_governments = {
 					has_character_flag = chinese_imperial_government_preserve
 				}
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = feudal_government }
+				liege = { government = blood_court_government }
+				liege = { government = draconic_feudal_government }
+			}
 			is_patrician = no
 		}
 		
@@ -125,7 +130,10 @@ feudal_governments = {
 					has_character_flag = chinese_imperial_government_preserve
 				}
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = muslim_government }
+			}
 			is_patrician = no
 		}
 		
@@ -211,7 +219,10 @@ feudal_governments = {
 					has_character_flag = chinese_imperial_government_preserve
 				}
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = blood_court_government }
+			}
 			is_patrician = no
 		}
 		
@@ -263,7 +274,10 @@ feudal_governments = {
 				NOT = { religion = draconic_pagan_reformed }
 			}
 			religion_group = pagan_group
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_feudal_government }
+			}
 			is_patrician = no
 		}
 		color = { 249 230 127 }
@@ -344,7 +358,10 @@ feudal_governments = {
 				controls_religion = no
 				religion_group = pagan_group
 			}
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = theocratic_feudal_government }
+			}
 			is_patrician = no
 		}
 		

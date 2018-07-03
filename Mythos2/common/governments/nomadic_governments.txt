@@ -46,7 +46,10 @@ nomadic_governments = {
 			is_patrician = no
 			mercenary = no
 			holy_order = no
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = marauding_dragon_government }
+			}
 		}
 		
 		unit_home_modifier = {
@@ -119,7 +122,11 @@ nomadic_governments = {
 			is_patrician = no
 			mercenary = no
 			holy_order = no
-			NOT = { trait = zombie }
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = marauding_dragon_government }
+				liege = { government = nomadic_government }
+			}
 		}
 		
 		unit_home_modifier = {
@@ -188,7 +195,10 @@ nomadic_governments = {
 		title_prefix = "nomadic_"
 		potential = {
 			trait = zombie
-			# has_dlc = "Horse Lords"
+			OR = {
+				independent = yes
+				liege = { government = zombie_horde }
+			}
 		}
 		
 		unit_home_modifier = {
