@@ -442,6 +442,12 @@ province_event = {
 			}
 		}
 		
+		# Undead revolts have prio
+		NOR = {
+			culture_group = undead_culture_group
+			religion = the_damned
+		}
+		
 		NOT = { # Not if there is already an ongoing revolt
 			owner = {
 				top_liege = {
@@ -773,6 +779,9 @@ province_event = {
 				NOT = { culture = ROOT }
 			}
 		}
+		
+		# Undead revolts have prio
+		NOT = { culture_group = undead_culture_group }
 		
 		kingdom = {
 			has_holder = no
@@ -1187,6 +1196,10 @@ province_event = {
 			top_liege = {
 				NOT = { religion_group = ROOT }
 			}
+		}
+		
+		NOT = {
+			religion = the_damned
 		}
 		
 		# Nationalist revolts have prio

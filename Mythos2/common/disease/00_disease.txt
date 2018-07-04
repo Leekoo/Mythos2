@@ -73,10 +73,7 @@ tuberculosis = { # Consumption
 					trait = has_tuberculosis
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
@@ -92,6 +89,7 @@ tuberculosis = { # Consumption
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -317,10 +315,7 @@ typhoid_fever = { # Slow Fever
 					trait = has_typhoid_fever
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
@@ -336,6 +331,7 @@ typhoid_fever = { # Slow Fever
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -561,10 +557,7 @@ typhus = { # Camp Fever
 					trait = has_typhus
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
@@ -580,6 +573,7 @@ typhus = { # Camp Fever
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -804,10 +798,7 @@ bubonic_plague = {
 					trait = has_bubonic_plague
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 				}
 			}
 			random_list = {
@@ -849,6 +840,7 @@ bubonic_plague = {
 					clr_character_flag = got_flu
 					clr_character_flag = got_dysentery
 					clr_character_flag = got_food_poisoning
+					clr_character_flag = got_zombie_plague
 					clr_character_flag = disease_not_serious
 					
 					set_character_flag = got_bubonic_plague
@@ -1408,10 +1400,7 @@ measles = {
 					trait = has_measles
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
@@ -1427,6 +1416,7 @@ measles = {
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -1652,10 +1642,7 @@ small_pox = {
 					trait = has_small_pox
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
-					is_undead = yes
+					immune_to_infection = yes
 					
 					has_character_flag = got_bubonic_plague
 					has_character_flag = got_aztec_disease
@@ -1671,6 +1658,7 @@ small_pox = {
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -1896,9 +1884,7 @@ syphilis = {
 					trait = has_aztec_disease
 					trait = horse
 					trait = cat
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
+					immune_to_infection = yes
 					is_undead = yes
 					
 					has_character_flag = got_bubonic_plague
@@ -1915,6 +1901,7 @@ syphilis = {
 					has_character_flag = got_flu
 					has_character_flag = got_dysentery
 					has_character_flag = got_food_poisoning
+					has_character_flag = got_zombie_plague
 				}
 			}			
 			random_list = {
@@ -2084,9 +2071,7 @@ dancing_plague = {
 					trait = horse
 					trait = cat
 					trait = incapable
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
+					immune_to_infection = yes
 					is_undead = yes
 				}
 			}			
@@ -2202,6 +2187,8 @@ zombie_plague = {
 			}
 			15 = {
 				increase_depopulation_effect = yes
+				# Chance to trigger a zombie revolt
+				province_event = { id = ZOMBIE.12 }
 			}
 		}
 	}
@@ -2216,20 +2203,20 @@ zombie_plague = {
 		if = {
 			limit = {
 				NOR = {
+					has_character_flag = immune_zombie_plague
 					has_character_flag = got_zombie_plague
-					trait = has_tuberculosis
+					trait = zombie_infection
 					trait = horse
-					trait = god
-					trait = demon_trait
-					trait = ethereal_trait
+					trait = cat
+					immune_to_infection = yes
 					is_undead = yes
 					
 					has_character_flag = got_bubonic_plague
-					has_character_flag = got_aztec_disease
 					has_character_flag = got_smallpox
 					has_character_flag = got_measles
 					has_character_flag = got_typhus
 					has_character_flag = got_typhoid_fever
+					has_character_flag = got_tuberculosis
 					has_character_flag = got_syphilis
 					has_character_flag = got_pneumonia
 					has_character_flag = got_cancer
@@ -2261,21 +2248,21 @@ zombie_plague = {
 						}
 					}
 					modifier = {
-						factor = 10
-						religion = voodoo
+						factor = 3
+						location = { religion = the_damned }
 					}
 					modifier = {
-						factor = 2
-						culture = manden
+						factor = 4
+						location = { culture_group = undead_culture_group }
 					}
 					modifier = {
-						factor = 2
-						religion = west_african_pagan
+						factor = 0
+						trait = zombie
 					}
 					clr_character_flag = disease_not_serious
 					set_character_flag = got_zombie_plague
 					set_character_flag = developing_illness
-					character_event = { id = RIP.5015 }
+					character_event = { id = ZOMBIE.34 }
 				}
 				95 = { # Nothing happens
 				}

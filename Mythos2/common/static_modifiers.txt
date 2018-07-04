@@ -283,6 +283,7 @@ river_crossing = {
 	icon = 2
 	archers_defensive = -0.1
 	light_infantry_defensive = -0.1
+	zombie_troops_defensive = -0.15
 	pikemen_defensive = -0.15
 	heavy_infantry_defensive = -0.15
 	light_cavalry_defensive = -0.125
@@ -297,6 +298,7 @@ river_crossing = {
 
 	archers_offensive = -0.05
 	light_infantry_offensive = -0.1
+	zombie_troops_offensive = -0.15
 	pikemen_offensive = -0.15
 	heavy_infantry_offensive = -0.15
 	light_cavalry_offensive = -0.125
@@ -315,6 +317,7 @@ major_river_crossing = {
 	icon = 2
 	archers_defensive = -0.2
 	light_infantry_defensive = -0.2
+	zombie_troops_defensive = -0.3
 	pikemen_defensive = -0.3
 	heavy_infantry_defensive = -0.3
 	light_cavalry_defensive = -0.25
@@ -329,6 +332,7 @@ major_river_crossing = {
 
 	archers_offensive = -0.1
 	light_infantry_offensive = -0.2
+	zombie_troops_offensive = -0.3
 	pikemen_offensive = -0.3
 	heavy_infantry_offensive = -0.3
 	light_cavalry_offensive = -0.25
@@ -347,6 +351,7 @@ strait_crossing = {
 	icon = 3
 	archers_defensive = -0.15
 	light_infantry_defensive = -0.15
+	zombie_troops_defensive = -0.2
 	pikemen_defensive = -0.2
 	heavy_infantry_defensive = -0.2
 	light_cavalry_defensive = -0.172
@@ -361,6 +366,7 @@ strait_crossing = {
 
 	archers_offensive = -0.1
 	light_infantry_offensive = -0.15
+	zombie_troops_offensive = -0.2
 	pikemen_offensive = -0.2
 	heavy_infantry_offensive = -0.2
 	light_cavalry_offensive = -0.172
@@ -379,6 +385,7 @@ amphibious_landing = {
 	icon = 4
 	archers_defensive = -0.15
 	light_infantry_defensive = -0.15
+	zombie_troops_defensive = -0.15
 	pikemen_defensive = -0.2
 	heavy_infantry_defensive = -0.2
 	light_cavalry_defensive = -0.175
@@ -392,6 +399,7 @@ amphibious_landing = {
 
 	archers_offensive = -0.1
 	light_infantry_offensive = -0.15
+	zombie_troops_offensive = -0.15
 	pikemen_offensive = -0.2
 	heavy_infantry_offensive = -0.2
 	light_cavalry_offensive = -0.175
@@ -440,17 +448,19 @@ defenderbonus_jungle = {
 	icon = 1
 	archers_defensive = 0.3
 	light_infantry_defensive = 0.1
+	zombie_troops_defensive = 0.1
 	pikemen_defensive = 0.2
 	heavy_infantry_defensive = 0.1
 	horse_archers_defensive = -0.25
 
 	light_infantry_offensive = 0.1
+	zombie_troops_offensive = 0.1
 	heavy_infantry_offensive = 0.1
 	pikemen_offensive = 0.1
 	horse_archers_offensive = -0.15
 }
 
-defenderbonus_forest = { # Does this work?
+defenderbonus_forest = { 
 	icon = 1
 	lycan_berzerkers_offensive = 0.3
 	lycan_berzerkers_defensive = 0.3
@@ -693,6 +703,60 @@ ethereal_culture_modifier = {
 	knights_defensive = 0.2
 	pikemen_offensive = -0.2
 	pikemen_defensive = 0.2
+}
+
+undead_cold_ones_culture_modifier = {
+	global_winter_supply = 4
+	days_of_supply = 20
+	supply_limit = 1
+}
+
+undead_aptrganger_culture_modifier = {
+	combat_rating = 2
+	supply_limit = 1
+}
+
+undead_draugr_culture_modifier = {
+	zombie_troops_offensive = 0.4
+	supply_limit = 1
+}
+
+undead_dybbuk_culture_modifier = {
+	levy_size = 0.1
+	supply_limit = 1
+}
+
+undead_ghoul_culture_modifier = {
+	manpower_growth = 0.9
+	max_manpower_mult = -0.1
+	supply_limit = 1
+}
+
+undead_wight_culture_modifier = {
+	land_morale = 0.1
+	supply_limit = 1
+}
+
+undead_zombie_culture_modifier = {
+	local_movement_speed = -0.1
+	supply_limit = 1
+}
+
+undead_vetala_culture_modifier = {
+	zombie_troops_defensive = 0.2
+	supply_limit = 1
+}
+
+undead_vrykolakas_culture_modifier = {
+	health = 1
+	disease_defence = -0.3
+	supply_limit = 1
+}
+
+undead_revenant_culture_modifier = {
+	attrition = -0.15
+	max_attrition = 0.05
+	supply_limit = 1
 }
 
 ##########################################################################

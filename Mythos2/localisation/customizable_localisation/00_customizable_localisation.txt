@@ -2596,16 +2596,49 @@ defined_text = {
 			OR = {
 				religion_group = christian
 				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
 			}
 		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Muslim
-		trigger = { religion_group = muslim }
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Pagan
-		trigger = { religion_group = pagan_group }
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Zoroastrian
@@ -2613,11 +2646,27 @@ defined_text = {
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Jewish
-		trigger = { religion_group = jewish_group }
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Hindu
-		trigger = { religion = hindu }
+		trigger = {
+			OR = {
+				religion = hindu
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Buddhist
@@ -2634,22 +2683,152 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetHouseOfWorshipCap # Returns a suitable name for the house of worship of your religion (WIP)
+
+	text = {
+		localisation_key = string_Church
+		trigger = { 
+			OR = {
+				religion_group = christian
+				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Mosque
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion_group = zoroastrian_group }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = {
+			OR = {
+				religion = hindu
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = buddhist }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = jain }
+	}
+	text = {
+		localisation_key = string_Temple
+		trigger = { religion = taoist }
+	}
+}
+
+defined_text = {
 	name = GetReligiousRite # Returns a suitable name for a common rite in the character's religion
 
 	text = {
 		localisation_key = String_mass
 		trigger = { 
-			religion_group = christian
-			religion_group = other_group
+			OR = {
+				religion_group = christian
+				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
+			}
 		}
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = muslim }
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_worship
-		trigger = { religion_group = pagan_group }
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_worship
@@ -2657,11 +2836,27 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = jewish_group }
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = indian_group }
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
 	}
 }
 
@@ -7102,6 +7297,105 @@ defined_text = {
 			}
 		}
 	}
+	text = {
+		localisation_key = String_Mistletoe
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_mistletoe
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Fennel
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_fennel
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Thyme
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_thyme
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Horehound
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_horehound
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wolfsbane
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_wolfsbane
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Fern_Flower
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_fern_flower
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Moly
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_moly
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Lotus
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_lotus
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Sage
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_sage
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Raskovnik
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_raskovnik
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Asclepois
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+				artifact_type = ingredient_asclepois
+			}
+		}
+	}
 	#animal parts...
 	text = {
 		localisation_key = String_Gall_Bladder
@@ -7349,6 +7643,105 @@ defined_text = {
 			any_artifact = {
 				has_artifact_flag = selected_ingredient_2
 				artifact_type = ingredient_herb9
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Mistletoe
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_mistletoe
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Fennel
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_fennel
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Thyme
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_thyme
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Horehound
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_horehound
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wolfsbane
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_wolfsbane
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Fern_Flower
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_fern_flower
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Moly
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_moly
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Lotus
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_lotus
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Sage
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_sage
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Raskovnik
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_raskovnik
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Asclepois
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+				artifact_type = ingredient_asclepois
 			}
 		}
 	}

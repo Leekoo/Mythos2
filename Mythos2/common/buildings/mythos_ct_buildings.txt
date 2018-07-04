@@ -1,181 +1,13 @@
 city = {
 	
 	# Dragon
-	# Dragon Capital
-	ct_dragon_tower_1 = {
-		desc = ct_dragon_tower_1_desc
-		
-		potential = {
-			OR = {
-				FROM = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
-				FROMFROM = {
-					has_building = ct_dragon_tower_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_werewolf_court
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			TECH_CITY_CONSTRUCTION = 1 	
-			is_capital = yes					 
-		}
-		is_active_trigger = {
-			FROM = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
-		}
-		
-		prerequisites = { ct_wall_2 }
-		ai_creation_factor = 101
-		
-		fort_level = 1
-		monthly_character_prestige = 0.15
-		liege_prestige = 0.15
-		dragon_cavalry = 8
-		global_movement_speed = 0.03
-		
-		gold_cost = 300
-		build_time = 350
-		
-		extra_tech_building_start = 10.0
-	}
-	
-	ct_dragon_tower_2 = {
-		desc = ct_dragon_tower_2_desc
-		
-		potential = {
-			OR = {
-				FROM = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
-				FROMFROM = {
-					has_building = ct_dragon_tower_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ca_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			TECH_CITY_CONSTRUCTION = 3 	
-			is_capital = yes					 
-		}
-		is_active_trigger = {
-			FROM = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
-		}
-		
-		upgrades_from = ct_dragon_tower_1
-		ai_creation_factor = 100
-		
-		fort_level = 2
-		monthly_character_prestige = 0.25
-		liege_prestige = 0.25
-		dragon_cavalry = 8
-		global_movement_speed = 0.03
-		
-		gold_cost = 425
-		build_time = 625
-		
-		extra_tech_building_start = 10.0
-	}
-	
-	ct_dragon_tower_3 = {
-		desc = ct_dragon_tower_3_desc
-		
-		potential = {
-			OR = {
-				FROM = {
-					OR = {
-						trait = dragon
-						trait = dragonborn
-						culture = draconic
-					}
-				}
-				FROMFROM = {
-					has_building = ct_dragon_tower_3
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ca_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			TECH_CITY_CONSTRUCTION = 5	
-			is_capital = yes					 
-		}
-		is_active_trigger = {
-			FROM = {
-				OR = {
-					trait = dragon
-					trait = dragonborn
-				}
-			}
-		}
-		
-		upgrades_from = ct_dragon_tower_2
-		ai_creation_factor = 99
-		
-		fort_level = 2.5
-		monthly_character_prestige = 0.5
-		liege_prestige = 0.5
-		dragon_cavalry = 12
-		global_movement_speed = 0.03
-		
-		gold_cost = 600
-		build_time = 1020
-		extra_tech_building_start = 10.0
-	}
-	
 	# Dragon holding building
 	ct_dragon_tribute_1 = {
 		desc = ct_dragon_tribute_1_desc
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -201,12 +33,24 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -228,7 +72,7 @@ city = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -252,12 +96,26 @@ city = {
 				}
 			}
 		}
-		trigger = { TECH_CITY_CONSTRUCTION = 3 }
+		trigger = {
+			TECH_CITY_CONSTRUCTION = 3
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -280,7 +138,23 @@ city = {
 		desc = ct_dragon_guards_desc
 		
 		potential = { culture = draconic }
-		trigger = { culture = draconic }
+		trigger = {
+			culture = draconic
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		ai_creation_factor = 90
 		
 		gold_cost = 160
@@ -292,110 +166,13 @@ city = {
 		extra_tech_building_start = 2.0
 	}
 	
-	# Werewolf Capital
-	ct_werewolf_lodge_1 = {
-		desc = ct_werewolf_lodge_desc
-		
-		potential = {
-			OR = {
-				FROM = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-				}
-				FROMFROM = { 
-					has_building = ct_werewolf_lodge_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = known_werewolf }
-			TECH_CITY_CONSTRUCTION = 1
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = { trait = known_werewolf }
-		}
-		
-		ai_creation_factor = 100
-		
-		lycan_berzerkers = 50
-		archers = 200
-		global_winter_supply = 2
-		siege_defence = 0.05
-		
-		gold_cost = 225
-		build_time = 350
-		
-		extra_tech_building_start = 10.0
-	}
-	ct_werewolf_lodge_2 = {
-		desc = ct_werewolf_lodge_desc
-		
-		potential = {
-			OR = {
-				FROM = {
-					OR = {
-						trait = werewolf
-						culture = werewolf_culture
-					}
-				}
-				FROMFROM = { 
-					has_building = ct_werewolf_lodge_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = known_werewolf }
-			TECH_CITY_CONSTRUCTION = 3
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = { trait = known_werewolf }
-		}
-		upgrades_from = ct_werewolf_lodge_1
-		ai_creation_factor = 100
-		
-		lycan_berzerkers = 75
-		archers = 250
-		global_winter_supply = 2
-		siege_defence = 0.05
-		
-		gold_cost = 600
-		build_time = 500
-		
-		extra_tech_building_start = 10.0
-	}
 	# Werewolf Holding
 	ct_werewolf_court = {
 		desc = ct_werewolf_court_desc
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -420,15 +197,27 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			FROM = {
+			holder_scope = {
 				culture = werewolf_culture
 				trait = known_werewolf
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				trait = known_werewolf
 				culture = werewolf_culture
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		ai_creation_factor = 100
@@ -448,7 +237,22 @@ city = {
 		desc = ct_werewolf_guards_desc
 		
 		potential = { culture = werewolf_culture }
-		trigger = { }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		ai_creation_factor = 90
 		
 		lycan_berzerkers = 20
@@ -460,104 +264,13 @@ city = {
 		
 		extra_tech_building_start = 2.0
 	}
-	# Vampire Capital
-	ct_vampire_mansion = {
-		desc = ct_vampire_mansion_desc
-		
-		potential = {
-			OR = {
-				FROM = { trait = vampire }
-				FROMFROM = { 
-					has_building = ct_vampire_mansion
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = { 
-			FROM = { trait = vampire }
-			TECH_CITY_CONSTRUCTION = 1
-			is_capital = yes 
-		}
-		is_active_trigger = {
-			FROM = { trait = known_vampire }
-		}
-		
-		prerequisites = { ct_wall_2 }
-		ai_creation_factor = 100
-		
-		vampires = 150
-		knights = 10
-		fort_level = 1
-		tax_income = 1.5
-		monthly_character_prestige = 0.25
-		
-		gold_cost = 495
-		build_time = 1095
-		
-		extra_tech_building_start = 10.0
-	}
-	ct_vampire_mansion_2 = {
-		desc = ct_vampire_mansion_2_desc
-		
-		potential = {
-			OR = {
-				FROM = { trait = vampire }
-				FROMFROM = { 
-					has_building = ct_vampire_mansion_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = { 
-			FROM = { trait = vampire }
-			TECH_CITY_CONSTRUCTION = 3
-			is_capital = yes 
-		}
-		is_active_trigger = {
-			FROM = { trait = known_vampire }
-		}
-		
-		upgrades_from = ct_vampire_mansion
-		ai_creation_factor = 99
-		
-		vampires = 175
-		knights = 15
-		fort_level = 1.5
-		tax_income = 2
-		monthly_character_prestige = 0.25
-		
-		gold_cost = 750
-		build_time = 1825
-		
-		extra_tech_building_start = 10.0
-	}
 	# Vampire Holding
 	ct_vampire_blood_warehouse = {
 		desc = ct_vampire_blood_warehouse_desc
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					trait = vampire
 				}
 				FROMFROM = {
@@ -579,13 +292,25 @@ city = {
 		}
 		trigger = {
 			TECH_CITY_CONSTRUCTION = 1
-			FROM = {
+			holder_scope = {
 				trait = vampire
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				trait = known_vampire
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		ai_creation_factor = 99
@@ -604,7 +329,22 @@ city = {
 		desc = ct_vampire_noble_captains_desc
 		
 		potential = { culture = vampire_culture }
-		trigger = { }
+		trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		
 		ai_creation_factor = 90
 		
@@ -617,122 +357,13 @@ city = {
 		extra_tech_building_start = 2.0
 	}
 	
-	# Giant Capital
-	ct_giant_shield = {
-		desc = ct_giant_shield_desc
-		
-		potential = { 
-			OR = {
-				FROM = {
-					OR = {
-						trait = giant
-						trait = half_giant
-					}
-				}
-				FROMFROM = {
-					has_building = ct_giant_shield
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = giant }
-			TECH_CITY_CONSTRUCTION = 1
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = {
-				OR = {
-					trait = giant
-					trait = half_giant
-				}
-			}
-		}
-		
-		prerequisites = { ct_wall_1 }
-		ai_creation_factor = 100
-		
-		heavy_infantry = 100
-		heavy_infantry_offensive = 0.10
-		fort_level = 1
-		liege_prestige = 0.5
-		tax_income = 0.2
-		
-		gold_cost = 350
-		build_time = 400
-		extra_tech_building_start = 10.0
-	}
-	ct_giant_mansion = {
-		desc = ct_giant_mansion_desc
-		
-		potential = { 
-			OR = {
-				FROM = {
-					OR = {
-						trait = giant
-						trait = half_giant
-					}
-				}
-				FROMFROM = {
-					has_building = ct_giant_mansion
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_mummy_necropolis
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = giant }
-			TECH_CITY_CONSTRUCTION = 3
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = {
-				OR = {
-					trait = giant
-					trait = half_giant
-				}
-			}
-		}
-		
-		upgrades_from = ct_giant_shield
-		ai_creation_factor = 100
-		
-		heavy_infantry = 125
-		heavy_infantry_offensive = 0.15
-		fort_level = 1.5
-		liege_prestige = 0.5
-		tax_income = 0.3
-		
-		gold_cost = 350
-		build_time = 400
-		extra_tech_building_start = 10.0
-	}
 	# Giant Holding
 	ct_giant_market = {
 		desc = ct_giant_market_desc
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -754,14 +385,26 @@ city = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -784,7 +427,7 @@ city = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					AND = {
 						OR = {
 							trait = god
@@ -799,20 +442,32 @@ city = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
 					trait = blood_of_the_gods
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}		 
@@ -836,7 +491,7 @@ city = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = novice_mage
 						trait = eldritch_scholar
@@ -848,7 +503,7 @@ city = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -857,6 +512,20 @@ city = {
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 95
@@ -871,56 +540,14 @@ city = {
 		
 		extra_tech_building_start = 10.0
 	}
-	# Mummy Capital
-	ct_mummy_necropolis = {
-		desc = ct_mummy_necropolis_desc
-		
-		potential = {
-			OR = {
-				FROM = { trait = mummy }
-				FROMFROM = {
-					has_building = ct_mummy_necropolis
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_djinni_caves
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = mummy }
-			TECH_CITY_CONSTRUCTION = 1
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = { trait = mummy }
-		}
-		prerequisites = { ct_wall_2 }
-		ai_creation_factor = 101
-		
-		light_infantry = 100
-		heavy_infantry = 30
-		monthly_character_piety = 0.5
-		retinuesize = 40
-		
-		gold_cost = 300
-		build_time = 350
-		extra_tech_building_start = 10.0
-	}
+	
 	# Mummy Holding
 	ct_mummy_temple_district = {
 		desc = ct_mummy_temple_district_desc
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					trait = mummy
 				}
 				FROMFROM = {
@@ -939,11 +566,23 @@ city = {
 			}
 		}
 		trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ct_wall_2 }
 		ai_creation_factor = 101
@@ -957,55 +596,14 @@ city = {
 		build_time = 350
 		extra_tech_building_start = 10.0
 	}
-	# Djinn Capital
-	ct_djinni_caves = {
-		desc = ct_djinni_caves_desc
-		
-		potential = {
-			OR = {
-				FROM = { trait = djinn }
-				FROMFROM = {
-					has_building = ct_djinni_caves
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = ct_dragon_tower_1
-							has_building = ct_werewolf_lodge_1
-							has_building = ct_vampire_mansion
-							has_building = ct_giant_shield
-							has_building = ct_mummy_necropolis
-							has_building = ca_monster_hunter_lodge
-						}
-					}
-				}
-			}
-		}
-		trigger = {
-			FROM = { trait = djinn }
-			TECH_CITY_CONSTRUCTION = 1
-			is_capital = yes
-		}
-		is_active_trigger = {
-			FROM = { trait = djinn }
-		}
-		prerequisites = { ct_wall_2 }
-		ai_creation_factor = 101
-		
-		heavy_infantry = 60
-		tax_income = 1.5
-		global_movement_speed = 0.15
-		
-		gold_cost = 300
-		build_time = 350
-		extra_tech_building_start = 10.0
-	}
+	
 	# Djinn Holding
 	ct_djinni_town = {
 		desc = ct_djinni_town_desc
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = ct_mummy_temple_district
 					NOT = {
@@ -1022,11 +620,23 @@ city = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			TECH_CITY_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -1054,10 +664,22 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_enchantment
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = enchanter
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
@@ -1093,10 +715,22 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_conjuration
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = summoner
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
@@ -1132,10 +766,22 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_alchemy
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = alchemist
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
@@ -1171,10 +817,22 @@ city = {
 				# Only appears it you have it.  Built by event
 				has_building = ct_mage_tower_herbalism
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = herbalist
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
@@ -1194,5 +852,47 @@ city = {
 		land_morale = 0.08
 		supply_limit = 0.15
 		global_winter_supply = 0.05
+	}
+	ct_mage_tower_necromancy = {
+		desc = ca_mage_tower_necromancy_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_necromancy
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ct_mage_tower_necromancy
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = necromancer
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+			ca_mage_tower_necromancy
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = -0.5
+		monthly_character_piety = 0.5
+		levy_reinforce_rate = 0.1
+		the_damned_opinion = 20
+		zombie_troops = 100
+		zombie_troops_offensive = 0.1
+		zombie_troops_defensive = 0.1
+		garrison_size = 0.3
 	}
 }

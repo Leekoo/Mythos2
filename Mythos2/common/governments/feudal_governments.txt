@@ -26,7 +26,6 @@ feudal_governments = {
 				controls_religion = yes
 				NOT = { religion_group = muslim }
 				NOT = { religion = norse_pagan_reformed }
-				NOT = { religion = satanist }
 				NOT = { religion = jotnar_reformed }
 				NOT = { religion = roman_pagan }
 			}
@@ -62,6 +61,12 @@ feudal_governments = {
 					culture = jurchen
 					has_character_flag = chinese_imperial_government_preserve
 				}
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = feudal_government }
+				liege = { government = blood_court_government }
+				liege = { government = draconic_feudal_government }
 			}
 			is_patrician = no
 		}
@@ -125,6 +130,10 @@ feudal_governments = {
 					has_character_flag = chinese_imperial_government_preserve
 				}
 			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = muslim_government }
+			}
 			is_patrician = no
 		}
 		
@@ -180,7 +189,6 @@ feudal_governments = {
 				controls_religion = yes
 				NOT = { religion_group = muslim }
 				NOT = { religion = norse_pagan_reformed }
-				NOT = { religion = satanist }
 				NOT = { religion = jotnar_reformed }
 				NOT = { religion = roman_pagan }
 			}
@@ -210,6 +218,10 @@ feudal_governments = {
 					culture = jurchen
 					has_character_flag = chinese_imperial_government_preserve
 				}
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = blood_court_government }
 			}
 			is_patrician = no
 		}
@@ -262,6 +274,10 @@ feudal_governments = {
 				NOT = { religion = draconic_pagan_reformed }
 			}
 			religion_group = pagan_group
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_feudal_government }
+			}
 			is_patrician = no
 		}
 		color = { 249 230 127 }
@@ -342,6 +358,10 @@ feudal_governments = {
 				controls_religion = no
 				religion_group = pagan_group
 			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = theocratic_feudal_government }
+			}
 			is_patrician = no
 		}
 		
@@ -395,6 +415,7 @@ feudal_governments = {
 				culture = jurchen
 				has_character_flag = chinese_imperial_government_preserve #keeps government when player is given culture change opton
 			}
+			NOT = { trait = zombie }
 			is_patrician = no
 		}
 		

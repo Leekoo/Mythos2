@@ -7,7 +7,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -31,7 +31,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -49,13 +49,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -76,8 +83,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -101,7 +115,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -125,7 +139,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -143,13 +157,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -170,8 +191,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -194,7 +222,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -218,7 +246,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 5
 			is_capital = yes
 			# No other special troop
@@ -236,13 +264,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
@@ -263,8 +298,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -288,7 +330,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_1
 					NOT = {
@@ -326,6 +368,7 @@ castle = {
 							has_building = ca_werewolf_soldiers_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -348,8 +391,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -369,8 +419,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -390,7 +447,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_2
 					NOT = {
@@ -428,6 +485,7 @@ castle = {
 							has_building = ca_werewolf_soldiers_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -450,8 +508,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -471,8 +536,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -492,7 +564,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_3
 					NOT = {
@@ -530,6 +602,7 @@ castle = {
 							has_building = ca_werewolf_soldiers_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -552,8 +625,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -573,8 +653,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -594,44 +681,45 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = draconic }
+				holder_scope = { culture = draconic }
 				FROMFROM = {
 					has_building = ca_dragon_militia_4
 					NOT = {
 						calc_true_if = {
 							amount = 1
-							has_building = ca_culture_saxon_english_4
-							has_building = ca_culture_scottish_4
-							has_building = ca_culture_group_baltic_4
-							has_building = ca_culture_group_altaic_4
-							has_building = ca_culture_frank_norman_german_4
-							has_building = ca_culture_group_iberian_4
-							has_building = ca_culture_italian_4
-							has_building = ca_culture_russian_4
-							has_building = ca_culture_group_north_germanic_4
-							has_building = ca_culture_hungarian_4
-							has_building = ca_culture_group_arabic_4
-							has_building = ca_culture_group_byzantine_4
-							has_building = ca_culture_irish_4
-							has_building = ca_culture_ethiopian_4
-							has_building = ca_culture_somali_4
-							has_building = ca_culture_west_african_4
-							has_building = ca_culture_group_south_slavic_4
-							has_building = ca_culture_dutch_4
-							has_building = ca_culture_nahuatl_4
-							has_building = ca_culture_jewish_4
-							has_building = ca_culture_indian_4
-							has_building = ca_culture_nubian_4
-							has_building = ca_culture_germanic_4
-							has_building = ca_culture_pictish_4
-							has_building = ca_culture_suebi_4
-							has_building = ca_culture_moors_4
-							has_building = ca_culture_chinese_han_4
-							has_building = ca_culture_altaic_jurchen_4
-							has_building = ca_culture_tibetan_4
-							has_building = ca_werewolf_soldiers_4
-							has_building = ca_vampire_catacomb_4
-							has_building = ca_giant_arena_4
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -654,8 +742,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -675,8 +770,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -698,7 +800,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -721,14 +823,26 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -749,7 +863,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = dragon
 						trait = dragonborn
@@ -772,14 +886,26 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = dragon }
+			holder_scope = { trait = dragon }
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -802,7 +928,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -825,7 +951,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -843,13 +969,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -865,8 +998,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -890,7 +1030,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -913,7 +1053,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -931,13 +1071,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_werewolf }
+			holder_scope = { trait = known_werewolf }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -953,8 +1100,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -979,7 +1133,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_1
 					NOT = {
@@ -1017,6 +1171,7 @@ castle = {
 							has_building = ca_dragon_militia_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -1039,8 +1194,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1060,8 +1222,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1082,7 +1251,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_2
 					NOT = {
@@ -1120,6 +1289,7 @@ castle = {
 							has_building = ca_dragon_militia_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -1142,8 +1312,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1163,8 +1340,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1185,7 +1369,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_3
 					NOT = {
@@ -1223,6 +1407,7 @@ castle = {
 							has_building = ca_dragon_militia_1
 							has_building = ca_vampire_catacomb_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -1245,8 +1430,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1266,8 +1458,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1288,44 +1487,45 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { culture = werewolf_culture }
+				holder_scope = { culture = werewolf_culture }
 				FROMFROM = {
 					has_building = ca_werewolf_soldiers_4
 					NOT = {
 						calc_true_if = {
 							amount = 1
-							has_building = ca_culture_saxon_english_4
-							has_building = ca_culture_scottish_4
-							has_building = ca_culture_group_baltic_4
-							has_building = ca_culture_group_altaic_4
-							has_building = ca_culture_frank_norman_german_4
-							has_building = ca_culture_group_iberian_4
-							has_building = ca_culture_italian_4
-							has_building = ca_culture_russian_4
-							has_building = ca_culture_group_north_germanic_4
-							has_building = ca_culture_hungarian_4
-							has_building = ca_culture_group_arabic_4
-							has_building = ca_culture_group_byzantine_4
-							has_building = ca_culture_irish_4
-							has_building = ca_culture_ethiopian_4
-							has_building = ca_culture_somali_4
-							has_building = ca_culture_west_african_4
-							has_building = ca_culture_group_south_slavic_4
-							has_building = ca_culture_dutch_4
-							has_building = ca_culture_nahuatl_4
-							has_building = ca_culture_jewish_4
-							has_building = ca_culture_indian_4
-							has_building = ca_culture_nubian_4
-							has_building = ca_culture_germanic_4
-							has_building = ca_culture_pictish_4
-							has_building = ca_culture_suebi_4
-							has_building = ca_culture_moors_4
-							has_building = ca_culture_chinese_han_4
-							has_building = ca_culture_altaic_jurchen_4
-							has_building = ca_culture_tibetan_4
-							has_building = ca_dragon_militia_4
-							has_building = ca_vampire_catacomb_4
-							has_building = ca_giant_arena_4
+							has_building = ca_ritual_crypt_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
 						}
 					}
 				}
@@ -1348,8 +1548,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1369,8 +1576,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1393,7 +1607,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
@@ -1416,16 +1630,28 @@ castle = {
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = {
+			holder_scope = {
 				culture = werewolf_culture
 				trait = known_werewolf
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = known_werewolf
 					culture = werewolf_culture
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1448,7 +1674,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_citadel_1
 					NOT = {
@@ -1466,7 +1692,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
 			# No other special troop
@@ -1484,13 +1710,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1506,8 +1739,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1532,7 +1772,7 @@ castle = {
 
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_citadel_2
 					NOT = {
@@ -1550,7 +1790,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
 			TECH_CASTLE_CONSTRUCTION = 3
 			is_capital = yes
 			# No other special troop
@@ -1568,13 +1808,20 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
 			# No other special troop
 			custom_tooltip = {
 				text = tt_no_other_special_troop
@@ -1590,8 +1837,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1617,7 +1871,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_1
 					NOT = {
@@ -1655,6 +1909,7 @@ castle = {
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_soldiers_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -1677,8 +1932,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1698,8 +1960,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1720,7 +1989,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_2
 					NOT = {
@@ -1758,6 +2027,7 @@ castle = {
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_soldiers_1
 							has_building = ca_giant_arena_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -1780,8 +2050,15 @@ castle = {
 							has_building = ca_culture_group_byzantine_1
 							has_building = ca_culture_indian_1
 							has_building = ca_culture_moors_1
+							has_building = ca_ritual_crypt_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1792,6 +2069,7 @@ castle = {
 				hidden_tooltip = {
 					FROMFROM = {
 						NOR = {
+							has_building = ca_ritual_crypt_1
 							has_building = ca_dragon_tower_1
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_lodge_1
@@ -1803,6 +2081,12 @@ castle = {
 							has_building = ca_culture_moors_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1824,12 +2108,13 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_3
 					NOT = {
 						calc_true_if = {
 							amount = 1
+							has_building = ca_ritual_crypt_1
 							has_building = ca_culture_saxon_english_1
 							has_building = ca_culture_scottish_1
 							has_building = ca_culture_group_baltic_1
@@ -1875,6 +2160,7 @@ castle = {
 				hidden_tooltip = {
 					FROMFROM = {
 						NOR = {
+							has_building = ca_ritual_crypt_1
 							has_building = ca_dragon_tower_1
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_lodge_1
@@ -1888,6 +2174,12 @@ castle = {
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -1896,6 +2188,7 @@ castle = {
 				hidden_tooltip = {
 					FROMFROM = {
 						NOR = {
+							has_building = ca_ritual_crypt_1
 							has_building = ca_dragon_tower_1
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_lodge_1
@@ -1907,6 +2200,12 @@ castle = {
 							has_building = ca_culture_moors_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -1928,44 +2227,45 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = vampire_culture }
+				holder_scope = { culture = vampire_culture }
 				FROMFROM = {
 					has_building = ca_vampire_catacomb_4
 					NOT = {
 						calc_true_if = {
 							amount = 1
-							has_building = ca_culture_saxon_english_4
-							has_building = ca_culture_scottish_4
-							has_building = ca_culture_group_baltic_4
-							has_building = ca_culture_group_altaic_4
-							has_building = ca_culture_frank_norman_german_4
-							has_building = ca_culture_group_iberian_4
-							has_building = ca_culture_italian_4
-							has_building = ca_culture_russian_4
-							has_building = ca_culture_group_north_germanic_4
-							has_building = ca_culture_hungarian_4
-							has_building = ca_culture_group_arabic_4
-							has_building = ca_culture_group_byzantine_4
-							has_building = ca_culture_irish_4
-							has_building = ca_culture_ethiopian_4
-							has_building = ca_culture_somali_4
-							has_building = ca_culture_west_african_4
-							has_building = ca_culture_group_south_slavic_4
-							has_building = ca_culture_dutch_4
-							has_building = ca_culture_nahuatl_4
-							has_building = ca_culture_jewish_4
-							has_building = ca_culture_indian_4
-							has_building = ca_culture_nubian_4
-							has_building = ca_culture_germanic_4
-							has_building = ca_culture_pictish_4
-							has_building = ca_culture_suebi_4
-							has_building = ca_culture_moors_4
-							has_building = ca_culture_chinese_han_4
-							has_building = ca_culture_altaic_jurchen_4
-							has_building = ca_culture_tibetan_4
-							has_building = ca_dragon_militia_4
-							has_building = ca_werewolf_soldiers_4
-							has_building = ca_giant_arena_4
+							has_building = ca_ritual_crypt_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_giant_arena_1
 						}
 					}
 				}
@@ -1979,6 +2279,7 @@ castle = {
 				hidden_tooltip = {
 					FROMFROM = {
 						NOR = {
+							has_building = ca_ritual_crypt_1
 							has_building = ca_dragon_tower_1
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_lodge_1
@@ -1992,6 +2293,12 @@ castle = {
 					}
 				}
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			# No other special troop
@@ -2000,6 +2307,7 @@ castle = {
 				hidden_tooltip = {
 					FROMFROM = {
 						NOR = {
+							has_building = ca_ritual_crypt_1
 							has_building = ca_dragon_tower_1
 							has_building = ca_dragon_militia_1
 							has_building = ca_werewolf_lodge_1
@@ -2011,6 +2319,12 @@ castle = {
 							has_building = ca_culture_moors_1
 						}
 					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2034,7 +2348,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = vampire }
+				holder_scope = { trait = vampire }
 				FROMFROM = {
 					has_building = ca_vampire_spy_network
 					NOT = {
@@ -2052,10 +2366,22 @@ castle = {
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 1
-			FROM = { trait = vampire }
+			holder_scope = { trait = vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = known_vampire }
+			holder_scope = { trait = known_vampire }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		
 		ai_creation_factor = 100
@@ -2077,7 +2403,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2100,15 +2426,27 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2132,7 +2470,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2155,15 +2493,27 @@ castle = {
 			}
 		}
 		trigger = { 
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 3
-			is_capital = yes		 
+			is_capital = yes	
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}	 
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2189,12 +2539,13 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_1
 					NOT = {
 						calc_true_if = {
 							amount = 1
+							has_building = ca_ritual_crypt_1
 							has_building = ca_culture_saxon_english_1
 							has_building = ca_culture_scottish_1
 							has_building = ca_culture_group_baltic_1
@@ -2232,7 +2583,23 @@ castle = {
 				}
 			}
 		}
-		trigger = { TECH_CASTLE_CONSTRUCTION = 0 }
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 0
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		prerequisites = { ca_wall_2 }
 		
 		gold_cost = 200
@@ -2250,12 +2617,13 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_2
 					NOT = {
 						calc_true_if = {
 							amount = 1
+							has_building = ca_ritual_crypt_1
 							has_building = ca_culture_saxon_english_1
 							has_building = ca_culture_scottish_1
 							has_building = ca_culture_group_baltic_1
@@ -2293,7 +2661,23 @@ castle = {
 				}
 			}
 		}
-		trigger = { TECH_CASTLE_CONSTRUCTION = 1 }
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_giant_arena_1
 		gold_cost = 300
 		build_time = 1095
@@ -2310,12 +2694,13 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_3
 					NOT = {
 						calc_true_if = {
 							amount = 1
+							has_building = ca_ritual_crypt_1
 							has_building = ca_culture_saxon_english_1
 							has_building = ca_culture_scottish_1
 							has_building = ca_culture_group_baltic_1
@@ -2353,7 +2738,23 @@ castle = {
 				}
 			}
 		}
-		trigger = { TECH_CASTLE_CONSTRUCTION = 2 }
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 2
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_giant_arena_2
 		gold_cost = 400
 		build_time = 2190
@@ -2370,50 +2771,67 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { culture = jotunn }
+				holder_scope = { culture = jotunn }
 				FROMFROM = {
 					has_building = ca_giant_arena_4
 					NOT = {
 						calc_true_if = {
 							amount = 1
-							has_building = ca_culture_saxon_english_4
-							has_building = ca_culture_scottish_4
-							has_building = ca_culture_group_baltic_4
-							has_building = ca_culture_group_altaic_4
-							has_building = ca_culture_frank_norman_german_4
-							has_building = ca_culture_group_iberian_4
-							has_building = ca_culture_italian_4
-							has_building = ca_culture_russian_4
-							has_building = ca_culture_group_north_germanic_4
-							has_building = ca_culture_hungarian_4
-							has_building = ca_culture_group_arabic_4
-							has_building = ca_culture_group_byzantine_4
-							has_building = ca_culture_irish_4
-							has_building = ca_culture_ethiopian_4
-							has_building = ca_culture_somali_4
-							has_building = ca_culture_west_african_4
-							has_building = ca_culture_group_south_slavic_4
-							has_building = ca_culture_dutch_4
-							has_building = ca_culture_nahuatl_4
-							has_building = ca_culture_jewish_4
-							has_building = ca_culture_indian_4
-							has_building = ca_culture_nubian_4
-							has_building = ca_culture_germanic_4
-							has_building = ca_culture_pictish_4
-							has_building = ca_culture_suebi_4
-							has_building = ca_culture_moors_4
-							has_building = ca_culture_chinese_han_4
-							has_building = ca_culture_altaic_jurchen_4
-							has_building = ca_culture_tibetan_4
-							has_building = ca_dragon_militia_4
-							has_building = ca_werewolf_soldiers_4
-							has_building = ca_vampire_catacomb_4
+							has_building = ca_ritual_crypt_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_dragon_militia_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
 						}
 					}
 				}
 			}
 		}
-		trigger = { TECH_CASTLE_CONSTRUCTION = 4 }
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 4
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		is_active_trigger = {
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
 		upgrades_from = ca_giant_arena_3
 		gold_cost = 500
 		build_time = 2190
@@ -2431,7 +2849,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = giant
 						trait = half_giant
@@ -2453,14 +2871,26 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = giant }
+			holder_scope = { trait = giant }
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = giant
 					trait = half_giant
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2482,7 +2912,7 @@ castle = {
 		
 		potential = { 
 			OR = {
-				FROM = {
+				holder_scope = {
 					AND = {
 						OR = {
 							trait = god
@@ -2497,20 +2927,32 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
 				}
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = god
 					trait = demi_god
 					trait = blood_of_the_gods
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2533,7 +2975,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = {
+				holder_scope = {
 					OR = {
 						trait = novice_mage
 						trait = eldritch_scholar
@@ -2545,7 +2987,7 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
@@ -2554,14 +2996,26 @@ castle = {
 				}
 			}
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = {
+			holder_scope = {
 				OR = {
 					trait = novice_mage
 					trait = eldritch_scholar
 					trait = veteran_wizard
 					trait = arcane_master
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}
@@ -2661,7 +3115,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = mummy }
+				holder_scope = { trait = mummy }
 				FROMFROM = {
 					has_building = ca_mummy_necropolis
 					NOT = {
@@ -2681,9 +3135,21 @@ castle = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2702,7 +3168,7 @@ castle = {
 		desc = ca_mummy_pyramid_desc
 		potential = {
 			OR = {
-				FROM = { trait = mummy }
+				holder_scope = { trait = mummy }
 				FROMFROM = {
 					has_building = ca_mummy_necropolis
 					NOT = {
@@ -2721,11 +3187,23 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = mummy }
+			holder_scope = { trait = mummy }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2745,7 +3223,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = ca_djinni_caves
 					NOT = {
@@ -2763,12 +3241,24 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2786,7 +3276,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = djinn }
+				holder_scope = { trait = djinn }
 				FROMFROM = {
 					has_building = ca_djinni_town
 					NOT = {
@@ -2805,11 +3295,23 @@ castle = {
 			}
 		}
 		trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
 			TECH_CASTLE_CONSTRUCTION = 1
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = djinn }
+			holder_scope = { trait = djinn }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2828,7 +3330,7 @@ castle = {
 		
 		potential = {
 			OR = {
-				FROM = { trait = monster_hunter }
+				holder_scope = { trait = monster_hunter }
 				FROMFROM = {
 					has_building = ca_monster_hunter_lodge
 					NOT = {
@@ -2840,6 +3342,7 @@ castle = {
 							has_building = ca_giant_shield
 							has_building = ca_mummy_necropolis
 							has_building = ca_djinni_caves
+							has_building = ca_ritual_crypt_1
 						}
 					}
 				}
@@ -2848,9 +3351,21 @@ castle = {
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
 			is_capital = yes
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
-			FROM = { trait = monster_hunter }
+			holder_scope = { trait = monster_hunter }
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		prerequisites = { ca_wall_2 }
 		ai_creation_factor = 101
@@ -2880,19 +3395,34 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_enchantment
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = enchanter
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_conjuration
 			ca_mage_tower_alchemy
 			ca_mage_tower_herbalism
+			ca_mage_tower_necromancy
 			ct_mage_tower_enchantment
 			ct_mage_tower_conjuration
 			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ct_mage_tower_necromancy
 		}
 		gold_cost = 1000
 		build_time = 1000
@@ -2919,19 +3449,34 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_conjuration
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = summoner
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
 			ca_mage_tower_alchemy
 			ca_mage_tower_herbalism
+			ca_mage_tower_necromancy
 			ct_mage_tower_enchantment
 			ct_mage_tower_conjuration
 			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ct_mage_tower_necromancy
 		}
 		gold_cost = 1000
 		build_time = 1000
@@ -2958,19 +3503,34 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_alchemy
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = alchemist
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
 			ca_mage_tower_conjuration
 			ca_mage_tower_herbalism
+			ca_mage_tower_necromancy
 			ct_mage_tower_enchantment
 			ct_mage_tower_conjuration
 			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ct_mage_tower_necromancy
 		}
 		gold_cost = 1000
 		build_time = 1000
@@ -2997,19 +3557,34 @@ castle = {
 				# Only appears it you have it.  Built by event
 				has_building = ca_mage_tower_herbalism
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			holder_scope = {
 				trait = herbalist
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
 			}
 		}
 		not_if_x_exists = {
 			ca_mage_tower_enchantment
 			ca_mage_tower_conjuration
 			ca_mage_tower_alchemy
+			ca_mage_tower_necromancy
 			ct_mage_tower_enchantment
 			ct_mage_tower_conjuration
 			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ct_mage_tower_necromancy
 		}
 		gold_cost = 1000
 		build_time = 1000
@@ -3020,5 +3595,491 @@ castle = {
 		land_morale = 0.08
 		supply_limit = 0.15
 		global_winter_supply = 0.05
+	}
+	ca_mage_tower_necromancy = {
+		desc = ca_mage_tower_necromancy_desc
+		
+		potential = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_necromancy
+			}
+		}
+		trigger = {
+			FROMFROM = {
+				# Only appears it you have it.  Built by event
+				has_building = ca_mage_tower_necromancy
+			}
+		}
+		is_active_trigger = {
+			holder_scope = {
+				trait = necromancer
+			}
+		}
+		not_if_x_exists = {
+			ca_mage_tower_enchantment
+			ca_mage_tower_conjuration
+			ca_mage_tower_alchemy
+			ca_mage_tower_herbalism
+			ct_mage_tower_enchantment
+			ct_mage_tower_conjuration
+			ct_mage_tower_alchemy
+			ct_mage_tower_herbalism
+			ct_mage_tower_necromancy
+		}
+		gold_cost = 1000
+		build_time = 1000
+		monthly_character_prestige = -0.5
+		monthly_character_piety = 0.5
+		levy_reinforce_rate = 0.1
+		the_damned_opinion = 20
+		zombie_troops = 100
+		zombie_troops_offensive = 0.1
+		zombie_troops_defensive = 0.1
+		garrison_size = 0.3
+	}
+	
+	# Necromancer Building
+	ca_ritual_crypt_1 = {
+		desc = ca_ritual_crypt_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = ca_ritual_crypt_1
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_militia_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			holder_scope = { trait = necromancer }
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+			
+		ai_creation_factor = 90
+
+		gold_cost = 200
+		build_time = 730
+
+		zombie_troops = 50
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 2.0
+	}
+	ca_ritual_crypts_2 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = ca_ritual_crypts_2
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_militia_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_ritual_crypts_1
+		ai_creation_factor = 90
+
+		gold_cost = 300
+		build_time = 1095
+
+		zombie_troops = 75
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 4.0
+	}
+	ca_ritual_crypts_3 = {
+		desc = ca_citual_crypts_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = ca_ritual_crypts_3
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_militia_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = ca_ritual_crypts_2
+		ai_creation_factor = 90
+
+		gold_cost = 400
+		build_time = 2190
+
+		zombie_troops = 100
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 6.0
+	}
+	ca_ritual_crypts_4 = {
+		desc = ca_ritual_crypts_desc
+
+		potential = {
+			OR = {
+				holder_scope = { trait = necromancer }
+				FROMFROM = {
+					has_building = ca_ritual_crypts_4
+					NOT = {
+						calc_true_if = {
+							amount = 1
+							has_building = ca_dragon_militia_1
+							has_building = ca_culture_saxon_english_1
+							has_building = ca_culture_scottish_1
+							has_building = ca_culture_group_baltic_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_frank_norman_german_1
+							has_building = ca_culture_group_iberian_1
+							has_building = ca_culture_italian_1
+							has_building = ca_culture_russian_1
+							has_building = ca_culture_group_north_germanic_1
+							has_building = ca_culture_hungarian_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_irish_1
+							has_building = ca_culture_ethiopian_1
+							has_building = ca_culture_somali_1
+							has_building = ca_culture_west_african_1
+							has_building = ca_culture_group_south_slavic_1
+							has_building = ca_culture_dutch_1
+							has_building = ca_culture_nahuatl_1
+							has_building = ca_culture_jewish_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_nubian_1
+							has_building = ca_culture_germanic_1
+							has_building = ca_culture_pictish_1
+							has_building = ca_culture_suebi_1
+							has_building = ca_culture_moors_1
+							has_building = ca_culture_chinese_han_1
+							has_building = ca_culture_altaic_jurchen_1
+							has_building = ca_culture_tibetan_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_giant_arena_1
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = ca_dragon_militia_1
+							has_building = ca_dragon_tower_1
+							has_building = ca_werewolf_lodge_1
+							has_building = ca_vampire_citadel_1
+							has_building = ca_werewolf_soldiers_1
+							has_building = ca_vampire_catacomb_1
+							has_building = ca_culture_group_altaic_1
+							has_building = ca_culture_group_arabic_1
+							has_building = ca_culture_group_byzantine_1
+							has_building = ca_culture_indian_1
+							has_building = ca_culture_moors_1
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = ca_ritual_crypts_3
+		ai_creation_factor = 90
+
+		gold_cost = 500
+		build_time = 2190
+
+		zombie_troops = 150
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 8.0
 	}
 }

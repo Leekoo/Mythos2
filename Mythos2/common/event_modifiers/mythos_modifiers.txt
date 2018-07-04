@@ -52,25 +52,6 @@ expelled_satanists = {
 	diplomacy = -1
 	church_opinion = 10
 }
-# Old familiars
-#owl_familiar = {
-#	learning = 2
-#	icon = 47
-#}
-#crow_familiar = {
-#	stewardship = 2
-#	global_tax_modifier = 0.1
-#	icon = 73
-#}
-#wolf_familiar = {
-#	martial = 2
-#	combat_rating = 1
-#	icon = 71
-#}
-#rat_familiar = {
-#	intrigue = 3
-#	icon = 89
-#}
 dove_familiar = {
 	is_visible = { 
 		OR = {
@@ -229,6 +210,15 @@ studying_alchemy = {
 }
 studying_sorcery = {
 	icon = 79
+}
+studying_necromancy = {
+	icon = 41
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = necromancer
+		}
+	}
 }
 magic_study_1 = {
 	icon = 2
@@ -1481,7 +1471,7 @@ ancient_advice = {
 }
 haunted_castle = {
 	icon = 42
-	feudal_opinion = -15
+	castle_opinion = -15
 }
 seeker_of_secrets = {
 	icon = 5
@@ -1507,4 +1497,199 @@ sacrificed_crops = {
 sacrificed_livestock = {
 	icon = 60
 	local_tax_modifier = -0.3
+}
+regeneration_strain = {
+	icon = 51
+	combat_rating = -2
+	health = -1
+}
+potion_of_purity = {
+	icon = 83
+	#custom_tooltip = { text = purity_plus_1 }
+}
+potion_of_battle = {
+	icon = 83
+	martial = 2
+	combat_rating = 1
+	land_morale = 0.05
+	levy_reinforce_rate = 0.2
+}
+potion_of_fertility = {
+	icon = 83
+	fertility = 0.2
+	sex_appeal_opinion = 10
+}
+potion_of_health = {
+	icon = 83
+	health = 2
+}
+potion_of_secrets = {
+	icon = 83
+	plot_power_modifier = 0.3
+	defensive_plot_power_modifier = 0.3
+	plot_discovery_chance = 0.3
+}
+# Experimental Potion - Q1 Herb, Good
+experimental_potion_1 = {
+	icon = 83
+	health = 2
+	fertility_penalty = -0.1
+}
+# Experimental Potion - Q1 Animal, Good
+experimental_potion_2 = {
+	icon = 83
+	fertility = 0.2
+	health_penalty = -0.5
+}
+# Experimental Potion - Q1 Metal, Good
+experimental_potion_3 = {
+	icon = 83
+	land_morale = 0.1
+	health_penalty = -0.5
+}
+# Experimental Potion - Q2 Herb, Good
+experimental_potion_4 = {
+	icon = 83
+	sex_appeal_opinion = 10
+	defensive_plot_power_modifier  = -0.1
+}
+# Experimental Potion - Q3 Herb, Good
+experimental_potion_5 = {
+	icon = 83
+	general_opinion = 10
+	combat_rating  = -0.5
+}
+# Experimental Potion - Q1 Herb, Bad
+experimental_potion_6 = {
+	icon = 84
+	health_penalty = -1
+}
+# Experimental Potion - Q1 Animal, Bad
+experimental_potion_7 = {
+	icon = 84
+	stewardship_penalty = -1
+}
+# Experimental Potion - Q1 Metal, Bad
+experimental_potion_8 = {
+	icon = 84
+	diplomacy_penalty = -1
+}
+# Experimental Potion - Q2 Herb, Bad
+experimental_potion_9 = {
+	icon = 84
+	intrigue_penalty = -1
+}
+# Experimental Potion - Q3 Herb, Bad
+experimental_potion_10 = {
+	icon = 84
+	fertility_penalty = -0.5
+}
+# Devastation - only used without Reaper's Due
+devastation_1 = {
+	icon = 42
+	levy_size = -0.2
+}
+devastation_2 = {
+	icon = 42
+	levy_size = -0.4
+}
+devastation_3 = {
+	icon = 42
+	levy_size = -0.6
+}
+demonic_sacrifices = {
+	icon = 42
+	global_revolt_risk = 0.02
+	global_tax_modifier = -0.1
+	monthly_character_prestige = -1
+	monthly_character_piety = -1
+	vassal_opinion = -10
+	levy_size = -0.02
+	global_garrison_size = -0.02
+}
+tended_to_dead = {
+	icon = 18
+	general_opinion = 5
+	church_opinion = 5
+}
+honored_soldiers = {
+	icon = 3
+	culture_flex = -0.1
+	short_reign_length = -1
+}
+undead_laborers = {
+	icon = 41
+	local_build_cost_modifier = -0.2
+	local_build_time_modifier = -0.1
+	local_revolt_risk = 0.04
+}
+divination_room = {
+	icon = 52
+	tech_growth_modifier = 0.2
+}
+tower_crypt = {
+	icon = 41
+	zombie_troops_offensive = 0.05
+	zombie_troops_defensive = 0.05
+	zombie_troops_morale = 0.05
+}
+diplomacy_drained = {
+	icon = 21
+	diplomacy = -2
+}
+drained_diplomacy = {
+	icon = 3
+	diplomacy = 2
+	is_visible = { character = FROM }
+}
+martial_drained = {
+	icon = 19
+	martial = -2
+}
+drained_martial = {
+	icon = 1
+	martial = 2
+	is_visible = { character = FROM }
+}
+stewardship_drained = {
+	icon = 22
+	stewardship = -2
+}
+drained_stewardship = {
+	icon = 4
+	stewardship = 2
+	is_visible = { character = FROM }
+}
+intrigue_drained = {
+	icon = 23
+	intrigue = -2
+}
+drained_intrigue = {
+	icon = 5
+	intrigue = 2
+	is_visible = { character = FROM }
+}
+learning_drained = {
+	icon = 20
+	intrigue = -2
+}
+drained_learning = {
+	icon = 2
+	intrigue = 2
+	is_visible = { character = FROM }
+}
+studied_masters_writings = {
+	icon = 2
+	learning = 2
+}
+organized_notes = {
+	icon = 4
+	stewardship = 2
+}
+undead_swarm = {
+	icon = 42
+	local_revolt_risk = 0.1
+}
+undead_desolation = {
+	icon = 42
 }

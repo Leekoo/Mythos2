@@ -105,31 +105,31 @@ character_event = {
 }
 
 # VAMPIRE.4 - was MYTH.48 - Force Congatic Seniority Succession
-character_event = {
-	id = "VAMPIRE.4"
-	title = EVTNAME_VAMPIRE.4
-	desc = "EVTDESC_VAMPIRE.4"
-	picture = GFX_evt_throne_room
-	border = GFX_event_normal_frame_war
-	
-	is_patrician = no
-	
-	trigger = {
-		has_landed_title = e_vampire
-		NOT = { government = merchant_republic_government }
-		NOT = { has_law = succ_seniority }
-	}
-	
-	mean_time_to_happen = { months = 1 }
-	
-	option = {
-		name = "EVTOPTA_VAMPIRE.4"
-		e_vampire = {
-			succession = seniority
-			gender_succ = true_cognatic
-		}
-	}
-}
+#character_event = {
+#	id = "VAMPIRE.4"
+#	title = EVTNAME_VAMPIRE.4
+#	desc = "EVTDESC_VAMPIRE.4"
+#	picture = GFX_evt_throne_room
+#	border = GFX_event_normal_frame_war
+#	
+#	is_patrician = no
+#	
+#	trigger = {
+#		has_landed_title = e_vampire
+#		NOT = { government = merchant_republic_government }
+#		NOT = { has_law = succ_seniority }
+#	}
+#	
+#	mean_time_to_happen = { months = 1 }
+#	
+#	option = {
+#		name = "EVTOPTA_VAMPIRE.4"
+#		e_vampire = {
+#			succession = seniority
+#			gender_succ = true_cognatic
+#		}
+#	}
+#}
 
 # VAMPIRE.5 - was MYTH.80 - Offer of vampirism
 letter_event = {
@@ -463,11 +463,6 @@ letter_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.8
 		prestige = -10
-		add_character_modifier = {
-			modifier = known_monster
-			years = 5
-			stacking = yes
-		}
 		if = {
 			limit = { NOT = { trait = known_vampire } }
 			add_trait = known_vampire
@@ -481,6 +476,30 @@ letter_event = {
 					independent = no
 				}
 				liege = { character_event = { id = VAMPIRE.23 } } # Liege finds out character is a werewolf
+			}
+		}
+		else = {
+			any_courtier = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = {
+						who = ROOT
+						modifier = opinion_terrified
+						years = 5
+					}
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = {
+						who = ROOT
+						modifier = opinion_terrified
+						years = 5
+					}
+				}
 			}
 		}
 		hidden_tooltip = {
@@ -1674,6 +1693,7 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vf_heal_severely_injured }
 			remove_trait = severely_injured
+			clear_delayed_event = { id = RIP.11000 }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_diplomacy }
@@ -1809,16 +1829,38 @@ character_event = {
 			}
 		}
 		
+		# Thrall
 		if = {
-			limit = { has_character_flag = vampire_feed_kill }
-			if = {
-				limit = { has_character_flag = vampire_feed_caught }
-				FROMFROM = { death = { death_reason = death_vampire killer = ROOT } }
+			limit = {
+				NOR = {
+					ai = no
+					trait = dragon
+					trait = demon_trait
+					trait = ethereal_trait
+					trait = werewolf
+					trait = vampire
+					trait = zombie
+					trait = god
+					trait = demi_god
+					trait = giant
+					trait = half_giant
+					trait = blood_of_the_gods
+					trait = djinn
+					trait = monster_hunter
+					trait = dragonborn
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+					trait = philosopher_stone_trait
+				}
 			}
-			else = {
-				FROMFROM = { death = { death_reason = death_vampire_unknown } }
+			random = {
+				chance = 10
+				FROMFROM = { character_event = { id = VAMPIRE.165 days = 5 random = 15 } }
 			}
 		}
+		
 		if = {
 			limit = { has_character_flag = vampire_feed_suspected }
 			if = {
@@ -1834,6 +1876,31 @@ character_event = {
 					name = known_monster
 					years = 10
 					stacking = yes
+				}
+			}
+			if = {
+				limit = {
+					FROMFROM = {
+						has_minor_title = title_vampiric_protection
+					}
+				}
+				FROMFROM = {
+					liege = {
+						random_list = {
+							4 = {
+								ROOT = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+							1 = {
+								random_courtier = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -1857,10 +1924,39 @@ character_event = {
 				if = {
 					limit = { has_character_flag = vampire_feed_kill }
 					character_event = { id = 10 }
+					FROMFROM = {
+						liege = {
+							opinion = { who = ROOT modifier = killed_protected years = 50 }
+							character_event = { id = VAMPIRE.164 }
+						}
+					}
 				}
 				else = {
 					character_event = { id = 11 }
+					if = {
+						limit = {
+							FROMFROM = {
+								has_minor_title = title_vampiric_protection
+							}
+						}
+						FROMFROM = {
+							liege = {
+								opinion = { who = ROOT modifier = attacked_protected years = 20 }
+								character_event = { id = VAMPIRE.162 }
+							}
+						}
+					}
 				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = vampire_feed_kill }
+			if = {
+				limit = { has_character_flag = vampire_feed_caught }
+				FROMFROM = { death = { death_reason = death_vampire killer = ROOT } }
+			}
+			else = {
+				FROMFROM = { death = { death_reason = death_vampire_unknown } }
 			}
 		}
 	}
@@ -2057,8 +2153,8 @@ character_event = {
 			set_character_flag = vampire_feed_success
 		}
 		else = {
-			# Fail
 			random_list = {
+				# Fail
 				10 = {
 					# Players much more likely to avoid
 					modifier = {
@@ -2309,6 +2405,10 @@ character_event = {
 						factor = 0.9
 						has_character_flag = vampire_feed_minor
 					}
+					modifier = {
+						factor = 5
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+					}
 					set_character_flag = vampire_feed_success
 				}
 			}
@@ -2400,6 +2500,10 @@ character_event = {
 							}
 						}
 					}
+					modifier = {
+						factor = 1.5
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+					}
 					set_character_flag = vampire_feed_survive
 				}
 				# Turn
@@ -2430,6 +2534,10 @@ character_event = {
 								trait = demi_god
 							}
 						}
+					}
+					modifier = {
+						factor = 1.2
+						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
 					}
 					set_character_flag = vampire_feed_turn
 				}
@@ -2656,6 +2764,10 @@ character_event = {
 				modifier = {
 					factor = 1.5
 					intrigue = 40
+				}
+				modifier = {
+					factor = 5
+					reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
 				}
 				set_character_flag = vampire_feed_escape
 			}
@@ -4041,6 +4153,10 @@ character_event = {
 			factor = 1.2
 			age = 150
 		}
+		modifier = {
+			factor = 1.5
+			ai = yes
+		}
 	}
 	
 	trigger = {
@@ -4531,7 +4647,19 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.32
-		add_character_modifier = { modifier = known_monster years = 5 stacking = yes }
+		if = {
+			limit = { NOT = { trait = known_vampire } }
+			add_character_modifier = { modifier = known_monster years = 5 stacking = yes }
+		}
+		else = {
+			any_courtier_or_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
 	}
 }
 
@@ -4683,7 +4811,26 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.42
-		add_character_modifier = { modifier = known_monster years = 10 stacking = yes }
+		if = {
+			limit = { trait = known_vampire }
+			any_courtier = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+			any_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = { modifier = known_monster years = 10 stacking = yes }
+		}
 		hidden_tooltip = {
 			clr_character_flag = vampire_feed_success
 			clr_character_flag = vampire_feed_failure
@@ -9116,13 +9263,11 @@ character_event = {
 		trigger = { has_character_flag = usurp_military_influence }
 		text = EVTDESCB_VAMPIRE.121
 		picture = GFX_evt_knights
-		border = GFX_event_normal_frame_war
 	}
 	desc = {
 		trigger = { has_character_flag = usurp_economic_influence }
 		text = EVTDESCC_VAMPIRE.121
 		picture = GFX_evt_stressed_ruler
-		border = GFX_event_normal_frame_war_economy
 	}
 	
 	is_triggered_only = yes
@@ -10769,71 +10914,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_count
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_count
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_count
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_count
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_count
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_count
 				character_event = { id = VAMPIRE.156 }
@@ -10852,71 +10946,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_duke
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_duke
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_duke
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_duke
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_duke
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_duke
 				character_event = { id = VAMPIRE.156 }
@@ -10935,71 +10978,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_king
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_king
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_king
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_king
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_king
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_king
 				character_event = { id = VAMPIRE.156 }
@@ -11018,71 +11010,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_emperor
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_emperor
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_emperor
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_emperor
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_emperor
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_emperor
 				character_event = { id = VAMPIRE.156 }
@@ -11101,71 +11042,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_e_vampire_1
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_e_vampire_1
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_e_vampire_1
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_e_vampire_1
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_e_vampire_1
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_1
 				character_event = { id = VAMPIRE.156 }
@@ -11184,71 +11074,20 @@ character_event = {
 				}
 				save_event_target_as = new_blood_court
 			}
-			while = {
-				count = 100
+			any_courtier_or_vassal = {
 				limit = {
-					OR = {
-						any_vassal = {
-							can_hold_title = blood_court_e_vampire_2
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-						any_courtier = {
-							can_hold_title = blood_court_e_vampire_2
-							has_job_title = no
-							is_voter = no
-							prisoner = no
-							NOT = { character = ROOT }
-							NOT = { character = event_target:new_blood_court }
-							is_older_than = event_target:new_blood_court
-						}
-					}
-				}
-				random_vassal = {
-					limit = {
-						can_hold_title = blood_court_e_vampire_2
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_vassal
-				}
-				random_courtier = {
-					limit = {
-						can_hold_title = blood_court_e_vampire_2
-						has_job_title = no
-						is_voter = no
-						prisoner = no
-						NOT = { character = ROOT }
-						NOT = { character = event_target:new_blood_court }
-						is_older_than = event_target:new_blood_court
-					}
-					save_event_target_as = temp_courtier
+					can_hold_title = blood_court_e_vampire_2
+					has_job_title = no
+					is_voter = no
+					prisoner = no
+					NOT = { character = ROOT }
+					NOT = { character = event_target:new_blood_court }
 				}
 				if = {
-					limit = {
-						event_target:temp_vassal = {
-							is_older_than = event_target:temp_courtier
-						}
-					}
-					save_event_target_as = event_target:new_blood_court
-				}
-				else_if = {
-					limit = {
-						event_target:temp_courtier = { always = yes }
-					}
-					save_event_target_as = event_target:new_blood_court
+					limit = { is_older_than = event_target:new_blood_court }
+					save_event_target_as = new_blood_court
 				}
 			}
-			clear_event_target = temp_vassal
-			clear_event_target = temp_courtier
 			event_target:new_blood_court = {
 				give_minor_title = blood_court_e_vampire_2
 				character_event = { id = VAMPIRE.156 }
@@ -11433,6 +11272,1088 @@ character_event = {
 		name = EVTOPTA_VAMPIRE.158
 		tooltip = {
 			add_rival = FROM
+		}
+	}
+}
+
+narrative_event = {
+	id = VAMPIRE.159
+	title = EVTTITLE_VAMPIRE.159
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCA_VAMPIRE.159
+	}
+	desc = {
+		trigger = {
+			religion = satanist
+			NOT = { character = FROM }
+		}
+		text = EVTDESCB_VAMPIRE.159
+	}
+	desc = {
+		trigger = {
+			NOT = { religion = satanist }
+		}
+		text = EVTDESCC_VAMPIRE.159
+	}
+	picture = GFX_evt_sacrifice
+	border = GFX_event_narrative_frame_religion
+	
+	ai = no
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.159
+		trigger = { religion = satanist }
+	}
+	option = {
+		name = EVTOPTB_VAMPIRE.159
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}
+	}
+	option = {
+		name = EVTOPTC_VAMPIRE.159
+		trigger = {
+			NOR = {
+				religion = satanist
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+		}
+	}
+}
+
+# Feeding on someone protected
+character_event = {
+	id = VAMPIRE.160
+	desc = EVTDESC_VAMPIRE.160
+	picture = GFX_evt_dark_love
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.160
+		repeat_event = { id = VAMPIRE.10 }
+	}
+	option = {
+		name = EVTOPTB_VAMPIRE.160
+		clr_character_flag = vampire_feed_minor
+	}
+}
+
+character_event = {
+	id = VAMPIRE.161
+	desc = EVTDESC_VAMPIRE.161
+	picture = GFX_evt_suspicious_noble
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.161
+		tooltip = {	opinion = { who = FROM modifier = suspected_attacked_protected years = 10 } }
+	}
+}
+character_event = {
+	id = VAMPIRE.162
+	desc = EVTDESC_VAMPIRE.162
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.162
+		tooltip = {	opinion = { who = FROM modifier = attacked_protected years = 20 } }
+	}
+}
+
+# Bounce to disguise From
+character_event = {
+	id = VAMPIRE.163
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROMFROMFROM = { liege = { character_event = { id = VAMPIRE.161 } } }
+	}
+}
+character_event = {
+	id = VAMPIRE.164
+	desc = EVTDESC_VAMPIRE.164
+	picture = GFX_evt_catching_heretic
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.164
+		tooltip = {	opinion = { who = FROM modifier = killed_protected years = 50 } }
+	}
+}
+
+character_event = {
+	id = VAMPIRE.165
+	desc = EVTDESC_VAMPIRE.165
+	picture = GFX_evt_stressed_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.165
+		opinion = { who = FROM modifier = opinion_thrall years = 50 }
+		FROM = { character_event = { id = VAMPIRE.166 } }
+	}
+}
+
+character_event = {
+	id = VAMPIRE.166
+	desc = EVTDESC_VAMPIRE.166
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.166
+		tooltip = { reverse_opinion = { who = FROM modifier = opinion_thrall years = 50 } }
+	}
+}
+
+# Safety catch for blood feast
+character_event = {
+	id = VAMPIRE.167
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_character_modifier = holding_large_feast
+		clr_character_flag = do_not_disturb
+		clr_character_flag = attending_blood_feast
+		clr_character_flag = holding_blood_feast
+		clr_character_flag = blood_feast_werewolf
+		clr_character_flag = ate_bad_food
+		clr_character_flag = blood_feast_illness
+		clr_character_flag = blood_feast_rival
+		
+		set_variable = { which = count_blood_feast_events value = 0 }
+	}
+}
+
+# Blood Feast
+character_event = {
+	id = VAMPIRE.168
+	desc = EVTDESC_VAMPIRE.168
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.168
+		set_character_flag = holding_blood_feast
+		any_courtier_or_vassal = {
+			limit = {
+				trait = vampire
+				prisoner = no
+				NOT = { is_inaccessible_trigger = yes }
+				age = 16
+				war = no
+				is_incapable = no
+			}
+			letter_event = { id = VAMPIRE.169 tooltip = EVTTT_VAMPIRE.169 }
+		}
+		hidden_tooltip = { character_event = { id = VAMPIRE.171 days = 10 } }
+	}
+}
+
+# Invited to Blood Feast
+letter_event = {
+	id = VAMPIRE.169
+	desc = EVTDESC_VAMPIRE.169
+	is_triggered_only = yes
+	
+	trigger =  { NOT = { is_inaccessible_trigger = yes } }
+	
+	# Attend
+	option = {
+		name = EVTOPTA_VAMPIRE.169
+		set_character_flag = attending_blood_feast
+		set_character_flag = do_not_disturb
+		
+		hidden_tooltip = { character_event = { id = VAMPIRE.167 days = 50 } } # Safety catch flag clearing
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				trait = hunger_5
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { intrigue = 5 }
+			}
+		}
+	}
+	
+	# Decline
+	option = {
+		name = EVTOPTA_VAMPIRE.169
+		hidden_tooltip = { FROM = { letter_event = { id = VAMPIRE.170 days = 2 random = 3 } } }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 8
+				NOR = {
+					trait = hunger_1
+					trait = hunger_2
+					trait = hunger_3
+					trait = hunger_4
+					trait = hunger_5
+				}
+			}
+			modifier = {
+				factor = 3
+				trait = shy
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier  = {
+				factor = 2
+				NOT = { opinion = { who = from value = -60 } }
+			}
+			modifier  = {
+				factor = 2
+				NOT = { opinion = { who = from value = -80 } }
+			}
+		}
+	}
+}
+
+# Declined Invitation
+letter_event = {
+	id = VAMPIRE.170
+	desc = EVTDESC_VAMPIRE.170
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.170
+		opinion = { modifier = opinion_disappointed who = FROM years = 5 }
+	}
+}
+
+# Blood Feast begins (Liege)
+character_event = {
+	id = VAMPIRE.171
+	desc = EVTDESC_VAMPIRE.171
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA72015
+		hidden_tooltip = { 
+			any_courtier_or_vassal = {
+				limit = {
+					has_character_flag =  attending_blood_feast
+				}
+				character_event = {
+					id = VAMPIRE.172
+					tooltip = "EVTTOOLTIP72016"
+				}
+			}
+			# First sacrifice
+			random_courtier = {
+				limit = {
+					prisoner = yes
+					NOR = {
+						trait = vampire
+						trait = zombie
+						trait = known_werewolf
+						trait = demon_trait
+						trait = ethereal_trait
+						has_minor_title = title_vampiric_protection
+					}
+				}
+				# Normal Sacrifice
+				if = {
+					limit = { NOT = { trait = werewolf } }
+					character_event = { id = VAMPIRE.173 days = 4 }
+				}
+				# Secret Werewolf
+				else = {
+					character_event = { id = VAMPIRE.177 days = 4 }
+				}
+			}
+			# Call event tombola
+			character_event = { id = VAMPIRE.178 days = 8 }
+		}
+	}
+}
+
+# 172 - Blood Feast started (Guest)
+character_event = {
+	id = VAMPIRE.172
+	desc = EVTDESC_VAMPIRE.172
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA72016"
+	}
+}
+
+# 173 - Ping Food
+character_event = {
+	id = VAMPIRE.173
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = VAMPIRE.174 } }
+	}
+}
+
+# 174 - Liege sacrifices and feeds
+character_event = {
+	id = VAMPIRE.174
+	desc = EVTDESC_VAMPIRE.174
+	picture = GFX_evt_sacrifice
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.174
+		if = {
+			limit = { FROM = { has_vampire_spread_illness = yes } }
+			set_character_flag = ate_bad_food
+		}
+		if = {
+			limit = { trait = secret_vampire }
+			FROM = { death = { death_reason = death_vampire_unknown } }
+		}
+		else = {
+			FROM = { death = { death_reason = death_vampire killer = ROOT } }
+		}
+		any_courtier_or_vassal = {
+			limit = { has_character_flag = attending_blood_feast }
+			character_event = { id = VAMPIRE.175 }
+		}
+		if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+			add_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+			add_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+			add_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+			add_trait = hunger_1
+		}
+		else_if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+	}
+}
+
+# 175 - Guests feed
+character_event = {
+	id = VAMPIRE.175
+	desc = EVTDESC_VAMPIRE.175
+	picture = GFX_evt_sacrifice
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.175
+		tooltip = { FROMFROM = { death = { death_reason = death_vampire } } }
+		if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+			add_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+			add_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+			add_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+			add_trait = hunger_1
+		}
+		else_if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+	}
+}
+	
+# 176 - Werewolf attempted feeding. Expose and escape
+character_event = {
+	id = VAMPIRE.176
+	desc = EVTDESC_VAMPIRE.176
+	picture = GFX_evt_werewolf_shadowed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.176
+		remove_trait = secret_werewolf
+		add_trait = known_werewolf
+		remove_character_modifier = known_monster
+		any_realm_character = {
+			character_event = { id = WEREWOLF.33 }
+		}
+		prisoner = no
+		FROM = {
+			character_event = { id = VAMPIRE.177 }
+			set_character_flag = blood_feast_werewolf
+			any_courtier_or_vassal = {
+				limit = { has_character_flag = attending_blood_feast }
+				character_event = { id = VAMPIRE.177 }
+			}
+		}
+	}
+}
+
+# 177 - Everyone informed of werewolf. Each has chance to be wounded
+character_event = {
+	id = VAMPIRE.177
+	desc = EVTDESC_VAMPIRE.177
+	picture = GFX_evt_werewolf_shadowed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.177
+		FROM = {
+			tooltip = {
+				add_trait = known_werewolf
+				prisoner = no
+			}
+		}
+		random = {
+			chance = 20
+			add_trait = wounded
+		}
+		random = {
+			chance = 5
+			add_maimed_trait_effect = yes
+		}
+	}
+}
+# 178 - Feast event tombola
+character_event = {
+	id = VAMPIRE.178
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			# Feed on another prisoner
+			3 = {
+				trigger = {
+					num_of_prisoners = 1
+					any_courtier = {
+						prisoner = yes
+						NOR = {
+							trait = vampire
+							trait = zombie
+							trait = known_werewolf
+							trait = demon_trait
+							trait = ethereal_trait
+							has_minor_title = title_vampiric_protection
+						}
+					}
+					any_courtier_or_vassal = {
+						has_character_flag = attending_blood_feast
+						OR = {
+							trait = hunger_1
+							trait = hunger_2
+							trait = hunger_3
+							trait = hunger_4
+							trait = hunger_5
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					any_courtier = {
+						count = 4
+						prisoner = yes
+						NOR = {
+							trait = vampire
+							trait = zombie
+							trait = known_werewolf
+							trait = demon_trait
+							trait = ethereal_trait
+							has_minor_title = title_vampiric_protection
+						}
+					}
+				}
+				random_courtier = {
+					limit = {
+						prisoner = yes
+						NOR = {
+							trait = vampire
+							trait = zombie
+							trait = known_werewolf
+							trait = demon_trait
+							trait = ethereal_trait
+							has_minor_title = title_vampiric_protection
+						}
+					}
+					# Normal Sacrifice
+					if = {
+						limit = { NOT = { trait = werewolf } }
+						character_event = { id = VAMPIRE.173 }
+					}
+					# Secret Werewolf
+					else = {
+						character_event = { id = VAMPIRE.177 }
+					}
+				}
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Guests eat a non-prisoner courtier
+			1 = {
+				trigger = {
+					any_courtier_or_vassal = {
+						has_character_flag = attending_blood_feast
+						OR = {
+							trait = hunger_1
+							trait = hunger_2
+							trait = hunger_3
+							trait = hunger_4
+							trait = hunger_5
+						}
+					}
+				}
+				random_courtier = {
+					limit = {
+						prisoner = no
+						NOR = {
+							trait = vampire
+							trait = zombie
+							trait = werewolf
+							trait = demon_trait
+							trait = ethereal_trait
+							has_minor_title = title_vampiric_protection
+						}
+					}
+					character_event = { id = VAMPIRE.179 }
+				}
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Rumors spread about the feast
+			1 = {
+				trigger = {
+					OR = {
+						trait = secret_vampire
+						any_courtier_or_vassal = {
+							has_character_flag = attending_blood_feast
+							trait = secret_vampire
+						}
+					}
+				}
+				character_event = { id = VAMPIRE.182 }
+				any_courtier_or_vassal = {
+					limit = { has_character_flag = attending_blood_feast }
+					character_event = { id = VAMPIRE.182 }
+				}
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Disease spreads from tainted food
+			1 = {
+				trigger = { NOT = { has_character_flag = blood_feast_illness } }
+				modifier = {
+					factor = 3
+					has_character_flag = ate_bad_food
+				}
+				character_event = { id = VAMPIRE.183 }
+				any_courtier_or_vassal = {
+					limit = { has_character_flag = attending_blood_feast }
+					character_event = { id = VAMPIRE.183 }
+				}
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Liege makes a new friend
+			2 = {
+				modifier = {
+					factor = 1.5
+					trait = gregarious
+				}
+				modifier = {
+					factor = 0.5
+					trait = shy
+				}
+				character_event = { id = VAMPIRE.184 }
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Liege makes a rival
+			1 = {
+				trigger = { NOT = { has_character_flag = blood_feast_rival } }
+				set_character_flag = blood_feast_rival
+				character_event = { id = vampire.186 }
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Liege ends a rivalry
+			1 = {
+				trigger = { NOT = { has_character_flag = blood_feast_rival } }
+				character_event = { id = vampire.188 }
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Liege overeats
+			1 = {
+				trigger = { NOT = { trait = gluttonous } }
+				character_event = { id = vampire.190 }
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# Guest overeats
+			1 = {
+				trigger = {
+					any_courtier_or_vassal = {
+						has_character_flag = attending_blood_feast
+						NOT = { trait = gluttonous }
+					}
+				}
+				random_courtier_or_vassal = {
+					limit = { has_character_flag = attending_blood_feast }
+					character_event = { id = vampire.190 }
+				}
+				# Call event tombola
+				repeat_event = { id = VAMPIRE.178 days = 4 }
+				change_variable = { which = count_blood_feast_events value = 1 }
+			}
+			# End of festivities
+			3 = {
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 1 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 2 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 3 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 4 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 5 }
+				}
+				modifier = {
+					factor = 1.5
+					check_variable = { which = count_blood_feast_events value = 6 }
+				}
+				character_event = { id = VAMPIRE.191 }
+				character_event = { id = VAMPIRE.167 }
+				any_courtier_or_vassal = {
+					limit = { has_character_flag = attending_blood_feast }
+					character_event = { id = VAMPIRE.191 }
+					character_event = { id = VAMPIRE.167 }
+				}
+			}
+		}
+	}
+}
+
+# 179 - Guests feed on courtier - ping
+character_event = {
+	id = VAMPIRE.179
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = { character_event = { id = VAMPIRE.180 } }
+	}
+}
+
+# 180 - Guests feed on courtier - liege
+character_event = {
+	id = VAMPIRE.180
+	desc = EVTDESC_VAMPIRE.180
+	picture = GFX_evt_catching_heretic
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.180
+		if = {
+			limit = { FROM = { has_vampire_spread_illness = yes } }
+			set_character_flag = ate_bad_food
+		}
+		FROM = { death = { death_reason = death_vampire_unknown } }
+		any_courtier_or_vassal = {
+			limit = { has_character_flag = attending_blood_feast }
+			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
+			character_event = { id = VAMPIRE.181 }
+		}
+	}
+}
+
+# 181 - Guests feed on courtier - guests
+character_event = {
+	id = VAMPIRE.181
+	desc = EVTDESC_VAMPIRE.181
+	picture = GFX_evt_catching_heretic
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.181
+		tooltip = {
+			FROMFROM = { death = { death_reason = death_vampire_unknown } }
+			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
+		}
+		if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+			add_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+			add_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+			add_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+			add_trait = hunger_1
+		}
+		else_if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+	}
+}
+
+# 182 - Rumors spread about feast - gain suspected monster or bad opinion
+character_event = {
+	id = VAMPIRE.182
+	desc = EVTDESC_VAMPIRE.182
+	picture = GFX_evt_scandal
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.182
+		if = {
+			limit = { NOT = { trait = known_vampire } }
+			add_character_modifier = { modifier = known_monster years = 5 stacking = yes }
+		}
+		else = {
+			any_courtier_or_vassal = {
+				limit = { NOT = { trait = vampire } }
+				random = {
+					chance = 50
+					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+				}
+			}
+		}
+	}
+}
+
+# 183 - Illness from bad feeding
+character_event = {
+	id = VAMPIRE.183
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			1 = {
+				get_random_disease = yes
+			}
+			2 = {
+				# Food poisoning
+				trigger = {
+					has_dlc = Reapers
+					NOR = {
+						trait = horse
+						trait = cat
+						immune_to_infection = yes
+						
+						has_character_flag = got_bubonic_plague
+						has_character_flag = got_aztec_disease
+						has_character_flag = got_smallpox
+						has_character_flag = got_measles
+						has_character_flag = got_typhus
+						has_character_flag = got_typhoid_fever
+						has_character_flag = got_syphilis
+						has_character_flag = got_pneumonia
+						has_character_flag = got_cancer
+						has_character_flag = got_rabies
+						has_character_flag = got_gout
+						has_character_flag = got_flu
+						has_character_flag = got_dysentery
+						has_character_flag = got_food_poisoning
+						has_character_flag = got_zombie_plague
+					}
+				}
+				give_food_poisoning_effect = yes
+			}
+		}
+	}
+}
+
+# 184 - Make a friend
+character_event = {
+	id = VAMPIRE.184
+	desc = EVTDESC_VAMPIRE.184
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_courtier_or_vassal = {
+			has_character_flag = attending_blood_feast
+			NOR = {
+				is_friend = ROOT
+				is_rival = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				has_character_flag = attending_blood_feast
+				NOR = {
+					is_friend = ROOT
+					is_rival = ROOT
+				}
+			}
+			save_event_target_as = new_friend
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.184
+		add_friend = new_friend
+		event_target:new_friend = { character_event = { id = VAMPIRE.185 } }
+	}
+}
+		
+# 185 - Made a friend - inform friend
+character_event = {
+	id = VAMPIRE.185
+	desc = EVTDESC_VAMPIRE.185
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.184
+		tooltip = { add_friend = FROM }
+	}
+}
+
+# 186 - Make a new rival
+character_event = {
+	id = VAMPIRE.186
+	desc = EVTDESC_VAMPIRE.186
+	picture = GFX_evt_poke_king_in_chest
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_courtier_or_vassal = {
+			has_character_flag = attending_blood_feast
+			NOR = {
+				is_friend = ROOT
+				is_rival = ROOT
+			}
+		}
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				has_character_flag = attending_blood_feast
+				NOR = {
+					is_friend = ROOT
+					is_rival = ROOT
+				}
+			}
+			save_event_target_as = new_rival
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.186
+		add_rival = new_rival
+		event_target:new_rival = { character_event = { id = VAMPIRE.187 } }
+		custom_tooltip = { text = tt_kick_out_rival }
+	}
+}
+
+# 187 - Made a new rival - inform rival
+character_event = {
+	id = VAMPIRE.187
+	desc = EVTDESC_VAMPIRE.187
+	picture = GFX_evt_poke_king_in_chest
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.187
+		tooltip = { add_rival = FROM }
+		opinion = { who = FROM modifier = insulted months = 60 }
+		clr_character_flag = attending_blood_feast
+		custom_tooltip = { text = tt_kicked_out_of_feast }
+		character_event = { id = VAMPIRE.167 }
+	}
+}
+
+# 188 - End a rivalry
+character_event = {
+	id = VAMPIRE.188
+	desc = EVTDESC_VAMPIRE.188
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_courtier_or_vassal = {
+			has_character_flag = attending_blood_feast
+			is_rival = ROOT
+		}
+	}
+	
+	immediate = {
+		random_courtier_or_vassal = {
+			limit = {
+				has_character_flag = attending_blood_feast
+				is_rival = ROOT
+			}
+			save_event_target_as = old_rival
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.188
+		remove_rival = old_rival
+		event_target:old_rival = { character_event = { id = VAMPIRE.189 } }
+	}
+}
+
+# 189 - Ended rivalry - inform rival
+character_event = {
+	id = VAMPIRE.189
+	desc = EVTDESC_VAMPIRE.189
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.189
+		tooltip = { remove_rival = FROM }
+	}
+}
+
+# 190 - Overeating
+character_event = {
+	id = VAMPRIE.190
+	desc = EVTDESC_VAMPIRE.190
+	picture = GFX_evt_feast
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.190
+		if = {
+			limit = { trait = temperate }
+			remove_trait = temperate
+		}
+		else = {
+			add_trait = gluttonous
+		}
+		if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+	}
+}
+
+# 191 - End of festivities
+character_event = {
+	id = VAMPIRE.191
+	desc = EVTDESC_VAMPIRE.191
+	picture = GFX_evt_noble_in_castle
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.191
+		remove_character_modifier = holding_large_feast
+		clr_character_flag = do_not_disturb
+		clr_character_flag = attending_blood_feast
+		clr_character_flag = holding_blood_feast
+		if = {
+			limit = { NOT = { character = FROM } }
+			opinion = { modifier = opinion_enjoyed_feast who = FROM years = 1 }
+		}
+		else = {
+			prestige = 20
 		}
 	}
 }

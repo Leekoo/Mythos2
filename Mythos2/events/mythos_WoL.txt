@@ -680,6 +680,7 @@ character_event = {
 			has_character_flag = education_outcome_level_1
 		}
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -694,6 +695,7 @@ character_event = {
 			has_character_flag = education_outcome_level_2
 		}
 		add_trait = eldritch_scholar
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -708,6 +710,7 @@ character_event = {
 			has_character_flag = education_outcome_level_3
 		}
 		add_trait = veteran_wizard
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -722,6 +725,7 @@ character_event = {
 			has_character_flag = education_outcome_level_4
 		}
 		add_trait = arcane_master
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -1924,6 +1928,7 @@ character_event = {
 	
 	trigger = {
 		has_focus = focus_scholarship
+		NOT = { religion = the_damned }
 	}
 	
 	option = {
@@ -2037,6 +2042,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_MYTH_WoL.21
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -2405,7 +2411,6 @@ character_event = {
 					trait = bad_priest_jotnar
 					trait = bad_priest_kemetic
 					trait = bad_priest_druidic
-					trait = bad_priest_voodoo
 					trait = bad_priest_draconic
 				}
 			}
@@ -2528,7 +2533,6 @@ character_event = {
 					trait = bad_priest_jotnar
 					trait = bad_priest_kemetic
 					trait = bad_priest_druidic
-					trait = bad_priest_voodoo
 					trait = bad_priest_draconic
 				}
 			}
@@ -2638,6 +2642,7 @@ character_event = {
 		add_trait = eldritch_scholar
 		hidden_tooltip = { 
 			remove_trait = novice_mage
+		update_natural_magic = yes
 			if = {
 				limit = { NOR = { trait=vampire trait=werewolf } }
 				character_event = { id=MYTH_WoL.30 days = 180 }
@@ -2768,7 +2773,8 @@ character_event = {
 		add_trait = veteran_wizard
 		hidden_tooltip = { 
 			remove_trait = eldritch_scholar
-			IF = {
+			update_natural_magic = yes
+			if = {
 				limit = { NOT = { lifestyle_traits = 1 } }
 				character_event = { id = MYTH_WoL.30 days = 180 }
 			}
@@ -2995,7 +3001,7 @@ character_event = {
 	}
 }
 
-# MYTH_WoL.35 - was MYTHMORE.34 - Attacker is a werewolf (from hunting event}
+# MYTH_WoL.35 - was MYTHMORE.34 - Attacker is a werewolf (from hunting event)
 # Currently unused - delay isn't needed with werewolf secrecy
 #character_event = {
 #	id = MYTH_WoL.35
@@ -3396,9 +3402,15 @@ character_event = {
 			has_character_modifier = studying_herbalism
 			has_character_modifier = studying_alchemy
 			has_character_modifier = studying_sorcery
+			has_character_modifier = studying_necromancy
 		}
-		#prisoner = no
-		#NOT = { trait = incapable }
+		NOR = {
+			trait = summoner
+			trait = enchanter
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
 	}
 	
 	weight_multiplier = {
@@ -3410,6 +3422,7 @@ character_event = {
 				has_character_modifier = studying_herbalism
 				has_character_modifier = studying_alchemy
 				has_character_modifier = studying_sorcery
+				has_character_modifier = studying_necromancy
 			}
 		}
 		modifier = {
@@ -3557,7 +3570,9 @@ character_event = {
 			has_character_modifier = studying_conjuration
 			has_character_modifier = studying_herbalism
 			has_character_modifier = studying_sorcery
+			has_character_modifier = studying_necromancy
 		}
+		has_focus = focus_magic
 	}
 
 	immediate = {
@@ -3575,52 +3590,93 @@ character_event = {
 						}
 					}
 				}
-				set_variable = { which = local_effect value = 1 }
+				if = {
+					limit = {
+						OR = {
+							trait = novice_mage
+							trait = eldritch_scholar
+							trait = veteran_wizard
+						}
+					}
+					character_event = { id = MYTH_WoL.41 }
+				}
 			}
-			200 = {
+			400 = {
 				modifier = {
-					factor = 0.3
+					factor = 0.15
 					OR = {
 						trait = summoner
 						trait = alchemist
 						trait = enchanter
 						trait = herbalist
+						trait = necromancer
 					}
 				}
 				modifier = {
-					factor = 0.5
+					factor = 0.25
 					lifestyle_traits = 1
 					has_character_modifier = magic_study_2
 				}
-				set_variable = { which = local_effect value = 2 }
+				if = {
+					limit = {
+						NOR = {
+							trait = summoner
+							trait = alchemist
+							trait = enchanter
+							trait = herbalist
+							trait = necromancer
+						}
+					}
+					character_event = { id = MYTH_WoL.42 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = proud
 				}
-				set_variable = { which = local_effect value = 3 }
+				if = {
+					limit = {
+						NOT = { trait = proud }
+					}
+					character_event = { id = MYTH_WoL.43 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = ambitious
 				}
-				set_variable = { which = local_effect value = 4 }
+				if = {
+					limit = {
+						NOT = { trait = ambitious }
+					}
+					character_event = { id = MYTH_WoL.44 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = chaste
 				}
-				set_variable = { which = local_effect value = 5 }
+				if = {
+					limit = {
+						NOT = { trait = chaste }
+					}
+					character_event = { id = MYTH_WoL.45 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = diligent
 				}
-				set_variable = { which = local_effect value = 6 }
+				if = {
+					limit = {
+						NOT = { trait = diligent }
+					}
+					character_event = { id = MYTH_WoL.46 }
+				}
 			}
 			85 = {
 				modifier = {
@@ -3630,91 +3686,28 @@ character_event = {
 						trait = zealous
 					}
 				}
-				set_variable = { which = local_effect value = 7 }
+				if = {
+					limit = {
+						NOR = {
+							trait = cynical
+							trait = zealous
+						}
+					}
+					character_event = { id = MYTH_WoL.47 }
+				}
 			}
 			85 = {
 				modifier = {
 					factor = 0.5
 					trait = erudite
 				}
-				set_variable = { which = local_effect value = 8 }
-			}
-		}
-		# improve education
-		if = {
-			limit = {
-				OR = {
-					trait = novice_mage
-					trait = eldritch_scholar
-					trait = veteran_wizard
+				if = {
+					limit = {
+						NOT = { trait = erudite }
+					}
+					character_event = { id = MYTH_WoL.48 }
 				}
-				is_variable_equal = { which = local_effect value = 1 }
 			}
-			character_event = { id = MYTH_WoL.41 }
-		}
-		# Progress
-		if = {
-			limit = {
-				NOR = {
-					trait = summoner
-					trait = alchemist
-					trait = enchanter
-					trait = herbalist
-				}
-				is_variable_equal = { which = local_effect value = 2 }
-			}
-			character_event = { id = MYTH_WoL.42 }
-		}
-		# More Proud
-		if = {
-			limit = {
-				NOT = { trait = proud }
-				is_variable_equal = { which = local_effect value = 3 }
-			}
-			character_event = { id = MYTH_WoL.43 }
-		}
-		# More Ambitious
-		if = {
-			limit = {
-				NOT = { trait = ambitious }
-				is_variable_equal = { which = local_effect value = 4 }
-			}
-			character_event = { id = MYTH_WoL.44 }
-		}
-		# More Chaste
-		if = {
-			limit = {
-				NOT = { trait = chaste }
-				is_variable_equal = { which = local_effect value = 5 }
-			}
-			character_event = { id = MYTH_WoL.45 }
-		}
-		# More Diligent
-		if = {
-			limit = {
-				NOT = { trait = diligent }
-				is_variable_equal = { which = local_effect value = 6 }
-			}
-			character_event = { id = MYTH_WoL.46 }
-		}
-		# Gain Cynical (but don't lose Zealous)
-		if = {
-			limit = {
-				NOR = {
-					trait = cynical
-					trait = zealous
-				}
-				is_variable_equal = { which = local_effect value = 7 }
-			}
-			character_event = { id = MYTH_WoL.47 }
-		}
-		# Gain Erudite
-		if = {
-			limit = {
-				NOT = { trait = erudite }
-				is_variable_equal = { which = local_effect value = 8 }
-			}
-			character_event = { id = MYTH_WoL.48 }
 		}
 	}
 }
@@ -3736,16 +3729,19 @@ character_event = {
 			limit = { trait = veteran_wizard }
 			hidden_tooltip = { remove_trait = veteran_wizard }
 			add_trait = arcane_master
+			update_natural_magic = yes
 		}
 		else_if = { 
 			limit = { trait = eldritch_scholar }
 			hidden_tooltip = { remove_trait = eldritch_scholar }
 			add_trait = veteran_wizard
+			update_natural_magic = yes
 		}
 		else_if = {
 			limit = { trait = novice_mage }
 			hidden_tooltip = { remove_trait = novice_mage }
 			add_trait = eldritch_scholar
+			update_natural_magic = yes
 		}
 	}
 }
@@ -3780,6 +3776,7 @@ character_event = {
 			has_character_modifier = studying_conjuration
 			has_character_modifier = studying_herbalism
 			has_character_modifier = studying_sorcery
+			has_character_modifier = studying_necromancy
 		}
 	}
 	
@@ -3808,6 +3805,10 @@ character_event = {
 				limit = { has_character_modifier = studying_sorcery }
 				add_trait = enchanter
 			}
+			else_if = {
+				limit = { has_character_modifier = studying_necromancy }
+				add_trait = necromancer
+			}
 		}
 		else_if = {
 			limit = { has_character_modifier = magic_study_1 }
@@ -3826,6 +3827,7 @@ character_event = {
 					trait = alchemist
 					trait = enchanter
 					trait = herbalist
+					trait = necromancer
 				}
 			}
 			add_character_modifier = {
@@ -4265,6 +4267,10 @@ character_event = {
 			trait = eldritch_scholar
 			trait = veteran_wizard
 			trait = arcane_master
+		}
+		NOR = {
+			trait = necromancer
+			has_character_modifier = studying_necromancy
 		}
 		piety = 300
 		NOT = { trait = cynical }
@@ -6023,10 +6029,10 @@ character_event = {
 	option = {
 		name = EVTOPTCMYTH_WoL.84
 		trigger = {
-			event_target:random_province = {
+			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
+				NOT = { capital_scope = { province = PREV } }
 			}
-			NOT = { capital_scope = { province = event_target:random_province } }
 		}
 		event_target:random_province = {
 			any_province_holding = {
@@ -6071,17 +6077,8 @@ character_event = {
 	}
 	
 	immediate = {
-		random_list = {
-			1 = {
-				random_courtier = {
-					save_event_target_as = stalked
-				}
-			}
-			1 = {
-				random_vassal = {
-					save_event_target_as = stalked
-				}
-			}
+		random_courtier_or_vassal = {
+			save_event_target_as = stalked
 		}
 	}
 	
@@ -6466,7 +6463,13 @@ character_event = {
 		capital_scope = {
 			add_province_modifier = { modifier = bountiful_harvest years = 1 stacking = no }
 			custom_tooltip = { text = capital_prospers_custom_tooltip }
-			hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			if = {
+				limit = { NOT = { ROOT = { culture_group = undead_culture_group } } }
+				hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			}
+			else = {
+				hidden_tooltip = { change_variable = { which = prosperity_value value = -6 } }
+			}
 		}
 		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 1 } }
 	}
@@ -6484,7 +6487,13 @@ character_event = {
 		event_target:crown_focus = {
 			add_province_modifier = { modifier = bountiful_harvest years = 1 stacking = no }
 			custom_tooltip = { text = increase_prosperity_custom_tooltip }
-			hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			if = {
+				limit = { NOT = { ROOT = { culture_group = undead_culture_group } } }
+				hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			}
+			else = {
+				hidden_tooltip = { change_variable = { which = prosperity_value value = -6 } }
+			}
 		}
 		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 1 } }
 	}
@@ -6497,16 +6506,22 @@ character_event = {
 		#	}
 		#}
 		trigger = {
-			event_target:random_province = {
+			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				has_capital = no
+				NOT = { capital_scope = { province = PREV } }
 			}
 		}
 				
 		event_target:random_province = {
 			add_province_modifier = { modifier = bountiful_harvest years = 1 stacking = no }
 			custom_tooltip = { text = increase_prosperity_custom_tooltip }
-			hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			if = {
+				limit = { NOT = { ROOT = { culture_group = undead_culture_group } } }
+				hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+			}
+			else = {
+				hidden_tooltip = { change_variable = { which = prosperity_value value = -6 } }
+			}
 		}
 		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 1 } }
 	}
@@ -6552,7 +6567,7 @@ character_event = {
 	}
 	
 	immediate = {
-		any_courtier = {
+		random_courtier = {
 			limit = { is_ill = yes }
 			save_event_target_as = sick_courtier
 			character_event = { id = MYTH_WoL.89 }
@@ -6595,10 +6610,40 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
+	immediate = {
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+	}
+	
 	option = {
 		name = EVTOPTAMYTH_WoL.90
 		hidden_tooltip = { FROM = { character_event = { id = MYTH_WoL.91 days = 1 } } }
 		custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.90 }
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.90
+		tooltip_info = yes
+		custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.90 }
+		hidden_tooltip = {
+			if = {
+				limit = { selected_ingredient_is_perceived_healthy_trigger = yes }
+				FROM = { set_character_flag = recieve_potion_good }
+			}
+			else_if = {
+				limit = { selected_ingredient_is_unhealthy_trigger = yes }
+				FROM = { set_character_flag = recieve_potion_bad }
+			}
+			FROM = { character_event = { id = MYTH_WoL.91 days = 1 } }
+		}
+		destroy_selected_ingredient_1_effect = yes
+
+        trigger = {
+        	any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+        }
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.90
@@ -6661,6 +6706,10 @@ character_event = {
 						factor = 1.2
 						FROM = { learning = 25 }
 					}
+					modifier = {
+						factor = 2
+						has_character_flag = recieve_potion_good
+					}
 					character_event = { id = MYTH_WoL.92 days = 1 }
 				}
 				# Good result
@@ -6705,6 +6754,10 @@ character_event = {
 						factor = 1.1
 						FROM = { learning = 25 }
 					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = recieve_potion_good
+					}
 					character_event = { id = MYTH_WoL.93 days = 1 }
 				}
 				# Neutral result
@@ -6737,6 +6790,10 @@ character_event = {
 						factor = 1.3
 						FROM = { NOT = { learning = 5 } }
 					}
+					modifier = {
+						factor = 1.5
+						has_character_flag = recieve_potion_bad
+					}
 					character_event = { id = MYTH_WoL.95 days = 1 }
 				}
 				# Terrible Result
@@ -6744,6 +6801,10 @@ character_event = {
 					modifier = {
 						factor = 1.5
 						NOT = { learning = 5 }
+					}
+					modifier = {
+						factor = 3
+						has_character_flag = recieve_potion_bad
 					}
 					character_event = { id = MYTH_WoL.96 days = 1 }
 				}
@@ -6788,6 +6849,11 @@ character_event = {
 				is_plot_target_of = FROM
 			}
 		}
+	}
+	
+	after = {
+		clr_character_flag = recieve_potion_good
+		clr_character_flag = recieve_potion_bad
 	}
 }
 # MYTH_WoL.92 - Great result
@@ -6979,7 +7045,10 @@ character_event = {
 	
 	immediate = {
 		set_variable = { which = num_success value = 0 }
-		
+		select_random_hermetic_ingredient_powder_effect = yes
+		select_random_hermetic_ingredient_herb_effect = yes
+		select_random_hermetic_ingredient_liquid_effect = yes
+		select_random_hermetic_ingredient_animal_part_effect = yes
 	}
 	
 	# Holy Ground
@@ -7201,41 +7270,66 @@ character_event = {
 						has_character_modifier = raven_familiar
 					}
 				}
+				modifier = { factor = 1.1 learning = 5 }
+				modifier = { factor = 1.1 learning = 10 }
+				modifier = { factor = 1.1 learning = 15 }
+				modifier = { factor = 1.1 learning = 20 }
+				modifier = { factor = 1.1 learning = 25 }
+				modifier = { factor = 1.1 learning = 30 }
+				modifier = { factor = 1.1 learning = 35 }
+				modifier = { factor = 1.1 learning = 40 }
+				modifier = { factor = 1.1 learning = 45 }
+				change_variable = { which = num_successes value = 1 }
+			}
+			character_event = { id = MYTH_WoL.103 days = 15 random = 10 }
+		}
+		destroy_selected_ingredient_1_effect = yes
+
+        trigger = {
+        	any_artifact = {
+        		has_artifact_flag = ingredient
+        	}
+        }
+		ai_chance = {
+			factor = 100
+		}
+	}
+	
+	# Use an ingredient
+	option = {
+		tooltip_info = yes
+		name = EVTOPTDMYTH_WoL.102
+		custom_tooltip = { text = multiple_ingredient_option_available_tt }
+		custom_tooltip = { text = EVTTOOLTIPDMYTH_WoL.102 }
+		hidden_tooltip = {
+			random = {
+				chance = 70
+				modifier = { factor = 1.1 learning = 5 }
+				modifier = { factor = 1.1 learning = 10 }
+				modifier = { factor = 1.1 learning = 15 }
+				modifier = { factor = 1.1 learning = 20 }
+				modifier = { factor = 1.1 learning = 25 }
+				modifier = { factor = 1.1 learning = 30 }
+				modifier = { factor = 1.1 learning = 35 }
+				modifier = { factor = 1.1 learning = 40 }
+				modifier = { factor = 1.1 learning = 45 }
+				# Big penalty for a non-metal
 				modifier = {
-					factor = 1.1
-					learning = 5
-				}
-				modifier = {
-					factor = 1.1
-					learning = 10
-				}
-				modifier = {
-					factor = 1.1
-					learning = 15
-				}
-				modifier = {
-					factor = 1.1
-					learning = 20
-				}
-				modifier = {
-					factor = 1.1
-					learning = 25
-				}
-				modifier = {
-					factor = 1.1
-					learning = 30
-				}
-				modifier = {
-					factor = 1.1
-					learning = 35
-				}
-				modifier = {
-					factor = 1.1
-					learning = 40
-				}
-				modifier = {
-					factor = 1.1
-					learning = 45
+					factor = 0.4
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						NOR = {
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic6
+							artifact_type = ingredient_metal_exotic7
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
+						}
+					}
 				}
 				change_variable = { which = num_successes value = 1 }
 			}
@@ -7243,8 +7337,38 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 1.5
+				NOR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			modifier = {
+				factor = 1.3
+				any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					NOR = {
+						artifact_type = ingredient_metal_exotic1
+						artifact_type = ingredient_metal_exotic2
+						artifact_type = ingredient_metal_exotic3
+						artifact_type = ingredient_metal_exotic4
+						artifact_type = ingredient_metal_exotic5
+						artifact_type = ingredient_metal_exotic6
+						artifact_type = ingredient_metal_exotic7
+						artifact_type = ingredient_metal_exotic8
+						artifact_type = ingredient_metal_exotic9
+					}
+				}
+			}
 		}
 	}
+	
+	after = {
+    	remove_selection_of_ingredients_effect = yes
+    }
 }
 
 # MYTH_WoL.103 - Prepare Wind
@@ -9334,7 +9458,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAMYTH_WoL.113
-		scaled_wealth = { value = -0.8 min = -10 max = -200 }
+		scaled_wealth = { value = -0.8 min = -10 max = -600 }
 		add_trait = on_journey
 		hidden_tooltip = {
 			set_character_flag = do_not_disturb
@@ -9368,6 +9492,7 @@ character_event = {
 		remove_trait = eunuch
 		remove_trait = blinded
 		remove_trait = on_journey
+		clear_delayed_event = { id = RIP.11000 }
 		hidden_tooltip = { clr_character_flag = do_not_disturb }
 	}
 }
@@ -9880,10 +10005,32 @@ character_event = {
 					factor = 1.2
 					learning = 25
 				}
+				modifier = {
+					factor = 1.2
+					learning = 30
+				}
+				modifier = {
+					factor = 1.2
+					learning = 35
+				}
+				modifier = {
+					factor = 1.2
+					trait = erudite
+				}
+				modifier = {
+					factor = 1.2
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.2
+					trait = diligent
+				}
 				hidden_tooltip = { character_event = { id = MYTH_WoL.124 days = 10 random = 5 } }
+				custom_tooltip = { text = tt_research_success }
 			}
 			50 = {
 				hidden_tooltip = { character_event = { id = MYTH_WoL.123 days = 10 random = 5 } }
+				custom_tooltip = { text = tt_research_dead_end }
 			}
 		}
 	}
@@ -9923,7 +10070,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTAMYTH_WoL.124
-		scaled_wealth = { value = -0.5 min = 5 max = 100 }
+		scaled_wealth = { value = -0.5 min = -5 max = -100 }
 		hidden_tooltip = { character_event = { id = MYTH_WoL.125 days = 10 random = 5 } }
 		ai_chance = {
 			factor = 1
@@ -9966,6 +10113,10 @@ character_event = {
 	min_age = 16
 	only_capable = yes
 	
+	immediate = {
+		select_random_hermetic_ingredient_herb_effect = yes
+	}
+	
 	option = {
 		name = EVTOPTAMYTH_WoL.125
 		custom_tooltip = { text = EVTTOOLTIPAMYTH_WoL.125 }
@@ -10003,6 +10154,14 @@ character_event = {
 					character_event = { id = MYTH_WoL.127 days = 20 random = 10 }
 				}
 				50 = {
+					modifier = {
+						factor = 1.2
+						NOT = { learning = 5 }
+					}
+					modifier = {
+						factor = 1.5
+						NOT = { learning = 3 }
+					}
 					character_event = { id = MYTH_WoL.126 days = 20 random = 10 }
 				}
 			}
@@ -10045,7 +10204,7 @@ character_event = {
 			factor = 10
 			modifier = {
 				factor = 2
-				scaled_wealth =1
+				scaled_wealth = 1
 			}
 			modifier = {
 				factor = 0.5
@@ -10072,6 +10231,52 @@ character_event = {
 		}
 		ai_chance = { factor = 8 }
 	}
+	option = {
+		name = EVTOPTDMYTH_WoL.125
+		trigger = {
+			any_artifact = { has_artifact_flag = selected_ingredient_1 }
+		}
+		custom_tooltip = { text = EVTTOOLTIPDMYTH_WoL.125 }
+		hidden_tooltip = {
+			random_list = {
+				30 = {
+					modifier = {
+						factor = 2.5
+						selected_ingredient_is_perceived_healthy_trigger = yes
+					}
+					modifier = {
+						factor = 1.5
+						selected_ingredient_is_antipyretic_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							quality >= 2
+						}
+					}
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							quality >= 3
+						}
+					}
+					character_event = { id = MYTH_WoL.127 days = 20 random = 10 }
+				}
+				70 = {
+					modifier = {
+						factor = 1.5
+						selected_ingredient_is_unhealthy_trigger = yes
+					}
+					character_event = { id = MYTH_WoL.126 days = 20 random = 10 }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	after = { remove_selection_of_ingredients_effect = yes }
 }
 
 # MYTH_WoL.126 - Failed creating Panacea
@@ -10138,6 +10343,7 @@ character_event = {
 			trait = enchanter
 			trait = alchemist
 			trait = herbalist
+			trait = necromancer
 			AND = {
 				has_character_modifier = magic_study_2
 				NOT = { lifestyle_traits = 1 }
@@ -10150,10 +10356,12 @@ character_event = {
 					has_building = ca_mage_tower_conjuration
 					has_building = ca_mage_tower_alchemy
 					has_building = ca_mage_tower_herbalism
+					has_building = ca_mage_tower_necromancy
 					has_building = ct_mage_tower_enchantment
 					has_building = ct_mage_tower_conjuration
 					has_building = ct_mage_tower_alchemy
 					has_building = ct_mage_tower_herbalism
+					has_building = ct_mage_tower_necromancy
 				}
 			}
 		}
@@ -10162,26 +10370,6 @@ character_event = {
 			OR = {
 				holding_type = castle
 				holding_type = city
-			}
-		}
-	}
-	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 0
-			NOR = {
-				has_focus = focus_magic
-				trait = summoner
-				trait = enchanter
-				trait = alchemist
-				trait = herbalist
-				capital_holding = {
-					OR = {
-						holding_type = castle
-						holding_type = city
-					}
-				}
 			}
 		}
 	}
@@ -10328,6 +10516,21 @@ character_event = {
 		}
 		ai_chance = { factor = 20 }
 		trigger = { trait = enchanter }
+	}
+	option = {
+		name = EVTOPTEMYTH_WoL.129
+		tooltip_info = necromancer
+		piety = -100
+		capital_scope = {
+			add_province_modifier = { name = undead_laborers years = 5 }
+		}
+		custom_tooltip = { text = EVTTTEMYTH_WoL.129 }
+		hidden_tooltip = {
+			change_variable = { which = tower_quality value = 1 }
+			character_event = { id = MYTH_WoL.183 days = 60 random = 15 }
+		}
+		ai_chance = { factor = 20 }
+		trigger = { trait = necromancer	}
 	}
 	option = {
 		name = EVTOPTBMYTH_WoL.129
@@ -10484,8 +10687,12 @@ character_event = {
 				}
 				custom_tooltip = {
 					text = capital_prospers_custom_tooltip
-					hidden_tooltip = {
-						change_variable = { which = prosperity_value value = 6 }
+					if = {
+						limit = { NOT = { ROOT = { culture_group = undead_culture_group } } }
+						hidden_tooltip = { change_variable = { which = prosperity_value value = 6 } }
+					}
+					else = {
+						hidden_tooltip = { change_variable = { which = prosperity_value value = -6 } }
 					}
 				}
 			}
@@ -10720,6 +10927,33 @@ character_event = {
 			modifier = {
 				factor = 0.2
 				NOT = { scaled_wealth = 0.3 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 0 }
+			}
+		}
+	}
+	# Necromancer
+	option = {
+		name = EVTOPTFMYTH_WoL.131
+		scaled_wealth = { value = -0.2 min = -5 max = -200 }
+		custom_tooltip = { text = EVTTTFMYTH_WoL.131 }
+		hidden_tooltip = {
+			set_character_flag = built_divination_chamber
+			character_event = { id = MYTH_WoL.184 days = 30 random = 20 }
+		}
+		trigger = {
+			OR = {
+				trait = necromancer
+				has_character_modifier = studying_necromancy
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { scaled_wealth = 0.2 }
 			}
 			modifier = {
 				factor = 0.1
@@ -11207,6 +11441,33 @@ character_event = {
 			}
 		}
 	}
+	# Necromancer
+	option = {
+		name = EVTOPTFMYTH_WoL.135
+		custom_tooltip = { text = EVTTTFMYTH_WoL.135 }
+		scaled_wealth = { value = -0.5 min = -10 max = -500 }
+		hidden_tooltip = {
+			set_character_flag = built_tower_vrypt
+			character_event = { id = MYTH_WoL.187 days = 40 random = 45 }
+		}
+		trigger = {
+			OR = {
+				trait = necromancer
+				has_character_modifier = studying_necromancy
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { scaled_wealth = 0.5 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 0 }
+			}
+		}
+	}
 	option = {
 		name = EVTOPTEMYTH_WoL.135
 		hidden_tooltip = { character_event = { id = MYTH_WoL.187 days = 3 } }
@@ -11426,6 +11687,10 @@ character_event = {
 			limit = { has_character_modifier = studying_sorcery }
 			set_character_flag = build_enchantment
 		}
+		else_if = {
+			limit = { has_character_modifier = studying_necromancy }
+			set_character_flag = build_necromancy
+		}
 	}
 	
 	option = {
@@ -11448,6 +11713,10 @@ character_event = {
 			else_if = {
 				limit = { has_character_modifier = studying_sorcery }
 				add_trait = enchanter
+			}
+			else_if = {
+				limit = { has_character_modifier = studying_necromancy }
+				add_trait = necromancer
 			}
 		}
 		if = {
@@ -11499,6 +11768,19 @@ character_event = {
 				else_if = {
 					limit = { holding_type = city }
 					add_building = ct_mage_tower_herbalism
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = build_necromancy }
+			capital_holding = {
+				if = {
+					limit = { holding_type = castle }
+					add_building = ca_mage_tower_necromancy
+				}
+				else_if = {
+					limit = { holding_type = city }
+					add_building = ct_mage_tower_necromancy
 				}
 			}
 		}
@@ -11556,6 +11838,23 @@ character_event = {
 			limit = { has_character_flag = built_medical_supplies }
 			clr_character_flag = built_medical_supplies
 			add_artifact = medical_supplies
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			add_artifact = ingredient_asclepois
+		}
+		if = {
+			limit = { has_character_flag = built_divination_chamber }
+			clr_character_flag = built_divination_chamber
+			capital_scope = {
+				add_province_modifier = { modifier = divination_room duration = -1 }
+			}
+		}
+		if = {
+			limit = { has_character_flag = built_tower_crypt }
+			clr_character_flag = built_tower_crypt
+			capital_scope = {
+				add_province_modifier = { modifier = tower_crypt duration = -1 }
+			}
 		}
 	}
 	
@@ -11564,6 +11863,7 @@ character_event = {
 		clr_character_flag = build_conjuration
 		clr_character_flag = build_alchemy
 		clr_character_flag = build_herbalism
+		clr_character_flag = build_necromancy
 	}
 }
 # MYTH_WoL.140 - Remove old building
@@ -11587,10 +11887,12 @@ character_event = {
 						has_building = ca_mage_tower_conjuration
 						has_building = ca_mage_tower_alchemy
 						has_building = ca_mage_tower_herbalism
+						has_building = ca_mage_tower_necromancy
 						has_building = ct_mage_tower_enchantment
 						has_building = ct_mage_tower_conjuration
 						has_building = ct_mage_tower_alchemy
 						has_building = ct_mage_tower_herbalism
+						has_building = ct_mage_tower_necromancy
 					}
 				}
 				any_province_holding = {
@@ -11599,6 +11901,7 @@ character_event = {
 					remove_building = ca_mage_tower_conjuration
 					remove_building = ca_mage_tower_alchemy
 					remove_building = ca_mage_tower_herbalism
+					remove_building = ca_mage_tower_necromancy
 				}
 				any_province_holding = {
 					limit = { holding_type = city }
@@ -11606,6 +11909,7 @@ character_event = {
 					remove_building = ct_mage_tower_conjuration
 					remove_building = ct_mage_tower_alchemy
 					remove_building = ct_mage_tower_herbalism
+					remove_building = ct_mage_tower_necromancy
 				}
 				remove_province_modifier = room_of_portal
 				remove_province_modifier = otherworldly_guard
@@ -11614,6 +11918,8 @@ character_event = {
 				remove_province_modifier = gold_tower
 				remove_province_modifier = alchemist_lab
 				remove_province_modifier = greenhouse
+				remove_province_modifier = divination_room
+				remove_province_modifier = tower_crypt
 			}
 		}
 	}
@@ -11665,6 +11971,21 @@ character_event = {
 			factor = 15
 		}
 		trigger = { trait = summoner }
+	}
+	option = {
+		name = EVTOPTEMYTH_WoL.129
+		tooltip_info = necromancer
+		piety = -100
+		capital_scope = {
+			add_province_modifier = { name = undead_laborers years = 5 }
+		}
+		custom_tooltip = { text = EVTTTEMYTH_WoL.129 }
+		hidden_tooltip = {
+			change_variable = { which = tower_quality value = 1 }
+			character_event = { id = MYTH_WoL.191 days = 60 random = 15 }
+		}
+		ai_chance = { factor = 15 }
+		trigger = { trait = necromancer	}
 	}
 	option = {
 		name = EVTOPTCMYTH_WoL.129
@@ -11825,6 +12146,34 @@ character_event = {
 			modifier = {
 				factor = 0.2
 				NOT = { scaled_wealth = 0.3 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 0 }
+			}
+		}
+	}
+	
+	# Necromancer
+	option = {
+		name = EVTOPTFMYTH_WoL.131
+		scaled_wealth = { value = -0.2 min = -5 max = -200 }
+		custom_tooltip = { text = EVTTTFMYTH_WoL.131 }
+		hidden_tooltip = {
+			set_character_flag = built_divination_chamber
+			character_event = { id = MYTH_WoL.184 days = 30 random = 20 }
+		}
+		trigger = {
+			OR = {
+				trait = necromancer
+				has_character_modifier = studying_necromancy
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { scaled_wealth = 0.2 }
 			}
 			modifier = {
 				factor = 0.1
@@ -12089,6 +12438,33 @@ character_event = {
 			}
 		}
 	}
+	# Necromancer
+	option = {
+		name = EVTOPTFMYTH_WoL.135
+		custom_tooltip = { text = EVTTTFMYTH_WoL.135 }
+		scaled_wealth = { value = -0.25 min = -10 max = -250 }
+		hidden_tooltip = {
+			set_character_flag = built_tower_vrypt
+			character_event = { id = MYTH_WoL.147 days = 40 random = 45 }
+		}
+		trigger = {
+			OR = {
+				trait = necromancer
+				has_character_modifier = studying_necromancy
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.2
+				NOT = { scaled_wealth = 0.5 }
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { wealth = 0 }
+			}
+		}
+	}
 	option = {
 		name = EVTOPTEMYTH_WoL.135
 		hidden_tooltip = { character_event = { id = MYTH_WoL.147 days = 3 } }
@@ -12115,10 +12491,12 @@ character_event = {
 						has_building = ca_mage_tower_conjuration
 						has_building = ca_mage_tower_alchemy
 						has_building = ca_mage_tower_herbalism
+						has_building = ca_mage_tower_necromancy
 						has_building = ct_mage_tower_enchantment
 						has_building = ct_mage_tower_conjuration
 						has_building = ct_mage_tower_alchemy
 						has_building = ct_mage_tower_herbalism
+						has_building = ct_mage_tower_necromancy
 					}
 				}
 				any_province_holding = {
@@ -12127,6 +12505,7 @@ character_event = {
 					remove_building = ca_mage_tower_conjuration
 					remove_building = ca_mage_tower_alchemy
 					remove_building = ca_mage_tower_herbalism
+					remove_building = ca_mage_tower_necromancy
 				}
 				any_province_holding = {
 					limit = { holding_type = city }
@@ -12134,6 +12513,7 @@ character_event = {
 					remove_building = ct_mage_tower_conjuration
 					remove_building = ct_mage_tower_alchemy
 					remove_building = ct_mage_tower_herbalism
+					remove_building = ct_mage_tower_necromancy
 				}
 				remove_province_modifier = room_of_portal
 				remove_province_modifier = otherworldly_guard
@@ -12142,6 +12522,8 @@ character_event = {
 				remove_province_modifier = gold_tower
 				remove_province_modifier = alchemist_lab
 				remove_province_modifier = greenhouse
+				remove_province_modifier = divination_room
+				remove_province_modifier = tower_crypt
 			}
 		}
 		
@@ -12194,6 +12576,19 @@ character_event = {
 				if = {
 					limit = { holding_type = city }
 					add_building = ct_mage_tower_herbalism
+				}
+			}
+		}
+		else_if = {
+			limit = { trait = necromancer }
+			capital_holding = {
+				if = {
+					limit = { holding_type = castle }
+					add_building = ca_mage_tower_necromancy
+				}
+				if = {
+					limit = { holding_type = city }
+					add_building = ct_mage_tower_necromancy
 				}
 			}
 		}
@@ -12258,6 +12653,23 @@ character_event = {
 			limit = { has_character_flag = built_medical_supplies }
 			clr_character_flag = built_medical_supplies
 			add_artifact = medical_supplies
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			hermetic_add_herbal_q2_ingredient_effect = yes
+			add_artifact = ingredient_asclepois
+		}
+		if = {
+			limit = { has_character_flag = built_divination_chamber }
+			clr_character_flag = built_divination_chamber
+			capital_scope = {
+				add_province_modifier = { modifier = divination_room duration = -1 }
+			}
+		}
+		if = {
+			limit = { has_character_flag = built_tower_crypts }
+			clr_character_flag = built_tower_crypts
+			capital_scope = {
+				add_province_modifier = { modifier = tower_crypt duration = -1 }
+			}
 		}
 	}
 }
@@ -12338,7 +12750,7 @@ character_event = {
 	}
 	
 	weight_multiplier = {
-		days = 0
+		days = 1
 		modifier = {
 			factor = 0
 			NOT = { has_character_modifier = studying_herbalism }
@@ -12348,7 +12760,13 @@ character_event = {
 	option = {
 		name = EVTOPTAMYTH_WoL.149
 		random_list = {
-			80 = {
+			50 = {
+			}
+			30 = {
+				custom_tooltip = {
+					text = tt_gain_ingredient
+					hidden_tooltip = { hermetic_add_herbal_q1_ingredient_effect = yes }
+				}
 			}
 			10 = {
 				modifier = {
@@ -12360,6 +12778,7 @@ character_event = {
 					NOT = { learning = 5 }
 				}
 				change_learning = 1
+				hermetic_add_herbal_q1_ingredient_effect = yes
 			}
 			10 = {
 				custom_tooltip = { text = EVTTOOLTIPMYTH_WoL.149 }
@@ -12700,7 +13119,7 @@ character_event = {
 	
 	immediate = {
 		random_list = {
-			90 = {
+			80 = {
 				character_event = { id = MYTH_WoL.159 days = 60 random = 30 } # Nothing found
 			}
 			10 = {
@@ -13213,7 +13632,7 @@ character_event = {
 				NOT = { learning = 5 }
 			}
 			modifier = {
-				factor = 1.5
+				factor = 0.5
 				learning = 20
 			}
 			modifier = {
@@ -13229,7 +13648,7 @@ character_event = {
 				trait = charitable
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.6
 				trait = diligent
 			}
 			modifier = {
@@ -13237,11 +13656,11 @@ character_event = {
 				trait = kind
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.6
 				trait = patient
 			}
 			modifier = {
-				factor = 0.7
+				factor = 0.5
 				trait = humble
 			}
 			modifier = {
@@ -13249,7 +13668,7 @@ character_event = {
 				trait = envious
 			}
 			modifier = {
-				factor = 1.2
+				factor = 1.3
 				trait = wroth
 			}
 			modifier = {
@@ -13257,11 +13676,11 @@ character_event = {
 				trait = proud
 			}
 			modifier = {
-				factor = 0.6
+				factor = 0.5
 				trait = theologian
 			}
 			modifier = {
-				factor = 0.8
+				factor = 0.7
 				trait = celibate
 			}
 			modifier = {
@@ -13326,51 +13745,6 @@ character_event = {
 			modifier = {
 				factor = 1.3
 				trait = cannibal_trait
-			}
-			# Abrahamic impious traits
-			modifier = {
-				factor = 1.2
-				trait = lustful
-			}
-			modifier = {
-				factor = 1.2
-				trait = gluttonous
-			}
-			modifier = {
-				factor = 1.2
-				trait = greedy
-			}
-			modifier = {
-				factor = 1.2
-				trait = slothful
-			}
-			modifier = {
-				factor = 0.8
-				trait = chaste
-			}
-			modifier = {
-				factor = 0.8
-				trait = temperate
-			}
-			modifier = {
-				factor = 0.8
-				trait = charitable
-			}
-			modifier = {
-				factor = 0.8
-				trait = diligent
-			}
-			modifier = {
-				factor = 0.8
-				trait = patient
-			}
-			modifier = {
-				factor = 0.8
-				trait = kind
-			}
-			modifier = {
-				factor = 0.8
-				trait = humble
 			}
 			modifier = {
 				factor = 0.7
@@ -13460,18 +13834,6 @@ character_event = {
 			religion = norse_pagan_reformed
 		}
 		is_female = no
-	}
-	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 0
-			NOR = {
-				has_focus = focus_magic
-				religion = norse_pagan
-				religion = norse_pagan_reformed
-			}
-		}
 	}
 	
 	option = {
@@ -14316,6 +14678,7 @@ character_event = {
 			has_character_flag = education_magic
 		}
 		add_trait = novice_mage
+		update_natural_magic = yes
 		if = {
 			limit = { NOT = { trait = magic_heritage } }
 			add_trait = magic_heritage
@@ -14510,10 +14873,6 @@ character_event = {
 		
 	trigger = {
 		has_focus = focus_seduction
-		OR = {
-			has_character_flag = seduction_confirmed
-			has_any_opinion_modifier = opinion_seducing
-		}
 	}
 	
 	immediate = {
@@ -14527,8 +14886,8 @@ character_event = {
 					}
 				}
 			}
-			remove_opinion = {
-				who = event_target:target_seduced
+			reverse_remove_opinion = {
+				who = ROOT
 				modifier = opinion_seducing
 			}
 			
@@ -14546,7 +14905,7 @@ character_event = {
 		# Seduce someone new
 		random_character = {
 			limit = {
-				is_marriage_adult = yes
+				is_adult = yes
 				NOT = { character = ROOT }
 				NOT = { trait = incapable }
 				prisoner = no
@@ -14573,6 +14932,7 @@ character_event = {
 					modifier = opinion_seducing
 					years = 1000
 				}
+				character_event = { id = WoL.100 days = 1 } # No warning - Let the chase begin!
 			}
 		}
 	}
@@ -16786,5 +17146,6396 @@ character_event = {
 		ai_chance = {
 			factor = 1
 		}
+	}
+}
+
+# Theology - ancient religion appeals to you
+# First event handles things to avoid issues if no religion qualifies
+character_event = {
+	id = MYTH_WoL.214
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_theology
+		NOT = { trait = zealous }
+		OR = {
+			religion_authority = 0.31
+			is_reformed_religion = yes
+		}
+		NOT = {	religion = the_damned }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.2
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.3
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.4
+		}
+		modifier = {
+			factor = 0.9
+			religion_authority = 0.5
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.6
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.7
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.8
+		}
+		modifier = {
+			factor = 0.8
+			religion_authority = 0.9
+		}
+		modifier = {
+			factor = 0.5
+			religion_authority = 1
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			# Norse
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = norse_reformation
+						norse_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = norse_pagan }
+						any_vassal = { religion = norse_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 2
+					culture = norse
+				}
+				modifier = {
+					factor = 1.5
+					OR = {
+						culture = swedish
+						culture = norwegian
+						culture = danish
+					}
+				}
+				set_character_flag = event_ancient_religion_norse
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Tengri
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = tengri_reformation
+						tengri_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = tengri_pagan }
+						any_vassal = { religion = tengri_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_steppe }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_steppe }
+				}
+				modifier = {
+					factor = 2
+					culture_group = altaic
+				}
+				set_character_flag = event_ancient_religion_tengri
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Baltic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = baltic_reformation
+						baltic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = baltic_pagan }
+						any_vassal = { religion = baltic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 2
+					culture_group = baltic
+				}
+				set_character_flag = event_ancient_religion_baltic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Finnish
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = finnish_reformation
+						finnish_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = finnish_pagan }
+						any_vassal = { religion = finnish_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 2
+					culture_group = finno_ugric
+				}
+				set_character_flag = event_ancient_religion_finnish
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Slavic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = slavic_reformation
+						slavic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = slavic_pagan }
+						any_vassal = { religion = slavic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_east }
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						culture_group = east_slavic
+						culture_group = west_slavic
+					}
+				}
+				set_character_flag = event_ancient_religion_slavic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# West African
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = west_african_reformation
+						west_african_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = west_african_pagan }
+						any_vassal = { religion = west_african_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_africa }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_africa }
+				}
+				modifier = {
+					factor = 2
+					culture_group = west_african
+				}
+				set_character_flag = event_ancient_religion_west_african
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Zunist
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = zun_reformation
+						zun_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = zun_pagan }
+						any_vassal = { religion = zun_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_persia }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_persia }
+				}
+				modifier = {
+					factor = 2
+					culture_group = iranian
+				}
+				set_character_flag = event_ancient_religion_zun
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Draconic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = draconic_reformation
+						draconic_pagan = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = draconic_pagan }
+						any_vassal = { religion = draconic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					trait = dragon
+				}
+				modifier = {
+					factor = 1.5
+					trait = dragonborn
+				}
+				modifier = {
+					factor = 2
+					culture = draconic
+				}
+				set_character_flag = event_ancient_religion_draconic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Celtic
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = druidic_reformation
+						druidic = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = druidic }
+						any_vassal = { religion = druidic }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = {
+						OR = {
+							de_jure_liege_or_above = e_britannia
+							de_jure_liege_or_above = e_france
+							de_jure_liege_or_above = e_spain
+						}
+					}
+				}
+				modifier = {
+					factor = 3
+					location = {
+						OR = {
+							de_jure_liege_or_above = e_britannia
+							de_jure_liege_or_above = e_france
+							de_jure_liege_or_above = e_spain
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					culture_group = celtic
+				}
+				set_character_flag = event_ancient_religion_celtic
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Jotnar
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = jotnar_reformation
+						jotnar = { religion_authority = 0.21 }
+					}
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = jotnar }
+						any_vassal = { religion = jotnar }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_north }
+				}
+				modifier = {
+					factor = 0.5
+					culture = norse
+				}
+				modifier = {
+					factor = 2
+					trait = giant
+				}
+				modifier = {
+					factor = 1.5
+					trait = half_giant
+				}
+				set_character_flag = event_ancient_religion_jotnar
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Hellenic
+			1 = {
+				modifier = {
+					factor = 0
+					hellenic_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = hellenic_pagan }
+						any_vassal = { religion = hellenic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = {
+						de_jure_liege_or_above = k_byzantium
+					}
+				}
+				modifier = {
+					factor = 3
+					location = {
+						de_jure_liege_or_above = k_byzantium
+					}
+				}
+				modifier = {
+					factor = 2
+					culture_group = byzantine
+				}
+				set_character_flag = event_ancient_religion_greek
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Roman
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { has_global_flag = roman_pagan_restoration }
+					roman_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = roman_pagan }
+						any_vassal = { religion = roman_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_europe_south_italy }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_europe_south_italy }
+				}
+				modifier = {
+					factor = 2
+					OR = {
+						culture = italian
+						culture = lombard
+					}
+				}
+				set_character_flag = event_ancient_religion_roman
+				character_event = { id = MYTH_WoL.215 }
+			}
+			# Kemetic
+			1 = {
+				modifier = {
+					factor = 0
+					kemetic_pagan = { religion_authority = 0.25 }
+				}
+				modifier = {
+					factor = 0.1
+					OR = {
+						any_courtier = { religion = kemetic_pagan }
+						any_vassal = { religion = kemetic_pagan }
+					}
+				}
+				modifier = {
+					factor = 2
+					capital_scope = { region = world_africa_north }
+				}
+				modifier = {
+					factor = 3
+					location = { region = world_africa_north }
+				}
+				modifier = {
+					factor = 2
+					culture = egyptian_arabic
+				}
+				set_character_flag = event_ancient_religion_egyptian
+				character_event = { id = MYTH_WoL.215 }
+			}
+		}
+	}
+}
+
+# Intrigued by an ancient religion
+character_event = {
+	id = MYTH_WoL.215
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_norse }
+		text = EVTDESC_MYTH_WoL_215_NORSE
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_tengri }
+		text = EVTDESC_MYTH_WoL_215_TENGRI
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_baltic }
+		text = EVTDESC_MYTH_WoL_215_BALTIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_finnish }
+		text = EVTDESC_MYTH_WoL_215_FINNISH
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_slavic }
+		text = EVTDESC_MYTH_WoL_215_SLAVIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_west_african }
+		text = EVTDESC_MYTH_WoL_215_WEST_AFRICAN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_zun }
+		text = EVTDESC_MYTH_WoL_215_ZUN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_draconic }
+		text = EVTDESC_MYTH_WoL_215_DRACONIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_celtic }
+		text = EVTDESC_MYTH_WoL_215_CELTIC
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_jotnar }
+		text = EVTDESC_MYTH_WoL_215_JOTNAR
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_greek }
+		text = EVTDESC_MYTH_WoL_215_GREEK
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_roman }
+		text = EVTDESC_MYTH_WoL_215_ROMAN
+	}
+	desc = {
+		trigger = { has_character_flag = event_ancient_religion_egyptian }
+		text = EVTDESC_MYTH_WoL_215_EGYPTIAN
+	}
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Convert
+	option = {
+		name = EVTOPTA_MYTH_WoL.215
+		trigger_switch = {
+			on_trigger = has_character_flag
+			event_ancient_religion_norse		= { religion = norse_pagan }
+			event_ancient_religion_tengri		= { religion = tengri_pagan }
+			event_ancient_religion_baltic		= { religion = baltic_pagan }
+			event_ancient_religion_finnish		= { religion = finnish_pagan }
+			event_ancient_religion_slavic		= { religion = slavic_pagan }
+			event_ancient_religion_west_african	= { religion = west_african_pagan }
+			event_ancient_religion_zun			= { religion = zun_pagan }
+			event_ancient_religion_draconic		= { religion = draconic_pagan }
+			event_ancient_religion_celtic		= { religion = druidic }
+			event_ancient_religion_jotnar		= { religion = jotnar }
+			event_ancient_religion_greek		= { religion = hellenic_pagan }
+			event_ancient_religion_roman		= { religion = roman_pagan }
+			event_ancient_religion_egyptian		= { religion = kemetic_pagan }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = honest
+			}
+		}
+	}
+	
+	# Convert in secret
+	option = {
+		name = EVTOPTB_MYTH_WoL.215
+		trigger_switch = {
+			on_trigger = has_character_flag
+			event_ancient_religion_norse		= { set_secret_religion = norse_pagan }
+			event_ancient_religion_tengri		= { set_secret_religion = tengri_pagan }
+			event_ancient_religion_baltic		= { set_secret_religion = baltic_pagan }
+			event_ancient_religion_finnish		= { set_secret_religion = finnish_pagan }
+			event_ancient_religion_slavic		= { set_secret_religion = slavic_pagan }
+			event_ancient_religion_west_african	= { set_secret_religion = west_african_pagan }
+			event_ancient_religion_zun			= { set_secret_religion = zun_pagan }
+			event_ancient_religion_draconic		= { set_secret_religion = draconic_pagan }
+			event_ancient_religion_celtic		= { set_secret_religion = druidic }
+			event_ancient_religion_jotnar		= { set_secret_religion = jotnar }
+			event_ancient_religion_greek		= { set_secret_religion = hellenic_pagan }
+			event_ancient_religion_roman		= { set_secret_religion = roman_pagan }
+			event_ancient_religion_egyptian		= { set_secret_religion = kemetic_pagan }
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	
+	# Refuse
+	option = {
+		name = EVTOPTC_MYTH_WoL.215
+		add_trait = zealous
+		trigger = { NOT = { trait = cynical } }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 3 
+				ai_zeal >= 50
+			}
+		}
+	}
+	
+	# Disappointed
+	option = {
+		name = EVTOPTD_MYTH_WoL.215
+		if = {
+			limit = { NOT = { trait = cynical } }
+			add_trait = cynical
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 3 
+				ai_zeal < 0
+			}
+		}
+	}
+	
+	after = {
+		clr_character_flag = event_ancient_religion_norse
+		clr_character_flag = event_ancient_religion_tengri
+		clr_character_flag = event_ancient_religion_baltic
+		clr_character_flag = event_ancient_religion_finnish
+		clr_character_flag = event_ancient_religion_slavic
+		clr_character_flag = event_ancient_religion_west_african
+		clr_character_flag = event_ancient_religion_zun
+		clr_character_flag = event_ancient_religion_draconic
+		clr_character_flag = event_ancient_religion_celtic
+		clr_character_flag = event_ancient_religion_jotnar
+		clr_character_flag = event_ancient_religion_greek
+		clr_character_flag = event_ancient_religion_roman
+		clr_character_flag = event_ancient_religion_egyptian
+	}
+}
+
+# Search for herbs in the forest
+character_event = {
+	id = MYTH_WoL.216
+	desc = {
+		trigger = { NOT = { has_character_flag = apprentice_herb_gather } }
+		text = EVTDESCMYTH_WoL.216
+	}
+	desc = {
+		trigger = { has_character_flag = apprentice_herb_gather }
+		text = EVTDESCBMYTH_WoL.216
+	}
+	picture = GFX_evt_experiment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.216
+		character_event = { id = MYTH_WoL.217 days = 50 random = 50 }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.216
+		trigger = { ai = no }
+		remove_character_modifier = acquire_ingredients_decision_cooldown_timer
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.217
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = {
+			which = gath_try
+			value = 5
+		}
+		set_variable = {
+			which = gath_res
+			value = 0
+		}
+		
+		export_to_variable = { which = search_skill value = stewardship }
+		export_to_variable = { which = temp value = learning }
+		change_variable = { which = search_skill which = temp }
+		set_variable = { which = temp value = 0 }
+		
+		while = {
+			limit = {
+				check_variable = {
+					which = gath_try
+					value = 1
+				}
+			}
+			random_list = {
+				50 = { # Successful gathering
+					modifier = {
+						factor = 0.5
+						NOT = { check_variable = { which = search_skill value = 10 } }
+					}
+					modifier = {
+						factor = 0.6
+						NOT = { check_variable = { which = search_skill value = 14 } }
+					}
+					modifier = {
+						factor = 0.7
+						NOT = { check_variable = { which = search_skill value = 18 } }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { check_variable = { which = search_skill value = 24 } }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { check_variable = { which = search_skill value = 28 } }
+					}
+					modifier = {
+						factor = 1.2
+						NOT = { check_variable = { which = search_skill value = 32 } }
+					}
+					modifier = {
+						factor = 1.1
+						trait = herbalist
+					}
+					
+					change_variable = {
+						which = gath_res
+						value = 1
+					}
+				}
+				50 = { # Unsuccessful gathering
+					modifier = {
+						factor = 1.3
+						trait = drunkard
+					}
+				}
+			}
+			subtract_variable = {
+				which = gath_try
+				value = 1
+			}
+		}
+		
+		character_event = { id = MYTH_WoL.218 }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.218
+	desc = {
+		text = EVTDESCAMYTH_WoL.218
+		trigger = {
+			check_variable = {
+				which = gath_res
+				value = 4
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBMYTH_WoL.218
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = gath_res
+					value = 4
+				}
+			}
+			check_variable = {
+				which = gath_res
+				value = 1
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCCMYTH_WoL.218
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = gath_res
+					value = 1
+				}
+			}
+		}
+	}
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.218
+		trigger = {
+			check_variable = {
+				which = gath_res
+				value = 4
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_MNM_1812 }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.218
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = gath_res
+					value = 4
+				}
+			}
+			check_variable = {
+				which = gath_res
+				value = 1
+			}
+		}
+		custom_tooltip = { text = EVTTOOLTIP_MNM_1812 }
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.218
+		trigger = {
+			NOT = {
+				check_variable = {
+					which = gath_res
+					value = 1
+				}
+			}
+		}
+		random_list = {
+			120 = { #no effect
+				
+			}
+			60 = { #poisoned
+				if = {
+					limit = { has_dlc = "Reapers" }
+					give_food_poisoning_effect = yes
+					custom_tooltip = {
+						text = EVTTOOLTIP_MNM_1812_ILL
+					}
+				}
+				if = {
+					limit = { NOT = { has_dlc = "Reapers" } }
+					add_trait = ill
+				}
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { has_character_flag = apprentice_herb_gather }
+			subtract_variable = { which = gath_res value = 1 }
+			liege = { hermetic_add_herbal_ingredient_effect = yes }
+			clr_character_flag = apprentice_herb_gather
+			liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
+		}
+		character_event = { id = MYTH_WoL.40 }
+		while = {
+			limit = {
+				check_variable = {
+					which = gath_res
+					value = 1
+				}
+			}
+			hermetic_add_herbal_ingredient_effect = yes
+			
+			subtract_variable = {
+				which = gath_res
+				value = 1
+			}
+		}
+		clr_character_flag = do_not_disturb
+	}
+}
+
+# Regeneration potion
+character_event = {
+	id = MYTH_WoL.219
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.219
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.219
+	}
+	picture = GFX_evt_recovery
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.219
+		random_list = {
+			1 = {
+				trigger = { trait = wounded }
+				remove_trait = wounded
+				hidden_tooltip = {
+					set_character_flag = healed_wounded
+				}
+			}
+			1 = {
+				trigger = { trait = maimed }
+				remove_trait = maimed
+				hidden_tooltip = {
+					set_character_flag = healed_maimed
+				}
+			}
+			1 = {
+				trigger = { trait = scarred }
+				remove_trait = scarred
+				hidden_tooltip = {
+					set_character_flag = healed_scarred
+				}
+			}
+			1 = {
+				trigger = { trait = disfigured }
+				remove_trait = disfigured
+				hidden_tooltip = {
+					set_character_flag = healed_disfigured
+				}
+			}
+			1 = {
+				trigger = { trait = one_eyed }
+				remove_trait = one_eyed
+				hidden_tooltip = {
+					set_character_flag = healed_one_eyed
+				}
+			}
+			1 = {
+				trigger = { trait = one_handed }
+				remove_trait = one_handed
+				hidden_tooltip = {
+					set_character_flag = healed_one_handed
+				}
+			}
+			1 = {
+				trigger = { trait = one_legged }
+				remove_trait = one_legged
+				hidden_tooltip = {
+					set_character_flag = healed_one_legged
+				}
+			}
+			1 = {
+				trigger = { trait = mangled }
+				remove_trait = mangled
+				hidden_tooltip = {
+					set_character_flag = healed_mangled
+				}
+			}
+			1 = {
+				trigger = { trait = eunuch }
+				remove_trait = eunuch
+				hidden_tooltip = {
+					set_character_flag = healed_eunuch
+				}
+			}
+			1 = {
+				trigger = { trait = blinded }
+				remove_trait = blinded
+				hidden_tooltip = {
+					set_character_flag = healed_blinded
+				}
+			}
+			1 = {
+				trigger = { trait = severely_injured }
+				remove_trait = severely_injured
+				hidden_tooltip = {
+					clear_delayed_event = { id = RIP.11000 }
+					set_character_flag = healed_severely_injured
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { character = FROM } }
+			FROM = { character_event = { id = MYTH_WoL.220 } }
+		}
+		else = {
+			clr_character_flag = healed_wounded
+			clr_character_flag = healed_maimed
+			clr_character_flag = healed_scarred
+			clr_character_flag = healed_disfigured
+			clr_character_flag = healed_one_eyed
+			clr_character_flag = healed_one_handed
+			clr_character_flag = healed_one_legged
+			clr_character_flag = healed_mangled
+			clr_character_flag = healed_eunuch
+			clr_character_flag = healed_blinded
+			clr_character_flag = healed_severely_injured
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				trait = maimed
+			}
+			modifier = {
+				factor = 2
+				trait = disfigured
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_eyed
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_handed
+			}
+			modifier = {
+				factor = 1.5
+				trait = one_legged
+			}
+			modifier = {
+				factor = 2
+				trait = mangled
+			}
+			modifier = {
+				factor = 2
+				trait = eunuch
+			}
+			modifier = {
+				factor = 2
+				trait = blinded
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.220
+	desc = EVTDESCMYTH_WoL.220
+	picture = GFX_evt_recovery
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		if = {
+			limit = { FROM = { has_character_flag = healed_wounded } }
+			tooltip = { remove_trait = wounded }
+			clr_character_flag = healed_wounded
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_maimed } }
+			tooltip = { remove_trait = maimed }
+			clr_character_flag = healed_maimed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_scarred } }
+			tooltip = { remove_trait = scarred }
+			clr_character_flag = healed_scarred
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_disfigured } }
+			tooltip = { remove_trait = disfigured }
+			clr_character_flag = healed_disfigured
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_eyed } }
+			tooltip = { remove_trait = one_eyed }
+			clr_character_flag = healed_one_eyed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_handed } }
+			tooltip = { remove_trait = one_handed }
+			clr_character_flag = healed_one_handed
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_one_legged } }
+			tooltip = { remove_trait = one_legged }
+			clr_character_flag = healed_one_legged
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_mangled } }
+			tooltip = { remove_trait = mangled }
+			clr_character_flag = healed_mangled
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_eunuch } }
+			tooltip = { remove_trait = eunuch }
+			clr_character_flag = healed_eunuch
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_blinded } }
+			tooltip = { remove_trait = blinded }
+			clr_character_flag = healed_blinded
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_severely_injured } }
+			tooltip = { remove_trait = severely_injured }
+			clr_character_flag = healed_severely_injured
+		}
+	}
+}
+
+# Potion of control
+character_event = {
+	id = MYTH_WoL.221
+	desc = EVTDESCMYTH_WoL.221
+	picture = GFX_evt_werewolf_shadowed
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		increase_control = yes
+		random_list = {
+			1 = {
+				trigger = {
+					NOR = {
+						trait = temperate
+						trait = gluttonous
+					}
+				}
+				add_trait = temperate
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = patient
+						trait = wroth
+					}
+				}
+				add_trait = patient
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = ambitious
+						trait = content
+					}
+				}
+				add_trait = content
+			}
+			1 = {
+				trigger = { trait = gluttonous }
+				remove_trait = gluttonous
+			}
+			1 = {
+				trigger = { trait = wroth }
+				remove_trait = wroth
+			}
+			1 = {
+				trigger = { trait = cruel }
+				remove_trait = cruel
+			}
+			1 = {
+				trigger = { trait = paranoid }
+				remove_trait = paranoid
+			}
+		}
+	}
+}
+
+# Potion of frenzy
+character_event = {
+	id = MYTH_WoL.222
+	desc = EVTDESCMYTH_WoL.222
+	picture = GFX_evt_werewolf_moon
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		decrease_control = yes
+		random_list = {
+			1 = {
+				trigger = {
+					NOR = {
+						trait = wroth
+						trait = patient
+					}
+				}
+				add_trait = wroth
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = temperate
+						trait = gluttonous
+					}
+				}
+				add_trait = gluttonous
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = brave
+						trait = craven
+					}
+				}
+				add_trait = brave
+			}
+			1 = {
+				trigger = {
+					NOR = {
+						trait = arbitrary
+						trait = just
+					}
+				}
+				add_trait = arbitrary
+			}
+			1 = {
+				trigger = { trait = stubborn }
+				add_trait = stubborn
+			}
+			1 = {
+				trigger = { trait = temperate }
+				remove_trait = temperate
+			}
+			1 = {
+				trigger = { trait = patient }
+				remove_trait = patient
+			}
+			1 = {
+				trigger = { trait = kind }
+				remove_trait = kind
+			}
+			1 = {
+				trigger = { trait = slothful }
+				remove_trait = slothful
+			}
+			1 = {
+				trigger = { trait = craven }
+				remove_trait = craven
+			}
+			1 = {
+				trigger = { trait = content }
+				remove_trait = content
+			}
+			1 = {
+				trigger = { trait = shy }
+				remove_trait = shy
+			}
+		}
+	}
+}
+
+# Potion of Purity
+character_event = {
+	id = MYTH_WoL.223
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.223
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.223
+	}
+	picture = GFX_evt_dragon_face
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.223
+		add_character_modifier = { name = potion_of_purity years = 5 }
+		FROM = {
+			if = {
+				limit = { ai = no }
+				character_event = { id = MYTH_WoL.224 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.224
+	desc = EVTDESCMYTH_WoL.224
+	picture = GFX_evt_dragon_face
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		FROM = { add_character_modifier = { name = potion_of_purity years = 5 } }
+	}
+}
+
+# Battle Potion
+character_event = {
+	id = MYTH_WoL.225
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.225
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.225
+	}
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.225
+		add_character_modifier = { name = potion_of_battle years = 2 }
+		FROM = {
+			if = {
+				limit = { ai = no }
+				character_event = { id = MYTH_WoL.226 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				in_command = yes
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.226
+	desc = EVTDESCMYTH_WoL.226
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			FROM = { add_character_modifier = { name = potion_of_battle years = 2 } }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.227
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.227
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.227
+	}
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.227
+		add_character_modifier = { name = potion_of_fertility years = 3 }
+		random = {
+			chance = 20
+			if = {
+				limit = { trait = chaste }
+				remove_trait = chaste
+			}
+			else_if = {
+				limit = { NOT = { trait = lustful } }
+				add_trait = lustful
+			}
+		}
+		random = {
+			chance = 5
+			if = {
+				limit = { trait = lovers_pox }
+				remove_trait = lovers_pox
+			}
+			else_if = {
+				limit = { trait = syphilitic }
+				remove_trait = syphilitic
+			}
+			else_if = {
+				limit = { has_character_modifier = minor_disease_herpes }
+				remove_character_modifier = minor_disease_herpes
+			}
+		}
+		FROM = { character_event = { id = MYTH_WoL.228 } }
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_health
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 3
+				NOT = { num_of_children = 1 }
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.228
+	desc = EVTDESCMYTH_WoL.228
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	ai = no
+	trigger = { NOT = { character = FROM } }
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			FROM = { add_character_modifier = { name = potion_of_fertility years = 3 } }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.229
+	desc = {
+		trigger = { NOT = { character = FROM } }
+		text = EVTDESCMYTH_WoL.229
+	}
+	desc = {
+		trigger = { character = FROM }
+		text = EVTDESCBMYTH_WoL.229
+	}
+	picture = GFX_evt_recovery
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.229
+		add_character_modifier = { name = potion_of_health years = 3 }
+		FROM = { character_event = { id = MYTH_WoL.230 } }
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_secrets
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+			modifier = {
+				factor = 1.5
+				health < 1
+			}
+			modifier = {
+				factor = 1.5
+				health < 2
+			}
+			modifier = {
+				factor = 1.5
+				health < 3
+			}
+			modifier = {
+				factor = 1.5
+				health < 4
+			}
+			modifier = {
+				factor = 1.5
+				health < 5
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_secrets
+			}
+		}
+	}
+}
+character_event = {
+	id = MYTH_WoL.230
+	desc = EVTDESCMYTH_WoL.230
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	ai = no
+	trigger = { NOT = { character = FROM } }
+	
+	option = {
+		name = EXCELLENT
+		tooltip = { FROM = { add_character_modifier = { name = potion_of_health years = 3 } } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.231
+	desc = EVTDESCMYTH_WoL.231
+	picture = GFX_evt_suspicious_noble
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.231
+		add_character_modifier = { name = potion_of_secrets years = 2 }
+		random = {
+			chance = 20
+			if = {
+				limit = { trait = trusting }
+				remove_trait = trusting
+			}
+			else_if = {
+				limit = { NOT = { trait = paranoid } }
+				add_trait = paranoid
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = regeneration_strain
+					has_character_modifier = potion_of_purity
+					has_character_modifier = potion_of_battle
+					has_character_modifier = potion_of_fertility
+					has_character_modifier = potion_of_health
+				}
+			}
+			random_list = {
+				4 = {}
+				1 = {
+					custom_tooltip = { text = tt_poor_admixture }
+					character_event = { id = MYTH_WoL.232 days = 1 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 3
+				trait = brave
+			}
+		}
+	}
+	
+	option = {
+		name = REFUSE_POTION
+		trigger = {
+			OR = {
+				ai = no
+				trait = paranoid
+				has_potion_modifer_trigger = yes
+			}
+		}
+		if = {
+			limit = { character = FROM }
+			custom_tooltip = { text = tt_no_refund }
+		}
+		else = {
+			character_event = { id = MYTH_WoL.234 }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				character = FROM
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = regeneration_strain
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_purity
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_battle
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_fertility
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = potion_of_health
+			}
+		}
+	}
+}
+
+# Potion poisoning - can occur if you take a potion with a linger effect while one is already present
+character_event = {
+	id = MYTH_WoL.232
+	desc = EVTDESCMYTH_WoL.232
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.232
+		if = {
+			limit = { has_dlc = Reapers }
+			add_trait = food_poisoning
+		}
+		else = {
+			add_trait = ill
+		}
+		set_character_flag = manifest_food_poisoning
+		scrying_omen_fulfilled_by_gaining_disease_effect = yes
+		father = {
+			if = {
+				limit = { 
+					ai = no 
+					is_liege_of = ROOT
+				}
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		mother = {
+			if = {
+				limit = { 
+					ai = no 
+					is_liege_of = ROOT
+				}
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		spouse = {
+			if = {
+				limit = { ai = no }
+				set_character_flag = announce_food_poisoning
+				character_event = { id = RIP.5060 }
+			}
+		}
+		character_event = { id = MYTH_WoL.233 days = 30 random = 15 }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.233
+	desc = EVTDESCMYTH_WoL.233
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = food_poisoning
+			trait = ill
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.233
+		remove_trait = food_poisoning
+		remove_trait = ill
+		remove_character_modifier = potion_of_purity
+		remove_character_modifier = potion_of_battle
+		remove_character_modifier = potion_of_fertility
+		remove_character_modifier = potion_of_health
+		remove_character_modifier = potion_of_secrets
+	}
+}
+
+# Potion rejected
+character_event = {
+	id = MYTH_WoL.234
+	desc = {
+		trigger = { FROM = { has_potion_modifer_trigger = yes } }
+		text = EVTDESCMYTH_WoL.234
+	}
+	desc = {
+		trigger = { FROM = { has_potion_modifer_trigger = no } }
+		text = EVTDESCBMYTH_WoL.234
+	}
+	picture = GFX_evt_experiments_failed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.234
+	}
+}
+
+# Make an experimental potion from spare ingredients
+character_event = {
+	id = MYTH_WoL.235
+	desc = EVTDESCMYTH_WoL.235
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		OR = {
+			trait = herbalist
+			has_character_modifier = studying_herbalism
+		}
+		ROOT = {
+			any_artifact = {
+				has_artifact_flag = ingredient
+			}
+		}
+		NOR = {
+			has_character_modifier = experimental_potion_1
+			has_character_modifier = experimental_potion_2
+			has_character_modifier = experimental_potion_3
+			has_character_modifier = experimental_potion_4
+			has_character_modifier = experimental_potion_5
+			has_character_modifier = experimental_potion_6
+			has_character_modifier = experimental_potion_7
+			has_character_modifier = experimental_potion_8
+			has_character_modifier = experimental_potion_9
+			has_character_modifier = experimental_potion_10
+		}
+	}
+	
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.235
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_1
+			}
+		}
+		random_list = {
+			9 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_2 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_3 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_4 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_5 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_7 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_8 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_9 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 2 } }
+	}
+	
+	option = {
+		name = EVTOPTBMYTH_WoL.235
+		trigger = {
+			any_artifact = {
+				has_artifact_flag = selected_ingredient_2
+			}
+		}
+		random_list = {
+			9 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_2 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_3 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_4 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_5 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_1 months = 6 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_animal_part_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_7 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_metal_trigger = yes
+							quality == 1
+						}
+					}
+					add_character_modifier = { name = experimental_potion_8 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 2
+						}
+					}
+					add_character_modifier = { name = experimental_potion_9 months = 6 }
+				}
+				else_if = {
+					limit = {
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							is_ingredient_herb_trigger = yes
+							quality == 3
+						}
+					}
+					add_character_modifier = { name = experimental_potion_10 months = 6 }
+				}
+				else = {
+					# Fallback to herb potion
+					add_character_modifier = { name = experimental_potion_6 months = 6 }
+				}
+			}
+		}
+		destroy_selected_ingredient_2_effect = yes
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 days = 2 } }
+	}
+	
+	option = {
+		name = EVTOPTCMYTH_WoL.235
+	}
+}
+
+# Weird Scholarship Necromancy event
+character_event = {
+	id = MYTH_WoL.236
+	desc = EVTDESCMYTH_WoL.236
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		has_focus = focus_scholarship
+		has_education_magic_trigger = yes
+		prisoner = no
+		is_incapable = no
+		any_artifact = { artifact_type = necronomicon }
+		NOT = { lifestyle_traits = 1 }
+		has_character_modifier = weird_scholar
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.236
+		piety = -100
+		character_event = { id = MYTH_WoL.137 days = 10 random = 50 }
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 1.5
+				religion = satanist
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.236
+		ai_chance = {
+			factor = 3
+		}
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.236
+		piety = 200
+		destroy_artifact = necronomicon
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.237
+	desc = EVTDESCMYTH_WoL.237
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	
+	trigger = {
+		has_focus = focus_scholarship
+		has_education_magic_trigger = yes
+		prisoner = no
+		is_incapable = no
+		any_artifact = { artifact_type = necronomicon }
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.237
+		piety = -100
+		random_list = {
+			20 = {
+				modifier = {
+					factor = 1.5
+					learning = 10
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 2
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					trait = arcane_master
+				}
+				custom_tooltip = { text = tt_necromancy_success }
+				character_event = { id = MYTH_WoL.238 days = 10 random = 4 }
+			}
+			10 = {
+				modifier = {
+					factor = 1.5
+					trait = slothful
+				}
+				custom_tooltip = { text = tt_necromancy_failure }
+				character_event = { id = MYTH_WoL.239 days = 10 random = 4 }
+			}
+			5 = {
+				modifier = {
+					factor = 2
+					is_dumb_trigger = yes
+				}
+				custom_tooltip = { text = tt_necromancy_disaster }
+				character_event = { id = MYTH_WoL.240 days = 10 random = 4 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.237
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.238
+	desc = EVTDESCMYTH_WoL.238
+	picture = GFX_evt_sacrifice
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			age = 23
+			random_traits = yes
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+		}
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			opinion = { who = ROOT modifier = opinion_controlled_undead years = 700 }
+			save_event_target_as = new_undead
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.238
+		trigger = { NOT = { lifestyle_traits = 1 } }
+		event_target:new_undead = {} # For icon
+		add_trait = necromancer
+		
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.238
+		trigger = {
+			OR = {
+				ai = no
+				lifestyle_traits = 1
+			}
+		}
+		event_target:new_undead = {} # For icon
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.239
+	desc = EVTDESCMYTH_WoL.239
+	picture = GFX_evt_experiments_failed
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.239
+		character_event = { id = MYTH_WoL.237 days = 10 random = 40 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.239
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.240
+	desc = EVTDESCMYTH_WoL.240
+	picture = GFX_evt_experiments_failed
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			age = 23
+			random_traits = yes
+			religion = ROOT
+			culture = ROOT
+			dynasty = none
+		}
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			save_event_target_as = new_undead
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.239
+		event_target:new_undead = {} # For icon
+		character_event = { id = MYTH_WoL.237 days = 10 random = 40 }
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 1.5
+				trait = diligent
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.239
+		event_target:new_undead = {} # For icon
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Theology + Satanism, Necromancy
+character_event = {
+	id = MYTH_WoL.241
+	desc = EVTDESCMYTH_WoL.241
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	religion = satanist
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_theology
+		has_education_magic_trigger = yes
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.241
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 1.5
+						trait = eldritch_scholar
+					}
+					modifier = {
+						factor = 1.7
+						trait = veteran_wizard
+					}
+					modifier = {
+						factor = 1.9
+						trait = arcane_master
+					}
+					modifier = {
+						factor = 1.2
+						learning = 10
+					}
+					modifier = {
+						factor = 1.2
+						learning = 15
+					}
+					modifier = {
+						factor = 1.2
+						trait = zealous
+					}
+					character_event = { id = MYTH_WoL.243 days = 10 random = 20 }
+				}
+				4 = {
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					character_event = { id = MYTH_WoL.242 days = 10 random = 10 }
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.241
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.242
+	desc = EVTDESCMYTH_WoL.242
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	religion = satanist
+	
+	trigger = {
+		has_focus = focus_theology
+		has_education_magic_trigger = yes
+		prisoner = no
+		is_incapable = no
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	# Keep going
+	option = {
+		name = EVTOPTAMYTH_WoL.242
+		hidden_tooltip = {
+			random_list = {
+				5 = {
+					modifier = {
+						factor = 1.5
+						trait = eldritch_scholar
+					}
+					modifier = {
+						factor = 1.7
+						trait = veteran_wizard
+					}
+					modifier = {
+						factor = 1.9
+						trait = arcane_master
+					}
+					modifier = {
+						factor = 1.2
+						learning = 10
+					}
+					modifier = {
+						factor = 1.2
+						learning = 15
+					}
+					modifier = {
+						factor = 1.2
+						trait = zealous
+					}
+					character_event = { id = MYTH_WoL.243 days = 15 random = 25 }
+				}
+				4 = {
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					character_event = { id = MYTH_WoL.242 days = 15 random = 15 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	
+	# Pay extra
+	option = {
+		name = EVTOPTBMYTH_WoL.242
+		trigger = {
+			scaled_wealth = { value = 1 max = 100 }
+		}
+		scaled_wealth = { value = -1 max = -100 }
+		hidden_tooltip = {
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 1.5
+						trait = eldritch_scholar
+					}
+					modifier = {
+						factor = 1.7
+						trait = veteran_wizard
+					}
+					modifier = {
+						factor = 1.9
+						trait = arcane_master
+					}
+					modifier = {
+						factor = 1.2
+						learning = 10
+					}
+					modifier = {
+						factor = 1.2
+						learning = 15
+					}
+					modifier = {
+						factor = 1.2
+						trait = zealous
+					}
+					character_event = { id = MYTH_WoL.243 days = 15 random = 25 }
+				}
+				4 = {
+					modifier = {
+						factor = 1.5
+						trait = cynical
+					}
+					character_event = { id = MYTH_WoL.242 days = 15 random = 15 }
+				}
+			}
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMYTH_WoL.242
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Select demon to meet
+character_event = {
+	id = MYTH_WoL.243
+	hide_window = yes
+	is_triggered_only = yes
+	
+	religion = satanist
+	
+	trigger = {
+		has_focus = focus_theology
+		has_education_magic_trigger = yes
+		prisoner = no
+		is_incapable = no
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	immediate = {
+		random_list = {
+			1 = {
+				# Demon demands gold
+				character_event = { id = MYTH_WoL.244 }
+			}
+			1 = {
+				# Demon demands life of heir
+				trigger = {
+					current_heir = { is_child_of = ROOT }
+				}
+				character_event = { id = MYTH_WoL.245 }
+			}
+			1 = {
+				# Terrible demon marriage
+				trigger = {	is_married = no }
+				character_event = { id = MYTH_WoL.246 }
+			}
+			1 = {
+				# Demon demands regular sacrifices
+				character_event = { id = MYTH_WoL.247 }
+			}
+			1 = {
+				# Pestilence demon
+				trigger = { has_dlc = Reapers }
+				character_event = { id = MYTH_WoL.248 }
+			}
+			1 = {
+				# Lustful demon
+				character_event = { id = MYTH_WoL.249 }
+			}
+			1 = {
+				# Gluttonous demon
+				character_event = { id = MYTH_WoL.250 }
+			}
+			1 = {
+				# Wrathful demon
+				character_event = { id = MYTH_WoL.251 }
+			}
+			1 = {
+				# Greedy demon
+				character_event = { id = MYTH_WoL.252 }
+			}
+		}
+	}
+}
+
+# Demon demands exorbitant amount of gold
+character_event = {
+	id = MYTH_WoL.244
+	desc = EVTDESCAMYTH_WoL.244
+	picture = GFX_evt_bribe_accepted
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.244
+		add_trait = necromancer
+		scaled_wealth = -4
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 1.5
+				scaled_wealth = 5
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTBMYTH_WoL.244
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = { scaled_wealth = 4 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { scaled_wealth = 3 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { scaled_wealth = 2 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { scaled_wealth = 1 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { wealth = 0 }
+			}
+		}
+	}
+}
+
+# Demon demands the life of your heir
+character_event = {
+	id = MYTH_WoL.245
+	desc = EVTDESCMYTH_WoL.245
+	picture = GFX_evt_sacrifice
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = { current_heir = { save_event_target_as = my_heir } }
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.245
+		add_trait = necromancer
+		current_heir = { death = { death_reason = death_dragged_to_hell } }
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.245
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { num_of_children = 2 }
+			}
+		}
+	}
+}
+
+# Demon demands fulfillment of a marriage contract
+character_event = {
+	id = MYTH_WoL.246
+	desc = EVTDESCMYTH_WoL.246
+	picture = GFX_evt_uncomfortable
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { is_female = no }
+			create_character = {
+				age = 26
+				dynasty = random
+				attributes = {
+					martial = 0
+					diplomacy = 0
+					stewardship = 0
+					intrigue = 0
+					learning = 3
+				}
+				health = 6.0
+				fertility = 0.8
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				trait = novice_mage
+				trait = summoner
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = lisp
+				trait = stutter
+				trait = ugly
+				trait = weak
+				trait = gluttonous
+				trait = envious
+				trait = humble
+				trait = shy
+				trait = trusting
+			}
+		}
+		else = {
+			create_character = {
+				age = 26
+				dynasty = random
+				attributes = {
+					martial = 0
+					diplomacy = 0
+					stewardship = 0
+					intrigue = 0
+					learning = 3
+				}
+				health = 6.0
+				fertility = 0.8
+				female = no
+				religion = ROOT
+				culture = ROOT
+				trait = novice_mage
+				trait = summoner
+				trait = clubfooted
+				trait = harelip
+				trait = hunchback
+				trait = lisp
+				trait = stutter
+				trait = ugly
+				trait = weak
+				trait = gluttonous
+				trait = envious
+				trait = humble
+				trait = shy
+				trait = trusting
+			}
+		}
+		if = {
+			limit = { trait = vampire }
+			new_character = { add_trait = vampire }
+		}
+		if = {
+			limit = { trait = werewolf }
+			new_character = { add_trait = werewolf }
+		}
+		new_character = { save_event_target_as = new_spouse }
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.246
+		add_trait = necromancer
+		event_target:new_spouse = {}
+		if = {
+			limit = { is_female = no }
+			add_spouse = event_target:new_spouse
+		}
+		else = {
+			add_spouse_matrilineal = event_target:new_spouse
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 3
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.246
+		hidden_tooltip = {
+			event_target:new_spouse = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Demon demands regular sacrifices
+character_event = {
+	id = MYTH_WoL.247
+	desc = EVTDESCMYTH_WoL.247
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.247
+		add_trait = necromancer
+		add_character_modifier = { modifier = demonic_sacrifices years = 10 }
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.247
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Pestilence demon wants to spread plague
+character_event = {
+	id = MYTH_WoL.248
+	desc = EVTDESCMYTH_WoL.248
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.248
+		add_trait = necromancer
+		random_realm_province = {
+			spawn_disease = tuberculosis
+		}
+		random_realm_province = {
+			spawn_disease = typhoid_fever
+		}
+		random_realm_province = {
+			spawn_disease = typhus
+		}
+		random_realm_province = {
+			spawn_disease = measles
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0.5
+				NOT = { realm_size = 6 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.248
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Lust demon
+character_event = {
+	id = MYTH_WoL.249
+	desc = EVTDESCMYTH_WoL.249
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				spouse = {
+					OR = {
+						AND = {
+							is_female = yes
+							NOT = { trait = homosexual }
+						}
+						AND = {
+							is_female = no
+							trait = homosexual
+						}
+					}
+				}
+			}
+			create_character = {
+				age = 357
+				attributes = {
+					martial = 3
+					diplomacy = 7
+					stewardship = 5
+					intrigue = 10
+					learning = 4
+				}
+				health = 6
+				female = no
+				religion = satanist
+				culture = demon_culture
+				dynasty = random
+				trait = demon_trait
+				trait = seducer
+				trait = lustful
+				trait = gregarious
+			}
+			new_character = {
+				set_focus = focus_seduction
+				set_character_flag = cant_ask_to_leave
+				save_event_target_as = new_demon
+			}
+		}
+		else = {
+			create_character = {
+				age = 357
+				attributes = {
+					martial = 3
+					diplomacy = 7
+					stewardship = 5
+					intrigue = 10
+					learning = 4
+				}
+				health = 6
+				female = yes
+				religion = satanist
+				culture = demon_culture
+				dynasty = random
+				trait = demon_trait
+				trait = seductress
+				trait = lustful
+				trait = gregarious
+				immortal_age = 33
+			}
+			new_character = {
+				set_focus = focus_seduction
+				save_event_target_as = new_demon
+				set_character_flag = cant_ask_to_leave
+			}
+		}
+		if = {
+			limit = {
+				spouse = { trait = homosexual }
+			}
+			event_target:new_demon = { add_trait = homosexual }
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.249
+		add_trait = necromancer
+		hidden_tooltip = {
+			event_target:new_demon = {
+				ROOT = {
+					spouse = {
+						event_target:new_demon = {
+							opinion = {
+								who = PREV
+								modifier = opinion_seducing
+								years = 1000
+							}
+							character_event = { id = WoL.100 days = 1 } # No warning - Let the chase begin!
+						}
+					}
+				}
+				character_event = { id = MYTH_WoL.253 years = 10 }
+			}
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				OR = {
+					num_of_spouses = 2
+					num_of_consorts = 1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = envious
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.249
+		hidden_tooltip = {
+			event_target:new_demon = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Gluttony demon
+character_event = {
+	id = MYTH_WoL.250
+	desc = EVTDESCMYTH_WoL.250
+	picture = GFX_evt_feast
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			age = 357
+			attributes = {
+				martial = 4
+				diplomacy = 9
+				stewardship = 1
+				intrigue = 3
+				learning = 4
+			}
+			health = 6
+			religion = satanist
+			culture = demon_culture
+			dynasty = random
+			trait = demon_trait
+			trait = hedonist
+			trait = gluttonous
+			trait = gregarious
+			immortal_age = 33
+		}
+		new_character = {
+			set_focus = focus_carousing
+			set_character_flag = cant_ask_to_leave
+			save_event_target_as = new_demon
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.250
+		add_trait = necromancer
+		hidden_tooltip = {
+			event_target:new_demon = {
+				character_event = { id = MYTH_WoL.254 years = 1 }
+				character_event = { id = MYTH_WoL.253 years = 10 }
+			}
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.250
+		hidden_tooltip = {
+			event_target:new_demon = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Wrathful Demon
+character_event = {
+	id = MYTH_WoL.251
+	desc = EVTDESCMYTH_WoL.251
+	picture = GFX_evt_poke_king_in_chest
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			age = 357
+			attributes = {
+				martial = 9
+				diplomacy = 1
+				stewardship = 4
+				intrigue = 3
+				learning = 4
+			}
+			health = 6
+			religion = satanist
+			culture = demon_culture
+			dynasty = random
+			trait = demon_trait
+			trait = duelist
+			trait = wroth
+			trait = brave
+			immortal_age = 33
+		}
+		new_character = {
+			set_focus = focus_carousing
+			set_character_flag = cant_ask_to_leave
+			save_event_target_as = new_demon
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.251
+		add_trait = necromancer
+		hidden_tooltip = {
+			event_target:new_demon = {
+				character_event = { id = MYTH_WoL.255 years = 1 }
+				character_event = { id = MYTH_WoL.253 years = 10 }
+			}
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.251
+		hidden_tooltip = {
+			event_target:new_demon = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Greedy Demon
+character_event = {
+	id = MYTH_WoL.252
+	desc = EVTDESCMYTH_WoL.252
+	picture = GFX_evt_bribe_accepted
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			age = 357
+			attributes = {
+				martial = 1
+				diplomacy = 4
+				stewardship = 9
+				intrigue = 4
+				learning = 3
+			}
+			health = 6
+			religion = satanist
+			culture = demon_culture
+			dynasty = random
+			trait = demon_trait
+			trait = administrator
+			trait = greedy
+			trait = proud
+			immortal_age = 33
+		}
+		new_character = {
+			set_focus = focus_carousing
+			set_character_flag = cant_ask_to_leave
+			save_event_target_as = new_demon
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.252
+		add_trait = necromancer
+		hidden_tooltip = {
+			event_target:new_demon = {
+				character_event = { id = MYTH_WoL.256 years = 1 }
+				character_event = { id = MYTH_WoL.253 years = 10 }
+			}
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+		ai_chance = {
+			factor = 4
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.252
+		hidden_tooltip = {
+			event_target:new_demon = { 
+				death = {
+					death_reason = death_missing
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Demon leaves after 10 years
+character_event = {
+	id = MYTH_WoL.253
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		death = { death_reason = death_missing }
+	}
+}
+
+# Gluttony demon wipes prosperity
+character_event = {
+	id = MYTH_WoL.254
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		liege = {
+			any_demesne_province = {
+				set_variable = { which = prosperity_value value = 0 }
+				random = {
+				chance = 85 #chance to lower by 1 step
+					if = {
+						limit = {
+							has_province_modifier = prosperity_modifier_1
+						}
+						remove_province_modifier = prosperity_modifier_1
+						break = yes
+					}
+					if = {
+						limit = {
+							has_province_modifier = prosperity_modifier_2
+						}
+						remove_province_modifier = prosperity_modifier_2
+						add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
+						break = yes
+					}
+					if = {
+						limit = {
+							has_province_modifier = prosperity_modifier_3
+						}
+						remove_province_modifier = prosperity_modifier_3
+						add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+					}
+				}
+			}
+		}
+		repeat_event = { id = MYTH_WoL.254 days = 365 }
+	}
+}
+
+# Wroth demon kills someone
+character_event = {
+	id = MYTH_WoL.255
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_courtier = {
+			limit = { is_landed = no }
+			random_list = {
+				4 = {
+					random_list = {
+						1 = {
+							death = { death_reason = death_murder_unknown_fall }
+						}
+						1 = {
+							death = { death_reason = death_murder_unknown_arrow }
+						}
+						1 = {
+							death = { death_reason = death_murder_unknown_beheading }
+						}
+						1 = {
+							death = { death_reason = death_murder_unknown_strangle }
+						}
+						1 = {
+							death = { death_reason = death_murder_unknown_combustion }
+						}
+					}
+				}
+				1 = {
+					random_list = {
+						1 = {
+							death = { death_reason = death_murder_fall killer = ROOT }
+						}
+						1 = {
+							death = { death_reason = death_murder_drowning killer = ROOT }
+						}
+						1 = {
+							death = { death_reason = death_murder_butchered killer = ROOT }
+						}
+						1 = {
+							death = { death_reason = death_murder_arrow killer = ROOT }
+						}
+						1 = {
+							death = { death_reason = death_murder_beheading killer = ROOT }
+						}
+						1 = {
+							death = { death_reason = death_murder_strangle killer = ROOT }
+						}
+					}
+				}
+			}
+		}
+		repeat_event = { id = MYTH_WoL.255 days = 365 }
+	}
+}
+
+# Greed demon steals money
+character_event = {
+	id = MYTH_WoL.256
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		liege = {
+			export_to_variable = { which = my_wealth value = wealth }
+			divide_variable = { which = my_wealth value = 10 }
+			multiply_variable = { which = my_wealth value = -1 }
+			wealth = my_wealth
+			ROOT = {
+				set_variable = { which = my_wealth which = PREV }
+				multiply_variable = { which = my_wealth value = -1 }
+				wealth = my_wealth
+			}
+		}
+		export_to_variable = { which = my_wealth value = wealth }
+		divide_variable = { which = my_wealth value = 10 }
+		multiply_variable = { which = my_wealth value = -1 }
+		wealth = my_wealth
+		repeat_event = { id = MYTH_WoL.256 days = 365 }
+	}
+}
+
+# Theology + Cold Ones
+character_event = {
+	id = MYTH_WoL.257
+	desc = EVTDESCMYTH_WoL.257
+	picture = GFX_evt_monk
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	only_capable = yes
+	is_in_society = yes
+	prisoner = no
+	
+	trigger = {
+		has_focus = focus_theology
+	is_in_society = the_cold_ones
+		has_education_magic_trigger = yes
+		NOT = { lifestyle_traits = 1 }
+		society_rank >= 2
+		has_character_modifier = religious_philosopher
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.257
+		hidden_tooltip = {
+			random_list = {
+				1 = {
+					trigger = { can_be_maimed_trigger = yes }
+					character_event = { id = MYTH_WoL.258 days = 15 random = 100 }
+				}
+				1 = {
+					trigger = {
+						NAND = {
+							trait = cannibal_trait
+							trait = dull
+						}
+					}
+					character_event = { id = MYTH_WoL.259 days = 15 random = 100 }
+				}
+				1 = {
+					character_event = { id = MYTH_WoL.260 days = 15 random = 100 }
+				}
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.257
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.258
+	desc = EVTDESCMYTH_WoL.258
+	picture = GFX_evt_shaman
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.258
+		add_trait = necromancer
+		add_maimed_trait_effect = yes
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.258
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.259
+	desc = EVTDESCMYTH_WoL.259
+	picture = GFX_evt_shaman
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.259
+		add_trait = necromancer
+		add_trait = cannibal_trait
+		if = {
+			limit = { trait = genius }
+			remove_trait = genius
+			add_trait = quick
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = quick
+					trait = shrewd
+				}
+			}
+			remove_trait = quick
+			remove_trait = shrewd
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					trait = dull
+					trait = imbecile
+					trait = slow
+				}
+			}
+			add_trait = dull
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.259
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.260
+	desc = EVTDESCMYTH_WoL.260
+	picture = GFX_evt_shaman
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.260
+		add_trait = necromancer
+		random_list = {
+			1 = {
+				trigger = {
+					NOT = { trait = clubfooted }
+				}
+				add_trait = clubfooted
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = harelip }
+				}
+				add_trait = harelip
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = hunchback }
+				}
+				add_trait = hunchback
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = lisp }
+				}
+				add_trait = lisp
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = stutter }
+				}
+				add_trait = stutter
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = ugly }
+				}
+				add_trait = ugly
+			}
+			1 = {
+				trigger = {
+					NOT = { trait = weak }
+				}
+				add_trait = weak
+			}
+		}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.260
+		trigger = { ai = no }
+	}
+}
+
+# Magic or Scholarship + Necromancer councillor
+character_event = {
+	id = MYTH_WoL.261
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_playable = yes
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		OR = {
+			has_focus = focus_magic
+			has_focus = focus_scholarship
+		}
+		NOT = { has_character_flag = had_necromancer_friend_event }
+		NOT = { has_character_modifier = studying_necromancy }
+		has_education_magic_trigger = yes
+		is_inaccessible_trigger = no
+		NOT = { lifestyle_traits = 1 }
+		OR = {
+			job_spiritual = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			job_marshal = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			job_chancellor = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			job_treasurer = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			job_spymaster = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			any_courtier_or_vassal = {
+				AND = {
+					has_minor_title = title_court_physician
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					liege = { character = ROOT }
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			any_friend = {
+				AND = {
+					trait = necromancer
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					at_location = ROOT
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			trait = content
+		}
+		modifier = {
+			factor = 2
+			trait = stressed
+		}
+		modifier = {
+			factor = 2
+			trait = depressed
+		}
+	}
+	
+	immediate = {
+		# Determine which character to use
+		if = {
+			limit = {
+				any_courtier_or_vassal = {
+					has_minor_title = title_court_physician
+					liege = { character = ROOT }
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				job_spiritual = {
+					AND = {
+						trait = necromancer
+						prisoner = no
+						is_incapable = no
+						is_inaccessible_trigger = no
+						personal_opinion = { who = ROOT value = 75 }
+						reverse_personal_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				job_marshal = {
+					AND = {
+						trait = necromancer
+						prisoner = no
+						is_incapable = no
+						is_inaccessible_trigger = no
+						personal_opinion = { who = ROOT value = 75 }
+						reverse_personal_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				job_chancellor = {
+					AND = {
+						trait = necromancer
+						prisoner = no
+						is_incapable = no
+						is_inaccessible_trigger = no
+						personal_opinion = { who = ROOT value = 75 }
+						reverse_personal_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				job_treasurer = {
+					AND = {
+						trait = necromancer
+						prisoner = no
+						is_incapable = no
+						is_inaccessible_trigger = no
+						personal_opinion = { who = ROOT value = 75 }
+						reverse_personal_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				job_spymaster = {
+					AND = {
+						trait = necromancer
+						prisoner = no
+						is_incapable = no
+						is_inaccessible_trigger = no
+						personal_opinion = { who = ROOT value = 75 }
+						reverse_personal_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+		else_if = {
+			limit = {
+				any_friend = {
+					trait = necromancer
+					at_location = ROOT
+					prisoner = no
+					is_incapable = no
+					is_inaccessible_trigger = no
+					personal_opinion = { who = ROOT value = 75 }
+					reverse_personal_opinion = { who = ROOT value = 75 }
+				}
+			}
+			# Ping to set FROM
+			character_event = { id = MYTH_WoL.262 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.262
+	desc = {
+		text = EVTDESCAMYTH_WoL.262
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			OR = {
+				has_job_title = job_spiritual
+				has_job_title = job_treasurer
+				has_job_title = job_chancellor
+				AND = {
+					is_friend = ROOT
+					NOR = {
+						has_job_title = job_marshal
+						has_job_title = job_spymaster
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBMYTH_WoL.262
+		trigger = {
+			has_minor_title = title_court_physician
+		}
+	}
+	desc = {
+		text = EVTDESCCMYTH_WoL.262
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			has_job_title = job_marshal
+		}
+	}
+	desc = {
+		text = EVTDESCDMYTH_WoL.262
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			has_job_title = job_spymaster
+		}
+	}
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.262
+		FROM = { character_event = { id = MYTH_WoL.263 days = 3 } }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.262
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.263
+	desc = {
+		text = EVTDESCAMYTH_WoL.263
+		trigger = {
+			FROM = {
+				NOT = { has_minor_title = title_court_physician }
+				OR = {
+					has_job_title = job_spiritual
+					has_job_title = job_treasurer
+					has_job_title = job_chancellor
+					AND = {
+						is_friend = ROOT
+						NOR = {
+							has_job_title = job_marshal
+							has_job_title = job_spymaster
+						}
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCBMYTH_WoL.263
+		trigger = {
+			FROM = { has_minor_title = title_court_physician }
+		}
+	}
+	desc = {
+		text = EVTDESCCMYTH_WoL.263
+		trigger = {
+			FROM = {
+				NOT = { has_minor_title = title_court_physician }
+				has_job_title = job_marshal
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCDMYTH_WoL.263
+		trigger = {
+			FROM = {
+				NOT = { has_minor_title = title_court_physician }
+				has_job_title = job_spymaster
+			}
+		}
+	}
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.263
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTH_WoL.264 days = 3 } }
+			if = {
+				limit = {
+					FROM = { has_minor_title = title_court_physician }
+				}
+				character_event = { id = MYTH_WoL.265 days = 3 }
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						OR = {
+							has_job_title = job_spiritual
+							has_job_title = job_treasurer
+							has_job_title = job_chancellor
+							AND = {
+								is_friend = ROOT
+								NOR = {
+									has_job_title = job_marshal
+									has_job_title = job_spymaster
+								}
+							}
+						}
+					}
+				}
+				character_event = { id = MYTH_WoL.266 days = 3 }
+			}
+			else_if = {
+				limit = { FROM = { has_job_title = job_marshal } }
+				character_event = { id = MYTH_WoL.267 days = 3 }
+			}
+			else_if = {
+				limit = { FROM = { has_job_title = job_spymaster } }
+				character_event = { id = MYTH_WoL.268 days = 3 }
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 1.5
+				personal_opinion = { who = FROM value = 100 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.263
+		FROM = { character_event = { id = MYTH_WoL.269 days = 1 } }
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Worked with ruler.  Gain piety and future event
+character_event = {
+	id = MYTH_WoL.264
+	desc = {
+		text = EVTDESCAMYTH_WoL.264
+		picture = GFX_evt_died_funeral
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			OR = {
+				has_job_title = job_spiritual
+				has_job_title = job_treasurer
+				has_job_title = job_chancellor
+				AND = {
+					is_friend = ROOT
+					NOR = {
+						has_job_title = job_marshal
+						has_job_title = job_spymaster
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCAMYTH_WoL.264
+		picture = GFX_evt_doctor_crazy_treatment
+		trigger = {
+			has_minor_title = title_court_physician
+		}
+	}
+	desc = {
+		text = EVTDESCAMYTH_WoL.264
+		picture = GFX_evt_died_battle
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			has_job_title = job_marshal
+		}
+	}
+	desc = {
+		text = EVTDESCAMYTH_WoL.264
+		picture = GFX_evt_shadow
+		trigger = {
+			NOT = { has_minor_title = title_court_physician }
+			has_job_title = job_spymaster
+		}
+	}
+	picture = GFX_evt_died_funeral
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.264
+		piety = 50
+		opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		reverse_opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		character_event = { id = MYTH_WoL.270 days = 60 random = 60 }
+	}
+}
+
+# Helped Physician
+character_event = {
+	id = MYTH_WoL.265
+	desc = EVTDESCMYTH_WoL.265
+	picture = GFX_evt_doctor_crazy_treatment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.265
+		change_learning = 1
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_grateful months = 12 }
+			reverse_opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		}
+		set_character_flag = had_necromancer_friend_event
+	}
+}
+# Helped Graveyard
+character_event = {
+	id = MYTH_WoL.266
+	desc = EVTDESCMYTH_WoL.266
+	picture = GFX_evt_died_funeral
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.265
+		add_character_modifier = { modifier = tended_to_dead years = 1 }
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_grateful months = 12 }
+			reverse_opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		}
+		set_character_flag = had_necromancer_friend_event
+	}
+}
+# Helped Marshall
+character_event = {
+	id = MYTH_WoL.267
+	desc = EVTDESCMYTH_WoL.267
+	picture = GFX_evt_died_battle
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.265
+		add_character_modifier = { modifier = honored_soldiers years = 1 }
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_grateful months = 12 }
+			reverse_opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		}
+		set_character_flag = had_necromancer_friend_event
+	}
+}
+# Helped Spymaster
+character_event = {
+	id = MYTH_WoL.268
+	desc = EVTDESCMYTH_WoL.268
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.265
+		change_intrigue = 1
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_grateful months = 12 }
+			reverse_opinion = { who = FROM modifier = opinion_grateful months = 12 }
+		}
+		set_character_flag = had_necromancer_friend_event
+	}
+}
+# Help declined
+character_event = {
+	id = MYTH_WoL.269
+	desc = EVTDESCMYTH_WoL.269
+	picture = GFX_evt_noble_in_castle
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.269
+	}
+}
+
+# Time for a darker opportunity
+character_event = {
+	id = MYTH_WoL.270
+	desc = EVTDESCMYTH_WoL.270
+	picture = GFX_evt_suspicious_noble
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	only_capable = yes
+	prisoner = no
+	
+	trigger = {
+		personal_opinion = { who = FROMFROM value = 75 }
+		reverse_personal_opinion = { who = FROMFROM value = 75 }
+		is_inaccessible_trigger = no
+		FROMFROM = {
+			NOT = { lifestyle_traits = 1 }
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.270
+		FROMFROM = { character_event = { id = MYTH_WoL.271 days = 3 } }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.270
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.271
+	desc = EVTDESCMYTH_WoL.271
+	picture = GFX_evt_shady_meeting
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.271
+		character_event = { id = MYTH_WoL.272 days = 5 }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.272
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.272
+	desc = EVTDESCMYTH_WoL.272
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.272
+		character_event = { id = MYTH_WoL.273 days = 4 }
+		opinion = { who = FROMFROM modifier = aware_of_secret_actions years = 100 }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.272
+		FROMFROM = { character_event = { id = MYTH_WoL.274 days = 4 } }
+		opinion = { who = FROMFROM modifier = aware_of_secret_actions years = 100 }
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.272
+		random_list = {
+			2 = {
+				modifier = {
+					factor = 1.5
+					martial = 5
+				}
+				modifier = {
+					factor = 1.5
+					martial = 10
+				}
+				modifier = {
+					factor = 1.5
+					martial = 15
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				FROMFROM = { imprison = ROOT }
+				FROMFROM = { character_event = { id = MYTH_WoL.275 days = 4 } }
+			}
+			1 = {
+				modifier = {
+					factor = 1.5
+					FROMFROM = { martial = 5 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { martial = 10 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { martial = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { martial = 20 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { martial = 25 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 5 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 10 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 15 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 20 }
+				}
+				modifier = {
+					factor = 1.5
+					FROMFROM = { intrigue = 25 }
+				}
+				if = {
+					limit = { FROMFROM = { is_landed = no } }
+					random_playable_ruler = {
+						limit = {
+							distance = { who = FROMFROM value = 525 }
+							religion = FROMFROM
+						}
+						FROMFROM = {
+							move_character = PREV
+						}
+					}
+				}
+			}
+		}
+		opinion = { who = FROMFROM modifier = aware_of_secret_actions years = 100 }
+	}
+}
+
+# 273 - Completed resurrection. Can gain Necromancer
+character_event = {
+	id = MYTH_WoL.273
+	desc = EVTDESCMYTH_WoL.273
+	picture = GFX_evt_shadowy_cabal
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character = {
+			culture = FROMFROMFROM
+			religion = FROMFROMFROM
+			dynasty = none
+		}
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			opinion = { modifier = opinion_controlled_undead who = ROOT years = 700 }
+			opinion = { modifier = opinion_controlled_undead who = FROMFROMFROM years = 700 }
+			save_event_target_as = new_undead
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.273
+		add_trait = necromancer
+		if = {
+			limit = { NOT = { is_friend = FROMFROMFROM } }
+			add_friend = FROMFROMFROM
+		}
+		event_target:new_undead = {}
+		hidden_tooltip = {
+			set_necromancy_study = yes
+			FROMFROMFROM = { character_event = { id = MYTH_WoL.276 } }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.273
+		event_target:new_undead = {}
+		trigger = { ai = no }
+	}
+	after = {
+		FROMFROMFROM = { character_event = { id = MYTH_WoL.273 } }
+	}
+}
+	
+# 274 - Character left instead of completing the ritual
+character_event = {
+	id = MYTH_WoL.274
+	desc = EVTDESCMYTH_WoL.274
+	picture = GFX_evt_courtiers_talking
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.274
+	}
+}
+# 275 - Were arrested
+character_event = {
+	id = MYTH_WoL.275
+	desc = EVTDESCMYTH_WoL.275
+	picture = GFX_evt_into_the_dungeon
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.275
+		tooltip = { imprison = FROM }
+	}
+}
+# 276 - Completed ritual ( on assistant)
+character_event = {
+	id = MYTH_WoL.276
+	desc = EVTDESCMYTH_WoL.276
+	picture = GFX_evt_shadowy_cabal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		tooltip = {
+			event_target:new_undead = {
+				opinion = { modifier = opinion_controlled_undead who = ROOT years = 700 }
+				opinion = { modifier = opinion_controlled_undead who = FROM years = 700 }
+			}
+		}
+	}
+}
+
+# Automatically set field of magic study
+character_event = {
+	id = MYTH_WoL.277
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		NOR = {
+			has_character_modifier = studying_conjuration
+			has_character_modifier = studying_herbalism
+			has_character_modifier = studying_alchemy
+			has_character_modifier = studying_sorcery
+			has_character_modifier = studying_necromancy
+		}
+		OR = {
+			trait = summoner
+			trait = enchanter
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					trait = summoner
+					AND = {
+						has_minor_title = title_mage_apprentice
+						liege = { trait = summoner }
+					}
+				}
+			}
+			add_character_modifier = { name = studying_conjuration duration = -1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = enchanter
+					AND = {
+						has_minor_title = title_mage_apprentice
+						liege = { trait = enchanter }
+					}
+				}
+			}
+			add_character_modifier = { name = studying_sorcery duration = -1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = alchemist
+					AND = {
+						has_minor_title = title_mage_apprentice
+						liege = { trait = alchemist }
+					}
+				}
+			}
+			add_character_modifier = { name = studying_alchemy duration = -1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = herbalist
+					AND = {
+						has_minor_title = title_mage_apprentice
+						liege = { trait = herbalist }
+					}
+				}
+			}
+			add_character_modifier = { name = studying_herbalism duration = -1 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					trait = necromancer
+					AND = {
+						has_minor_title = title_mage_apprentice
+						liege = { trait = necromancer }
+					}
+				}
+			}
+			add_character_modifier = { name = studying_necromancy duration = -1 }
+		}
+	}
+}
+
+# Necromancer - Perform divination
+character_event = {
+	id = MYTH_WoL.278
+	desc = EVTDESCMYTH_WoL.278
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_capable = yes
+	has_dlc = Mystics
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+		NOR = {
+			has_character_modifier = good_battle_omen
+			has_character_modifier = bad_battle_omen
+			has_character_modifier = good_relationship_omen
+			has_character_modifier = bad_relationship_omen
+			has_character_modifier = good_power_omen
+			has_character_modifier = bad_power_omen
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.278
+		hidden_tooltip = {
+			random_list = {
+				1 = { add_character_modifier = { name = good_battle_omen duration = -1 } }
+				1 = { add_character_modifier = { name = bad_battle_omen duration = -1 } }
+				1 = { add_character_modifier = { name = good_relationship_omen duration = -1 } }
+				1 = { add_character_modifier = { name = bad_relationship_omen duration = -1 } }
+				1 = { add_character_modifier = { name = good_power_omen duration = -1 } }
+				1 = { add_character_modifier = { name = bad_power_omen duration = -1 } }
+			}
+			character_event = { id = MYTH_WoL.40 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.278
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.279
+	desc = EVTDESCMYTH_WoL.279
+	picture = GFX_evt_ritual_scroll
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_capable = yes
+	has_dlc = Mystics
+	rivals = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+		any_rival = {
+			higher_tier_than = BARON
+			NOT = { vassal_of = ROOT }
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.279
+		custom_tooltip = { text = tt_disease_rival }
+		hidden_tooltip = {
+			random_rival = {
+				limit = {
+					higher_tier_than = BARON
+					NOT = { vassal_of = ROOT }
+				}
+				capital_scope = {
+					random_list = {
+						1 = {
+							spawn_disease = tuberculosis
+						}
+						1 = {
+							spawn_disease = typhoid_fever
+						}
+						1 = {
+							spawn_disease = typhus
+						}
+						1 = {
+							spawn_disease = measles
+						}
+						1 = {
+							spawn_disease = small_pox
+						}
+					}
+				}
+			}
+			character_event = { id = MYTH_WoL.40 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.279
+		trigger = { ai = no }
+	}
+}
+
+# Drain life from a courtier
+character_event = {
+	id = MYTH_WoL.280
+	desc = EVTDESCMYTH_WoL.280
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	prisoner = no
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+	}
+	
+	immediate = {
+		random_realm_character = {
+			limit = { liege = { character = ROOT } }
+			save_event_target_as = character_1
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 5
+						diplomacy = 5
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 8
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 10
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 15
+					}
+					set_character_flag = drain_diplo
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						martial = 5
+					}
+					modifier = {
+						factor = 5
+						martial = 8
+					}
+					modifier = {
+						factor = 5
+						martial = 10
+					}
+					modifier = {
+						factor = 5
+						martial = 12
+					}
+					modifier = {
+						factor = 5
+						martial = 15
+					}
+					set_character_flag = drain_martial
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						stewardship = 5
+					}
+					modifier = {
+						factor = 5
+						stewardship = 8
+					}
+					modifier = {
+						factor = 5
+						stewardship = 10
+					}
+					modifier = {
+						factor = 5
+						stewardship = 12
+					}
+					modifier = {
+						factor = 5
+						stewardship = 15
+					}
+					set_character_flag = drain_stewardship
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						intrigue = 5
+					}
+					modifier = {
+						factor = 5
+						intrigue = 8
+					}
+					modifier = {
+						factor = 5
+						intrigue = 10
+					}
+					modifier = {
+						factor = 5
+						intrigue = 12
+					}
+					modifier = {
+						factor = 5
+						intrigue = 15
+					}
+					set_character_flag = drain_intrigue
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						learning = 5
+					}
+					modifier = {
+						factor = 5
+						learning = 8
+					}
+					modifier = {
+						factor = 5
+						learning = 10
+					}
+					modifier = {
+						factor = 5
+						learning = 12
+					}
+					modifier = {
+						factor = 5
+						learning = 15
+					}
+					set_character_flag = drain_learning
+				}
+			}
+		}
+		random_realm_character = {
+			limit = {
+				liege = { character = ROOT }
+				NOT = { character = event_target:character_1 }
+			}
+			save_event_target_as = character_2
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 5
+						diplomacy = 5
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 8
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 10
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 15
+					}
+					set_character_flag = drain_diplo
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						martial = 5
+					}
+					modifier = {
+						factor = 5
+						martial = 8
+					}
+					modifier = {
+						factor = 5
+						martial = 10
+					}
+					modifier = {
+						factor = 5
+						martial = 12
+					}
+					modifier = {
+						factor = 5
+						martial = 15
+					}
+					set_character_flag = drain_martial
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						stewardship = 5
+					}
+					modifier = {
+						factor = 5
+						stewardship = 8
+					}
+					modifier = {
+						factor = 5
+						stewardship = 10
+					}
+					modifier = {
+						factor = 5
+						stewardship = 12
+					}
+					modifier = {
+						factor = 5
+						stewardship = 15
+					}
+					set_character_flag = drain_stewardship
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						intrigue = 5
+					}
+					modifier = {
+						factor = 5
+						intrigue = 8
+					}
+					modifier = {
+						factor = 5
+						intrigue = 10
+					}
+					modifier = {
+						factor = 5
+						intrigue = 12
+					}
+					modifier = {
+						factor = 5
+						intrigue = 15
+					}
+					set_character_flag = drain_intrigue
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						learning = 5
+					}
+					modifier = {
+						factor = 5
+						learning = 8
+					}
+					modifier = {
+						factor = 5
+						learning = 10
+					}
+					modifier = {
+						factor = 5
+						learning = 12
+					}
+					modifier = {
+						factor = 5
+						learning = 15
+					}
+					set_character_flag = drain_learning
+				}
+			}
+		}
+		random_realm_character = {
+			limit = {
+				liege = { character = ROOT }
+				NOR = {
+					character = event_target:character_1
+					character = event_target:character_2
+				}
+			}
+			save_event_target_as = character_3
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 5
+						diplomacy = 5
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 8
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 10
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 12
+					}
+					modifier = {
+						factor = 5
+						diplomacy = 15
+					}
+					set_character_flag = drain_diplo
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						martial = 5
+					}
+					modifier = {
+						factor = 5
+						martial = 8
+					}
+					modifier = {
+						factor = 5
+						martial = 10
+					}
+					modifier = {
+						factor = 5
+						martial = 12
+					}
+					modifier = {
+						factor = 5
+						martial = 15
+					}
+					set_character_flag = drain_martial
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						stewardship = 5
+					}
+					modifier = {
+						factor = 5
+						stewardship = 8
+					}
+					modifier = {
+						factor = 5
+						stewardship = 10
+					}
+					modifier = {
+						factor = 5
+						stewardship = 12
+					}
+					modifier = {
+						factor = 5
+						stewardship = 15
+					}
+					set_character_flag = drain_stewardship
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						intrigue = 5
+					}
+					modifier = {
+						factor = 5
+						intrigue = 8
+					}
+					modifier = {
+						factor = 5
+						intrigue = 10
+					}
+					modifier = {
+						factor = 5
+						intrigue = 12
+					}
+					modifier = {
+						factor = 5
+						intrigue = 15
+					}
+					set_character_flag = drain_intrigue
+				}
+				1 = {
+					modifier = {
+						factor = 5
+						learning = 5
+					}
+					modifier = {
+						factor = 5
+						learning = 8
+					}
+					modifier = {
+						factor = 5
+						learning = 10
+					}
+					modifier = {
+						factor = 5
+						learning = 12
+					}
+					modifier = {
+						factor = 5
+						learning = 15
+					}
+					set_character_flag = drain_learning
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.280
+		trigger = { event_target:character_1 = { always = yes } }
+		event_target:character_1 = {
+			if = {
+				limit = { has_character_flag = drain_diplo }
+				add_character_modifier = { name = diplomacy_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_diplomacy years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_martial }
+				add_character_modifier = { name = martial_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_martial years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_stewardship }
+				add_character_modifier = { name = stewardship_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_stewardship years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_intrigue }
+				add_character_modifier = { name = intrigue_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_intrigue years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_learning }
+				add_character_modifier = { name = learning_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_learning years = 3 } }
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_1 value = 0 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_1 value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_1 value = -75 } }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_1 value = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_1 value = 75 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.280
+		trigger = { event_target:character_2 = { always = yes } }
+		event_target:character_2 = {
+			if = {
+				limit = { has_character_flag = drain_diplo }
+				add_character_modifier = { name = diplomacy_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_diplomacy years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_martial }
+				add_character_modifier = { name = martial_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_martial years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_stewardship }
+				add_character_modifier = { name = stewardship_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_stewardship years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_intrigue }
+				add_character_modifier = { name = intrigue_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_intrigue years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_learning }
+				add_character_modifier = { name = learning_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_learning years = 3 } }
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_2 value = 0 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_2 value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_2 value = -75 } }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_2 value = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_2 value = 75 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTCMYTH_WoL.280
+		trigger = { event_target:character_3 = { always = yes } }
+		event_target:character_3 = {
+			if = {
+				limit = { has_character_flag = drain_diplo }
+				add_character_modifier = { name = diplomacy_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_diplomacy years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_martial }
+				add_character_modifier = { name = martial_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_martial years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_stewardship }
+				add_character_modifier = { name = stewardship_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_stewardship years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_intrigue }
+				add_character_modifier = { name = intrigue_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_intrigue years = 3 } }
+			}
+			else_if = {
+				limit = { has_character_flag = drain_learning }
+				add_character_modifier = { name = learning_drained years = 3 }
+				ROOT = { add_character_modifier = { name = drained_learning years = 3 } }
+			}
+		}
+		ai_chance = {
+			factor = 4
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_3 value = 0 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_3 value = -50 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = event_target:character_3 value = -75 } }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_3 value = 50 }
+			}
+			modifier = {
+				factor = 0.5
+				opinion = { who = event_target:character_3 value = 75 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTDMYTH_WoL.280
+		ai_chance = {
+			factor = 4
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:character_1 = {
+				clr_character_flag = drain_diplo
+				clr_character_flag = drain_martial
+				clr_character_flag = drain_stewardship
+				clr_character_flag = drain_intrigue
+				clr_character_flag = drain_learning
+			}
+			event_target:character_2 = {
+				clr_character_flag = drain_diplo
+				clr_character_flag = drain_martial
+				clr_character_flag = drain_stewardship
+				clr_character_flag = drain_intrigue
+				clr_character_flag = drain_learning
+			}
+			event_target:character_3 = {
+				clr_character_flag = drain_diplo
+				clr_character_flag = drain_martial
+				clr_character_flag = drain_stewardship
+				clr_character_flag = drain_intrigue
+				clr_character_flag = drain_learning
+			}
+		}
+	}
+}
+
+# Try to steel self against disease
+character_event = {
+	id = MYTH_WoL.281
+	desc = EVTDESCMYTH_WoL.281
+	picture = GFX_evt_illness
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+		NOT = { trait = necromancer }
+		has_disease_trigger = no
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.281
+		random_list = {
+			1 = {
+				health = 0.5
+				hidden_tooltip = {
+					random_list = {
+						1 = { set_character_flag = immune_tuberculosis }
+						1 = { set_character_flag = immune_typhoid_fever }
+						1 = { set_character_flag = immune_typhus }
+						1 = { set_character_flag = immune_bubonic_plague }
+						1 = { set_character_flag = immune_measles }
+						1 = { set_character_flag = immune_smallpox }
+						1 = { set_character_flag = immune_syphilis }
+						1 = { set_character_flag = immune_flu }
+						1 = { set_character_flag = immune_aztec_disease }
+						1 = { set_character_flag = immune_dysentery }
+						1 = { set_character_flag = immune_pneumonia }
+						1 = { set_character_flag = immune_rabies }
+						1 = { set_character_flag = immune_zombie_plague }
+					}
+				}
+			}
+			1 = {
+				get_random_disease = yes
+			}
+		}
+		character_event = { id = MYTH_WoL.40 days = 1 random = 3 }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.281
+		trigger = { ai = no }
+	}
+}
+
+# Recent deaths are an opportunity
+character_event = {
+	id = MYTH_WoL.282
+	desc = EVTDESCMYTH_WoL.282
+	picture = GFX_evt_bring_out_your_dead
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	only_capable = yes
+	has_dlc = Reapers
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+		any_demesne_province = { has_province_modifier = depopulated_3 }
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.282
+		scaled_wealth = -0.3
+		piety = -20
+		any_demesne_province = {
+			limit = { has_province_modifier = depopulated_3 }
+			owner = {
+				spawn_unit = {
+					province = PREV
+					home = ROOT
+					owner = ROOT
+					leader = none
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					match_character = ROOT
+					match_mult = 0.05
+					match_min = 100
+					match_max = 500
+					cannot_inherit = yes
+					attrition = 0.2
+					maintenance_multiplier = 0.2
+					can_toggle_looting = no
+					reinforces = no
+				}
+			}
+			if = {
+				limit = {
+					has_disease = yes
+					ROOT = {
+						immune_to_infection = no
+					}
+					random = 40
+				}
+				if = {
+					limit = {
+						disease = tuberculosis
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_tuberculosis
+								has_character_flag = got_tuberculosis
+								trait = has_tuberculosis
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_tuberculosis
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5015 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = typhoid_fever
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_typhoid_fever
+								has_character_flag = got_typhoid_fever
+								trait = has_typhoid_fever
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_typhoid_fever
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5016 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = typhus
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_typhus
+								has_character_flag = got_typhus
+								trait = has_typhus
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_typhus
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5017 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = bubonic_plague
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_bubonic_plague
+								has_character_flag = got_bubonic_plague
+								trait = has_bubonic_plague
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_bubonic_plague
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5012 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = bubonic_plague
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_bubonic_plague
+								has_character_flag = got_bubonic_plague
+								trait = has_bubonic_plague
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_bubonic_plague
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5012 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = measles
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_measles
+								has_character_flag = got_measles
+								trait = has_measles
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_measles
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5018 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = small_pox
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_smallpox
+								has_character_flag = got_smallpox
+								trait = has_small_pox
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_smallpox
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5019 }
+					}
+				}
+				else_if = {
+					limit = {
+						disease = syphilis
+						ROOT = {
+							NOR = {
+								has_character_flag = immune_aztec_disease
+								has_character_flag = got_aztec_disease
+								trait = has_aztec_disease
+							}
+						}
+					}
+					ROOT = {
+						clr_character_flag = disease_not_serious
+						set_character_flag = got_aztec_disease
+						set_character_flag = developing_illness
+						character_event = { id = RIP.5019 }
+					}
+				}
+			}
+		}
+		character_event = { id = MYTH_WoL.40 }
+	}
+	
+	option = {
+		name = EVTOPTBMYTH_WoL.282
+		trigger = {
+			OR = {
+				ai = no
+				war = no
+				NOT = { scaled_wealth = 0.3 }
+			}
+		}
+	}
+}
+
+# Resurrect an ancient wise man
+character_event = {
+	id = MYTH_WoL.283
+	desc = EVTDESCMYTH_WoL.283
+	picture = GFX_evt_death
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	only_capable = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_character_modifier = studying_necromancy
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.283
+		piety = -50
+		create_character = {
+			culture = ROOT
+			religion = ROOT
+			attributes = {
+				learning = 9
+				martial = 4
+				diplomacy = 6
+				stewardship = 5
+				intrigue = 3
+			}
+			female = no
+			dynasty = none
+			trait = mastermind_theologian
+			trait = mystic
+			trait = chaste
+			trait = diligent
+			trait = patient
+			trait = erudite
+		}
+		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
+			opinion = { who = ROOT modifier = opinion_controlled_undead years = 700 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.283
+		trigger = {
+			OR = {
+				ai = no
+				NOT = { piety = 50 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.284
+	desc = EVTDESCMYTH_WoL.284
+	picture = GFX_evt_experiment
+	
+	is_triggered_only = yes
+	show_from_from = yes
+	
+	ai = no
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.284
+		if = {
+			limit = {
+				liege = { trait = enchanter }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_modifier = studying_conjuration
+						has_character_modifier = studying_herbalism
+						has_character_modifier = studying_alchemy
+						has_character_modifier = studying_necromancy
+					}
+				}
+				remove_character_modifier = studying_conjuration
+				remove_character_modifier = studying_herbalism
+				remove_character_modifier = studying_alchemy
+				remove_character_modifier = studying_necromancy
+				remove_character_modifier = magic_study_1
+				remove_character_modifier = magic_study_2
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = studying_sorcery } }
+				add_character_modifier = { modifier = studying_sorcery duration = -1 }
+			}
+		}
+		else_if = {
+			limit = {
+				liege = { trait = summoner }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_modifier = studying_sorcery
+						has_character_modifier = studying_herbalism
+						has_character_modifier = studying_alchemy
+						has_character_modifier = studying_necromancy
+					}
+				}
+				remove_character_modifier = studying_sorcery
+				remove_character_modifier = studying_herbalism
+				remove_character_modifier = studying_alchemy
+				remove_character_modifier = studying_necromancy
+				remove_character_modifier = magic_study_1
+				remove_character_modifier = magic_study_2
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = studying_conjuration } }
+				add_character_modifier = { modifier = studying_conjuration duration = -1 }
+			}
+		}
+		else_if = {
+			limit = {
+				liege = { trait = alchemist }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_modifier = studying_sorcery
+						has_character_modifier = studying_herbalism
+						has_character_modifier = studying_conjuration
+						has_character_modifier = studying_necromancy
+					}
+				}
+				remove_character_modifier = studying_sorcery
+				remove_character_modifier = studying_herbalism
+				remove_character_modifier = studying_conjuration
+				remove_character_modifier = studying_necromancy
+				remove_character_modifier = magic_study_1
+				remove_character_modifier = magic_study_2
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = studying_alchemy } }
+				add_character_modifier = { modifier = studying_alchemy duration = -1 }
+			}
+		}
+		else_if = {
+			limit = {
+				liege = { trait = herbalist }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_modifier = studying_sorcery
+						has_character_modifier = studying_alchemy
+						has_character_modifier = studying_conjuration
+						has_character_modifier = studying_necromancy
+					}
+				}
+				remove_character_modifier = studying_sorcery
+				remove_character_modifier = studying_alchemy
+				remove_character_modifier = studying_conjuration
+				remove_character_modifier = studying_necromancy
+				remove_character_modifier = magic_study_1
+				remove_character_modifier = magic_study_2
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = studying_herbalism } }
+				add_character_modifier = { modifier = studying_herbalism duration = -1 }
+			}
+		}
+		else_if = {
+			limit = {
+				liege = { trait = necromancer }
+			}
+			if = {
+				limit = {
+					OR = {
+						has_character_modifier = studying_sorcery
+						has_character_modifier = studying_alchemy
+						has_character_modifier = studying_conjuration
+						has_character_modifier = studying_herbalism
+					}
+				}
+				remove_character_modifier = studying_sorcery
+				remove_character_modifier = studying_alchemy
+				remove_character_modifier = studying_conjuration
+				remove_character_modifier = studying_herbalism
+				remove_character_modifier = magic_study_1
+				remove_character_modifier = magic_study_2
+			}
+			if = {
+				limit = { NOT = { has_character_modifier = studying_necromancy } }
+				add_character_modifier = { modifier = studying_necromancy duration = -1 }
+			}
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.284
+		remove_title = title_mage_apprentice
+	}
+}
+
+# Further apprenticeship. After 9 years, get a lifestyle
+character_event = {
+	id = MYTH_WoL.285
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_minor_title = title_mage_apprentice
+		NOT = { lifestyle_traits = 1 }
+	}
+	
+	immediate = {
+		change_variable = { which = apprentice_years value = 1 }
+		if = {
+			limit = { check_variable = { which = apprentice_years value = 9 } }
+			character_event = { id = MYTH_WoL.286 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.286
+	desc = EVTDESCMYTH_WoL.286
+	picture = GFX_evt_experiment
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.286
+		remove_character_modifier = magic_study_1
+		remove_character_modifier = magic_study_2
+		set_variable = { which = apprentice_years value = 0 }
+		change_learning = 1
+		if = {
+			limit = { liege = { trait = enchanter } }
+			add_trait = enchanter
+		}
+		else_if = {
+			limit = { liege = { trait = summoner } }
+			add_trait = summoner
+		}
+		else_if = {
+			limit = { liege = { trait = alchemist } }
+			add_trait = alchemist
+		}
+		else_if = {
+			limit = { liege = { trait = herbalist } }
+			add_trait = herbalist
+		}
+		else_if = {
+			limit = { liege = { trait = necromancer } }
+			add_trait = necromancer
+		}
+		liege = { character_event = { id = MYTH_WoL.287 } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.287
+	desc = EVTDESCMYTH_WoL.287
+	picture = GFX_evt_experiment
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		prestige = 100
+		if = {
+			limit = { trait = enchanter }
+			tooltip = { FROM = { add_trait = enchanter } }
+		}
+		else_if = {
+			limit = { trait = summoner }
+			tooltip = { FROM = { add_trait = summoner } }
+		}
+		else_if = {
+			limit = { trait = alchemist }
+			tooltip = { FROM = { add_trait = alchemist } }
+		}
+		else_if = {
+			limit = { trait = herbalist }
+			tooltip = { FROM = { add_trait = herbalist } }
+		}
+		else_if = {
+			limit = { trait = necromancer }
+			tooltip = { FROM = { add_trait = necromancer } }
+		}
+		FROM = { change_learning = 1 }
+	}
+}
+
+# Mess up master's project
+character_event = {
+	id = MYTH_WoL.288
+	desc = EVTDESCMYTH_WoL.288
+	picture = GFX_evt_stressed_ruler
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_minor_title = title_mage_apprentice
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 2
+			NOT = { learning = 5 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { learning = 10 }
+		}
+		modifier = {
+			factor = 0.5
+			learning = 15
+		}
+		modifier = {
+			factor = 2
+			trait = stressed
+		}
+		modifier = {
+			factor = 2
+			trait = slothful
+		}
+		modifier = {
+			factor = 2
+			trait = wroth
+		}
+		modifier = {
+			factor = 0.5
+			trait = diligent
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.288
+		prestige = -100
+		liege = {
+			opinion = { who = ROOT modifier = opinion_angry years = 2 }
+			hidden_tooltip = { character_event = { id = MYTH_WoL.289 } }
+		}
+	}
+}
+
+# Apprentice messed up project
+character_event = {
+	id = MYTH_WoL.289
+	desc = EVTDESCMYTH_WoL.289
+	picture = GFX_evt_experiments_failed
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.289
+		tooltip = {
+			opinion = { who = FROM modifier = opinion_angry years = 2 }
+			FROM = { prestige = -100 }
+		}
+	}
+}
+
+# Focused teaching
+character_event = {
+	id = MYTH_WoL.290
+	desc = EVTDESCMYTH_WoL.290
+	picture = GFX_evt_experiment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_assigned_minor_title = title_mage_apprentice
+		NOT = { trait = stressed }
+		NOT = {
+			any_courtier_or_vassal = {
+				has_minor_title = title_mage_apprentice
+				has_character_modifier = magic_study_2
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.290
+		random = {
+			chance = 25
+			add_trait = stressed
+		}
+		any_courtier_or_vassal = {
+			limit = { has_minor_title = title_mage_apprentice }
+			tooltip = {
+				change_learning = 1
+				if = {
+					limit = { has_character_modifier = magic_study_1 }
+					add_character_modifier = { modifier = magic_study_2 duration = -1 }
+				}
+				else = {
+					add_character_modifier = { modifier = magic_study_1 duration = -1 }
+				}
+			}
+			character_event = { id = MYTH_WoL.291 }
+		}
+		hidden_tooltip = { character_event = { id = MYTH_WoL.40 } }
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.290
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.291
+	desc = EVTDESCMYTH_WoL.291
+	picture = GFX_evt_experiment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		change_learning = 1
+		if = {
+			limit = { has_character_modifier = magic_study_1 }
+			hidden_tooltip = { remove_character_modifier = magic_study_1 }
+			add_character_modifier = { modifier = magic_study_2 duration = -1 }
+		}
+		else = {
+			add_character_modifier = { modifier = magic_study_1 duration = -1 }
+		}
+	}
+}
+
+# Master gives task to apprentice
+character_event = {
+	id = MYTH_WoL.292
+	desc = EVTDESCMYTH_WoL.292
+	picture = GFX_evt_recieve_letter
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_assigned_minor_title = title_mage_apprentice
+		any_courtier_or_vassal = {
+			has_minor_title = title_mage_apprentice
+			is_inaccessible_trigger = no
+		}
+	}
+	
+	immediate = {
+		export_to_variable = { which = service_value value = scaled_wealth }
+		divide_variable = { which = service_value value = 12 }
+		any_courtier_or_vassal = {
+			limit = { has_minor_title = title_mage_apprentice }
+			save_event_target_as = my_apprentice
+		}
+	}
+	
+	# Perform services
+	option = {
+		name = {
+			trigger = { trait = enchanter }
+			text = EVTOPTAMYTH_WoL.292
+		}
+		name = {
+			trigger = { trait = summoner }
+			text = EVTOPTBMYTH_WoL.292
+		}
+		name = {
+			trigger = { trait = herbalist }
+			text = EVTOPTCMYTH_WoL.292
+		}
+		name = {
+			trigger = { trait = alchemist }
+			text = EVTOPTDMYTH_WoL.292
+		}
+		trigger = { NOT = { trait = necromancer } }
+		wealth = service_value
+		event_target:my_apprentice = {
+			set_variable = { which = service_value which = ROOT }
+			divide_variable = { which = service_value value = 2 }
+			tooltip = { wealth = service_value }
+			character_event = { id = MYTH_WoL.293 }
+		}
+	}
+	
+	# Clean and prepare ritual area
+	option = {
+		name = EVTOPTEMYTH_WoL.292
+		trigger = {
+			NOR = {
+				trait = alchemist
+				trait = herbalist
+			}
+		}
+		piety = 20
+		event_target:my_apprentice = {
+			tooltip = { piety =  10 }
+			character_event = { id = MYTH_WoL.294 }
+		}
+	}
+	
+	# Gather ingredients
+	option = {
+		name = EVTOPTFMYTH_WoL.292
+		trigger = {
+			OR = {
+				trait = alchemist
+				trait = herbalist
+			}
+		}
+		event_target:my_apprentice = {
+			set_character_flag = apprentice_herb_gather
+			character_event = { id = MYTH_WoL.216 }
+			character_event = { id = MYTH_WoL.40 days = 75 }
+		}
+	}
+	
+	# Mystic cleansing
+	option = {
+		name = EVTOPTGMYTH_WoL.292
+		trigger = {
+			NOR = {
+				trait = alchemist
+				trait = herbalist
+			}
+			OR = {
+				has_character_modifier = cursed
+				has_character_modifier = haunted_castle
+				has_character_modifier = diplomacy_drained
+				has_character_modifier = martial_drained
+				has_character_modifier = stewardship_drained
+				has_character_modifier = intrigue_drained
+				has_character_modifier = learning_drained
+				has_character_modifier = voice_of_satan
+				has_character_modifier = mystic_treatment_poor
+				has_character_modifier = mystic_treatment_terrible
+				has_character_modifier = cant_stop_dancing
+				has_character_modifier = phantom_pain
+				has_character_modifier = frightening_visions
+				has_character_modifier = withdrawal_symptoms
+				has_character_modifier = corrupting_magic_minor
+				has_character_modifier = corrupting_magic_major
+				capital_scope = {
+					OR = { 
+						has_province_modifier = night_spirits
+						has_province_modifier = local_death_cult
+					}
+				}
+			}
+		}
+		tooltip = {
+			random_list = {
+				1 = {
+					trigger = { has_character_modifier = cursed }
+					remove_character_modifier = cursed
+				}
+				1 = {
+					trigger = { has_character_modifier = haunted_castle }
+					remove_character_modifier = haunted_castle
+				}
+				1 = {
+					trigger = { has_character_modifier = diplomacy_drained }
+					remove_character_modifier = diplomacy_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = martial_drained }
+					remove_character_modifier = martial_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = stewardship_drained }
+					remove_character_modifier = stewardship_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = intrigue_drained }
+					remove_character_modifier = intrigue_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = learning_drained }
+					remove_character_modifier = learning_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = voice_of_satan }
+					remove_character_modifier = voice_of_satan
+				}
+				1 = {
+					trigger = { has_character_modifier = mystic_treatment_poor }
+					remove_character_modifier = mystic_treatment_poor
+				}
+				1 = {
+					trigger = { has_character_modifier = mystic_treatment_terrible }
+					remove_character_modifier = mystic_treatment_terrible
+				}
+				1 = {
+					trigger = { has_character_modifier = cant_stop_dancing }
+					remove_character_modifier = cant_stop_dancing
+				}
+				1 = {
+					trigger = { has_character_modifier = phantom_pain }
+					remove_character_modifier = phantom_pain
+				}
+				1 = {
+					trigger = { has_character_modifier = frightening_visions }
+					remove_character_modifier = frightening_visions
+				}
+				1 = {
+					trigger = { has_character_modifier = withdrawal_symptoms }
+					remove_character_modifier = withdrawal_symptoms
+				}
+				1 = {
+					trigger = { has_character_modifier = corrupting_magic_minor }
+					remove_character_modifier = corrupting_magic_minor
+				}
+				1 = {
+					trigger = { has_character_modifier = corrupting_magic_major }
+					remove_character_modifier = corrupting_magic_major
+				}
+				1 = {
+					trigger = { capital_scope = { has_province_modifier = night_spirits } }
+					capital_scope = { remove_province_modifier = night_spirits }
+				}
+				1 = {
+					trigger = { capital_scope = { has_province_modifier = local_death_cult } }
+					capital_scope = { remove_province_modifier = local_death_cult }
+				}
+			}
+		}
+		event_target:my_apprentice = {
+			character_event = { id = MYTH_WoL.295 }
+		}
+	}
+	# Read and organize notes
+	option = {
+		name = EVTOPTHMYTH_WoL.292
+		trigger = {
+			OR = {
+				trait = herbalist
+				trait = alchemist
+			}
+		}
+		add_character_modifier = { modifier = organized_notes years = 1 }
+		event_target:my_apprentice = {
+			tooltip = {
+				add_character_modifier = { modifier = organized_notes years = 1 }
+			}
+			character_event = { id = MYTH_WoL.296 }
+		}
+	}
+	# Do nothing
+	option = {
+		name = EVTOPTIMYTH_WoL.292
+		trigger = { ai = no }
+	}
+	
+	after = {
+		set_variable = { which = service_value value = 0 }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.293
+	desc = EVTDESCMYTH_WoL.293
+	picture = GFX_evt_market
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.293
+		wealth = service_value
+		set_variable = { which = service_value value = 0 }
+		character_event = { id = MYTH_WoL.40 days = 1 random = 2 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.294
+	desc = EVTDESCMYTH_WoL.294
+	picture = GFX_evt_magic_ritual
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.294
+		piety = 10
+		character_event = { id = MYTH_WoL.40 days = 1 random = 2 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.295
+	desc = EVTDESCMYTH_WoL.295
+	picture = GFX_evt_lunatic
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.295
+		liege = {
+			random_list = {
+				1 = {
+					trigger = { has_character_modifier = cursed }
+					remove_character_modifier = cursed
+				}
+				1 = {
+					trigger = { has_character_modifier = haunted_castle }
+					remove_character_modifier = haunted_castle
+				}
+				1 = {
+					trigger = { has_character_modifier = diplomacy_drained }
+					remove_character_modifier = diplomacy_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = martial_drained }
+					remove_character_modifier = martial_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = stewardship_drained }
+					remove_character_modifier = stewardship_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = intrigue_drained }
+					remove_character_modifier = intrigue_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = learning_drained }
+					remove_character_modifier = learning_drained
+				}
+				1 = {
+					trigger = { has_character_modifier = voice_of_satan }
+					remove_character_modifier = voice_of_satan
+				}
+				1 = {
+					trigger = { has_character_modifier = mystic_treatment_poor }
+					remove_character_modifier = mystic_treatment_poor
+				}
+				1 = {
+					trigger = { has_character_modifier = mystic_treatment_terrible }
+					remove_character_modifier = mystic_treatment_terrible
+				}
+				1 = {
+					trigger = { has_character_modifier = cant_stop_dancing }
+					remove_character_modifier = cant_stop_dancing
+				}
+				1 = {
+					trigger = { has_character_modifier = phantom_pain }
+					remove_character_modifier = phantom_pain
+				}
+				1 = {
+					trigger = { has_character_modifier = frightening_visions }
+					remove_character_modifier = frightening_visions
+				}
+				1 = {
+					trigger = { has_character_modifier = withdrawal_symptoms }
+					remove_character_modifier = withdrawal_symptoms
+				}
+				1 = {
+					trigger = { has_character_modifier = corrupting_magic_minor }
+					remove_character_modifier = corrupting_magic_minor
+				}
+				1 = {
+					trigger = { has_character_modifier = corrupting_magic_major }
+					remove_character_modifier = corrupting_magic_major
+				}
+				1 = {
+					trigger = { capital_scope = { has_province_modifier = night_spirits } }
+					capital_scope = { remove_province_modifier = night_spirits }
+				}
+				1 = {
+					trigger = { capital_scope = { has_province_modifier = local_death_cult } }
+					capital_scope = { remove_province_modifier = local_death_cult }
+				}
+			}
+		}
+		character_event = { id = MYTH_WoL.40 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
+	}
+}
+
+character_event = {
+	id = MYTH_WoL.296
+	desc = EVTDESCMYTH_WoL.296
+	picture = GFX_evt_book_carolingian_script
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.296
+		add_character_modifier = { modifier = organized_notes years = 1 }
+		character_event = { id = MYTH_WoL.40 }
+		liege = { character_event = { id = MYTH_WoL.40 days = 1 random = 2 } }
+	}
+}
+
+# Experimental potions
+character_event = {
+	id = MYTH_WoL.297
+	desc = EVTDESCMYTH_WoL.297
+	picture = GFX_evt_experiment
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_focus = focus_magic
+		has_minor_title = title_mage_apprentice
+		liege = { trait = herbalist }
+	}
+	
+	option = {
+		name = EVTOPTAMYTH_WoL.297
+		hidden_tooltip = {
+			random_list = {
+				1 = { add_character_modifier = { name = experimental_potion_1 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_2 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_3 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_4 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_5 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_6 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_7 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_8 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_9 months = 12 } }
+				1 = { add_character_modifier = { name = experimental_potion_10 months = 12 } }
+			}
+			character_event = { id = MYTH_WoL.40 days = 2 }
+		}
+	}
+	option = {
+		name = EVTOPTBMYTH_WoL.297
+		trigger = { ai = no }
 	}
 }

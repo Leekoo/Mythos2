@@ -1,17 +1,3 @@
-RETTYPE_CUL_ZOMBIE =  {
-	first_type = 6
-	first_amount = 500
-	
-	special_troops = zombie_troops
-
-	hire_cost = 1
-	
-	maintenance_multiplier = 0.5
-	
-	potential = {
-		culture = zombie_culture
-	}
-}
 RETTYPE_CUL_VAMPIRE =  {
 	first_type = 6
 	first_amount = 200
@@ -24,6 +10,7 @@ RETTYPE_CUL_VAMPIRE =  {
 	
 	potential = {
 		culture = vampire_culture
+		NOT = { trait = zombie }
 	}
 }
 RETTYPE_CUL_WEREWOLF =  {
@@ -38,6 +25,7 @@ RETTYPE_CUL_WEREWOLF =  {
 	
 	potential = {
 		culture = werewolf_culture
+		NOT = { trait = zombie }
 	}
 }
 RETTYPE_CUL_DRAGON =  {
@@ -52,6 +40,7 @@ RETTYPE_CUL_DRAGON =  {
 	
 	potential = {
 		culture = draconic
+		NOT = { trait = zombie }
 	}
 }
 HORDE_RETTYPE_DRG1 = {
@@ -68,6 +57,7 @@ HORDE_RETTYPE_DRG1 = {
 	potential = {
 		is_nomadic = yes
 		government = marauding_dragon_government
+		NOT = { trait = zombie }
 	}
 }
 HORDE_RETTYPE_DRG2 = {
@@ -86,6 +76,7 @@ HORDE_RETTYPE_DRG2 = {
 	potential = {
 		is_nomadic = yes
 		government = marauding_dragon_government
+		NOT = { trait = zombie }
 	}
 }
 HORDE_RETTYPE_DRG3 = {
@@ -104,6 +95,7 @@ HORDE_RETTYPE_DRG3 = {
 	potential = {
 		is_nomadic = yes
 		government = marauding_dragon_government
+		NOT = { trait = zombie }
 	}
 }
 HORDE_RETTYPE_DRG4 = {
@@ -120,5 +112,6 @@ HORDE_RETTYPE_DRG4 = {
 	potential = {
 		is_nomadic = yes
 		government = marauding_dragon_government
+		NOT = { trait = zombie }
 	}
 }

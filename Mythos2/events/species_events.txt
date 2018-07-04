@@ -450,7 +450,7 @@ character_event = {
 					add_trait = pup
 				}
 			}
-			# One parent is a werewolf = {
+			# One parent is a werewolf
 			else_if = {
 				limit = {
 					OR = {
@@ -1004,11 +1004,25 @@ character_event = {
 				limit = { graphical_culture = etherealgfx }
 				add_trait = ethereal_trait
 			}
+			else_if = {
+				limit = {
+					OR = {
+						graphical_culture = undeadgfx
+						culture_group = undead_culture_group
+					}
+				}
+				add_trait = zombie
+				set_graphical_culture = undead_revenant
+				set_undead_culture = yes
+				religion = the_damned
+				any_claim = { remove_claim = PREV }
+			}
 			else = {
 				remove_trait = dragon
 				remove_trait = demon_trait
 				remove_trait = ethereal_trait
 				remove_trait = dragonborn
+				remove_trait = zombie
 			}
 			if = {
 				limit = {
@@ -1020,7 +1034,7 @@ character_event = {
 				}
 				set_variable = { which = control value = 5 }
 				update_control = yes
-			}			
+			}	
 		}
 		
 		if = {
@@ -1056,6 +1070,8 @@ character_event = {
 			}
 			character_event = { id = SPECIES.3 } # Update known/secret and control
 		}
+		
+		update_sickly_trait = yes
 		
 		character_event = { id = SPECIES.11 }
 	}
@@ -1548,5 +1564,52 @@ character_event = {
 		}
 		set_character_flag = checked_giant
 		character_event = { id = GIANT.1 }
+	}
+}
+
+# Update Djinn Natural Magic (yearly and at start)
+character_event = {
+	id = SPECIES.12
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+	}
+	
+	immediate = {
+		update_natural_magic = yes
+		if = {
+			limit = {
+				NOR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+			}
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
+		}
+	}
+}
+
+# Cancel Pregnancy from vampires
+character_event = {
+	id = SPECIES.13
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			trait = vampire
+			father_of_unborn = { trait = vampire }
+		}
+	}
+	
+	immediate = {
+		cancel_pregnancy = yes
 	}
 }

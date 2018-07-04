@@ -1,3 +1,23 @@
+b_bisterne = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_linormr = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_sarkany = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
+b_vibria = {
+	culture = draconic
+	religion = draconic_pagan
+}
+
 c_alexandria = {
 	holy_site = kemetic_pagan
 	holy_site = atenist
@@ -16,8 +36,10 @@ c_sjaelland = {
 c_roma = {
 	holy_site = roman_pagan
 	holy_site = satanist
+	holy_site = the_damned
 	
 	roman_pagan = 8000
+	satanist = 8000
 }
 c_gizeh = {
 	holy_site = kemetic_pagan
@@ -123,21 +145,6 @@ c_dauphine_viennois = {
 	
 	roman_pagan = 1500
 }
-c_bambuk = {
-	holy_site = voodoo
-}
-c_sijilmasa = {
-	holy_site = voodoo
-}
-c_canarias = {
-	holy_site = voodoo
-}
-c_malaga = {
-	holy_site = voodoo
-}
-c_cyrenaica = {
-	holy_site = voodoo
-}
 c_narbonne = {
 	holy_site = satanist # Birth of Catharism, major target of inquisition
 }
@@ -147,25 +154,30 @@ c_lyon = {
 c_ossory = {
 	holy_site = satanist # Site of the first medieval witch trial
 }
+c_byzantion = {
+	holy_site = the_damned
+}
+c_baghdad = {
+	holy_site = the_damned
+}
+c_cordoba = {
+	holy_site = the_damned
+}
+c_cairo = {
+	holy_site = the_damned
+}
 d_satanist = {
 	color={ 25 24 19 }
 	color2={ 22 22 0 }
 		
 	capital = 333 # Rome
 
-	creation_requires_capital = no
+	creation_requires_capital = yes
 	
 	title = "Patriarch"
 	title_female = "Matriarch"
 	foa = "ECUMENICAL_PATRIARCH_FOA"
 	
-	allow = {
-		religion = satanist
-		num_of_holy_sites = 1
-		religion_authority = 0.3
-		piety = 500
-	}
-
 	religion = satanist
 	controls_religion = satanist
 
@@ -445,12 +457,12 @@ e_zombie = {
 	title = ZOMBIE
 	foa = ZOMBIE
 	
-	culture = zombie_culture
-	religion = voodoo
+	culture = undead_revenant
+	religion = the_damned
 	
 	allow = {
 		trait = zombie
-		culture = manden
+		culture_group = undead_culture_group
 	}
 	location_ruler_title = yes
 	

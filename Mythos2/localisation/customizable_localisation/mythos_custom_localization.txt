@@ -773,7 +773,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_vampire
-		trigger = { trait = vampire } # Change to known vampire once secrecy is in
+		trigger = { trait = known_vampire }
 	}
 	text = {
 		localisation_key = String_werewolf
@@ -796,8 +796,7 @@ defined_text = {
 		trigger = { trait = demi_god }
 	}
 	text = {
-		#localisation_key = GetZombieName  # Change once zombie revamp is done
-		localisation_key = String_zombie
+		localisation_key = GetRevenantTerm
 		trigger = { trait = zombie }
 	}
 	text = {
@@ -822,7 +821,7 @@ defined_text = {
 			NOR = {
 				trait = dragon
 				trait = dragonborn
-				trait = vampire # Change to known vampire once secrecy is in
+				trait = known_vampire
 				trait = known_werewolf
 				trait = giant
 				trait = half_giant
@@ -1927,9 +1926,25 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[GetPurityTooltip_Begger]"
+		localisation_key = "[GetPurityTooltip_Potion]"
 		trigger = {
 			NOT = { has_character_modifier = sapphire_flame_blessing }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Potion
+	text = {
+		localisation_key = tt_purity_potion
+		trigger = {
+			has_character_modifier = potion_of_purity
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Begger]"
+		trigger = {
+			NOT = { has_character_modifier = potion_of_purity }
 		}
 	}
 }
@@ -1981,6 +1996,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2028,6 +2044,7 @@ defined_text = {
 		localisation_key = tt_trait_vice
 		trigger = {
 			use_satanist_vice_virtue = yes
+			use_undead_vice_virtue = yes
 		}
 	}
 }
@@ -2051,6 +2068,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2076,6 +2094,7 @@ defined_text = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
 				use_aztec_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2133,6 +2152,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2176,13 +2196,17 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_satanist_vice_virtue = yes
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = no # Literally everyone else
+			use_satanist_vice_virtue = no
+			use_undead_vice_virtue = no
 		}
 	}
 }
@@ -2195,6 +2219,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2264,6 +2289,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2281,6 +2307,12 @@ defined_text = {
 				use_tengri_vice_virtue = yes
 				use_norse_vice_virtue = yes
 			}
+		}
+	}
+	text = {
+		localisation_key = tt_trait_vice
+		trigger = {
+			use_undead_vice_virtue = yes
 		}
 	}
 }
@@ -2305,6 +2337,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2315,7 +2348,10 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2360,7 +2396,10 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2637,6 +2676,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2686,7 +2726,10 @@ defined_text = {
 		localisation_key = virtue_slothful
 		trigger = {
 			trait = slothful
-			use_satanist_vice_virtue = yes
+			OR = {
+				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2711,6 +2754,7 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2789,6 +2833,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -2868,7 +2913,10 @@ defined_text = {
 		localisation_key = virtue_arbitrary
 		trigger = {
 			trait = arbitrary
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2912,7 +2960,10 @@ defined_text = {
 		localisation_key = virtue_cruel
 		trigger = {
 			trait = cruel
-			use_black_flame_vice_virtue = yes
+			OR = {
+				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
 		}
 	}
 	text = {
@@ -2938,12 +2989,34 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[HasLustfulVice]"
+		localisation_key = "[HasStubbornVirtue]"
 		trigger = {
 			OR = {
 				NOT = { trait = honest }
 				NOT = {
 					use_norse_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasStubbornVirtue
+	text = {
+		localisation_key = virtue_stubborn
+		trigger = {
+			trait = stubborn
+			use_undead_vice_virtue = yes
+		}
+	}
+	text = {
+		localisation_key = "[HasLustfulVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = stubborn }
+				NOT = {
+					use_undead_vice_virtue = yes
 				}
 			}
 		}
@@ -3149,6 +3222,7 @@ defined_text = {
 				use_aztec_vice_virtue = yes
 				use_norse_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3288,6 +3362,7 @@ defined_text = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
 				use_aztec_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3367,6 +3442,7 @@ defined_text = {
 			OR = {
 				use_draconic_vice_virtue = yes
 				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3392,6 +3468,7 @@ defined_text = {
 			trait = diligent
 			OR = {
 				use_satanist_vice_virtue = yes
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3417,6 +3494,32 @@ defined_text = {
 			OR = {
 				use_satanist_vice_virtue = yes
 				use_black_flame_vice_virtue = yes
+				use_undead_vice_virtue = yes
+			}
+		}
+	}
+	text = {
+		localisation_key = "[HasJustVice]"
+		trigger = {
+			OR = {
+				NOT = { trait = patient }
+				NOR = {
+					use_satanist_vice_virtue = yes
+					use_black_flame_vice_virtue = yes
+				}
+			}
+		}
+	}
+}
+
+defined_text = {
+	name = HasJustVice
+	text = {
+		localisation_key = vice_just
+		trigger = {
+			trait = just
+			OR = {
+				use_undead_vice_virtue = yes
 			}
 		}
 	}
@@ -3424,10 +3527,9 @@ defined_text = {
 		localisation_key = "[HasContentVice]"
 		trigger = {
 			OR = {
-				NOT = { trait = patient }
+				NOT = { trait = just }
 				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
+					use_undead_vice_virtue = yes
 				}
 			}
 		}
@@ -4992,5 +5094,736 @@ defined_text = {
 		trigger = {
 			has_global_flag = jotnar_reformation
 		}
+	}
+}
+defined_text = {
+	name = GetRevenantTerm
+	use_first_valid = yes
+	text = {
+		localisation_key = String_Cold_One
+		trigger = {
+			OR = {
+				culture = undead_cold_ones
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Aptrganger
+		trigger = {
+			OR = {
+				culture = undead_aptrganger
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Draugr
+		trigger = {
+			OR = {
+				culture = undead_draugr
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Dybbuk
+		trigger = {
+			OR = {
+				culture = undead_dybbuk
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Ghoul
+		trigger = {
+			OR = {
+				culture = undead_ghoul
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wight
+		trigger = {
+			OR = {
+				culture = undead_wight
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Zombie
+		trigger = {
+			OR = {
+				culture = undead_zombie
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vetala
+		trigger = {
+			OR = {
+				culture = undead_vetala
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vrykolakas
+		trigger = {
+			OR = {
+				culture = undead_vrykolakas
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Revenant
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = GetRevenantTermCap
+	use_first_valid = yes
+	text = {
+		localisation_key = String_Cold_One_Cap
+		trigger = {
+			OR = {
+				culture = undead_cold_ones
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Aptrganger_Cap
+		trigger = {
+			OR = {
+				culture = undead_aptrganger
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Draugr_Cap
+		trigger = {
+			OR = {
+				culture = undead_draugr
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Dybbuk_Cap
+		trigger = {
+			OR = {
+				culture = undead_dybbuk
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Ghoul_Cap
+		trigger = {
+			OR = {
+				culture = undead_ghoul
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wight_Cap
+		trigger = {
+			OR = {
+				culture = undead_wight
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Zombie_Cap
+		trigger = {
+			OR = {
+				culture = undead_zombie
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vetala_Cap
+		trigger = {
+			OR = {
+				culture = undead_vetala
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vrykolakas_Cap
+		trigger = {
+			OR = {
+				culture = undead_vrykolakas
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Revenant_Cap
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = GetRevenantTermPlural
+	use_first_valid = yes
+	text = {
+		localisation_key = String_Cold_One_Plural
+		trigger = {
+			OR = {
+				culture = undead_cold_ones
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Aptrganger_Plural
+		trigger = {
+			OR = {
+				culture = undead_aptrganger
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Draugr_Plural
+		trigger = {
+			OR = {
+				culture = undead_draugr
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Dybbuk_Plural
+		trigger = {
+			OR = {
+				culture = undead_dybbuk
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Ghoul_Plural
+		trigger = {
+			OR = {
+				culture = undead_ghoul
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wight_Plural
+		trigger = {
+			OR = {
+				culture = undead_wight
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Zombie_Plural
+		trigger = {
+			OR = {
+				culture = undead_zombie
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vetala_Plural
+		trigger = {
+			OR = {
+				culture = undead_vetala
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vrykolakas_Plural
+		trigger = {
+			OR = {
+				culture = undead_vrykolakas
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Revenant_Plural
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = GetRevenantTermPluralCap
+	use_first_valid = yes
+	text = {
+		localisation_key = String_Cold_One_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_cold_ones
+				religion = baltic_pagan
+				religion = baltic_pagan_reformed
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+				religion = finnish_pagan
+				religion = finnish_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Aptrganger_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_aptrganger
+				culture_group = north_germanic
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Draugr_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_draugr
+				culture = jotunn
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Dybbuk_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_dybbuk
+				culture_group = israelite
+				religion_group = jewish_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Ghoul_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_ghoul
+				culture_group = arabic
+				religion_group = muslim
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Wight_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_wight
+				culture_group = west_germanic
+				culture_group = celtic
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Zombie_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_zombie
+				culture_group = west_african
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vetala_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_vetala
+				culture_group = indo_aryan_group
+				culture_group = dravidian_group
+				religion_group = indian_group
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Vrykolakas_Plural_Cap
+		trigger = {
+			OR = {
+				culture = undead_vrykolakas
+				culture_group = byzantine
+				culture = roman
+				religion = hellenic_pagan
+				religion = roman_pagan
+			}
+		}
+	}
+	text = {
+		localisation_key = String_Revenant_Plural_Cap
+		trigger = {
+			always = yes
+		}
+	}
+}
+defined_text = {
+	name = ManpowerName
+	text = {
+		localisation_key = String_Manpower
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Corpses
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = ManpowerNameCap
+	text = {
+		localisation_key = String_Manpower_Cap
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Corpses_Cap
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+
+defined_text = {
+	name = GetKhatunTerm
+	text = {
+		localisation_key = String_Khatun
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Master
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanumTerm
+	text = {
+		localisation_key = String_Khanum
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Archrevenant
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanTerm
+	text = {
+		localisation_key = String_Khan
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Archrevenant
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganTerm
+	text = {
+		localisation_key = String_Khagan
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Master
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanateTerm
+	text = {
+		localisation_key = String_Khanate
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Horde
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhanateOfTerm
+	text = {
+		localisation_key = String_KhanateOf
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_HordeOf
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganateTerm
+	text = {
+		localisation_key = String_Khaganate
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_Dominion
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+defined_text = {
+	name = GetKhaganateOfTerm
+	text = {
+		localisation_key = String_KhaganateOf
+		trigger = {
+			NOT = { government = zombie_horde }
+		}
+	}
+	text = {
+		localisation_key = String_DominionOf
+		trigger = {
+			government = zombie_horde
+		}
+	}
+}
+
+defined_text = {
+	name = GetCollegeOfCardinals
+	text = {
+		localisation_key = STRING_college_of_cardinals
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_of_druids
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointed
+	text = {
+		localisation_key = STRING_cardinal_appointed
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointedLetter
+	text = {
+		localisation_key = STRING_cardinal_appointed_letter
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed_letter
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalAppointedLog
+	text = {
+		localisation_key = STRING_cardinal_appointed_log
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_appointed_log
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPapalSuccession
+	text = {
+		localisation_key = STRING_papal_succession
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_succession
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPapalSuccessionDesc
+	text = {
+		localisation_key = STRING_papal_succession_desc
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_succession_desc
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalChoice
+	text = {
+		localisation_key = STRING_cardinal_choice
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_druid_choice
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalSupportOpinion
+	text = {
+		localisation_key = STRING_cardinal_support_opinion
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_support_opinion
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPopeSupportOpinion
+	text = {
+		localisation_key = STRING_pope_support_opinion
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_support_opinion
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetPopeSuitability
+	text = {
+		localisation_key = STRING_pope_suitability
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_archdruid_suitability
+		trigger = { religion = druidic_reformed }
+	}
+}
+
+defined_text = {
+	name = GetCardinalSuitability
+	text = {
+		localisation_key = STRING_cardinal_suitability
+		trigger = { religion_group = christian }
+	}
+	text = {
+		localisation_key = STRING_circle_suitability
+		trigger = { religion = druidic_reformed }
 	}
 }

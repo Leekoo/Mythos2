@@ -13,7 +13,9 @@ targetted_decisions = {
 				NOT = { character = ROOT }
 				NOT = { religion = ROOT }
 				religion_group = ROOT
+				NOT = { religion = the_damned }
 			}
+			NOT = { religion = the_damned }
 			controls_religion = no
 		}
 		allow = {
@@ -283,10 +285,12 @@ targetted_decisions = {
 			ai = no
 			is_playable = yes
 			controls_religion = no
+			NOT = { religion = the_damned }
 		}
 		potential = {
 			NOT = { character = FROM }
 			NOT = { religion = FROM }
+			NOT = { religion = the_damned }
 			religion_group = FROM
 		}
 		
@@ -553,11 +557,13 @@ targetted_decisions = {
 		
 		from_potential = {
 			is_playable = yes
+			NOT = { culture_group = undead_culture_group }
 		}
 		
 		potential = {
 			NOT = { character = FROM }
 			NOT = { culture = FROM }
+			NOT = { culture_group = undead_culture_group }
 		}
 		allow = {
 			FROM = { prestige = 200 }
@@ -584,7 +590,9 @@ targetted_decisions = {
 			liege = {
 				NOT = { character = ROOT }
 				NOT = { culture = ROOT }
+				NOT = { culture_group = undead_culture_group }
 			}
+			NOT = { culture_group = undead_culture_group }
 		}
 		allow = {
 			prestige = 200
@@ -611,6 +619,7 @@ targetted_decisions = {
 			is_nomadic = no
 			capital_scope = {
 				NOT = { culture = ROOT }
+				NOT = { culture_group = undead_culture_group }
 			}
 			OR = {
 				independent = yes
@@ -618,9 +627,11 @@ targetted_decisions = {
 					NOT = { culture = ROOT }
 				}
 			}
+			NOT = { culture_group = undead_culture_group }
 			holy_order = no
 			mercenary = no
 			has_dlc = "Rajas of India"
+			NOT = { trait = zombie }
 			NOT = { government = chinese_imperial_government }
 		}
 		allow = {
@@ -776,8 +787,12 @@ targetted_decisions = {
 			ai = no
 			is_playable = yes
 			is_nomadic = no
+			NOT = { religion = the_damned }
 			capital_scope = {
-				NOT = { religion = ROOT }
+				NOR = {
+					religion = ROOT
+					religion = the_damned
+				}
 			}
 			OR = {
 				independent = yes
@@ -831,9 +846,9 @@ targetted_decisions = {
 				custom_tooltip = {
 					text = tt_god_cant_monotheism
 					hidden_tooltip = {
+						trait = god
 						capital_scope = {
 							NOR = {
-								ROOT = { trait = god }
 								religion_group = christian
 								religion_group = muslim
 								religion_group = jewish_group
@@ -851,9 +866,9 @@ targetted_decisions = {
 				custom_tooltip = { 
 					text = tt_god_cant_monotheism
 					hidden_tooltip = {
+						trait = god
 						capital_scope = {
 							NOR = {
-								trait = god
 								religion = buddhist
 								religion = taoist
 							}
@@ -867,8 +882,8 @@ targetted_decisions = {
 				custom_tooltip = { 
 					text = tt_god_cant_convert
 					hidden_tooltip = {
+						trait = god
 						NOR = {
-							trait = god
 							true_religion_hindu_trigger = yes
 							true_religion_bon_trigger = yes
 							true_religion_jain_trigger = yes
@@ -3218,6 +3233,7 @@ decisions = {
 				is_nomadic = yes
 			}
 			controls_religion = no
+			NOT = { religion = the_damned }
 			
 			war = yes
 			any_war = {

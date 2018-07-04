@@ -139,7 +139,6 @@ title_loremaster = {
 			religion = slavic_pagan
 			religion = west_african_pagan
 			religion = zun_pagan
-			religion = voodoo
 			religion = draconic_pagan
 			religion = druidic
 			religion = kemetic_pagan
@@ -261,7 +260,7 @@ title_champion = {
 			religion = aztec
 			religion = zun_pagan_reformed
 			religion = zun_pagan
-			religion = voodoo
+			religion = the_damned
 			religion = draconic_pagan_reformed
 			religion = draconic_pagan
 			religion = druidic_reformed
@@ -350,7 +349,7 @@ title_master_of_the_blade = {
 			religion = tengri_pagan_reformed
 			religion = zun_pagan_reformed
 			religion = zun_pagan
-			religion = voodoo
+			religion = the_damned
 			religion = druidic_reformed
 			religion = druidic
 			religion = atenist
@@ -437,7 +436,6 @@ title_master_of_the_bow = {
 			religion = tengri_pagan_reformed
 			religion = zun_pagan_reformed
 			religion = zun_pagan
-			religion = voodoo
 			religion = druidic_reformed
 			religion = druidic
 			religion = atenist
@@ -488,7 +486,7 @@ title_venerable_elder = {
 				}
 			}
 		}
-		is_50 = yes
+		ROOT = { is_50 = yes }
 	}
 
 	allowed_to_grant = {
@@ -518,7 +516,6 @@ title_venerable_elder = {
 			religion = tengri_pagan_reformed
 			religion = zun_pagan_reformed
 			religion = zun_pagan
-			religion = voodoo
 			religion = draconic_pagan_reformed
 			religion = draconic_pagan
 			religion = druidic_reformed
@@ -653,4 +650,184 @@ title_curule_aedile = {
 	}
 
 	message = yes
+}
+title_mage_apprentice = {
+	dignity = 0.02
+	grant_limit = 1
+	opinion_effect = 10
+	monthly_prestige = 0.2
+	allowed_to_hold = {
+		is_adult = yes
+		NOT = { lifestyle_traits = 1 }
+		prisoner = no
+	}
+	allowed_to_grant = {
+		OR = {
+			trait = enchanter
+			trait = summoner
+			trait = alchemist
+			trait = herbalist
+			trait = necromancer
+		}
+	}
+	
+	gain_effect = {
+		if = {
+			limit = { ai = yes }
+			if = {
+				limit = {
+					FROM = { trait = enchanter }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_sorcery } }
+					add_character_modifier = { name = studying_sorcery duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = summoner }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_conjuration } }
+					add_character_modifier = { name = studying_conjuration duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = alchemist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_herbalism
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_alchemy } }
+					add_character_modifier = { name = studying_alchemy duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = herbalist }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_necromancy
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_necromancy
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_herbalism } }
+					add_character_modifier = { name = studying_herbalism duration = -1 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { trait = necromancer }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_modifier = studying_sorcery
+							has_character_modifier = studying_alchemy
+							has_character_modifier = studying_conjuration
+							has_character_modifier = studying_herbalism
+						}
+					}
+					remove_character_modifier = studying_sorcery
+					remove_character_modifier = studying_alchemy
+					remove_character_modifier = studying_conjuration
+					remove_character_modifier = studying_herbalism
+					remove_character_modifier = magic_study_1
+					remove_character_modifier = magic_study_2
+				}
+				if = {
+					limit = { NOT = { has_character_modifier = studying_necromancy } }
+					add_character_modifier = { name = studying_necromancy duration = -1 }
+				}
+			}
+			set_focus = focus_magic
+		}
+		else = {
+			character_event = { id = MYTH_WoL.284 }
+		}
+	}
+	lose_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+	retire_effect = {
+		set_variable = { which = apprentice_years value = 0 }
+	}
+
+	message = yes
+}
+
+title_vampiric_protection = {
+	dignity = 0.01
+	grant_limit = 1
+	
+	allowed_to_grant = {
+		trait = vampire
+		ai = no
+	}
+	allowed_to_hold = {
+		always = yes
+	}
+	gain_effect = {}
+	lose_effect = {}
+	retire_effect = {}
+	death_effect = {}
 }

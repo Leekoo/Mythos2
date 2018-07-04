@@ -6,6 +6,96 @@ bm_charlemagne = {
 	era = yes						## Will be shown on Era screen.
 	picture = GFX_pick_era_image_1
 	
+	# Chief of Kola
+	selectable_character = {
+		id = 268310 # Grafvitni Linormr
+		age = 39
+		name = ERA_CHAR_NAME_268310
+		title = d_kola
+		title_name = d_kola
+		
+		character = {
+			dna="h00000a00a0"
+			properties="c0000000000000"
+			religion=draconic_pagan
+			culture=draconic
+			government=draconic_tribal_government
+			dynasty=1049011
+		}
+	}
+	
+	# Gwrgi Garwlwyd of Powys
+	selectable_character = {
+		id = 268406 # Gwrgi Garwlwyd
+		age = 19
+		name = ERA_CHAR_NAME_268406
+		title = c_powys
+		title_name = c_powys
+		
+		character={
+			dna="0ccce0gaga0"
+			properties="0i0dga00000000"
+			religion=catholic
+			culture=welsh
+			government=feudal_government
+			dynasty=1049406
+		}
+	}
+	
+	# Giant of Cornwall
+	selectable_character = {
+		id = 268458 # Cormoran Gogmagog
+		age = 39
+		name = ERA_CHAR_NAME_268458
+		title = d_cornwall
+		title_name = d_cornwall
+		
+		character={
+			dna="cdfbe0dada0"
+			properties="qe0ffb00000000"
+			religion=celtic
+			culture=jotunn
+			government=feudal_government
+			dynasty=1049421
+		}
+	}
+	
+	# Apalala
+	selectable_character = {
+		id = 268471 # Apalala
+		age = 49
+		name = ERA_CHAR_NAME_268471
+		title = c_sakala
+		title_name = c_sakala
+		
+		character = {
+			dna="fb0000aa0a0"
+			properties="k0000000000000"
+			religion=buddhism
+			culture=draconic
+			government=feudal_government
+			dynasty=1049429
+		}
+	}
+	
+	# Upier vampire
+	selectable_character = {
+		id = 268441 # Przemysl Upir
+		age = 39
+		name = ERA_CHAR_NAME_268441
+		title = d_pommerania
+		title_name = d_pommerania
+		
+		character = {
+			dna="agc000aa0a0"
+			properties="0e0a0b00000000"
+			religion=slavic_pagan
+			culture=pommeranian
+			government=tribal_government
+			dynasty=1049149
+		}
+	}
+	
 	selectable_character = {
 		id = 6392 # Charlemagne
 		age = 26
@@ -158,40 +248,41 @@ bm_the_old_gods = {
 	}
 	
 	selectable_character = {
-		id = 268286 # Vlad
-		age = 32
-		name = ERA_CHAR_NAME_268286
-		title = c_severin
-		title_name = Severin
+		id = 268435 # Sava Savanovic
+		age = 62
+		name = ERA_CHAR_NAME_268435
+		title = c_rashka
+		title_name = c_rashka
 		
 		character = {
-			dna = bcedirmaaay
-			properties = be000d00000
-			religion="satanist"
-			culture="romanian"
-			government = feudal_government
-			dynasty=1049000
-		}
-	} 
-	
-	selectable_character = {
-		id = 268290 # Rhodric
-		age = 26
-		name = ERA_CHAR_NAME_268290
-		title = c_dyfed
-		title_name = Dyfed
-		
-		character = {
-			dna = bcedirmbfcy
-			properties = ae00bd00000
-			religion="druidic"
-			culture="welsh"
-			government = feudal_government
-			dynasty=1049003
+			dna="cjefg0ha000"
+			properties="0d0bdd00000000"
+			religion=slavic_pagan
+			culture=serbian
+			government=tribal_government
+			dynasty=1049409
 		}
 	}
+	
 	selectable_character = {
-		id = 145182 # Argos
+		id = 268464 # Ferragut
+		age = 24
+		name = ERA_CHAR_NAME_268464
+		title = c_lisboa
+		title_name = c_lisboa
+		
+		character = {
+			dna="cjcea0aa000"
+			properties="0b0edj00000000"
+			religion=sunni
+			culture=beduin_arabic
+			government=muslim_government
+			dynasty=12308
+		}
+	}
+	
+	selectable_character = {
+		id = 268285 # Argos
 		age = 25
 		name = ERA_CHAR_NAME_145182
 		title = d_achaia
@@ -218,7 +309,7 @@ bm_the_old_gods = {
 			properties = da00b000000
 			religion="draconic_pagan"
 			culture="draconic"
-			government = draconic_fuedal_government
+			government = draconic_feudal_government
 			dynasty=1049007
 		}
 	}
@@ -234,12 +325,47 @@ bm_the_old_gods = {
 		
 		character = {
 			dna = eb0000ad0a0
+			properties = g0000000000000
 			religion = draconic_pagan
 			culture = draconic
 			government = draconic_tribal_government
 			dynasty = 1049011
 		}
 	}
+	
+	selectable_character = {
+		id = 268290 # Rhodric
+		age = 26
+		name = ERA_CHAR_NAME_268290
+		title = c_dyfed
+		title_name = Dyfed
+		
+		character = {
+			dna = bcedirmbfcy
+			properties = ae00bd00000
+			religion="druidic"
+			culture="welsh"
+			government = feudal_government
+			dynasty=1049003
+		}
+	}
+	
+	selectable_character = {
+		id = 268286 # Vlad
+		age = 32
+		name = ERA_CHAR_NAME_268286
+		title = c_severin
+		title_name = Severin
+		
+		character = {
+			dna = bcedirmaaay
+			properties = be000d00000
+			religion="satanist"
+			culture="romanian"
+			government = blood_court_government
+			dynasty=1049000
+		}
+	} 
 
 	selectable_character = {
 		id = 163112 # Halfdan Whiteshirt
@@ -356,6 +482,21 @@ bm_the_old_gods = {
 	selectable_character = {
 		id = 45107 # Vandad I
 	}
+	
+	selectable_character = {
+		id = 268452 # Ramesses
+	}
+	
+	selectable_character = {
+		id = 268454 # Djinn of Mahra
+	}
+	
+	selectable_character = {
+		id = 268462 # Brynjolf of Nordland
+	}
+	selectable_character = {
+		id = 268463 # Dobrozhir of Pskov
+	}
 }
 
 bm_fate_of_england = {
@@ -367,6 +508,110 @@ bm_fate_of_england = {
 	picture = GFX_pick_era_image_3
 	custom_start = yes				## Choosing "Custom Start" will open this bookmark
 
+	selectable_character = {
+		id = 650 # Vseslav Bryachislavich
+		age = 36
+		name = ERA_CHAR_NAME_650
+		title = d_polotsk
+		title_name = d_polotsk
+		
+		character = {
+			dna="acejg0fa000"
+			properties="0j00i000000000"
+			religion=orthodox
+			culture=russian
+			government=feudal_government
+			dynasty=705
+		}
+	}
+	
+	selectable_character = {
+		id = 268443
+		age = 36
+		name = ERA_CHAR_NAME_268443
+		title = d_pommerania
+		title_name = d_pommerania
+		
+		character = {
+			dna="beheh0hbb00"
+			properties="nd0adc00000000"
+			religion=catholic
+			culture=pommeranian
+			government=blood_court_government
+			dynasty=1049149
+		}
+	}
+	
+	selectable_character = {
+		id = 268452 # Ramesses
+		age = 1379
+		name = ERA_CHAR_NAME_268452
+		title = d_alexandria
+		title_name = d_alexandria
+		
+		character = {
+			dna="ajibe00ae00"
+			properties="jb00ak00000000"
+			religion=kemetic_pagan
+			culture=egyptian_arabic
+			government=feudal_government
+			dynasty=1043002
+		}
+	}
+	
+	selectable_character = {
+		id = 268455 # Siq of Oman
+		age = 66
+		name = ERA_CHAR_NAME_268455
+		title = d_oman
+		title_name = d_oman
+		
+		character = {
+			dna="cdlic0ac000"
+			properties="j00hbb00000000"
+			religion=sunni
+			culture=beduin_arabic
+			government=muslim_government
+			dynasty=1049418
+		}
+	}
+	
+	selectable_character = {
+		id = 268465 # Balor Birugderc
+		age = 46
+		name = ERA_CHAR_NAME_268465
+		title = c_breifne
+		title_name = c_breifne
+		
+		character = {
+			dna="cgcgh0dbga0"
+			properties="gd00id00000000"
+			religion = celtic
+			culture = irish
+			government = feudal_government
+			dynasty = 1049425
+		}
+	}
+	
+	selectable_character = {
+		id = 268327 # Ilsgat Lagarfljótsormur
+		age = 46
+		name = ERA_CHAR_NAME_268327
+		title = c_faereyar
+		title_name = c_faereyar
+		
+		character = {
+			dna="cb0000ad0b0"
+			properties="b0000000000000"
+			religion = draconic_pagan
+			culture = draconic
+			government = draconic_feudal_government
+			dynasty = 1049007
+		}
+	}
+	
+	### These are not shown unless the player is viewing custom bookmarks
+	
 	selectable_character = {
 		id = 140 # William the Conqueror
 		age = 39
@@ -455,6 +700,8 @@ bm_fate_of_england = {
 			dynasty=613
 		}
 	}
+	
+	
 
 	selectable_character = {
 		id = 74441 # Somesvara I of Chalukyas
@@ -475,7 +722,6 @@ bm_fate_of_england = {
 		}
 	}
 	
-	### These are not shown unless the player is viewing custom bookmarks
 
 	selectable_character = {
 		id = 122 # Harold Godwinson
@@ -489,6 +735,9 @@ bm_fate_of_england = {
 		id = 20663 # Isaac of Khazaria
 	}
 	
+	selectable_character = {
+		id = 268411 # Håkon Wolvar
+	}
 }
 
 bm_norman_conquest = {
@@ -555,6 +804,10 @@ bm_third_crusade = {
 	selectable_character = {
 		id = 226000 # Saladin
 	}
+	
+	selectable_character = {
+		id = 268417 # Heimir Wolvar
+	}
 }
 
 bm_the_latin_empire = {
@@ -595,6 +848,111 @@ bm_the_mongols = {
 	era = yes						## Will be shown on Era screen.
 	picture = GFX_pick_era_image_4
 	
+	
+	selectable_character = {
+		id = 268420 # Gilchrist Wolvar
+		age = 90
+		name = ERA_CHAR_NAME_268420
+		title = c_shetland
+		title_name = c_shetland
+		
+		character = {
+			dna="cfbee0a00b0"
+			properties="0i0eh000000000"
+			religion=catholic
+			culture=scottish
+			government = feudal_government
+			dynasty=1049408
+		}
+	}
+	
+	selectable_character = {
+		id = 268438 # Comte Estruc
+		age = 87
+		name = ERA_CHAR_NAME_268438
+		title = c_empuries
+		title_name = c_empuries
+		
+		character = {
+			dna="cd0ca000cb0"
+			properties="0j0a0000000000"
+			religion=catholic
+			culture=catalan
+			government=blood_court_government
+			dynasty=1049410
+		}
+	}
+	
+	selectable_character = {
+		id = 268456 # Cezevi Marid
+		age = 17
+		name = ERA_CHAR_NAME_268456
+		title = c_shiraz
+		title_name = c_shiraz
+		
+		character = {
+			dna="cdfka0h0000"
+			properties="oj0a0a00000000"
+			religion=sunni
+			culture=persian
+			government=muslim_government
+			dynasty=1049419
+		}
+	}
+	
+	selectable_character = {
+		id = 268466 # Ravana
+		age = 18
+		name = ERA_CHAR_NAME_268466
+		title = d_nasikya
+		title_name = d_nasikya
+		
+		character = {
+			dna="bcfdc0e0000"
+			properties="og0a0000000000"
+			religion=hindu
+			culture=marathi
+			government=feudal_government
+			dynasty=1049426
+		}
+	}
+	
+	selectable_character = {
+		id = 125403 # Girgen
+		age = 50
+		name = ERA_CHAR_NAME_125403
+		title = k_cuman
+		title_name = k_cuman
+		
+		character = {
+			dna="ackfg0cbc00"
+			properties="ia00fd00000000"
+			religion = tengri
+			culture = cuman
+			government = nomadic_government
+			dynasty = 698
+		}
+	}
+	
+	selectable_character = {
+		id = 125501 # Genghis Khan
+		age = 58
+		name = ERA_CHAR_NAME_125501
+		title = e_mongol_empire
+		title_name = e_mongol_empire
+		#coa_dynasty = yes
+		dlc = "Horse Lords"
+		
+		character = {
+			dna = bggmkufdfae
+			properties = k000cd000000
+			religion="tengri_pagan"
+			culture="mongol"
+			government = nomadic_government
+			dynasty=11100
+		}
+	}
+		
 	selectable_character = {
 		id = 457620 # Fernando III of Castille
 		age = 18
@@ -686,22 +1044,7 @@ bm_the_mongols = {
 	}
 
 	selectable_character = {
-		id = 125501 # Genghis Khan
-		age = 58
-		name = ERA_CHAR_NAME_125501
-		title = e_mongol_empire
-		title_name = e_mongol_empire
-		#coa_dynasty = yes
-		dlc = "Horse Lords"
-		
-		character = {
-			dna = bggmkufdfae
-			properties = k000cd000000
-			religion="tengri_pagan"
-			culture="mongol"
-			government = nomadic_government
-			dynasty=11100
-		}
+		id = 268408 #Bizuneh Bisclavret
 	}
 }
 
@@ -746,6 +1089,108 @@ bm_100_years_war = {
 	
 	era = yes						## Will be shown on Era screen.
 	picture = GFX_pick_era_image_5
+	
+	selectable_character = {
+		id = 268445
+		age = 47
+		name = ERA_CHAR_NAME_268445
+		title = d_pommerania
+		title_name = d_pommerania
+		
+		character = {
+			dna="acfdc0e0000"
+			properties="og0a0000000000"
+			culture = pommeranian
+			religion = catholic
+			government = blood_court_government
+			dynasty = 1049149
+			female = yes
+		}
+	}
+	
+	selectable_character = {
+		id = 268432 # Suibhne Wolver
+		age = 19
+		name = ERA_CHAR_NAME_268432
+		title = c_shetland
+		title_name = c_shetland
+		
+		character = {
+			dna="adiba0g0000"
+			properties="og0a0000000000"
+			culture=scottish
+			religion=catholic
+			government=feudal_government
+			dynasty=1049408
+		}
+	}
+	
+	selectable_character = {
+		id = 268457 # Khinzab Hinn
+		age = 37
+		name = ERA_CHAR_NAME_268457
+		title = c_cyrenaica
+		title_name = c_cyrenaica
+		
+		character = {
+			dna="ackfg0cbc00"
+			properties="ia00fd00000000"
+			culture=berber_arabic
+			religion=shiite
+			government=muslim_government
+			dynasty=1049420
+		}
+	}
+	
+	selectable_character = {
+		id = 485000 # al-Nasir Muhammad Bahri
+		age = 52
+		name = ERA_CHAR_NAME_485000
+		title = k_egypt
+		title_name = k_egypt
+		
+		character = {
+			dna="ajgfi0hg000"
+			properties="0c0hb000000000"
+			culture=egyptian_arabic
+			religion=sunni
+			government=muslim_government
+			dynasty=762
+		}
+	}
+	
+	selectable_character = {
+		id = 412072 # Alberto della Scala
+		age = 31
+		name = ERA_CHAR_NAME_412072
+		title = d_verona
+		title_name = d_verona
+		
+		character = {
+			dna="khqjsctgjvb"
+			properties="ejxejd00000000"
+			culture=italian
+			religion=catholic
+			government=feudal_government
+		}
+	}
+	
+	selectable_character = {
+		id = 268470 # Tarasque
+		age = 27
+		name = ERA_CHAR_NAME_268470
+		title = k_mentese
+		title_name = k_mentese
+		
+		character = {
+			dna="ea0000bc000"
+			properties="00000000000000"
+			culture=draconic
+			religion=draconic_pagan
+			government=draconic_feudal_government
+			dynasty=1049428
+		}
+	}
 	
 	selectable_character = {
 		id = 454500 # Edward III of England
@@ -857,5 +1302,9 @@ bm_100_years_war = {
 
 	selectable_character = {
 		id = 451500 # Valdemar Atterdag
+	}
+	
+	selectable_character = {
+		id = 268452 # Ramesses
 	}
 }

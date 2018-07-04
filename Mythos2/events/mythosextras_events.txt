@@ -15,206 +15,94 @@ character_event = {
 			save_event_target_as = target_potioned
 		}
 		save_event_target_as = target_potioner
+		select_random_magic_ingredient_herb_effect = yes
+		select_random_magic_ingredient_herb_effect = yes
+		set_variable = { which = potion_bonus value = 0 }
 	}
 	
 	option = {
-		name = "EVTOPTMYTHMORE.1"
+		name = EVTOPTMYTHMORE.1
 		hidden_tooltip = {
-			random_list = {
-				# Success
-				50 = {
-					modifier = {
-						factor = 9
-						trait = arcane_master
-					}
-					modifier = {
-						factor = 4
-						trait = veteran_wizard
-					}
-					modifier = {
-						factor = 2.3
-						trait = eldritch_scholar
-					}
-					modifier = {
-						factor = 1.5
-						trait = novice_mage
-					}
-					modifier = {
-						factor = 1.2
-						trait = enchanter
-					}
-					modifier = {
-						factor = 1.5
-						trait = herbalist
-					}
-					modifier = {
-						factor = 1.5
-						has_artifact = greater_key_of_solomon
-					}
-					if = {
-						limit = {
-							NOT = { same_sex = event_target:target_potioned }
-							event_target:target_potioned = { trait = homosexual }
-						}
-						# Target is different sex, but homosexual
-						character_event = {
-							id = MYTHMORE.2
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							same_sex = FROM
-							event_target:target_potioned = { NOT = { trait = homosexual } }
-						}
-						# Target is same sex, but not homosexual
-						character_event = {
-							id = MYTHMORE.3
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							event_target:target_potioned = { trait = chaste }
-						}
-						# Target has chaste
-						character_event = {
-							id = MYTHMORE.4
-							days = 1
-						}
-						break = yes
-					}
-					# Target becomes lover
-					character_event = {
-						id = MYTHMORE.5
-						days = 1
-					}
-				}
-				# Failure
-				50 = {
-					if = {
-						limit = {
-							OR = {
-								AND = {
-									same_sex = event_target:target_potioned
-									NOT = { event_target:target_potioned = { trait = homosexual } }
-								}
-								AND = {
-									NOT = { same_sex = FROM }
-									event_target:target_potioned = { trait = homosexual }
-								}
-							}
-						}
-						# Target is not attracted to your sex, becomes your rival
-						character_event = {
-							id = MYTHMORE.6
-							days = 1
-						}
-						break = yes
-					}
-					if = {
-						limit = {
-							NOT = { event_target:target_potioned = { trait = chaste } }
-						}
-						# Target is not chaste
-						random_list = {
-							50 = {
-								# Target becomes chaste
-								character_event = {
-									id = MYTHMORE.7
-									days = 1
-								}
-							}
-							30 = {
-								# Target sexuality change
-								if = {
-									limit = {
-										same_sex = FROM
-									}
-									# Target loses homosexual
-									character_event = {
-										id = MYTHMORE.8
-										days = 1
-									}
-								}
-								if = {
-									limit = {
-										NOT = { same_sex = FROM }
-									}
-									# Target gains homosexual
-									character_event = {
-										id = MYTHMORE.9
-										days = 1
-									}
-								}
-							}
-							10 = {
-								# Target becomes Rival
-								character_event = {
-									id = MYTHMORE.6
-									days = 1
-								}
-							}
-							10 = {
-								# Target becomes Celibate
-								character_event = {
-									id = MYTHMORE.10
-									days = 1
-								}
-							}
-						}
-						break = yes
-					}
-					
-					# Target is attracted to your sex, but is already chaste
-					random_list = {
-						50 = {
-							# Target sexuality change
-							if = {
-								limit = {
-									same_sex = FROM
-								}
-								# Target loses homosexual
-								character_event = {
-									id = MYTHMORE.8
-									days = 1
-								}
-							}
-							if = {
-								limit = {
-									NOT = { same_sex = FROM }
-								}
-								# Target gains homosexual
-								character_event = {
-									id = MYTHMORE.9
-									days = 1
-								}
-							}
-						}
-						30 = {
-							# Target becomes Rival
-							character_event = {
-								id = MYTHMORE.6
-								days = 1
-							}
-						}
-						20 = {
-							# Target becomes Celibate
-							character_event = {
-								id = MYTHMORE.10
-								days = 1
-							}
-						}
-					}
-					break = yes
-				}
-			}
+			character_event = { id = MYTHMORE.51 days = 2 }
 		}
 	}
+	
+	option = {
+		name = EVTOPTBMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_1_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	option = {
+		name = EVTOPTCMYTHMORE.1
+		trigger = { has_selected_herb_ingredient_2_trigger = yes }
+		hidden_tooltip = {
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						quality >= 2
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_good_for_love = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = 1 }
+			}
+			else_if = {
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						ingredient_is_unhealthy_trigger = yes
+					}
+				}
+				change_variable = { which = potion_bonus value = -2 }
+			}
+			character_event = { id = MYTHMORE.51 days = 2 }
+		}
+		destroy_selected_ingredient_2_effect = yes
+	}
+	
+	after = {
+		remove_selection_of_ingredients_effect = yes
+	}
 }
-				
 
 # MYTHMORE.2 - Potion success, target loses homosexual
 character_event = {
@@ -586,6 +474,10 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { religion = the_damned }
+	}
 	
 	# Accept
 	option = {
@@ -1587,7 +1479,7 @@ character_event = {
 }
 # MYTHMORE.37 - If undead and gaining first title, may gain title Posthumous
 character_event = {
-	id = MYTHMORE.36
+	id = MYTHMORE.37
 	hide_window = yes
 	is_triggered_only = yes
 	
@@ -1689,6 +1581,9 @@ character_event = {
 			limit = { trait = zombie }
 			remove_trait = zombie
 			add_trait = zombie
+			set_graphical_culture = undead_revenant
+			set_undead_culture = yes
+			religion = the_damned
 		}
 		if = {
 			limit = { trait = mummy }
@@ -1700,5 +1595,2173 @@ character_event = {
 			remove_trait = djinn
 			add_trait = djinn
 		}
+	}
+}
+
+# MYTHMORE.40 - Djinn child religion
+character_event = {
+	id = MYTHMORE.40
+	hide_window = yes
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = djinn
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { religion_group = muslim }
+		NOT = { has_character_flag = djinn_religion_childhood_event }
+	}
+	
+	immediate = {
+		# Select branch
+		if = {
+			limit = {
+				educator = { religion_group = muslim }
+			}
+			educator = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				father = { religion_group = muslim }
+			}
+			father = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				mother = { religion_group = muslim }
+			}
+			mother = { save_event_target_as = target_muslim }
+		}
+		else_if = {
+			limit = {
+				any_courtier = {
+					religion_group = muslim
+					is_heretic = no
+				}
+			}
+			random_courtier = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		else = {
+			random_character = {
+				limit = {
+					religion_group = muslim
+					is_heretic = no
+				}
+				save_event_target_as = target_muslim
+			}
+		}
+		
+		# Ping for localization
+		set_character_flag = djinn_religion_childhood_event
+		educator = {
+			character_event = { id = MYTHMORE.41 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = MYTHMORE.42 }
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.42
+	desc = EVTDESC_MYTHMORE.42
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.42
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = MYTHMORE.43
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MYTHMORE.42
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = MYTHMORE.43
+	desc = EVTDESC_MYTHMORE.43
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_MYTHMORE.43
+		tooltip = {
+			FROM = {
+				religion = event_target:target_muslim
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.44 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				religion_group = muslim
+			}
+			modifier = {
+				factor = 3
+				culture_group = arabic
+			}
+			modifier = {
+				factor = 2
+				trait = djinn
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_MYTHMORE.43
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = MYTHMORE.45 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = djinn
+					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion_group = christian
+					religion_group = jewish_group
+				}
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOT = { religion_group = muslim }
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOT = { religion_group = muslim }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.44
+	desc = EVTDESC_MYTHMORE.44
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.44
+		religion = event_target:target_muslim
+	}
+}
+
+character_event = {
+	id = MYTHMORE.45
+	desc = EVTDESC_MYTHMORE.45
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.45
+	}
+}
+
+# New magic educator event
+# MYTHMORE.46 - Call event for educator
+character_event = {
+	id = MYTHMORE.46
+	hide_window = yes
+	is_triggered_only = yes
+	
+	min_age = 13
+	max_age = 14
+	
+	trigger = {
+		NOT = { has_character_flag = magic_child_event }
+		OR = {
+			educator = { 
+				AND = {
+					has_education_magic_trigger = yes
+					OR = {
+						diplomacy = 12
+						stewardship = 12
+						martial = 12
+						intrigue = 12
+						learning = 12
+						health = 6
+						AND = {
+							has_lover = yes
+							ROOT = { is_betrothed = yes }
+						}
+					}
+				}
+			}
+			AND = {
+				NOT = { educator = { always = yes } }
+				guardian = {
+					AND = {
+						has_education_magic_trigger = yes
+						OR = {
+							diplomacy = 12
+							stewardship = 12
+							martial = 12
+							intrigue = 12
+							learning = 12
+							health = 6
+							AND = {
+								has_lover = yes
+								ROOT = { is_betrothed = yes }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = magic_child_event
+		if = {
+			limit = { educator = { always = yes } }
+			educator = {
+				character_event = { id = MYTHMORE.47 }
+			}
+		}
+		else = {
+			guardian = {
+				character_event = { id = MYTHMORE.47 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = MYTHMORE.47
+	desc = EVTDESC_MYTHMORE.47
+	picture = GFX_evt_monk
+	
+	capable_only = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		# Choose second option
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_diplomacy
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_martial
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_stewardship
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_intrigue
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_learning
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_health
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_love
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		# Choose third option
+		random_list = {
+			# Diplomacy
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { diplomacy = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_diplomacy
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 20
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 25
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 30
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 35
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 40
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 45
+				}
+				modifier = {
+					factor = 1.5
+					diplomacy = 50
+				}
+				set_character_flag = temp_choose_diplomacy
+			}
+			# Martial
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { martial = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_martial
+				}
+				modifier = {
+					factor = 1.5
+					martial = 20
+				}
+				modifier = {
+					factor = 1.5
+					martial = 25
+				}
+				modifier = {
+					factor = 1.5
+					martial = 30
+				}
+				modifier = {
+					factor = 1.5
+					martial = 35
+				}
+				modifier = {
+					factor = 1.5
+					martial = 40
+				}
+				modifier = {
+					factor = 1.5
+					martial = 45
+				}
+				modifier = {
+					factor = 1.5
+					martial = 50
+				}
+				set_character_flag = temp_choose_martial
+			}
+			# Stewardship
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { stewardship = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_stewardship
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 20
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 25
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 30
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 35
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 40
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 45
+				}
+				modifier = {
+					factor = 1.5
+					stewardship = 50
+				}
+				set_character_flag = temp_choose_stewardship
+			}
+			# Intrigue
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { intrigue = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_intrigue
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 45
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 50
+				}
+				set_character_flag = temp_choose_intrigue
+			}
+			# Learning
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { learning = 12 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_learning
+				}
+				modifier = {
+					factor = 1.5
+					learning = 20
+				}
+				modifier = {
+					factor = 1.5
+					learning = 25
+				}
+				modifier = {
+					factor = 1.5
+					learning = 30
+				}
+				modifier = {
+					factor = 1.5
+					learning = 35
+				}
+				modifier = {
+					factor = 1.5
+					learning = 40
+				}
+				modifier = {
+					factor = 1.5
+					learning = 45
+				}
+				modifier = {
+					factor = 1.5
+					learning = 50
+				}
+				set_character_flag = temp_choose_learning
+			}
+			# Health
+			1 = {
+				modifier = {
+					factor = 0
+					NOT = { health = 6 }
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_health
+				}
+				modifier = {
+					factor = 1.5
+					health = 7
+				}
+				modifier = {
+					factor = 1.5
+					health = 8
+				}
+				modifier = {
+					factor = 1.5
+					health = 10
+				}
+				modifier = {
+					factor = 1.5
+					health = 12
+				}
+				modifier = {
+					factor = 1.5
+					health = 15
+				}
+				modifier = {
+					factor = 1.5
+					health = 20
+				}
+				modifier = {
+					factor = 1.5
+					health = 25
+				}
+				set_character_flag = temp_choose_health
+			}
+			# Love
+			1 = {
+				modifier = {
+					factor = 0
+					has_lover = no
+				}
+				modifier = {
+					factor = 0
+					has_character_flag = temp_choose_love
+				}
+				modifier = {
+					factor = 3
+					num_of_lovers = 2
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 3
+				}
+				modifier = {
+					factor = 2
+					num_of_lovers = 4
+				}
+				set_character_flag = temp_choose_love
+			}
+		}
+		if = {
+			limit = { trait = arcane_master }
+			set_variable = { which = local_gain value = 4 }
+			set_variable = { which = local_loss value = -4 }
+			set_variable = { which = local_health_gain value = 4 }
+			set_variable = { which = local_health_loss value = -4 }
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			set_variable = { which = local_gain value = 3 }
+			set_variable = { which = local_loss value = -3 }
+			set_variable = { which = local_health_gain value = 3 }
+			set_variable = { which = local_health_loss value = -3 }
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			set_variable = { which = local_gain value = 2 }
+			set_variable = { which = local_loss value = -2 }
+			set_variable = { which = local_health_gain value = 2 }
+			set_variable = { which = local_health_loss value = -2 }
+		}
+		else = {
+			set_variable = { which = local_gain value = 1 }
+			set_variable = { which = local_loss value = -1 }
+			set_variable = { which = local_health_gain value = 1 }
+			set_variable = { which = local_health_loss value = -1 }
+		}
+		divide_variable = { which = local_health_gain value = 2 }
+		divide_variable = { which = local_health_loss value = 2 }
+		
+		FROM = {
+			set_variable = { which = local_gain which = ROOT }
+			set_variable = { which = local_gain_health which = ROOT }
+			set_variable = { which = temp_gain which = local_gain }
+			set_variable = { which = temp_gain_health which = local_gain_health }
+		}
+		
+		if = {
+			limit = { FROM = { is_betrothed = yes } }
+			export_to_variable = { which = local_age value = age }
+			betrothed = {
+				export_to_variable = { which = local_age value = age }
+				if = {
+					limit = { check_variable = { which = local_age which = FROM } }
+					FROM = { set_character_flag = flag_older }
+				}
+			}
+		}
+	}
+	
+	# Give diplomacy
+	option = {
+		name = EVTOPTA_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_diplomacy
+			diplomacy = 12
+		}
+		change_diplomacy = local_loss
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_diplomacy }
+			hidden_tooltip = { change_diplomacy = local_gain }
+			add_trait = gregarious
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				diplomacy = 20
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 30
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 40
+			}
+			modifier = {
+				factor = 2
+				diplomacy = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_diplomacy_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_diplomacy_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = gregarious
+			}
+		}
+	}
+	
+	# Give Martial
+	option = {
+		name = EVTOPTB_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_martial
+			martial = 12
+		}
+		change_martial = local_loss
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_martial }
+			hidden_tooltip = { change_martial = local_gain }
+			add_trait = brave
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				martial = 20
+			}
+			modifier = {
+				factor = 2
+				martial = 30
+			}
+			modifier = {
+				factor = 2
+				martial = 40
+			}
+			modifier = {
+				factor = 2
+				martial = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_martial_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_martial_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = brave
+			}
+		}
+	}
+	
+	# Give Stewardship
+	option = {
+		name = EVTOPTC_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_stewardship
+			stewardship = 12
+		}
+		change_stewardship = local_loss
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_stewardship }
+			hidden_tooltip = { change_stewardship = local_gain }
+			add_trait = temperate
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				stewardship = 20
+			}
+			modifier = {
+				factor = 2
+				stewardship = 30
+			}
+			modifier = {
+				factor = 2
+				stewardship = 40
+			}
+			modifier = {
+				factor = 2
+				stewardship = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_stewardship_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_stewardship_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = temperate
+			}
+		}
+	}
+	
+	# Give Intrigue
+	option = {
+		name = EVTOPTD_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_intrigue
+			intrigue = 12
+		}
+		change_intrigue = local_loss
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_intrigue }
+			hidden_tooltip = { change_intrigue = local_gain }
+			add_trait = deceitful
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				intrigue = 20
+			}
+			modifier = {
+				factor = 2
+				intrigue = 30
+			}
+			modifier = {
+				factor = 2
+				intrigue = 40
+			}
+			modifier = {
+				factor = 2
+				intrigue = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_intrigue_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_intrigue_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = deceitful
+			}
+		}
+	}
+	
+	# Give Learning
+	option = {
+		name = EVTOPTE_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_learning
+			learning = 12
+		}
+		change_learning = local_loss
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_learning }
+			hidden_tooltip = { change_learning = local_gain }
+			add_trait = erudite
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				learning = 20
+			}
+			modifier = {
+				factor = 2
+				learning = 30
+			}
+			modifier = {
+				factor = 2
+				learning = 40
+			}
+			modifier = {
+				factor = 2
+				learning = 50
+			}
+			modifier = {
+				factor = 2
+				has_lifestyle_learning_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				FROM = { child_personality_learning_trigger = yes }
+			}
+			modifier = {
+				factor = 2
+				trait = erudite
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+	}
+	
+	# Give Health
+	option = {
+		name = EVTOPTF_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_health
+			health = 6
+		}
+		health = local_loss_health
+		FROM = {
+			custom_tooltip = { text = tt_same_gain_health }
+			hidden_tooltip = { health = local_gain_health }
+			if = {
+				limit = { trait = feeble }
+				remove_trait = feeble
+			}
+			else_if = {
+				limit = { trait = weak }
+				remove_trait = weak
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						trait = robust
+						trait = strong
+					}
+				}
+				add_trait = robust
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				health = 7
+			}
+			modifier = {
+				factor = 2
+				health = 10
+			}
+			modifier = {
+				factor = 2
+				health = 15
+			}
+			modifier = {
+				factor = 2
+				health = 20
+			}
+			modifier = {
+				factor = 2
+				trait = physician
+			}
+			modifier = {
+				factor = 2
+				FROM = { 
+					OR = {
+						trait = feeble
+						trait = weak
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				is_maimed_trigger = yes
+			}
+		}
+	}
+	
+	# Give Love
+	option = {
+		name = EVTOPTG_MYTHMORE.47
+		trigger = {
+			has_character_flag = temp_choose_love
+		}
+		random_lover = {
+			hidden_tooltip = { remove_lover = ROOT }
+			add_rival = ROOT
+		}
+		FROM = {
+			betrothed = {
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				reverse_opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				if = {
+					limit = { has_character_flag = flag_older }
+					set_character_flag = become_adult_lover
+					clr_character_flag = flag_older
+				}
+				else = {
+					FROM = { set_character_flag = become_adult_lover }
+				}
+			}
+			random_list = {
+				1 = { add_trait = kind }
+				1 = { add_trait = trusting }
+				1 = { add_trait = lustful }
+			}
+		}
+		hidden_tooltip = {
+			FROM = { character_event = { id = MYTHMORE.48 } }
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				num_of_lovers = 2
+			}
+			modifier = {
+				factor = 2
+				num_of_lovers = 3
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					trait = seducer
+					trait = seductress
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = lustful
+			}
+			modifier = {
+				factor = 2
+				trait = kind
+			}
+			modifier = {
+				factor = 2
+				trait = trusting
+			}
+		}
+	}
+	
+	# Do nothing
+	option = {
+		name = EVTOPTH_MYTHMORE.47
+		hidden_tooltip = {
+			FROM = {
+				set_variable = { which = temp_gain value = 0 }
+				set_variable = { which = temp_gain_health value = 0 }
+			}
+			clr_character_flag = temp_choose_diplomacy
+			clr_character_flag = temp_choose_martial
+			clr_character_flag = temp_choose_stewardship
+			clr_character_flag = temp_choose_intrigue
+			clr_character_flag = temp_choose_learning
+			clr_character_flag = temp_choose_health
+			clr_character_flag = temp_choose_love
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				NOT = { opinion = { who = FROM value = 0 } }
+			}
+			modifier = {
+				factor = 2
+				trait = depressed
+			}
+			modifier = {
+				factor = 2
+				trait = proud
+			}
+			modifier = {
+				factor = 2
+				trait = slothful
+			}
+		}
+	}
+	
+	after = {
+		# Event to clear all flags, just in case of some sort of weird failure
+		character_event = { id = MYTHMORE.49 days = 2 }
+	}
+}
+
+# Child informed of ritual
+character_event = {
+	id = MYTHMORE.48
+	desc = EVTDESC_MYTHMORE.48
+	picture = GFX_evt_dark_prayer
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_diplomacy } }
+		tooltip = {
+			change_diplomacy = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = gregarious }
+				}
+				add_trait = gregarious
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_diplomacy }
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_martial } }
+		tooltip = {
+			change_martial = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = brave }
+				}
+				add_trait = brave
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_martial }
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_stewardship } }
+		tooltip = {
+			change_stewardship = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = temperate }
+				}
+				add_trait = temperate
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_stewardship }
+		}
+	}
+	
+	option = {
+		name = EVTOPTD_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_intrigue } }
+		tooltip = {
+			change_intrigue = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = deceitful }
+				}
+				add_trait = deceitful
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_intrigue }
+		}
+	}
+	
+	option = {
+		name = EVTOPTE_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_learning } }
+		tooltip = {
+			change_learning = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = erudite }
+				}
+				add_trait = erudite
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_learning }
+		}
+	}
+	
+	option = {
+		name = EVTOPTF_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_health } }
+		tooltip = {
+			health = temp_gain
+			if = {
+				limit = {
+					NOT = { trait = robust }
+				}
+				add_trait = robust
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_health }
+		}
+	}
+	
+	option = {
+		name = EVTOPTG_MYTHMORE.48
+		trigger = { FROM = { has_character_flag = temp_choose_love } }
+		tooltip = {
+			betrothed = {
+				opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+				reverse_opinion = { who = FROM modifier = opinion_childhood_sweetheart years = 4 }
+			}
+		}
+		hidden_tooltip = {
+			FROM = { clr_character_flag = temp_choose_love }
+		}
+	}
+	
+	after = {
+		set_variable = { which = temp_gain value = 0 }
+		set_variable = { which = temp_gain_health value = 0 }
+	}
+}
+
+# Clear all flags, just in case
+character_event = {
+	id = MYTHMORE.49
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = temp_choose_diplomacy
+		clr_character_flag = temp_choose_martial
+		clr_character_flag = temp_choose_stewardship
+		clr_character_flag = temp_choose_intrigue
+		clr_character_flag = temp_choose_learning
+		clr_character_flag = temp_choose_health
+		clr_character_flag = temp_choose_love
+	}
+}
+
+# On adulthood, magic childhood sweetheart becomes lover
+character_event = {
+	id = MYTHMORE.50
+	desc = EVTDESC_MYTHMORE.50
+	picture = GFX_evt_lovers
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_character_flag = become_adult_lover
+		OR = {
+			betrothed = { always = yes }
+			spouse = { always = yes }
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_MYTHMORE.50
+		if = {
+			limit = { betrothed = { always = yes } }
+			betrothed = { add_lover = ROOT }
+		}
+		else = {
+			spouse = { add_lover = ROOT }
+		}
+		hidden_tooltip = { clr_character_flag = become_adult_lover }
+	}
+}
+
+# MYTHMORE.51 - Determine love potion result
+character_event = {
+	id = MYTHMORE.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			# Critical success
+			10 = {
+				modifier = {
+					factor = 10
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4.5
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.1
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.7
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 3
+					check_variable = { which = potion_bonus value = 2 }
+				}
+				character_event = { id = MYTHMORE.53 days = 1 }
+			}
+			# Success
+			50 = {
+				modifier = {
+					factor = 9
+					trait = arcane_master
+				}
+				modifier = {
+					factor = 4
+					trait = veteran_wizard
+				}
+				modifier = {
+					factor = 2.3
+					trait = eldritch_scholar
+				}
+				modifier = {
+					factor = 1.5
+					trait = novice_mage
+				}
+				modifier = {
+					factor = 1.2
+					trait = enchanter
+				}
+				modifier = {
+					factor = 1.5
+					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					has_artifact = greater_key_of_solomon
+				}
+				modifier = {
+					factor = 2
+					check_variable = { which = potion_bonus value = 1 }
+				}
+				if = {
+					limit = {
+						NOT = { same_sex = event_target:target_potioned }
+						event_target:target_potioned = { trait = homosexual }
+					}
+					# Target is different sex, but homosexual
+					character_event = {
+						id = MYTHMORE.2
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						same_sex = FROM
+						event_target:target_potioned = { NOT = { trait = homosexual } }
+					}
+					# Target is same sex, but not homosexual
+					character_event = {
+						id = MYTHMORE.3
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						event_target:target_potioned = { trait = chaste }
+					}
+					# Target has chaste
+					character_event = {
+						id = MYTHMORE.4
+						days = 1
+					}
+					break = yes
+				}
+				# Target becomes lover
+				character_event = {
+					id = MYTHMORE.5
+					days = 1
+				}
+			}
+			# No effect
+			40 = {
+				if = {
+					limit = { ai = no } # Notification event
+					character_event = { id = MYTHMORE.52 days = 1 }
+				}
+			}
+			# Failure
+			50 = {
+				modifier = {
+					factor = 2
+					NOT = { check_variable = { which = potion_bonus value = 0 } }
+				}
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								same_sex = event_target:target_potioned
+								NOT = { event_target:target_potioned = { trait = homosexual } }
+							}
+							AND = {
+								NOT = { same_sex = FROM }
+								event_target:target_potioned = { trait = homosexual }
+							}
+						}
+					}
+					# Target is not attracted to your sex, becomes your rival
+					character_event = {
+						id = MYTHMORE.6
+						days = 1
+					}
+					break = yes
+				}
+				if = {
+					limit = {
+						NOT = { event_target:target_potioned = { trait = chaste } }
+					}
+					# Target is not chaste
+					random_list = {
+						50 = {
+							# Target becomes chaste
+							character_event = {
+								id = MYTHMORE.7
+								days = 1
+							}
+						}
+						30 = {
+							# Target sexuality change
+							if = {
+								limit = {
+									same_sex = FROM
+								}
+								# Target loses homosexual
+								character_event = {
+									id = MYTHMORE.8
+									days = 1
+								}
+							}
+							if = {
+								limit = {
+									NOT = { same_sex = FROM }
+								}
+								# Target gains homosexual
+								character_event = {
+									id = MYTHMORE.9
+									days = 1
+								}
+							}
+						}
+						10 = {
+							# Target becomes Rival
+							character_event = {
+								id = MYTHMORE.6
+								days = 1
+							}
+						}
+						10 = {
+							# Target becomes Celibate
+							character_event = {
+								id = MYTHMORE.10
+								days = 1
+							}
+						}
+					}
+					break = yes
+				}
+				
+				# Target is attracted to your sex, but is already chaste
+				random_list = {
+					50 = {
+						# Target sexuality change
+						if = {
+							limit = {
+								same_sex = FROM
+							}
+							# Target loses homosexual
+							character_event = {
+								id = MYTHMORE.8
+								days = 1
+							}
+						}
+						if = {
+							limit = {
+								NOT = { same_sex = FROM }
+							}
+							# Target gains homosexual
+							character_event = {
+								id = MYTHMORE.9
+								days = 1
+							}
+						}
+					}
+					30 = {
+						# Target becomes Rival
+						character_event = {
+							id = MYTHMORE.6
+							days = 1
+						}
+					}
+					20 = {
+						# Target becomes Celibate
+						character_event = {
+							id = MYTHMORE.10
+							days = 1
+						}
+					}
+				}
+				break = yes
+			}
+		}
+	}
+}
+
+# MYTHMORE.52 - Love potion has no effect
+character_event = {
+	id = MYTHMORE.52
+	desc = EVTDESCMYTHMORE.52
+	picture = GFX_evt_experiments_failed
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.52
+	}
+}
+
+# MYTHMORE.53 - Love Potion critical success
+character_event = {
+	id = MYTHMORE.53
+	desc = EVTDESCMYTHMORE.53
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		event_target:target_potioned = {
+			tooltip = {
+				if = {
+					limit = {
+						same_sex = ROOT
+						NOT = { trait = homosexual }
+					}
+					add_trait = homosexual
+				}
+				else_if = {
+					limit = {
+						NOT = { same_sex = ROOT }
+						trait = homosexual
+					}
+					remove_trait = homosexual
+				}
+				if = {
+					limit = { trait = chaste }
+					remove_trait = chaste
+				}
+				add_lover = ROOT
+			}
+			character_event = { id = MYTHMORE.54 }
+		}
+	}
+}
+
+# MYTHMORE.54 - Informed potioned of critical success
+character_event = {
+	id = MYTHMORE.54
+	desc = EVTDESCMYTHMORE.54
+	picture = GFX_evt_lovers
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAMYTHMORE.55
+		if = {
+			limit = {
+				same_sex = FROM
+				NOT = { trait = homosexual }
+			}
+			add_trait = homosexual
+		}
+		else_if = {
+			limit = {
+				NOT = { same_sex = FROM }
+				trait = homosexual
+			}
+			remove_trait = homosexual
+		}
+		if = {
+			limit = { trait = chaste }
+			remove_trait = chaste
+		}
+		add_lover = FROM
+	}
+}
+
+# Summoned revenant courtier
+character_event = {
+	id = MYTHMORE.55
+	desc = EVTDESCMYTHMORE.55
+	picture = GFX_evt_death
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_NE_1
+		
+		trigger = {
+			event_target:invited_character = { has_character_flag = invited_soldier }
+			OR = {
+				AND = {
+					tier = COUNT
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = DUKE
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 6
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 8
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+			}
+		}
+		
+		event_target:invited_character = {
+			give_minor_title = title_commander
+		}
+	}
+	
+	option = {
+		name = EXCELLENT
 	}
 }

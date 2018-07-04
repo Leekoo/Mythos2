@@ -167,6 +167,7 @@ character_event = {
 		text = EVTDESCAMYTH.3
 		trigger = {
 			true_religion_group = christian
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -176,12 +177,14 @@ character_event = {
 				true_religion = norse_pagan
 				true_religion = norse_pagan_reformed
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCCMYTH.3
 		trigger = {
 			true_religion_group = muslim
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -191,6 +194,7 @@ character_event = {
 				true_religion = druidic_reformed
 				true_religion = druidic
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -200,6 +204,7 @@ character_event = {
 				true_religion = atenist
 				true_religion = kemetic_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -209,6 +214,7 @@ character_event = {
 				true_religion = jotnar_reformed
 				true_religion = jotnar
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -218,12 +224,14 @@ character_event = {
 				true_religion = hellenic_pagan
 				true_religion = roman_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCHMYTH.3
 		trigger = {
 			true_religion = satanist
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -233,6 +241,7 @@ character_event = {
 				true_religion = finnish_pagan_reformed
 				true_religion = finnish_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
@@ -242,30 +251,37 @@ character_event = {
 				true_religion = aztec_reformed
 				true_religion = aztec
 			}
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCKMYTH.3
 		trigger = {
 			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCLMYTH.3
 		trigger = {
 			true_religion_group = indian_group
+			NOT = { trait = necromancer }
 		}
 	}
 	desc = {
 		text = EVTDESCMMYTH.3
 		trigger = {
-			true_religion = voodoo
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
 		}
 	}
 	# Misc - either generic groups, or ones where I can't find appropriate myths
 	desc = {
 		text = EVTDESCMYTH.3
 		trigger = {
+			NOT = { trait = necromancer }
 			OR = {
 				true_religion = tengri_pagan_reformed
 				true_religion = tengri_pagan
@@ -294,6 +310,7 @@ character_event = {
 				true_religion = norse_pagan
 				true_religion = norse_pagan_reformed
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -362,6 +379,7 @@ character_event = {
 				true_religion_group = christian
 				true_religion_group = muslim
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -431,6 +449,7 @@ character_event = {
 				true_religion = jotnar_reformed
 				true_religion = jotnar
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -512,6 +531,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			true_religion = satanist
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -576,6 +596,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			true_religion_group = jewish_group
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -642,11 +663,14 @@ character_event = {
 		}
 	}
 	
-	# Voodoo
+	# The Damned
 	option = {
 		name = EVTOPTAMYTH.3
 		trigger = {
-			true_religion = voodoo
+			OR = {
+				true_religion = the_damned
+				trait = necromancer
+			}
 		}
 		location = {
 			tooltip = {
@@ -706,7 +730,7 @@ character_event = {
 		name = EVTOPTAMYTH.3
 		trigger = {
 			NOR = {
-				true_religion = voodoo
+				true_religion = the_damned
 				true_religion_group = jewish_group
 				true_religion_group = christian
 				true_religion_group = muslim
@@ -716,6 +740,7 @@ character_event = {
 				true_religion = norse_pagan_reformed
 				true_religion = norse_pagan
 			}
+			NOT = { trait = necromancer }
 		}
 		location = {
 			tooltip = {
@@ -763,7 +788,7 @@ character_event = {
 					}
 					spawn_unit = {
 						province = PREV
-						owner = ROOT
+						owner = PREV
 						troops = {
 							etherial_soldiers = { 1750 1750 }
 						}
@@ -1025,15 +1050,19 @@ character_event = {
 		random_list = {
 			40 = {
 				add_trait = novice_mage
+				update_natural_magic = yes
 			}
 			30 = {
 				add_trait = eldritch_scholar
+				update_natural_magic = yes
 			}
 			20 = {
 				add_trait = veteran_wizard
+				update_natural_magic = yes
 			}
 			10 = {
 				add_trait = arcane_master
+				update_natural_magic = yes
 			}
 		}
 		if = {
@@ -2070,75 +2099,8 @@ character_event = {
 	}
 }
 
-# Voodoo becoming a wicked priest
-character_event = {
-	id = MYTH.36
-	#desc = EVTDESCMYTH.36
-	picture = GFX_evt_scandal
-	border = GFX_event_normal_frame_religion
-	title = EVTWICKEDPRIEST
-	
-	desc = {
-		picture = GFX_evt_scandal
-		text = EVTDESCMYTH.36a
-		trigger = { trait = immortal }
-	}
-	desc = {
-		picture = GFX_evt_scandal
-		text = EVTDESCMYTH.36b
-		trigger = { NOT = { trait = immortal } }
-	}
-	
-	is_triggered_only = yes
-	min_age = 16
-	only_capable = yes
-	prisoner = no	
-	religion = voodoo
-	
-	has_dlc = "Sons of Abraham"
-	
-	trigger = {
-		NOR = {
-			intrigue = 3
-			diplomacy = 3
-			trait = bad_priest_voodoo
-		}
-		is_priest = yes
-		OR = {
-			trait = cynical
-			trait = slothful
-			trait = immortal
-		}
-	}
-	
-	option = {
-		name = EVTOPTMYTH.36
-		add_trait = bad_priest_voodoo
-		if = {
-			limit = {
-				is_ruler = yes
-				has_nickname = no
-				NOT = { trait = immortal }
-			}
-			random_list = {
-				70 = {
-					give_nickname = nick_the_wicked
-				}
-				10 = {
-					give_nickname = nick_the_black
-				}
-			}
-		}
-		if = {
-			limit = {
-				is_ruler = yes
-				has_nickname = no
-				trait = immortal
-			}
-			give_nickname = nick_the_monster
-		}
-	}
-}
+# MYTH.36 - removed
+
 # Druid becoming a wicked priest
 character_event = {
 	id = MYTH.37
@@ -2503,7 +2465,7 @@ character_event = {
 		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
-		if = { limit = { trait = severely_injured } remove_trait = severely_injured }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
 			clear_disease_level_effect = yes
@@ -2601,7 +2563,7 @@ character_event = {
 		if = { limit = { trait = eunuch } remove_trait = eunuch }
 		if = { limit = { trait = blinded } remove_trait = blinded }
 		if = { limit = { trait = scarred } remove_trait = scarred }
-		hidden_tooltip = { remove_trait = severely_injured }
+		hidden_tooltip = { remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 	}
 }
 
@@ -2619,7 +2581,7 @@ character_event = {
 		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
-		if = { limit = { trait = severely_injured } remove_trait = severely_injured }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
 			clear_disease_level_effect = yes
@@ -2633,14 +2595,11 @@ character_event = {
 		}
 		if = {
 			limit = {
-				FROM = { always = yes }
+				FROMFROM = { always = yes }
 			}
-			FROM = { destroy_artifact = panacea }
+			FROMFROM = { destroy_artifact = panacea }
 		}
 		else = {
-			#limit = {
-			#	NOT = { FROM = { always = yes } }
-			#}
 			destroy_artifact = panacea
 		}
 	}
@@ -4417,7 +4376,9 @@ character_event = {
 	
 	trigger = {
 		FROM = {
-			artifact_type = philosopher_stone
+			any_artifact = {
+				artifact_type = philosopher_stone
+			}
 		}
 	}
 	

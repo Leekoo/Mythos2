@@ -3680,7 +3680,7 @@ character_event = {
 			age = 53
 			female = no
 			dynasty = none
-			culture = zombie_culture
+			culture = ROOT
 			religion = ROOT
 			health = 6
 			trait = zombie
@@ -3689,6 +3689,8 @@ character_event = {
 			flag = checked_race
 		}
 		new_character = {
+			set_undead_culture = yes
+			religion = the_damned
 			random_list = {
 				1 = { add_trait = light_foot_leader }
 				1 = { add_trait = heavy_infantry_leader }
@@ -4057,10 +4059,6 @@ character_event = {
 						1 = { 
 							religion = roman_pagan
 							set_graphical_culture = frankish
-						}
-						1 = { 
-							religion = voodoo
-							set_graphical_culture = manden
 						}
 						1 = { 
 							religion = draconic_pagan

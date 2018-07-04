@@ -258,6 +258,7 @@ focus_ch_faith = {
 	
 	potential = {
 		NOT = { age = 12 }
+		NOT = { religion = the_damned }
 	}
 	
 	allow = {
@@ -368,6 +369,8 @@ focus_ch_heritage = {
 	
 	potential = {
 		NOT = { age = 12 }
+		NOT = { culture_group = undead_culture_group }
+		NOT = { religion = the_damned }
 	}
 	
 	allow = {

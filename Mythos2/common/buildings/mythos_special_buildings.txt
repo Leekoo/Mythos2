@@ -14,12 +14,24 @@ temple = {
 				# Only appears it you have it.  Built by event
 				has_building = tp_eternal_flame
 			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
 		}
 		is_active_trigger = {
 			FROM = {
 				OR = {
 					religion = draconic_pagan
 					religion = draconic_pagan_reformed
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
 				}
 			}
 		}

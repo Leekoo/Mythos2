@@ -45,7 +45,10 @@ succession_laws = {
 			}
 			is_primary_type_title = no
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			holder_scope = {
@@ -140,7 +143,10 @@ succession_laws = {
 			is_primary_type_title = no
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
@@ -195,6 +201,8 @@ succession_laws = {
 						religion_group = indian_group 
 					}
                     is_patrician = yes
+					government = blood_court_government
+					title = e_vampire
                 }
 				
 				OR = {
@@ -203,6 +211,8 @@ succession_laws = {
 					religion = hellenic_pagan
 					religion = roman_pagan
 					is_patrician = yes
+					government = blood_court_government
+					title = e_vampire
 				}
 				
 				OR = {
@@ -216,6 +226,7 @@ succession_laws = {
 							is_vice_royalty = yes
 						}
 					}
+					government = blood_court_government
 				}
 			}
 			OR = {
@@ -275,6 +286,8 @@ succession_laws = {
 							has_law = crown_authority_4
 						}
 					}
+					government = blood_court_government
+					title = e_vampire
 				}
 			}
 			custom_tooltip = {
@@ -368,7 +381,10 @@ succession_laws = {
 				}
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
@@ -504,7 +520,10 @@ succession_laws = {
 			holder_scope = { is_feudal = yes }
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			custom_tooltip = {
@@ -569,7 +588,10 @@ succession_laws = {
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
 			NOT = { holder_scope = { government = chinese_imperial_government } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			OR = {
@@ -633,7 +655,7 @@ succession_laws = {
 						NOT = { religion = slavic_pagan }
 						NOT = { religion = west_african_pagan }
 						NOT = { religion = draconic_pagan }
-						NOT = { religion = voodoo }
+						NOT = { religion = the_damned }
 						NOT = { religion = druidic }
 						NOT = { religion = kemetic_pagan }
 						NOT = { religion = jotnar }
@@ -682,7 +704,10 @@ succession_laws = {
 				}
 			}
 			NOT = { holder_scope = { government = confucian_bureaucracy } }
-			NOT = { holder_scope = { government = blood_court_government } }
+			NOR = {
+				holder_scope = { government = blood_court_government }
+				title =  e_vampire
+			}
 		}
 		allow = {
 			conditional_tooltip = {
@@ -799,7 +824,10 @@ succession_laws = {
 	}
 	succ_papal_succession = {
 		potential = {
-			title = k_papal_state
+			OR={
+				title = k_papal_state
+				title = d_druidic_reformed
+			}
 		}
 		
 		effect = {

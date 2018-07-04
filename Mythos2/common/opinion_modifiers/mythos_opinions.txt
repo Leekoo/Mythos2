@@ -194,3 +194,36 @@ opinion_ignore_SF_demands = {
 opinion_discovered_homosexual = { # Determines trait visibility
 	opinion = 0
 }
+
+opinion_terrified = {
+	opinion = -20
+}
+
+opinion_controlled_undead = {
+	opinion = 300
+	obedient = yes
+}
+opinion_influenced_undead = {
+	opinion = 30
+	non_interference = yes
+}
+killed_protected = {
+	opinion = -50
+	prison_reason = yes
+	revoke_reason = yes
+	execute_reason = yes
+	banish_reason = yes
+	crime = yes
+}
+attacked_protected = {
+	opinion = -20
+	prison_reason = yes
+	crime = yes
+}
+suspected_attacked_protected = {
+	opinion = -15
+}
+opinion_thrall = {
+	opinion = 40
+	obedient = yes
+}

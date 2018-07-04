@@ -18,6 +18,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		log = "[From.GetTitledName] is challenging [Root.GetTitledName]"
 		# First, remember who our characters are
 		# Currently, Liege is ROOT. Liege is the challenged party
 		save_event_target_as = challenged_party
@@ -229,6 +230,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.5
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[Root.GetTitledName]'s challenge aborted due to [challenged_party.GetTitledName] changing culture."
 		hidden_tooltip = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
@@ -248,6 +251,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.6
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[Root.GetTitledName]'s challenge aborted due to [challenged_party.GetTitledName] revealing [challenged_party.GetHerselfHimself] as a werewolf."
 		hidden_tooltip = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
@@ -267,6 +272,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.7
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[Root.GetTitledName]'s challenge aborted due to [challenged_party.GetTitledName] changing culture and revealing."
 		hidden_tooltip = {
 			event_target:challenged_party = {
 				remove_character_modifier = facing_challenge
@@ -423,6 +430,7 @@ character_event = {
 	# Become champion
 	option = {
 		name = EVTOPTA_CHALLENGE.9
+		log = "[Root.GetTitledName] will champion for [challenged_party.GetTitledName]."
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
 			add_character_modifier = { name = facing_challenge months = 3 }
@@ -659,6 +667,7 @@ character_event = {
 	# Become champion
 	option = {
 		name = EVTOPTA_CHALLENGE.9
+		log = "[Root.GetTitledName] will champion for [challenged_party.GetTitledName]."
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
 			save_event_target_as = champion
@@ -816,6 +825,7 @@ character_event = {
 	# Become champion
 	option = {
 		name = EVTOPTA_CHALLENGE.9
+		log = "[Root.GetTitledName] will champion for [challenged_party.GetTitledName]."
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
 			add_character_modifier = { name = facing_challenge months = 3 }
@@ -909,6 +919,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		log = "[Root.GetTitledName] is not able to defend."
 		# Alert the challenged character.  Exact message handled by flags already set
 		character_event = { id = CHALLENGE.22 days = 1 }
 		
@@ -1160,6 +1171,7 @@ character_event = {
 			event_target:challenger = {
 				remove_character_modifier = facing_challenge
 			}
+			clr_global_flag = ongoing_werewolf_challenge
 		}
 	}
 }
@@ -1215,6 +1227,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		# If crashing keeps happening, try commenting out vassal support
 		# If facing your original opponent (or their champion), receive this alert
 		if = {
 			limit = {
@@ -1763,6 +1776,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		log = "Aborting a challenge due to a death."
 		if = {
 			limit = { character = event_target:challenged_party }
 			any_vassal = {
@@ -1776,6 +1790,7 @@ character_event = {
 		clear_delayed_event = { id = CHALLENGE.27 }
 		set_variable = { which = support value = 0 }
 		clr_character_flag = asked_champion
+		clr_global_flag = ongoing_werewolf_challenge
 	}
 	
 	option = {
@@ -1818,6 +1833,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		log = "Setting up [Root.GetTitledName]'s challenge."
 		# Inform the participants that the fight is about to start
 		event_target:challenger = { character_event = { id = CHALLENGE.56 } }
 		event_target:champion = { character_event = { id = CHALLENGE.56 } }
@@ -1869,7 +1885,8 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	immediate = {	
+	immediate = {
+		log = "Start of combat loop for [Root.GetTitledName]'s challenge."
 		# Clear some unneeded event targets
 		clear_event_target = first_turn
 		clear_event_target = second_turn
@@ -7187,6 +7204,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		log = "[challenger.GetTitledName] won the challenge against [challenged_party.GetTitledName]."
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
 		# Inform Challenger of victory
 		event_target:challenger = {
 			character_event = { id = CHALLENGE.61 days = 1 }
@@ -7288,6 +7307,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
 		event_target:challenged_party = { remove_character_modifier = facing_challenge }
@@ -7397,44 +7417,26 @@ character_event = {
 					1 = {
 						trigger = { NOT = { trait = one_eyed } }
 						add_trait = one_eyed
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = one_legged } }
 						add_trait = one_legged
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = one_handed } }
 						add_trait = one_handed
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = disfigured } }
 						add_trait = disfigured
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 					1 = {
 						trigger = { NOT = { trait = mangled } }
 						add_trait = mangled
-						hidden_tooltip = {
-							add_trait = severely_injured
-							resolve_severely_injured_effect = yes
-						}
 					}
 				}
+				add_trait = severely_injured 
+				resolve_severely_injured_effect = yes
 			}
 		}
 	}
@@ -7447,6 +7449,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[champion.GetTitledName] won the challenge against [challenger.GetTitledName]."
 		# Inform Champion of victory
 		event_target:champion = {
 			character_event = { id = CHALLENGE.66 }
@@ -7581,6 +7585,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.67
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
 		opinion = { who = event_target:champion modifier = opinion_my_saviour }
 		hidden_tooltip = {
 			character_event = { id = CHALLENGE.84 days = 5 }
@@ -7597,6 +7602,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
 		event_target:challenger = { combat_cleanup = yes }
 		event_target:champion = { combat_cleanup = yes }
 		event_target:challenged_party = { remove_character_modifier = facing_challenge }
@@ -7706,34 +7712,26 @@ character_event = {
 					1 = {
 						trigger = { NOT = { trait = one_eyed } }
 						add_trait = one_eyed
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = one_legged } }
 						add_trait = one_legged
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = one_handed } }
 						add_trait = one_handed
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = disfigured } }
 						add_trait = disfigured
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 					1 = {
 						trigger = { NOT = { trait = mangled } }
 						add_trait = mangled
-						add_trait = severely_injured
-						resolve_severely_injured_effect = yes
 					}
 				}
+				add_trait = severely_injured 
+				resolve_severely_injured_effect = yes
 			}
 		}
 	}
@@ -7819,6 +7817,8 @@ character_event = {
 	# Surrender
 	option = {
 		name = EVTOPTA_CHALLENGE.72
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[challenger.GetTitledName] has surrendered to [challenged_party.GetTitledName]."
 		custom_tooltip = {
 			text = TT_forfeit_challenge
 			hidden_tooltip = {
@@ -7955,6 +7955,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
 		name = EVTOPTA_CHALLENGE.73
 		prestige = -200
 	}
@@ -7971,6 +7972,8 @@ character_event = {
 	
 	# Surrender
 	option = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[champion.GetTitledName] won the challenge against [challenger.GetTitledName]."
 		name = EVTOPTA_CHALLENGE.72
 		custom_tooltip = {
 			text = TT_forfeit_challenge
@@ -8113,6 +8116,8 @@ character_event = {
 	
 	# Champion died
 	option = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[challenger.GetTitledName] and [champion.GetTitledName] both died."
 		name = EVTOPTA_CHALLENGE.77
 		trigger = {
 			has_character_flag = defending_party
@@ -8121,6 +8126,8 @@ character_event = {
 	
 	# Second challenger died
 	option = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[challenger.GetTitledName] and [champion.GetTitledName] both died."
 		name = EVTOPTB_CHALLENGE.77
 		trigger = {
 			NOT = {
@@ -8321,31 +8328,31 @@ character_event = {
 		if = {
 			limit = { has_character_flag = status_gain_one_eyed }
 			add_trait = one_eyed
-			add_trait = severely_injured
+			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_one_handed }
 			add_trait = one_handed
-			add_trait = severely_injured
+			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_one_legged }
 			add_trait = one_legged
-			add_trait = severely_injured
+			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_disfigured }
 			add_trait = disfigured
-			add_trait = severely_injured
+			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
 		if = {
 			limit = { has_character_flag = status_gain_mangled }
 			add_trait = mangled
-			add_trait = severely_injured
+			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
 	}
@@ -8361,6 +8368,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.81
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[challenger.GetTitledName] and [challenged_party.GetTitledName] both lost."
 		random_list = {
 			3 = {} # Get off scott-free
 			1 = {
@@ -8392,7 +8401,7 @@ character_event = {
 					}
 				}
 				add_trait = one_eyed
-				add_trait = severely_injured
+				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
 			2 = {
@@ -8404,7 +8413,7 @@ character_event = {
 					}
 				}
 				add_trait = one_handed
-				add_trait = severely_injured
+				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
 			2 = {
@@ -8416,7 +8425,7 @@ character_event = {
 					}
 				}
 				add_trait = one_legged
-				add_trait = severely_injured
+				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
 			2 = {
@@ -8428,7 +8437,7 @@ character_event = {
 					}
 				}
 				add_trait = disfigured
-				add_trait = severely_injured
+				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
 			2 = {
@@ -8440,7 +8449,7 @@ character_event = {
 					}
 				}
 				add_trait = mangled
-				add_trait = severely_injured
+				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
 		}
@@ -8456,6 +8465,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
+		hidden_tooltip = { clr_global_flag = ongoing_werewolf_challenge }
+		log = "[challenger.GetTitledName]'s challenge ended because [challenged_party.GetTitledName] lost their title."
 		name = EVTOPTA_CHALLENGE.82
 		hidden_tooltip = {
 			event_target:challenger = {
@@ -8484,20 +8495,6 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.82
-		hidden_tooltip = {
-			event_target:challenger = {
-				if = {
-					limit = { NOT = { character = ROOT } }
-					character_event = { id = CHALLENGE.83 }
-				}
-			}
-			event_target:champion = {
-				if = {
-					limit = { NOT = { character = ROOT } }
-					character_event = { id = CHALLENGE.83 }
-				}
-			}
-		}
 	}
 }
 
@@ -8737,6 +8734,7 @@ character_event = {
 	# Become champion
 	option = {
 		name = EVTOPTA_CHALLENGE.9
+		log = "[Root.GetTitledName] will champion for [challenged_party.GetTitledName]."
 		custom_tooltip = { text = TT_champion_liege }
 		hidden_tooltip = {
 			save_event_target_as = champion
@@ -9026,5 +9024,16 @@ character_event = {
 				NOT = { combat_rating = 2 }
 			}
 		}
+	}
+}
+
+# Clear werewolf challenge global flag after 6 months, so be sure
+character_event = {
+	id = CHALLENGE.90
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_global_flag = ongoing_werewolf_challenge
 	}
 }

@@ -14,7 +14,6 @@ vampire = {
 	same_opinion = 10
 	opposite_opinion = -30
 	
-	fertility = -50
 	diplomacy = 2
 	martial = 1
 	intrigue = 4
@@ -39,6 +38,13 @@ secret_vampire = {
 	birth = 0
 	customizer = no
 	hidden_from_others = yes
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = vampire
+			trait = necromancer
+		}
+	}
 	intrigue = 1
 }
 
@@ -51,6 +57,7 @@ known_vampire = {
 	}
 	birth = 0
 	customizer = no
+	fertility = -50
 	general_opinion = -30
 	vampire_culture_opinion = 40
 	satanist_opinion = 10
@@ -238,12 +245,15 @@ blood_of_the_gods = {
 zombie = {
 	is_epidemic = yes
 	is_illness = yes
+	cached = yes
 
 	immortal = yes
+	
+	opposites = { necromancer }
 
 	same_opinion = 1000
 	general_opinion = -200
-
+	opposite_opinion = 100
 	
 	health = 3
 	fertility = -50
@@ -252,6 +262,9 @@ zombie = {
 	learning = -10
 	stewardship = -10
 	attrition = -0.8
+	days_of_supply = 15
+	
+	levy_reinforce_rate = -0.75
 	
 	command_modifier = {
 		speed = -0.2
@@ -262,7 +275,7 @@ zombie = {
 	ai_ambition = 100
 	ai_zeal = 100
 	
-	ruler_designer_cost = -50
+	customizer = no
 
 }
 
@@ -718,15 +731,6 @@ infertile = {
 summoner = {
 	lifestyle = yes
 	
-	potential = {
-		OR = {
-			trait = novice_mage
-			trait = eldritch_scholar
-			trait = veteran_wizard
-			trait = arcane_master
-		}
-	}
-	
 	opposites = {
 		enchanter
 		alchemist
@@ -785,15 +789,6 @@ alchemist = {
 enchanter = {
 	lifestyle = yes
 	
-	potential = {
-		OR = {
-			trait = novice_mage
-			trait = eldritch_scholar
-			trait = veteran_wizard
-			trait = arcane_master
-		}
-	}
-	
 	opposites = {
 		summoner
 		alchemist
@@ -849,6 +844,55 @@ herbalist = {
 	female_insult_adj = INSULT_GODLESS
 	child_insult_adj = INSULT_WEIRD
 }
+
+necromancer = {
+	lifestyle = yes
+	
+	opposites = {
+		zombie
+	}
+	
+	potential = {
+		OR = {
+			trait = novice_mage
+			trait = eldritch_scholar
+			trait = veteran_wizard
+			trait = arcane_master
+		}
+	}
+	
+	is_visible = {
+		OR = {
+			character = FROM
+			trait = necromancer
+			trait = zombie
+			has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions }
+		}
+	}
+	
+	learning = 2
+	intrigue = 1
+	
+	same_opinion = 30
+	opposite_opinion = 200
+	general_opinion = -20
+	
+	ruler_designer_cost = 10
+	
+	child_compliment = COMPL_SMARTY
+	male_compliment = COMPL_DEVIL
+	female_compliment = COMPL_DEVIL
+	male_compliment_adj = COMPL_LEARNED
+	female_compliment_adj = COMPL_LEARNED
+	child_compliment_adj = COMPL_CLEVER
+	male_insult = INSULT_VILE
+	female_insult = INSULT_VILE
+	child_insult = INSULT_FREAK
+	male_insult_adj = INSULT_GODLESS
+	female_insult_adj = INSULT_GODLESS
+	child_insult_adj = INSULT_WEIRD
+}
+
 miracle_worker = {
 	# Character's magic is seen as works of their god(s)
 	potential = {
@@ -1160,9 +1204,9 @@ ascetic = {
 	monthly_character_piety = 0.3
 	same_religion_opinion = 5
 	global_tax_modifier = -0.2
-	retinue_maintenence_cost = -0.1
-	horde_maintenence_cost = -0.1
+	same_opinion = 10
 	vassal_opinion = 5
+	land_morale = 0.05
 	
 	ai_zeal = 10
 	ai_greed = -50
@@ -1857,4 +1901,70 @@ banker = {
 	customizer = no
 	random = no
 	cached = yes
+}
+natural_magic_1 = {
+	opposites = {
+		natural_magic_2
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = novice_mage
+		trait = djinn
+	}
+	
+	muslim_opinion = 5
+	
+	customizer = no
+}
+natural_magic_2 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_3
+		natural_magic_4
+	}
+	potential = {
+		trait = eldritch_scholar
+		trait = djinn
+	}
+	
+	health = 0.5
+	fertility = 0.1
+	muslim_opinion = 10
+	
+	customizer = no
+}
+natural_magic_3 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_4
+	}
+	potential = {
+		trait = veteran_wizard
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.2
+	muslim_opinion = 15
+	
+	customizer = no
+}
+natural_magic_4 = {
+	opposites = {
+		natural_magic_1
+		natural_magic_2
+		natural_magic_3
+	}
+	potential = {
+		trait = arcane_master
+		trait = djinn
+	}
+	
+	health = 1
+	fertility = 0.4
+	muslim_opinion = 20
+	
+	customizer = no
 }

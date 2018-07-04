@@ -4,12 +4,22 @@ on_startup = {
 		MYTH.56			# Update Virtues/Vices
 		DRAGON.56		# Update Purity
 		VAMPIRE.155		# Assign missing blood court titles
+		SPECIES.12		# Set Djinn natural magic
+		ZOMBIE.10		# Zombie corpse gain control event
 	}
 }
 
 on_yearly_pulse = {
 	events = {
-		ZOMBIE.3		# Zombie voodoo conversion
+		ZOMBIE.1		# Form the undead horde
+		ZOMBIE.2		# Zombie damned conversion
+		ZOMBIE.8		# Update devastation - living
+		ZOMBIE.9		# Update devastation - undead
+		ZOMBIE.10		# Zombie corpse gain control event
+		ZOMBIE.19		# Building conversion event
+		ZOMBIE.22		# Living culture returns
+		ZOMBIE.24		# Living religion returns
+		ZOMBIE.26		# Undead religious county conversion
 		MUMMY.5			# Ramesis reborn
 		MYTH.34 		# Force Zeus to use seduction
 		SPECIES.4		# Species-based infertility
@@ -21,7 +31,7 @@ on_yearly_pulse = {
 		MYTH.48			# Plaguebearer spreads disease
 		MONSTER.10		# Remind demons of their true master
 		SPECIES.7		# Make sure heir modifiers aren't out of date
-		#DRAGON.20		# Make sure unfit flame controller isn't our of date
+		#DRAGON.20		# Make sure unfit flame controller isn't out of date
 		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
 		MONSTER.20		# Chance for province modifiers for known monsters.
@@ -29,6 +39,7 @@ on_yearly_pulse = {
 		VAMPIRE.155		# Assign missing blood court titles
 		DRAGON.150		# Add dragon rivals
 		GIANT.1			# Handle giant size
+		SPECIES.12		# Set Djinn natural magic
 	}
 	
 	random_events = {
@@ -36,8 +47,6 @@ on_yearly_pulse = {
 		80 = DRAGON.2	# Dragon with small horde
 		100 = DRAGON.4	# Dragon angers locals
 		50 = DRAGON.3 	# Grow Stronger
-		#50 = DRAGON.5	# Dragon with large horde - prestige - replaced by purity
-		#50 = DRAGON.6  # Dragon with large horde - piety - replaced by purity
 		100 = DRAGON.58 # Dragon thinks of marriage
 		50 = DRAGON.61	# Dragon consulted about spouse
 		50 = DRAGON.64	# Dragon consulted about lover
@@ -86,6 +95,9 @@ on_yearly_pulse = {
 		
 		# Suspected monster
 		
+		# Revenant
+		20 = ZOMBIE.28		# Spread plague
+		
 		# Misc
 		4 = MUMMY.1		# Explore tombs in Egypt
 		1 = MYTH.6		# Search for Solomon
@@ -112,7 +124,6 @@ on_yearly_pulse = {
 on_bi_yearly_pulse = {
 	events = {
 		MYTH.35			# Draconic becoming a wicked priest
-		MYTH.36			# Voodoo becoming a wicked priest
 		MYTH.37			# Druid becoming a wicked priest
 		MYTH.38			# Kemetic becoming a wicked priest
 		MYTH.39			# Jotnar becoming a wicked priest
@@ -120,25 +131,37 @@ on_bi_yearly_pulse = {
 		VAMPIRE.104		# Remove Blood Court voter effects if inappropriate
 		VAMPIRE.105		# Remove Blood Court effects if you lack appropriate control
 		VAMPIRE.106		# Remove penalties is no voter has appropriate bonuses
-		MYTH_WoL.196	# Change Zeus' seducation
 	}
 }
 on_five_year_pulse = {
 	events = {
 		SPECIES.3		# Sanity check on known werewolf (and eventually known vampire)
+		MYTH_WoL.196	# Change Zeus' seduction
 	}
 }
 on_yearly_childhood_pulse = {
+	events = {
+		MYTHMORE.46
+	}
+	
 	random_events = {
 		# Werewolf Pup events
-		200 = WEREWOLF.60		# Child plays in the forest, talks to wolves.
-		300 = WEREWOLF.63		# Child behaves strangely
-		100 = WEREWOLF.66		# Child gets wolf pet
+		100 = WEREWOLF.60		# Child plays in the forest, talks to wolves.
+		150 = WEREWOLF.63		# Child behaves strangely
+		50 = WEREWOLF.66		# Child gets wolf pet
+		150 = WEREWOLF.101		# Pup Heritage event
+		
+		100 = DRAGON.155		# Dragon child culture event
+		80 = DRAGON.161			# Dragon child religion event
+		120 = GIANT.3			# Giant child culture event
+		90 = GIANT.9			# Giant child religion event
+		110 = MYTHMORE.40		# Djinn child religion event
 	}
 }
 on_focus_selected = {
 	events = {
-		MYTH_WoL.39	# Select inital specialty
+		MYTH_WoL.39				# Select inital specialty
+		MYTH_WoL.277			# Automatic specialty
 	}
 }
 on_focus_pulse = {
@@ -148,15 +171,14 @@ on_focus_pulse = {
 		SPECIES.11			# Doublecheck for eligable giants with no subrace
 		DRAGON.56			# Update Purity
 		MYTH.56				# Update Virtues/Vices
+		MYTH_WoL.285		# Apprentice experience
 	}
 	
 	random_events = {
-		#1000 = 0
-		
 		# Magic Focus
 		3000 = MYTH_WoL.39	# Select inital specialty
-		250 = MYTH_WoL.1	# Summon familiar
-		100 = MYTH_WoL.49	# Evade a rival
+		450 = MYTH_WoL.1	# Summon familiar
+		150 = MYTH_WoL.49	# Evade a rival
 		30 = MYTH_WoL.57	# Miracle Worker - may need to reduce if too common
 		130 = MYTH_WoL.58	# Books of Hermes start
 		250 = MYTH_WoL.60	# Increase learning while reading books of hermes
@@ -167,30 +189,50 @@ on_focus_pulse = {
 		300 = MYTH_WoL.75	# Alternate final alchemy trial for mages
 		100 = MYTH_WoL.78	# Create Aqua Regia
 		100 = MYTH_WoL.81	# Lunatic - spin straw into gold
-		250 = MYTH_WoL.84	# Illusionary garrison
-		250 = MYTH_WoL.85	# Practice shapeshifting
-		170 = MYTH_WoL.148	# Weather control
-		350 = MYTH_WoL.87	# Herbalism potion for sick courtier
+		280 = MYTH_WoL.84	# Illusionary garrison
+		280 = MYTH_WoL.85	# Practice shapeshifting
+		200 = MYTH_WoL.148	# Weather control
+		400 = MYTH_WoL.87	# Herbalism potion for sick courtier
 		10 = MYTH_WoL.101	# Create Philosopher's Stone
 		200 = MYTH_WoL.112	# Trouble with spells
 		120 = MYTH_WoL.113	# Healing of injuries
 		100 = MYTH_WoL.115	# Unintelligent characted frustrated.
 		100 = MYTH_WoL.116 	# Azoth creation
-		200 = MYTH_WoL.122	# Panacea creation
-		230 = MYTH_WoL.128	# Tower building
-		230 = MYTH_WoL.149	# Find new herb
-		100 = MYTH_WoL.170	# Seidr
+		250 = MYTH_WoL.122	# Panacea creation
+		250 = MYTH_WoL.128	# Tower building
+		250 = MYTH_WoL.149	# Find new herb
+		#100 = MYTH_WoL.170	# Seidr
 		200 = MYTH_WoL.157  # Greater Key of Solomon
 		200 = MYTH_WoL.169	# Improve learning
-		100 = MYTH_WoL.171	# Lesser Key of Solomon
+		150 = MYTH_WoL.171	# Lesser Key of Solomon
 		100 = MYTH_WoL.179	# Write about Alchemy
-		150 = MYTH_WoL.208	# Good summoning time
-		400 = MYTH_WoL.212	# Deal with spirits of disease
-		200 = MYTH_WoL.213	# Herbalism - potion vs Stressed/depressed
+		250 = MYTH_WoL.208	# Good summoning time
+		500 = MYTH_WoL.212	# Deal with spirits of disease
+		450 = MYTH_WoL.213	# Herbalism - potion vs Stressed/depressed
+		300 = MYTH_WoL.235	# Herbalism - potion from spare ingredients
+		100 = MYTH_WoL.261	# Magic or Scholarship Necromany event
+		250 = MYTH_WoL.278	# Necromancy divination
+		150 = MYTH_WoL.279	# Necromancy disease for rival
+		200 = MYTH_WoL.280	# Necromancy life drain
+		250 = MYTH_WoL.281	# Necromancy disease exposure
+		500 = MYTH_WoL.282	# Necromancy take advantage of depopulation
+		150 = MYTH_WoL.283	# Necromancy ressurect wise man
+		50 = MYTH_WoL.288	# Bad apprentice
+		150 = MYTH_WoL.290	# Focused teaching
+		150 = MYTH_WoL.292	# Task for apprentice
+		200 = MYTH_WoL.297	# Experimenting with potions
 		
 		# Stewardship Focus
 		100 = MYTH_WoL.36	# Werewolf peasant
 		10 = MYTH_WoL.37	# Wolf child
+		
+		# Scholarship Focus
+		100 = MYTH_WoL.236	# Necromancy event
+		
+		# Theology Focus
+		200 = MYTH_WoL.214	# Appeal of ancient religion
+		150 = MYTH_WoL.241	# Learn about Necromancy - Satanism
+		200 = MYTH_WoL.257	# Cold Ones necromancy
 	}
 }
 on_combat_pulse = {
@@ -221,12 +263,14 @@ on_adulthood = {
 		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
 		SPECIES.9		# Remove and re-add God trait
+		MYTHMORE.50		# Childhood sweethearts become lovers
 	}
 }
 # Fires for the owner of the winning unit (ROOT). The taken Holding title is in FROM.
 on_siege_over_winner = {
 	events = {
 		MONSTER.3		# Monster hunters take county capital
+		ZOMBIE.16		# Undead take county capital
 	}
 }
 on_become_imprisoned_any_reason = {
@@ -242,7 +286,7 @@ on_chronicle_change_owner = {
 }
 on_chronicle_start = {
 	events = {
-		MYTH.50			# Create pagan pantheons
+		#MYTH.50		# Create pagan pantheons
 		MUMMY.5			# Ramesis Reborn
 		#MYTH.34 		# Force Zeus to use seduction
 		SPECIES.6		# Mark all premade characters as already being the correct race
@@ -251,6 +295,7 @@ on_chronicle_start = {
 		WEREWOLF.95		# Set initial werewolf control
 		SPECIES.11		# Set subrace on eligable giants
 		MYTHMORE.39		# Fix Ruler Designer Immortality
+		ZOMBIE.37		# Force zombies to be nomadic
 	}
 }
 on_battle_won = {
@@ -357,6 +402,8 @@ on_rebel_revolt = {
 	events = {
 		MONSTER.1		# Monster rebels rise up
 		MONSTER.4		# Monster revels reinforce
+		ZOMBIE.15		# Zombie uprising
+		ZOMBIE.17		# Zombie uprising reinforces
 	}
 }
 
@@ -407,6 +454,8 @@ on_new_holder = {
 		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
+		MYTHMORE.37		# Nickname for undead gaining title
+		ZOMBIE.10		# Zombie corpse gain control event
 	}
 }
 
@@ -426,5 +475,17 @@ on_artifact_inheritance = {
 on_county_religion_change = {
 	events = {
 		MONSTER.26		# Remove inappropriate modifiers
+	}
+}
+
+on_province_major_modifier = {
+	events = {
+		ZOMIBE.38		# Increase depopulation/devastation
+	}
+}
+
+on_pregnancy = {
+	events = {
+		SPECIES.13		# Cancel vampire pregnancy
 	}
 }

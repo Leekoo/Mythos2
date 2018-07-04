@@ -45,6 +45,10 @@ theocracy_governments = {
 				capital_holding = { title = b_uppsala }
 				controls_religion = yes
 			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_theocracy_government }
+			}
 			is_patrician = no
 		}
 		
@@ -114,6 +118,11 @@ theocracy_governments = {
 			OR = {
 				is_female = no
 				religion_allows_female_temple_holders = yes
+			}
+			OR = {
+				NOT = { trait = zombie }
+				liege = { government = draconic_theocracy_government }
+				liege = { government = theocracy_government }
 			}
 		}
 		

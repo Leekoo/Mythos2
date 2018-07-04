@@ -1126,6 +1126,7 @@ character_event = {
 		NOR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+			religion = the_damned
 		}
 		any_demesne_province = {
 			has_building = tp_eternal_flame
@@ -1325,6 +1326,7 @@ character_event = {
 		NOR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+			religion = the_damned
 		}
 		any_demesne_province = {
 			has_building = tp_eternal_flame
@@ -1404,6 +1406,7 @@ character_event = {
 		NOR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+			religion = the_damned
 			controls_religion = no
 		}
 		any_demesne_province = {
@@ -1471,6 +1474,7 @@ character_event = {
 			NOR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
+				religion = the_damned
 			}
 		}
 	}
@@ -1514,6 +1518,7 @@ character_event = {
 				NOR = {
 					religion = draconic_pagan
 					religion = draconic_pagan_reformed
+					religion = the_damned
 				}
 			}
 			save_event_target_as = upset_province
@@ -1738,7 +1743,7 @@ character_event = {
 		random_list = {
 			10 = {
 				# Attempt to bury the flame
-				character_event = { id = DRAGON.37 days = 60 random = 60 }
+				character_event = { id = DRAGON.37 days = 60 random = 90 }
 			}
 			10 = {
 				# Cast a counterspell
@@ -1758,7 +1763,7 @@ character_event = {
 					factor = 1.2
 					trait = erudite
 				}
-				character_event = { id = DRAGON.39 days = 30 random = 50 }
+				character_event = { id = DRAGON.39 days = 30 random = 75 }
 			}
 			10 = {
 				# Pray for the flame to be stopped
@@ -1797,7 +1802,7 @@ character_event = {
 					factor = 1.2
 					trait = humble
 				}
-				character_event = { id = DRAGON.41 days = 30 random = 50 }
+				character_event = { id = DRAGON.41 days = 30 random = 75 }
 			}
 			10 = {
 				# Attempt to bombard the flame with siege weapons
@@ -1824,7 +1829,7 @@ character_event = {
 					factor = 1.2
 					trait = wroth
 				}
-				character_event = { id = DRAGON.43 days = 60 random = 60 }
+				character_event = { id = DRAGON.43 days = 60 random = 90 }
 			}
 			10 = {
 				# Try to flood the flame
@@ -1851,7 +1856,7 @@ character_event = {
 					factor = 1.2
 					trait = patient
 				}
-				character_event = { id = DRAGON.45 days = 90 random = 90 }
+				character_event = { id = DRAGON.45 days = 90 random = 135 }
 			}
 			10 = {
 				# Ritual Sacrifice
@@ -1903,7 +1908,7 @@ character_event = {
 					factor = 1.1
 					trait = possessed
 				}
-				character_event = { id = DRAGON.47 days = 20 random = 100 }
+				character_event = { id = DRAGON.47 days = 20 random = 150 }
 			}
 			10 = {
 				# Butcher the dragons
@@ -1957,7 +1962,7 @@ character_event = {
 					factor = 1.1
 					trait = paranoid
 				}
-				character_event = { id = DRAGON.49 days = 80 random = 120 }
+				character_event = { id = DRAGON.49 days = 80 random = 180 }
 			}
 		}
 	}
@@ -2069,6 +2074,13 @@ character_event = {
 		name = EVTOPTA_DRAGON.36
 		scaled_wealth = { value = -0.25 max = -200 }
 		character_event = { id = DRAGON.34 days = 3 tooltip = keep_searching_flame }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+		}
 	}
 	option = {
 		name = EVTOPTB_DRAGON.36
@@ -2079,6 +2091,13 @@ character_event = {
 			clr_character_flag = destroy_flame_galloway
 			clr_character_flag = destroy_flame_plock
 			clr_character_flag = destroy_flame_uppland
+		}
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 2
+				trait = cynical
+			}
 		}
 	}
 }
@@ -2148,31 +2167,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -2324,31 +2343,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -2555,14 +2574,17 @@ character_event = {
 		if = { limit = { trait = eldritch_scholar }
 			remove_trait = eldritch_scholar
 			add_trait = novice_mage
+			update_natural_magic = yes
 		}
 		if = { limit = { trait = veteran_wizard }
 			remove_trait = veteran_wizard
 			add_trait = eldritch_scholar
+			update_natural_magic = yes
 		}
 		if = { limit = { trait = arcane_master }
 			remove_trait = arcane_master
 			add_trait = veteran_wizard
+			update_natural_magic = yes
 		}
 		ai_chance = {
 			factor = 2
@@ -2703,6 +2725,10 @@ character_event = {
 		hidden_tooltip = {
 			remove_character_modifier = studying_conjuration
 			remove_character_modifier = studying_sorcery
+			remove_trait = natural_magic_1
+			remove_trait = natural_magic_2
+			remove_trait = natural_magic_3
+			remove_trait = natural_magic_4
 		}
 		add_trait = detached_priest
 		ai_chance = {
@@ -2795,31 +2821,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -2984,7 +3010,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			19 = {
+			23 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3115,7 +3141,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			17 = {
+			22 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3250,7 +3276,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 10 tooltip = destroy_flame_success }
 			}
-			17 = {
+			22 = {
 				character_event = { id = DRAGON.36 days = 10 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3352,31 +3378,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -3480,7 +3506,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			19 = {
+			29 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3504,7 +3530,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_DRAGON.44
 		random_list ={
-			2 = {
+			3 = {
 				modifier = {
 					factor = 1.2
 					trait = misguided_warrior
@@ -3567,7 +3593,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			18 = {
+			27 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3592,7 +3618,7 @@ character_event = {
 	option = {
 		name = EVTOPTC_DRAGON.44
 		random_list = {
-			4 = {
+			6 = {
 				modifier = {
 					factor = 1.2
 					trait = misguided_warrior
@@ -3655,7 +3681,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			16 = {
+			24 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -3750,31 +3776,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -3814,7 +3840,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.46
-		scaled_wealth = { value = -0.25 max = -100 }
+		scaled_wealth = { value = -0.25 max = -400 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -3894,7 +3920,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTB_DRAGON.46
-		scaled_wealth = { value = -1 max = -400 }
+		scaled_wealth = { value = -1 max = -800 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -3974,7 +4000,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_DRAGON.46
-		scaled_wealth = { value = -3 max = -800 }
+		scaled_wealth = { value = -3 max = -2000 }
 		random_list = {
 			1 = {
 				modifier = {
@@ -4134,31 +4160,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -4887,31 +4913,31 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						c_sjaelland = {
+						b_lejre = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						c_kent = {
+						b_canterbury = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						c_plock = {
+						b_pruszkow = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						c_galloway = {
+						b_whithorn = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						c_uppland = {
+						b_uppsala = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -5049,7 +5075,7 @@ character_event = {
 				}
 				character_event = { id = DRAGON.35 days = 3 tooltip = destroy_flame_success }
 			}
-			3 = {
+			4 = {
 				character_event = { id = DRAGON.36 days = 3 tooltip = destroy_flame_failure }
 			}
 		}
@@ -8622,7 +8648,7 @@ character_event = {
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
 			c_sjaelland = {
-				build_holding = { title = b_lejre type = temple holder = ROOT }
+				location = { build_holding = { title = b_lejre type = temple holder = ROOT } }
 			}
 			b_lejre = { 
 				add_building = tp_eternal_flame
@@ -8632,7 +8658,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
 			c_kent = {
-				build_holding = { title = b_canterbury type = temple holder = ROOT }
+				location = { build_holding = { title = b_canterbury type = temple holder = ROOT } }
 			}
 			b_canterbury = { 
 				add_building = tp_eternal_flame
@@ -8642,7 +8668,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
 			c_plock = {
-				build_holding = { title = b_pruszkow type = temple holder = ROOT }
+				location = { build_holding = { title = b_pruszkow type = temple holder = ROOT } }
 			}
 			b_pruszkow = { 
 				add_building = tp_eternal_flame
@@ -8652,7 +8678,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
 			c_galloway = {
-				build_holding = { title = b_whithorn type = temple holder = ROOT }
+				location = { build_holding = { title = b_whithorn type = temple holder = ROOT } }
 			}
 			b_whithorn = { 
 				add_building = tp_eternal_flame
@@ -8662,7 +8688,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
 			c_uppland = {
-				build_holding = { title = b_uppsala type = temple holder = ROOT }
+				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
 			}
 			b_uppsala = { 
 				add_building = tp_eternal_flame
@@ -8710,5 +8736,402 @@ character_event = {
 			clr_character_flag = restore_flame_galloway
 			clr_character_flag = restore_flame_uppland
 		}
+	}
+}
+
+# Dragon child adopts dragon culture - start
+character_event = {
+	id = DRAGON.155
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOT = { culture = draconic }
+		NOT = { has_character_flag = dragon_culture_childhood_event }
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 1.5
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+	}
+	
+	immediate = {
+		set_character_flag = dragon_culture_childhood_event
+		# Ping for localization
+		educator = {
+			character_event = { id = DRAGON.156 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.156
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = DRAGON.157 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.157
+	desc = EVTDESC_DRAGON.157
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.157
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = DRAGON.158
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.157
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = DRAGON.158
+	desc = EVTDESC_DRAGON.158
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_DRAGON.158
+		tooltip = {
+			FROM = { culture = draconic }
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.159 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				culture = draconic
+			}
+			modifier = {
+				factor = 2
+				trait = dragon
+			}
+			modifier = {
+				factor = 3
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_DRAGON.158
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.160 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = dragon
+					trait = dragonborn
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					religion_group = christian
+					religion_group = muslim
+					religion_group = jewish_group
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.159
+	desc = EVTDESC_DRAGON.159
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.159
+		culture = draconic
+	}
+}
+
+character_event = {
+	id = DRAGON.160
+	desc = EVTDESC_DRAGON.160
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.160
+	}
+}
+
+# Dragon child adopts dragon religion - start
+character_event = {
+	id = DRAGON.161
+	hide_window = yes
+	
+	min_age = 6
+	max_age = 11
+	prisoner = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = dragon
+		OR = {
+			NOT = { has_dlc = Conclave }
+			has_focus = focus_ch_heritage
+		}
+		NOR = {
+			religion = draconic_pagan
+			religion = draconic_pagan_reformed
+		}
+		NOT = { has_character_flag = dragon_religion_childhood_event }
+	}
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.3
+			is_reformed_religion = yes
+		}
+		modifier = {
+			factor = 0.5
+			father = {
+				is_reformed_religion = yes
+				NOT = { religion = draconic_pagan_reformed }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			mother = {
+				is_reformed_religion = yes
+				NOT = { religion = draconic_pagan_reformed }
+			}
+		}
+		modifier = {
+			factor = 2
+			religion_group = pagan_group
+		}
+		modifier = {
+			factor = 1.5
+			father = { religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 1.5
+			mother = { religion_group = pagan_group }
+		}
+	}
+	
+	immediate = {
+		# Ping for localization
+		set_character_flag = dragon_religion_childhood_event
+		educator = {
+			character_event = { id = DRAGON.162 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.162
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		FROM = {
+			character_event = { id = DRAGON.163 }
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.163
+	desc = EVTDESC_DRAGON.163
+	picture = GFX_evt_child_play
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.163
+		hidden_tooltip = {
+			educator = {
+				character_event = {
+					id = DRAGON.164
+					days = 3
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_DRAGON.163
+		trigger = { ai = no }
+	}
+}
+
+character_event = {
+	id = DRAGON.164
+	desc = EVTDESC_DRAGON.164
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	# Encourage
+	option = {
+		name = EVTOPTA_DRAGON.164
+		tooltip = {
+			FROM = {
+				if = {
+					limit = { has_global_flag = draconic_pagan_reformation  }
+					religion = draconic_pagan_reformed
+				}
+				else = {
+					religion = draconic_pagan
+				}
+			}
+		}
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.165 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 4
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 4
+				culture = draconic
+			}
+			modifier = {
+				factor = 2
+				trait = dragon
+			}
+		}
+	}
+	
+	# Discourage
+	option = {
+		name = EVTOPTB_DRAGON.164
+		hidden_tooltip = {
+			FROM = {
+				character_event = { id = DRAGON.166 }
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = monster_hunter
+				NOR = { 
+					trait = dragon
+					culture = draconic
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 3
+				is_reformed_religion = yes
+				NOT = { religion = draconic_pagan_reformed }
+			}
+			modifier = {
+				factor = 2
+				is_priest = yes
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.165
+	desc = EVTDESC_DRAGON.165
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.165
+		if = {
+			limit = { has_global_flag = draconic_pagan_reformation  }
+			religion = draconic_pagan_reformed
+		}
+		else = {
+			religion = draconic_pagan
+		}
+	}
+}
+
+character_event = {
+	id = DRAGON.166
+	desc = EVTDESC_DRAGON.166
+	picture = GFX_evt_child_play
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.166
 	}
 }
