@@ -2596,16 +2596,49 @@ defined_text = {
 			OR = {
 				religion_group = christian
 				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
 			}
 		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Muslim
-		trigger = { religion_group = muslim }
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Pagan
-		trigger = { religion_group = pagan_group }
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Zoroastrian
@@ -2613,11 +2646,27 @@ defined_text = {
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Jewish
-		trigger = { religion_group = jewish_group }
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Hindu
-		trigger = { religion = hindu }
+		trigger = {
+			OR = {
+				religion = hindu
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = GetHouseOfWorship_Buddhist
@@ -2642,16 +2691,49 @@ defined_text = {
 			OR = {
 				religion_group = christian
 				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
 			}
 		}
 	}
 	text = {
 		localisation_key = string_Mosque
-		trigger = { religion_group = muslim }
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = string_Temple
-		trigger = { religion_group = pagan_group }
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = string_Temple
@@ -2659,11 +2741,27 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_Temple
-		trigger = { religion_group = jewish_group }
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = string_Temple
-		trigger = { religion = hindu }
+		trigger = {
+			OR = {
+				religion = hindu
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = string_Temple
@@ -2685,17 +2783,52 @@ defined_text = {
 	text = {
 		localisation_key = String_mass
 		trigger = { 
-			religion_group = christian
-			religion_group = other_group
+			OR = {
+				religion_group = christian
+				religion_group = other_group
+				AND = {
+					religion_group = undead_religion_group
+					NOR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_dybbuk
+						culture = undead_ghoul
+						culture = undead_zombie
+						culture = undead_vetala
+					}
+				}
+			}
 		}
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = muslim }
+		trigger = {
+			OR = {
+				religion_group = muslim
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_ghoul
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_worship
-		trigger = { religion_group = pagan_group }
+		trigger = {
+			OR = {
+				religion_group = pagan_group
+				AND = {
+					religion_group = undead_religion_group
+					OR = {
+						culture = undead_cold_ones
+						culture = undead_aptrganger
+						culture = undead_draugr
+						culture = undead_zombie
+					}
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_worship
@@ -2703,11 +2836,27 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = jewish_group }
+		trigger = {
+			OR = {
+				religion_group = jewish_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_dybbuk
+				}
+			}
+		}
 	}
 	text = {
 		localisation_key = String_prayer
-		trigger = { religion_group = indian_group }
+		trigger = {
+			OR = {
+				religion_group = indian_group
+				AND = {
+					religion_group = undead_religion_group
+					culture = undead_vetala
+				}
+			}
+		}
 	}
 }
 
