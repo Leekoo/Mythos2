@@ -14005,10 +14005,7 @@ cb_install_khan = {
 	can_use = {
 		has_dlc = "Horse Lords"
 		
-		ROOT = {
-			is_nomadic = yes
-			NOT = { trait = zombie }
-		}
+		is_nomadic = yes
 	}
 
 	is_valid = {
@@ -14028,12 +14025,9 @@ cb_install_khan = {
 			}
 		}
 		FROM = {
-			OR = {
-				any_demesne_title = {
-					NOT = { lower_tier_than = ROOT }
-					temporary = no
-				}
-				government = zombie_horde
+			any_demesne_title = {
+				NOT = { lower_tier_than = ROOT }
+				temporary = no
 			}
 		}
 	}
