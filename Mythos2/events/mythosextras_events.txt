@@ -1885,6 +1885,15 @@ character_event = {
 	capable_only = yes
 	is_triggered_only = yes
 	
+	trigger = {
+		OR = {
+			trait = arcane_master
+			trait = veteran_wizard
+			trait = eldritch_scholar
+			trait = novice_mage
+		}
+	}
+	
 	immediate = {
 		random_list = {
 			# Diplomacy
@@ -2660,39 +2669,32 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			set_variable = { which = local_gain value = 4 }
-			set_variable = { which = local_loss value = -4 }
-			set_variable = { which = local_health_gain value = 4 }
-			set_variable = { which = local_health_loss value = -4 }
+			FROM = {
+				set_variable = { which = temp_gain value = 4 }
+				set_variable = { which = temp_gain_health value = 2 }
+			}
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			set_variable = { which = local_gain value = 3 }
-			set_variable = { which = local_loss value = -3 }
-			set_variable = { which = local_health_gain value = 3 }
-			set_variable = { which = local_health_loss value = -3 }
+			FROM = {
+				set_variable = { which = temp_gain value = 3 }
+				set_variable = { which = temp_gain_health value = 3 }
+				dvide_variable = { which = temp_gain_health value = 2 }
+			}
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			set_variable = { which = local_gain value = 2 }
-			set_variable = { which = local_loss value = -2 }
-			set_variable = { which = local_health_gain value = 2 }
-			set_variable = { which = local_health_loss value = -2 }
+			FROM = {
+				set_variable = { which = temp_gain value = 2 }
+				set_variable = { which = temp_gain_health value = 1 }
+			}
 		}
 		else = {
-			set_variable = { which = local_gain value = 1 }
-			set_variable = { which = local_loss value = -1 }
-			set_variable = { which = local_health_gain value = 1 }
-			set_variable = { which = local_health_loss value = -1 }
-		}
-		divide_variable = { which = local_health_gain value = 2 }
-		divide_variable = { which = local_health_loss value = 2 }
-		
-		FROM = {
-			set_variable = { which = local_gain which = ROOT }
-			set_variable = { which = local_gain_health which = ROOT }
-			set_variable = { which = temp_gain which = local_gain }
-			set_variable = { which = temp_gain_health which = local_gain_health }
+			FROM = {
+				set_variable = { which = temp_gain value = 1 }
+				set_variable = { which = temp_gain_health value = 1 }
+				dvide_variable = { which = temp_gain_health value = 2 }
+			}
 		}
 		
 		if = {
@@ -2715,10 +2717,37 @@ character_event = {
 			has_character_flag = temp_choose_diplomacy
 			diplomacy = 12
 		}
-		change_diplomacy = local_loss
+		if = {
+			limit = { trait = arcane_master }
+			diplomacy = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			diplomacy = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			diplomacy = -2
+		}
+		else = {
+			diplomacy = -1
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_diplomacy }
-			hidden_tooltip = { change_diplomacy = local_gain }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				diplomacy = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				diplomacy = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				diplomacy = 2
+			}
+			else = {
+				diplomacy = 1
+			}
 			add_trait = gregarious
 		}
 		hidden_tooltip = {
@@ -2770,10 +2799,37 @@ character_event = {
 			has_character_flag = temp_choose_martial
 			martial = 12
 		}
-		change_martial = local_loss
+		if = {
+			limit = { trait = arcane_master }
+			martial = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			martial = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			martial = -2
+		}
+		else = {
+			martial = -1
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_martial }
-			hidden_tooltip = { change_martial = local_gain }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				martial = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				martial = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				martial = 2
+			}
+			else = {
+				martial = 1
+			}
 			add_trait = brave
 		}
 		hidden_tooltip = {
@@ -2825,10 +2881,37 @@ character_event = {
 			has_character_flag = temp_choose_stewardship
 			stewardship = 12
 		}
-		change_stewardship = local_loss
+		if = {
+			limit = { trait = arcane_master }
+			stewardship = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			stewardship = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			stewardship = -2
+		}
+		else = {
+			stewardship = -1
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_stewardship }
-			hidden_tooltip = { change_stewardship = local_gain }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				stewardship = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				stewardship = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				stewardship = 2
+			}
+			else = {
+				stewardship = 1
+			}
 			add_trait = temperate
 		}
 		hidden_tooltip = {
@@ -2880,10 +2963,37 @@ character_event = {
 			has_character_flag = temp_choose_intrigue
 			intrigue = 12
 		}
-		change_intrigue = local_loss
+		if = {
+			limit = { trait = arcane_master }
+			intrigue = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			intrigue = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			intrigue = -2
+		}
+		else = {
+			intrigue = -1
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_intrigue }
-			hidden_tooltip = { change_intrigue = local_gain }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				intrigue = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				intrigue = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				intrigue = 2
+			}
+			else = {
+				intrigue = 1
+			}
 			add_trait = deceitful
 		}
 		hidden_tooltip = {
@@ -2935,10 +3045,37 @@ character_event = {
 			has_character_flag = temp_choose_learning
 			learning = 12
 		}
-		change_learning = local_loss
+		if = {
+			limit = { trait = arcane_master }
+			learning = -4
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			learning = -3
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			learning = -2
+		}
+		else = {
+			learning = -1
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_learning }
-			hidden_tooltip = { change_learning = local_gain }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				learning = 4
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				learning = 3
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				learning = 2
+			}
+			else = {
+				learning = 1
+			}
 			add_trait = erudite
 		}
 		ai_chance = {
@@ -2990,10 +3127,37 @@ character_event = {
 			has_character_flag = temp_choose_health
 			health = 6
 		}
-		health = local_loss_health
+		if = {
+			limit = { trait = arcane_master }
+			health = -2
+		}
+		else_if = {
+			limit = { trait = veteran_wizard }
+			health = -1.5
+		}
+		else_if = {
+			limit = { trait = eldritch_scholar }
+			health = -1
+		}
+		else = {
+			health = -0.5
+		}
 		FROM = {
-			custom_tooltip = { text = tt_same_gain_health }
-			hidden_tooltip = { health = local_gain_health }
+			if = {
+				limit = { ROOT = { trait = arcane_master } }
+				health = 2
+			}
+			else_if = {
+				limit = { ROOT = { trait = veteran_wizard } }
+				health = 1.5
+			}
+			else_if = {
+				limit = { ROOT = { trait = eldritch_scholar } }
+				health = 1
+			}
+			else = {
+				health = 0.5
+			}
 			if = {
 				limit = { trait = feeble }
 				remove_trait = feeble
@@ -3133,10 +3297,6 @@ character_event = {
 	option = {
 		name = EVTOPTH_MYTHMORE.47
 		hidden_tooltip = {
-			FROM = {
-				set_variable = { which = temp_gain value = 0 }
-				set_variable = { which = temp_gain_health value = 0 }
-			}
 			clr_character_flag = temp_choose_diplomacy
 			clr_character_flag = temp_choose_martial
 			clr_character_flag = temp_choose_stewardship
@@ -3144,6 +3304,10 @@ character_event = {
 			clr_character_flag = temp_choose_learning
 			clr_character_flag = temp_choose_health
 			clr_character_flag = temp_choose_love
+			FROM = {
+				set_variable = { which = temp_gain value = 0 }
+				set_variable = { which = temp_gain_health value = 0 }
+			}
 		}
 		ai_chance = {
 			factor = 1
