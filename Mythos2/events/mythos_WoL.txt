@@ -7380,18 +7380,11 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
+	prisoner = no
+	trigger = { has_regent = no }
+	
 	# Delay if unable to act
 	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.103 days = 20 }
-		}
-		
 		# Find Poseidon
 		e_olympus = {
 			holder_scope = {
@@ -7773,18 +7766,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.104 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Gather water in a port
 	option = {
@@ -8122,18 +8105,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.105 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Dragonfire
 	option = {
@@ -8438,18 +8411,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.106 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Blood of a Mage
 	option = {
@@ -8744,18 +8707,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.107 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Vampire Blood
 	option = {
