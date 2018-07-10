@@ -1014,8 +1014,13 @@ character_event = {
 				add_trait = zombie
 				set_graphical_culture = undead_revenant
 				set_undead_culture = yes
+				if = {
+					limit = { ai = no } # Not playable
+					abdicate = yes
+				}
 				religion = the_damned
 				any_claim = { remove_claim = PREV }
+				character_event = { id = ZOMBIE.39 }
 			}
 			else = {
 				remove_trait = dragon
