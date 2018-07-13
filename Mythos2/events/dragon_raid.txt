@@ -320,6 +320,7 @@ character_event = {
 		
 		# Deal morale damage
 		set_variable = { which = local_damage which = morale_damage }
+		change_variable = { which = local_damage value = 1 } # 1 extra morale damage for going first
 		event_target:second_turn = {
 			set_variable = { which = local_damage which = ROOT }
 			subtract_variable = { which = draconic_raid_morale which = local_damage }

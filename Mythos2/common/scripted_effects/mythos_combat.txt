@@ -1674,6 +1674,10 @@ set_draconic_raid_def = {
 		limit = { trait = god }
 		change_variable = { which = draconic_raid_hp value = 1 }
 	}
+	if = {
+		limit = { combat_rating = 15 }
+		change_variable = { which = draconic_raid_hp value = 1 }
+	}
 	divide_variable = { which = draconic_raid_def value = 4 }
 }
 set_draconic_raid_initiative = {
@@ -1882,9 +1886,16 @@ set_draconic_raid_morale = {
 }
 draconic_raid_get_damage = {
 	export_to_variable = { which = local_damage value = combat_rating }
+	multiply_variable = { which = local_damage value = 6 }
+	divide_variable = { which = local_damage value = 5 }
 	if = {
 		limit = { check_variable = { which = local_damage value < 1 } }
 		set_variable = { which = local_damage value = 1 }
+	}
+	if = {
+		limit = { trait = master_of_flame }
+		multiply_variable = { which = physical_damage value = 11 }
+		divide_variable = { which = physical_damage value = 10 }
 	}
 	set_variable = { which = physical_damage which = local_damage }
 	if = {
@@ -1913,11 +1924,6 @@ draconic_raid_get_damage = {
 		divide_variable = { which = physical_damage value = 10 }
 	}
 	if = {
-		limit = { trait = master_of_flame }
-		multiply_variable = { which = physical_damage value = 11 }
-		divide_variable = { which = physical_damage value = 10 }
-	}
-	if = {
 		limit = { check_variable = { which = physical_damage value < 1 } }
 		set_variable = { which = physical_damage value = 1 }
 	}
@@ -1939,11 +1945,6 @@ draconic_raid_get_damage = {
 	}
 	if = {
 		limit = { trait = impaler }
-		multiply_variable = { which = morale_damage value = 11 }
-		divide_variable = { which = physical_damage value = 10 }
-	}
-	if = {
-		limit = { trait = master_of_flame }
 		multiply_variable = { which = morale_damage value = 11 }
 		divide_variable = { which = physical_damage value = 10 }
 	}
