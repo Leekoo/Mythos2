@@ -160,6 +160,162 @@ decisions = {
 		}
 	}
 	
+	raise_dead_1000 = {
+		only_playable = yes
+		is_high_prio = yes
+		
+		potential = {
+			trait = zombie
+			government = zombie_horde
+		}
+		allow = {
+			unused_manpower = 1000
+		}
+		effect = {
+			manpower = -1000
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.8
+			modifier = {
+				factor = 1.5
+				war = yes
+			}
+			modifier = {
+				factor = 1.5
+				unused_manpower = 2000
+			}
+			modifier = {
+				factor = 1.5
+				population = 500
+			}
+			modifier = {
+				factor = 1.5
+				population = 1000
+			}
+		}
+	}
+	
+	raise_dead_2000 = {
+		only_playable = yes
+		is_high_prio = yes
+		
+		potential = {
+			trait = zombie
+			government = zombie_horde
+		}
+		allow = {
+			unused_manpower = 2000
+		}
+		effect = {
+			manpower = -2000
+			capital_scope = {
+				ROOT = {
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+					spawn_unit = {
+						owner = ROOT
+						province = PREV
+						home = PREV
+						troops = {
+							zombie_troops = { 500 500 }
+						}
+						attrition = 1.0
+						maintenance_multiplier = 0.1
+						can_toggle_looting = no
+						is_looter = no
+						reinforces = no
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.8
+			modifier = {
+				factor = 1.5
+				war = yes
+			}
+			modifier = {
+				factor = 1.5
+				unused_manpower = 3000
+			}
+			modifier = {
+				factor = 1.5
+				population = 500
+			}
+			modifier = {
+				factor = 1.5
+				population = 1000
+			}
+		}
+	}
+	
 	# Revenant decision to sacrifice population for corpses
 	cull_population = {
 		only_playable = yes
