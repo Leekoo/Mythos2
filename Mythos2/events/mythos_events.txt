@@ -302,6 +302,10 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		primary_title = { save_event_target_as = summoner_title }
+	}
+	
 	# Norse
 	option = {
 		name = EVTOPTAMYTH.3
@@ -312,7 +316,7 @@ character_event = {
 			}
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -340,10 +344,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 172
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					trait = immortal
+					trait = ethereal_trait
 					trait = brave
 					trait = skilled_tactician
 					immortal_age = 23
@@ -381,7 +386,7 @@ character_event = {
 			}
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -409,6 +414,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 703
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -451,7 +457,7 @@ character_event = {
 			}
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -477,6 +483,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 80
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -533,7 +540,7 @@ character_event = {
 			true_religion = satanist
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -560,10 +567,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 703
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					# Add demon trait once created
+					trait = demon_trait
 					trait = immortal
 					trait = brave
 					trait = skilled_tactician
@@ -598,7 +606,7 @@ character_event = {
 			true_religion_group = jewish_group
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -626,6 +634,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -672,7 +681,7 @@ character_event = {
 				trait = necromancer
 			}
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -698,6 +707,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -742,7 +752,7 @@ character_event = {
 			}
 			NOT = { trait = necromancer }
 		}
-		capital_scope = {
+		location = {
 			tooltip = {
 				ROOT = {
 					spawn_unit = {
@@ -768,10 +778,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					trait = immortal
+					trait = ethereal_trait
 					immortal_age = 23
 					flag = die_on_war_end
 				}
