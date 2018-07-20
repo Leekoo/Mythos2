@@ -1240,6 +1240,12 @@ character_event = {
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
+	trigger = {
+		NOR = {
+			trait = vampire
+			trait = werewolf
+		}
+	}
 	
 	option = {
 		name = EVTOPTA_MONSTER.15
