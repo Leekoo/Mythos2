@@ -7975,6 +7975,10 @@ character_event = {
 		FROMFROM = {
 			export_to_variable = { which = local_wealth value = wealth }
 			divide_variable = { which = local_wealth value = 2 }
+			if = {
+				limit = { NOT = { check_variable = { which = local_wealth value = 0 } } }
+				set_variable = { which = local_wealth value = 0 }
+			}
 		}
 		wealth = local_wealth
 		multiply_variable = { which = local_wealth value = -1 }
