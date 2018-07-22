@@ -13769,6 +13769,11 @@ free_tributary_cb = {
 				suzerain = {
 					remove_tributary = PREV
 				}
+				hidden_tooltip = {
+					remove_character_modifier = draconic_tributary
+					clr_character_flag = lost_tributary_independence_war
+					clr_character_flag = predicessor_lost_tributary_independence_war
+				}
 			}
 			any_vassal = {
 				limit = {
@@ -13785,6 +13790,11 @@ free_tributary_cb = {
 				suzerain = {
 					remove_tributary = PREV
 				}
+				hidden_tooltip = {
+					remove_character_modifier = draconic_tributary
+					clr_character_flag = lost_tributary_independence_war
+					clr_character_flag = predicessor_lost_tributary_independence_war
+				}
 			}
 		}
 	}
@@ -13792,6 +13802,15 @@ free_tributary_cb = {
 	on_fail = {
 		ROOT = {
 			prestige = -100
+			hidden_tooltip = {
+				if = {
+					limit = {
+						is_tributary = { type = draconic_tribute suzerain = FROM }
+					}
+					add_character_modifier = lost_tributary_independence_war
+					character_event = { id = DRAGON.169 }
+				}
+			}
 		}
 		FROM = {
 			prestige = 100

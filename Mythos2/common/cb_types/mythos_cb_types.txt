@@ -400,9 +400,8 @@ dragon_tribal_tribute_cb = {
 			save_event_target_as = target_loser
 			prestige = -100
 			hidden_tooltip = {
-			#	export_to_variable = { which = tribute_wealth value = wealth }
-			#	divide_variable = { which = tribute_wealth value = 2 }
-			#	transfer_wealth = { to = ROOT value = tribute_wealth min = 10 max = 500 }
+				add_character_modifier = { name = draconic_tributary duration = -1 }
+				character_event = { id = DRAGON.169 }
 			}
 			
 			custom_tooltip = { text = gain_half_wealth }

@@ -2453,17 +2453,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasTemperateVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = chaste }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2479,17 +2470,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasCharitableVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = temperate }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2507,19 +2489,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasDiligentVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = charitable }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2538,20 +2509,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasPatientVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = diligent }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_draconic_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2569,19 +2528,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasKindVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = patient }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_draconic_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2599,19 +2547,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasHumbleVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = kind }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2627,17 +2564,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasLustfulVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = humble }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2653,17 +2581,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasGluttonousVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = lustful }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2680,17 +2599,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasGreedyVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = gluttonous }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2706,17 +2616,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasSlothfulVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = greedy }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_draconic_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2732,16 +2633,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasWrothVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = slothful }
-				NOT = {
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2758,17 +2651,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasEnviousVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = wroth }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2781,16 +2665,8 @@ defined_text = {
 			use_satanist_vice_virtue = yes
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasProudVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = envious }
-				NOT = {
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2807,18 +2683,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasBraveVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = proud }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_draconic_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2837,19 +2703,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasJustVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = brave }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-					use_norse_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2868,20 +2723,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasAmbitiousVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = just }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2894,16 +2737,8 @@ defined_text = {
 			use_draconic_vice_virtue = yes
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasArbitraryVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = ambitious }
-				NOT = {
-					use_draconic_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2919,16 +2754,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasTrustingVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = arbitrary }
-				NOT = {
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2941,16 +2768,8 @@ defined_text = {
 			use_tengri_vice_virtue = yes
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasCruelVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = trusting }
-				NOT = {
-					use_tengri_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2966,16 +2785,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasHonestVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = cruel }
-				NOT = {
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -2988,16 +2799,8 @@ defined_text = {
 			use_norse_vice_virtue = yes
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasStubbornVirtue]"
-		trigger = {
-			OR = {
-				NOT = { trait = honest }
-				NOT = {
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3010,16 +2813,8 @@ defined_text = {
 			use_undead_vice_virtue = yes
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasLustfulVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = stubborn }
-				NOT = {
-					use_undead_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3035,17 +2830,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasGluttonousVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = lustful }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3061,17 +2847,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasGreedyVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = gluttonous }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3089,19 +2866,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasSlothfulVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = greedy }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3116,14 +2882,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasWrothVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = slothful }
-				use_satanist_vice_virtue = yes
-			}
-		}
 	}
 }
 
@@ -3141,19 +2901,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasEnviousVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = wroth }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3170,18 +2919,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasProudVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = envious }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3197,17 +2936,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasCravenVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = proud }
-				NOR = {
-					use_christian_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3226,19 +2956,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasCharitableVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = craven }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-					use_norse_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3254,17 +2973,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasHumbleVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = charitable }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3280,17 +2990,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasArbitraryVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = humble }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3309,20 +3010,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasParanoidVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = arbitrary }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-					use_norse_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3338,17 +3027,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasKindVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = paranoid }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3366,18 +3046,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasCruelVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = kind }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-					use_aztec_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3393,17 +3063,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasChasteVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = cruel }
-				NOR = {
-					use_zoroastrian_vice_virtue = yes
-					use_tengri_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3419,17 +3080,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasTemperateVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = chaste }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3446,17 +3098,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasDiligentVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = temperate }
-				NOR = {
-					use_draconic_vice_virtue = yes
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3472,16 +3115,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasPatientVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = diligent }
-				NOT = {
-					use_satanist_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3498,17 +3133,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasJustVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = patient }
-				NOR = {
-					use_satanist_vice_virtue = yes
-					use_black_flame_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -3523,16 +3149,8 @@ defined_text = {
 			}
 		}
 	}
-	text = {
+	fallback_text = {
 		localisation_key = "[HasContentVice]"
-		trigger = {
-			OR = {
-				NOT = { trait = just }
-				NOR = {
-					use_undead_vice_virtue = yes
-				}
-			}
-		}
 	}
 }
 
@@ -5825,5 +5443,948 @@ defined_text = {
 	text = {
 		localisation_key = STRING_circle_suitability
 		trigger = { religion = druidic_reformed }
+	}
+}
+
+# Draconic Tribute reasons:
+
+# Check total chance of continuing to pay tribute
+defined_text = {
+	name = GetTributeContineTotal
+	text = {
+		localisation_key = STRING_TributeContinueTotal
+		always = yes
+	}
+}
+# Continue base rate
+defined_text = {
+	name = GetTributeContinueBase
+	text = {
+		localisation_key = STRING_TributeContinueBase
+		always = yes
+	}
+}
+# Continue Content
+defined_text = {
+	name = GetTributeContinueContent
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeContinueContent
+		FROM = { current_heir = { trait = content } }
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeContinueSlothful]"
+	}
+}
+# Continue Slothful
+defined_text = {
+	name = GetTributeContinueSlothful
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeContinueSlothful
+		FROM = { current_heir = { trait = slothful } }
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeContinueOpinion]"
+	}
+}
+# Continue Opinion
+	name = GetTributeContinueOpinion
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeContinueOpinion2
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						opinion = { who = PREVPREV value = 50 }
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "STRING_TributeContinueOpinion0"
+	}
+}
+# Check total chance of paying off tribute
+defined_text = {
+	name = GetTributePayOffTotal
+	text = {
+		localisation_key = STRING_TributePayOffTotal
+		always = yes
+	}
+}
+# Pay off base rate
+defined_text = {
+	name = GetTributePayOffBase
+	text = {
+		localisation_key = STRING_TributePayOffBase
+		always = yes
+	}
+}
+# Pay off low wealth
+defined_text = {
+	name = GetTributePayOffWealth
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributePayOffWealth
+		# Does not list the rest after
+		FROM = {
+			current_heir = {
+				scaled_wealth < 2
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributePayOffTruce]"
+	}
+}
+# Pay off Truce
+defined_text = {
+	name = GetTributePayOffTruce
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributePayOffTruce
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						reverse_has_truce = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributePayOffHighWealth]"
+	}
+}
+# Pay off high wealth - Use ruler wealth as it's usually more significant once inherited than the heir's wealth
+defined_text = {
+	name = GetTributePayOffHighWealth
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributePayOffWealth6
+		FROM = {
+			scaled_wealth = 6
+		}
+	}
+	text = {
+		localisation_key = STRING_TributePayOffWealth4
+		FROM = {
+			scaled_wealth = 4
+		}
+	}
+	text = {
+		localisation_key = STRING_TributePayOffWealth3
+		FROM = {
+			scaled_wealth = 3
+		}
+	}
+	fallback_text = {
+		localisation_key = "\n\n[GetTributeVassalTotal]"
+	}
+}
+# Check total chance of requesting vassalization
+defined_text = {
+	name = GetTributeVassalTotal
+	text = {
+		localisation_key = STRING_TributeVassalTotal
+		always = yes
+	}
+}
+# Vassalization base rate
+defined_text = {
+	name = GetTributeVassalBase
+	text = {
+		localisation_key = STRING_TributeVassalBase
+		always = yes
+	}
+}
+# Vassalization high rank
+defined_text = {
+	name = GetTributeVassalRank
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalRank
+		# Does not list the rest after
+		FROM = {
+			suzerain = {
+				FROM = {
+					OR = {
+						higher_tier_than = PREV
+						current_heir = { higher_tier_than = PREVPREV }
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalLowAmbition]"
+	}
+}
+# Vassalization Low Ambition
+defined_text = {
+	name = GetTributeVassalLowAmbition
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalLowAmbition
+		FROM = {
+			current_heir = { ai_ambition < 0 }
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalReligion]"
+	}
+}
+# Vassalization Religion
+defined_text = {
+	name = GetTributeVassalReligion
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalReligion
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						religion = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalCulture]"
+	}
+}
+# Vassalization Culture
+defined_text = {
+	name = GetTributeVassalCulture
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalCulture
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						culture = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalDynasty]"
+	}
+}
+# Vassalization Dynasty
+defined_text = {
+	name = GetTributeVassalDynasty
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalDynasty
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						dynasty = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalIncapable]"
+	}
+}
+# Vassalization Incapable
+defined_text = {
+	name = GetTributeVassalIncapable
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalIncapable
+		FROM = {
+			current_heir = {
+				is_incapable = yes
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalLover]"
+	}
+}
+# Vassalization Lover
+defined_text = {
+	name = GetTributeVassalLover
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalLover
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						is_lover = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalOpinion]"
+	}
+}
+# Vassalization Opinion
+defined_text = {
+	name = GetTributeVassalOpinion
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalOpinion2
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						opinion = { who = PREVPREV value = 100 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeVassalOpinion1
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						opinion = { who = PREVPREV value = 75 }
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = STRING_TributeVassalOpinion0
+	}
+}
+# Vassalization Size
+defined_text = {
+	name = GetTributeVassalSize
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalSize
+		FROM = {
+			NOT = { realm_size = 2}
+			suzerain = {
+				realm_size = 4
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalPower]"
+	}
+}
+# Vassalization Power
+defined_text = {
+	name = GetTributeVassalPower
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalPower2
+		FROM = {
+			suzerain = {
+				relative_power = { who = FROM power = 4 } }
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeVassalPower1
+		FROM = {
+			suzerain = {
+				relative_power = { who = FROM power = 2 } }
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = STRING_TributeVassalPower0
+	}
+}
+# Vassalization Strong Presence in Duchy
+defined_text = {
+	name = GetTributeVassalDuchy
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalDuchy
+		FROM = {
+			NOT = { realm_size = 2 }
+			tier = count
+			capital_scope = {
+				duchy = {
+					any_de_jure_vassal_title = {
+						count = 2
+						tier = count
+						owner = {
+							top_liege = {
+								FROM = {
+									suzerain = {
+										character = PREVPREV
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalDeJure]"
+	}
+}
+# Vassalization De Jure Liege
+defined_text = {
+	name = GetTributeVassalDeJure
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalDeJure
+		FROM = {
+			suzerain = {
+				FROM = { de_jure_liege_or_above = PREV }
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalHumble]"
+	}
+}
+# Vassalization Humble
+defined_text = {
+	name = GetTributeVassalHumble
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalHumble
+		FROM = {
+			current_heir = {
+				trait = humble
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalNonTribal]"
+	}
+}
+# Vassalization Not Tribal
+defined_text = {
+	name = GetTributeVassalNonTribal
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalNonTribal
+		FROM = {
+			is_tribal = no
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalProud]"
+	}
+}
+# Vassalization Proud
+defined_text = {
+	name = GetTributeVassalProud
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalProud
+		FROM = {
+			current_heir = { trait = proud }
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeVassalAmbitious]"
+	}
+}
+# Vassalization Ambitious
+defined_text = {
+	name = GetTributeVassalAmbitious
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeVassalAmbitious
+		FROM = {
+			current_heir = { trait = ambitious }
+		}
+	}
+	fallback_text = {
+		localisation_key = "\n\n[GetTributeWarTotal]"
+	}
+}
+# Check total chance of declaring independence
+defined_text = {
+	name = GetTributeWarTotal
+	text = {
+		localisation_key = STRING_TributeWarTotal
+		always = yes
+	}
+}
+# War base rate
+defined_text = {
+	name = GetTributeWarBase
+	text = {
+		localisation_key = STRING_TributeWarBase
+		always = yes
+	}
+}
+# War - at war
+defined_text = {
+	name = GetTributeWarAtWar
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarAtWar
+		FROM = {
+			OR = {
+				war = yes
+				current_heir = { war = yes }
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarTruce]"
+	}
+}
+# War Truce
+defined_text = {
+	name = GetTributeWarTruce
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarTruce
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = { has_truce = PREVPREV }
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarAmbition]"
+	}
+}
+# War Ambition
+defined_text = {
+	name = GetTributeWarAmbition
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarAmbition
+		FROM = {
+			current_heir = { ai_ambition = 75 }
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarGreed]"
+	}
+}
+# War Greed
+defined_text = {
+	name = GetTributeWarGreed
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarGreed
+		FROM = {
+			current_heir = { ai_greed = 75 }
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarRival]"
+	}
+}
+# War Rival
+defined_text = {
+	name = GetTributeWarRival
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarRival
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = { is_rival = PREVPREV }
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarHighTier]"
+	}
+}
+# War Higher title tier
+defined_text = {
+	name = GetTributeWarHighTier
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarHighTier
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = { higher_tier_than = PREVPREV }
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarOpinion]"
+	}
+}
+# War Opinion
+defined_text = {
+	name = GetTributeWarOpinion
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarOpinion5
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { personal_opinion = { who = PREVPREV value = -99 } }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinion4
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { personal_opinion = { who = PREVPREV value = -74 } }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinion3
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { personal_opinion = { who = PREVPREV value = -49 } }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinion2
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { personal_opinion = { who = PREVPREV value = -24 } }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinion1
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { personal_opinion = { who = PREVPREV value = 0 } }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinionM4
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						personal_opinion = { who = PREVPREV value = 100 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinionM3
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						personal_opinion = { who = PREVPREV value = 75 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinionM2
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						personal_opinion = { who = PREVPREV value = 50 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarOpinionM1
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						personal_opinion = { who = PREVPREV value = 25 }
+					}
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = STRING_TributeWarOpinion0
+	}
+}
+# War Power
+defined_text = {
+	name = GetTributeWarPower
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarPower4
+		FROM = {
+			suzerain = {
+				FROM = {
+					OR = {
+						current_heir = {
+							relative_power = { who = PREVPREV power = 4.0 }
+						}
+						relative_power = { who = PREV power = 4.0 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPower3
+		FROM = {
+			suzerain = {
+				FROM = {
+					OR = {
+						current_heir = {
+							relative_power = { who = PREVPREV power = 3.0 }
+						}
+						relative_power = { who = PREV power = 3.0 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPower2
+		FROM = {
+			suzerain = {
+				FROM = {
+					OR = {
+						current_heir = {
+							relative_power = { who = PREVPREV power = 2.0 }
+						}
+						relative_power = { who = PREV power = 2.0 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPower1
+		FROM = {
+			suzerain = {
+				FROM = {
+					OR = {
+						current_heir = {
+							relative_power = { who = PREVPREV power = 1.5 }
+						}
+						relative_power = { who = PREV power = 1.5 }
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPowerM3
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { relative_power = { who = PREVPREV power = 0.25 }
+					}
+					NOT = { relative_power = { who = PREV power = 0.25 } }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPowerM2
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { relative_power = { who = PREVPREV power = 0.5 }
+					}
+					NOT = { relative_power = { who = PREV power = 0.5 } }
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = STRING_TributeWarPowerM3
+		FROM = {
+			suzerain = {
+				FROM = {
+					current_heir = {
+						NOT = { relative_power = { who = PREVPREV power = 0.75 }
+					}
+					NOT = { relative_power = { who = PREV power = 0.75 } }
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = STRING_TributeWarPower0
+	}
+}
+# War Lifestyle
+defined_text = {
+	name = GetTributeWarLifestyle
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarLifestyle
+		FROM = {
+			current_heir = {
+				OR = {
+					trait = impaler
+					trait = duelist
+					trait = strategist
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarDesireKing]"
+	}
+}
+# War Desires to Become King
+defined_text = {
+	name = GetTributeWarDesireKing
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarDesireKing
+		FROM = {
+			lower_real_tier_than = KING
+			current_heir = {
+				has_ambition = obj_become_king
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarWroth]"
+	}
+}
+# War Wroth
+defined_text = {
+	name = GetTributeWarWroth
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarWroth
+		FROM = {
+			current_heir = {
+				trait = wroth
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarBrave]"
+	}
+}
+# War Brave
+defined_text = {
+	name = GetTributeWarBrave
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarBrave
+		FROM = {
+			current_heir = {
+				trait = brave
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarDesiresPeace]"
+	}
+}
+# War Desires Peace
+defined_text = {
+	name = GetTributeWarDesiresPeace
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarDesiresPeace
+		FROM = {
+			current_heir = {
+				has_ambition = obj_see_the_realm_prosper
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarSmallRealm]"
+	}
+}
+# War Small Realm
+defined_text = {
+	name = GetTributeWarSmallRealm
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarSmallRealm
+		FROM = {
+			NOT = { realm_size = 2 }
+			current_heir = {
+				OR = {
+					is_landed = false
+					lower_tier_than = COUNT
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarLostWar]"
+	}
+}
+# War Lost last independence war
+defined_text = {
+	name = GetTributeWarLostWar
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarLostWar
+		FROM = {
+			OR = {
+				has_character_flag = lost_tributary_independence_war
+				current_heir = {
+					has_character_flag = lost_tributary_independence_war
+				}
+			}
+		}
+	}
+	fallback_text = {
+		localisation_key = "[GetTributeWarCraven]"
+	}
+}
+# War Craven
+defined_text = {
+	name = GetTributeWarCraven
+	use_first_valid = yes
+	text = {
+		localisation_key = STRING_TributeWarCraven
+		FROM = {
+			current_heir = {
+				trait = craven
+			}
+		}
 	}
 }

@@ -6,6 +6,7 @@ on_startup = {
 		VAMPIRE.155		# Assign missing blood court titles
 		SPECIES.12		# Set Djinn natural magic
 		ZOMBIE.10		# Zombie corpse gain control event
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
@@ -40,6 +41,7 @@ on_yearly_pulse = {
 		DRAGON.150		# Add dragon rivals
 		GIANT.1			# Handle giant size
 		SPECIES.12		# Set Djinn natural magic
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 	
 	random_events = {
@@ -347,6 +349,7 @@ on_war_ended_victory = {
 		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
@@ -394,6 +397,7 @@ on_death = {
 		VAMPIRE.154		# Replace Blood Court
 		BANK.12			# Transfer loans to heir (Debter)
 		BANK.25			# Transfer loans to heir (Banker)
+		DRAGON.170		# Remove modifier from draconic tributes
 	}
 }
 
@@ -413,6 +417,7 @@ on_character_convert_religion = {
 		DRAGON.20		# Update unfit flame controller
 		DRAGON.21		# Update Heathen Stronghold modifier
 		DRAGON.56		# Update purity
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
@@ -441,6 +446,7 @@ on_create_title = {
 		SPECIES.7		# Update heir modifiers
 		DRAGON.56		# Update purity
 		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
@@ -456,6 +462,7 @@ on_new_holder = {
 		VAMPIRE.155		# Assign missing blood court titles
 		MYTHMORE.37		# Nickname for undead gaining title
 		ZOMBIE.10		# Zombie corpse gain control event
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
@@ -463,6 +470,7 @@ on_character_convert_culture = {
 	events = {
 		SPECIES.7		# Update heir modifiers
 		VAMPIRE.155		# Assign missing blood court titles
+		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
 }
 
