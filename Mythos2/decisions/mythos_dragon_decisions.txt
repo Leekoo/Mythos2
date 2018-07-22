@@ -2715,114 +2715,114 @@ targetted_decisions = {
 		}
 	}
 	
-	vassalize_tribute = {
-		filter = all
-		ai_target_filter = all
+	# vassalize_tribute = {
+		# filter = all
+		# ai_target_filter = all
 		
-		from_potential = {
-			government = draconic_tribal_government
-			mercenary = no
-			is_nomadic = no
-		}
-		potential = {
-			is_tributary = { type = draconic_tribute suzerain = FROM }
-			NOT = { same_realm = FROM }
-		}
-		allow = {
-			is_tributary = { type = draconic_tribute suzerain = FROM }
-			lower_tier_than = FROM
-			NOT = { reverse_has_truce = FROM }
-			not = { tier = EMPEROR }
-			conditional_tooltip = {
-				trigger = { 
-					tier = COUNT
-				}
-				FROM = {
-					show_scope_change = no
-					prestige = 100
-				}
-			}
-			conditional_tooltip = {
-				trigger = { 
-					tier = DUKE
-				}
-				FROM = {
-					show_scope_change = no
-					prestige = 300
-				}
-			}
-			conditional_tooltip = {
-				trigger = { 
-					tier = KING
-				}
-				FROM = {
-					show_scope_change = no
-					prestige = 900
-				}
-			}
-			in_revolt = no
-			is_nomadic = no
-			controls_religion = no
-			holy_order = no
-		}
-		effect = {
-			# Prestige loss in in the CB
-			reverse_war = { target = FROM casus_belli = vassalize_draconic_tribute }
-		}
-		ai_will_do = {
-			factor = 0.5
-			modifier = {
-				factor = 0
-				ROOT = {
-					controls_religion = yes
-					religion = draconic_pagan_reformed
-				}
-				FROM = {
-					religion = draconic_pagan_reformed
-					NOT = { any_rival = { character = ROOT } }
-				}
-			}
-			modifier = {
-				factor = 0.25
-				ROOT = {
-					controls_religion = yes
-					religion = draconic_pagan_reformed
-				}
-				FROM = {
-					religion = draconic_pagan
-					NOT = { any_rival = { character = ROOT } }
-				}
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 40 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 80 }
-			}
-			modifier = {
-				factor = 0.7
-				FROM = { ai_greed = 80 } # Tributes give more money
-			}
-			modifier = {
-				factor = 0.5
-				FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 1.2 } } }
-			}
-			modifier = {
-				factor = 0.5
-				FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 1.0 } } }
-			}
-			modifier = {
-				factor = 0.5
-				FROM = { NOT = { relative_power = { who = ROOT power = 1.0 } } }
-			}
-			modifier = {
-				factor = 0.5
-				FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 0.8 } } }
-			}
-		}
-	}
+		# from_potential = {
+			# government = draconic_tribal_government
+			# mercenary = no
+			# is_nomadic = no
+		# }
+		# potential = {
+			# is_tributary = { type = draconic_tribute suzerain = FROM }
+			# NOT = { same_realm = FROM }
+		# }
+		# allow = {
+			# is_tributary = { type = draconic_tribute suzerain = FROM }
+			# lower_tier_than = FROM
+			# NOT = { reverse_has_truce = FROM }
+			# not = { tier = EMPEROR }
+			# conditional_tooltip = {
+				# trigger = { 
+					# tier = COUNT
+				# }
+				# FROM = {
+					# show_scope_change = no
+					# prestige = 100
+				# }
+			# }
+			# conditional_tooltip = {
+				# trigger = { 
+					# tier = DUKE
+				# }
+				# FROM = {
+					# show_scope_change = no
+					# prestige = 300
+				# }
+			# }
+			# conditional_tooltip = {
+				# trigger = { 
+					# tier = KING
+				# }
+				# FROM = {
+					# show_scope_change = no
+					# prestige = 900
+				# }
+			# }
+			# in_revolt = no
+			# is_nomadic = no
+			# controls_religion = no
+			# holy_order = no
+		# }
+		# effect = {
+			# # Prestige loss in in the CB
+			# reverse_war = { target = FROM casus_belli = vassalize_draconic_tribute }
+		# }
+		# ai_will_do = {
+			# factor = 0.5
+			# modifier = {
+				# factor = 0
+				# ROOT = {
+					# controls_religion = yes
+					# religion = draconic_pagan_reformed
+				# }
+				# FROM = {
+					# religion = draconic_pagan_reformed
+					# NOT = { any_rival = { character = ROOT } }
+				# }
+			# }
+			# modifier = {
+				# factor = 0.25
+				# ROOT = {
+					# controls_religion = yes
+					# religion = draconic_pagan_reformed
+				# }
+				# FROM = {
+					# religion = draconic_pagan
+					# NOT = { any_rival = { character = ROOT } }
+				# }
+			# }
+			# modifier = {
+				# factor = 1.5
+				# FROM = { ai_ambition = 40 }
+			# }
+			# modifier = {
+				# factor = 1.5
+				# FROM = { ai_ambition = 80 }
+			# }
+			# modifier = {
+				# factor = 0.7
+				# FROM = { ai_greed = 80 } # Tributes give more money
+			# }
+			# modifier = {
+				# factor = 0.5
+				# FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 1.2 } } }
+			# }
+			# modifier = {
+				# factor = 0.5
+				# FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 1.0 } } }
+			# }
+			# modifier = {
+				# factor = 0.5
+				# FROM = { NOT = { relative_power = { who = ROOT power = 1.0 } } }
+			# }
+			# modifier = {
+				# factor = 0.5
+				# FROM = { NOT = { relative_power_including_allies_attacker = { who = ROOT power = 0.8 } } }
+			# }
+		# }
+	# }
 	
 	raid_rival = {
 		filter = rivals

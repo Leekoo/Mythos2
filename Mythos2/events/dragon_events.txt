@@ -503,10 +503,12 @@ character_event = {
 			lower_tier_than = event_target:dragon_suzerain
 		}
 		name = EVTOPTC_DRAGON.9
-		suzerain = {
-			remove_tributary = ROOT
+		tooltip = {
+			suzerain = {
+				remove_tributary = ROOT
+			}
+			set_defacto_liege = event_target:dragon_suzerain
 		}
-		set_defacto_liege = event_target:dragon_suzerain
 		hidden_tooltip = {
 			event_target:dragon_suzerain = { character_event = { id = DRAGON.12 } }
 		}
@@ -616,7 +618,7 @@ character_event = {
 		hidden_tooltip = {
 			event_target:dragon_suzerain = { character_event = { id = DRAGON.13 } }
 		}
-		war = { target = event_target:dragon_suzerain casus_belli = free_tributary_cb }
+		tooltip = { war = { target = event_target:dragon_suzerain casus_belli = free_tributary_cb } }
 		ai_chance = {
 			factor = 5
 			modifier = {
@@ -757,11 +759,38 @@ character_event = {
 	
 	is_triggered_only = yes
 	
+	# Accept
 	option = {
 		name = EVTOPTA_DRAGON.12
+		remove_tribute = FROM
+		FROM = { set_defacto_liege = ROOT }
+	}
+	
+	# Refuse
+	option = {
+		trigger = {
+			OR = {
+				ai = no
+				AND = {
+					is_decision_allowed = convert_draconic_merchant_republic
+					is_decision_potential = convert_draconic_merchant_republic
+				}
+				AND = {
+					is_decision_allowed = convert_draconic_feudalism
+					is_decision_potential = convert_draconic_feudalism
+				}
+				AND = {
+					is_decision_allowed = convert_draconic_feudalism_vassal
+					is_decision_potential = convert_draconic_feudalism_vassal
+				}
+			}
+		}
+		name = EVTOPTB_DRAGON.12
 		custom_tooltip = {
-			text = EVTTT_DRAGON.11
-			FROM = { set_defacto_liege = ROOT }
+			text = EVTTT_DRAGON.12
+		}
+		hidden_tooltip = {
+			FROM = { letter_event = { id = DRAGON.167 } }
 		}
 	}
 }
@@ -778,6 +807,63 @@ character_event = {
 	option = {
 		name = EVTOPTA_DRAGON.13
 		FROM = { war = { target = event_target:dragon_suzerain casus_belli = free_tributary_cb } }
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 1.5
+				trait = proud
+			}
+			modifier = {
+				factor = 1.5
+				trait = greedy
+			}
+			modifier = {
+				factor = 1.5
+				trait = brave
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 2.0 }
+			}
+			modifier = {
+				factor = 2
+				relative_power = { who = FROM power = 4.0 }
+			}
+		}
+	}
+	
+	# Concede
+	option = {
+		name = EVTOPTB_DRAGON.13
+		remove_tributary = FROM
+		set_truce = { who = FROM years = 1 }
+		FROM = { set_truce = { who = ROOT years = 1 } }
+		hidden_tooltip = {
+			FROM = { letter_event = { id = DRAGON.168 } }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = craven
+			}
+			modifier = {
+				factor = 3
+				NOT = { relative_power = { who = FROM power = 1.0 } }
+			}
+			modifier = {
+				factor = 4
+				NOT = { relative_power = { who = FROM power = 0.5 } }
+			}
+			modifier = {
+				factor = 2
+				war = yes
+			}
+			modifier = {
+				factor = 2
+				any_war = { NOT = { war_score = -25 } }
+			}
+		}
 	}
 }
 
@@ -9137,5 +9223,34 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.166
+	}
+}
+
+letter_event = {
+	id = DRAGON.167
+	desc = EVTDESC_DRAGON.167
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.167
+		tooltip = { FROM = { make_tributary = { who = ROOT tributary_type = draconic_tribute } } }
+	}
+}
+
+letter_event = {
+	id = DRAGON.168
+	desc = EVTDESC_DRAGON.168
+	border = GFX_event_letter_frame_diplomacy
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.168
+		tooltip = {
+			set_truce = { who = FROM years = 1 }
+			FROM = { set_truce = { who = ROOT years = 1 } }
+		}
 	}
 }
