@@ -38,10 +38,17 @@ nomadic_governments = {
 		title_prefix = "nomadic_"
 		potential = {
 			trait = dragon
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
 			is_patrician = no
 			mercenary = no
@@ -113,10 +120,17 @@ nomadic_governments = {
 		frame_suffix = "_nomadic"
 		title_prefix = "nomadic_"
 		potential = {
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
 			NOT = { trait = dragon }
 			is_patrician = no

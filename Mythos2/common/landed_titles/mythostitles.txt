@@ -34,11 +34,9 @@ c_sjaelland = {
 	draconic_pagan_reformed = 3000
 }
 c_roma = {
-	holy_site = roman_pagan
 	holy_site = satanist
 	holy_site = the_damned
 	
-	roman_pagan = 8000
 	satanist = 8000
 }
 c_gizeh = {
@@ -124,26 +122,6 @@ c_uppland = {
 	holy_site = draconic_pagan_reformed
 	
 	draconic_pagan_reformed = 1000
-}
-c_baalbek = {
-	holy_site = roman_pagan
-	
-	roman_pagan = 1000
-}
-c_palmyra = {
-	holy_site = roman_pagan
-	
-	roman_pagan = 1000
-}
-c_ephesos = {
-	holy_site = roman_pagan
-	
-	roman_pagan = 2000
-}
-c_dauphine_viennois = {
-	holy_site = roman_pagan
-	
-	roman_pagan = 1500
 }
 c_narbonne = {
 	holy_site = satanist # Birth of Catharism, major target of inquisition
@@ -237,7 +215,7 @@ d_jotnar_reformed = {
 		Hefring Himinglæva Hroðr Hrönn Hyrrokkin Imd Járnsaxa Kólga Laufey Leikn Menja Móðguðr Nal Nótt Skaði Uðr
 	}
 }
-e_draconic_pagan_reformed = {
+k_draconic_pagan_reformed = {
 	color={ 100 255 255 }
 	color2={ 0 0 200 }
 	
@@ -521,23 +499,6 @@ d_helsing = {
 	monthly_income = 10
 }
 
-d_roman_pagan = {
-	color = { 200 30 200 }
-	color2 = { 220 100 200 }
-	capital = 333
-	religion = roman_pagan
-	controls_religion = roman_pagan
-	
-	title = "PONTIFEX_MAXIMUS"
-	foa = "PONTIFEX_MAXIMUS_FOA"
-	
-	dynasty_title_names = no
-	
-	male_names = {
-		Aulus Cornelius Gaius Gnaeus Julius Licinius Lucius Marcus Mucius Numa Publius Quintus Spurius Tiberius
-	}
-}
-
 # Holy orders
 d_golden_order = {
 	color = { 255 215 0 }
@@ -647,7 +608,7 @@ d_soldiers_horus = {
 	culture = egyptian_arabic
 	
 	# Parent Religion
-	religion = atenist
+	religion = kemetic_pagan_reformed
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -677,7 +638,7 @@ d_servants_anubis = {
 	culture = egyptian_arabic
 	
 	# Parent Religion
-	religion = atenist
+	religion = kemetic_pagan_reformed
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -706,7 +667,7 @@ d_ares_phalanx = {
 	culture = greek
 	
 	# Parent Religion 
-	religion = hellenic_pagan
+	religion = hellenic_pagan_reformed
 	
 	# Cannot be held as a secondary title
 	primary = yes
@@ -716,35 +677,35 @@ d_ares_phalanx = {
 
 	mercenary_type = spirit_guardians_composition
 }
-d_sons_mars = {
-	color = { 250 230 250 }
-	color2 = { 150 170 150 }
-	
-	graphical_culture = southerngfx
-	
-	capital = 333 # Rome
-	
-	title = "GRANDMASTER"
-	foa = "GRANDMASTER_FOA"
-
-	# Always exists
-	landless = yes
-	
-	holy_order = yes
-	
-	culture = roman
-	
-	# Parent Religion 
-	religion = roman_pagan
-	
-	# Cannot be held as a secondary title
-	primary = yes
-	
-	# Extra income due to donations, etc
-	monthly_income = 6 # (Must be an integer between 1 and 512)
-
-	mercenary_type = teutonic_order_composition
-}
+#d_sons_mars = {
+#	color = { 250 230 250 }
+#	color2 = { 150 170 150 }
+#	
+#	graphical_culture = southerngfx
+#	
+#	capital = 333 # Rome
+#	
+#	title = "GRANDMASTER"
+#	foa = "GRANDMASTER_FOA"
+#
+#	# Always exists
+#	landless = yes
+#	
+#	holy_order = yes
+#	
+#	culture = roman
+#	
+#	# Parent Religion 
+#	religion = roman_pagan
+#	
+#	# Cannot be held as a secondary title
+#	primary = yes
+#	
+#	# Extra income due to donations, etc
+#	monthly_income = 6 # (Must be an integer between 1 and 512)
+#
+#	mercenary_type = teutonic_order_composition
+#}
 
 d_champion_vigrithr = {
 	color = { 150 20 20 }

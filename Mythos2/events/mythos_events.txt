@@ -203,6 +203,7 @@ character_event = {
 			OR = {
 				true_religion = atenist
 				true_religion = kemetic_pagan
+				true_religion = kemetic_pagan_reformed
 			}
 			NOT = { trait = necromancer }
 		}
@@ -222,7 +223,7 @@ character_event = {
 		trigger = {
 			OR = {
 				true_religion = hellenic_pagan
-				true_religion = roman_pagan
+				true_religion = hellenic_pagan_reformed
 			}
 			NOT = { trait = necromancer }
 		}
@@ -302,6 +303,10 @@ character_event = {
 		}
 	}
 	
+	immediate = {
+		primary_title = { save_event_target_as = summoner_title }
+	}
+	
 	# Norse
 	option = {
 		name = EVTOPTAMYTH.3
@@ -340,10 +345,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 172
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					trait = immortal
+					trait = ethereal_trait
 					trait = brave
 					trait = skilled_tactician
 					immortal_age = 23
@@ -409,6 +415,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 703
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -477,10 +484,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 80
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					trait = giant
+					trait = mythos_giant
 					trait = brave
 					trait = size_6
 					trait = skilled_tactician
@@ -560,11 +568,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 703
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					# Add demon trait once created
-					trait = immortal
+					trait = demon_trait
 					trait = brave
 					trait = skilled_tactician
 					immortal_age = 23
@@ -626,6 +634,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -698,6 +707,7 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
@@ -768,10 +778,11 @@ character_event = {
 					culture = ROOT
 					female = no
 					age = 23
+					employer = event_target:summoner_title
 					attributes = {
 						martial = 5
 					}
-					trait = immortal
+					trait = ethereal_trait
 					immortal_age = 23
 					flag = die_on_war_end
 				}
@@ -2205,6 +2216,7 @@ character_event = {
 		OR = {
 			religion = atenist
 			religion = kemetic_pagan
+			religion = kemetic_pagan_reformed
 		}
 		OR = {
 			trait = cynical
@@ -2347,7 +2359,7 @@ character_event = {
 	trigger = {
 		OR = {
 			religion = hellenic_pagan
-			religion = roman_pagan
+			religion = hellenic_pagan_reformed
 		}
 		NOR = {
 			intrigue = 3
@@ -2444,7 +2456,6 @@ character_event = {
 			trait = scurvy
 			trait = severely_injured
 			trait = lovers_pox
-			trait = disfigured
 		}
 	}
 	
@@ -2516,7 +2527,13 @@ character_event = {
 			trait = hunchback
 			trait = eunuch
 			trait = blinded
-			trait = scarred
+			has_scarred_trait_trigger = yes
+			has_character_modifier = black_eye
+			has_character_modifier = swollen_wrist
+			has_character_modifier = swollen_ankle
+			has_character_modifier = concussion
+			has_character_modifier = cracked_ribs
+			has_character_modifier = badly_bruised
 		}
 	}
 	
@@ -2562,7 +2579,13 @@ character_event = {
 		if = { limit = { trait = hunchback } remove_trait = hunchback }
 		if = { limit = { trait = eunuch } remove_trait = eunuch }
 		if = { limit = { trait = blinded } remove_trait = blinded }
-		if = { limit = { trait = scarred } remove_trait = scarred }
+		remove_scarred = yes
+		if = { limit = { has_character_modifier = black_eye } remove_character_modifier = black_eye }
+		if = { limit = { has_character_modifier = swollen_wrist } remove_character_modifier = swollen_wrist }
+		if = { limit = { has_character_modifier = swollen_ankle } remove_character_modifier = swollen_ankle }
+		if = { limit = { has_character_modifier = concussion } remove_character_modifier = concussion }
+		if = { limit = { has_character_modifier = cracked_ribs } remove_character_modifier = cracked_ribs }
+		if = { limit = { has_character_modifier = badly_bruised } remove_character_modifier = badly_bruised }
 		hidden_tooltip = { remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 	}
 }
@@ -3337,7 +3360,8 @@ character_event = {
 	}
 }
 
-# MYTH.51 - Rename Greek gods on religion change
+# MYTH.51 - Rename Greek gods on religion change - not currently used
+# To do - add a reform option that does this
 character_event = {
 	id = MYTH.51
 	hide_window = yes
@@ -3349,7 +3373,7 @@ character_event = {
 		if = {
 			limit = { has_character_flag = greek_god_rhea }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Magna Mater"
 			}
 			if = {
@@ -3360,7 +3384,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_hades }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Pluto"
 			}
 			if = {
@@ -3371,7 +3395,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_poseidon }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Neptune"
 			}
 			if = {
@@ -3382,7 +3406,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_aphrodite }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Venus"
 			}
 			if = {
@@ -3393,7 +3417,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_zeus }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Jupiter"
 			}
 			if = {
@@ -3404,7 +3428,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_hera }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Juno"
 			}
 			if = {
@@ -3415,7 +3439,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_athena }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Minerva"
 			}
 			if = {
@@ -3426,7 +3450,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_ares }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Mars"
 			}
 			if = {
@@ -3437,7 +3461,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_hermes }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Mercury"
 			}
 			if = {
@@ -3448,7 +3472,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_pan }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Faunus"
 			}
 			if = {
@@ -3460,7 +3484,7 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = greek_god_artemis }
 			if = {
-				limit = { religion = roman_pagan }
+				limit = { religion = hellenic_pagan_reformed }
 				set_name = "Diana"
 			}
 			if = {
@@ -3998,7 +4022,7 @@ character_event = {
 			age = 350
 			name = "Loki"
 			trait = god
-			trait = giant
+			trait = mythos_giant
 			trait = cynical
 			trait = deceitful
 			trait = envious
@@ -4305,7 +4329,7 @@ character_event = {
 			trait = demi_god
 			trait = strong
 			trait = skilled_tactician
-			trait = giant
+			trait = mythos_giant
 			trait = wroth
 			trait = cruel
 			trait = deceitful
@@ -4332,7 +4356,7 @@ character_event = {
 			age = 80
 			name = "Hel"
 			trait = god
-			trait = giant
+			trait = mythos_giant
 			trait = intricate_webweaver
 			trait = greedy
 			trait = ambitious
@@ -4525,64 +4549,7 @@ character_event = {
 	}
 }
 
-# MYTH.57 - Revive Roman Paganism
-narrative_event = {
-	id = MYTH.57
-	title = EVTTITLE_MYTH.57
-	desc = EVTDESC_MYTH.57
-	picture = GFX_evt_rome_restored_byzantine
-	border = GFX_event_narrative_frame_religion
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_MYTH.57
-		religion = roman_pagan
-		capital_scope = { religion = roman_pagan }
-		activate_title = { title = d_roman_pagan status = yes }
-		d_roman_pagan = {
-			gain_title = ROOT
-			set_title_flag = flag_hereditary_pontif
-		}
-		custom_tooltip = { text = EVTTT_MYTH.57 }
-		hidden_tooltip = {
-			# Unlanded courtier convert automatically
-			any_courtier = {
-				limit = {
-					religion = hellenic_pagan
-					is_landed = no
-				}
-				religion = roman_pagan
-			}
-			# All Hellenic vassal and councilmembers receive an offer to convert
-			any_realm_character = {
-				limit = {
-					OR = {
-						is_landed = yes
-						is_councillor = yes
-					}
-					religion = hellenic_pagan
-				}
-				# Offer conversion
-				character_event = { id = MYTHMORE.19 }
-			}
-			# Greek pantheon receives offer to conver
-			e_olympus = {
-				holder_scope = {
-					character_event = { id = MYTHMORE.20 }
-					any_courtier = {
-						limit = { religion = hellenic_pagan }
-						character_event = { id = MYTHMORE.20 }
-					}
-				}
-			}
-			any_playable_ruler = {
-				limit = { ai = no }
-				narrative_event = { id = MYTHMORE.21 }
-			}
-		}
-	}
-}
+# MYTH.57 - Revive Roman Paganism - Removed - exists in vanilla
 
 # Either this file or the MYTH namespace is cursed.  Put anything else in MYTHMORE.
 # Don't ask.

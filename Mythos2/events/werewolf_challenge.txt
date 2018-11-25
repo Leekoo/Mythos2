@@ -1682,7 +1682,7 @@ character_event = {
 			NOT = { has_character_flag = asked_champion }
 		}
 		text = EVTDESCB_CHALLENGE.22
-		picture = GFX_evt_child_playing
+		picture = GFX_evt_child_play
 	}
 	desc = {
 		trigger = {
@@ -4281,7 +4281,7 @@ character_event = {
 			}
 		}
 		text = EVTDESCW_CHALLENGE.40
-		picture = GFX_evt_courier_riding
+		picture = GFX_evt_courier
 	}
 	desc = {
 		# Undefended Strike - hit
@@ -4303,7 +4303,7 @@ character_event = {
 			}
 		}
 		text = EVTDESCXM_CHALLENGE.40
-		picture = GFX_evt_melee
+		picture = GFX_evt_duel_scene
 	}
 	desc = {
 		# Berzerk - hit
@@ -4314,7 +4314,7 @@ character_event = {
 			}
 		}
 		text = EVTDESCYH_CHALLENGE.40
-		picture = GFX_EVT_werewolf_fight
+		picture = GFX_evt_werewolf_fight
 	}
 	desc = {
 		# Berzerk - miss
@@ -4325,7 +4325,7 @@ character_event = {
 			}
 		}
 		text = EVTDESCYM_CHALLENGE.40
-		picture = GFX_EVT_werewolf_fight
+		picture = GFX_evt_werewolf_fight
 	}
 	desc = {
 		# Shapeshift
@@ -4806,7 +4806,7 @@ character_event = {
 			NOT = { has_character_flag = status_missed }
 		}
 		text = EVTDESCNH_CHALLENGE.41
-		picture = GFX_evt_feud_republic
+		picture = GFX_evt_family_feud_republic
 	}
 	# Fear illusion
 	desc = {
@@ -4914,7 +4914,7 @@ character_event = {
 			NOT = { has_character_flag = status_missed }
 		}
 		text = EVTDESCWH_CHALLENGE.41
-		picture = GFX_evt_melee
+		picture = GFX_evt_duel_scene
 	}
 	desc = {
 		# Berzerk - hit
@@ -4923,7 +4923,7 @@ character_event = {
 			NOT = { has_character_flag = attack_missed }
 		}
 		text = EVTDESCXH_CHALLENGE.41
-		picture = GFX_EVT_werewolf_fight
+		picture = GFX_evt_werewolf_fight
 	}
 	desc = {
 		# Berzerk - miss
@@ -4932,7 +4932,7 @@ character_event = {
 			has_character_flag = attack_missed
 		}
 		text = EVTDESCXM_CHALLENGE.41
-		picture = GFX_EVT_werewolf_fight
+		picture = GFX_evt_werewolf_fight
 	}
 	desc = {
 		# Shapeshift
@@ -7382,6 +7382,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_CHALLENGE.63
+		add_blood_splatter_effect = yes
 		prestige = -100
 		random_list = {
 			3 = { } # No Injury
@@ -7397,6 +7398,7 @@ character_event = {
 					}
 				}
 				add_trait = maimed
+				apply_random_minor_injury_effect = yes
 				hidden_tooltip = {
 					# Nofity
 					character_event = { id = 38281 }
@@ -7438,6 +7440,7 @@ character_event = {
 				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
+			2 = { apply_random_minor_injury_effect = yes }
 		}
 	}
 }
@@ -7683,6 +7686,7 @@ character_event = {
 			6 = {
 				trigger = { NOT = { trait = wounded } }
 				add_wounded_effect = yes
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7695,6 +7699,7 @@ character_event = {
 				hidden_tooltip = {
 					# Nofity
 					character_event = { id = 38281 }
+					add_blood_splatter_effect = yes
 				}
 			}
 			1 = {
@@ -7732,7 +7737,9 @@ character_event = {
 				}
 				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
+				add_blood_splatter_effect = yes
 			}
+			2 = { apply_random_minor_injury_effect = yes }
 		}
 	}
 }
@@ -7760,10 +7767,12 @@ character_event = {
 					trait = wounded
 				}
 				set_character_flag = status_gain_wound
+				add_blood_splatter_effect = yes
 			}
 			5 = {
 				trigger = { NOT = { has_dlc = Reapers } }
 				set_character_flag = status_gain_maim
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7771,6 +7780,7 @@ character_event = {
 					NOT = { trait = one_eyed }
 				}
 				set_character_flag = status_gain_one_eyed
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7778,6 +7788,7 @@ character_event = {
 					NOT = { trait = one_handed }
 				}
 				set_character_flag = status_gain_one_handed
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7785,6 +7796,7 @@ character_event = {
 					NOT = { trait = one_legged }
 				}
 				set_character_flag = status_gain_one_legged
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7792,6 +7804,7 @@ character_event = {
 					NOT = { trait = disfigured }
 				}
 				set_character_flag = status_gain_disfigured
+				add_blood_splatter_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -7799,6 +7812,18 @@ character_event = {
 					NOT = { trait = mangled }
 				}
 				set_character_flag = status_gain_mangled
+				add_blood_splatter_effect = yes
+			}
+			20 = {
+				modifier = {
+					factor = 0.01
+					has_character_flag = status_high_maim
+				}
+				modifier = {
+					factor = 0.3
+					has_character_flag = status_high_wound
+				}
+				decide_minor_injury = yes
 			}
 		}
 		character_event = { id = CHALLENGE.80 }
@@ -8355,6 +8380,48 @@ character_event = {
 			add_trait = severely_injured 
 			resolve_severely_injured_effect = yes
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = {
+				modifier = black_eye
+				months = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = {
+				modifier = badly_bruised
+				months = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = {
+				modifier = swollen_wrist
+				months = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = {
+				modifier = swollen_ankle
+				months = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = gain_sore_muscles }
+			add_character_modifier = {
+				modifier = sore_muscles
+				months = 10
+			}
+		}
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = {
+				modifier = concussion
+				months = 10
+			}
+		}
 	}
 }
 
@@ -8452,6 +8519,7 @@ character_event = {
 				add_trait = severely_injured 
 				resolve_severely_injured_effect = yes
 			}
+			10 = { apply_random_minor_injury_effect = yes }
 		}
 	}
 }

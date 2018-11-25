@@ -313,6 +313,10 @@ character_event = {
 		add_trait = zombie
 		set_undead_culture = yes
 		remove_trait = zombie_infection
+		if = {
+			limit = { ai = no } # Not playable
+			abdicate = yes
+		}
 		religion = the_damned
 		any_claim = { remove_claim = PREV }
 		set_government_type = zombie_horde
@@ -320,6 +324,7 @@ character_event = {
 			limit = { higher_tier_than = DUKE }
 			set_special_character_title = String_Zombie_King
 		}
+		character_event = { id = ZOMBIE.39 } # Abdicate if religious head
 	}
 }
 
@@ -1668,5 +1673,24 @@ province_event = {
 				# Nothing happens
 			}
 		}
+	}
+}
+
+# Force undead religious heads to abdicate
+character_event = {
+	id = ZOMBIE.39
+	desc = EVTDESCZOMBIE.39
+	picture = GFX_evt_bishop
+	
+	is_triggered_only = yes
+	religion = the_damned
+	
+	trigger = {
+		controls_religion = yes
+	}
+	
+	option = {
+		name = EVTOPTAZOMBIE.39
+		abdicate = yes
 	}
 }

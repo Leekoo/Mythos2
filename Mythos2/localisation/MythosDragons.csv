@@ -1,17 +1,88 @@
-EVTNAME_DRAGON.1;Dragon Angers Locals;;Satanist;;Satanist;;;;;;;;;x
-EVTDESC_DRAGON.1;Some local human peasants have come to you complaining that you've been flying around eating their farm animals and burning their lands. You try to explain that no dragon could be expected not to do these things, but they don't seem convinced.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTA_DRAGON.1;Pay them off.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTB_DRAGON.1;Ignore them.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTC_DRAGON.1;Assure them that you'll try to be more prudent in the future.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTD_DRAGON.1;Pathetic peasants! Devour their souls!;;kek;;kek;;;;;;;;;x
-EVTNAME_DRAGON.2;Small Hoard;;Satanist;;Satanist;;;;;;;;;x
-EVTDESC_DRAGON.2;You've noticed that your hoard of wealth is meager even by human standards, and this ill-befits a dragon such as yourself. ;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTA_DRAGON.2;Exact a special tax on your vassals.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTB_DRAGON.2;Reevaluate your realm's expenses.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTC_DRAGON.2;Accept your poverty for now.;;Satanist;;Satanist;;;;;;;;;x
-EVTNAME_DRAGON.3;You Grow Stronger;;Satanist;;Satanist;;;;;;;;;x
-EVTDESC_DRAGON.3;As a dragon, the long decades do not wear away at you, but instead make you healthier, and your long experience ruling shows over younger peers. You awaken today feeling wiser than ever before.;;Satanist;;Satanist;;;;;;;;;x
-EVTOPTA_DRAGON.3;Excellent.;;Satanist;;Satanist;;;;;;;;;x
+draconic_tributary;Draconic Tribute;;;;;;;;;;;;;
+draconic_tributary_desc;This character pays tribute to a dragon.\nOn death, their heir will take one of the following actions. Percentages are calculated yearly.\n[GetTributeContineTotal];;;;;;;;;;;;;
+STRING_TributeContinueTotal;Continue Paying: §Y[From.tribute_continue_percent.GetValue]§![GetTributeContinueBase];;;;;;;;;;;;;
+STRING_TributeContinueBase;\nBase: §G6§![GetTributeContinueContent];;;;;;;;;;;;;
+STRING_TributeContinueContent;\nContent: §G1§![GetTributeContinueSlothful];;;;;;;;;;;;;
+STRING_TributeContinueSlothful;\nSlothful: §G1§![GetTributeContinueOpinion];;;;;;;;;;;;;
+STRING_TributeContinueOpinion2;\nOpinion: §G2§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;
+STRING_TributeContinueOpinion0;\nOpinion: §Y0§!\n\n[GetTributePayOffTotal];;;;;;;;;;;;;
+STRING_TributePayOffTotal;Pay Lump Sum: §Y[From.tribute_payoff_percent.GetValue]§![GetTributePayOffBase];;;;;;;;;;;;;
+STRING_TributePayOffBase;\nBase: §G4§![GetTributePayOffWealth];;;;;;;;;;;;;
+STRING_TributePayOffWealth;\nWealth: §R-4§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
+STRING_TributePayOffTruce;\nTruce: §G1§![GetTributePayOffHighWealth];;;;;;;;;;;;;
+STRING_TributePayOffWealth6;\nWealth: §G3§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
+STRING_TributePayOffWealth4;\nWealth: §G2§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
+STRING_TributePayOffWealth3;\nWealth: §G1§!\n\n[GetTributeVassalTotal];;;;;;;;;;;;;
+STRING_TributeVassalTotal;Request Vassalization: §Y[From.tribute_vassal_percent.GetValue]§![GetTributeVassalBase];;;;;;;;;;;;;
+STRING_TributeVassalBase;\nBase: §G4§![GetTributeVassalRank];;;;;;;;;;;;;
+STRING_TributeVassalRank;\nHigh Rank: §R-4§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;
+STRING_TributeVassalLowAmbition;\nLow Ambition: §G1§![GetTributeVassalReligion];;;;;;;;;;;;;
+STRING_TributeVassalReligion;\nReligion: §G1§![GetTributeVassalCulture];;;;;;;;;;;;;
+STRING_TributeVassalCulture;\nCulture: §G1§![GetTributeVassalDynasty];;;;;;;;;;;;;
+STRING_TributeVassalDynasty;\nDynasty: §G2§![GetTributeVassalIncapable];;;;;;;;;;;;;
+STRING_TributeVassalIncapable;\nIncapable: §G2§![GetTributeVassalLover];;;;;;;;;;;;;
+STRING_TributeVassalLover;\nLover: §G1§![GetTributeVassalOpinion];;;;;;;;;;;;;
+STRING_TributeVassalOpinion2;\nOpinion: §G2§![GetTributeVassalSize];;;;;;;;;;;;;
+STRING_TributeVassalOpinion1;\nOpinion: §G1§![GetTributeVassalSize];;;;;;;;;;;;;
+STRING_TributeVassalOpinion0;\nOpinion: §Y0§![GetTributeVassalSize];;;;;;;;;;;;;
+STRING_TributeVassalSize;\nSingle Province Realm: §G2§![GetTributeVassalPower];;;;;;;;;;;;;
+STRING_TributeVassalPower2;\nPower: §G2§![GetTributeVassalDuchy];;;;;;;;;;;;;
+STRING_TributeVassalPower1;\nPower: §G1§![GetTributeVassalDuchy];;;;;;;;;;;;;
+STRING_TributeVassalPower0;\nPower: §Y0§![GetTributeVassalDuchy];;;;;;;;;;;;;
+STRING_TributeVassalDuchy;\nControl of my Duchy: §G1§![GetTributeVassalDeJure];;;;;;;;;;;;;
+STRING_TributeVassalDeJure;\nDe Jure Liege: §G2§![GetTributeVassalHumble];;;;;;;;;;;;;
+STRING_TributeVassalHumble;\nHumble: §G1§![GetTributeVassalNonTribal];;;;;;;;;;;;;
+STRING_TributeVassalNonTribal;\nWrong Government Type: §R-1§![GetTributeVassalProud];;;;;;;;;;;;;
+STRING_TributeVassalProud;\nProud: §R-1§![GetTributeVassalAmbitious];;;;;;;;;;;;;
+STRING_TributeVassalAmbitious;\nAmbitious: §R-2§!\n\n[GetTributeWarTotal];;;;;;;;;;;;;
+STRING_TributeWarTotal;Independence War: §Y[From.tribute_war_percent.GetValue]§![GetTributeWarBase];;;;;;;;;;;;;
+STRING_TributeWarBase;\nBase: §G4§![GetTributeWarAtWar];;;;;;;;;;;;;
+STRING_TributeWarAtWar;\nAt War: §R-4§!;;;;;;;;;;;;;
+STRING_TributeWarTruce;\nTruce: §R-4§!;;;;;;;;;;;;;
+STRING_TributeWarAmbition;\nAmbition: §G1§![GetTributeWarGreed];;;;;;;;;;;;;
+STRING_TributeWarGreed;\nGreed: §G1§![GetTributeWarRival];;;;;;;;;;;;;
+STRING_TributeWarRival;\nRival: §G1§![GetTributeWarHighTier];;;;;;;;;;;;;
+STRING_TributeWarHighTier;\nHigh Rank: §G1§![GetTributeWarOpinion];;;;;;;;;;;;;
+STRING_TributeWarOpinion5;\nOpinion: §G5§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinion4;\nOpinion: §G4§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinion3;\nOpinion: §G3§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinion2;\nOpinion: §G2§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinion1;\nOpinion: §G1§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinionM4;\nOpinion: §R-4§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinionM3;\nOpinion: §R-3§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinionM2;\nOpinion: §R-2§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinionM1;\nOpinion: §R-1§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarOpinion0;\nOpinion: §Y0§![GetTributeWarPower];;;;;;;;;;;;;
+STRING_TributeWarPower4;\nPower: §G4§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPower3;\nPower: §G3§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPower2;\nPower: §G2§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPower1;\nPower: §G1§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPowerM3;\nPower: §R-3§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPowerM2;\nPower: §R-2§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPowerM1;\nPower: §R-1§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarPower0;\nPower: §Y0§![GetTributeWarLifestyle];;;;;;;;;;;;;
+STRING_TributeWarLifestyle;\nLifesyle: §G1§![GetTributeWarDesireKing];;;;;;;;;;;;;
+STRING_TributeWarDesireKing;\nDesires to Become King: §G1§![GetTributeWarWroth];;;;;;;;;;;;;
+STRING_TributeWarWroth;\nWroth: §G1§![GetTributeWarBrave];;;;;;;;;;;;;
+STRING_TributeWarBrave;\nBrave: §G1§![GetTributeWarDesiresPeace];;;;;;;;;;;;;
+STRING_TributeWarDesiresPeace;\nDesires Peace: §R-2§![GetTributeWarSmallRealm];;;;;;;;;;;;;
+STRING_TributeWarSmallRealm;\nSmall Realm: §R-2§![GetTributeWarLostWar];;;;;;;;;;;;;
+STRING_TributeWarLostWar;\nLost Last Independence War: §R-2§![GetTributeWarCraven];;;;;;;;;;;;;
+STRING_TributeWarCraven;\nCraven: §R-3§!;;;;;;;;;;;;;
+EVTNAME_DRAGON.1;Dragon Angers Locals;;;;;;;;;;;;;x
+EVTDESC_DRAGON.1;Some local human peasants have come to you complaining that you've been flying around eating their farm animals and burning their lands. You try to explain that no dragon could be expected not to do these things, but they don't seem convinced.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.1;Pay them off.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.1;Ignore them.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.1;Assure them that you'll try to be more prudent in the future.;;;;;;;;;;;;;x
+EVTOPTD_DRAGON.1;Pathetic peasants! Devour their souls!;;;;;;;;;;;;;x
+EVTNAME_DRAGON.2;Small Hoard;;;;;;;;;;;;;x
+EVTDESC_DRAGON.2;You've noticed that your hoard of wealth is meager even by human standards, and this ill-befits a dragon such as yourself. ;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.2;Exact a special tax on your vassals.;;;;;;;;;;;;;x
+EVTOPTB_DRAGON.2;Reevaluate your realm's expenses.;;;;;;;;;;;;;x
+EVTOPTC_DRAGON.2;Accept your poverty for now.;;;;;;;;;;;;;x
+EVTNAME_DRAGON.3;You Grow Stronger;;;;;;;;;;;;;x
+EVTDESC_DRAGON.3;As a dragon, the long decades do not wear away at you, but instead make you healthier, and your long experience ruling shows over younger peers. You awaken today feeling wiser than ever before.;;;;;;;;;;;;;x
+EVTOPTA_DRAGON.3;Excellent.;;;;;;;;;;;;;x
 EVTDESC_DRAGON.5;As your hoard grows, so to do does the reputation that comes with it.  Tales of your wealth reach the farthest corners of the land;;;;;;;;;;;;;
 EVTOPTA_DRAGON.5;As well they should.;;;;;;;;;;;;;
 EVTDESC_DRAGON.6;As you rest upon your mountainous hoard, you can practically feel the gold strengthening your soul.  Surely this is why dragons are the world's masters.;;;;;;;;;;;;;
@@ -29,8 +100,11 @@ EVTOPTA_DRAGON.11;I'll leave [From.GetHerHim] be... for now.;;;;;;;;;;;;;
 EVTTT_DRAGON.11;[From.GetBestName] stops paying tribute.;;;;;;;;;;;;;
 EVTDESC_DRAGON.12;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has offered to become my vassal rather than paying tribute in gold.;;;;;;;;;;;;;
 EVTOPTA_DRAGON.12;I still get what I want.;;;;;;;;;;;;;
+EVTOPTB_DRAGON.12;No, you will keep paying me tribute;;;;;;;;;;;;;
+EVTTT_DRAGON.12;[From.GetBestName] remains you tributary.;;;;;;;;;;;;;
 EVTDESC_DRAGON.13;After the death of [FromFromFrom.GetBestName], [FromFromFrom.GetHerHis] heir, [From.GetBestName] has rallied [From.GetHerHis] armies to try and stop paying me.;;;;;;;;;;;;;
 EVTOPTA_DRAGON.13;I'll put them in their place.;;;;;;;;;;;;;
+EVTOPTB_DRAGON.13;Let them go - I have more important matters to deal with.;;;;;;;;;;;;;
 EVTDESC_DRAGON.15;We will not stand idly by and allow the realm to fall our of draconic control.  Your human heir is a disgrace and will bring ruin upon us.  The has come for you to name a new heir in their place..  Submit peacefully to this demand or face the consequences\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;
 EVTDESC_DRAGON.16;Under the pressure from draconic hardliners, [From.GetTitledName] has agreed to make [FromFrom.GetBestName] [From.GetHerHis] heir.;;;;;;;;;;;;;
 EVTDESC_DRAGON.17;Rather than risking civil war tearing the realm apart, I have decided to give in to your demand and name you my heir.  But this treacherous act of blackmail will not be forgotten...\n\nSigned,\n[From.GetTitledName];;;;;;;;;;;;;
@@ -345,3 +419,7 @@ EVTDESC_DRAGON.165;[From.GetTitledFirstName] told me that there are still some w
 EVTOPTA_DRAGON.165;This is what I hoped for.;;;;;;;;;;;;;
 EVTDESC_DRAGON.166;[From.GetTitledFirstName] heard about my interest in the draconic legends and has taken to lecturing me at length about sin and heathenism.;;;;;;;;;;;;;
 EVTOPTA_DRAGON.166;Perhaps I shouldn't read those anymore if this is the result.;;;;;;;;;;;;;
+EVTDESC_DRAGON.167;[Root.GetTitledFirstName], \nWhile it pleases me that you wish to serve under me, you will serve me better as a tribute than you would as my vassal. Your predecessor's arrangement will continue.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;
+EVTOPTA_DRAGON.167;That's disappointing.;;;;;;;;;;;;;
+EVTDESC_DRAGON.168;[Root.GetTitledFirstName], \nI have more important matters to attend to than crushing your weak revolt.  Consider yourself free from your obligations to me for now.\n\n[From.GetTitledFirstName];;;;;;;;;;;;;
+EVTOPTA_DRAGON.168;That was easier than I expected.;;;;;;;;;;;;;

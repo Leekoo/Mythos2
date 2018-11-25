@@ -19,6 +19,16 @@ blood_court_count = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_duke
 			has_assigned_minor_title = blood_court_king
@@ -73,6 +83,16 @@ blood_court_duke = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_count
 			has_assigned_minor_title = blood_court_king
@@ -127,6 +147,16 @@ blood_court_king = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_count
 			has_assigned_minor_title = blood_court_duke
@@ -181,6 +211,16 @@ blood_court_emperor = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_count
 			has_assigned_minor_title = blood_court_duke
@@ -235,6 +275,16 @@ blood_court_e_vampire_1 = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_count
 			has_assigned_minor_title = blood_court_duke
@@ -289,6 +339,16 @@ blood_court_e_vampire_2 = {
 		}
 		can_be_councilmember_king_trigger = yes
 		has_job_title = no
+		OR = { 
+			AND = {
+				is_female = no 
+				male_can_hold_minor_title_trigger = yes
+			}
+			AND = {
+				is_female = yes
+				female_can_hold_minor_title_trigger = yes
+			}
+		}
 		NOR = {
 			has_assigned_minor_title = blood_court_count
 			has_assigned_minor_title = blood_court_duke

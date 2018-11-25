@@ -848,6 +848,8 @@ narrative_event = {
 			random = {
 				chance = 30
 				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 				hidden_tooltip = {
 					character_event = {
 						id = 38276 #Notify Temperate
@@ -935,14 +937,14 @@ narrative_event = {
 				spouse = {
 					at_location = ROOT
 					NOT = { trait = incapable }
+					NOT = { trait = werewolf }
 				}
 			}
 			spouse = { save_event_target_as = wolf_worried_homecoming }
 			set_character_flag = wolf_homecoming_worried_character
 		}
-		if = {
+		else_if = {
 			limit = {
-				is_married = no
 				has_lover = yes
 				any_lover = {
 					at_location = ROOT
@@ -958,10 +960,8 @@ narrative_event = {
 			}
 			set_character_flag = wolf_homecoming_worried_character
 		}
-		if = {
+		else_if = {
 			limit = {
-				is_married = no
-				has_lover = no
 				num_of_consorts = 1
 				any_consort = {
 					at_location = ROOT
@@ -970,6 +970,7 @@ narrative_event = {
 			}
 			random_consort = {
 				limit = {
+					NOT = { character = ROOT }
 					at_location = ROOT
 					NOT = { trait = incapable }
 				}
@@ -1702,7 +1703,10 @@ character_event = {
 			hidden_tooltip = {
 				if = {
 					limit = {
-						religion = bon
+						OR = { 
+							religion = bon
+							religion = bon_reformed
+						}
 						ROOT = { ai = no }
 					}
 					ROOT = { set_character_flag = achievement_bon_appetit }
@@ -1713,6 +1717,8 @@ character_event = {
 			limit = {
 				NOR = {
 					trait = cannibal_trait
+					trait = werewolf
+					trait = vampire
 					has_character_modifier = cannibal
 				}
 			}
@@ -2689,28 +2695,37 @@ character_event = {
 			AND = {
 				has_character_modifier = wolf_blood
 				has_character_flag = wolf_blood_inherited
+				NOT = { trait = uncouth }
 			}
 			AND = {
 				trait = werewolf
 				trait = control_1
 			}
 		}
-		NOT = { trait = ugly }
+		has_ugly_trait_trigger = no
 	}
 	
 	option = {
 		name = EVTOPTA_HL_1620
 		trigger = {
-			NOT = { trait = fair }
+			NOT = { has_fair_trait_trigger = yes }
 		}
-		add_trait = ugly
+		add_trait = uncouth
 	}
 	option = {
 		name = EVTOPTB_HL_1620 # No longer fair I am!
 		trigger = {
-			trait = fair
+			has_fair_trait_trigger = yes
 		}
-		add_trait = ugly
+		if = { 
+			limit = { trait = fair }
+			remove_trait = fair
+		}
+		if = { 
+			limit = { trait = groomed }
+			remove_trait = groomed
+		}
+		add_trait = uncouth
 	}
 }
 

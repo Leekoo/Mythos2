@@ -847,7 +847,7 @@ character_event = {
 		modifier = {
 			factor = 4.0
 			OR = {
-				trait = ugly
+				has_ugly_trait_trigger = yes
 				trait = dwarf
 				trait = inbred
 				trait = imbecile
@@ -1028,7 +1028,7 @@ character_event = {
 		modifier = {
 			factor = 4.0
 			OR = {
-				trait = ugly
+				has_ugly_trait_trigger = yes
 				trait = dwarf
 				trait = inbred
 				trait = imbecile
@@ -1206,7 +1206,7 @@ character_event = {
 		modifier = {
 			factor = 4.0
 			OR = {
-				trait = ugly
+				has_ugly_trait_trigger = yes
 				trait = dwarf
 				trait = inbred
 				trait = imbecile
@@ -1401,11 +1401,11 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			trait = fair
+			has_fair_trait_trigger = yes
 		}
 		modifier = {
 			factor = 10.0
-			trait = ugly
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
 			factor = 10.0
@@ -1527,6 +1527,11 @@ character_event = {
 	id = 452
 
 	is_triggered_only = yes
+	
+	trigger = {
+		is_alive = yes
+		FROM = { is_alive = yes }
+	}
 
 	desc = EVTDESC452
 	picture = GFX_evt_lovers
@@ -1877,7 +1882,7 @@ character_event = {
 								trait = inbred
 								trait = imbecile
 								trait = dwarf
-								trait = ugly
+								has_ugly_trait_trigger = yes
 							}
 						}
 						AND = {
@@ -2064,14 +2069,14 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
 					}
 				}
 				FROM = {
-					trait = ugly
+					has_ugly_trait_trigger = yes
 					NOT = { trait = seducer }
 					NOT = { trait = seductress }
 				}
@@ -2081,7 +2086,7 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -2097,7 +2102,7 @@ character_event = {
 				factor = 30.0
 				NOT = {
 					OR = {
-						trait = ugly
+						has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -2113,7 +2118,7 @@ character_event = {
 				factor = 100.0
 				NOT = {
 					OR = {
-						trait = ugly
+						has_ugly_trait_trigger = yes
 						trait = dwarf
 						trait = imbecile
 						trait = inbred
@@ -2174,6 +2179,19 @@ character_event = {
 		name = EVTOPTA301 # Legitimize the child
 		trigger = {
 			has_polygamy = no
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
 		}
 		
 		ai_chance = {
@@ -2217,31 +2235,56 @@ character_event = {
 		}
 		
 		custom_tooltip = { text = EVTOPTA301_DESC }
+		spouse = {
+			show_scope_change = no
+			tooltip = { opinion = { who = ROOT modifier = legitimized_bastard years = 10 } } # Spouse reaction.
+		}
 		
 		FROM = {
+			show_scope_change = no
 			hidden_tooltip = {
 				character_event = { id = 302 } # The child gets the father's dynasty
 			}
 			mother = {
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = legitimized_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 303 tooltip = EVTTOOLTIP303 } } # The child's mother is very pleased
 				character_event = { id = 303 tooltip = EVTTOOLTIP303 } # The child's mother is very pleased
 				spouse = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's husband is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
 				}		
 				consort = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's lord is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's lord is pissed off
 				}			
 			}
 		}
-		any_child = {
+		if = { 
 			limit = {
-				NOT = { character = FROM }
-				dynasty = ROOT
-				NOT = { trait = bastard }
+				any_child = {
+					is_alive = yes
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}  
 			}
-			opinion = {
-				who = ROOT
-				modifier = legitimized_bastard
-				months = 12
+			custom_tooltip = { text = EVTOPTA301_legchildren_TOOLTIP }
+		}
+		hidden_tooltip = {
+		any_child = {
+				limit = {
+					NOT = { character = FROM }
+					dynasty = ROOT
+					NOT = { trait = bastard }
+				}
+				opinion = {
+					who = ROOT
+					modifier = legitimized_bastard
+					months = 12
+				}
 			}
 		}
 	}
@@ -2249,6 +2292,21 @@ character_event = {
 	option = {
 		name = EVTOPTB301 # Acknowledge the child
 		
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -2280,7 +2338,13 @@ character_event = {
 		
 		custom_tooltip = { text = EVTOPTB301_DESC }
 		
+		spouse = {
+			show_scope_change = no
+			tooltip = { opinion = { who = ROOT modifier = acknowledged_bastard years = 10 } } # Spouse reaction.
+		}
+		
 		FROM = {
+			show_scope_change = no
 			hidden_tooltip = {
 				character_event = { id = 306 } # The child gets the father's dynasty, but is not legitimized.
 			}
@@ -2289,12 +2353,18 @@ character_event = {
 				remove_trait = born_in_the_purple
 			}
 			mother = {
-				character_event = { id = 307 tooltip = EVTTOOLTIP307 } # The child's mother is pleased
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = acknowledged_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 307 tooltip = EVTTOOLTIP307 } } # The child's mother is pleased
 				spouse = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's husband is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
 				}
 				consort = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's man is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
 				}				
 			}
 		}
@@ -2303,6 +2373,21 @@ character_event = {
 	option = {
 		name = EVTOPTC301 # Denounce the child
 		
+		trigger = {
+			OR = {
+				FROM = { 
+					mother = { 
+						tier = ROOT 	# In case mother is same tier as real_father, real_father gets to claim the child provided that agnatic succession is in place.
+						NOR = { 
+							has_law = enatic_succession
+							has_law = enatic_cognatic_succession
+							has_law = true_cognatic_succession
+						} 
+					} 
+				}
+				FROM = { mother = { lower_tier_than = ROOT } } #In case the mother is a higher tier ruler, she gets to decide what happens to the child.
+			}
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -2318,6 +2403,7 @@ character_event = {
 		custom_tooltip = { text = EVTOPTC301_DESC }
 		
 		FROM = {
+			show_scope_change = no
 			hidden_tooltip = {
 				character_event = { id = 309 } #  The child founds a new bastard dynasty
 			}
@@ -2334,14 +2420,29 @@ character_event = {
 				remove_trait = sayyid
 			}
 			mother = {
-				character_event = { id = 310 tooltip = EVTTOOLTIP310 } # The child's mother is dishonoured
+				show_scope_change = no
+				tooltip = { opinion = { who = ROOT modifier = denounced_child years = 10 } }
+				hidden_tooltip = { character_event = { id = 310 tooltip = EVTTOOLTIP310 } } # The child's mother is dishonoured
 				spouse = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's husband is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's husband is pissed off
 				}	
 				consort = {
-					character_event = { id = 304 tooltip = EVTTOOLTIP304 } # The child's mother's man is pissed off
+					show_scope_change = no
+					tooltip = { opinion = { who = ROOT modifier = opinion_cuckolded years = 10 } }
+					hidden_tooltip = { character_event = { id = 304 tooltip = EVTTOOLTIP304 } } # The child's mother's man is pissed off
 				}				
 			}
+		}
+	}
+	option = {
+		name = EVTOPTD301 # Do nothing
+		trigger = {
+			FROM = { mother = { higher_tier_than = ROOT } } #In case the mother is a lower tier ruler, the father gets to decide what happens to the child.
+		}
+		ai_chance = {
+			factor = 100
 		}
 	}
 }
@@ -2350,7 +2451,20 @@ character_event = {
 character_event = {
 	id = 37001
 	desc = EVTDESC37001
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -2486,7 +2600,20 @@ character_event = {
 character_event = {
 	id = 37006
 	desc = EVTDESC37006
-	picture = GFX_evt_son_asking_father
+	picture = { 
+		trigger = { 
+			has_religion_feature = religion_matriarchal
+		} 
+		picture = GFX_evt_daughter_asking_mother
+	}
+	picture = { 
+		trigger = { 
+			NOT = { 
+				has_religion_feature = religion_matriarchal
+			} 
+		} 
+		picture = GFX_evt_son_asking_father
+	}
 	
 	is_triggered_only = yes
 	
@@ -2672,27 +2799,48 @@ character_event = {
 			FROM = {
 				is_married = no
 			}
-			any_courtier = {
-				OR = {
+			OR = {
+				AND = {
 					is_female = no
-					#NOT = { age = 45 }
-					is_old = no
+					any_courtier = {
+						FROM = { is_female = no }
+						NOT = { is_40 = yes }
+						can_marry = FROM
+					}
 				}
-				can_marry = FROM
+				AND = {
+					FROM = { is_female = yes }
+					any_courtier = {
+						is_female = no
+						NOT = { is_40 = yes }
+						can_marry = FROM
+					}
+				}
 			}
 		}
 		remove_character_modifier = promised_a_marriage
 		clr_character_flag = flag_promised_marriage
-		random_courtier = {
-			limit = {
-				OR = {
-					is_female = no
-					#NOT = { age = 45 }
-					is_old = no
+		if = { 
+			limit = { FROM = { is_female = no } }
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = FROM
 				}
-				can_marry = FROM
+				add_spouse = FROM
 			}
-			add_spouse = FROM
+		}
+		if = { 
+			limit = { FROM = { is_female = yes } }
+			random_courtier = {
+				limit = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = FROM
+				}
+				add_spouse = FROM
+			}
 		}
 	}
 	
@@ -2755,11 +2903,21 @@ character_event = {
 # Male relative who was denied decides to marry in secret
 character_event = {
 	id = 37056
-	desc = EVTDESC37056
+	desc = {
+		trigger = {
+			is_female = no
+		}
+		text = EVTDESC37056
+	}
+	desc = {
+		trigger = {
+			is_female = yes
+		}
+		text = EVTDESC37056_B
+	}
 	picture = GFX_evt_marriage
 	
 	min_age = 16
-	only_men = yes
 	capable_only = yes
 	prisoner = no
 	has_character_flag = flag_denied_marriage
@@ -2769,11 +2927,24 @@ character_event = {
 		is_ruler = no
 		is_betrothed = no
 		has_ambition = obj_get_married
-		any_courtier = {
-			is_female = yes
-			#NOT = { age = 40 }
-			is_40 = no
-			can_marry = ROOT
+		
+		OR = {
+			AND = {
+				is_female = no
+				any_courtier = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+			}
+			AND = {
+				is_female = yes
+				any_courtier = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+			}
 		}
 	}
 	
@@ -2800,14 +2971,27 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA37056 # I'm getting married right now
-		random_courtier = {
-			limit = {
-				is_female = yes
-				#NOT = { age = 40 }
-				is_40 = no
-				can_marry = ROOT
+		if = { 
+			limit = { is_female = no }
+			random_courtier = {
+				limit = {
+					is_female = yes
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+				add_spouse = ROOT
 			}
-			add_spouse = ROOT
+		}
+		if = { 
+			limit = { is_female = yes }
+			random_courtier = {
+				limit = {
+					is_female = no
+					NOT = { is_40 = yes }
+					can_marry = ROOT
+				}
+				add_spouse = ROOT
+			}
 		}
 		liege = { character_event = { id = 37057 tooltip = EVTTOOLTIP37057 } }
 	}
@@ -3992,6 +4176,7 @@ character_event = {
 					NOT = { is_close_relative = root }
 					OR = {
 						AND = {
+							fertility = 0.4
 							is_female = yes
 							is_pregnant = no
 							ROOT = {
@@ -4001,6 +4186,7 @@ character_event = {
 						AND = {
 							is_female = no
 							ROOT = {
+								fertility = 0.4
 								is_female = yes
 								is_pregnant = no
 							}
@@ -4056,10 +4242,12 @@ character_event = {
 						NOR = {
 							is_close_relative = ROOT
 							#age = 40
-							is_40 = no
+							is_40 = yes
+							fertility = 0.4
 							trait = celibate
 							trait = chaste
 							trait = homosexual
+							trait = zombie
 						}
 						is_female = yes
 						is_pregnant = no
@@ -4074,7 +4262,8 @@ character_event = {
 					NOR = {
 						is_close_relative = ROOT
 						#age = 40
-						is_40 = no
+						fertility = 0.4
+						is_40 = yes
 						trait = celibate
 						trait = chaste
 						trait = homosexual
@@ -4173,7 +4362,7 @@ character_event = {
 	
 	min_age = 20
 	#max_age = 70
-	only_rulers = yes
+	only_playable = yes
 	prisoner = no
 	capable_only = yes
 	
@@ -4354,7 +4543,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.5
-			trait = fair
+			has_fair_trait_trigger = yes
 		}
 		modifier = {
 			factor = 2.0
@@ -4362,7 +4551,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
-			trait = ugly
+			has_ugly_trait_trigger = yes
 		}
 		modifier = {
 			factor = 10.0

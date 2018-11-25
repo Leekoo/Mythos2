@@ -40,7 +40,7 @@ theocracy_governments = {
 			OR = {
 				capital_holding = { title = b_lejre }
 				capital_holding = { title = b_canterbury }
-				capital_holding = { title = b_pruszkow }
+				capital_holding = { title = b_wyszogrod }
 				capital_holding = { title = b_whithorn }
 				capital_holding = { title = b_uppsala }
 				controls_religion = yes
@@ -49,7 +49,16 @@ theocracy_governments = {
 				NOT = { trait = zombie }
 				liege = { government = draconic_theocracy_government }
 			}
+			holy_order = no
 			is_patrician = no
+			OR = {
+				is_female = no
+				religion_allows_female_temple_holders = yes
+			}
+			OR = {
+				is_female = yes
+				religion_allows_male_temple_holders = yes
+			}
 		}
 		
 		color = { 210 210 255 }
@@ -108,16 +117,21 @@ theocracy_governments = {
 				OR = {
 					capital_holding = { title = b_lejre }
 					capital_holding = { title = b_canterbury }
-					capital_holding = { title = b_pruszkow }
+					capital_holding = { title = b_wyszogrod }
 					capital_holding = { title = b_whithorn }
 					capital_holding = { title = b_uppsala }
 					controls_religion = yes
 				}
 			}
+			holy_order = no
 			is_patrician = no
 			OR = {
 				is_female = no
 				religion_allows_female_temple_holders = yes
+			}
+			OR = {
+				is_female = yes
+				religion_allows_male_temple_holders = yes
 			}
 			OR = {
 				NOT = { trait = zombie }

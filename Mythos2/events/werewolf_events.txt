@@ -17,8 +17,7 @@ character_event = {
 		#is_married = yes
 		trait = werewolf 
 		spouse = {
-			NOT = { trait = scarred }
-			NOT = { trait = wounded }
+			NOT = { trait = ethereal_trait }
 		}
 	}
 	
@@ -76,10 +75,54 @@ character_event = {
 	
 	option = {
 		name = "EVTOPTA_WEREWOLF.1"
-		spouse = { add_wounded_effect = yes }
+		spouse = {
+			random_list = {
+				1 = {
+					trigger = {
+						NOT = { trait = wounded }
+					}
+					add_trait = wounded
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = badly_bruised }
+					}
+					add_character_modifier = { modifier = badly_bruised months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = swollen_wrist }
+					}
+					add_character_modifier = { modifier = swollen_wrist months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = swollen_ankle }
+					}
+					add_character_modifier = { modifier = swollen_ankle months = 10 }
+				}
+				3 = {
+					trigger = {
+						NOT = { has_character_modifier = sore_muscles }
+					}
+					add_character_modifier = { modifier = sore_muscles months = 10 }
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_modifier = cracked_ribs }
+					}
+					add_character_modifier = { modifier = cracked_ribs months = 10 }
+				}
+			}
+		}
 		hidden_tooltip = { 
 			if = { 
-				limit = { spouse = { is_female = yes } }
+				limit = { 
+					spouse = { 
+						is_female = yes
+						is_infertile = no
+					}
+				}
 				spouse = {
 					impregnate = ROOT
 				}
@@ -103,7 +146,7 @@ character_event = {
 		OR = {
 			trait = wounded
 			trait = maimed
-			trait = scarred
+			has_scarred_trait_trigger = yes
 			trait = disfigured
 			trait = one_eyed
 			trait = one_handed
@@ -111,6 +154,7 @@ character_event = {
 			trait = mangled
 			trait = eunuch
 			trait = blinded
+			has_minor_injury = yes
 			AND = {
 				trait = control_1
 				trait = incapable
@@ -130,7 +174,7 @@ character_event = {
 			change_variable = { which = healing value = 5 }
 		}
 		if = {
-			limit = { trait = scarred }
+			limit = { has_scarred_trait_trigger = yes }
 			change_variable = { which = healing value = 1 }
 		}
 		if = {
@@ -156,6 +200,10 @@ character_event = {
 		if = {
 			limit = { trait = mangled }
 			change_variable = { which = healing value = 4 }
+		}
+		if = {
+			limit = { has_minor_injury = yes }
+			change_variable = { which = healing value = 1 }
 		}
 		if = {
 			limit = { trait = eunuch }
@@ -218,8 +266,8 @@ character_event = {
 			remove_trait = maimed
 		}
 		if = {
-			limit = { trait = scarred }
-			remove_trait = scarred
+			limit = { has_scarred_trait_trigger = yes }
+			remove_scarred = yes
 		}
 		if = {
 			limit = { trait = disfigured }
@@ -248,6 +296,10 @@ character_event = {
 		if = {
 			limit = { trait = eunuch }
 			remove_trait = eunuch
+		}
+		if = {
+			limit = { has_minor_injury = yes }
+			remove_minor_injuries = yes
 		}
 	}
 	
@@ -2605,6 +2657,8 @@ character_event = {
 	option = {
 		name = EVTOPT_WEREWOLF.40
 		add_trait = gluttonous
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
 	}
 	
 	after = {
@@ -2870,7 +2924,6 @@ character_event = {
 		NOT = { trait = known_werewolf }
 	}
 	
-	#mean_time_to_happen = { months = 6 }
 	weight_multiplier = {
 		days = 1
 		modifier = {
@@ -4899,7 +4952,7 @@ character_event = {
 				trait = lisp
 				trait = slow
 				trait = imbecile
-				trait = ugly
+				has_ugly_trait_trigger = yes
 			}
 		}
 	}

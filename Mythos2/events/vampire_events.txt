@@ -38,14 +38,12 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		#is_married = yes
 		trait = vampire 
 		spouse = {
 			NOT = { trait = vampire }
 		}
 	}
 	
-	#mean_time_to_happen = { months = 120 }
 	weight_multiplier = {
 		days = 1
 		modifier = {
@@ -88,13 +86,9 @@ character_event = {
 	min_age = 16
 	
 	trigger = {
-		#age = 16
 		trait = fledgling
 	}
 	
-	#mean_time_to_happen = {
-	#	days = 1
-	#}
 	weight_multiplier = { days = 1 }
 	
 	option = {
@@ -104,32 +98,7 @@ character_event = {
 	}
 }
 
-# VAMPIRE.4 - was MYTH.48 - Force Congatic Seniority Succession
-#character_event = {
-#	id = "VAMPIRE.4"
-#	title = EVTNAME_VAMPIRE.4
-#	desc = "EVTDESC_VAMPIRE.4"
-#	picture = GFX_evt_throne_room
-#	border = GFX_event_normal_frame_war
-#	
-#	is_patrician = no
-#	
-#	trigger = {
-#		has_landed_title = e_vampire
-#		NOT = { government = merchant_republic_government }
-#		NOT = { has_law = succ_seniority }
-#	}
-#	
-#	mean_time_to_happen = { months = 1 }
-#	
-#	option = {
-#		name = "EVTOPTA_VAMPIRE.4"
-#		e_vampire = {
-#			succession = seniority
-#			gender_succ = true_cognatic
-#		}
-#	}
-#}
+# VAMPIRE.4 - Deleted
 
 # VAMPIRE.5 - was MYTH.80 - Offer of vampirism
 letter_event = {
@@ -540,7 +509,7 @@ character_event = {
 			has_character_flag = vampire_feed_escape
 		}
 		text = EVTDESCA_VAMPIRE.9
-		picture = GFX_evt_dark_shadow
+		picture = GFX_evt_shadow
 	}
 	desc = {
 		trigger = {
@@ -590,15 +559,27 @@ character_event = {
 				OR = {
 					trait = wounded
 					trait = infirm
-					trait = scarred
 					trait = blinded
 					trait = eunuch
 					trait = severely_injured
 					is_maimed_trigger = yes
+					has_minor_injury = yes
+					has_scarred_trait_trigger = yes
 				}
 			}
 			random_list = {
 				16 = {
+					modifier = {
+						factor = 0.6 # Only minor injuries
+						NOR = {
+							trait = wounded
+							trait = infirm
+							trait = blinded
+							trait = eunuch
+							trait = severely_injured
+							is_maimed_trigger = yes
+						}
+					}
 					set_character_flag = vf_heal
 				}
 				3 = {
@@ -644,64 +625,70 @@ character_event = {
 				has_character_flag = vf_heal
 			}
 			random_list = {
-				1 = {
+				3 = {
 					trigger = { trait = wounded }
 					set_character_flag = vf_heal_wounded
 					set_variable = { which = healing value = 1 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = infirm }
 					set_character_flag = vf_heal_infirm
 					set_variable = { which = healing value = 1 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = maimed }
 					set_character_flag = vf_heal_maimed
 					set_variable = { which = healing value = 5 }
 				}
 				1 = {
-					trigger = { trait = scarred }
+					trigger = { has_scarred_trait_trigger = yes }
 					set_character_flag = vf_heal_scarred
 					set_variable = { which = healing value = 1 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = disfigured }
 					set_character_flag = vf_heal_disfigured
 					set_variable = { which = healing value = 6 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = one_eyed }
 					set_character_flag = vf_heal_one_eyed
 					set_variable = { which = healing value = 3 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = blinded }
 					set_character_flag = vf_heal_blinded
 					set_variable = { which = healing value = 4 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = one_handed }
 					set_character_flag = vf_heal_one_handed
 					set_variable = { which = healing value = 5 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = one_legged }
 					set_character_flag = vf_heal_one_legged
 					set_variable = { which = healing value = 5 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = mangled }
 					set_character_flag = vf_heal_mangled
 					set_variable = { which = healing value = 6 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = eunuch }
 					set_character_flag = vf_heal_eunuch
 					set_variable = { which = healing value = 1 }
 				}
-				1 = {
+				3 = {
 					trigger = { trait = severely_injured }
 					set_character_flag = vf_heal_severely_injured
+					set_variable = { which = healing value = 1 }
+				}
+				1 = {
+					trigger = { has_minor_injury = yes }
+					# Minor, so heal all of them
+					set_character_flag = vf_heal_minor_injuries
 					set_variable = { which = healing value = 1 }
 				}
 			}
@@ -709,7 +696,7 @@ character_event = {
 			random = {
 				chance = 25
 				random_list = {
-					1 = {
+					3 = {
 						trigger = { 
 							trait = wounded
 							NOT = { has_character_flag = vf_heal_wounded }
@@ -717,7 +704,7 @@ character_event = {
 						set_character_flag = vf_heal_wounded
 						change_variable = { which = healing value = 1 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = infirm
 							NOT = { has_character_flag = vf_heal_infirm }
@@ -725,7 +712,7 @@ character_event = {
 						set_character_flag = vf_heal_infirm
 						change_variable = { which = healing value = 1 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = maimed
 							NOT = { has_character_flag = vf_heal_maimed }
@@ -735,13 +722,13 @@ character_event = {
 					}
 					1 = {
 						trigger = { 
-							trait = scarred
+							has_scarred_trait_trigger = yes
 							NOT = { has_character_flag = vf_heal_scarred }
 						}
 						set_character_flag = vf_heal_scarred
 						change_variable = { which = healing value = 1 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = disfigured
 							NOT = { has_character_flag = vf_heal_disfigured }
@@ -749,7 +736,7 @@ character_event = {
 						set_character_flag = vf_heal_disfigured
 						change_variable = { which = healing value = 6 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = one_eyed
 							NOT = { has_character_flag = vf_heal_one_eyed }
@@ -757,7 +744,7 @@ character_event = {
 						set_character_flag = vf_heal_one_eyed
 						change_variable = { which = healing value = 3 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = blinded
 							NOT = { has_character_flag = vf_heal_blinded }
@@ -765,7 +752,7 @@ character_event = {
 						set_character_flag = vf_heal_blinded
 						change_variable = { which = healing value = 4 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = one_handed
 							NOT = { has_character_flag = vf_heal_one_handed }
@@ -773,7 +760,7 @@ character_event = {
 						set_character_flag = vf_heal_one_handed
 						change_variable = { which = healing value = 5 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = one_legged
 							NOT = { has_character_flag = vf_heal_one_legged }
@@ -781,7 +768,7 @@ character_event = {
 						set_character_flag = vf_heal_one_legged
 						change_variable = { which = healing value = 5 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = mangled
 							NOT = { has_character_flag = vf_heal_mangled }
@@ -789,7 +776,7 @@ character_event = {
 						set_character_flag = vf_heal_mangled
 						change_variable = { which = healing value = 6 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = eunuch
 							NOT = { has_character_flag = vf_heal_eunuch }
@@ -797,13 +784,22 @@ character_event = {
 						set_character_flag = vf_heal_eunuch
 						change_variable = { which = healing value = 1 }
 					}
-					1 = {
+					3 = {
 						trigger = { 
 							trait = severely_injured
 							NOT = { has_character_flag = vf_heal_severely_injured }
 						}
 						set_character_flag = vf_heal_severely_injured
 						change_variable = { which = healing value = 1 }
+					}
+					1 = {
+						trigger = {
+							has_minor_injury = yes
+							NOT = { has_character_flag = vf_heal_minor_injuries }
+						}
+						# Minor, so heal all of them
+						set_character_flag = vf_heal_minor_injuries
+						set_variable = { which = healing value = 1 }
 					}
 				}
 			}
@@ -821,7 +817,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_diplomacy which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -864,7 +860,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_martial which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -907,7 +903,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_stewardship which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -950,7 +946,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_intrigue which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -993,7 +989,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_learning which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -1036,7 +1032,7 @@ character_event = {
 			if = {
 				limit = { NOT = { check_variable = { which = var_health which = FROMFROM } } }
 				random = {
-					chance = 10
+					chance = 15
 					modifier = {
 						factor = 2
 						check_variable = { which = diff value = 2 }
@@ -1660,7 +1656,7 @@ character_event = {
 		}
 		if = {
 			limit = { has_character_flag = vf_heal_scarred }
-			remove_trait = scarred
+			remove_scarred = yes
 		}
 		if = {
 			limit = { has_character_flag = vf_heal_disfigured }
@@ -1696,6 +1692,10 @@ character_event = {
 			clear_delayed_event = { id = RIP.11000 }
 		}
 		if = {
+			limit = { has_character_flag = vf_heal_minor_injuries }
+			remove_minor_injuries = yes
+		}
+		if = {
 			limit = { has_character_flag = vf_stat_diplomacy }
 			change_diplomacy = 1
 		}
@@ -1720,79 +1720,168 @@ character_event = {
 			health = 0.25
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_tuberculosis }
+			limit = {
+				has_character_flag = vf_sick_tuberculosis
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_tuberculosis
+			clr_character_flag = developing_illness
+			clr_character_flag = got_tuberculosis
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_typhoid_fever }
+			limit = {
+				has_character_flag = vf_sick_typhoid_fever
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_typhoid_fever
+			clr_character_flag = developing_illness
+			clr_character_flag = got_typhoid_fever
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_typhus }
+			limit = {
+				has_character_flag = vf_sick_typhus
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_typhus
+			clr_character_flag = developing_illness
+			clr_character_flag = got_typhus
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_bubonic_plague }
+			limit = {
+				has_character_flag = vf_sick_bubonic_plague
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_bubonic_plague
+			clr_character_flag = developing_illness
+			clr_character_flag = got_bubonic_plague
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_measles }
+			limit = {
+				has_character_flag = vf_sick_measles
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_measles
+			clr_character_flag = developing_illness
+			clr_character_flag = got_measles
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_small_pox }
+			limit = {
+				has_character_flag = vf_sick_small_pox
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_small_pox
+			clr_character_flag = developing_illness
+			clr_character_flag = got_smallpox
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_aztec_disease }
+			limit = {
+				has_character_flag = vf_sick_aztec_disease
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = has_aztec_disease
+			clr_character_flag = developing_illness
+			clr_character_flag = got_aztec_disease
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_syphilitic }
+			limit = {
+				has_character_flag = vf_sick_syphilitic
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = syphilitic
+			clr_character_flag = developing_illness
+			clr_character_flag = got_syphilis
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_flu }
+			limit = {
+				has_character_flag = vf_sick_flu
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = flu
+			clr_character_flag = developing_illness
+			clr_character_flag = got_flu
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_dysentery }
+			limit = {
+				has_character_flag = vf_sick_dysentery
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = dysentery
+			clr_character_flag = developing_illness
+			clr_character_flag = got_dysentery
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_gout }
+			limit = {
+				has_character_flag = vf_sick_gout
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = gout
+			clr_character_flag = developing_illness
+			clr_character_flag = got_gout
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_food_poisoning }
+			limit = {
+				has_character_flag = vf_sick_food_poisoning
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = food_poisoning
+			clr_character_flag = developing_illness
+			clr_character_flag = got_food_poisoning
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_rabies }
+			limit = {
+				has_character_flag = vf_sick_rabies
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = rabies
+			clr_character_flag = developing_illness
+			clr_character_flag = got_rabies
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_cancer }
+			limit = {
+				has_character_flag = vf_sick_cancer
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = cancer
+			clr_character_flag = developing_illness
+			clr_character_flag = got_cancer
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_pneumonic }
+			limit = {
+				has_character_flag = vf_sick_pneumonic
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = pneumonic
+			clr_character_flag = developing_illness
+			clr_character_flag = got_pneumonia
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_dancing_plague }
+			limit = {
+				has_character_flag = vf_sick_dancing_plague
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = dancing_plague
+			clr_character_flag = developing_illness
+			clr_character_flag = got_dancing_plague
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_ill }
+			limit = {
+				has_character_flag = vf_sick_ill
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = ill
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_leper }
+			limit = {
+				has_character_flag = vf_sick_leper
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = leper
 		}
 		if = {
-			limit = { has_character_flag = vf_sick_lovers_pox }
+			limit = {
+				has_character_flag = vf_sick_lovers_pox
+				NOT = { has_dlc = "Reapers" }
+			}
 			add_trait = lovers_pox
 		}
 		
@@ -1842,7 +1931,7 @@ character_event = {
 					trait = zombie
 					trait = god
 					trait = demi_god
-					trait = giant
+					trait = mythos_giant
 					trait = half_giant
 					trait = blood_of_the_gods
 					trait = djinn
@@ -2083,6 +2172,7 @@ character_event = {
 			clr_character_flag = vf_heal_mangled
 			clr_character_flag = vf_heal_eunuch
 			clr_character_flag = vf_heal_severely_injured
+			clr_character_flag = vf_heal_minor_injuries
 			clr_character_flag = vf_stat_diplomacy
 			clr_character_flag = vf_stat_martial
 			clr_character_flag = vf_stat_stewardship
@@ -2129,6 +2219,7 @@ character_event = {
 	
 	immediate = {
 		add_character_modifier = { modifier = recently_fed days = 7 }
+		evaluate_duel_result_score_effect = yes
 		# Prisoner secret werewolves escape
 		if = {
 			limit = {
@@ -2214,32 +2305,12 @@ character_event = {
 								trait = dragon
 								trait = god
 								trait = demi_god
-								trait = giant
+								trait = mythos_giant
 								trait = djinn
 								trait = demon_trait
 								trait = ethereal_trait
 							}
 						}
-					}
-					modifier = {
-						factor = 1.5
-						FROM = { combat_rating_diff = { character = ROOT value = 1 } }
-					}
-					modifier = {
-						factor = 1.5
-						FROM = { combat_rating_diff = { character = ROOT value = 2 } }
-					}
-					modifier = {
-						factor = 1.5
-						FROM = { combat_rating_diff = { character = ROOT value = 3 } }
-					}
-					modifier = {
-						factor = 1.5
-						FROM = { combat_rating_diff = { character = ROOT value = 4 } }
-					}
-					modifier = {
-						factor = 1.5
-						FROM = { combat_rating_diff = { character = ROOT value = 5 } }
 					}
 					modifier = {
 						factor = 0.75
@@ -2311,24 +2382,36 @@ character_event = {
 						trait = hunger_5
 					}
 					modifier = {
-						factor = 1.5
-						combat_rating_diff = { character = FROM value = 1 }
+						factor = 0.5
+						duel_result_score_the_worst_trigger = yes
 					}
 					modifier = {
-						factor = 1.5
-						combat_rating_diff = { character = FROM value = 2 }
+						factor = 0.6
+						duel_result_score_terrible_trigger = yes
 					}
 					modifier = {
-						factor = 1.5
-						combat_rating_diff = { character = FROM value = 3 }
+						factor = 0.8
+						duel_result_score_bad_trigger = yes
 					}
 					modifier = {
-						factor = 1.5
-						combat_rating_diff = { character = FROM value = 4 }
+						factor = 0.9
+						duel_result_score_ok_trigger = yes
 					}
 					modifier = {
-						factor = 1.5
-						combat_rating_diff = { character = FROM value = 5 }
+						factor = 1.1
+						duel_result_score_good_trigger = yes
+					}
+					modifier = {
+						factor = 1.3
+						duel_result_score_great_trigger = yes
+					}
+					modifier = {
+						factor = 1.6
+						duel_result_score_fantastic_trigger = yes
+					}
+					modifier = {
+						factor = 2
+						duel_result_score_the_best_trigger = yes
 					}
 					modifier = {
 						factor = 0.75
@@ -3884,7 +3967,7 @@ character_event = {
 	}
 }
 
-# VAMPIRE.24 - Healing revels hidden nature.
+# VAMPIRE.24 - Healing reveals hidden nature.
 character_event = {
 	id = VAMPIRE.24
 	title = EVTNAME_VAMPIRE.24
@@ -4194,6 +4277,7 @@ character_event = {
 	
 	immediate = {
 		# Determine success or failure
+		send_duel_result_event_effect = yes
 		random_list = {
 			# Avoid
 			10 = {
@@ -4253,26 +4337,6 @@ character_event = {
 						trait = demon_trait
 						trait = ethereal_trait
 					}
-				}
-				modifier = {
-					factor = 1.5
-					combat_rating_diff = { character = FROM value = 1 }
-				}
-				modifier = {
-					factor = 1.5
-					combat_rating_diff = { character = FROM value = 2 }
-				}
-				modifier = {
-					factor = 1.5
-					combat_rating_diff = { character = FROM value = 3 }
-				}
-				modifier = {
-					factor = 1.5
-					combat_rating_diff = { character = FROM value = 4 }
-				}
-				modifier = {
-					factor = 1.5
-					combat_rating_diff = { character = FROM value = 5 }
 				}
 				# Caught or not?
 				random_list = {
@@ -4352,24 +4416,36 @@ character_event = {
 			# Successful feeding. More likely
 			30 = {
 				modifier = {
-					factor = 1.5
-					FROM = { combat_rating_diff = { character = ROOT value = 1 } }
+					factor = 0.5
+					duel_result_score_the_worst_trigger = yes
 				}
 				modifier = {
-					factor = 1.5
-					FROM = { combat_rating_diff = { character = ROOT value = 2 } }
+					factor = 0.6
+					duel_result_score_terrible_trigger = yes
 				}
 				modifier = {
-					factor = 1.5
-					FROM = { combat_rating_diff = { character = ROOT value = 3 } }
+					factor = 0.8
+					duel_result_score_bad_trigger = yes
 				}
 				modifier = {
-					factor = 1.5
-					FROM = { combat_rating_diff = { character = ROOT value = 4 } }
+					factor = 0.9
+					duel_result_score_ok_trigger = yes
 				}
 				modifier = {
-					factor = 1.5
-					FROM = { combat_rating_diff = { character = ROOT value = 5 } }
+					factor = 1.1
+					duel_result_score_good_trigger = yes
+				}
+				modifier = {
+					factor = 1.3
+					duel_result_score_great_trigger = yes
+				}
+				modifier = {
+					factor = 1.6
+					duel_result_score_fantastic_trigger = yes
+				}
+				modifier = {
+					factor = 2
+					duel_result_score_the_best_trigger = yes
 				}
 				modifier = {
 					factor = 1.5
@@ -4408,6 +4484,22 @@ character_event = {
 							FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
 						}
 						modifier = {
+							factor = 1.4
+							FROM = { is_the_best_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.3
+							FROM = { is_fantastic_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.2
+							FROM = { is_great_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.1
+							FROM = { is_good_duelist_trigger = yes }
+						}
+						modifier = {
 							factor = 2
 							FROM = { trait = known_vampire }
 						}
@@ -4435,6 +4527,22 @@ character_event = {
 						modifier = {
 							factor = 0
 							FROM = { trait = known_vampire }
+						}
+						modifier = {
+							factor = 1.4
+							FROM = { is_the_best_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.3
+							FROM = { is_fantastic_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.2
+							FROM = { is_great_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 1.1
+							FROM = { is_good_duelist_trigger = yes }
 						}
 						modifier = {
 							factor = 0.5
@@ -4515,24 +4623,36 @@ character_event = {
 							can_be_maimed_trigger = no
 						}
 						modifier = {
-							factor = 1.5
-							combat_rating_diff = { character = FROM value = 1 }
+							factor = 3
+							FROM = { is_the_best_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 2.5
+							FROM = { is_fantastic_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 2
+							FROM = { is_great_duelist_trigger = yes }
 						}
 						modifier = {
 							factor = 1.5
-							combat_rating_diff = { character = FROM value = 2 }
+							FROM = { is_good_duelist_trigger = yes }
 						}
 						modifier = {
-							factor = 1.5
-							combat_rating_diff = { character = FROM value = 3 }
+							factor = 0.775
+							FROM = { is_ok_duelist_trigger = yes }
 						}
 						modifier = {
-							factor = 1.5
-							combat_rating_diff = { character = FROM value = 4 }
+							factor = 0.55
+							FROM = { is_bad_duelist_trigger = yes }
 						}
 						modifier = {
-							factor = 1.5
-							combat_rating_diff = { character = FROM value = 5 }
+							factor = 0.325
+							FROM = { is_terrible_duelist_trigger = yes }
+						}
+						modifier = {
+							factor = 0.1
+							FROM = { is_the_worst_duelist_trigger = yes }
 						}
 						FROM = { character_event = { id = VAMPIRE.37 } }
 					}
@@ -7928,7 +8048,7 @@ character_event = {
 			limit = { 
 				liege = { attacted_to_root_trigger = yes }
 				OR = {
-					trait = fair
+					has_fair_trait_trigger = yes
 					trait = seducer
 					trait = seductress
 				}
@@ -9262,7 +9382,7 @@ character_event = {
 	desc = {
 		trigger = { has_character_flag = usurp_military_influence }
 		text = EVTDESCB_VAMPIRE.121
-		picture = GFX_evt_knights
+		picture = GFX_evt_crusaders
 	}
 	desc = {
 		trigger = { has_character_flag = usurp_economic_influence }
@@ -10554,7 +10674,7 @@ character_event = {
 	desc = {
 		trigger = { NOT = { holds_favor_on = FROM } }
 		text = EVTDESCB_VAMPIRE.147
-		picture = GFX_evt_bribe_refused
+		picture = GFX_evt_bribe_declined
 	}
 	
 	is_triggered_only = yes
@@ -12307,9 +12427,13 @@ character_event = {
 		if = {
 			limit = { trait = temperate }
 			remove_trait = temperate
+			gain_weight_small_effect = yes
+			weight_trait_check_effect = yes
 		}
 		else = {
 			add_trait = gluttonous
+			gain_weight_small_effect = yes
+			weight_trait_check_effect = yes
 		}
 		if = {
 			limit = { trait = hunger_5 }

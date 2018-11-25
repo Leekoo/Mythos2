@@ -97,7 +97,7 @@ wolf_familiar = {
 		}
 	}
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	icon = 71
 }
 
@@ -138,14 +138,12 @@ known_monster = {
 	general_opinion = -10
 }
 scorched_land = {
-	#local_revolt_risk = 0.1
 	local_revolt_risk = 0.04
 	levy_size = -0.2
 	local_tax_modifier = -0.2
 	icon = 32	
 }
 recently_scorched_land = {
-	#local_revolt_risk = 0.3
 	local_revolt_risk = 0.03
 	icon = 32	
 }
@@ -158,23 +156,17 @@ study_at_scholomance = {
 	learning = 2
 	church_opinion = -10
 }
-expelled_satanist = {
-	icon = 34
-	#christian_opinion = 10
-	#jewish_opinion = 10
-	#muslim_opinion = 10
-	church_opinion = 10
-	global_tax_modifier = -0.1
-}
 deliberate_reveal_werewolf = {
 	icon = 71
 	martial = 2
 	intrigue = 2
+	combat_rating = 2
 }
 scared_of_monsters = {
 	icon = 42
 	martial = -2
 	global_revolt_risk = 0.01
+	combat_rating = -2
 }
 wild_wolfman_killed = {
 	icon = 71
@@ -192,6 +184,7 @@ slain_monster = {
 	icon = 1
 	vassal_opinion = 10
 	church_opinion = 10
+	combat_rating = 3
 }
 failed_to_slay_monster = {
 	icon = 42
@@ -282,10 +275,12 @@ bloodloss = {
 	martial = -1
 	intrigue = -1
 	health = -1
+	combat_rating = -8
 }
 sacrified_health = {
 	icon = 51
 	health = -4
+	combat_rating = -6
 }
 #panacea = {
 #	icon = 50
@@ -371,6 +366,7 @@ cursed = {
 	diplomacy = -2
 	stewardship = -2
 	martial = -2
+	combat_rating = -8
 	global_revolt_risk = 0.01
 }
 
@@ -502,32 +498,32 @@ aura_majesty_perfect = {
 }
 aura_valor_feeble = {
 	icon = 13
-	combat_rating = 1
+	combat_rating = 8
 	martial = -1
 }
 aura_valor_weak = {
 	icon = 13
-	combat_rating = 2
+	combat_rating = 16
 	martial = -1
 }
 aura_valor_standard = {
 	icon = 13
-	combat_rating = 3
+	combat_rating = 24
 	martial = -2
 }
 aura_valor_strong = {
 	icon = 13
-	combat_rating = 4
+	combat_rating = 32
 	martial = -2
 }
 aura_valor_overwhelming= {
 	icon = 13
-	combat_rating = 5
+	combat_rating = 40
 	martial = -3
 }
 aura_valor_perfect = {
 	icon = 13
-	combat_rating = 6
+	combat_rating = 48
 	martial = -3
 }
 aura_people_feeble = {
@@ -658,7 +654,8 @@ faction_draconic_heir_ultimatum_timer = { icon = 1 }
 unfit_flame_controller = {
 	icon = 49
 	
-	church_opinion = -10
+	draconic_pagan_opinion = -10
+	draconic_pagan_reformed_opinion = -10
 }
 heathen_stronghold = {
 	icon = 49
@@ -709,6 +706,7 @@ wolf_pet = {
 	icon = 71
 	health = 1
 	martial = 2
+	combat_rating = 5
 }
 purity_review_timer = {
 	icon = 49
@@ -905,22 +903,16 @@ secret_kemetic_pagan_community = {
 		society_member_of = secret_religious_society_kemetic_pagan
 	}
 }
+secret_kemetic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan_reformed
+	}
+}
 secret_atenist_community = {
 	icon = 18
 	is_visible = {
 		society_member_of = secret_religious_society_atenist
-	}
-}
-secret_hellenic_pagan_community = {
-	icon = 18
-	is_visible = {
-		society_member_of = secret_religious_society_hellenic_pagan
-	}
-}
-secret_roman_pagan_community = {
-	icon = 18
-	is_visible = {
-		society_member_of = secret_religious_society_roman_pagan
 	}
 }
 secret_satanist_community = {
@@ -1397,6 +1389,12 @@ secret_kemetic_pagan_community = {
 		society_member_of = secret_religious_society_kemetic_pagan
 	}
 }
+secret_kemetic_pagan_reformed_community = {
+	icon = 18
+	is_visible = {
+		society_member_of = secret_religious_society_kemetic_pagan_reformed
+	}
+}
 secret_jotnar_reformed_community = {
 	icon = 18
 	is_visible = {
@@ -1407,18 +1405,6 @@ secret_jotnar_community = {
 	icon = 18
 	is_visible = {
 		society_member_of = secret_religious_society_jotnar
-	}
-}
-secret_hellenic_pagan_community = {
-	icon = 18
-	is_visible = {
-		society_member_of = secret_religious_society_hellenic_pagan
-	}
-}
-secret_roman_pagan_community = {
-	icon = 18
-	is_visible = {
-		society_member_of = secret_religious_society_roman_pagan
 	}
 }
 defeated_monster_hunters = {
@@ -1433,7 +1419,7 @@ werewolf_commander = {
 }
 werewolf_fighter = {
 	icon = 1
-	combat_rating = 4
+	combat_rating = 32
 	martial = -2
 	heavy_infantry_offensive = 0.2
 	lycan_berzerkers_offensive = 0.2
@@ -1500,7 +1486,7 @@ sacrificed_livestock = {
 }
 regeneration_strain = {
 	icon = 51
-	combat_rating = -2
+	combat_rating = -20
 	health = -1
 }
 potion_of_purity = {
@@ -1510,7 +1496,7 @@ potion_of_purity = {
 potion_of_battle = {
 	icon = 83
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	land_morale = 0.05
 	levy_reinforce_rate = 0.2
 }
@@ -1557,7 +1543,7 @@ experimental_potion_4 = {
 experimental_potion_5 = {
 	icon = 83
 	general_opinion = 10
-	combat_rating  = -0.5
+	combat_rating  = -5
 }
 # Experimental Potion - Q1 Herb, Bad
 experimental_potion_6 = {
@@ -1692,4 +1678,7 @@ undead_swarm = {
 }
 undead_desolation = {
 	icon = 42
+}
+draconic_tributary = {
+	icon = 27
 }

@@ -1,57 +1,3 @@
-character_event = {
-	id = TOG.600
-	desc = EVTDESC_TOG_600
-	picture = GFX_evt_viking_throneroom_oldgods
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	hide_from = yes
-	
-	option = {
-		name = EVTOPTA_TOG_600
-		any_vassal = {
-			limit = {
-				OR = {
-					religion = norse_pagan
-					religion = norse_pagan_reformed
-					religion = jotnar
-					religion = jotnar_reformed
-				}
-				NOT = { is_inaccessible_trigger = yes }
-				age = 16
-				prisoner = no
-				war = no
-				NOT = { trait = incapable }
-			}
-			character_event = { id = TOG.601 tooltip = EVTTOOLTIP_TOG_601 }
-			hidden_tooltip = { character_event = { id = TOG.605 days = 10 } }
-		}
-		any_vassal = {
-			limit = {
-				OR = {
-					religion_group = christian
-					religion_group = muslim
-				}
-				NOT = { is_inaccessible_trigger = yes }
-				age = 16
-				prisoner = no
-				war = no
-				NOT = { trait = incapable }
-			}
-			character_event = { id = TOG.602 tooltip = EVTTOOLTIP_TOG_602 }
-		}
-		hidden_tooltip = { character_event = { id = TOG.604 days = 10 } }
-	}
-}
-#character_event = {
-#	id = 1000109000
-#	desc = "EVTDESC1000109000"
-#	picture = "GFX_evt_pale_rider"
-#
-#	is_triggered_only = yes
-#}
-
 #############################################
 # No education focus selected               #
 #############################################
@@ -1419,6 +1365,8 @@ character_event = {
 		has_dlc = "Zeus"
 		NOT = { has_character_modifier = the_oubliette }
 		NOT = { has_character_modifier = the_dungeon }
+		NOT = { has_character_flag = is_child_of_destiny }
+		NOT = { is_inaccessible_trigger = yes }
 	}
 
 	immediate = {
@@ -2524,6 +2472,7 @@ narrative_event = {
 		}
 
 		event_target:eternal_life_sad_example = {
+			show_scope_change = no
 			opinion = {
 				who = FROM
 				modifier = opinion_budding_friendship
@@ -2790,183 +2739,6 @@ character_event = {
 		}
 		culture_techpoints = 50
 		hidden_tooltip = { character_event = { id = WoL.12500 days = 1 } }
-	}
-}
-
-#Notification for sick children or spouses
-character_event = {
-	id = RIP.5060
-	picture = GFX_evt_doctor_tending_to_sick
-	border = GFX_event_normal_frame_religion
-
-	trigger = {
-		FROM = { character_disease_trigger = yes }
-		OR = {
-			NOT = { has_character_flag = no_relative_illness_notifications }
-			had_character_flag = { flag = no_relative_illness_notifications days = 1825 }
-		}
-		NOT = { trait = in_hiding }
-	}
-
-	is_triggered_only = yes
-
-	desc = {
-		trigger = { has_character_flag = announce_tuberculosis }
-		text = EVTDSC_RIP_5060_TUBERCULOSIS
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_typhoid }
-		text = EVTDSC_RIP_5060_TYPHOID
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_typhus }
-		text = EVTDSC_RIP_5060_TYPHUS
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_plague }
-		text = EVTDSC_RIP_5060_PLAGUE
-		picture = GFX_evt_plague_spreading
-	}
-	desc = {
-		trigger = { has_character_flag = announce_measles }
-		text = EVTDSC_RIP_5060_MEASLES
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_smallpox }
-		text = EVTDSC_RIP_5060_SMALLPOX
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_syphilis }
-		text = EVTDSC_RIP_5060_SYPHILITIC
-		picture = GFX_evt_bring_out_your_dead
-	}
-	desc = {
-		trigger = { has_character_flag = announce_flu }
-		text = EVTDSC_RIP_5060_FLU
-	}
-	desc = {
-		trigger = { has_character_flag = announce_dysentery }
-		text = EVTDSC_RIP_5060_DYSENTERY
-	}
-	desc = {
-		trigger = { has_character_flag = announce_gout }
-		text = EVTDSC_RIP_5060_GOUT
-	}
-	desc = {
-		trigger = { has_character_flag = announce_food_poisoning }
-		text = EVTDSC_RIP_5060_FOOD_POISONING
-	}
-	desc = {
-		trigger = { has_character_flag = announce_rabies }
-		text = EVTDSC_RIP_5060_RABIES
-	}
-	desc = {
-		trigger = { has_character_flag = announce_cancer }
-		text = EVTDSC_RIP_5060_CANCER
-	}
-	desc = {
-		trigger = { has_character_flag = announce_pneumonic }
-		text = EVTDSC_RIP_5060_PNEUMONIC
-	}
-	desc = {
-		trigger = { has_character_flag = announce_zombie_plague }
-		text = EVTDSC_RIP_5060_ZOMBIE
-	}
-
-	option = {
-		trigger = {
-			is_landed = yes
-			NOR = {
-				has_character_modifier = in_seclusion
-				any_courtier_or_vassal = {
-					has_minor_title = title_court_physician
-					liege = {
-						character = ROOT
-					}
-				}
-				is_tribal = yes
-				is_nomadic = yes
-			}
-			OR = {
-				NOT = { has_character_flag = 3_year_physician_cooldown }
-				had_character_flag = { flag = 3_year_physician_cooldown days = 1095 }
-			}
-
-		}
-		name = EVTOPTC_RIP_5060
-		custom_tooltip = { text = employ_court_physician_tooltip }
-
-		hidden_tooltip = {
-			set_character_flag = looking_for_court_physician
-			character_event = { id = RIP.11051 days = 10 random = 30 }
-			clr_character_flag = 3_year_physician_cooldown
-			set_character_flag = 3_year_physician_cooldown
-		}
-
-		clr_character_flag = announce_syphilis
-		clr_character_flag = announce_pneumonic
-		clr_character_flag = announce_tuberculosis
-		clr_character_flag = announce_typhoid
-		clr_character_flag = announce_typhus
-		clr_character_flag = announce_plague
-		clr_character_flag = announce_measles
-		clr_character_flag = announce_smallpox
-		clr_character_flag = announce_flu
-		clr_character_flag = announce_dysentery
-		clr_character_flag = announce_gout
-		clr_character_flag = announce_food_poisoning
-		clr_character_flag = announce_rabies
-		clr_character_flag = announce_cancer
-		clr_character_flag = announce_zombie_plague
-	}
-
-	option = {
-		name = EVTOPTA_RIP_5060
-
-		clr_character_flag = announce_syphilis
-		clr_character_flag = announce_pneumonic
-		clr_character_flag = announce_tuberculosis
-		clr_character_flag = announce_typhoid
-		clr_character_flag = announce_typhus
-		clr_character_flag = announce_plague
-		clr_character_flag = announce_measles
-		clr_character_flag = announce_smallpox
-		clr_character_flag = announce_flu
-		clr_character_flag = announce_dysentery
-		clr_character_flag = announce_gout
-		clr_character_flag = announce_food_poisoning
-		clr_character_flag = announce_rabies
-		clr_character_flag = announce_cancer
-		clr_character_flag = announce_zombie_plague
-	}
-
-	option = {
-		name = EVTOPTB_RIP_5060
-		clr_character_flag = no_relative_illness_notifications
-		set_character_flag = no_relative_illness_notifications
-
-		clr_character_flag = announce_syphilis
-		clr_character_flag = announce_pneumonic
-		clr_character_flag = announce_tuberculosis
-		clr_character_flag = announce_typhoid
-		clr_character_flag = announce_typhus
-		clr_character_flag = announce_plague
-		clr_character_flag = announce_measles
-		clr_character_flag = announce_smallpox
-		clr_character_flag = announce_flu
-		clr_character_flag = announce_dysentery
-		clr_character_flag = announce_gout
-		clr_character_flag = announce_food_poisoning
-		clr_character_flag = announce_rabies
-		clr_character_flag = announce_cancer
-		clr_character_flag = announce_zombie_plague
-		
-		custom_tooltip = { text = ignore_ill_relatives_tooltip }
 	}
 }
 
@@ -3297,6 +3069,7 @@ character_event = {
 			}
 			OR = {
 				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
 				religion = atenist
 			}
 		}
@@ -3316,19 +3089,20 @@ character_event = {
 		set_character_flag = dog_name_deimos
 		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
 	}
-	option = { # Metus
-		name = EVTOPTY_WoL_5203
-		trigger = {
-			OR = {
-				trait = cynical
-				trait = possessed
-				is_devil_worshiper_trigger = yes
-			}
-			religion = roman_pagan
-		}
-		set_character_flag = dog_name_metus
-		hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
-	}
+	#option = { # Metus
+	#	name = EVTOPTY_WoL_5203
+	#	trigger = {
+	#		OR = {
+	#			trait = cynical
+	#			trait = possessed
+	#			is_devil_worshiper_trigger = yes
+	#		}
+	#		religion = hellen_pagan_reformed
+	#		# Plus the planned reformation option
+	#	}
+	#	set_character_flag = dog_name_metus
+	#	hidden_tooltip = { character_event = { id = WoL.5204 days = 150 } }
+	#}
 }
 
 ## Random dog events...
@@ -4561,9 +4335,10 @@ character_event = {
 						has_character_modifier = bad_relationship_omen
 					}
 				}
+				set_character_flag = dog_death_omen
+				character_event = { id = MNM.1213 days = 35 random = 30 } # Scrying vision come true
 			}
-			set_character_flag = dog_death_omen
-			character_event = { id = MNM.1213 days = 35 random = 30 } # Scrying vision come true
+			send_new_dog_event_effect = yes # Will only work for certain bloodlines...
 		}
 	}
 }
@@ -5043,7 +4818,7 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.75
-			combat_rating = 3
+			combat_rating = 30
 		}
 		modifier = {
 			factor = 0.75
@@ -5734,7 +5509,61 @@ narrative_event = {
 	id = 670
 	title = "EVTNAME670"
 	desc = "EVTDESC670"
-	picture = GFX_evt_heretic
+	desc = {
+		trigger = {
+			has_dlc = "Holy Fury" 
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		text = EVTDESC670_HF
+		sound = pagan_reformation
+	}
+	desc = {
+		trigger = {
+			has_dlc = "Holy Fury" 
+			has_alternate_start_parameter = { key = religion_names value = random }
+		}
+		text = EVTDESC670_HF_B
+		sound = pagan_reformation
+	}
+	desc = {
+		trigger = {
+			NOT = { has_dlc = "Holy Fury" }
+		}
+		text = EVTDESC670
+		sound = pagan_reformation
+	}
+	picture = { 
+		trigger = { 
+			OR = { 
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+		} 
+		picture = GFX_evt_hellenic_temple
+	}
+	picture = { 
+		trigger = { 
+			OR = { 
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		} 
+		picture = GFX_evt_west_african_ruler
+	}
+	picture = { 
+		trigger = { 
+			NOR = { 
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+				religion = west_african_pagan
+				religion = west_african_pagan_reformed
+			}
+		} 
+		picture = GFX_evt_pagan_reformation
+	}
+	picture = GFX_evt_pagan_reformation
 	border = "GFX_event_narrative_frame_religion"	
 	
 	is_triggered_only = yes
@@ -5745,92 +5574,724 @@ narrative_event = {
 	only_rulers = yes
 	
 	immediate = {
-		if = {
-			limit = { ai = no }
-			set_character_flag = achievement_new_ways
-		}
-		any_courtier = {
-			limit = {
-				is_heresy_of = ROOT
-				employer = { character = ROOT }
+		hidden_tooltip = {
+			if = { #If hellenic reformer owns Rome, Catholic faith loses MA.
+				limit = { 
+					ROOT = { 
+						religion = hellenic_pagan_reformed 
+						completely_controls = c_roma
+					} 
+				}
+				random_playable_ruler = { 
+					limit = { religion = catholic }		
+					religion_authority = {
+						modifier = hellenic_resurgence
+						years = 100
+					}
+				}
 			}
-			religion = ROOT
-		}
-		any_dynasty_member = {
-			limit = {
-				is_heresy_of = ROOT
-				is_playable = no
+			if = { #If hellenic reformer owns Constantinople, Orthodox faith loses MA.
+				limit = { 
+					ROOT = { 
+						religion = hellenic_pagan_reformed 
+						completely_controls = c_byzantion
+					} 
+				}
+				random_playable_ruler = { 
+					limit = { religion = orthodox }	
+					religion_authority = {
+						modifier = hellenic_resurgence
+						years = 100
+					}
+				}
 			}
-			religion = ROOT
-		}
-		any_vassal = {
-			limit = {
-				is_playable = no
-				is_heresy_of = ROOT
-			}
-			religion = ROOT
-		}
-		capital_scope = {
 			if = {
-				limit = { is_heresy_of = ROOT }
+				limit = { #If religion being reformed is western paganism, other western pagan are emboldened, facilitating a chain reaction of reformation.
+					ROOT = { 
+						NOR = { 
+							religion = hellenic_pagan_reformed #Not that kind of paganism.
+							religion = bon_reformed
+							religion = zun_pagan_reformed
+							religion = aztec_reformed
+							religion = draconic_pagan_reformed
+						} 
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = norse_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = norse_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = tengri_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = tengri_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = slavic_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = slavic_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = baltic_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = baltic_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = finnish_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = finnish_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = west_african_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = west_african_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = jotnar_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = jotnar }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = druidic_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = druidic }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+				if = { 
+					limit = { ROOT = { NOT = { religion = kemetic_pagan_reformed } } }
+					random_playable_ruler = { 
+						limit = { religion = kemetic_pagan }	
+						religion_authority = {
+							modifier = pagan_revival
+							years = 20
+						}
+					}
+				}
+			}
+			if = {
+				limit = { #Modifier not applied correctly by pagan reformation screen.
+					ROOT = { has_religion_feature = religion_cosmopolitan }
+				}
+				ROOT = { 	
+					religion_authority = {
+						modifier = cosmopolitan_religion
+						years = 1000
+					}
+					any_playable_ruler = { 
+						limit = { NOT = { distance_from_realm = { who = ROOT value = 200 } } }
+						add_intermarry = ROOT
+						ROOT = { add_intermarry = PREV }
+					}
+					any_neighbor_independent_ruler = { 
+						add_intermarry = ROOT
+						ROOT = { add_intermarry = PREV }
+					}
+				} 
+			}
+			if = {
+				limit = { #Modifier not applied correctly by pagan reformation screen.
+					ROOT = { has_religion_feature = religion_dogmatic }
+				}
+				ROOT = { 	
+					religion_authority = {
+						modifier = dogmatic_religion
+						years = 1000
+					}
+					remove_intermarry = catholic
+					remove_intermarry = orthodox
+					remove_intermarry = miaphysite
+					remove_intermarry = nestorian
+					remove_intermarry = sunni
+					remove_intermarry = shiite
+					remove_intermarry = ibadi
+					remove_intermarry = jewish
+					remove_intermarry = samaritan
+					remove_intermarry = karaite
+					remove_intermarry = hindu
+					remove_intermarry = buddhist
+					remove_intermarry = jain
+					remove_intermarry = taoist
+					remove_intermarry = zoroastrian
+					remove_intermarry = mazdaki
+					remove_intermarry = manichean
+					remove_intermarry = khurmazta
+					remove_intermarry = pagan
+					remove_intermarry = bon
+					remove_intermarry = bon_reformed
+					remove_intermarry = aztec
+					remove_intermarry = aztec_reformed
+					remove_intermarry = norse_pagan
+					remove_intermarry = norse_pagan_reformed
+					remove_intermarry = zun_pagan
+					remove_intermarry = zun_pagan_reformed
+					remove_intermarry = slavic_pagan
+					remove_intermarry = slavic_pagan_reformed
+					remove_intermarry = baltic_pagan
+					remove_intermarry = baltic_pagan_reformed
+					remove_intermarry = west_african_pagan
+					remove_intermarry = west_african_pagan_reformed
+					remove_intermarry = tengri_pagan
+					remove_intermarry = tengri_pagan_reformed
+					remove_intermarry = finnish_pagan
+					remove_intermarry = finnish_pagan_reformed
+					remove_intermarry = hellenic_pagan
+					remove_intermarry = hellenic_pagan_reformed
+					remove_intermarry = jotnar
+					remove_intermarry = jotnar_reformed
+					remove_intermarry = druidic
+					remove_intermarry = druidic_reformed
+					remove_intermarry = kemetic_pagan
+					remove_intermarry = kemetic_pagan_reformed
+					remove_intermarry = atenist
+					remove_intermarry = draconic_pagan
+					remove_intermarry = draconic_pagan_reformed
+					remove_intermarry = satanist
+					remove_intermarry = pagan_group
+					remove_intermarry = zoroastrian_group
+					remove_intermarry = christian
+					remove_intermarry = muslim
+					remove_intermarry = indian_group
+					remove_intermarry = jewish_group
+					remove_intermarry = other_group
+					remove_intermarry = undead_group
+
+				} 
+			}
+			if = {
+				limit = { #Switch to matriarchy.
+					ROOT = { 
+						has_religion_feature = religion_matriarchal 
+						NOR = {  
+							is_merchant_republic = yes
+							is_republic = yes
+						}
+					}
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = enatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_4
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = succ_turkish_succession
+							cooldown = no
+							opinion_effect = no
+						}
+					} 
+					recalc_succession = yes
+				} 
+			}
+			if = {
+				limit = { #Switch to equality.
+					ROOT = { 
+						OR = { 
+							has_religion_feature = religion_equal 
+							has_religion_feature = religion_feature_bon
+						}
+						NOR = {  
+							is_merchant_republic = yes
+							is_republic = yes
+						}
+					}
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = true_cognatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_4
+							cooldown = no
+							opinion_effect = no
+						}
+					}
+				} 
+			}
+			if = {
+				limit = { #Switch to patriarchy.
+					ROOT = { has_religion_feature = religion_patriarchal }
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = agnatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_0
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = succ_turkish_succession
+							cooldown = no
+							opinion_effect = no
+						}
+					} 
+					recalc_succession = yes
+				} 
+			}
+			if = {
+				limit = { #Switch to astrology.
+					ROOT = { has_religion_feature = religion_astrology }
+				}
+				ROOT = { 
+					add_western_zodiac_trait_effect = yes 
+					character_event = { id = HF.23032 days = 5 } 
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { religion = norse_pagan_reformed } 
+				}
+				ROOT = { 
+					set_allow_rivermovement = yes 
+					enable_prepared_invasion = yes
+					set_seafaring = yes
+					make_reformer_head_of_religion = yes
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { 
+						OR = { 
+							religion = baltic_pagan_reformed 
+							religion = slavic_pagan_reformed 
+						}  
+					} 
+				}
+				ROOT = { 
+					set_unit_modifier = {		
+						garrison_size = 0.2
+						levy_size = 0.2
+						
+						key = "DEF_RELIGION"
+					}
+					set_unit_home_modifier = {
+						land_morale = 0.8
+						light_infantry_defensive = 0.8
+						heavy_infantry_defensive = 0.8
+						pikemen_defensive = 0.8
+						light_cavalry_defensive = 0.8
+						knights_defensive = 0.8
+						archers_defensive = 0.8
+						horse_archers_defensive = 0.8
+						camel_cavalry_defensive = 0.8
+						war_elephants_defensive = 0.8
+						
+						garrison_size = 0.4
+						
+						key = "DEF_RELIGION_HOME_TERRITORY"
+					}
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { 
+						religion = finnish_pagan_reformed 
+					} 
+				}
+				ROOT = { 
+					set_unit_modifier = {		
+						garrison_size = 0.3
+						levy_size = 0.1
+						
+						key = "DEF_RELIGION"
+					}
+					set_unit_home_modifier = {
+						land_morale = 0.8
+						light_infantry_defensive = 0.8
+						heavy_infantry_defensive = 0.8
+						pikemen_defensive = 0.8
+						light_cavalry_defensive = 0.8
+						knights_defensive = 0.8
+						archers_defensive = 0.8
+						horse_archers_defensive = 0.8
+						camel_cavalry_defensive = 0.8
+						war_elephants_defensive = 0.8
+						
+						garrison_size = 0.4
+						
+						key = "DEF_RELIGION_HOME_TERRITORY"
+					}
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = {
+						OR = { 
+							religion = bon_reformed
+							religion = west_african_pagan_reformed 
+						} 
+					} 
+				}
+				ROOT = { 
+					set_unit_modifier = {		
+						garrison_size = 0.4
+					
+						key = "DEF_RELIGION"
+					}
+					set_unit_home_modifier = {
+						land_morale = 0.8
+						light_infantry_defensive = 0.8
+						heavy_infantry_defensive = 0.8
+						pikemen_defensive = 0.8
+						light_cavalry_defensive = 0.8
+						knights_defensive = 0.8
+						archers_defensive = 0.8
+						horse_archers_defensive = 0.8
+						camel_cavalry_defensive = 0.8
+						war_elephants_defensive = 0.8
+						
+						garrison_size = 0.4
+						
+						key = "DEF_RELIGION_HOME_TERRITORY"
+					}
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { 
+						religion = zun_pagan_reformed 
+					} 
+				}
+				ROOT = { 
+					set_unit_modifier = {
+						levy_size = 0.3
+						
+						heavy_infantry_offensive = 0.2
+						heavy_infantry_defensive = 0.2
+						
+						key = "OFF_RELIGION"
+					}
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { 
+						religion = draconic_pagan_reformed 
+					} 
+				}
+				ROOT = { 
+					set_allow_rivermovement = yes 
+					enable_prepared_invasion = yes
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { 
+						religion = druidic_reformed 
+					} 
+				}
+				ROOT = { 
+					set_unit_modifier = {	
+						levy_size = 0.15
+						
+						retinuesize_perc = 0.3
+						garrison_size = 0.2
+						
+						key = "HERO_RELIGION"
+					}
+					set_unit_home_modifier = {
+						land_morale = 0.4
+						light_infantry_defensive = 0.4
+						heavy_infantry_defensive = 0.4
+						pikemen_defensive = 0.4
+						light_cavalry_defensive = 0.4
+						knights_defensive = 0.4
+						archers_defensive = 0.4
+						horse_archers_defensive = 0.4
+						
+						garrison_size = 0.2
+						
+						key = "HERO_RELIGION_HOME_TERRITORY"
+					}
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { religion = kemetic_pagan_reformed } 
+				}
+				ROOT = { 
+					set_allow_rivermovement = yes
+					make_reformer_head_of_religion = yes
+				} 
+			}
+			if = {
+				limit = { #Apply default special features if player doesn't have dlc.
+					NOT = { has_dlc = "Holy Fury" } 
+					ROOT = { religion = jotnar_reformed } 
+				}
+				ROOT = { 
+					set_allow_rivermovement = yes 
+					enable_prepared_invasion = yes
+					set_seafaring = yes
+					set_max_consorts = 3
+				} 
+			}
+			if = {
+				limit = { ai = no }
+				set_character_flag = achievement_new_ways
+			}
+			if = {
+				limit = {
+					ai = no
+					religion = hellenic_pagan_reformed
+				}
+				set_character_flag = achievement_by_jupiter
+			}
+			any_courtier = {
+				limit = {
+					is_heresy_of = ROOT
+					employer = { character = ROOT }
+				}
 				religion = ROOT
 			}
-		}
-		if = {
-			limit = { religion = norse_pagan_reformed }
-			d_jomsvikings = {
-				religion = norse_pagan_reformed # This Holy Order now changes religion
+			any_dynasty_member = {
+				limit = {
+					is_heresy_of = ROOT
+					is_playable = no
+				}
+				religion = ROOT
 			}
-			set_global_flag = norse_reformation
-		}
-		if = {
-			limit = { religion = tengri_pagan_reformed }
-			set_global_flag = tengri_reformation
-		}
-		if = {
-			limit = { religion = baltic_pagan_reformed }
-			set_global_flag = baltic_reformation
-		}
-		if = {
-			limit = { religion = finnish_pagan_reformed }
-			set_global_flag = finnish_reformation
-		}
-		if = {
-			limit = { religion = aztec_reformed }
-			set_global_flag = aztec_reformation
-		}
-		if = {
-			limit = { religion = slavic_pagan_reformed }
-			set_global_flag = slavic_reformation
-		}
-		if = {
-			limit = { religion = west_african_pagan_reformed }
-			set_global_flag = west_african_reformation
-		}
-		if = {
-			limit = { religion = zun_pagan_reformed }
-			set_global_flag = zun_reformation
-		}
-		if = {
-			limit = { religion = draconic_pagan_reformed }
-			set_global_flag = draconic_reformation
-		}
-		if = {
-			limit = { religion = druidic_reformed }
-			set_global_flag = druidic_reformation
-			d_galatian_company = {
-				religion = druidic_reformed
+			any_vassal = {
+				limit = {
+					is_playable = no
+					is_heresy_of = ROOT
+				}
+				religion = ROOT
 			}
-			d_helvetic_company = {
-				religion = druidic_reformed
+			capital_scope = {
+				if = {
+					limit = { is_heresy_of = ROOT }
+					religion = ROOT
+				}
 			}
-			d_brennus_ambaxtoi = {
-				religion = druidic_reformed
+			if = {
+				limit = { 
+					OR = {
+						NOT = { has_dlc = "Holy Fury" } 
+						has_religion_feature = religion_temporal_head 
+					} 
+					religion = norse_pagan_reformed 
+
+				}
+				add_artifact = crown_fylkir
 			}
-		}
-		if = {
-			limit = { religion = jotnar_reformed }
-			set_global_flag = jotnar_reformation
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = tengri_pagan_reformed 
+
+				}
+				add_artifact = crown_tengri_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = finnish_pagan_reformed 
+
+				}
+				add_artifact = crown_finnish_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = west_african_pagan_reformed 
+
+				}
+				add_artifact = crown_west_african_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = slavic_pagan_reformed 
+
+				}
+				add_artifact = crown_slavic_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = baltic_pagan_reformed 
+
+				}
+				add_artifact = crown_romuva_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = zun_pagan_reformed 
+
+				}
+				add_artifact = crown_zun_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = aztec_reformed 
+
+				}
+				add_artifact = crown_aztec_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = bon_reformed 
+
+				}
+				add_artifact = scepter_bon_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = hellenic_pagan_reformed 
+
+				}
+				add_artifact = scepter_hellenic_fylkir
+			}
+			#hidden_effect = { reformation_god_names_changes_effect = yes }
+			#Opinion boost to new religious head (if any) and Reformer.
+			if = {
+				limit = { 
+					has_dlc = "Holy Fury" 
+					OR = {
+						has_religion_feature = religion_theocratic_head
+						has_religion_feature = religion_autocephaly 
+					} 
+
+				}
+				religion_head = { opinion = { who = ROOT modifier = opinion_my_reformer years = 50 } }
+			}
+			if = {
+				limit = { religion = norse_pagan_reformed }
+				d_jomsvikings = {
+					religion = norse_pagan_reformed # This Holy Order now changes religion
+				}
+				set_global_flag = norse_reformation
+			}
+			if = {
+				limit = { religion = tengri_pagan_reformed }
+				set_global_flag = tengri_reformation
+			}
+			if = {
+				limit = { religion = baltic_pagan_reformed }
+				set_global_flag = baltic_reformation
+			}
+			if = {
+				limit = { religion = finnish_pagan_reformed }
+				set_global_flag = finnish_reformation
+			}
+			if = {
+				limit = { religion = aztec_reformed }
+				set_global_flag = aztec_reformation
+			}
+			if = {
+				limit = { religion = slavic_pagan_reformed }
+				set_global_flag = slavic_reformation
+			}
+			if = {
+				limit = { religion = west_african_pagan_reformed }
+				set_global_flag = west_african_reformation
+			}
+			if = {
+				limit = { religion = zun_pagan_reformed }
+				set_global_flag = zun_reformation
+			}
+			if = {
+				limit = { religion = bon_reformed }
+				set_global_flag = bon_reformation
+			}
+			if = {
+				limit = { religion = hellenic_pagan_reformed }
+				set_global_flag = hellenic_reformation
+			}
+			if = {
+				limit = { religion = draconic_pagan_reformed }
+				set_global_flag = draconic_reformation
+			}
+			if = {
+				limit = { religion = druidic_reformed }
+				set_global_flag = druidic_reformation
+				d_galatian_company = {
+					religion = druidic_reformed
+				}
+				d_helvetic_company = {
+					religion = druidic_reformed
+				}
+				d_brennus_ambaxtoi = {
+					religion = druidic_reformed
+				}
+			}
+			if = {
+				limit = { religion = jotnar_reformed }
+				set_global_flag = jotnar_reformation
+			}
 		}
 	}
 
@@ -5844,11 +6305,199 @@ narrative_event = {
 				portrait = [Root.GetID]
 			}
 		}
+		hidden_tooltip = {
+			if = {
+				limit = { 
+					ROOT = { has_religion_feature = religion_matriarchal }
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = enatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_4
+							cooldown = no
+							opinion_effect = no
+						}
+					} 
+					recalc_succession = yes
+				} 
+			}
+			if = {
+				limit = { 
+					ROOT = { has_religion_feature = religion_patriarchal }
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = agnatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_0
+							cooldown = no
+							opinion_effect = no
+						}
+					} 
+					recalc_succession = yes
+				} 
+			}
+			if = {
+				limit = { 
+					ROOT = {
+						OR = { 
+							has_religion_feature = religion_equal 
+							has_religion_feature = religion_feature_bon
+						}
+					}
+				}
+				ROOT = { 
+					any_demesne_title = { 
+						add_law = {
+							law = true_cognatic_succession
+							cooldown = no
+							opinion_effect = no
+						}
+						add_law = {
+							law = status_of_women_4
+							cooldown = no
+							opinion_effect = no
+						}
+					} 
+					recalc_succession = yes
+				} 
+			}
+			ROOT = {
+				if = {
+					limit = { 
+						has_religion_feature = religion_matriarchal 
+					}
+					any_close_relative = { 
+					limit = { is_female = no }
+						opinion = { 
+							who = ROOT 
+							modifier = bad_succ_law_change
+							years = 100
+						}
+					}
+					any_close_relative = { 
+						limit = { is_female = yes }
+						opinion = { 
+							who = ROOT 
+							modifier = good_succ_law_change
+							years = 100
+						}
+					}
+				}
+				if = {
+					limit = { 
+						has_religion_feature = religion_patriarchal 
+					}
+					any_close_relative = { 
+						limit = { is_female = yes }
+						opinion = { 
+							who = ROOT 
+							modifier = bad_succ_law_change
+							years = 100
+						}
+					}
+					any_close_relative = { 
+						limit = { is_female = no }
+						opinion = { 
+							who = ROOT 
+							modifier = good_succ_law_change
+							years = 100
+						}
+					}
+				}
+			}
+		}
 	}
 	option = {
 		name = "EVTOPTB670" # Rulers of the old Faith - Accept
 		trigger = {
 			is_heresy_of = ROOT # The old religion has become a heresy of the Reformed one
+		}
+		if = {
+			limit = { #Offer chance to switch the vassals' succession laws.
+				ROOT = { has_religion_feature = religion_no_leader }
+				ai = yes
+			}		
+			hidden_tooltip = {  
+				character_event = { id = HF.23016 days = 20 random = 20 }
+			}
+		}
+		if = {
+			limit = { #Offer chance to switch the vassals' succession laws.
+				ROOT = { has_religion_feature = religion_matriarchal }
+			}
+			custom_tooltip = { text = tooltip_HF23014_A }
+			hidden_tooltip = { 
+				any_demesne_title = { 
+					add_law = {
+						law = enatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+					add_law = {
+						law = status_of_women_4
+						cooldown = no
+						opinion_effect = no
+					}
+				} 
+				recalc_succession = yes
+			} 
+		}
+		if = {
+			limit = { #Offer chance to switch the vassals' succession laws.
+				ROOT = { has_religion_feature = religion_patriarchal }
+			}
+			custom_tooltip = { text = tooltip_HF23015_A }
+			hidden_tooltip = { 
+				any_demesne_title = { 
+					add_law = {
+						law = agnatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+					add_law = {
+						law = status_of_women_0
+						cooldown = no
+						opinion_effect = no
+					}
+				} 
+				recalc_succession = yes
+			} 
+		}
+		if = {
+			limit = { #Offer chance to switch the vassals' succession laws.
+				ROOT = {
+					OR = { 
+						has_religion_feature = religion_equal 
+						has_religion_feature = religion_feature_bon
+					}
+				}
+			}
+			custom_tooltip = { text = tooltip_HF23016_A }
+			hidden_tooltip = { 
+				any_demesne_title = { 
+					add_law = {
+						law = true_cognatic_succession
+						cooldown = no
+						opinion_effect = no
+					}
+					add_law = {
+						law = status_of_women_4
+						cooldown = no
+						opinion_effect = no
+					}
+				} 
+				recalc_succession = yes
+			} 
 		}
 		if = {
 			limit = { ai = no }
@@ -5895,6 +6544,13 @@ narrative_event = {
 				}
 				religion = ROOT
 			}
+			any_dynasty_member = {
+				limit = {
+					is_heresy_of = ROOT
+					is_playable = no
+				}
+				religion = ROOT
+			}
 			any_vassal = {
 				limit = {
 					is_playable = no
@@ -5926,8 +6582,14 @@ narrative_event = {
 			factor = 50
 			modifier = {
 				factor = 0
-				has_landed_title = d_jomsvikings
+				OR = {
+					has_landed_title = d_jomsvikings
+					has_landed_title = d_galatian_company
+					has_landed_title = d_helvetic_company
+					has_landed_title = d_brennus_ambaxtoi
+				}
 			}
+			post_reformation_ruler_conversion_score = yes
 		}
 		tooltip = { religion = THIS }
 	}
@@ -5951,12 +6613,14 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_inquisition
 		NOT = { has_character_modifier = in_seclusion }
 		location = {
 			any_province_character = {
+				ai = yes
 				is_adult = yes
 				NOT = { character = ROOT }
 				NOT = { is_liege_of = ROOT }
@@ -6086,12 +6750,12 @@ character_event = {
 					AND = {
 						OR = {
 							true_religion_hellenic_pagan_trigger = yes
-							true_religion_roman_pagan_trigger = yes
+							true_religion_hellenic_pagan_reformed_trigger = yes
 						}
 						ROOT = {
 							OR = {
 								religion = hellenic_pagan
-								religion = roman_pagan
+								religion = hellenic_pagan_reformed
 							}
 						}
 					}
@@ -6110,11 +6774,13 @@ character_event = {
 					AND = {
 						OR = {
 							true_religion_kemetic_pagan_trigger = yes
+							true_religion_kemetic_pagan_reformed_trigger = yes
 							true_religion_atenist_trigger = yes
 						}
 						ROOT = {
 							OR = {
 								religion = kemetic_pagan
+								religion = kemetic_pagan_reformed
 								religion = atenist
 							}
 						}
@@ -6127,6 +6793,14 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 	
+		modifier = {
+			factor = 0.75
+			has_religion_feature = religion_proselytizing
+		}
+		modifier = {
+			factor = 2.75
+			has_religion_feature = religion_cosmopolitan
+		}
 		modifier = {
 			factor = 1.25
 			NOT = { learning = 2 }
@@ -6188,6 +6862,7 @@ character_event = {
 		location = {
 			random_province_character = {
 				limit = {
+					ai = yes
 					is_adult = yes
 					NOT = { character = ROOT }
 					NOT = { is_liege_of = ROOT }
@@ -6325,6 +7000,12 @@ character_event = {
 				culture_group = north_germanic # Vikings do like their alcohol
 				event_target:missionary_physician_target = {
 					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 1.5
+				event_target:missionary_physician_target = {
+					has_religion_feature = religion_proselytizing
 				}
 			}
 			modifier = {
@@ -6617,11 +7298,13 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_advance_cul_tech
 		NOT = { has_character_modifier = in_seclusion }
 		NOT = { religion_group = indian_group }
+		NOT = { has_religion_feature = religion_cosmopolitan }
 		is_heretic = no
 		has_secret_religion = no
 		OR = {
@@ -6648,16 +7331,18 @@ character_event = {
 					}
 				}
 			}
-			# Kemetic can get heresies if atenist is available
+			# Kemetic can get heresies if atenist is available or reformed
 			AND = {
 				religion = kemetic_pagan
 				OR = {
 					has_global_flag = atenist_revived
+					has_global_flag = kemetic_pagan_reformation
 					AND = {
 						c_asyut = {
 							location = {
 								OR = {
 									religion = kemetic_pagan
+									religion = kemetic_pagan_reformed
 									religion = atenist
 								}
 							}
@@ -6669,7 +7354,29 @@ character_event = {
 								atenist = { num_of_holy_sites = 1 }
 							}
 							AND = {
+								kemetic_pagan = { num_of_holy_sites = 2 }
+								kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+							}
+							AND = {
 								kemetic_pagan = { num_of_holy_sites = 1 }
+								atenist = { num_of_holy_sites = 2 }
+							}
+							AND = {
+								kemetic_pagan = { num_of_holy_sites = 1 }
+								kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+								atenist = { num_of_holy_sites = 1 }
+							}
+							AND = {
+								kemetic_pagan = { num_of_holy_sites = 1 }
+								kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+							}
+							kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+							AND = {
+								kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+								atenist = { num_of_holy_sites = 1 }
+							}
+							AND = {
+								kemetic_pagan_reformed = { num_of_holy_sites = 1 }
 								atenist = { num_of_holy_sites = 2 }
 							}
 							atenist = { num_of_holy_sites = 3 }
@@ -6694,6 +7401,10 @@ character_event = {
 	mean_time_to_happen = {
 		months = 1000
 		
+		modifier = {
+			factor = 2
+			has_religion_feature = religion_dogmatic
+		}
 		modifier = {
 			factor = 1.25
 			NOT = { learning = 2 }
@@ -7042,13 +7753,9 @@ province_event = {
 			}
 		}
 		
-		OR = { # Either not Hellenic, or Roman is available
-			NOT = { religion = hellenic_pagan }
-			has_global_flag = roman_pagan_restoration
-		}
-		
-		OR = { # Either not Kemetic, or atenist is available
+		OR = { # Either not Kemetic, kemetic reformed, or atenist is available
 			NOT = { religion = kemetic_pagan }
+			has_global_flag = kemetic_pagan_reformation
 			has_global_flag = atenist_revived
 			AND = {
 				c_asyut = {
@@ -7066,7 +7773,29 @@ province_event = {
 						atenist = { num_of_holy_sites = 1 }
 					}
 					AND = {
+						kemetic_pagan = { num_of_holy_sites = 2 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+					}
+					AND = {
 						kemetic_pagan = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 2 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+					}
+					kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
 						atenist = { num_of_holy_sites = 2 }
 					}
 					atenist = { num_of_holy_sites = 3 }
@@ -7337,6 +8066,7 @@ character_event = { # Hunt Apostates meta event
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_hunt_heretics
@@ -8574,6 +9304,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_uncover_plots
@@ -8835,6 +9566,26 @@ narrative_event = {
 		name = EVTOPTA_RIP_21322
 		custom_tooltip = { text = EVTOPTA_RIP_21322_TOOLTIP } 
 		#add_trait = immortal
+		if = { 
+			limit = { 
+				is_female = no 
+				has_dlc = "Holy Fury"
+			}
+			create_bloodline = {
+				type = immortal_bloodline_01
+			}       
+		}
+		if = { 
+			limit = { 
+				is_female = yes 
+				has_dlc = "Holy Fury"
+			}
+			create_bloodline = {
+				type = immortal_bloodline_01
+				inheritance = matrilineal
+			}       
+		}
+
 		add_artifact = philosopher_stone
 		hidden_tooltip = { add_trait = philosopher_stone_trait }
 
@@ -8853,6 +9604,7 @@ narrative_event = {
 			}
 		}
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				who = ROOT
 				modifier = opinion_finished_mystic_task_3
@@ -8876,6 +9628,25 @@ narrative_event = {
 		custom_tooltip = { text = EVTOPTA_RIP_21324_TOOLTIP } 
 		#add_trait = immortal
 		add_artifact = philosopher_stone
+		if = { 
+			limit = { 
+				is_female = no 
+				has_dlc = "Holy Fury"
+			}
+			create_bloodline = {
+				type = immortal_bloodline_01
+			}       
+		}
+		if = { 
+			limit = { 
+				is_female = yes 
+				has_dlc = "Holy Fury"
+			}
+			create_bloodline = {
+				type = immortal_bloodline_01
+				inheritance = matrilineal
+			}       
+		}
 		hidden_tooltip = { add_trait = philosopher_stone_trait }
 
 		if = {
@@ -8895,6 +9666,7 @@ narrative_event = {
 			}
 		}
 		FROM = {
+			show_scope_change = no
 			opinion = {
 				who = ROOT
 				modifier = opinion_finished_mystic_task_3
@@ -9251,7 +10023,7 @@ character_event = {
 	}
 }
 
-# On-action event: Birth complications
+# On-action event: Birth complications - Pointing out that the baby receives this event, and thus he is the one that has to decide if his mother gets to die or not.
 character_event = {
 	id = 313
 	desc = OK
@@ -9265,11 +10037,45 @@ character_event = {
 	}
 
 	immediate = {
+		if = { 
+			limit = { 
+				mother_even_if_dead = { 
+					OR = { 
+						has_character_flag = gabriel_baby
+						has_character_flag = lucifer_baby
+						has_character_flag = iblis_baby
+						has_character_flag = thor_baby
+						has_character_flag = loki_baby
+						has_character_flag = tengri_baby
+						has_character_flag = erlik_baby 
+					} 
+				}
+			}
+			character_event = { id = HFP.20538 days = 1 }
+		}
 		random_list = {
 			80 = {
 				# All is well
 			}
 			10 = {
+				modifier = { #Old remedy
+					factor = 0.25
+					mother = {
+						has_character_flag = flag_mother_dark_rest 
+					}
+				}
+				modifier = {
+					factor = 0
+					OR = { 
+						has_character_flag = gabriel_baby
+						has_character_flag = lucifer_baby
+						has_character_flag = iblis_baby
+						has_character_flag = thor_baby
+						has_character_flag = loki_baby
+						has_character_flag = tengri_baby
+						has_character_flag = erlik_baby 
+					}
+				}
 				add_trait = sickly
 				update_sickly_trait = yes
 
@@ -9326,8 +10132,13 @@ character_event = {
 
 	option = { # No complications
 		name = OK
+		trigger = { 
+			NOT = { 
+				mother = { trait = troubled_pregnancy }
+			} 
+		}
 		ai_chance = {
-			factor = 120
+			factor = 80
 			modifier = {
 				factor = 2.0
 				mother = {
@@ -9368,12 +10179,20 @@ character_event = {
 	}
 	option = { # Mother gets ill
 		name = OK
+		trigger = { 
+			NOT = { 
+				mother = { trait = troubled_pregnancy }
+			} 
+			NOT = { 
+				mother = { is_ill = yes }
+			} 
+		}
 		ai_chance = {
-			factor = 12
+			factor = 4
 			modifier = {
-				factor = 0
+				factor = 2
 				mother = {
-					trait = pneumonic
+					trait = hard_pregnancy
 				}
 			}
 			modifier = {
@@ -9391,24 +10210,21 @@ character_event = {
 		}
 		
 		mother = {
-			if = {
-				limit = {
-					is_ill = yes
-				}
-				character_event = { id = 316 }
-			}
-			if = {
-				limit = {
-					is_ill = no
-				}
-				character_event = { id = 315 }
-			}
+			character_event = { id = 315 }
 		}
 	}
-	option = { # Mother gets pneumonia
+	
+	option = { # Mother has troubled pregnancy.
 		name = OK
+		trigger = { 
+			OR = { 
+				mother = { trait = troubled_pregnancy }
+				mother = { is_ill = yes }
+				mother = { check_variable = { which = troubled_pregnancy_variable value = 1 } }
+			} 
+		}
 		ai_chance = {
-			factor = 8
+			factor = 16
 			
 			modifier = {
 				factor = 2.0
@@ -9428,60 +10244,35 @@ character_event = {
 					NOT = { num_of_children = 2 }
 				}
 			}
-		}
-		
-		mother = {
-			if = {
-				limit = {
-					OR = {
-						trait = pneumonic 
-						has_epidemic = yes
-					}
-				}
-				death = {
-					death_reason = death_childbirth
-				}
-			}
-			if = {
-				limit = {
-					NOT = {
-						OR = {
-							trait = pneumonic 
-							has_epidemic = yes
-						}
-					}
-				}
-				character_event = { id = 316 }
-			}
-		}
-	}
-	option = { # Mother dies
-		name = OK
-		ai_chance = {
-			factor = 2
+			
 			modifier = {
-				factor = 2.0
+				factor = 1.5
 				mother = {
-					NOT = { health = 4.1 }
-				}
-			}
-			modifier = {
-				factor = 6.0
-				mother = {
-					NOT = { health = 3.1 }
+					check_variable = { which = troubled_pregnancy_variable value = 2 }
 				}
 			}
 			modifier = {
 				factor = 1.5
 				mother = {
-					NOT = { num_of_children = 2 }
+					check_variable = { which = troubled_pregnancy_variable value = 3 }
+				}
+			}
+			modifier = {
+				factor = 2
+				mother = {
+					check_variable = { which = troubled_pregnancy_variable value = 4 }
+				}
+			}
+			modifier = {
+				factor = 3
+				mother = {
+					check_variable = { which = troubled_pregnancy_variable value = 5 }
 				}
 			}
 		}
+		
 		mother = {
-			death = {
-				death_reason = death_childbirth
-			}
+				character_event = { id = 316 } #Troubled pregnancy gets worse.
 		}
 	}
 }
@@ -9498,12 +10289,69 @@ character_event = { #birth
 	}
 	
 	immediate = {
+		add_trait = lefthanded
 		set_character_flag = demon_child_non_pagan
 		set_global_flag = demon_child_born
 		add_character_modifier = {
 			name = demon_child_non_pagan
 			hidden = yes
 			days = -1
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_satanists }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_satanists
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_cold_ones }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_cold_ones
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_plaguebringers }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_plaguebringers
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_cult_of_kali }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_cult_of_kali
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_trollcrafters }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_trollcrafters
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_bacchants }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_bacchants
+			}
+		}
+		if = {
+			limit = {
+				mother = { society_member_of = the_vodouns }
+			}
+			ROOT = {
+				set_character_flag = demonspawn_will_join_vodouns
+			}
 		}
 		remove_sickly = yes
 		character_event = { id = SoA.3019 days = 90 random = 90 } # Demon child tombola
@@ -9938,6 +10786,37 @@ province_event = {
 				}
 			}
 		}
+		modifier = {
+			factor = 0.25
+			OR = {
+				culture = zhangzhung
+				culture = sumpa
+			}
+			owner = {
+				culture = bodpa
+				OR = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_songtsen_gampo
+					}
+					top_liege = {
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_songtsen_gampo
+						}
+					}
+				}
+			}
+		}
+		modifier = { #Roman Renaissance.
+			factor = 0.5
+			has_global_flag = flag_started_roman_renaissance
+			liege = { culture = roman }
+			location = { county = { culture_group = latin } }
+		}
+		modifier = { #Greek culture is more impervious to Romanization.
+			factor = 2
+			liege = { culture = roman }
+			location = { county = { culture = greek } }
+		}
 	}
 
 	option = {
@@ -10095,6 +10974,8 @@ character_event = {
 	only_playable = yes
 	religion_group = christian
 	
+	is_triggered_only = yes
+	
 	trigger = {
 		is_inaccessible_trigger = no
 		trait = zealous
@@ -10133,35 +11014,6 @@ character_event = {
 					is_rival = ROOT
 				}
 			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 80
-		
-		modifier = {
-			factor = 0.5
-			piety = 50
-		}
-		modifier = {
-			factor = 2
-			NOT = { piety = 50 }
-		}
-		modifier = {
-			factor = 0.5
-			trait = diligent
-		}
-		modifier = {
-			factor = 2
-			trait = slothful
-		}
-		modifier = {
-			factor = 0.5
-			trait = ambitious
-		}
-		modifier = {
-			factor = 2
-			trait = content
 		}
 	}
 	
@@ -10319,7 +11171,6 @@ character_event = {
 	is_triggered_only = yes
 	hide_window = yes
 
-	only_men = yes
 	capable_only = yes
 	prisoner = no
 	ai = yes
@@ -10461,6 +11312,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_inquisition
@@ -10470,6 +11322,7 @@ character_event = {
 		NOT = { religion = the_damned }
 		location = {
 			any_province_character = {
+				ai = yes
 				is_adult = yes
 				NOT = { character = ROOT }
 				NOT = { is_liege_of = ROOT }
@@ -10491,6 +11344,14 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 	
+		modifier = {
+			factor = 0.75
+			has_religion_feature = religion_proselytizing
+		}
+		modifier = {
+			factor = 2.75
+			has_religion_feature = religion_cosmopolitan
+		}
 		modifier = {
 			factor = 1.25
 			NOT = { learning = 2 }
@@ -10552,6 +11413,7 @@ character_event = {
 		location = {
 			random_province_character = {
 				limit = {
+					ai = yes
 					is_adult = yes
 					NOT = { character = ROOT }
 					NOT = { is_liege_of = ROOT }
@@ -11525,6 +12387,7 @@ character_event = {
 	option = {
 		name = "EVTOPTB75085"
 		job_treasurer = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_dislike
 				who = ROOT
@@ -11595,6 +12458,7 @@ character_event = {
 	option = {
 		name = "EVTOPTB75120"
 		job_marshal = {
+			show_scope_change = no
 			opinion = {
 				modifier = opinion_dislike
 				who = ROOT
@@ -11837,6 +12701,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	immediate = {
 		random_demesne_province = {
@@ -12021,8 +12886,8 @@ character_event = {
 		text = EVTDESC_TOG_7520_JARILO
 	}
 	desc = {
-		trigger = { has_character_modifier = follower_of_ekwensu }
-		text = EVTDESC_TOG_7520_EKWENSU
+		trigger = { has_character_modifier = follower_of_bida }
+		text = EVTDESC_TOG_7520_BIDA
 		picture = GFX_evt_market_byzantine
 	}
 
@@ -12114,10 +12979,6 @@ character_event = {
 			}
 			culture_group = undead_culture_group
 		}
-	}
-	
-	immediate = {
-		
 	}
 	
 	option = {
@@ -12353,6 +13214,26 @@ province_event = { #prosperity gain
 		random = {
 			chance = 50 #50/50 base chance to increase
 			modifier = {
+				factor = 1.5
+				owner = {
+					any_owned_bloodline = {
+						has_bloodline_flag = bloodline_peace_prosperity 
+					}
+				}
+			}
+			modifier = {
+				factor = 1.25
+				owner = {
+					has_character_modifier = african_adulthood_rites_1
+				}
+			}
+			modifier = {
+				factor = 1.2
+				owner = {
+					has_province_modifier = africa_heavy_rain
+				}
+			}
+			modifier = {
 				factor = 1.5 #over 16 stewardship you have a 75% chance
 				owner = {
 					stewardship = 16
@@ -12410,6 +13291,8 @@ province_event = { #prosperity gain
 					has_province_modifier = local_death_cult
 					has_province_modifier = extra_tax
 					has_province_modifier = undead_desolation
+					has_province_modifier = africa_drought_risk
+					has_province_modifier = africa_drought
 				}
 			}
 			modifier = {
@@ -12832,6 +13715,45 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
+					NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+					NOT = { #...Or there are no valid vassal candidates that can be commanders.
+						any_vassal = { 
+							higher_real_tier_than = BARON
+							NOT = { 
+								primary_title = { temporary = yes } 
+							}
+							OR = {
+								AND = {
+									OR = {
+										male_can_hold_minor_title_trigger = yes
+										female_can_hold_minor_commander_title_trigger = yes
+									}
+									OR = {
+										NOT = { religion = hindu }
+										trait = kshatriya
+									}
+									is_adult = yes
+								}
+								has_character_flag = special_marshal
+							}
+					
+							prisoner = no
+							NOT = { trait = incapable }
+							NOT = { is_inaccessible_trigger = yes }
+							NOT = { has_character_flag = guru }
+							NOT = { has_character_modifier = refusing_to_lead }
+							NOR = {
+								has_job_title = job_chancellor
+								has_job_title = job_marshal
+								has_job_title = job_treasurer
+								has_job_title = job_spymaster
+								has_job_title = job_spiritual
+								has_minor_title = title_commander
+							}
+						} 
+					}
+				}
+				OR = {
 					AND = {
 						tier = COUNT
 						NOT = {
@@ -12908,6 +13830,46 @@ character_event = {
 		name = MNM.70013.o
 		
 		trigger = {
+			OR = { 
+				NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
+				higher_real_tier_than = BARON #...Or potential commander is vassal...
+				NOT = { #...Or there are no valid vassal candidates that can be commanders.
+					any_vassal = { 
+						higher_real_tier_than = BARON
+						NOT = { 
+							primary_title = { temporary = yes } 
+						}
+						OR = {
+							AND = {
+								OR = {
+									male_can_hold_minor_title_trigger = yes
+									female_can_hold_minor_commander_title_trigger = yes
+								}
+								OR = {
+									NOT = { religion = hindu }
+									trait = kshatriya
+								}
+								is_adult = yes
+							}
+							has_character_flag = special_marshal
+						}
+				
+						prisoner = no
+						NOT = { trait = incapable }
+						NOT = { is_inaccessible_trigger = yes }
+						NOT = { has_character_flag = guru }
+						NOT = { has_character_modifier = refusing_to_lead }
+						NOR = {
+							has_job_title = job_chancellor
+							has_job_title = job_marshal
+							has_job_title = job_treasurer
+							has_job_title = job_spymaster
+							has_job_title = job_spiritual
+							has_minor_title = title_commander
+						}
+					} 
+				}
+			}
 			any_realm_character = {
 				NOT = {
 					higher_tier_than = BARON
@@ -13144,7 +14106,64 @@ province_event = {
 # On-action event: Pregnancy starts showing
 character_event = {
 	id = 400
-	desc = EVTDESC400
+	desc = { 
+		text = EVTDESC400 
+		trigger = { #The father is alive and a spouse
+			is_married = yes			
+			father_of_unborn = {
+				is_alive = yes
+				any_spouse = { character = ROOT }
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_widow
+		trigger = { #The father is dead and a spouse
+			is_married = no
+			father_of_unborn = {
+				is_alive = no
+				ROOT = {
+					any_spouse_even_if_dead = {
+						character = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_CONSORT
+		trigger = { #Not married, but is consort
+			is_married = no
+			NOT = { num_of_consorts = 2 }
+			NOT = {
+				father_of_unborn = {
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
+	desc = { 
+		text = EVTDESC400_CONSORTS
+		trigger = { #Not married, and multiple consorts
+			is_married = no
+			num_of_consorts = 2
+			NOT = {
+				father_of_unborn = {
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+			}
+		}
+	}
 	picture = GFX_evt_pregnancy
 	border = GFX_event_normal_frame_religion
 	
@@ -13155,11 +14174,38 @@ character_event = {
 			trait = pregnant
 			trait = vampire
 		}
+		is_consort = no
 		father_of_unborn = {
-			any_spouse = {
-				character = ROOT
+			OR = {
+				AND = { #The father is alive and a spouse
+					is_alive = yes
+					any_spouse = { character = ROOT }
+				}
+				AND = { #The father is dead and a spouse
+					is_alive = no
+					ROOT = {
+						any_spouse_even_if_dead = {
+							character = PREVPREV
+						}
+					}
+				}
+				any_consort = {
+					character = ROOT
+					is_senior_consort_party = yes
+				}
 			}
 			NOT = { trait = vampire }
+		}
+	}
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					father_of_unborn = { trait = vampire }
+				}
+			}
+			cancel_pregnancy = yes
 		}
 	}
 	
@@ -13171,6 +14217,132 @@ character_event = {
 		name = OK
 		tooltip = { add_trait = pregnant }
 		prestige = 10
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { 
+						any_courtier = { has_minor_title = title_appointed_regent } 
+						has_dynasty_flag = pregnancy_regent_warning 
+					} 
+				}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				80 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.9
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.9
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.9
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.9
+						age = 37 
+					}
+					modifier = { 
+						factor = 0.9
+						NOT = { age = 20 } 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 8 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 1.5
+						is_tribal = yes
+					}
+					modifier = { 
+						factor = 1.5
+						is_nomadic = yes
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 0.5
+						trait = is_malnourished
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+					modifier = { 
+						factor = 1.5
+						trait = sturdy
+					}
+				} 
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 0.25
+						age = 18
+						NOT = { is_40 = yes }
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					modifier = { 
+						factor = 2
+						has_character_modifier = hashish_addict
+					}
+					modifier = { 
+						factor = 3
+						has_character_modifier = withdrawal_symptoms
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 		
 		if = {
 			limit = {
@@ -13184,6 +14356,7 @@ character_event = {
 					limit = {
 						father_of_unborn = {
 							trait = paranoid
+							is_consort = no #No authority to be paranoid. Indeed, he has no way of knowing the child is his.
 						}
 					}
 					random = {
@@ -13207,7 +14380,10 @@ character_event = {
 				}
 			}
 			
-			father_of_unborn = { character_event = { id = 403 tooltip = EVTTOOLTIP403 } }
+			father_of_unborn = {
+				show_scope_change = no
+				character_event = { id = 403 tooltip = EVTTOOLTIP403 }
+			}
 		}
 	}
 }
@@ -13233,9 +14409,24 @@ character_event = {
 			NOR = {
 				any_spouse = {
 					character = ROOT
+				}	
+				any_consort = {
+					character = ROOT
+					is_senior_consort_party = yes
 				}
 				trait = vampire			
 			}
+		}
+	}
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					father_of_unborn = { trait = vampire }
+				}
+			}
+			cancel_pregnancy = yes
 		}
 	}
 	
@@ -13248,6 +14439,118 @@ character_event = {
 		tooltip = { add_trait = pregnant }
 		piety = -50
 		prestige = -50
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
+					has_global_flag = pregnancy_regent_warning } 
+					}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				50 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						age = 37 
+					}
+					modifier = { 
+						factor = 0.8
+						NOT = { age = 20 } 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.8
+						trait = shieldmaiden
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				50 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 0.25
+						age = 18
+						NOT = { is_40 = yes }
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					modifier = { 
+						factor = 2
+						has_character_modifier = hashish_addict
+					}
+					modifier = { 
+						factor = 3
+						has_character_modifier = withdrawal_symptoms
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 	}
 }
 
@@ -13276,6 +14579,17 @@ character_event = {
 			}
 		}
 	}
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					father_of_unborn = { trait = vampire }
+				}
+			}
+			cancel_pregnancy = yes
+		}
+	}
 	
 	immediate = {
 		add_trait = pregnant
@@ -13287,7 +14601,122 @@ character_event = {
 		
 #		log = "402: [Root.GetTitledName], wife of [Root.Spouse.GetTitledName] in [Root.Employer.PrimaryTitle.GetName] gets pregnant with [Root.FatherOfUnborn.GetTitledName]."
 		
-		spouse = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+		spouse = {
+			show_scope_change = no
+			character_event = { id = 404 tooltip = EVTTOOLTIP404 }
+		}
+		hidden_tooltip = { 
+			if = { 
+				limit = {
+					ai = no
+					NOT = { any_courtier = { has_minor_title = title_appointed_regent } 
+					has_global_flag = pregnancy_regent_warning } 
+					}
+				character_event = { id = HFP.20400 } 
+			}
+		}
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						age = 37 
+					}
+					modifier = { 
+						factor = 0.8
+						NOT = { age = 20 } 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.8
+						trait = shieldmaiden
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				30 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 0.25
+						age = 18
+						NOT = { is_40 = yes }
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					modifier = { 
+						factor = 2
+						has_character_modifier = hashish_addict
+					}
+					modifier = { 
+						factor = 3
+						has_character_modifier = withdrawal_symptoms
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 	}
 }
 
@@ -13308,6 +14737,17 @@ character_event = {
 		father_of_unborn = {
 			is_consort = ROOT
 			NOT = { trait = vampire }
+		}
+	}
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					father_of_unborn = { trait = vampire }
+				}
+			}
+			cancel_pregnancy = yes
 		}
 	}
 	
@@ -13382,6 +14822,17 @@ character_event = {
 			}
 		}
 	}
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				OR = {
+					trait = vampire
+					father_of_unborn = { trait = vampire }
+				}
+			}
+			cancel_pregnancy = yes
+		}
+	}
 	
 	immediate = {
 		add_trait = pregnant
@@ -13391,6 +14842,991 @@ character_event = {
 		name = EVTOPTA412
 		tooltip = { add_trait = pregnant }
 		consort = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+	}
+}
+
+#on_pregnancy, set clock for finishing phase at 2 months
+character_event = {
+	id = HFP.20401
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOR = {
+			trait = vampire
+			father_of_unborn = { trait = vampire }
+		}
+	}
+
+	immediate = { 
+		character_event = { id = HFP.20402 days = 170 }
+	}
+}
+
+#on_pregnancy positive events.
+character_event = {
+	id = HFP.20556
+	hide_window = yes
+
+	trigger = { 
+		NOR = {
+			trait = vampire
+			father_of_unborn = { trait = vampire }
+		}
+		OR = {
+			has_game_rule = {
+				name = pregnancy_flavor
+				value = on
+			}
+			has_game_rule = {
+				name = pregnancy_flavor
+				value = limited
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+
+	immediate = { 
+		clr_character_flag = flag_mother_dark_rest
+		clr_character_flag = mother_gossip_listening #Safety check, they should already have been removed
+		clr_character_flag = mother_gossip_talking
+		clr_character_flag = mother_gossip_trusting
+		clr_character_flag = mother_gossip_plotting
+		clr_character_flag = mother_gossip_envious
+		clr_character_flag = mother_gossip_shy
+		clr_character_flag = mother_gossip_learning
+		clr_character_flag = mother_gossip_content
+		clr_character_flag = mother_gossip_gluttonous
+		clr_character_flag = flag_mother_festival_gregarious
+		clr_character_flag = flag_mother_festival_kind
+		clr_character_flag = flag_mother_festival_piety
+		clr_character_flag = flag_mother_festival_proud
+		clr_character_flag = flag_mother_festival_ambitious
+		clr_character_flag = flag_mother_festival_prestige
+		clr_character_flag = flag_mother_festival_peasants
+		clr_character_flag = flag_mother_festival_vassals
+		clr_character_flag = flag_mother_festival_gluttonous
+		clr_character_flag = flag_mother_festival_drunkard
+		clr_character_flag = flag_mother_festival_chaste
+		clr_character_flag = flag_mother_festival_lustful
+		any_lover = {  
+			limit = { ai = no }
+			character_event = { id = HFP.20067 }
+		}
+		#First pregnancy scare. 
+		random_list = {
+			20 = {}
+			80 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 20 }
+				}
+				modifier = { 
+					factor = 0
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					is_married = no
+				}
+				modifier = { 
+					factor = 1.75
+					trait = craven
+				}
+				modifier = { 
+					factor = 0.5
+					trait = brave
+				}
+
+				character_event = { id = HFP.20557 days = 7 random = 5 }
+			}
+		}
+		#Random stuff 
+		random_list = {
+			#Pregnancy Glow
+			10 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 25 }
+				}
+				modifier = { 
+					factor = 0.25
+					age = 35
+				}
+				modifier = { 
+					factor = 0.1
+					age = 45
+				}
+				character_event = { id = HFP.20003 days = 25 random = 10 }
+			}
+			#Dark Rest
+			10 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 25 }
+				}
+				modifier = { 
+					factor = 0
+					NOT = { higher_tier_than = BARON }
+					spouse = { lower_tier_than = COUNT }
+				}
+				modifier = { 
+					factor = 0.25
+					age = 35
+				}
+				modifier = { 
+					factor = 0.1
+					age = 45
+				}
+				#Fires for woman if landed, otherwise husband.
+				if = { 
+					limit = { is_ruler = yes } 
+					character_event = { id = HFP.20030 days = 60 random = 10 }
+				}
+				else = { spouse = { character_event = { id = HFP.20030 days = 60 random = 10 } } } 
+			}
+			#Baby kicks
+			20 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				character_event = { id = HFP.20558 days = 80 random = 20 }
+			}
+			#Gender wager
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 0
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { #Already have an heir
+					factor = 0
+					any_child = { 
+						is_female = no
+					}
+					OR = { 
+						has_law = agnatic_succession
+						has_law = cognatic_succession
+					}
+				}
+				modifier = { #Already have an heir
+					factor = 0
+					any_child = { 
+						is_female = yes
+					}
+					OR = { 
+						has_law = enatic_cognatic_succession
+						has_law = enatic_succession
+					}
+				}
+				modifier = { #Doesn't really matter.
+					factor = 0.5
+					OR = { 
+						has_law = status_of_women_4
+						has_law = true_cognatic_succession
+					}
+				}
+				character_event = { id = HFP.20559 days = 60 random = 10 }
+			}
+			#Ordering new dresses
+			15 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 0.5
+					trait = temperate
+				}
+				modifier = { 
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 0.25
+					trait = is_malnourished
+				}
+				modifier = { 
+					factor = 1.75
+					trait = is_fat
+				}
+				modifier = { 
+					factor = 1.5
+					trait = sturdy
+				}
+				modifier = { 
+					factor = 0.5
+					trait = feeble
+				}
+				character_event = { id = HFP.20560 days = 80 random = 100 }
+			}
+			#Positive omen
+			5 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 1.5
+					is_tribal = yes
+				}
+				modifier = { 
+					factor = 1.5
+					is_nomadic = yes
+				}
+				character_event = { id = HFP.20565 days = 65 random = 20 }
+			}
+			#Negative omen
+			5 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					trait = zealous
+				}
+				modifier = { 
+					factor = 0.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 1.5
+					is_tribal = yes
+				}
+				modifier = { 
+					factor = 1.5
+					is_nomadic = yes
+				}
+				character_event = { id = HFP.20567 days = 65 random = 20 }
+			}
+			#Nothing
+			15 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 1
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.5
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.75
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 1.8
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					age = 35
+				}
+				modifier = { 
+					factor = 1.75
+					age = 40
+				}
+			}
+		}
+		#Vows and sacrifices for healthy child (rulers only).
+		random_list = {
+			#Holy Virgin for Christians
+			45 = {
+				trigger = { 
+					is_ruler = yes
+					religion_group = christian
+					NOT = { society_member_of = the_satanists }
+					NOT = { num_of_children = 3 }
+					NOT = { is_devil_worshiper_trigger = yes }
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0.25
+					num_of_children = 1
+				}
+				character_event = { id = HFP.20569 days = 15 random = 8 }
+			}
+			#Fertility festival for baltic, norse, finnish pagans.
+			90 = {
+				trigger = { 
+					is_married = yes
+					is_main_spouse = yes
+					NOR = { 
+						num_of_children = 3 
+						has_character_modifier = mother_fertility_festival_1
+						has_character_modifier = mother_fertility_festival_2
+						has_character_modifier = mother_festival_blessing
+					}
+					OR = { 
+						higher_real_tier_than = COUNT
+						spouse = { higher_real_tier_than = COUNT } 
+					} 
+					spouse = { 
+						OR = { 
+							religion = norse_pagan
+							religion = norse_pagan_reformed
+							religion = baltic_pagan
+							religion = baltic_pagan_reformed
+							religion = finnish_pagan
+							religion = finnish_pagan_reformed 
+						}  
+						NOR = { 
+							trait = incapable 
+							prisoner = yes
+							is_inaccessible_trigger = yes
+						}
+					}
+					OR = { 
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+						religion = baltic_pagan
+						religion = baltic_pagan_reformed
+						religion = finnish_pagan
+						religion = finnish_pagan_reformed 
+					} 
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0.25
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					is_attractive_trigger = yes
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 30 }
+				}
+				modifier = { 
+					factor = 1.5
+					OR = { 
+						real_tier = KING
+						spouse = { real_tier = KING }
+					}
+				}
+				modifier = { 
+					factor = 1.75
+					OR = { 
+						real_tier = EMPEROR
+						spouse = { real_tier = EMPEROR }
+					}
+				}
+				modifier = { 
+					factor = 0.85
+					is_ill = yes
+				}
+				spouse = { character_event = { id = HFP.20043 days = 15 random = 8 } }
+			}
+			#Sacrifices for Pagans
+			50 = {
+				trigger = { 
+					is_ruler = yes
+					religion_group = pagan_group
+					OR = { 
+						is_tribal = yes
+						is_nomadic = yes
+					}
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { #If she qualifies for Fertility Festival, prioritize that instead.
+					factor = 0.2
+					is_married = yes
+					is_main_spouse = yes
+					NOR = { 
+						num_of_children = 3 
+						has_character_modifier = mother_fertility_festival_1
+						has_character_modifier = mother_fertility_festival_2
+						has_character_modifier = mother_festival_blessing
+					}
+					OR = { 
+						higher_real_tier_than = COUNT
+						spouse = { higher_real_tier_than = COUNT } 
+					} 
+					spouse = { 
+						OR = { 
+							religion = norse_pagan
+							religion = norse_pagan_reformed
+							religion = baltic_pagan
+							religion = baltic_pagan_reformed
+							religion = finnish_pagan
+							religion = finnish_pagan_reformed 
+						}  
+						NOR = { 
+							trait = incapable 
+							prisoner = yes
+							is_inaccessible_trigger = yes
+						}
+					}
+					OR = { 
+						religion = norse_pagan
+						religion = norse_pagan_reformed
+						religion = baltic_pagan
+						religion = baltic_pagan_reformed
+						religion = finnish_pagan
+						religion = finnish_pagan_reformed 
+					} 
+				}
+				modifier = { 
+					factor = 0.5
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.25
+					trait = weak
+				}
+				modifier = { 
+					factor = 1.25
+					trait = feeble
+				}
+				modifier = { 
+					factor = 1.5
+					trait = inbred
+				}
+				modifier = { 
+					factor = 1.25
+					trait = hunchback
+				}
+				modifier = { 
+					factor = 1.25
+					trait = dwarf
+				}
+				modifier = { 
+					factor = 1.25
+					father_even_if_dead = { trait = weak }
+				}
+				modifier = { 
+					factor = 1.25
+					father_even_if_dead = { trait = feeble }
+				}
+				modifier = { 
+					factor = 1.25
+					father_even_if_dead = { trait = inbred }
+				}
+				modifier = { 
+					factor = 1.25
+					father_even_if_dead = { trait = hunchback }
+				}
+				modifier = { 
+					factor = 1.25
+					father_even_if_dead = { trait = dwarf }
+				}
+				character_event = { id = HFP.20571 days = 15 random = 8 }
+			}
+			#Nothing
+			35 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 0.75	#Young mom is scared.
+					NOT = { age = 20 }
+				}
+				modifier = { 
+					factor = 0.75	#Old mom is scared.
+					age = 37
+				}
+				modifier = { 
+					factor = 1.5
+					is_ill = no
+				}
+				modifier = { 
+					factor = 0.75
+					trait = zealous
+				}
+				modifier = { 
+					factor = 1.5
+					trait = cynical
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.5
+					age = 35
+				}
+			}
+		}
+		#Mother has weird cravings.
+		random_list = {
+			#Yes
+			10 = {
+				modifier = { 
+					factor = 1.5
+					NOR = { num_of_children = 3 } 
+					NOR = { 
+						any_child = { trait = harelip } 
+						any_child = { trait = ugly } 
+						any_child = { trait = clubfooted } 
+					}
+				}
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 1.75
+					trait = hedonist
+				}
+				modifier = { 
+					factor = 1.5
+					trait = gluttonous
+				}
+				modifier = { 
+					factor = 0.5
+					trait = temperate
+				}
+				character_event = { id = HFP.20573 days = 40 random = 10 }
+			}
+			#No
+			90 = {
+				modifier = { 
+					factor = 0.5
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 1.75
+					num_of_children = 3
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
+
+			}
+		}
+		#Mother receives solace from...
+		random_list = {
+			#Other sons
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_child = { 
+							is_alive = yes 
+							age = 6
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+						}
+					}
+				}
+				modifier = { 
+					factor = 0.75
+					NOT = { 
+						any_child = { 
+							is_alive = yes 
+							age = 6
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+							trait = kind
+						}
+					}
+				}
+				random_child = { 
+					limit = { 
+						is_alive = yes 
+						age = 6
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						prisoner = no
+					}
+					character_event = { id = HFP.20574 days = 120 random = 20 }
+				}
+			}
+			#Spouse 
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0.15
+					is_ruler = no
+					is_main_spouse = no
+				}
+				modifier = { 
+					factor = 0.25
+					has_character_modifier = adulteress
+				}
+				modifier = { 
+					factor = 0.25
+					has_character_modifier = incestuous_adulteress
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_spouse = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+						}
+					}
+				}
+				modifier = { 
+					factor = 0.75
+					NOT = { 
+						any_spouse = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							prisoner = no
+							trait = kind
+						}
+					}
+				}
+				random_spouse = { 
+					limit = { 
+						is_alive = yes 
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						prisoner = no
+					}
+					character_event = { id = HFP.20574 days = 120 random = 20 }
+				}
+			}
+			#Lover
+			30 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					is_consort = yes
+				}
+				modifier = { 
+					factor = 0
+					NOT = { 
+						any_lover = { 
+							is_alive = yes 
+							is_inaccessible_trigger = no
+							NOT = { trait = incapable }
+							NOT = { is_married = ROOT } #Loving husbands get event above.
+							prisoner = no
+						}
+					}
+				}
+				random_lover = { 
+					limit = { 
+						is_alive = yes 
+						is_inaccessible_trigger = no
+						NOT = { trait = incapable }
+						NOT = { is_married = ROOT }
+						prisoner = no
+					}
+					character_event = { id = HFP.20575 days = 120 random = 20 }
+				}
+			}
+			#Spouse organizes Gossiping
+			50 = {
+				modifier = { 
+					factor = 0.5
+					has_game_rule = {
+						name = pregnancy_flavor
+						value = limited
+					}
+				}
+				modifier = { 
+					factor = 0
+					is_main_spouse = no
+				}
+				modifier = { 
+					factor = 0
+					is_married = no
+				}
+				modifier = {
+					factor = 0
+					spouse = { trait = incapable }
+				}
+				modifier = {
+					factor = 0
+					spouse = { prisoner = yes }
+				}
+				modifier = { #Only for rulers with vassals (or spouses of rulers)
+					factor = 0
+					spouse = { lower_tier_than = COUNT }
+					lower_tier_than = COUNT
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.5
+					num_of_children = 2
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.35
+					num_of_children = 3
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.25
+					num_of_children = 4
+				}
+				modifier = { #Make events less likely to become recurring at every pregnancy.
+					factor = 0.15
+					num_of_children = 5
+				}
+				modifier = { 
+					factor = 1.65
+					trait = gregarious
+				}
+				modifier = { 
+					factor = 1.5
+					NOT = { age = 25 }
+				}
+				modifier = { 
+					factor = 0.25
+					age = 35
+				}
+				modifier = { 
+					factor = 0.1
+					age = 45
+				}
+				spouse = { character_event = { id = HFP.20005 days = 120 random = 20 } } #Fires on husband first.
+			}
+			#Nobody
+			40 = {
+				modifier = { 
+					factor = 0.85
+					NOT = { num_of_children = 1 }
+				}
+				modifier = { 
+					factor = 1.25
+					num_of_children = 1
+				}
+				modifier = { 
+					factor = 1.5
+					num_of_children = 2
+				}
+				modifier = { 
+					factor = 1.75
+					num_of_children = 3
+				}
+				modifier = { 
+					factor = 2
+					num_of_children = 4
+				}
+				modifier = { 
+					factor = 3
+					num_of_children = 5
+				}
+
+			}
+		}
 	}
 }
 
@@ -13427,6 +15863,8 @@ character_event = { # immortal suspicions
 			trait = mummy
 			trait = demon_trait
 			trait = ethereal_trait
+			trait = dragon # These two live long enough that suspicions would fire long before they are relevant
+			trait = demi_god
 		}
 		is_70 = yes
 		NOR = { 
@@ -13440,7 +15878,7 @@ character_event = { # immortal suspicions
 		
 		modifier = {
 			factor = 2
-			age = 100
+			is_100 = yes
 		}
 		modifier = {
 			factor = 2
@@ -13573,6 +16011,228 @@ character_event = {
 		name = EVTOPTB_ZE_8000
 		ai_chance = { 
 			factor = 10
+		}
+	}
+}
+
+#Adult crossroad for pure Murder Bloodline.
+character_event = {
+	id = HF.24027
+	desc = EVTDESCAHF24027
+	picture = GFX_evt_whispers
+	border = GFX_event_normal_frame_intrigue
+	
+	trigger = { 
+		has_dlc = "Holy Fury"
+		NOT = {
+			any_owned_bloodline = { 
+				has_bloodline_flag = created_bloodline
+			}
+		}
+		has_ambition = obj_forge_bloodline
+	}
+
+	is_triggered_only = yes
+	
+	# Lunatic Dragon-King Bloodline.
+	# Prop up embalmed corpses in Macabre Feast.
+	# Hide everything.
+	# Entrap next victim.
+
+	option = {
+		name = EVTOPTZHF24027
+		custom_tooltip = { text = TT_EVTOPTZHF24027 }
+		trigger = {  
+			OR = {
+				trait = lunatic
+				trait = possessed
+				trait = cannibal_trait
+				trait = dragon
+			}
+			trait = cruel
+		}
+		if = { 
+			limit = {
+				NOR = {
+					trait = cannibal_trait
+					trait = dragon
+				} 
+			} 
+			add_trait = cannibal_trait
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = no
+			}
+			ROOT = { give_nickname = nick_the_dragon }
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = yes
+			}
+			ROOT = { give_nickname = nick_the_dragoness }
+		}
+		tooltip = { #Show bloodline effects
+			create_bloodline = {
+				type = pure_murder_bloodline_05
+			}		
+		}
+		hidden_tooltip = { narrative_event = { id = HF.24231 } }
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = {
+		name = EVTOPTAHF24027
+		custom_tooltip = { text = TT_EVTOPTAHF24027 }
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		if = { 
+			limit = { NOT = { trait = lunatic } } 
+			random = { 
+				chance = 5 
+				add_trait = lunatic
+			}
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				culture_group = latin
+			}
+			ROOT = { give_nickname = nick_the_ferrante }
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				NOT = { culture_group = latin }
+			}
+			ROOT = { give_nickname = nick_the_iron_heart }
+		}
+		tooltip = { #Show bloodline effects
+			create_bloodline = {
+				type = pure_murder_bloodline_02
+			}		
+		}
+		hidden_tooltip = { narrative_event = { id = HF.24028 } }
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = {
+		name = EVTOPTBHF24027
+		custom_tooltip = { text = TT_EVTOPTBHF24027 }
+		if = { 
+			limit = { NOT = { trait = paranoid } } 
+			add_trait = paranoid
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = no
+			}
+			ROOT = { give_nickname = nick_the_pale_spider }
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = yes
+			}
+			ROOT = { give_nickname = nick_the_grim_mistress }
+		}
+		tooltip = { #Show bloodline effects
+			create_bloodline = {
+				type = pure_murder_bloodline_03
+			}		
+		}
+		hidden_tooltip = { narrative_event = { id = HF.24029 } }
+		ai_chance = { 
+			factor = 20
+		}
+	}
+	option = {
+		name = EVTOPTCHF24027
+		custom_tooltip = { text = TT_EVTOPTCHF24027 }
+		trigger = { 
+			NOR = { 
+				is_unattractive_trigger = yes
+				trait = celibate
+				trait = eunuch
+			} 
+		} 
+		if = { 
+			limit = { NOT = { trait = cruel } } 
+			add_trait = cruel
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = no
+			}
+			ROOT = { give_nickname = nick_the_ripper }
+		}
+		if = { 
+			limit = { 
+				this_has_super_cool_nickname_trigger = no 
+				is_female = yes
+			}
+			ROOT = { give_nickname = nick_the_black_widow }
+		}
+		tooltip = { #Show bloodline effects
+			create_bloodline = {
+				type = pure_murder_bloodline_04
+			}		
+		}
+		hidden_tooltip = { narrative_event = { id = HF.24030 } }
+		ai_chance = { 
+			factor = 20
+		}
+	}
+}
+
+#Adult gains pure Murder Bloodline (Dragon Lunatic)
+narrative_event = {
+	id = HF.24231
+	title = EVTTITLEHF24231
+	desc = EVTDESCHF24231
+	picture = GFX_evt_feast_hf
+	border = GFX_event_narrative_frame_intrigue
+	sound = bloodline_added
+	hide_from = yes
+	show_from_from = no
+	
+	is_triggered_only = yes
+
+	trigger = { 
+		has_dlc = "Holy Fury"
+		NOT = {
+			any_owned_bloodline = { 
+				has_bloodline_flag = created_bloodline
+			}
+		}
+		has_ambition = obj_forge_bloodline
+	}
+	
+	option = { #Gain Murder bloodline.
+		name = EVTOPTAHF24231
+		if = { 
+			limit = { is_female = no }
+			create_bloodline = {
+				type = pure_murder_bloodline_05
+			}		
+		}
+		if = { 
+			limit = { is_female = yes }
+			create_bloodline = {
+				type = pure_murder_bloodline_05
+				inheritance = matrilineal
+			}		
+		}
+		ai_chance = { 
+			factor = 100
 		}
 	}
 }

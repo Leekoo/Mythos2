@@ -167,6 +167,10 @@ character_event = {
 		ai_chance = {
 			factor = 100
 			modifier = {
+				factor = 50
+				has_character_flag = god_odin
+			}
+			modifier = {
 				factor = 3
 				trait = greedy
 			}
@@ -244,6 +248,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 50
+				has_character_flag = god_athena
+			}
 			modifier = {
 				factor = 2
 				trait = erudite
@@ -4279,6 +4287,39 @@ character_event = {
 	weight_multiplier = {
 		days = 1
 		modifier = {
+			factor = 2
+			OR = {
+				is_bloodline_member_of = saintly_bloodline_catholic_01
+				is_bloodline_member_of = saintly_bloodline_catholic_02
+				is_bloodline_member_of = saintly_bloodline_catholic_03
+				is_bloodline_member_of = saintly_bloodline_catholic_04
+				is_bloodline_member_of = saintly_bloodline_catholic_05
+				is_bloodline_member_of = saintly_bloodline_catholic_06
+				is_bloodline_member_of = saintly_bloodline_orthodox_01
+				is_bloodline_member_of = saintly_bloodline_orthodox_02
+				is_bloodline_member_of = saintly_bloodline_orthodox_03
+				is_bloodline_member_of = saintly_bloodline_orthodox_04
+				is_bloodline_member_of = saintly_bloodline_orthodox_05
+				is_bloodline_member_of = saintly_bloodline_orthodox_06
+				is_bloodline_member_of = saintly_bloodline_coptic_01
+				is_bloodline_member_of = saintly_bloodline_coptic_02
+				is_bloodline_member_of = saintly_bloodline_coptic_03
+				is_bloodline_member_of = saintly_bloodline_coptic_04
+				is_bloodline_member_of = saintly_bloodline_coptic_05
+				is_bloodline_member_of = saintly_bloodline_coptic_06
+				is_bloodline_member_of = saintly_bloodline_nestorian_01
+				is_bloodline_member_of = saintly_bloodline_nestorian_02
+				is_bloodline_member_of = saintly_bloodline_nestorian_03
+				is_bloodline_member_of = saintly_bloodline_nestorian_04
+				is_bloodline_member_of = saintly_bloodline_nestorian_05
+				is_bloodline_member_of = saintly_bloodline_nestorian_06
+			}
+		}
+		modifier = {
+			factor = 0.3
+			is_bloodline_member_of = saintly_bloodline_07
+		}
+		modifier = {
 			factor = 1.2
 			trait = zealous
 		}
@@ -7380,18 +7421,11 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
+	prisoner = no
+	trigger = { has_regent = no }
+	
 	# Delay if unable to act
 	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.103 days = 20 }
-		}
-		
 		# Find Poseidon
 		e_olympus = {
 			holder_scope = {
@@ -7409,7 +7443,7 @@ character_event = {
 		trigger = {
 			OR = {
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 		custom_tooltip = { text = EVTTOOLTIPAMYTH_WoL.103 }
@@ -7773,18 +7807,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.104 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Gather water in a port
 	option = {
@@ -8122,18 +8146,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.105 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Dragonfire
 	option = {
@@ -8266,7 +8280,7 @@ character_event = {
 			OR = {
 				religion = zoroastrian
 				religion = hindu
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 				AND = {
 					religion_group = jewish_group
 					had_global_flag = { flag = third_temple_built days = 1 }
@@ -8438,18 +8452,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.106 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Blood of a Mage
 	option = {
@@ -8744,18 +8748,8 @@ character_event = {
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
 	
-	# Delay if unable to act
-	immediate = {
-		if = {
-			limit = {
-				OR = {
-					prisoner = yes
-					has_regent = yes
-				}
-			}
-			repeat_event = { id = MYTH_WoL.107 days = 20 }
-		}
-	}
+	prisoner = no
+	trigger = { has_regent = no }
 	
 	# Vampire Blood
 	option = {
@@ -9482,7 +9476,7 @@ character_event = {
 		remove_trait = wounded
 		remove_trait = maimed
 		remove_trait = infirm
-		remove_trait = scarred
+		remove_scarred = yes
 		remove_trait = one_eyed
 		remove_trait = one_handed
 		remove_trait = one_legged
@@ -9491,6 +9485,12 @@ character_event = {
 		remove_trait = severely_injured
 		remove_trait = eunuch
 		remove_trait = blinded
+		remove_character_modifier = black_eye
+		remove_character_modifier = swollen_wrist
+		remove_character_modifier = swollen_ankle
+		remove_character_modifier = concussion
+		remove_character_modifier = cracked_ribs
+		remove_character_modifier = badly_bruised
 		remove_trait = on_journey
 		clear_delayed_event = { id = RIP.11000 }
 		hidden_tooltip = { clr_character_flag = do_not_disturb }
@@ -12803,6 +12803,7 @@ character_event = {
 	}
 }
 # MYTH_WoL.150 - Trigger for regular Evocatio.  Want a slight delay, want ROOT to be Roman/Hellenic side
+# No longer used - MYTH_WoL.152 is called from fire_haruspicy_event_effect
 character_event = {
 	id = MYTH_WoL.150
 	hide_window = yes
@@ -12812,12 +12813,12 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					religion = roman_pagan
+					religion = hellenic_pagan_reformed
 					religion = hellenic_pagan
 				}
 				FROM = {
 					NOR = {
-						religion = roman_pagan
+						religion = hellenic_pagan_reformed
 						religion = hellenic_pagan
 					}
 				}
@@ -12829,12 +12830,12 @@ character_event = {
 		else_if = {
 			limit = {
 				NOR = {
-					religion = roman_pagan
+					religion = hellenic_pagan_reformed
 					religion = hellenic_pagan
 				}
 				FROM = {
 					OR = {
-						religion = roman_pagan
+						religion = hellenic_pagan_reformed
 						religion = hellenic_pagan
 					}
 				}
@@ -12846,6 +12847,7 @@ character_event = {
 }
 
 # MYTH_WoL.151 - Crusade version of Evocatio. Want ROOT as the roman side
+# No longer used - MYTH_WoL.152 is called from fire_haruspicy_event_effect
 character_event = {
 	id = MYTH_WoL.151
 	hide_window = yes
@@ -12855,13 +12857,13 @@ character_event = {
 		if = {
 			limit = {
 				OR = {
-					religion = roman_pagan
+					religion = hellenic_pagan_reformed
 					religion = hellenic_pagan
 				}
 				FROM = {
 					holder_scope = {
 						NOR = {
-							religion = roman_pagan
+							religion = hellenic_pagan_reformed
 							religion = hellenic_pagan
 						}
 					}
@@ -12874,13 +12876,13 @@ character_event = {
 		else_if = {
 			limit = {
 				NOR = {
-					religion = roman_pagan
+					religion = hellenic_pagan_reformed
 					religion = hellenic_pagan
 				}
 				FROM = {
 					holder_scope = {
 						OR = {
-							religion = roman_pagan
+							religion = hellenic_pagan_reformed
 							religion = hellenic_pagan
 						}
 					}
@@ -12903,7 +12905,7 @@ character_event = {
 	}
 	desc = {
 		text = EVTDESCBMYTH_WoL.152
-		trigger = { religion = roman_pagan }
+		trigger = { religion = hellenic_pagan_reformed }
 	}
 	is_triggered_only = yes
 	
@@ -14539,6 +14541,9 @@ character_event = {
 			trait = eldritch_scholar
 			trait = veteran_wizard
 			trait = arcane_master
+		}
+		NOT ={
+			has_character_flag = is_child_of_destiny
 		}
 	}
 
@@ -17581,38 +17586,6 @@ character_event = {
 				set_character_flag = event_ancient_religion_greek
 				character_event = { id = MYTH_WoL.215 }
 			}
-			# Roman
-			1 = {
-				modifier = {
-					factor = 0
-					NOT = { has_global_flag = roman_pagan_restoration }
-					roman_pagan = { religion_authority = 0.25 }
-				}
-				modifier = {
-					factor = 0.1
-					OR = {
-						any_courtier = { religion = roman_pagan }
-						any_vassal = { religion = roman_pagan }
-					}
-				}
-				modifier = {
-					factor = 2
-					capital_scope = { region = world_europe_south_italy }
-				}
-				modifier = {
-					factor = 3
-					location = { region = world_europe_south_italy }
-				}
-				modifier = {
-					factor = 2
-					OR = {
-						culture = italian
-						culture = lombard
-					}
-				}
-				set_character_flag = event_ancient_religion_roman
-				character_event = { id = MYTH_WoL.215 }
-			}
 			# Kemetic
 			1 = {
 				modifier = {
@@ -17693,10 +17666,6 @@ character_event = {
 		text = EVTDESC_MYTH_WoL_215_GREEK
 	}
 	desc = {
-		trigger = { has_character_flag = event_ancient_religion_roman }
-		text = EVTDESC_MYTH_WoL_215_ROMAN
-	}
-	desc = {
 		trigger = { has_character_flag = event_ancient_religion_egyptian }
 		text = EVTDESC_MYTH_WoL_215_EGYPTIAN
 	}
@@ -17721,7 +17690,6 @@ character_event = {
 			event_ancient_religion_celtic		= { religion = druidic }
 			event_ancient_religion_jotnar		= { religion = jotnar }
 			event_ancient_religion_greek		= { religion = hellenic_pagan }
-			event_ancient_religion_roman		= { religion = roman_pagan }
 			event_ancient_religion_egyptian		= { religion = kemetic_pagan }
 		}
 		ai_chance = {
@@ -17749,7 +17717,6 @@ character_event = {
 			event_ancient_religion_celtic		= { set_secret_religion = druidic }
 			event_ancient_religion_jotnar		= { set_secret_religion = jotnar }
 			event_ancient_religion_greek		= { set_secret_religion = hellenic_pagan }
-			event_ancient_religion_roman		= { set_secret_religion = roman_pagan }
 			event_ancient_religion_egyptian		= { set_secret_religion = kemetic_pagan }
 		}
 		ai_chance = {
@@ -18057,82 +18024,124 @@ character_event = {
 	option = {
 		name = EVTOPTAMYTH_WoL.219
 		random_list = {
-			1 = {
+			3 = {
 				trigger = { trait = wounded }
 				remove_trait = wounded
 				hidden_tooltip = {
 					set_character_flag = healed_wounded
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = maimed }
 				remove_trait = maimed
 				hidden_tooltip = {
 					set_character_flag = healed_maimed
 				}
 			}
-			1 = {
-				trigger = { trait = scarred }
-				remove_trait = scarred
+			3 = {
+				trigger = { has_scarred_trait_trigger = yes }
+				remove_scarred = yes
 				hidden_tooltip = {
 					set_character_flag = healed_scarred
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = disfigured }
 				remove_trait = disfigured
 				hidden_tooltip = {
 					set_character_flag = healed_disfigured
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = one_eyed }
 				remove_trait = one_eyed
 				hidden_tooltip = {
 					set_character_flag = healed_one_eyed
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = one_handed }
 				remove_trait = one_handed
 				hidden_tooltip = {
 					set_character_flag = healed_one_handed
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = one_legged }
 				remove_trait = one_legged
 				hidden_tooltip = {
 					set_character_flag = healed_one_legged
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = mangled }
 				remove_trait = mangled
 				hidden_tooltip = {
 					set_character_flag = healed_mangled
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = eunuch }
 				remove_trait = eunuch
 				hidden_tooltip = {
 					set_character_flag = healed_eunuch
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = blinded }
 				remove_trait = blinded
 				hidden_tooltip = {
 					set_character_flag = healed_blinded
 				}
 			}
-			1 = {
+			3 = {
 				trigger = { trait = severely_injured }
 				remove_trait = severely_injured
 				hidden_tooltip = {
 					clear_delayed_event = { id = RIP.11000 }
 					set_character_flag = healed_severely_injured
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = black_eye }
+				remove_character_modifier = black_eye
+				hidden_tooltip = {
+					set_character_flag = healed_black_eye
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = swollen_wrist }
+				remove_character_modifier = swollen_wrist
+				hidden_tooltip = {
+					set_character_flag = healed_swollen_wrist
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = swollen_ankle }
+				remove_character_modifier = swollen_ankle
+				hidden_tooltip = {
+					set_character_flag = healed_swollen_ankle
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = concussion }
+				remove_character_modifier = concussion
+				hidden_tooltip = {
+					set_character_flag = healed_concussion
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = cracked_ribs }
+				remove_character_modifier = cracked_ribs
+				hidden_tooltip = {
+					set_character_flag = healed_cracked_ribs
+				}
+			}
+			1 = {
+				trigger = { has_character_modifier = badly_bruised }
+				remove_character_modifier = badly_bruised
+				hidden_tooltip = {
+					set_character_flag = healed_badly_bruised
 				}
 			}
 		}
@@ -18152,6 +18161,12 @@ character_event = {
 			clr_character_flag = healed_eunuch
 			clr_character_flag = healed_blinded
 			clr_character_flag = healed_severely_injured
+			clr_character_flag = healed_black_eye
+			clr_character_flag = healed_swollen_wrist
+			clr_character_flag = healed_swollen_ankle
+			clr_character_flag = healed_concussion
+			clr_character_flag = healed_cracked_ribs
+			clr_character_flag = healed_badly_bruised
 		}
 		if = {
 			limit = {
@@ -18279,7 +18294,7 @@ character_event = {
 		}
 		else_if = {
 			limit = { FROM = { has_character_flag = healed_scarred } }
-			tooltip = { remove_trait = scarred }
+			tooltip = { remove_scarred = yes }
 			clr_character_flag = healed_scarred
 		}
 		else_if = {
@@ -18322,6 +18337,36 @@ character_event = {
 			tooltip = { remove_trait = severely_injured }
 			clr_character_flag = healed_severely_injured
 		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_black_eye } }
+			tooltip = { remove_character_modifier = black_eye }
+			clr_character_flag = healed_black_eye
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_swollen_wrist } }
+			tooltip = { remove_character_modifier = swollen_wrist }
+			clr_character_flag = healed_swollen_wrist
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_swollen_ankle } }
+			tooltip = { remove_character_modifier = swollen_ankle }
+			clr_character_flag = healed_swollen_ankle
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_concussion } }
+			tooltip = { remove_character_modifier = concussion }
+			clr_character_flag = healed_concussion
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_cracked_ribs } }
+			tooltip = { remove_character_modifier = cracked_ribs }
+			clr_character_flag = healed_cracked_ribs
+		}
+		else_if = {
+			limit = { FROM = { has_character_flag = healed_badly_bruised } }
+			tooltip = { remove_character_modifier = badly_bruised }
+			clr_character_flag = healed_badly_bruised
+		}
 	}
 }
 
@@ -18344,6 +18389,8 @@ character_event = {
 					}
 				}
 				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -18366,6 +18413,8 @@ character_event = {
 			1 = {
 				trigger = { trait = gluttonous }
 				remove_trait = gluttonous
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 			1 = {
 				trigger = { trait = wroth }
@@ -18411,6 +18460,8 @@ character_event = {
 					}
 				}
 				add_trait = gluttonous
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 			1 = {
 				trigger = {
@@ -18437,6 +18488,8 @@ character_event = {
 			1 = {
 				trigger = { trait = temperate }
 				remove_trait = temperate
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 			1 = {
 				trigger = { trait = patient }
