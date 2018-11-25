@@ -29,6 +29,7 @@ decisions = {
 			prestige = 1
 			is_incapable = no
 			prisoner = no
+			# No ongoing challenge
 			custom_tooltip = {
 				text = TT_no_current_challenge
 				hidden_tooltip = {
@@ -39,6 +40,7 @@ decisions = {
 				}
 			}
 			liege = {
+				# No ongoing challenge
 				custom_tooltip = {
 					text = TT_no_current_challenge
 					hidden_tooltip = {
@@ -48,6 +50,7 @@ decisions = {
 						}
 					}
 				}
+				# No recent challenge
 				custom_tooltip = {
 					text = TT_no_recent_challenge
 					hidden_tooltip = {
@@ -55,6 +58,7 @@ decisions = {
 					}
 				}
 			}
+			# Can challenge for being underage
 			OR = {
 				liege = { age = 16 }
 				custom_tooltip = {
@@ -89,6 +93,25 @@ decisions = {
 											has_law = agnatic_succession
 										}
 									}
+									NOR = {
+										liege = { has_religion_feature = religion_matriarchal } 
+										liege = { has_religion_feature = religion_equal } 
+										liege = { has_religion_feature = religion_feature_bon }
+									}
+								}
+							}
+						}
+					}
+				}
+				AND = {
+					liege = { is_female = no }
+					custom_tooltip = {
+						text = TT_challenge_male
+						hidden_tooltip = {
+							liege = {
+								AND = {
+									NOT = { has_law = werewolf_law_4 }
+									liege = { has_religion_feature = religion_matriarchal }
 								}
 							}
 						}
@@ -407,9 +430,9 @@ decisions = {
 			character_event = { id = MYTH.49 }
 		}
 		ai_will_do = {
-			factor = 0.05
+			factor = 0.02
 			modifier = {
-				factor = 2
+				factor = 5
 				liege = { culture = werewolf_culture }
 			}
 			modifier = {

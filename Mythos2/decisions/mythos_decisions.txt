@@ -1,94 +1,11 @@
 decisions = {
 
-	# Can't duplicate decision ID without causing issues, so Christians and Pagans have a separate version
-	restore_roman_empire_pagan = {
-		only_independent = yes
-		is_high_prio = yes
-		
-		potential = {
-			is_playable = yes
-			has_dlc = "Legacy of Rome"
-			is_adult = yes
-			prisoner = no
-			NOT = { trait = incapable }
-			has_landed_title = e_byzantium
-			OR = {
-				#religion_group = christian
-				religion = hellenic_pagan
-				religion = roman_pagan
-			}
-		}
-		allow = {
-			primary_title = { title = e_byzantium }
-			prestige = 3000
-			completely_controls = d_latium
-			completely_controls = d_venice
-			completely_controls = d_ferrara
-			completely_controls = d_sicily
-			completely_controls = d_genoa
-			completely_controls = d_capua
-			completely_controls = d_apulia
-			completely_controls = d_thrace
-			completely_controls = d_antioch
-			completely_controls = d_jerusalem
-			completely_controls = d_alexandria
-			completely_controls = d_athens
-			completely_controls = d_tunis
-			completely_controls = d_croatia
-		}
-		effect = {
-			set_global_flag = rome_restored
-			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	revive_roman_paganism = {
-		only_independent = yes
-		is_high_prio = yes
-		
-		potential = {
-			NOT = { has_global_flag = roman_pagan_restoration }
-			is_adult = yes
-			prisoner = no
-			NOT = { is_incapable = yes }
-			religion = hellenic_pagan
-			OR = {
-				has_landed_title = e_roman_empire
-				has_landed_title = e_byzantium
-			}
-		}
-		allow = {
-			completely_controls = c_roma
-			piety = 1000
-			num_of_holy_sites = 4
-			religion_authority = 0.5
-		}
-		effect = {
-			set_global_flag = roman_pagan_restoration
-			piety = -1000
-			narrative_event = { id = MYTH.57 tooltip = EVTTOOLTIPMYTH.57 }
-			hidden_tooltip = { # Alert everyone
-				any_playable_ruler = {
-					limit = {
-						NOT = { character = ROOT }
-						ai = no # Informational
-					}
-					narrative_event = { id = MYTHMORE.21 days = 1 }
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.1
-		}
-	}
 	hellenic_quest = {
 		potential = {
 			is_ruler = yes
 			OR = {
 				true_religion = hellenic_pagan
-				true_religion = roman_pagan
+				true_religion = hellenic_pagan_reformed
 			}
 			NOT = { has_character_modifier = has_quested }
 			NOT = { has_artifact = golden_fleece }

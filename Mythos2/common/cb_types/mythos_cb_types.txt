@@ -50,6 +50,7 @@ slay_monster = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -394,6 +395,10 @@ dragon_tribal_tribute_cb = {
 			}
 		}
 	}
+	
+	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
+	}
 
 	on_success = {
 		FROM = {
@@ -686,7 +691,7 @@ cb_seize_flame = {
 		OR = {
 			title = b_lejre
 			title = b_canterbury
-			title = b_pruszkow
+			title = b_wyszogrod
 			title = b_whithorn
 			title = b_uppsala
 		}
@@ -727,6 +732,7 @@ cb_seize_flame = {
 	}
 
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -838,7 +844,7 @@ cb_replace_sapphire_flame = {
 	infamy_modifier = 0.0
 	
 	can_use = {
-		FROM = { has_landed_title = e_draconic_pagan_reformed }
+		FROM = { has_landed_title = k_draconic_pagan_reformed }
 		religion = draconic_pagan_reformed
 		piety = 100
 		mercenary = no
@@ -880,6 +886,10 @@ cb_replace_sapphire_flame = {
 		religion = draconic_pagan_reformed
 	}
 	
+	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
+	}
+	
 	on_success = {
 		ROOT = {
 			participation_scaled_piety = 500
@@ -916,7 +926,7 @@ cb_replace_sapphire_flame = {
 				FROM = { higher_purity_prev_this = yes }
 			}
 			abdicate = yes
-			usurp_title_plus_barony_if_unlanded_and_vassals = e_draconic_pagan_reformed
+			usurp_title_plus_barony_if_unlanded_and_vassals = k_draconic_pagan_reformed
 			opinion = { modifier = pressed_my_claim who = ROOT }
 		}
 	}
@@ -1042,6 +1052,7 @@ vassalize_draconic_tribute = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		FROM = {
 			if = {
 				limit = {
@@ -1214,6 +1225,7 @@ monster_revolt = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -1372,6 +1384,7 @@ cb_reclaim_defaulted_loan = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		ROOT = { set_variable = { which = local_payment which = loan_amount who = FROM } }
 	}
 	
@@ -1501,6 +1514,7 @@ zombie_uprising = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -1661,6 +1675,7 @@ feed_on_living = {
 		}
 	}
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  
@@ -2090,6 +2105,7 @@ undead_conquest = {
 	}
 	
 	on_add = {
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
 		if = {
 			limit = { defender = { is_offmap_governor = offmap_china } }
 			attacker = {  

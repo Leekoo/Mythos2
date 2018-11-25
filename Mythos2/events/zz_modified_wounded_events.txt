@@ -693,7 +693,7 @@ character_event = {
 }
 
 character_event = {
-	id = HL.9001 # Wrestling Event
+	id = HLF.9001 # Wrestling Event
 	desc =  EVTDESC_HL_9001
 	picture = GFX_evt_steppe_mercenaries
 	border = GFX_event_normal_frame_war
@@ -726,7 +726,7 @@ character_event = {
 		name = EVTOPTA_HL_9001
 		
 		event_target:wrestling_opponent = {
-			character_event = {	id = HL.9002 tooltip = EVTTOOLTIP_HL_9001A }
+			character_event = {	id = HLF.9002 tooltip = EVTTOOLTIP_HL_9001A }
 		}
 	}
 	
@@ -816,7 +816,7 @@ character_event = {
 }
 
 long_character_event = {
-	id = HL.9004 # Lose Wrestling
+	id = HLF.9004 # Lose Wrestling
 	desc =  EVTDESC_HL_9004
 	picture = GFX_evt_mongols
 	border = GFX_event_long_frame_war
@@ -1296,6 +1296,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_inquisition
@@ -1315,6 +1316,26 @@ character_event = {
 				tier = count
 				ai = yes
 			}
+		}
+		modifier = {
+			factor = 1.5
+			liege = { any_owned_bloodline = { has_bloodline_flag = bloodline_better_inquisition } }
+		}
+		modifier = {
+			factor = 1.5
+			any_owned_bloodline = { has_bloodline_flag = bloodline_better_inquisition } #If chaplain is also your relative.
+		}
+		modifier = {
+			factor = 0.75
+			has_religion_feature = religion_dogmatic
+		}
+		modifier = {
+			factor = 1.25
+			has_religion_feature = religion_proselytizing
+		}
+		modifier = {
+			factor = 2.75
+			has_religion_feature = religion_cosmopolitan
 		}
 	
 		modifier = {
@@ -1407,6 +1428,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_charity
@@ -1510,6 +1532,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		OR = {
@@ -1700,6 +1723,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_squeeze_peasants
@@ -1865,6 +1889,7 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	has_job_title = yes
 	
 	trigger = {
 		has_job_action = action_settle_tribe
@@ -2823,6 +2848,25 @@ narrative_event = {
 	desc = EVTDESC_SoA_5028
 	picture = GFX_evt_burning_house
 	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
 	is_triggered_only = yes
 
 	option = {
@@ -2874,6 +2918,25 @@ character_event = {
 	desc = EVTDESC_SoA_5029
 	picture = GFX_evt_bandits
 	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
+	
 	is_triggered_only = yes
 
 	option = {
@@ -2917,6 +2980,25 @@ character_event = {
 	id = SoA.5030
 	desc = EVTDESC_SoA_5030
 	picture = GFX_evt_pilgrims_epic_journey
+	
+	trigger = { 
+		trait = on_pilgrimage
+	}
+	fail_trigger_effect = { 
+		clr_character_flag = pilgrimage_to_canterbury
+		clr_character_flag = pilgrimage_to_jerusalem
+		clr_character_flag = pilgrimage_to_koln
+		clr_character_flag = pilgrimage_to_rome
+		clr_character_flag = pilgrimage_to_santiago
+		clr_character_flag = pilgrimage_to_constantinople
+		clr_character_flag = pilgrimage_to_axum
+		clr_character_flag = pilgrimage_to_antioch
+		clr_character_flag = abominable_pilgrimage
+		clr_character_flag = do_not_disturb
+		clr_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = { remove_trait = on_pilgrimage }
+	}
 	
 	is_triggered_only = yes
 
@@ -3761,6 +3843,7 @@ character_event = {
 	only_rulers = yes
 	capable_only = yes
 	prisoner = no
+	is_triggered_only = yes
 	
 	trigger = {
 		has_regent = yes
@@ -3768,26 +3851,26 @@ character_event = {
 		is_nomadic = no
 	}
 	
-	mean_time_to_happen = {
-		months = 280
+	weight_multiplier = {
+		days = 1
 		modifier = {
-			factor = 0.25
+			factor = 4
 			trait = cruel
 		}
 		modifier = {
-			factor = 0.50
+			factor = 2
 			trait = wroth
 		}
 		modifier = {
-			factor = 0.75
+			factor = 1.33
 			trait = arbitrary
 		}
 		modifier = {
-			factor = 2.0
+			factor =0.5
 			trait = kind
 		}
 		modifier = {
-			factor = 2.0
+			factor = 0.5
 			trait = just
 		}
 	}
@@ -4228,7 +4311,7 @@ character_event = {
 			prisoner = no
 			NOR = {
 				age = 35
-				trait = ugly
+				has_ugly_trait_trigger = yes
 				is_close_relative = ROOT
 				trait = incapable
 				is_inaccessible_trigger = yes
@@ -4272,7 +4355,7 @@ character_event = {
 				NOR = {
 					is_close_relative = ROOT
 					age = 35
-					trait = ugly
+					has_ugly_trait_trigger = yes
 					trait = incapable
 					is_inaccessible_trigger = yes
 				}
@@ -5200,6 +5283,7 @@ long_character_event = {
 					has_nickname = no
 				}
 				give_nickname = nick_the_ruthless
+				add_blood_splatter_effect = yes
 			}
 		}
 		if = {

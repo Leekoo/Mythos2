@@ -644,6 +644,8 @@ is_human = {
 		trait = fledgling
 		trait = werewolf
 		trait = vampire
+		trait = horse
+		trait = cat
 	}
 }
 
@@ -725,6 +727,7 @@ has_positive_congenital_trigger = {
 		trait = quick
 		trait = fair
 		trait = strong
+		trait = groomed
 	}
 }
 
@@ -1280,8 +1283,9 @@ likes_druids = {
 }
 likes_giants = {
 	OR = {
-		trait = giant
+		trait = mythos_giant
 		trait = half_giant
+		trait = giant
 	}
 }
 likes_magicians = {
@@ -1367,8 +1371,19 @@ from_god_convert_to_root_religion = {
 					FROM = { trait = god }
 					OR = {
 						true_religion_hindu_trigger = yes
-						true_religion_bon_trigger = yes
 						true_religion_jain_trigger = yes
+						AND = {
+							FROM = {
+								OR = {
+									true_religion_bon_trigger = yes
+									true_religion_bon_reformed_trigger = yes
+								}
+							}
+							NOR = {
+								religion = bon
+								religion = bon_reformed
+							}
+						}
 						AND = {
 							FROM = {
 								OR = {
@@ -1473,12 +1488,12 @@ from_god_convert_to_root_religion = {
 							FROM = {
 								OR = {
 									true_religion_hellenic_pagan_trigger = yes
-									true_religion_roman_pagan_trigger = yes
+									true_religion_hellenic_pagan_reformed_trigger = yes
 								}
 							}
 							NOR = {
 								religion = hellenic_pagan
-								religion = roman_pagan
+								religion = hellenic_pagan_reformed
 							}
 						}
 						AND = {
@@ -1497,11 +1512,13 @@ from_god_convert_to_root_religion = {
 							FROM = {
 								OR = {
 									true_religion_kemetic_pagan_trigger = yes
+									true_religion_kemetic_pagan_reformed_trigger = yes
 									true_religion_atenist_trigger = yes
 								}
 							}
 							NOR = {
 								religion = kemetic_pagan
+								religion = kemetic_pagan_reformed
 								religion = atenist
 							}
 						}
@@ -1947,6 +1964,12 @@ is_injured_in_dragon_raid = {
 		has_character_flag = dragon_raid_hand
 		has_character_flag = dragon_raid_disfigured
 		has_character_flag = dragon_raid_mangled
+		has_character_flag = gain_black_eye
+		has_character_flag = gain_swollen_wrist
+		has_character_flag = gain_swollen_ankle
+		has_character_flag = gain_concussion
+		has_character_flag = gain_cracked_ribs
+		has_character_flag = gain_badly_bruised
 	}
 }
 
@@ -2654,6 +2677,10 @@ true_religion_kemetic_pagan_trigger = {
 	true_religion = kemetic_pagan
 }
 
+true_religion_kemetic_pagan_reformed_trigger = {
+	true_religion = kemetic_pagan_reformed
+}
+
 true_religion_atenist_trigger = {
 	true_religion = atenist
 }
@@ -2664,10 +2691,6 @@ true_religion_jotnar_trigger = {
 
 true_religion_jotnar_reformed_trigger = {
 	true_religion = jotnar_reformed
-}
-
-true_religion_roman_pagan_trigger = {
-	true_religion = roman_pagan
 }
 
 true_religion_damned_trigger = {
@@ -2711,6 +2734,7 @@ is_kemetic_secret_religious_society_member_trigger = {
 	OR = {
 		society_member_of = secret_religious_society_atenist
 		society_member_of = secret_religious_society_kemetic_pagan
+		society_member_of = secret_religious_society_kemetic_pagan_reformed
 	}
 }
 
@@ -2718,7 +2742,7 @@ is_hellenic_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_cult
 	OR = {
 		society_member_of = secret_religious_society_hellenic_pagan
-		society_member_of = secret_religious_society_roman_pagan
+		society_member_of = secret_religious_society_hellenic_pagan_reformed
 	}
 }
 
@@ -2768,6 +2792,7 @@ religion_openly_kemetic_or_reformed_trigger = {
 		hidden_trigger = {
 			OR = {
 				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
 				religion = atenist
 			}
 		}
@@ -2780,8 +2805,33 @@ religion_openly_hellenic_or_roman_trigger = {
 		hidden_trigger = {
 			OR = {
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
+	}
+}
+
+has_minor_injury = {
+	OR = {
+		has_character_modifier = black_eye
+		has_character_modifier = swollen_wrist
+		has_character_modifier = swollen_ankle
+		has_character_modifier = concussion
+		has_character_modifier = cracked_ribs
+		has_character_modifier = badly_bruised
+		has_character_modifier = sore_muscles
+	}
+}
+
+is_infertile = {
+	OR = {
+		trait = infertile
+		trait = vampire
+		trait = demon_trait
+		trait = ethereal_trait
+		trait = celibate
+		trait = eunuch
+		trait = zombie
+		trait = mummy
 	}
 }

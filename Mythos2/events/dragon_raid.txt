@@ -672,6 +672,7 @@ character_event = {
 	
 	immediate = {
 		multiply_variable = { which = transfer_gold value = -1 }
+		add_blood_splatter_effect = yes
 	}
 	
 	option = {
@@ -737,6 +738,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
 	after = {
@@ -766,6 +791,7 @@ character_event = {
 	
 	immediate = {
 		multiply_variable = { which = transfer_gold value = -1 }
+		add_blood_splatter_effect = yes
 	}
 	
 	option = {
@@ -835,6 +861,7 @@ character_event = {
 			}
 		}
 		set_variable = { which = transfer_gold which = event_target:challenged_party }
+		add_blood_splatter_effect = yes
 	}
 	
 	option = {
@@ -885,6 +912,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -1345,41 +1396,72 @@ character_event = {
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
 			add_trait = wounded
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_maimed }
 			add_trait = maimed
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_eye }
 			add_trait = one_eyed
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_leg }
 			add_trait = one_legged
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_hand }
 			add_trait = one_handed
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_disfigured }
 			add_trait = disfigured
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_mangled }
 			add_trait = mangled
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
 	after = {
@@ -1460,41 +1542,72 @@ character_event = {
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
 			add_trait = wounded
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_maimed }
 			add_trait = maimed
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_eye }
 			add_trait = one_eyed
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_leg }
 			add_trait = one_legged
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_hand }
 			add_trait = one_handed
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_disfigured }
 			add_trait = disfigured
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_mangled }
 			add_trait = mangled
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
+			add_blood_splatter_effect = yes
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
 }
@@ -1538,6 +1651,7 @@ character_event = {
 	
 	immediate = {
 		multiply_variable = { which = transfer_gold value = -1 }
+		add_blood_splatter_effect = yes
 	}
 	
 	option = {
@@ -1572,39 +1686,61 @@ character_event = {
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
 			add_trait = wounded
+			apply_random_minor_injury_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_maimed }
 			add_trait = maimed
+			apply_random_minor_injury_effect = yes
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_eye }
 			add_trait = one_eyed
 			add_trait = severely_injured
+			add_character_modifier = {
+				modifier = black_eye
+				months = 10
+			}
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_leg }
 			add_trait = one_legged
 			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = swollen_ankle
+				months = 10
+			}
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_hand }
 			add_trait = one_handed
 			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = swollen_wrist
+				months = 10
+			}
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_disfigured }
 			add_trait = disfigured
 			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = concussion
+				months = 10
+			}
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
 		else_if = {
 			limit = { has_character_flag = dragon_raid_mangled }
 			add_trait = mangled
 			add_trait = severely_injured
+        	add_character_modifier = {
+				modifier = cracked_ribs
+				months = 10
+			}
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
 		if = {
@@ -1614,6 +1750,7 @@ character_event = {
 		if = {
 			limit = { NOT = { has_dlc = "Reapers" } }
 			add_trait = maimed
+			apply_random_minor_injury_effect = yes
 		}
 		else = {
 			random_list = {
@@ -1625,6 +1762,10 @@ character_event = {
 						}
 					}
 					add_trait = one_eyed
+					add_character_modifier = {
+						modifier = black_eye
+						months = 10
+					}
 				}
 				1 = {
 					trigger = {
@@ -1632,22 +1773,42 @@ character_event = {
 						trait = one_eyed
 					}
 					add_trait = blinded
+					add_character_modifier = {
+						modifier = black_eye
+						months = 10
+					}
 				}
 				1 = {
 					trigger = { NOT = { trait = one_legged } }
 					add_trait = one_legged
+					add_character_modifier = {
+						modifier = swollen_ankle
+						months = 10
+					}
 				}
 				1 = {
 					trigger = { NOT = { trait = one_handed } }
 					add_trait = one_handed
+					add_character_modifier = {
+						modifier = swollen_wrist
+						months = 10
+					}
 				}
 				1 = {
 					trigger = { NOT = { trait = disfigured } }
 					add_trait = disfigured
+					add_character_modifier = {
+						modifier = concussion
+						months = 10
+					}
 				}
 				1 = {
 					trigger = { NOT = { trait = mangled } }
 					add_trait = mangled
+					add_character_modifier = {
+						modifier = cracked_ribs
+						months = 10
+					}
 				}
 			}
 		}
@@ -1809,6 +1970,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
 	after = {
@@ -1861,6 +2046,7 @@ character_event = {
 				save_event_target_as = selected_ward
 			}
 		}
+		add_blood_splatter_effect = yes
 	}
 	
 	# Force reparations
@@ -2201,6 +2387,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = { 
 			set_variable = { which = transfer_gold value = 0 }
 			event_target:challenger = { set_variable = { which = transfer_gold value = 0 } }
@@ -2381,6 +2591,7 @@ character_event = {
 				set_variable = { which = transfer_gold value = 600 }
 			}
 		}
+		add_blood_splatter_effect = yes
 		set_variable = { which = transfer_gold which = event_target:challenger }
 	}
 	
@@ -2431,6 +2642,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = {
 			if = {
 				limit = {
@@ -2479,6 +2714,7 @@ character_event = {
 			}
 		}
 		set_variable = { which = transfer_gold which = event_target:challenged_party }
+		add_blood_splatter_effect = yes
 	}
 	
 	option = {
@@ -2528,6 +2764,30 @@ character_event = {
 			add_trait = severely_injured
 			hidden_tooltip = { resolve_severely_injured_effect = yes }
 		}
+		if = {
+			limit = { has_character_flag = gain_black_eye }
+			add_character_modifier = { modifier = black_eye months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_wrist }
+			add_character_modifier = { modifier = swollen_wrist months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_swollen_ankle }
+			add_character_modifier = { modifier = swollen_ankle months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_concussion }
+			add_character_modifier = { modifier = concussion months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_cracked_ribs }
+			add_character_modifier = { modifier = cracked_ribs months = 10 }
+        }
+		if = {
+			limit = { has_character_flag = gain_badly_bruised }
+			add_character_modifier = { modifier = badly_bruised months = 10 }
+        }
 		hidden_tooltip = {
 			if = {
 				limit = {

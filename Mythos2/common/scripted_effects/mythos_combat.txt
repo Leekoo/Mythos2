@@ -5,7 +5,7 @@ set_werewolf_fitness = {
 	
 	# Add half combat rating and health
 	export_to_variable = { which = temp value = combat_rating }
-	divide_variable = { which = temp value = 2 }
+	divide_variable = { which = temp value = 20 }
 	change_variable = { which = fitness which = temp }
 	export_to_variable = { which = temp value = health }
 	#get_health = yes
@@ -360,10 +360,10 @@ combat_set_hp = { # Run in a character scope.  Support_multiplier MUST be set, o
 
 combat_set_damage = { # Run in a character scope.  Support_multiplier MUST be set, or the character will have 0 damage. Run after setting combat_morale
 	export_to_variable = { which = combat_damage value = combat_rating }
-	change_variable = { which = combat_damage value = 1 }
+	change_variable = { which = combat_damage value = 10 }
 	if = {
 		limit = { has_character_flag = not_shapeshifted }
-		change_variable = { which = combat_damage value = -3 }
+		change_variable = { which = combat_damage value = -30 }
 	}
 	# Minimum 1
 	if = {
@@ -456,6 +456,7 @@ combat_set_damage = { # Run in a character scope.  Support_multiplier MUST be se
 		divide_variable = { which = combat_damage value = 10 }
 		}
 	}
+	divide_variable = { which = combat_damage value = 10 }
 }
 
 combat_set_defense = { # Run in character scope
@@ -850,6 +851,13 @@ clear_combat_flags = { # From character scope, remove all combat related flags a
 	clr_character_flag = attack_wound
 	clr_character_flag = attack_maim
 	clr_character_flag = attack_ignore_defense
+	clr_character_flag = gain_black_eye
+	clr_character_flag = gain_badly_bruised
+	clr_character_flag = gain_swollen_wrist
+	clr_character_flag = gain_swollen_ankle
+	clr_character_flag = gain_sore_muscles
+	clr_character_flag = gain_cracked_ribs
+	clr_character_flag = gain_concussion
 }
 
 # Health isn't supported in export_to_variable until next patch
@@ -1071,7 +1079,7 @@ get_health = {
 		change_variable = { which = var_health value = 2 }
 	}
 	if = {
-		limit = { trait = giant }
+		limit = { trait = mythos_giant }
 		change_variable = { which = var_health value = 5 }
 	}
 	if = {
@@ -1897,6 +1905,7 @@ draconic_raid_get_damage = {
 		multiply_variable = { which = physical_damage value = 11 }
 		divide_variable = { which = physical_damage value = 10 }
 	}
+	divide_variable = { which = combat_damage value = 10 }
 	set_variable = { which = physical_damage which = local_damage }
 	if = {
 		limit = { is_strong_trigger = yes }
@@ -1968,6 +1977,12 @@ clear_dragon_raid_variables_flags = {
 	clr_character_flag = dragon_raid_hand
 	clr_character_flag = dragon_raid_disfigured
 	clr_character_flag = dragon_raid_mangled
+	clr_character_flag = gain_black_eye
+	clr_character_flag = gain_swollen_wrist
+	clr_character_flag = gain_swollen_ankle
+	clr_character_flag = gain_concussion
+	clr_character_flag = gain_cracked_ribs
+	clr_character_flag = gain_badly_bruised
 }
 
 dragon_raid_injury = {
@@ -2272,6 +2287,98 @@ dragon_raid_injury = {
 				clr_character_flag = completely_beaten
 				clr_character_flag = fled_from_raid
 			}
+			5 = {
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 2 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 3 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 4 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 5 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 6 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 7 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 8 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 9 }
+				}
+				modifier = {
+					factor = 0.8
+					check_variable = { which = local_wounded value = 10 }
+				}
+				random_list = {
+					1 = {
+						trigger = { NOT = { has_character_modifier = cracked_ribs } }
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 10 }
+						}
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 9 }
+						}
+						set_character_flag = gain_cracked_ribs
+					}
+					1 = {
+						trigger = { NOT = { has_character_modifier = concussion } }
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 9 }
+						}
+						additive_modifier = {
+							value = 1
+							check_variable = { which = local_wounded value = 8 }
+						}
+						set_character_flag = gain_concussion
+					}
+					2 = {
+						trigger = { NOT = { has_character_modifier = badly_bruised } }
+						set_character_flag = gain_badly_bruised
+					}
+					2 = {
+						trigger = { NOT = { has_character_modifier = black_eye } }
+						set_character_flag = gain_black_eye
+					}
+					3 = {
+						trigger = { NOT = { has_character_modifier = swollen_wrist } }
+						set_character_flag = gain_swollen_wrist
+					}
+					3 = {
+						trigger = { NOT = { has_character_modifier = swollen_ankle } }
+						set_character_flag = gain_swollen_ankle
+					}
+				}
+			}
 		}
+	}
+}
+
+decide_minor_injury = {
+	random_list = {
+		1 = { set_character_flag = gain_black_eye }
+		1 = { set_character_flag = gain_badly_bruised }
+		1 = { set_character_flag = gain_swollen_wrist }
+		1 = { set_character_flag = gain_swollen_ankle }
+		1 = { set_character_flag = gain_sore_muscles }
+		1 = { set_character_flag = gain_cracked_ribs }
+		1 = { set_character_flag = gain_concussion }
 	}
 }

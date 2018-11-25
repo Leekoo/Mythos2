@@ -51,7 +51,7 @@ nick_the_flame_keeper = {
 		}
 		modifier = {
 			factor = 2
-			has_landed_title = e_draconic_pagan_reformed
+			has_landed_title = k_draconic_pagan_reformed
 		}
 	}
 }
@@ -225,21 +225,6 @@ nick_the_immigrant = {
 		}
 	}
 }
-nick_the_bloody = {
-	allow = {
-		trait = impaler
-		any_vassal = {
-			OR = {
-				has_opinion_modifier = { who = PREV modifier = opinion_evil_tyrant }
-				has_opinion_modifier = { who = PREV modifier = opinion_tyrant }
-			}
-		}
-	}
-	chance = {
-		factor = 1
-	}
-}
-nick_the_martyr = { } # Prosteletizing priest executed
 nick_evil_gods_tool = {
 	allow = {
 		OR = {
@@ -318,19 +303,6 @@ nick_the_grim = {
 	allow = {
 		trait = depressed
 		trait = wroth
-	}
-	chance = {
-		factor = 1
-	}
-}
-nick_the_tyrant = {
-	allow = {
-		any_vassal = {
-			OR = {
-				has_opinion_modifier = { who = PREV modifier = opinion_evil_tyrant }
-				has_opinion_modifier = { who = PREV modifier = opinion_tyrant }
-			}
-		}
 	}
 	chance = {
 		factor = 1
@@ -497,19 +469,6 @@ nick_the_child_ruler = {
 		age < 14
 		higher_tier_than = COUNT
 		ruled_years = 2
-	}
-	chance = {
-		factor = 1
-	}
-}
-nick_the_fox = {
-	allow = {
-		is_smart_trigger = yes
-		OR = {
-			trait = seducer
-			trait = seductress
-			trait = schemer
-		}
 	}
 	chance = {
 		factor = 1

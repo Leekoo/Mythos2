@@ -781,7 +781,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = String_giant
-		trigger = { trait = giant }
+		trigger = { trait = mythos_giant }
 	}
 	text = {
 		localisation_key = String_half_giant
@@ -814,6 +814,14 @@ defined_text = {
 	text = {
 		localisation_key = String_spirit
 		trigger = { trait = ethereal_trait }
+	}
+	text = {
+		localisation_key = String_horse
+		trigger = { trait = horse }
+	}
+	text = {
+		localisation_key = String_cat
+		trigger = { trait = cat }
 	}
 	text = {
 		localisation_key = String_human
@@ -1080,7 +1088,7 @@ defined_text = {
 		localisation_key = tt_purity_sapphire_flame
 		trigger = {
 			use_dragon_purity = yes
-			has_landed_title = e_draconic_pagan_reformed
+			has_landed_title = k_draconic_pagan_reformed
 		}
 	}
 	# Not Sapphire Flame
@@ -1089,7 +1097,7 @@ defined_text = {
 		trigger = {
 			OR = {
 				use_dragon_purity = no
-				NOT = { has_landed_title = e_draconic_pagan_reformed }
+				NOT = { has_landed_title = k_draconic_pagan_reformed }
 			}
 		}
 	}
@@ -4815,7 +4823,7 @@ defined_text = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 	}
@@ -4927,7 +4935,7 @@ defined_text = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 	}
@@ -5039,7 +5047,7 @@ defined_text = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 	}
@@ -5151,7 +5159,7 @@ defined_text = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 	}
@@ -5453,7 +5461,7 @@ defined_text = {
 	name = GetTributeContineTotal
 	text = {
 		localisation_key = STRING_TributeContinueTotal
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Continue base rate
@@ -5461,7 +5469,7 @@ defined_text = {
 	name = GetTributeContinueBase
 	text = {
 		localisation_key = STRING_TributeContinueBase
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Continue Content
@@ -5470,7 +5478,7 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeContinueContent
-		FROM = { current_heir = { trait = content } }
+		trigger = { FROM = { current_heir = { trait = content } } }
 	}
 	fallback_text = {
 		localisation_key = "[GetTributeContinueSlothful]"
@@ -5482,7 +5490,7 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeContinueSlothful
-		FROM = { current_heir = { trait = slothful } }
+		trigger = { FROM = { current_heir = { trait = slothful } } }
 	}
 	fallback_text = {
 		localisation_key = "[GetTributeContinueOpinion]"
@@ -5493,11 +5501,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeContinueOpinion2
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						opinion = { who = PREVPREV value = 50 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							opinion = { who = PREVPREV value = 50 }
+						}
 					}
 				}
 			}
@@ -5512,7 +5522,7 @@ defined_text = {
 	name = GetTributePayOffTotal
 	text = {
 		localisation_key = STRING_TributePayOffTotal
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Pay off base rate
@@ -5520,7 +5530,7 @@ defined_text = {
 	name = GetTributePayOffBase
 	text = {
 		localisation_key = STRING_TributePayOffBase
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Pay off low wealth
@@ -5530,9 +5540,11 @@ defined_text = {
 	text = {
 		localisation_key = STRING_TributePayOffWealth
 		# Does not list the rest after
-		FROM = {
-			current_heir = {
-				scaled_wealth < 2
+		trigger = {
+			FROM = {
+				current_heir = {
+					scaled_wealth < 2
+				}
 			}
 		}
 	}
@@ -5546,11 +5558,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributePayOffTruce
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						reverse_has_truce = PREVPREV
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							reverse_has_truce = PREVPREV
+						}
 					}
 				}
 			}
@@ -5566,20 +5580,26 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributePayOffWealth6
-		FROM = {
-			scaled_wealth = 6
+		trigger = {
+			FROM = {
+				scaled_wealth = 6
+			}
 		}
 	}
 	text = {
 		localisation_key = STRING_TributePayOffWealth4
-		FROM = {
-			scaled_wealth = 4
+		trigger = {
+			FROM = {
+				scaled_wealth = 4
+			}
 		}
 	}
 	text = {
 		localisation_key = STRING_TributePayOffWealth3
-		FROM = {
-			scaled_wealth = 3
+		trigger = {
+			FROM = {
+				scaled_wealth = 3
+			}
 		}
 	}
 	fallback_text = {
@@ -5591,7 +5611,7 @@ defined_text = {
 	name = GetTributeVassalTotal
 	text = {
 		localisation_key = STRING_TributeVassalTotal
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Vassalization base rate
@@ -5599,7 +5619,7 @@ defined_text = {
 	name = GetTributeVassalBase
 	text = {
 		localisation_key = STRING_TributeVassalBase
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # Vassalization high rank
@@ -5609,12 +5629,14 @@ defined_text = {
 	text = {
 		localisation_key = STRING_TributeVassalRank
 		# Does not list the rest after
-		FROM = {
-			suzerain = {
-				FROM = {
-					OR = {
-						higher_tier_than = PREV
-						current_heir = { higher_tier_than = PREVPREV }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						OR = {
+							higher_tier_than = PREV
+							current_heir = { higher_tier_than = PREVPREV }
+						}
 					}
 				}
 			}
@@ -5630,8 +5652,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalLowAmbition
-		FROM = {
-			current_heir = { ai_ambition < 0 }
+		trigger = {
+			FROM = {
+				current_heir = { ai_ambition < 0 }
+			}
 		}
 	}
 	fallback_text = {
@@ -5644,11 +5668,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalReligion
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						religion = PREVPREV
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							religion = PREVPREV
+						}
 					}
 				}
 			}
@@ -5664,11 +5690,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalCulture
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						culture = PREVPREV
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							culture = PREVPREV
+						}
 					}
 				}
 			}
@@ -5684,11 +5712,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalDynasty
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						dynasty = PREVPREV
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							dynasty = PREVPREV
+						}
 					}
 				}
 			}
@@ -5704,9 +5734,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalIncapable
-		FROM = {
-			current_heir = {
-				is_incapable = yes
+		trigger = {
+			FROM = {
+				current_heir = {
+					is_incapable = yes
+				}
 			}
 		}
 	}
@@ -5720,11 +5752,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalLover
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						is_lover = PREVPREV
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							is_lover = PREVPREV
+						}
 					}
 				}
 			}
@@ -5740,11 +5774,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalOpinion2
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						opinion = { who = PREVPREV value = 100 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							opinion = { who = PREVPREV value = 100 }
+						}
 					}
 				}
 			}
@@ -5752,11 +5788,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeVassalOpinion1
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						opinion = { who = PREVPREV value = 75 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							opinion = { who = PREVPREV value = 75 }
+						}
 					}
 				}
 			}
@@ -5772,10 +5810,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalSize
-		FROM = {
-			NOT = { realm_size = 2}
-			suzerain = {
-				realm_size = 4
+		trigger = {
+			FROM = {
+				NOT = { realm_size = 2}
+				suzerain = {
+					realm_size = 4
+				}
 			}
 		}
 	}
@@ -5789,17 +5829,21 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalPower2
-		FROM = {
-			suzerain = {
-				relative_power = { who = FROM power = 4 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					relative_power = { who = FROM power = 4 }
+				}
 			}
 		}
 	}
 	text = {
 		localisation_key = STRING_TributeVassalPower1
-		FROM = {
-			suzerain = {
-				relative_power = { who = FROM power = 2 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					relative_power = { who = FROM power = 2 }
+				}
 			}
 		}
 	}
@@ -5813,19 +5857,21 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalDuchy
-		FROM = {
-			NOT = { realm_size = 2 }
-			tier = count
-			capital_scope = {
-				duchy = {
-					any_de_jure_vassal_title = {
-						count = 2
-						tier = count
-						owner = {
-							top_liege = {
-								FROM = {
-									suzerain = {
-										character = PREVPREV
+		trigger = {
+			FROM = {
+				NOT = { realm_size = 2 }
+				tier = count
+				capital_scope = {
+					duchy = {
+						any_de_jure_vassal_title = {
+							count = 2
+							tier = count
+							owner = {
+								top_liege = {
+									FROM = {
+										suzerain = {
+											character = PREVPREV
+										}
 									}
 								}
 							}
@@ -5845,9 +5891,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalDeJure
-		FROM = {
-			suzerain = {
-				FROM = { de_jure_liege_or_above = PREV }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = { de_jure_liege_or_above = PREV }
+				}
 			}
 		}
 	}
@@ -5861,9 +5909,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalHumble
-		FROM = {
-			current_heir = {
-				trait = humble
+		trigger = {
+			FROM = {
+				current_heir = {
+					trait = humble
+				}
 			}
 		}
 	}
@@ -5877,8 +5927,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalNonTribal
-		FROM = {
-			is_tribal = no
+		trigger = {
+			FROM = {
+				is_tribal = no
+			}
 		}
 	}
 	fallback_text = {
@@ -5891,8 +5943,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalProud
-		FROM = {
-			current_heir = { trait = proud }
+		trigger = {
+			FROM = {
+				current_heir = { trait = proud }
+			}
 		}
 	}
 	fallback_text = {
@@ -5905,8 +5959,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeVassalAmbitious
-		FROM = {
-			current_heir = { trait = ambitious }
+		trigger = {
+			FROM = {
+				current_heir = { trait = ambitious }
+			}
 		}
 	}
 	fallback_text = {
@@ -5918,7 +5974,7 @@ defined_text = {
 	name = GetTributeWarTotal
 	text = {
 		localisation_key = STRING_TributeWarTotal
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # War base rate
@@ -5926,7 +5982,7 @@ defined_text = {
 	name = GetTributeWarBase
 	text = {
 		localisation_key = STRING_TributeWarBase
-		always = yes
+		trigger = { always = yes }
 	}
 }
 # War - at war
@@ -5935,10 +5991,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarAtWar
-		FROM = {
-			OR = {
-				war = yes
-				current_heir = { war = yes }
+		trigger = {
+			FROM = {
+				OR = {
+					war = yes
+					current_heir = { war = yes }
+				}
 			}
 		}
 	}
@@ -5952,10 +6010,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarTruce
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = { has_truce = PREVPREV }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = { has_truce = PREVPREV }
+					}
 				}
 			}
 		}
@@ -5970,8 +6030,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarAmbition
-		FROM = {
-			current_heir = { ai_ambition = 75 }
+		trigger = {
+			FROM = {
+				current_heir = { ai_ambition = 75 }
+			}
 		}
 	}
 	fallback_text = {
@@ -5984,8 +6046,10 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarGreed
-		FROM = {
-			current_heir = { ai_greed = 75 }
+		trigger = {
+			FROM = {
+				current_heir = { ai_greed = 75 }
+			}
 		}
 	}
 	fallback_text = {
@@ -5998,10 +6062,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarRival
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = { is_rival = PREVPREV }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = { is_rival = PREVPREV }
+					}
 				}
 			}
 		}
@@ -6016,10 +6082,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarHighTier
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = { higher_tier_than = PREVPREV }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = { higher_tier_than = PREVPREV }
+					}
 				}
 			}
 		}
@@ -6034,11 +6102,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarOpinion5
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { personal_opinion = { who = PREVPREV value = -99 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { personal_opinion = { who = PREVPREV value = -99 } }
+						}
 					}
 				}
 			}
@@ -6046,11 +6116,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinion4
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { personal_opinion = { who = PREVPREV value = -74 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { personal_opinion = { who = PREVPREV value = -74 } }
+						}
 					}
 				}
 			}
@@ -6058,11 +6130,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinion3
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { personal_opinion = { who = PREVPREV value = -49 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { personal_opinion = { who = PREVPREV value = -49 } }
+						}
 					}
 				}
 			}
@@ -6070,11 +6144,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinion2
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { personal_opinion = { who = PREVPREV value = -24 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { personal_opinion = { who = PREVPREV value = -24 } }
+						}
 					}
 				}
 			}
@@ -6082,11 +6158,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinion1
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { personal_opinion = { who = PREVPREV value = 0 } }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { personal_opinion = { who = PREVPREV value = 0 } }
+						}
 					}
 				}
 			}
@@ -6094,11 +6172,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinionM4
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						personal_opinion = { who = PREVPREV value = 100 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							personal_opinion = { who = PREVPREV value = 100 }
+						}
 					}
 				}
 			}
@@ -6106,11 +6186,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinionM3
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						personal_opinion = { who = PREVPREV value = 75 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							personal_opinion = { who = PREVPREV value = 75 }
+						}
 					}
 				}
 			}
@@ -6118,11 +6200,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinionM2
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						personal_opinion = { who = PREVPREV value = 50 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							personal_opinion = { who = PREVPREV value = 50 }
+						}
 					}
 				}
 			}
@@ -6130,11 +6214,13 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarOpinionM1
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						personal_opinion = { who = PREVPREV value = 25 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							personal_opinion = { who = PREVPREV value = 25 }
+						}
 					}
 				}
 			}
@@ -6150,14 +6236,16 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarPower4
-		FROM = {
-			suzerain = {
-				FROM = {
-					OR = {
-						current_heir = {
-							relative_power = { who = PREVPREV power = 4.0 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						OR = {
+							current_heir = {
+								relative_power = { who = PREVPREV power = 4.0 }
+							}
+							relative_power = { who = PREV power = 4.0 }
 						}
-						relative_power = { who = PREV power = 4.0 }
 					}
 				}
 			}
@@ -6165,14 +6253,16 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarPower3
-		FROM = {
-			suzerain = {
-				FROM = {
-					OR = {
-						current_heir = {
-							relative_power = { who = PREVPREV power = 3.0 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						OR = {
+							current_heir = {
+								relative_power = { who = PREVPREV power = 3.0 }
+							}
+							relative_power = { who = PREV power = 3.0 }
 						}
-						relative_power = { who = PREV power = 3.0 }
 					}
 				}
 			}
@@ -6180,14 +6270,16 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarPower2
-		FROM = {
-			suzerain = {
-				FROM = {
-					OR = {
-						current_heir = {
-							relative_power = { who = PREVPREV power = 2.0 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						OR = {
+							current_heir = {
+								relative_power = { who = PREVPREV power = 2.0 }
+							}
+							relative_power = { who = PREV power = 2.0 }
 						}
-						relative_power = { who = PREV power = 2.0 }
 					}
 				}
 			}
@@ -6195,14 +6287,16 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarPower1
-		FROM = {
-			suzerain = {
-				FROM = {
-					OR = {
-						current_heir = {
-							relative_power = { who = PREVPREV power = 1.5 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						OR = {
+							current_heir = {
+								relative_power = { who = PREVPREV power = 1.5 }
+							}
+							relative_power = { who = PREV power = 1.5 }
 						}
-						relative_power = { who = PREV power = 1.5 }
 					}
 				}
 			}
@@ -6210,39 +6304,45 @@ defined_text = {
 	}
 	text = {
 		localisation_key = STRING_TributeWarPowerM3
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { relative_power = { who = PREVPREV power = 0.25 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { relative_power = { who = PREVPREV power = 0.25 } }
+						}
+						NOT = { relative_power = { who = PREV power = 0.25 } }
 					}
-					NOT = { relative_power = { who = PREV power = 0.25 } }
 				}
 			}
 		}
 	}
 	text = {
 		localisation_key = STRING_TributeWarPowerM2
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { relative_power = { who = PREVPREV power = 0.5 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { relative_power = { who = PREVPREV power = 0.5 } }
+						}
+						NOT = { relative_power = { who = PREV power = 0.5 } }
 					}
-					NOT = { relative_power = { who = PREV power = 0.5 } }
 				}
 			}
 		}
 	}
 	text = {
 		localisation_key = STRING_TributeWarPowerM3
-		FROM = {
-			suzerain = {
-				FROM = {
-					current_heir = {
-						NOT = { relative_power = { who = PREVPREV power = 0.75 }
+		trigger = {
+			FROM = {
+				suzerain = {
+					FROM = {
+						current_heir = {
+							NOT = { relative_power = { who = PREVPREV power = 0.75 } }
+						}
+						NOT = { relative_power = { who = PREV power = 0.75 } }
 					}
-					NOT = { relative_power = { who = PREV power = 0.75 } }
 				}
 			}
 		}
@@ -6257,12 +6357,14 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarLifestyle
-		FROM = {
-			current_heir = {
-				OR = {
-					trait = impaler
-					trait = duelist
-					trait = strategist
+		trigger = {
+			FROM = {
+				current_heir = {
+					OR = {
+						trait = impaler
+						trait = duelist
+						trait = strategist
+					}
 				}
 			}
 		}
@@ -6277,10 +6379,12 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarDesireKing
-		FROM = {
-			lower_real_tier_than = KING
-			current_heir = {
-				has_ambition = obj_become_king
+		trigger = {
+			FROM = {
+				lower_real_tier_than = KING
+				current_heir = {
+					has_ambition = obj_become_king
+				}
 			}
 		}
 	}
@@ -6294,9 +6398,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarWroth
-		FROM = {
-			current_heir = {
-				trait = wroth
+		trigger = {
+			FROM = {
+				current_heir = {
+					trait = wroth
+				}
 			}
 		}
 	}
@@ -6310,9 +6416,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarBrave
-		FROM = {
-			current_heir = {
-				trait = brave
+		trigger = {
+			FROM = {
+				current_heir = {
+					trait = brave
+				}
 			}
 		}
 	}
@@ -6326,9 +6434,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarDesiresPeace
-		FROM = {
-			current_heir = {
-				has_ambition = obj_see_the_realm_prosper
+		trigger = {
+			FROM = {
+				current_heir = {
+					has_ambition = obj_see_the_realm_prosper
+				}
 			}
 		}
 	}
@@ -6342,12 +6452,14 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarSmallRealm
-		FROM = {
-			NOT = { realm_size = 2 }
-			current_heir = {
-				OR = {
-					is_landed = false
-					lower_tier_than = COUNT
+		trigger = {
+			FROM = {
+				NOT = { realm_size = 2 }
+				current_heir = {
+					OR = {
+						is_landed = false
+						lower_tier_than = COUNT
+					}
 				}
 			}
 		}
@@ -6362,11 +6474,13 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarLostWar
-		FROM = {
-			OR = {
-				has_character_flag = lost_tributary_independence_war
-				current_heir = {
+		trigger = {
+			FROM = {
+				OR = {
 					has_character_flag = lost_tributary_independence_war
+					current_heir = {
+						has_character_flag = lost_tributary_independence_war
+					}
 				}
 			}
 		}
@@ -6381,9 +6495,11 @@ defined_text = {
 	use_first_valid = yes
 	text = {
 		localisation_key = STRING_TributeWarCraven
-		FROM = {
-			current_heir = {
-				trait = craven
+		trigger = {
+			FROM = {
+				current_heir = {
+					trait = craven
+				}
 			}
 		}
 	}

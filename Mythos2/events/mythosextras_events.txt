@@ -466,534 +466,8 @@ character_event = {
 
 # MYTH isn't loading events past 57. Move here?
 
-# MYTH.58 - Offer to convert to Roman Paganism
-character_event = {
-	id = MYTHMORE.19
-	desc = EVTDESC_MYTHMORE.19
-	picture = GFX_evt_bishop
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = { religion = the_damned }
-	}
-	
-	# Accept
-	option = {
-		name = EVTOPTA_MYTHMORE.19
-		religion = roman_pagan
-		if = {
-			limit = {
-				is_landed = yes
-				capital_scope = { religion = hellenic_pagan }
-			}
-			capital_scope = { religion = roman_pagan }
-		}
-		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				culture = roman
-			}
-			modifier = {
-				factor = 1.5
-				OR = {
-					culture = lombard
-					culture = italian
-				}
-			}
-			modifier = {
-				factor = 1.2
-				liege = {
-					OR = {
-						has_law = revoke_title_law_2
-						has_law = crown_authority_2
-						has_law = crown_authority_3
-						has_law = crown_authority_4
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				has_secret_religion = yes
-			}
-			modifier = {
-				factor = 1.5
-				is_close_relative = FROM
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = FROM value = 25 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = FROM value = 50 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = FROM value = 75 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = FROM value = 100 }
-			}
-			modifier = {
-				factor = 3
-				top_liege = { trait = god }
-			}
-			modifier = {
-				factor = 2
-				top_liege = { trait = demi_god }
-			}
-			modifier = {
-				factor = 1.5
-				top_liege = { trait = blood_of_the_gods }
-			}
-		}
-	}
-	# Refuse
-	option = {
-		name = EVTOPTB_MYTHMORE.19
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 1.5
-				ai_zeal = 30
-			}
-			modifier = {
-				factor = 1.5
-				ai_zeal = 60
-			}
-			modifier = {
-				factor = 1.5
-				ai_zeal = 90
-			}
-			modifier = {
-				factor = 2
-				trait = brave
-				trait = zealous
-			}
-			modifier = {
-				factor = 1.5
-				NOT = { opinion = { who = FROM value = 0 } }
-			}
-			modifier = {
-				factor = 1.6
-				NOT = { opinion = { who = FROM value = -24 } }
-			}
-			modifier = {
-				factor = 1.7
-				NOT = { opinion = { who = FROM value = -49 } }
-			}
-			modifier = {
-				factor = 1.8
-				NOT = { opinion = { who = FROM value = -74 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = FROM value = -99 } }
-			}
-		}
-	}
-}
-	
-# MYTH.59 - Greek pantheon can convert to Roman
-character_event = {
-	id = MYTHMORE.20
-	desc = EVTDESC_MYTHMORE.20
-	picture = GFX_evt_hippodrome_byzantine
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	religion = hellenic_pagan
-	only_capable = yes
-	
-	trigger = {
-		can_change_religion = yes
-		OR = {
-			has_landed_title = e_olympus
-			top_liege = {
-				has_landed_title = e_olympus
-			}
-		}
-	}
-	
-	immediate = {
-		clr_character_flag = ai_flag_refuse_conversion
-	}
-	
-	# Convert
-	option = {
-		name = EVTOPTA_MYTHMORE.20
-		religion = roman_pagan
-		ai_chance = {
-			factor = 3
-			modifier = { # Original dieties more likely
-				factor = 1.5
-				age = 300
-			}
-			modifier = {
-				factor = 1.5
-				ai_ambition = 50
-			}
-		}
-	}
-	# Refuse
-	option = {
-		name = EVTOPTB_MYTHMORE.20
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				ai_zeal = 60
-			}
-		}
-	}
-}
+# MYTH.58-64 - Offer to convert to Roman Paganism - Now in vanilla
 
-# MYTH.60 - Everyone is alerted to reformation
-narrative_event = {
-	id = MYTHMORE.21
-	title = EVTTITLE_MYTHMORE.21
-	desc = EVTDESC_MYTHMORE.21
-	picture = GFX_evt_heretic
-	border = "GFX_event_narrative_frame_religion"	
-	
-	is_triggered_only = yes
-	major = yes
-	show_ROOT = yes
-	hide_new = yes
-	
-	only_rulers = yes
-	
-	# Roman Pagans
-	option = {
-		trigger = { religion = roman_pagan }
-		name = EVTOPTA_MYTHMORE.21
-	}
-	# Hellenic Pagans
-	option = {
-		trigger = { religion = hellenic_pagan }
-		name = EVTOPTB_MYTHMORE.21
-	}
-	# Others
-	option = {
-		trigger = {
-			NOR = {
-				religion = roman_pagan
-				religion = hellenic_pagan
-			}
-		}
-		name = EVTOPTC_MYTHMORE.21
-	}
-}
-
-# MYTH.61 - Hellenic Augur suggests riving Roman rites
-character_event = {
-	id = MYTHMORE.22
-	desc = EVTDESC_MYTHMORE.22
-	picture = GFX_evt_monk
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	religion = hellenic_pagan
-	
-	trigger = {
-		has_job_title = job_spiritual
-		num_of_holy_sites = 2
-		liege = {
-			religion = hellenic_pagan
-			piety = 500
-			OR = {
-				has_landed_title = e_roman_empire
-				has_landed_title = c_roma
-				has_landed_title = b_roma
-			}
-		}
-	}
-	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 2
-			num_of_holy_sites = 3
-		}
-		modifier = {
-			factor = 2.5
-			num_of_holy_sites = 4
-		}
-		modifier = {
-			factor = 3
-			num_of_holy_sites = 5
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { learning = 8 }
-		}
-		modifier = {
-			factor = 1.2
-			learning = 10
-		}
-		modifier = {
-			factor = 1.3
-			learning = 15
-		}
-		modifier = {
-			factor = 1.4
-			learning = 20
-		}
-		modifier = {
-			factor = 1.5
-			learning = 25
-		}
-		modifier = {
-			factor = 1.5
-			learning = 30
-		}
-	}
-	# Suggest reforms
-	option = {
-		name = EVTOPTA_MYTHMORE.22
-		hidden_tooltip = {
-			liege = {
-				character_event = { id = MYTHMORE.23 days = 1 }
-			}
-		}
-	}
-	# Decide against it
-	option = {
-		name = EVTOPTB_MYTHMORE.22
-		trigger = { 
-			OR = {
-				ai = no
-				trait = cynical
-			}
-		}
-	}
-}
-
-character_event = {
-	id = MYTHMORE.23
-	desc = EVTDESC_MYTHMORE.23
-	picture = GFX_evt_courtiers_talking
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	# Agree
-	option = {
-		name = EVTOPTA_MYTHMORE.23
-		piety = -500
-		religion = roman_pagan
-		capital_scope = { religion = roman_pagan }
-		FROM = {
-			religion = roman_pagan
-			gain_title = d_roman_pagan
-			hidden_tooltip = {
-				character_event = { id = MYTHMORE.24 } # Inform and improve opinion
-			}
-		}
-		any_vassal = {
-			limit = { religion = hellenic_pagan }
-			character_event = { id = MYTHMORE.25 days = 1 }
-		}
-		any_courtier = {
-			limit = { is_councillor = yes }
-			character_event = { id = MYTHMORE.25 days = 2 }
-		}
-		hidden_tooltip = {
-			set_global_flag = roman_pagan_restoration
-			# Greek pantheon receives offer to convert
-			e_olympus = {
-				holder_scope = {
-					character_event = { id = MYTHMORE.20 days = 1 }
-					any_courtier = {
-						limit = { religion = hellenic_pagan }
-						character_event = { id = MYTHMORE.20 days = 1}
-					}
-				}
-			}
-			# Alert everyone
-			any_playable_ruler = {
-				limit = {
-					NOT = { character = ROOT }
-					ai = no # Informational
-				}
-				narrative_event = { id = MYTHMORE.21 days = 1 }
-			}
-		}
-	}
-	# Decline
-	option = {
-		name = EVTOPTB_MYTHMORE.23
-	}
-}
-
-# MYTH.63 - Inform augur of acceptance/promotion
-character_event = {
-	id = MYTHMORE.24
-	desc = EVTDESC_MYTHMORE.24
-	picture = GFX_evt_bishop
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTDESC_MYTHMORE.24
-		opinion = { who = FROM modifier = opinion_very_grateful years = 2 }
-		opinion = { who = FROM modifier = opinion_happy_convertion years = 5 }
-		tooltip = { gain_title = d_roman_pagan }
-	}
-}
-
-# MYTH.64 - Vassal can change to Roman pagan. If yes, and tier count or higher send to their court.
-character_event = {
-	id = MYTHMORE.25
-	desc = EVTDESC_MYTHMORE.25
-	picture = GFX_evt_bishop
-	border = GFX_event_normal_frame_religion
-	
-	is_triggered_only = yes
-	
-	# Accept
-	option = {
-		name = EVTOPTA_MYTHMORE.19
-		religion = roman_pagan
-		hidden_tooltip = {
-			if = {
-				limit = {
-					is_landed = yes
-					NOT = { tier = baron }
-				}
-				any_vassal = {
-					limit = { religion = hellenic_pagan }
-					character_event = { id = MYTHMORE.25 days = 1 }
-				}
-				any_courtier = {
-					limit = { is_councillor = yes }
-					character_event = { id = MYTHMORE.25 days = 2 }
-				}
-			}
-		}
-		ai_chance = {
-			factor = 3
-			modifier = {
-				factor = 1.5
-				opinion = { who = top_liege value = 25 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = top_liege value = 50 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = top_liege value = 75 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = top_liege value = 100 }
-			}
-			modifier = {
-				factor = 3
-				top_liege = { trait = god }
-			}
-			modifier = {
-				factor = 2
-				top_liege = { trait = demi_god }
-			}
-			modifier = {
-				factor = 1.5
-				top_liege = { trait = blood_of_the_gods }
-			}
-		}
-	}
-	# Refuse
-	option = {
-		name = EVTOPTB_MYTHMORE.22
-		ai_chance = {
-			factor = 3
-			modifier = {
-				factor = 1.5
-				ai_zeal = 50
-			}
-			modifier = {
-				factor = 1.5
-				ai_zeal = 100
-			}
-			modifier = {
-				factor = 1.5
-				NOT = { opinion = { who = top_liege value = -24 } }
-			}
-			modifier = {
-				factor = 1.5
-				NOT = { opinion = { who = top_liege value = -49 } }
-			}
-			modifier = {
-				factor = 1.5
-				NOT = { opinion = { who = top_liege value = -74 } }
-			}
-			modifier = {
-				factor = 1.5
-				NOT = { opinion = { who = top_liege value = -99 } }
-			}
-		}
-	}
-	# Falsely convert
-	option = {
-		name = EVTOPTC_MYTHMORE.25
-		religion = roman_pagan
-		set_secret_religion = hellenic_pagan
-		hidden_tooltip = {
-			if = {
-				limit = {
-					is_landed = yes
-					NOT = { tier = baron }
-				}
-				any_vassal = {
-					limit = { religion = hellenic_pagan }
-					character_event = { id = MYTHMORE.25 days = 1 }
-				}
-				any_courtier = {
-					limit = { is_councillor = yes }
-					character_event = { id = MYTHMORE.25 days = 2 }
-				}
-			}
-		}
-		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { ai_honor = -20 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { ai_honor = -40 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { ai_honor = -60 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { ai_honor = -80 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = top_liege value = 0 } }
-			}
-			modifier = {
-				factor = 0
-				has_secret_religion = yes
-			}
-		}
-	}
-}
 
 # MYTH.65 - Gain Religious Icon (Not made by hand)
 #Miraculous Icon
@@ -2680,7 +2154,7 @@ character_event = {
 			FROM = {
 				set_variable = { which = temp_gain value = 3 }
 				set_variable = { which = temp_gain_health value = 3 }
-				dvide_variable = { which = temp_gain_health value = 2 }
+				divide_variable = { which = temp_gain_health value = 2 }
 			}
 		}
 		else_if = {
@@ -2694,7 +2168,7 @@ character_event = {
 			FROM = {
 				set_variable = { which = temp_gain value = 1 }
 				set_variable = { which = temp_gain_health value = 1 }
-				dvide_variable = { which = temp_gain_health value = 2 }
+				divide_variable = { which = temp_gain_health value = 2 }
 			}
 		}
 		
@@ -2720,34 +2194,34 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			diplomacy = -4
+			change_diplomacy = -4
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			diplomacy = -3
+			change_diplomacy = -3
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			diplomacy = -2
+			change_diplomacy = -2
 		}
 		else = {
-			diplomacy = -1
+			change_diplomacy = -1
 		}
 		FROM = {
 			if = {
 				limit = { ROOT = { trait = arcane_master } }
-				diplomacy = 4
+				change_diplomacy = 4
 			}
 			else_if = {
 				limit = { ROOT = { trait = veteran_wizard } }
-				diplomacy = 3
+				change_diplomacy = 3
 			}
 			else_if = {
 				limit = { ROOT = { trait = eldritch_scholar } }
-				diplomacy = 2
+				change_diplomacy = 2
 			}
 			else = {
-				diplomacy = 1
+				change_diplomacy = 1
 			}
 			add_trait = gregarious
 		}
@@ -2802,34 +2276,34 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			martial = -4
+			change_martial = -4
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			martial = -3
+			change_martial = -3
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			martial = -2
+			change_martial = -2
 		}
 		else = {
-			martial = -1
+			change_martial = -1
 		}
 		FROM = {
 			if = {
 				limit = { ROOT = { trait = arcane_master } }
-				martial = 4
+				change_martial = 4
 			}
 			else_if = {
 				limit = { ROOT = { trait = veteran_wizard } }
-				martial = 3
+				change_martial = 3
 			}
 			else_if = {
 				limit = { ROOT = { trait = eldritch_scholar } }
-				martial = 2
+				change_martial = 2
 			}
 			else = {
-				martial = 1
+				change_martial = 1
 			}
 			add_trait = brave
 		}
@@ -2884,36 +2358,38 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			stewardship = -4
+			change_stewardship = -4
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			stewardship = -3
+			change_stewardship = -3
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			stewardship = -2
+			change_stewardship = -2
 		}
 		else = {
-			stewardship = -1
+			change_stewardship = -1
 		}
 		FROM = {
 			if = {
 				limit = { ROOT = { trait = arcane_master } }
-				stewardship = 4
+				change_stewardship = 4
 			}
 			else_if = {
 				limit = { ROOT = { trait = veteran_wizard } }
-				stewardship = 3
+				change_stewardship = 3
 			}
 			else_if = {
 				limit = { ROOT = { trait = eldritch_scholar } }
-				stewardship = 2
+				change_stewardship = 2
 			}
 			else = {
-				stewardship = 1
+				change_stewardship = 1
 			}
 			add_trait = temperate
+			lose_weight_small_effect = yes
+			weight_trait_check_effect = yes
 		}
 		hidden_tooltip = {
 			FROM = { character_event = { id = MYTHMORE.48 } }
@@ -2966,34 +2442,34 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			intrigue = -4
+			change_intrigue = -4
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			intrigue = -3
+			change_intrigue = -3
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			intrigue = -2
+			change_intrigue = -2
 		}
 		else = {
-			intrigue = -1
+			change_intrigue = -1
 		}
 		FROM = {
 			if = {
 				limit = { ROOT = { trait = arcane_master } }
-				intrigue = 4
+				change_intrigue = 4
 			}
 			else_if = {
 				limit = { ROOT = { trait = veteran_wizard } }
-				intrigue = 3
+				change_intrigue = 3
 			}
 			else_if = {
 				limit = { ROOT = { trait = eldritch_scholar } }
-				intrigue = 2
+				change_intrigue = 2
 			}
 			else = {
-				intrigue = 1
+				change_intrigue = 1
 			}
 			add_trait = deceitful
 		}
@@ -3048,34 +2524,34 @@ character_event = {
 		}
 		if = {
 			limit = { trait = arcane_master }
-			learning = -4
+			change_learning = -4
 		}
 		else_if = {
 			limit = { trait = veteran_wizard }
-			learning = -3
+			change_learning = -3
 		}
 		else_if = {
 			limit = { trait = eldritch_scholar }
-			learning = -2
+			change_learning = -2
 		}
 		else = {
-			learning = -1
+			change_learning = -1
 		}
 		FROM = {
 			if = {
 				limit = { ROOT = { trait = arcane_master } }
-				learning = 4
+				change_learning = 4
 			}
 			else_if = {
 				limit = { ROOT = { trait = veteran_wizard } }
-				learning = 3
+				change_learning = 3
 			}
 			else_if = {
 				limit = { ROOT = { trait = eldritch_scholar } }
-				learning = 2
+				change_learning = 2
 			}
 			else = {
-				learning = 1
+				change_learning = 1
 			}
 			add_trait = erudite
 		}
@@ -3389,6 +2865,8 @@ character_event = {
 					NOT = { trait = temperate }
 				}
 				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 		}
 		hidden_tooltip = {

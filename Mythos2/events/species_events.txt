@@ -41,7 +41,7 @@ character_event = {
 		remove_trait = god
 		remove_trait = demi_god
 		remove_trait = blood_of_the_gods
-		remove_trait = giant
+		remove_trait = mythos_giant
 		remove_trait = half_giant
 		remove_trait = djinn
 		
@@ -545,29 +545,29 @@ character_event = {
 			# Both parents are giants
 			if = {
 				limit = {
-					event_target:true_father = { trait = giant }
-					mother_even_if_dead = { trait = giant }
+					event_target:true_father = { trait = mythos_giant }
+					mother_even_if_dead = { trait = mythos_giant }
 				}
-				add_trait = giant
+				add_trait = mythos_giant
 			}
 			# One giant and one human
 			else_if = {
 				limit = {
 					OR = {
 						AND = {
-							event_target:true_father = { trait = giant }
+							event_target:true_father = { trait = mythos_giant }
 							mother_even_if_dead = { 
 								NOR = {
-									trait = giant
+									trait = mythos_giant
 									trait = half_giant
 								}
 							}
 						}
 						AND = {
-							mother_even_if_dead = { trait = giant }
+							mother_even_if_dead = { trait = mythos_giant }
 							event_target:true_father = { 
 								NOR = {
-									trait = giant
+									trait = mythos_giant
 									trait = half_giant
 								}
 							}
@@ -584,7 +584,7 @@ character_event = {
 				}
 				random_list = {
 					2 = {
-						add_trait = giant
+						add_trait = mythos_giant
 					}
 					2 = {
 						modifier = {
@@ -617,7 +617,7 @@ character_event = {
 							event_target:true_father = { trait = half_giant }
 							mother_even_if_dead = {
 								NOR = {
-									trait = giant
+									trait = mythos_giant
 									trait = half_giant
 								}
 							}
@@ -626,7 +626,7 @@ character_event = {
 							mother_even_if_dead = { trait = half_giant }
 							event_target:true_father = {
 								NOR = {
-									trait = giant
+									trait = mythos_giant
 									trait = half_giant
 								}
 							}
@@ -655,17 +655,17 @@ character_event = {
 					OR = {
 						AND = {
 							event_target:true_father = { trait = half_giant }
-							mother_even_if_dead = { trait = giant }
+							mother_even_if_dead = { trait = mythos_giant }
 						}
 						AND = {
 							mother_even_if_dead = { trait = half_giant }
-							event_target:true_father = { trait = giant }
+							event_target:true_father = { trait = mythos_giant }
 						}
 					}
 				}
 				random_list = {
 					2 = {
-						add_trait = giant
+						add_trait = mythos_giant
 					}
 					5 = {
 						add_trait = half_giant
@@ -687,7 +687,7 @@ character_event = {
 			if = {
 				limit = {
 					OR = {
-						trait = giant
+						trait = mythos_giant
 						trait = half_giant
 					}
 					OR = {
@@ -698,7 +698,7 @@ character_event = {
 									trait = demi_god
 								}
 							}
-							mother_even_if_dead = { trait = giant }
+							mother_even_if_dead = { trait = mythos_giant }
 						}
 						AND = {
 							mother_even_if_dead = {
@@ -707,25 +707,25 @@ character_event = {
 									trait = demi_god
 								}
 							}
-							event_target:true_father = { trait = giant }
+							event_target:true_father = { trait = mythos_giant }
 						}
 					}
 				}
 				random_list = {
 					1 = {
-						remove_trait = giant
+						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = horse
 						set_graphical_culture = horse
 					}
 					1 = {
-						remove_trait = giant
+						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = dragon
 						set_graphical_culture = draconic
 					}
 					1 = {
-						remove_trait = giant
+						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = pup
 						set_variable = { which = control value = 1 }
@@ -940,9 +940,9 @@ character_event = {
 			}
 			# Giant
 			if = {
-				limit = { event_target:parent = { trait = giant } }
+				limit = { event_target:parent = { trait = mythos_giant } }
 				random_list = {
-					8 = { add_trait = giant }
+					8 = { add_trait = mythos_giant }
 					2 = { 
 						modifier = {
 							factor = 0.6
@@ -1193,7 +1193,7 @@ character_event = {
 			trait = immortal
 			trait = zombie # Undead should always be infertile
 			trait = mummy
-			trait = vampire
+			trait = known_vampire
 		}
 	}
 	
@@ -1489,7 +1489,7 @@ character_event = {
 	
 	trigger = {
 		NOT = { has_character_flag = checked_giant }
-		trait = giant
+		trait = mythos_giant
 	}
 	
 	immediate = {

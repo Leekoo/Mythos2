@@ -447,7 +447,7 @@ determine_purity = {
 			change_variable = { which = purity value = 1 }
 		}
 		if = {
-			limit = { has_landed_title = e_draconic_pagan_reformed }
+			limit = { has_landed_title = k_draconic_pagan_reformed }
 			change_variable = { which = purity value = 1 }
 		}
 		if = {
@@ -8321,7 +8321,7 @@ update_sickly_trait = {
 			limit = {
 				trait = dragon
 				trait = demi_god
-				trait = giant
+				trait = mythos_giant
 				trait = djinn
 			}
 			remove_trait = sickly
@@ -8343,7 +8343,7 @@ update_sickly_trait = {
 					AND = {
 						trait = dragon
 						trait = demi_god
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = dragon
@@ -8361,7 +8361,7 @@ update_sickly_trait = {
 					AND = {
 						trait = dragonborn
 						trait = demi_god
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					AND = {
@@ -8379,12 +8379,12 @@ update_sickly_trait = {
 				OR = {
 					AND = {
 						trait = dragon
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					AND = {
 						trait = demi_god
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					AND = {
@@ -8414,7 +8414,7 @@ update_sickly_trait = {
 					AND = {
 						trait = dragonborn
 						trait = demi_god
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = dragonborn
@@ -8441,7 +8441,7 @@ update_sickly_trait = {
 				OR = {
 					AND = {
 						trait = dragon
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = dragon
@@ -8449,7 +8449,7 @@ update_sickly_trait = {
 					}
 					AND = {
 						trait = demi_god
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = demi_god
@@ -8476,7 +8476,7 @@ update_sickly_trait = {
 				OR = {
 					AND = {
 						trait = dragonborn
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					AND = {
@@ -8500,7 +8500,7 @@ update_sickly_trait = {
 			limit = {
 				OR = {
 					AND = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					AND = {
@@ -8530,7 +8530,7 @@ update_sickly_trait = {
 				OR = {
 					AND = {
 						trait = dragonborn
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = dragonborn
@@ -8549,7 +8549,7 @@ update_sickly_trait = {
 			limit = {
 				OR = {
 					AND = {
-						trait = giant
+						trait = mythos_giant
 					}
 					AND = {
 						trait = djinn
@@ -8940,7 +8940,7 @@ set_undead_culture = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 		culture = undead_vrykolakas
@@ -9078,7 +9078,7 @@ set_undead_province_culture = {
 				culture_group = byzantine
 				culture = roman
 				religion = hellenic_pagan
-				religion = roman_pagan
+				religion = hellenic_pagan_reformed
 			}
 		}
 		culture = undead_vrykolakas
@@ -9344,4 +9344,31 @@ get_random_disease = {
 			1 = { add_trait = leper }
 		}
 	}
+}
+
+remove_scarred = {
+	set_variable = { which = scarred_variable value = 0 }
+	remove_trait = scarred
+	remove_trait = scarred_mid
+	remove_trait = scarred_high
+	remove_trait = scarred_type_1
+	remove_trait = scarred_type_2
+	remove_trait = scarred_type_3
+	remove_trait = scarred_type_4
+	remove_trait = scarred_type_5
+	remove_trait = scarred_type_6
+	remove_trait = scarred_type_7
+	remove_trait = scarred_type_8
+	remove_trait = scarred_type_9
+	remove_trait = scarred_type_10
+}
+
+remove_minor_injuries = {
+	remove_character_modifier = black_eye
+	remove_character_modifier = swollen_wrist
+	remove_character_modifier = swollen_ankle
+	remove_character_modifier = concussion
+	remove_character_modifier = cracked_ribs
+	remove_character_modifier = badly_bruised
+	remove_character_modifier = sore_muscles
 }

@@ -25,12 +25,19 @@ republic_governments = {
 		title_prefix = "city_"
 		potential = {
 			culture = draconic
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
-			is_female = no
+			#is_female = no
 			OR = {
 				AND = {
 					is_patrician = yes
@@ -117,12 +124,19 @@ republic_governments = {
 		frame_suffix = "_merchantrepublic"
 		title_prefix = "city_"
 		potential = {
-			NAND = {
-				controls_religion = yes
-				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
+			OR = {
+				controls_religion = no
+				religion_group = muslim
+				has_religion_feature = religion_temporal_head
+				AND = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = jotnar_reformed
+					}
+					has_religion_features = no # Old saves, and campaigns without HF, need the Fylkirate to continue working
+				}
 			}
-			is_female = no
+			#is_female = no
 			OR = {
 				AND = {
 					is_patrician = yes
@@ -216,7 +230,6 @@ republic_governments = {
 			NAND = {
 				controls_religion = yes
 				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
 			}
 			independent = no
 			liege = {
@@ -230,6 +243,7 @@ republic_governments = {
 				NOT = { trait = zombie }
 				liege = { government = draconic_governorship }
 			}
+			holy_order = no
 		}
 		color = { 200 80 80 }
 		uses_prestige_for_law_change = yes
@@ -265,7 +279,6 @@ republic_governments = {
 			NAND = {
 				controls_religion = yes
 				NOT = { religion_group = muslim }
-				NOT = { religion = norse_pagan_reformed }
 			}
 			NOR = { 
 				is_government_potential = merchant_republic_government
@@ -276,6 +289,7 @@ republic_governments = {
 				NOT = { trait = zombie }
 				liege = { government = republic_government }
 			}
+			holy_order = no
 		}
 		
 		color = { 209 125 130 }

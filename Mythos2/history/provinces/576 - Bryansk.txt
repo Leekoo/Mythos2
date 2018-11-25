@@ -4,17 +4,16 @@
 title = c_bryansk
 
 # Settlements
-max_settlements = 5
-b_bryansk = tribal
+max_settlements = 3
+
+b_bryansk = tribal	#1147
 b_pochep = temple # Baltic pagan holy site
 
-#b_orel = city
-
-#b_karachev = castle
-#b_dyatkovo = castle
-#b_klynov = castle
-#b_belev = city
-#b_mtsensk = castle
+#b_trubetsk	#1164
+#b_suponevo
+#b_kokino
+#b_vygonichi
+#b_bezichi
 
 # Misc
 culture = severian
@@ -29,11 +28,17 @@ religion = slavic_pagan
 	b_bryansk = castle
 	b_orel = city
 }
+1150.1.1 = {
+	b_bryansk = castle
+}
+1164.1.1 = {
+	b_trubetsk = castle
+}
 1180.1.1={
 	culture = undead_cold_ones
 	religion = the_damned
 }
 1300.1.1={
 	culture = russian
-	religion = slavic_pagan
+	religion = orthodox
 }

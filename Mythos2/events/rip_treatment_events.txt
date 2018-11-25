@@ -41,10 +41,7 @@ character_event = {
 		trigger = { NOT = { has_character_flag = pending_infection } }
 		remove_trait = severely_injured
 		clear_delayed_event = { id = RIP.11000 }
-		if = {
-			limit = { NOT = { trait = scarred } }
-			add_trait = scarred
-		}
+		add_scarred_tiered_effect = yes
 	}
 
 	option = {
@@ -53,10 +50,7 @@ character_event = {
 		remove_trait = severely_injured
 		clear_delayed_event = { id = RIP.11000 }
 		add_trait = infection
-		if = {
-			limit = { NOT = { trait = scarred } }
-			add_trait = scarred
-		}
+		add_scarred_tiered_effect = yes
 		hidden_tooltip = {
 			clr_character_flag = pending_infection
 			character_event = { id = RIP.11001 days = 365 random = 1095 }
@@ -1523,6 +1517,7 @@ character_event = {
 	trigger = {
 		has_minor_title = title_court_physician
 		FROM = {
+			prisoner = no
 			OR = {
 				character_disease_trigger = yes
 				AND = {
@@ -3849,7 +3844,7 @@ character_event = {
 			10 = {  # physician tries to drown you
 				modifier = {
 					factor = 0
-					FROM = { 
+					FROMFROM = { 
 						NOR = { 
 							trait = zealous
 							trait = cruel

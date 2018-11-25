@@ -17,10 +17,9 @@ vampire = {
 	diplomacy = 2
 	martial = 1
 	intrigue = 4
-	learning = 1
 	health = 3
 	
-	combat_rating = 1
+	combat_rating = 10
 	
 	ai_rationality = 20
 	ai_honor = -20
@@ -80,7 +79,7 @@ werewolf = {
 	same_opinion = 20
 	opposite_opinion = -30
 	
-	combat_rating = 2
+	combat_rating = 22
 	
 	diplomacy = -1
 	martial = 4
@@ -120,7 +119,7 @@ secret_werewolf = {
 }
 	
 
-giant = {
+mythos_giant = {
 
 	opposites = { half_giant }
 
@@ -134,7 +133,7 @@ giant = {
 	learning = -2
 	martial = 8
 	
-	combat_rating = 4
+	combat_rating = 20
 	
 	ai_rationality = -10
 	
@@ -157,14 +156,14 @@ fledgling = {
 
 half_giant = {
 
-	opposites = { giant }
+	opposites = { mythos_giant }
 	
 	inherit_chance = 75
 	martial = 3
 	diplomacy = -1
 	health = 2
 	
-	combat_rating = 2
+	combat_rating = 10
 }
 
 god = {
@@ -182,8 +181,9 @@ god = {
 	stewardship = 20
 	intrigue = 20
 	learning = 25
+	fertility = -0.2
 	
-	combat_rating = 20
+	combat_rating = 100
 	command_modifier = {
 		morale_defence = 0.5
 		defence = 0.5
@@ -212,7 +212,7 @@ demi_god = {
 	intrigue = 3
 	learning = 5
 	
-	combat_rating = 5
+	combat_rating = 30
 	
 	monthly_character_prestige = 1
 	
@@ -235,7 +235,7 @@ blood_of_the_gods = {
 	intrigue = 1
 	learning = 1
 	
-	combat_rating = 1
+	combat_rating = 8
 	
 	monthly_character_prestige = 0.5
 	
@@ -330,7 +330,7 @@ dragon = {
 	martial = 2
 	health = 10
 	
-	combat_rating = 5
+	combat_rating = 30
 	
 	ai_rationality = 20
 	ai_honor = 20
@@ -354,7 +354,7 @@ dragonborn = {
 	martial = 1
 	health = 2
 	
-	combat_rating = 2
+	combat_rating = 20
 	
 	ai_rationality = 20
 	ai_honor = 20
@@ -515,6 +515,7 @@ monster_hunter = {
 	learning = 1
 	monthly_character_piety = 0.8
 	church_opinion = 30
+	combat_rating = 4
 	ai_zeal = 20
 }
 
@@ -936,6 +937,7 @@ demon_trait = {
 	stewardship = 4
 	martial = 4
 	learning = 4
+	combat_rating = 15
 	
 	#liege_piety = -0.5
 	
@@ -968,6 +970,7 @@ ethereal_trait = {
 	intrigue = 4
 	stewardship = 2
 	learning = 2
+	combat_rating = 25
 	
 	customizer = no
 	random = no
@@ -990,6 +993,7 @@ zombie_infection = {
 	intrigue_penalty = -2
 	learning_penalty = -4
 	health_penalty = -4
+	combat_Rating = -15
 	
 	sex_appeal_opinion = -20
 	fertility = -20
@@ -1038,10 +1042,11 @@ claw_of_fafnir = {
 		spear_of_lugh
 		lion_of_menhit
 		surtrs_fire
+		kailash_guardian
 	}
 	
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	
 	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
@@ -1073,10 +1078,11 @@ hell_knight = {
 		spear_of_lugh
 		lion_of_menhit
 		surtrs_fire
+		kailash_guardian
 	}
 	
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
@@ -1108,10 +1114,11 @@ spear_of_lugh = {
 		hell_knight
 		lion_of_menhit
 		surtrs_fire
+		kailash_guardian
 	}
 	
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	
 	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
@@ -1142,10 +1149,11 @@ lion_of_menhit = {
 		hell_knight
 		spear_of_lugh
 		surtrs_fire
+		kailash_guardian
 	}
 	
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	
 	pagan_group_opinion = 5
 	same_opinion_if_same_religion = 15
@@ -1175,10 +1183,11 @@ surtrs_fire = {
 		claw_of_fafnir
 		hell_knight
 		spear_of_lugh
+		kailash_guardian
 	}
 	
 	martial = 2
-	combat_rating = 1
+	combat_rating = 10
 	
 	church_opinion = 15
 	same_opinion_if_same_religion = 15
@@ -1228,7 +1237,7 @@ hunger_1 = {
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 1
+	combat_rating = 8
 	assassinate_chance_modifier = 0.03
 	intrigue = 1
 	ai_ambition = 5
@@ -1247,7 +1256,7 @@ hunger_2 = {
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 2
+	combat_rating = 16
 	assassinate_chance_modifier = 0.06
 	intrigue = 2
 	ai_ambition = 10
@@ -1266,7 +1275,7 @@ hunger_3 = {
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 3
+	combat_rating = 24
 	assassinate_chance_modifier = 0.09
 	intrigue = 3
 	ai_ambition = 15
@@ -1285,7 +1294,7 @@ hunger_4 = {
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 4
+	combat_rating = 32
 	assassinate_chance_modifier = 0.12
 	intrigue = 4
 	ai_ambition = 20
@@ -1304,7 +1313,7 @@ hunger_5 = {
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 5
+	combat_rating = 40
 	assassinate_chance_modifier = 0.15
 	intrigue = 5
 	ai_ambition = 25
@@ -1327,7 +1336,7 @@ control_1 = { # Full Moon
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 4
+	combat_rating = 40
 	command_modifier = {
 		morale_offence = 0.2
 	}
@@ -1353,7 +1362,7 @@ control_2 = { # Full Gibbous
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 3
+	combat_rating = 30
 	command_modifier = {
 		morale_offence = 0.15
 	}
@@ -1379,7 +1388,7 @@ control_3 = { # Gibbous
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 2
+	combat_rating = 20
 	command_modifier = {
 		morale_offence = 0.1
 	}
@@ -1405,7 +1414,7 @@ control_4 = { # Half Gibbous
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = 1
+	combat_rating = 10
 	command_modifier = {
 		morale_offence = 0.05
 	}
@@ -1449,7 +1458,7 @@ control_6 = { # Half Crescent
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = -0.5
+	combat_rating = -5
 	command_modifier = {
 		morale_offence = -0.025
 	}
@@ -1476,7 +1485,7 @@ control_7 = { # Crescent
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = -1
+	combat_rating = -10
 	command_modifier = {
 		morale_offence = -0.05
 	}
@@ -1503,7 +1512,7 @@ control_8 = { # New Crescent
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = -1.5
+	combat_rating = -15
 	command_modifier = {
 		morale_offence = -0.075
 	}
@@ -1530,7 +1539,7 @@ control_9 = { # New
 	hidden_from_others = yes
 	customizer = no
 	
-	combat_rating = -2
+	combat_rating = -20
 	command_modifier = {
 		morale_offence = -0.1
 	}
@@ -1553,7 +1562,7 @@ size_1 = { # Age 16, age 20 half-giant
 	}
 	potential = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		NOT = {
@@ -1563,7 +1572,7 @@ size_1 = { # Age 16, age 20 half-giant
 	
 	customizer = no
 	
-	combat_rating = 1
+	combat_rating = 6
 	health = 0.1
 	command_modifier = {
 		siege = 0.02
@@ -1584,7 +1593,7 @@ size_2 = { # Age 28, age 40 half-giant
 	}
 	potential = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		NOT = {
@@ -1594,7 +1603,7 @@ size_2 = { # Age 28, age 40 half-giant
 	
 	customizer = no
 	
-	combat_rating = 2
+	combat_rating = 12
 	health = 0.2
 	martial = 1
 	command_modifier = {
@@ -1616,7 +1625,7 @@ size_3 = { # Age 40, age 60 half-giant
 	}
 	potential = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		NOT = {
@@ -1626,7 +1635,7 @@ size_3 = { # Age 40, age 60 half-giant
 	
 	customizer = no
 	
-	combat_rating = 3
+	combat_rating = 18
 	health = 0.3
 	martial = 1
 	command_modifier = {
@@ -1648,7 +1657,7 @@ size_4 = { # Age 52, age 80 half-giant
 	}
 	potential = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		NOT = {
@@ -1658,7 +1667,7 @@ size_4 = { # Age 52, age 80 half-giant
 	
 	customizer = no
 	
-	combat_rating = 4
+	combat_rating = 24
 	health = 0.4
 	martial = 2
 	command_modifier = {
@@ -1680,7 +1689,7 @@ size_5 = { # Age 64, age 100 half-giant
 	}
 	potential = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		NOT = {
@@ -1690,7 +1699,7 @@ size_5 = { # Age 64, age 100 half-giant
 	
 	customizer = no
 	
-	combat_rating = 5
+	combat_rating = 30
 	health = 0.5
 	martial = 2
 	command_modifier = {
@@ -1711,7 +1720,7 @@ size_6 = { # Age 76
 		size_10
 	}
 	potential = {
-		trait = giant
+		trait = mythos_giant
 		NOT = {
 			trait = dwarf
 		}
@@ -1719,7 +1728,7 @@ size_6 = { # Age 76
 	
 	customizer = no
 	
-	combat_rating = 6
+	combat_rating = 36
 	health = 0.6
 	martial = 3
 	command_modifier = {
@@ -1740,7 +1749,7 @@ size_7 = { # Age 88
 		size_10
 	}
 	potential = {
-		trait = giant
+		trait = mythos_giant
 		NOT = {
 			trait = dwarf
 		}
@@ -1748,7 +1757,7 @@ size_7 = { # Age 88
 	
 	customizer = no
 	
-	combat_rating = 7
+	combat_rating = 42
 	health = 0.7
 	martial = 3
 	command_modifier = {
@@ -1769,7 +1778,7 @@ size_8 = { # Age 110
 		size_10
 	}
 	potential = {
-		trait = giant
+		trait = mythos_giant
 		NOT = {
 			trait = dwarf
 		}
@@ -1777,7 +1786,7 @@ size_8 = { # Age 110
 	
 	customizer = no
 	
-	combat_rating = 8
+	combat_rating = 48
 	health = 0.8
 	martial = 4
 	command_modifier = {
@@ -1798,7 +1807,7 @@ size_9 = { # Age 122
 		size_10
 	}
 	potential = {
-		trait = giant
+		trait = mythos_giant
 		NOT = {
 			trait = dwarf
 		}
@@ -1806,7 +1815,7 @@ size_9 = { # Age 122
 	
 	customizer = no
 	
-	combat_rating = 9
+	combat_rating = 54
 	health = 0.9
 	martial = 4
 	command_modifier = {
@@ -1827,7 +1836,7 @@ size_10 = { # Age 134
 		size_9
 	}
 	potential = {
-		trait = giant
+		trait = mythos_giant
 		NOT = {
 			trait = dwarf
 		}
@@ -1835,7 +1844,7 @@ size_10 = { # Age 134
 	
 	customizer = no
 	
-	combat_rating = 10
+	combat_rating = 60
 	health = 1
 	martial = 5
 	command_modifier = {
@@ -1849,7 +1858,7 @@ giant_hrimthursar = { # Frost Giant
 		giant_eldjotnar
 		giant_bergrisar
 	}
-	potential = { trait = giant }
+	potential = { trait = mythos_giant }
 	
 	frost_giants_defensive = 0.05
 	fire_giants_morale = -0.05
@@ -1869,7 +1878,7 @@ giant_eldjotnar = { # Fire Giant
 		giant_hrimthursar
 		giant_bergrisar
 	}
-	potential = { trait = giant }
+	potential = { trait = mythos_giant }
 	
 	fire_giants_offensive = 0.05
 	frost_giants_morale = -0.05
@@ -1886,9 +1895,9 @@ giant_bergrisar = { # Hill Giant
 		giant_hrimthursar
 		giant_eldjotnar
 	}
-	potential = { trait = giant }
+	potential = { trait = mythos_giant }
 	
-	combat_rating = 2
+	combat_rating = 15
 	martial = 1
 	days_of_supply = 30
 	

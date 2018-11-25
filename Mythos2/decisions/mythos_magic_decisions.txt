@@ -1045,7 +1045,7 @@ targetted_decisions = {
 			OR = {
 				trait = wounded
 				trait = maimed
-				trait = scarred
+				has_scarred_trait_trigger = yes
 				trait = disfigured
 				trait = one_eyed
 				trait = one_handed
@@ -1054,6 +1054,7 @@ targetted_decisions = {
 				trait = eunuch
 				trait = blinded
 				trait = severely_injured
+				has_minor_injury = yes
 			}
 		}
 		allow = {
@@ -1722,13 +1723,9 @@ targetted_decisions = {
 			is_incapable = no
 			prisoner  = no
 			has_regent = no
-			NOR = {
-				trait = celibate
-				trait = infertile
-				trait = eunuch
-				trait = known_vampire
-				trait = zombie
-				trait = mummy
+			custom_tooltip = {
+				text = tt_not_infertile
+				hidden_tooltip = { is_infertile = no }
 			}
 		}
 		allow = {

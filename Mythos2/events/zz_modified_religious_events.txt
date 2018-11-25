@@ -22,21 +22,20 @@ province_event = {
 		NOT = { province_id = 497 } # Thrace
 		NOT = { province_id = 719 } # Mecca
 		
-		# Some religions only have heresies in certain situations
-		# Hellenic
-		OR = {
-			NOT = { religion = hellenic_pagan }
-			has_global_flag = roman_paganism_revived
-		}
 		# Atenism - needs specific provinces or a flag set. Happening on those provinces sets the flag
 		OR = {
-			NOT = { religion = kemetic_pagan }
+			NOR = {
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+			}
 			has_global_flag = atenist_revived
+			has_global_flag = kemetic_pagan_reformation
 			AND = {
 				c_asyut = {
 					location = {
 						OR = {
 							religion = kemetic_pagan
+							religion = kemetic_pagan_reformed
 							religion = atenist
 						}
 					}
@@ -48,14 +47,35 @@ province_event = {
 						atenist = { num_of_holy_sites = 1 }
 					}
 					AND = {
+						kemetic_pagan = { num_of_holy_sites = 2 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+					}
+					AND = {
 						kemetic_pagan = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 2 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan = { num_of_holy_sites = 1 }
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+					}
+					kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+						atenist = { num_of_holy_sites = 1 }
+					}
+					AND = {
+						kemetic_pagan_reformed = { num_of_holy_sites = 1 }
 						atenist = { num_of_holy_sites = 2 }
 					}
 					atenist = { num_of_holy_sites = 3 }
 				}
 			}
 		}
-		# Draconic - needs to be reformed.  Only can become Black Flame if a flag is set, which can randomly happen through Black Flame events, not yet implemented.
 		# Norse only has heresies if it's reformed or you meet conditions for Jotnar to spread
 		OR = {
 			NOT = { religion = norse_pagan }
@@ -214,28 +234,67 @@ province_event = {
 			}
 		}
 		else_if = {
-			limit = { religion = draconic_pagan }
+			limit = { religion = kemetic_pagan }
 			random_list = {
 				1 = {
-					trigger = { has_global_flag = draconic_pagan_reformation }
-					religion = draconic_pagan_reformed
+					trigger = {
+						has_global_flag = kemetic_pagan_reformation
+					}
+					religion = kemetic_pagan_reformed
 				}
-				# 1 = {
-				#	Black Flame Trigger
-				#	religion = black_flame
-				# }
-			}
-		}
-		else_if = {
-			limit = { religion = draconic_pagan_reformed }
-			random_list = {
 				1 = {
-					religion = draconic_pagan
+					trigger = {
+						OR = {
+							has_global_flag = atenist_revived
+							AND = {
+								c_asyut = {
+									location = {
+										OR = {
+											religion = kemetic_pagan
+											religion = kemetic_pagan_reformed
+											religion = atenist
+										}
+									}
+								}
+								OR = {
+									kemetic_pagan = { num_of_holy_sites = 3 }
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 2 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 2 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 2 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan = { num_of_holy_sites = 1 }
+										kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+									}
+									kemetic_pagan_reformed = { num_of_holy_sites = 3 }
+									AND = {
+										kemetic_pagan_reformed = { num_of_holy_sites = 2 }
+										atenist = { num_of_holy_sites = 1 }
+									}
+									AND = {
+										kemetic_pagan_reformed = { num_of_holy_sites = 1 }
+										atenist = { num_of_holy_sites = 2 }
+									}
+									atenist = { num_of_holy_sites = 3 }
+								}
+							}
+						}
+					}
+					religion = atenist
 				}
-				# 1 = {
-				#	Black Flame Trigger
-				#	religion = black_flame
-				# }
 			}
 		}
 		else = {
@@ -349,6 +408,7 @@ character_event = {
 	
 	trigger = {
 		NOT = { has_character_flag = flag_converting_baptism }
+		NOT = { has_character_modifier = baptism_request_cooldown }
 		OR = {
 			ai = yes
 			FROMs_religion_is_playable_trigger = yes
@@ -511,7 +571,10 @@ character_event = {
 			modifier = {
 				factor = 4
 				any_war = {
-					using_cb = crusade
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
 					defender = {
 						character = ROOT
 					}
@@ -780,7 +843,10 @@ character_event = {
 			modifier = {
 				factor = 4
 				any_war = {
-					using_cb = crusade
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
 					defender = {
 						character = ROOT
 					}
@@ -819,6 +885,10 @@ character_event = {
 			modifier = {
 				factor = 0.2
 				religion = bon
+			}
+			modifier = {
+				factor = 0.2
+				religion = bon_reformed
 			}
 			
 			# Pragmatism
@@ -1450,6 +1520,9 @@ character_event = {
 	min_age = 16
 	capable_only = yes
 	prisoner = no
+	in_command = yes
+	
+	is_triggered_only = yes
 	
 	trigger = {
 		OR = {
@@ -1463,11 +1536,13 @@ character_event = {
 			religion = norse_pagan_reformed
 		}
 		has_crusade_trait_trigger = no
-		in_command = yes
 		OR = {
 			AND = {
 				any_war = {
-					using_cb = crusade
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
 				}
 				crusade_target = {
 					is_located_in = ROOT
@@ -1476,17 +1551,16 @@ character_event = {
 			any_liege = {
 				religion = ROOT
 				any_war = {
-					using_cb = crusade
+					OR = {
+						using_cb = crusade
+						using_cb = new_crusade
+					}
 				}
 				crusade_target = {
 					is_located_in = ROOT
 				}
 			}
 		}
-	}
-
-	mean_time_to_happen = {
-		days = 1
 	}
 	
 	option = {
@@ -2032,6 +2106,8 @@ character_event = {
 			random = {
 				chance = 20
 				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 				character_event = { id = 38276 } # Notify Temperate
 			}
 		}
@@ -2047,6 +2123,8 @@ character_event = {
 			random = {
 				chance = 10
 				remove_trait = gluttonous
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 			}
 		}
 		if = {
@@ -2110,6 +2188,8 @@ character_event = {
 			random = {
 				chance = 20
 				add_trait = temperate
+				lose_weight_small_effect = yes
+				weight_trait_check_effect = yes
 				character_event = { id = 38276 } # Notify Temperate
 			}
 		}
@@ -2573,6 +2653,8 @@ character_event = {
 		}
 		trigger = { has_character_flag = theology_option_temperate }
 		remove_trait = temperate
+		gain_weight_small_effect = yes
+		weight_trait_check_effect = yes
 		
 		if = {
 			limit = {
@@ -2582,6 +2664,8 @@ character_event = {
 			random = {
 				chance = 20
 				add_trait = gluttonous
+				gain_weight_small_effect = yes
+				weight_trait_check_effect = yes
 				character_event = { id = 38277 } # Notify Gluttonous
 			}
 		}
@@ -2604,7 +2688,7 @@ character_event = {
 			random = {
 				chance = 20
 				add_trait = slothful
-				character_event = { id = 38251 } # Notify Gluttonous
+				character_event = { id = 38251 } # Notify Sloth
 			}
 		}
 		if = {
@@ -2757,6 +2841,8 @@ character_event = {
 				}
 				1 = {
 					add_trait = temperate
+					lose_weight_small_effect = yes
+					weight_trait_check_effect = yes
 					character_event = { id = 38276 } # Notify Temperate
 				}
 				1 = {
@@ -2827,6 +2913,8 @@ character_event = {
 				}
 				1 = {
 					add_trait = temperate
+					lose_weight_small_effect = yes
+					weight_trait_check_effect = yes
 					character_event = { id = 38276 } # Notify Temperate
 				}
 				1 = {
@@ -2935,6 +3023,8 @@ character_event = {
 				}
 				1 = {
 					add_trait = gluttonous
+					gain_weight_small_effect = yes
+					weight_trait_check_effect = yes
 					character_event = { id = 38277 } # Notify Gluttonous
 				}
 				1 = {
@@ -2991,4 +3081,104 @@ character_event = {
 			clr_character_flag = theology_option_piety
 		}
 	}
+}
+
+#Bad Beatification
+character_event = {
+    id = HF.40050
+    is_triggered_only = yes
+    hide_window = yes
+    has_dlc = "Holy Fury"
+    min_age = 16
+    religion = catholic
+
+    trigger = {
+    	OR = {
+   	    	trait = drunkard
+   	    	trait = hedonist
+			death_reason = death_dragged_to_hell
+			trait = bad_priest_christian
+    	}
+    	year = 900
+    	NOT = {
+    		has_global_flag = only_papal_saints
+    	}
+        rightful_religious_head_scope = {
+            has_landed_title = k_papal_state
+        }
+    }
+
+	weight_multiplier = {
+		days = 1
+		#After the year 950
+		modifier = {
+			factor = 2
+			year = 950
+			NOT = {
+				year = 1000
+			}
+		}
+		#After the year 1000
+		modifier = {
+			factor = 3
+			year = 1000
+			NOT = {
+				year = 1050
+			}
+		}
+		#After the year 1050
+		modifier = {
+			factor = 4
+			year = 1050
+			NOT = {
+				year = 1110
+			}
+		}
+		#After the year 1110
+		modifier = {
+			factor = 5
+			year = 1100
+			NOT = {
+				year = 1150
+			}
+		}
+		#After the year 1150
+		modifier = {
+			factor = 6
+			year = 1150
+			NOT = {
+				year = 1200
+			}
+		}
+		#After the year 1200
+		modifier = {
+			factor = 7
+			year = 1200
+			NOT = {
+				year = 1250
+			}
+		}
+		#After the year 1250
+		modifier = {
+			factor = 8
+			year = 1250
+		}
+	}
+
+    immediate = {
+		save_event_target_as = saint_person
+		random_realm_character = {
+			limit = {
+				is_theocracy = yes
+				religion = ROOT
+			}
+			save_event_target_as = bishopric_holder 
+			primary_title = {
+				save_event_target_as = bishopric_title
+			}
+            random_realm_province = {
+                province_event = { id = HF.40051 }
+            }
+		}
+    }
 }

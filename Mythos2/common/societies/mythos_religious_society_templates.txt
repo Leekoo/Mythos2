@@ -10,6 +10,7 @@ secret_norse_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -31,6 +32,10 @@ secret_norse_religious_society_template = {
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 
@@ -231,6 +236,7 @@ secret_draconic_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -252,6 +258,10 @@ secret_draconic_religious_society_template = {
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 
@@ -472,6 +482,7 @@ secret_aztec_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -493,6 +504,10 @@ secret_aztec_religious_society_template = {
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 
@@ -693,6 +708,7 @@ secret_zoroastrian_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -714,6 +730,10 @@ secret_zoroastrian_religious_society_template = {
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 
@@ -930,6 +950,7 @@ secret_tengri_religious_society_template = {
 	criminal = yes
 	sound = secret_cults_interface
 	society_ranks_gfx = secret_ranks
+	society_influence = no
 	non_interference = {
 		FROM = {
 			same_realm = ROOT
@@ -951,6 +972,10 @@ secret_tengri_religious_society_template = {
 		secret_religion = FROM
 		hidden_trigger = {
 			NOT = { has_character_flag = society_join_block }
+		}
+		trigger_if = {
+			limit = { prisoner = yes }
+			prisoner = no
 		}
 	}
 

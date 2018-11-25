@@ -7,7 +7,7 @@ character_event = {
 	
 	trigger = {
 		OR = {
-			trait = giant
+			trait = mythos_giant
 			trait = half_giant
 		}
 		age = 16
@@ -16,7 +16,10 @@ character_event = {
 	
 	immediate = {
 		if = {
-			limit = { trait = giant }
+			limit = {
+				trait = mythos_giant
+				NOT = { trait = giant }
+			}
 			if = {
 				limit = {
 					age = 16
@@ -108,7 +111,97 @@ character_event = {
 			}
 		}
 		else_if = {
-			limit = { trait = half_giant }
+			limit = {
+				trait = mythos_giant
+				trait = giant
+			}
+			if = {
+				limit = {
+					age = 16
+					NOT = { age = 28 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 28
+					NOT = { age = 40 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 52 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 52
+					NOT = { age = 64 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 64
+					NOT = { age = 76 }
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which = local_size value = 6 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 76
+					NOT = { age = 88 }
+					NOT = { trait = size_7 }
+				}
+				set_variable = { which = local_size value = 7 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 88
+					NOT = { age = 110 }
+					NOT = { trait = size_8 }
+				}
+				set_variable = { which = local_size value = 8 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 110
+					NOT = { age = 122 }
+					NOT = { trait = size_9 }
+				}
+				set_variable = { which = local_size value = 9 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 122
+					NOT = { age = 134 }
+					NOT = { trait = size_10 }
+				}
+				set_variable = { which = local_size value = 10 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = {
+				trait = half_giant
+				NOT = { trait = mythos_giant }
+			}
 			if = {
 				limit = {
 					age = 20
@@ -151,6 +244,56 @@ character_event = {
 					NOT = { trait = size_5 }
 				}
 				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+		}
+		else_if = {
+			limit = {
+				trait = half_giant
+				trait = mythos_giant
+			}
+			if = {
+				limit = {
+					age = 20
+					NOT = { age = 40 }
+					NOT = { trait = size_2 }
+				}
+				set_variable = { which = local_size value = 2 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 40
+					NOT = { age = 60 }
+					NOT = { trait = size_3 }
+				}
+				set_variable = { which = local_size value = 3 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 60
+					NOT = { age = 80 }
+					NOT = { trait = size_4 }
+				}
+				set_variable = { which = local_size value = 4 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 80
+					NOT = { age = 100 }
+					NOT = { trait = size_5 }
+				}
+				set_variable = { which = local_size value = 5 }
+				character_event = { id = GIANT.2 }
+			}
+			else_if = {
+				limit = {
+					age = 100
+					NOT = { trait = size_6 }
+				}
+				set_variable = { which = local_size value = 6 }
 				character_event = { id = GIANT.2 }
 			}
 		}
@@ -234,7 +377,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		trait = giant
+		trait = mythos_giant
 		OR = {
 			NOT = { has_dlc = Conclave }
 			has_focus = focus_ch_heritage
@@ -363,7 +506,7 @@ character_event = {
 				factor = 3
 				trait = monster_hunter
 				NOR = { 
-					trait = giant
+					trait = mythos_giant
 					trait = half_giant
 					culture = jotunn
 					religion = jotnar
@@ -421,7 +564,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		trait = giant
+		trait = mythos_giant
 		OR = {
 			NOT = { has_dlc = Conclave }
 			has_focus = focus_ch_heritage
@@ -588,12 +731,34 @@ character_event = {
 				}
 			}
 			modifier = {
+				factor = 2
+				OR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				OR = {
+					has_religion_feature = religion_proselytizing
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			modifier = {
+				factor = 0.2
+				NOR = {
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+				OR = {
+					has_religion_feature = religion_proselytizing
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			modifier = {
 				factor = 4
 				culture = jotunn
 			}
 			modifier = {
 				factor = 2
-				trait = giant
+				trait = mythos_giant
 			}
 		}
 	}
@@ -640,7 +805,7 @@ character_event = {
 				factor = 3
 				trait = monster_hunter
 				NOR = { 
-					trait = giant
+					trait = mythos_giant
 					trait = half_giant
 					culture = jotunn
 					religion = jotnar

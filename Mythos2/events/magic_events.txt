@@ -1208,6 +1208,10 @@ character_event = {
 				preparing_invasion = yes
 			}
 			modifier = {
+				factor = 2
+				has_religion_feature = religion_warlike
+			}
+			modifier = {
 				factor = 1.5
 				check_variable = { which = control value = 1 }
 				check_variable = { which = control value <= 3 }
@@ -3026,24 +3030,64 @@ character_event = {
 				}
 				random_list = {
 					10 = { # Draconic Steward
+						trigger = {
+							NOR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+								culture = draconic
+								trait = dragon
+							}
+						}
 						character_event = { id = MAGIC.31 }
 					}
 					10 = { # Giant Commander
+						trigger = {
+							NOR = {
+								religion = jotnar
+								religion = jotnar_reformed
+								culture = jotunn
+								trait = mythos_giant
+							}
+						}
 						character_event = { id = MAGIC.32 }
 					}
 					5 = { # Mephistophiles
+						modifier = {
+							factor = 1.5
+							religion = satanist
+						}
 						character_event = { id = MAGIC.33 }
 					}
 					10 = { # Etherial Servant
 						character_event = { id = MAGIC.34 }
 					}
 					10 = { # Djinn advisor
+						trigger = {
+							NOT = { trait = djinn }
+						}
+						modifier = {
+							factor = 1.5
+							religion_group = muslim
+						}
 						character_event = { id = MAGIC.35 }
 					}
 					8 = { # Solomon's Djinn
+						trigger = {
+							NOT = { trait = djinn }
+						}
+						modifier = {
+							factor = 1.5
+							religion_group = muslim
+						}
 						character_event = { id = MAGIC.36 }
 					}
 					10 = { # Werewolf Berserker
+						trigger = {
+							NOR = {
+								culture = werewolf_culture
+								trait = werewolf
+							}
+						}
 						character_event = { id = MAGIC.37 }
 					}
 					10 = { # Ethereal Warrior
@@ -3051,6 +3095,12 @@ character_event = {
 					}
 					# Mirror Self - Currently can't be implemented to my knowledge
 					10 = { # Blood Courtier
+						trigger = {
+							NOR = {
+								culture = vampire_culture
+								trait = vampire
+							}
+						}
 						character_event = { id = MAGIC.39 }
 					}
 					10 = { # Son of God?
@@ -3065,15 +3115,35 @@ character_event = {
 			20 = {
 				random_list = {
 					10 = { # Unpleasant Dragon
+						trigger = {
+							NOR = {
+								religion = draconic_pagan
+								religion = draconic_pagan_reformed
+								culture = draconic
+								trait = dragon
+							}
+						}
 						character_event = { id = MAGIC.45 }
 					}
 					10 = { # Ambitious Vampire
+						trigger = {
+							NOR = {
+								culture = vampire_culture
+								trait = vampire
+							}
+						}
 						character_event = { id = MAGIC.46 }
 					}
-					10 = { # Heather Priest
+					10 = { # Heathen Priest
 						character_event = { id = MAGIC.47 }
 					}
 					10 = { # Frenzied Werewolf
+						trigger = {
+							NOR = {
+								culture = werewolf_culture
+								trait = werewolf
+							}
+						}
 						character_event = { id = MAGIC.48 }
 					}
 					10 = { # Plague_bearer
@@ -3163,7 +3233,7 @@ character_event = {
 				martial = 18
 			}
 			health = 7
-			trait = giant
+			trait = mythos_giant
 			trait = brilliant_strategist
 			trait = wroth
 			trait = size_2
@@ -4054,10 +4124,6 @@ character_event = {
 						}
 						1 = { 
 							religion = hellenic_pagan
-							set_graphical_culture = frankish
-						}
-						1 = { 
-							religion = roman_pagan
 							set_graphical_culture = frankish
 						}
 						1 = { 
