@@ -23066,27 +23066,133 @@ random_list = {
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 27 #Too old
+			#age = 27 #Too old
+			immortal = no
+			OR = {
+				AND = {
+					OR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 81
+					age = 81
+				}
+				AND = {
+					OR = {
+						trait = giant
+						trait = djinn
+					}
+					NOR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 39
+					age = 39
+				}
+				AND = {
+					OR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+					}
+					NOR = {
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 30
+					age = 30
+				}
+				AND = {
+					NOR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 27
+					age = 27
+				}
+			}
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 30 #Too old
+			is_30 = yes #Too old
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 35 #Too old
+			#age = 35 #Too old
+			immortal = no
+			OR = {
+				AND = {
+					OR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 105
+					age = 105
+				}
+				AND = {
+					OR = {
+						trait = giant
+						trait = djinn
+					}
+					NOR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 50
+					age = 50
+				}
+				AND = {
+					OR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+					}
+					NOR = {
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 39
+					age = 39
+				}
+				AND = {
+					NOR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 35
+					age = 35
+				}
+			}
 		} 
 		modifier = { 
 			factor = 1.5
-			age = 40 #Too old
+			is_40 = yes #Too old
 		} 	
 		modifier = { 	
 			factor = 1.5
-			age = 45 #Too old
+			is_old = yes #45 - Too old
 		} 
 		modifier = { 
 			factor = 1.75
-			age = 50 #Too old
+			is_50 = yes #Too old
 		} 
 		modifier = { 
 			factor = 1.25
@@ -23132,7 +23238,29 @@ random_list = {
 		modifier = { 
 			factor = 0.65
 			trait = brilliant_strategist
-		} 
+		}
+		modifier = {
+			factor = 0.75
+			trait = werewolf
+		}
+		modifier = {
+			factor = 0.5
+			trait = demigod
+		}
+		modifier = {
+			factor = 0.1
+			trait = god
+		}
+		modifier = {
+			factor = 5 #Shouldn't be able to get pregnant
+			OR = {
+				trait = vampire
+				trait = zombie
+				trait = ethereal_trait
+				trait = demon_trait
+				trait = mummy
+			}
+		}
 		modifier = { 
 			factor = 1.5
 			trait = stressed
@@ -23352,6 +23480,22 @@ random_list = {
 		modifier = { 
 			factor = 0.75
 			health = 5
+		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 1 }
+		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 2 }
+		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 3 }
+		} 
+		modifier = { 
+			factor = 0.75
+			base_health = 5
 		} 
 		character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins.
 		}
@@ -23436,27 +23580,133 @@ random_list = {
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 27 #Too old
+			#age = 27 #Too old
+			immortal = no
+			OR = {
+				AND = {
+					OR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 81
+					age = 81
+				}
+				AND = {
+					OR = {
+						trait = giant
+						trait = djinn
+					}
+					NOR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 39
+					age = 39
+				}
+				AND = {
+					OR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+					}
+					NOR = {
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 30
+					age = 30
+				}
+				AND = {
+					NOR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 27
+					age = 27
+				}
+			}
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 30 #Too old
+			is_30 = yes #Too old
 		} 
 		modifier = { 
 			factor = 1.25
-			age = 35 #Too old
+			#age = 35 #Too old
+			immortal = no
+			OR = {
+				AND = {
+					OR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 105
+					age = 105
+				}
+				AND = {
+					OR = {
+						trait = giant
+						trait = djinn
+					}
+					NOR = {
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 50
+					age = 50
+				}
+				AND = {
+					OR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+					}
+					NOR = {
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 39
+					age = 39
+				}
+				AND = {
+					NOR = {
+						trait = dragonborn
+						trait = blood_of_the_gods
+						trait = werewolf
+						trait = half_giant
+						trait = giant
+						trait = djinn
+						trait = dragon
+						trait = demi_god
+					}
+					# practical_age = 35
+					age = 35
+				}
+			}
 		} 
 		modifier = { 
 			factor = 1.5
-			age = 40 #Too old
+			is_40 = yes #Too old
 		} 	
 		modifier = { 	
 			factor = 1.5
-			age = 45 #Too old
+			is_old = yes #45 - Too old
 		} 
 		modifier = { 
 			factor = 1.75
-			age = 50 #Too old
+			is_50 = yes #Too old
 		} 
 		modifier = { 
 			factor = 1.25
@@ -23503,6 +23753,28 @@ random_list = {
 			factor = 0.65
 			trait = brilliant_strategist
 		} 
+		modifier = {
+			factor = 0.75
+			trait = werewolf
+		}
+		modifier = {
+			factor = 0.5
+			trait = demigod
+		}
+		modifier = {
+			factor = 0.1
+			trait = god
+		}
+		modifier = {
+			factor = 5 #Shouldn't be able to get pregnant
+			OR = {
+				trait = vampire
+				trait = zombie
+				trait = ethereal_trait
+				trait = demon_trait
+				trait = mummy
+			}
+		}
 		modifier = { 
 			factor = 1.5
 			trait = stressed
@@ -23723,6 +23995,22 @@ random_list = {
 			factor = 0.75
 			health = 5
 		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 1 }
+		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 2 }
+		} 
+		modifier = { 
+			factor = 1.5
+			NOT = { base_health = 3 }
+		} 
+		modifier = { 
+			factor = 0.75
+			base_health = 5
+		} 
 		character_event = { id = HFP.20500  days = 35 random = 75 } #Critical failure: troubled pregnancy begins.
 		}
 	}
@@ -23762,6 +24050,18 @@ troubled_pregnancy_variable_easy_effect = {
 		modifier = { 
 			factor = 0.9
 			NOT = { health = 3 }
+		}
+		modifier = { 
+			factor = 0.7
+			NOT = { base_health = 1 }
+		}
+		modifier = { 
+			factor = 0.8
+			NOT = { base_health = 2 }
+		}
+		modifier = { 
+			factor = 0.9
+			NOT = { base_health = 3 }
 		}
 		modifier = { 
 			factor = 0.8
@@ -24069,6 +24369,18 @@ troubled_pregnancy_variable_hard_effect = {
 		modifier = { 
 			factor = 0.9
 			NOT = { health = 3 }
+		}
+		modifier = { 
+			factor = 0.7
+			NOT = { base_health = 1 }
+		}
+		modifier = { 
+			factor = 0.8
+			NOT = { base_health = 2 }
+		}
+		modifier = { 
+			factor = 0.9
+			NOT = { base_health = 3 }
 		}
 		modifier = { 
 			factor = 0.8
@@ -26962,6 +27274,11 @@ remove_opinions_with_prison_reason_effect = {
 	remove_opinion = { modifier = opinion_thief who = PREV }
 	remove_opinion = { modifier = opinion_outlawed_society who = PREV }
 	remove_opinion = { modifier = opinion_accused_apostate who = PREV }
+	remove_opinion = { modifier = newly_found_werewolf who = PREV }
+	remove_opinion = { modifier = newly_found_vampire who = PREV }
+	remove_opinion = { modifier = opinion_monster who = PREV }
+	remove_opinion = { modifier = killed_protected who = PREV }
+	remove_opinion = { modifier = attacked_protected who = PREV }
 }
 
 
@@ -27440,6 +27757,16 @@ apply_dogmatic_on_start_effect = {
 	remove_intermarry = finnish_pagan_reformed
 	remove_intermarry = hellenic_pagan
 	remove_intermarry = hellenic_pagan_reformed
+	remove_intermarry = draconic_pagan
+	remove_intermarry = draconic_pagan_reformed
+	remove_intermarry = druidic
+	remove_intermarry = druidic_reformed
+	remove_intermarry = jotnar
+	remove_intermarry = jotnar_reformed
+	remove_intermarry = kemetic_pagan
+	remove_intermarry = kemetic_pagan_reformed
+	remove_intermarry = atenist
+	remove_intermarry = satanist
 
 	remove_intermarry = pagan_group
 	remove_intermarry = zoroastrian_group
@@ -27711,6 +28038,18 @@ spawn_debutante_effect = {
 					}
 				}
 			}
+			if = {
+				limit = { graphical_culture = dragongfx }
+				add_trait = dragon
+			}
+			if = {
+				limit = { graphical_culture = demongfx }
+				add_trait = demon_trait
+			}
+			if = {
+				limit = { graphical_culture = etherealgfx }
+				add_trait = ethereal_trait
+			}
 		}
 		set_character_flag = debutante
 		save_event_target_as = invited_character
@@ -27723,182 +28062,182 @@ transfer_crown_on_abdication_effect = {
 			has_landed_title = e_hre
 			any_artifact = { artifact_type = crown_hre } 
 		}
-			current_heir = { save_event_target_as = crown_hre_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_hre }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_hre_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_hre_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_hre }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_hre_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = e_byzantium
 			any_artifact = { artifact_type = crown_byzantine }
 		}
-			current_heir = { save_event_target_as = crown_byzantine_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_byzantine }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_byzantine_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_byzantine_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_byzantine }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_byzantine_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = e_persia
 			any_artifact = { artifact_type = crown_pahlavi }
 		}
-			current_heir = { save_event_target_as = crown_pahlavi_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_pahlavi }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_pahlavi_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_pahlavi_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_pahlavi }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_pahlavi_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_norse_pagan_reformed
 			any_artifact = { artifact_type = crown_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_tengri_pagan_reformed
 			any_artifact = { artifact_type = crown_tengri_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_tengri_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_tengri_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_tengri_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_tengri_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_tengri_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_tengri_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_slavic_pagan_reformed
 			any_artifact = { artifact_type = crown_slavic_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_slavic_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_slavic_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_slavic_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_slavic_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_slavic_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_slavic_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_baltic_pagan_reformed
 			any_artifact = { artifact_type = crown_romuva_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_romuva_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_romuva_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_romuva_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_romuva_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_romuva_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_romuva_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_finnish_pagan_reformed
 			any_artifact = { artifact_type = crown_finnish_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_finnish_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_finnish_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_finnish_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_finnish_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_finnish_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_finnish_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_west_african_pagan_reformed
 			any_artifact = { artifact_type = crown_west_african_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_west_african_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_west_african_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_west_african_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_west_african_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_west_african_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_west_african_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_zun_pagan_reformed
 			any_artifact = { artifact_type = crown_zun_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_zun_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_zun_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_zun_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_zun_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_zun_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_zun_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_bon_reformed
 			any_artifact = { artifact_type = scepter_bon_fylkir }
 		}
-			current_heir = { save_event_target_as = scepter_bon_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = scepter_bon_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:scepter_bon_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = scepter_bon_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = scepter_bon_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:scepter_bon_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = d_aztec_reformed
 			any_artifact = { artifact_type = crown_aztec_fylkir }
 		}
-			current_heir = { save_event_target_as = crown_aztec_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = crown_aztec_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:crown_aztec_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = crown_aztec_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = crown_aztec_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:crown_aztec_fylkir_heir
+			} 
+		}
 	}
 	if = {
 		limit = { 
 			has_landed_title = k_hellenic_pagan
 			any_artifact = { artifact_type = scepter_hellenic_fylkir }
 		}
-			current_heir = { save_event_target_as = scepter_hellenic_fylkir_heir }
-			any_artifact = { 
-				limit = { artifact_type = scepter_hellenic_fylkir }
-				transfer_artifact = {
-					from = PREV
-					to = event_target:scepter_hellenic_fylkir_heir
-				} 
-			}
+		current_heir = { save_event_target_as = scepter_hellenic_fylkir_heir }
+		any_artifact = { 
+			limit = { artifact_type = scepter_hellenic_fylkir }
+			transfer_artifact = {
+				from = PREV
+				to = event_target:scepter_hellenic_fylkir_heir
+			} 
+		}
 	}
 	#Now transfer all other remaining artifacts to the player_heir, who may or may not be the current_heir.
 	player_heir = { save_event_target_as = scoped_player_heir }
@@ -31221,6 +31560,24 @@ reformation_god_names_changes_effect = { #Reforming religion with certain Doctri
 					add_evil_god_name = FENRIR
 					add_evil_god_name = JORMUNGANDR
 				}
+				god = {
+					limit = {
+						OR = {
+							religion = jotnar_reformed
+							religion = jotnar
+						}
+						OR = {
+							ROOT = { NOT = { has_religion_feature = religion_matriarchal } }
+							is_female = no
+						}
+						OR = {
+							ROOT = { NOT = { has_religion_feature = religion_patriarchal } }
+							is_female = yes
+						}
+					}
+					save_event_target_as = scoped_god
+					add_evil_god_name = string_god_character
+				}
 			}
 			if = { #A ruler reforms Tengri Paganism.
 				limit = {
@@ -31727,6 +32084,394 @@ reformation_god_names_changes_effect = { #Reforming religion with certain Doctri
 				}
 			}
 		}
+		
+		if = { #A ruler reforms Draconic Paganism.
+			limit = {
+				has_dlc = "Holy Fury" 
+				religion = draconic_pagan_reformed
+				OR = { 
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			remove_god_names = yes
+			remove_evil_god_names = yes
+			if = { #Religion is not sexist, add just Dogmatic set.
+				limit = {
+					NOR = {
+						has_religion_feature = religion_matriarchal
+						has_religion_feature = religion_patriarchal
+					}
+				}
+				set_high_god_name = GOD_DRAGON_TIAMAT
+				add_god_name = GOD_DRAGON_TIAMAT
+				add_evil_god_name = SIGURD
+				add_evil_god_name = ST_GEORGE
+				add_evil_god_name = RAGNAR
+				add_evil_god_name = BEOWULF
+				add_evil_god_name = ENKI
+				add_evil_god_name = GOD_MARDUK
+			}
+			if = { #Religion is Patriarchal
+				limit = {
+					has_religion_feature = religion_patriarchal
+				}
+				set_high_god_name = GOD_DRAGON_ABZU
+				add_god_name = GOD_DRAGON_ABZU
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_DRAGON_NIDHOGG 
+					add_god_name = GOD_DRAGON_JORMUNGANDR 
+					add_god_name = GOD_DRAGON_FAFNIR 
+					add_god_name = GOD_DRAGON_LANDVAETTUR 
+					add_god_name = GOD_DRAGON_WAWEL 
+					add_god_name = GOD_DRAGON_ZIRNITA
+					add_god_name = GOD_DRAGON_DEWI 
+				}
+				add_evil_god_name = SIGURD
+				add_evil_god_name = ST_GEORGE
+				add_evil_god_name = RAGNAR
+				add_evil_god_name = BEOWULF
+				add_evil_god_name = ENKI
+				add_evil_god_name = GOD_MARDUK
+			}
+			if = { #Religion is Matriarchal
+				limit = {
+					has_religion_feature = religion_matriarchal
+				}
+				set_high_god_name = GOD_DRAGON_TIAMAT
+				add_god_name = GOD_DRAGON_TIAMAT
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_DRAGON_PYTHON # Female in some myths, and there aren't a lot of others to use
+					add_god_name = GOD_DRAGON_ECHIDNA
+					add_god_name = GOD_DRAGON_KAMPE
+					add_god_name = GOD_DRAGON_DELPHYNE
+					add_god_name = GOD_DRAGON_SYBARIS
+				}
+				add_evil_god_name = SIGURD
+				add_evil_god_name = ST_GEORGE
+				add_evil_god_name = RAGNAR
+				add_evil_god_name = BEOWULF
+				add_evil_god_name = ENKI
+				add_evil_god_name = GOD_MARDUK
+			}
+		}
+		if = { #A ruler reforms Druidic Paganism.
+			limit = {
+				has_dlc = "Holy Fury" 
+				religion = druidic_reformed
+				OR = { 
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			remove_god_names = yes
+			remove_evil_god_names = yes
+			if = { #Religion is not sexist, add just Dogmatic set.
+				limit = {
+					NOR = {
+						has_religion_feature = religion_matriarchal
+						has_religion_feature = religion_patriarchal
+					}
+				}
+				set_high_god_name = GOD_LLEU
+				add_god_name = GOD_LLEU
+				add_evil_god_name = GOD_BALOR
+			}
+			if = { #Religion is Patriarchal
+				limit = {
+					has_religion_feature = religion_patriarchal
+				}
+				set_high_god_name = GOD_LLEU
+				add_god_name = GOD_LLEU
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_BELI 
+					add_god_name = GOD_MANAWYDAN 
+					add_god_name = GOD_AMANAETH 
+					add_god_name = GOD_SKY 
+					add_god_name = GOD_CERNUNNOS
+					add_god_name = GOD_ESUS 
+					add_god_name = GOD_TOUTATIS 
+					add_god_name = GOD_THE_DAGDA 
+				}
+				add_evil_god_name = GOD_BALOR
+			}
+			if = { #Religion is Matriarchal
+				limit = {
+					has_religion_feature = religion_matriarchal
+				}
+				set_high_god_name = GOD_EARTH
+				add_god_name = GOD_EARTH
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_RHIANNON
+					add_god_name = GOD_AINE
+					add_god_name = GOD_LIBAN
+					add_god_name = GOD_DIANANN
+					add_god_name = GOD_BODB
+				}
+				add_evil_god_name = GOD_BALOR
+			}
+		}
+		if = { #A ruler reforms Kemetic Paganism.
+			limit = {
+				has_dlc = "Holy Fury" 
+				religion = kemetic_pagan_reformed
+				OR = { 
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			remove_god_names = yes
+			remove_evil_god_names = yes
+			if = { #Religion is not sexist, add just Dogmatic set.
+				limit = {
+					NOR = {
+						has_religion_feature = religion_matriarchal
+						has_religion_feature = religion_patriarchal
+					}
+				}
+				set_high_god_name = GOD_RA
+				add_god_name = GOD_RA
+				add_evil_god_name = GOD_SET
+				add_evil_god_name = GOD_AM-HEH
+				add_evil_god_name = GOD_APEP
+				add_evil_god_name = GOD_BA-PEF
+				add_evil_god_name = GOD_KEK
+				add_evil_god_name = GOD_KAUKET
+				add_evil_god_name = GOD_NU
+			}
+			if = { #Religion is Patriarchal
+				limit = {
+					has_religion_feature = religion_patriarchal
+				}
+				set_high_god_name = GOD_RA
+				add_god_name = GOD_RA
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_ANUBIS 
+					add_god_name = GOD_IMHOTEP 
+					add_god_name = GOD_AMUN 
+					add_god_name = GOD_ATEN 
+					add_god_name = GOD_HAPI
+					add_god_name = GOD_HORUS 
+					add_god_name = GOD_OSIRIS 
+					add_god_name = GOD_PTAH
+					add_god_name = GOD_THOTH 
+				}
+				add_evil_god_name = GOD_SET
+				add_evil_god_name = GOD_AM-HEH
+				add_evil_god_name = GOD_APEP
+				add_evil_god_name = GOD_BA-PEF
+				add_evil_god_name = GOD_KEK
+				add_evil_god_name = GOD_KAUKET
+				add_evil_god_name = GOD_NU
+			}
+			if = { #Religion is Matriarchal
+				limit = {
+					has_religion_feature = religion_matriarchal
+				}
+				set_high_god_name = GOD_ISIS
+				add_god_name = GOD_ISIS
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = GOD_BAST
+					add_god_name = GOD_MAAT
+					add_god_name = GOD_NUT
+					add_god_name = GOD_SEKHMET
+					add_god_name = GOD_HATHOR
+				}
+				add_evil_god_name = GOD_SET
+				add_evil_god_name = GOD_AM-HEH
+				add_evil_god_name = GOD_APEP
+				add_evil_god_name = GOD_BA-PEF
+				add_evil_god_name = GOD_KEK
+				add_evil_god_name = GOD_KAUKET
+				add_evil_god_name = GOD_NU
+			}
+		}
+		if = { #A ruler reforms Jotnar Paganism.
+			limit = {
+				has_dlc = "Holy Fury" 
+				religion = jotnar_reformed
+				OR = { 
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
+					has_religion_feature = religion_dogmatic
+				}
+			}
+			remove_god_names = yes
+			remove_evil_god_names = yes
+			if = { #Religion is not sexist, add just Dogmatic set.
+				limit = {
+					NOR = {
+						has_religion_feature = religion_matriarchal
+						has_religion_feature = religion_patriarchal
+					}
+				}
+				set_high_god_name = GOD_YMIR
+				add_god_name = GOD_YMIR
+				add_evil_god_name = GOD_THOR
+				add_evil_god_name = GOD_THE_THUNDERER
+				add_evil_god_name = GOD_ODIN
+				add_evil_god_name = GOD_FREY
+				add_evil_god_name = GOD_TYR
+			}
+			if = { #Religion is Patriarchal
+				limit = {
+					has_religion_feature = religion_patriarchal
+				}
+				set_high_god_name = GOD_YMIR
+				add_god_name = GOD_YMIR
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = LOKI 
+					add_god_name = FENRIR 
+					add_god_name = JORMUNGANDR 
+					add_god_name = GOD_BERGELMIR 
+					add_god_name = GOD_THHRIVALDI
+					add_god_name = GOD_MIMIR 
+					add_god_name = GOD_VAFTHRUDNIR 
+					add_god_name = GOD_FARBAUTI
+				}
+				add_evil_god_name = GOD_THOR
+				add_evil_god_name = GOD_THE_THUNDERER
+				add_evil_god_name = GOD_ODIN
+				add_evil_god_name = GOD_FREY
+				add_evil_god_name = GOD_TYR
+			}
+			if = { #Religion is Matriarchal
+				limit = {
+					has_religion_feature = religion_matriarchal
+				}
+				set_high_god_name = GOD_LAUFEY
+				add_god_name = GOD_LAUFEY
+				if = { 
+					limit = {
+						NOT = { has_religion_feature = religion_dogmatic }
+					}
+					add_god_name = HEL
+					add_god_name = GOD_SKADI
+					add_god_name = GOD_GERDR
+					add_god_name = GOD_LAUFEY
+				}
+				add_evil_god_name = GOD_THOR
+				add_evil_god_name = GOD_THE_THUNDERER
+				add_evil_god_name = GOD_ODIN
+				add_evil_god_name = GOD_FREY
+				add_evil_god_name = GOD_TYR
+			}
+			god = {
+				limit = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = norse_pagan
+					}
+					OR = {
+						ROOT = { NOT = { has_religion_feature = religion_matriarchal } }
+						is_female = no
+					}
+					OR = {
+						ROOT = { NOT = { has_religion_feature = religion_patriarchal } }
+						is_female = yes
+					}
+				}
+				save_event_target_as = scoped_god
+				add_evil_god_name = string_god_character
+			}
+		}
+		
+		if = {
+			limit = {
+				NOR = { 
+					has_religion_feature = religion_dogmatic
+					religion = norse_pagan # These have extra heresies that shouldn't join and are handled separately
+					religion = norse_pagan_reformed
+					religion = jotnar
+					religion = jotnar_reformed
+				}
+			}
+			god = {
+				limit = {
+					OR = {
+						religion = ROOT
+						is_heresy_of = ROOT
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_matriarchal }
+						is_female = yes
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_patriarchal }
+						is_female = no
+					}
+				}
+				save_event_target_as = scoped_god
+				add_god_name = string_god_character
+			}
+		}
+		else_if = {
+			limit = { religion = norse_pagan_reformed }
+			god = {
+				limit = {
+					OR = {
+						religion = norse_pagan_reformed
+						religion = norse_pagan
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_matriarchal }
+						is_female = yes
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_patriarchal }
+						is_female = no
+					}
+				}
+				save_event_target_as = scoped_god
+				add_god_name = string_god_character
+			}
+		}
+		else_if = {
+			limit = { religion = jotnar_reformed }
+			god = {
+				limit = {
+					OR = {
+						religion = jotnar_reformed
+						religion = jotnar
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_matriarchal }
+						is_female = yes
+					}
+					OR = {
+						NOT = { has_religion_feature = religion_patriarchal }
+						is_female = no
+					}
+				}
+				save_event_target_as = scoped_god
+				add_god_name = string_god_character
+			}
+		}
+					
 
 		if = {
 			limit = { #Holy Family actually becomes Holy.
