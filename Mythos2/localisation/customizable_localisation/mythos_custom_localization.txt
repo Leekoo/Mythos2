@@ -6504,3 +6504,64 @@ defined_text = {
 		}
 	}
 }
+# Some gods on the draconic pilgrimage need to change if religion is matriarichal
+defined_test = {
+	name = GetDewiSybaris
+	text = {
+		localisation_key = GOD_DRAGON_DEWI
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_SYBARIS
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_test = {
+	name = GetLandvaettirKampe
+	text = {
+		localisation_key = GOD_DRAGON_LANDVAETTUR
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_KAMPE
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_test = {
+	name = GetWawelDelphyne
+	text = {
+		localisation_key = GOD_DRAGON_WAWEL
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_DELPHYNE
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_test = {
+	name = GetZirnitraEchidna
+	text = {
+		localisation_key = GOD_DRAGON_ZIRNITA
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_ECHIDNA
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
