@@ -1978,3 +1978,44 @@ natural_magic_4 = {
 	
 	customizer = no
 }
+draconic_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		terrain = mountain
+		terrain = hills
+		damage = 0.1
+		dragon_raiders = 0.1
+	}
+}
+kemetic_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		morale_offence = 0.2
+		speed = 0.1
+		terrain = desert
+		terrain = plains
+	}
+}
+druidic_leader = {
+	leader = yes
+	random = no
+	attrition = -0.1
+	days_of_supply = 10
+	command_modifier = {
+		speed = 0.2
+		terrain = forest
+		terrain = plains
+	}
+}
+jotnar_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		damage = 0.1
+		morale_offence = 0.1
+		terrain = mountain
+		heavy_infantry = 0.15
+	}
+}

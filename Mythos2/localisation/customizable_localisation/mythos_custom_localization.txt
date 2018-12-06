@@ -1972,17 +1972,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_christian_vice_virtue = yes
-			use_aztec_vice_virtue = yes
+			is_chaste_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_chaste_vice = yes
 		}
 	}
 }
@@ -1992,20 +1988,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_temperate_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_temperate_vice = yes
 		}
 	}
 }
@@ -2015,21 +2004,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_charitable_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_satanist_vice_virtue = yes
-			}
+			is_charitable_vice = yes
 		}
 	}
 }
@@ -2039,20 +2020,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_diligent_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = yes
-			use_undead_vice_virtue = yes
+			is_diligent_vice = yes
 		}
 	}
 }
@@ -2062,22 +2036,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_patient_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_patient_vice = yes
 		}
 	}
 }
@@ -2087,23 +2052,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_kind_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_kind_vice = yes
 		}
 	}
 }
@@ -2113,19 +2068,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-			}
+			is_humble_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_satanist_vice_virtue = yes
-			}
+			is_humble_vice = yes
 		}
 	}
 }
@@ -2135,19 +2084,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_lustful_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_lustful_vice = yes
 		}
 	}
 }
@@ -2157,20 +2100,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_gluttonous_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_gluttonous_vice = yes
 		}
 	}
 }
@@ -2180,21 +2116,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-			}
+			is_greedy_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_greedy_vice = yes
 		}
 	}
 }
@@ -2204,17 +2132,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_slothful_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = no
-			use_undead_vice_virtue = no
+			is_slothful_vice = yes
 		}
 	}
 }
@@ -2224,22 +2148,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_wroth_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_wroth_vice = yes
 		}
 	}
 }
@@ -2249,17 +2164,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_satanist_vice_virtue = yes
+			is_envious_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_envious_vice = yes
 		}
 	}
 }
@@ -2269,20 +2180,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_proud_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-			}
+			is_proud_vice = yes
 		}
 	}
 }
@@ -2292,13 +2196,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_norse_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_brave_virtue = yes
 		}
 	}
 }
@@ -2308,19 +2206,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_just_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_undead_vice_virtue = yes
+			is_just_vice = yes
 		}
 	}
 }
@@ -2330,7 +2222,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_draconic_vice_virtue = yes
+			is_ambitious_virtue = yes
 		}
 	}
 }
@@ -2340,13 +2232,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_norse_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_craven_vice = yes
 		}
 	}
 }
@@ -2356,22 +2242,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_arbitrary_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_arbitrary_vice = yes
 		}
 	}
 }
@@ -2381,10 +2258,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_paranoid_vice = yes
 		}
 	}
 }
@@ -2394,7 +2268,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_tengri_vice_virtue = yes
+			is_trusting_virtue = yes
 		}
 	}
 }
@@ -2404,19 +2278,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_cruel_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_cruel_vice = yes
 		}
 	}
 }
@@ -2426,7 +2294,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			is_content_vice = yes
 		}
 	}
 }
@@ -2436,7 +2304,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_norse_vice_virtue = yes
+			is_honest_virtue = yes
 		}
 	}
 }
