@@ -158,48 +158,56 @@ deciding_upon_saint_effect = {
             factor = 1.5
             event_target:saint_person = {
                 trait = patient
+				is_patient_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
                 trait = diligent
+				is_diligent_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
                 trait = kind
+				is_kind_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
                 trait = chaste
+				is_chaste_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
                 trait = charitable
+				is_charitable_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
                 trait = temperate
+				is_temperate_virtue = yes
             }
         }
         modifier = {
             factor = 1.5
             event_target:saint_person = {
-                trait = humble 
+                trait = humble
+				is_humble_virtue = yes
             }
         }
         modifier = {
             factor = 1.2
             event_target:saint_person = {
                 trait = just
+				is_just_virtue = yes
             }
         }
         modifier = {
@@ -472,21 +480,25 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_peaceful
             trait = humble
+			is_humble_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_peaceful
             trait = content
+			is_content_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_peaceful
             trait = temperate
+			is_temperate_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_peaceful
             trait = just
+			is_just_vice = no
         }
         modifier = {
             factor = 1.5
@@ -536,6 +548,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_peaceful
             trait = wroth
+			is_wroth_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -582,16 +595,19 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_warlike
             trait = wroth
+			is_wroth_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_warlike
             trait = ambitious
+			is_ambitious_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_warlike
             trait = brave
+			is_brave_vice = no
         }
         modifier = {
             factor = 1.5
@@ -618,11 +634,13 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_warlike
             trait = humble
+			is_humble_virtue = no
         }
         modifier = {
             factor = 0.65
             has_religion_feature = religion_warlike
             trait = content
+			is_content_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -658,11 +676,13 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_defensive
             trait = craven
+			is_craven_vice = no
         }
         modifier = {
             factor = 1.5
             has_religion_feature = religion_defensive
             trait = patient
+			is_petient_vice = no
         }
         modifier = {
             factor = 1.5
@@ -678,6 +698,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_defensive
             trait = paranoid
+			is_paranoid_vice = no
         }
         modifier = {
             factor = 1.5
@@ -689,11 +710,13 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_defensive
             trait = brave
+			is_brave_virtue = no
         }
         modifier = {
             factor = 0.65
             has_religion_feature = religion_defensive
             trait = wroth
+			is_wroth_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -709,6 +732,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_defensive
             trait = trusting
+			is_trusting_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -770,11 +794,13 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_proselytizing
             trait = wroth
+			is_wroth_virtue = no
         }
         modifier = {
             factor = 0.65
             has_religion_feature = religion_proselytizing
             trait = brave
+			is_brave_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -819,6 +845,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_dogmatic
             trait = paranoid
+			is_paranoid_vice = no
         }
         modifier = {
             factor = 1.5
@@ -829,6 +856,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_dogmatic
             trait = cruel
+			is_cruel_vice = no
         }
         modifier = {
             factor = 1.5
@@ -872,6 +900,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_dogmatic
             trait = trusting
+			is_trusting_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -882,6 +911,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_dogmatic
             trait = kind
+			is_kind_virtue = no
         }
         modifier = {
             factor = 0.65
@@ -927,6 +957,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_cosmopolitan
             trait = kind
+			is_kind_vice = no
         }
         modifier = {
             factor = 1.5
@@ -969,8 +1000,14 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 0.65
             has_religion_feature = religion_cosmopolitan
             OR = {
-                trait = envious
-                trait = cruel
+                AND = {
+					trait = envious
+					is_envious_virtue = no
+				}
+				AND = {
+					trait = cruel
+					is_cruel_virtue = no
+				}
             }
         }
         modifier = {
@@ -1101,6 +1138,7 @@ check_if_ancestor_worship_worthy_effect = {
 				has_religion_feature = religion_feature_finnish
 			}
             trait = just
+			is_just_vice = no
         }
         modifier = {
             factor = 1.5
@@ -1119,6 +1157,7 @@ check_if_ancestor_worship_worthy_effect = {
 				has_religion_feature = religion_feature_finnish
 			}
             trait = diligent
+			is_diligent_vice = no
         }
         # Negative
         modifier = {
@@ -1129,6 +1168,7 @@ check_if_ancestor_worship_worthy_effect = {
 				has_religion_feature = religion_feature_finnish
 			}
             trait = arbitrary
+			is_virtue_arbitary = no
         }
         modifier = {
             factor = 0.65
@@ -1138,8 +1178,14 @@ check_if_ancestor_worship_worthy_effect = {
 				has_religion_feature = religion_feature_finnish
 			}
             OR = {
-                trait = slothful
-                trait = envious
+                AND = {
+					trait = slothful
+					is_slothful_virtue = no
+				}
+				AND = {
+					trait = envious
+					is_envious_virtue = no
+				}
             }
         }
         ## Jizya ##
@@ -1261,6 +1307,7 @@ check_if_ancestor_worship_worthy_effect = {
             factor = 1.5
             has_religion_feature = religion_ritual_sacrifice
             trait = cruel
+			is_cruel_vice = no
         }
         modifier = {
             factor = 1.5
@@ -1277,7 +1324,10 @@ check_if_ancestor_worship_worthy_effect = {
             has_religion_feature = religion_ritual_sacrifice
             NOR = {
                 trait = impaler
-                trait = cruel
+                AND = {
+					trait = cruel
+					is_cruel_virtue = no
+				}
             }
         }
         modifier = {
@@ -1357,6 +1407,247 @@ check_if_ancestor_worship_worthy_effect = {
 			factor = 1.5
 			religion = draconic_pagan_reformed
 			has_nickname = nick_the_everburning
+		}
+		#### Virtue and Vice ####
+		modifier = {
+			factor = 1.2
+			trait = chaste
+			is_chaste_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = chaste
+			is_chaste_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = temperate
+			is_temperate_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = temperate
+			is_temperate_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = charitable
+			is_charitable_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = charitable
+			is_charitable_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = diligent
+			is_diligent_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = diligent
+			is_diligent_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = patient
+			is_patient_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = patient
+			is_patient_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = kind
+			is_kind_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = kind
+			is_kind_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = humble
+			is_humble_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = humble
+			is_humble_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = lustful
+			is_lustful_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = lustful
+			is_lustful_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = gluttonous
+			is_gluttonous_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = gluttonous
+			is_gluttonous_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = greedy
+			is_greedy_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = greedy
+			is_greedy_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = slothful
+			is_slothful_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = slothful
+			is_slothful_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = wroth
+			is_wroth_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = wroth
+			is_wroth_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = envious
+			is_envious_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = envious
+			is_envious_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = proud
+			is_proud_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = proud
+			is_proud_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = brave
+			is_brave_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = brave
+			is_brave_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = just
+			is_just_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = just
+			is_just_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = ambitious
+			is_ambitious_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = ambitious
+			is_ambitious_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = craven
+			is_craven_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = craven
+			is_craven_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = arbitrary
+			is_arbitrary_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = arbitrary
+			is_arbitrary_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = paranoid
+			is_paranoid_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = paranoid
+			is_paranoid_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = trusting
+			is_trusting_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = trusting
+			is_trusting_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = cruel
+			is_cruel_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = cruel
+			is_cruel_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = content
+			is_content_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = content
+			is_content_vice = yes
+		}
+		modifier = {
+			factor = 1.2
+			trait = honest
+			is_honest_virtue = yes
+		}
+		modifier = {
+			factor = 0.8
+			trait = honest
+			is_honest_vice = yes
 		}
         #### Reduce chance if already have other Ancestor Worshipping Bloodlines ####
         modifier = {
