@@ -4612,3 +4612,173 @@ character_event = {
 	}
 	
 }
+
+# Health complications: late life health issues.
+
+#Character has become obese.
+character_event = {
+	id = HFP.20661
+	desc = EVTDESCAHFP20661
+	picture = GFX_evt_fancy_feast
+	min_age = 40	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no
+
+	is_triggered_only = yes
+	
+	trigger = { 
+		is_40 = yes
+		trait = is_fat 
+		NOT = { has_character_modifier = obese_modifier }
+		check_variable = { which = physique_variable value = 30 }
+		has_character_flag = flag_becoming_obese		#Gained in HFP.20647
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = well_fed
+		}
+		modifier = {
+			factor = 1.5
+		check_variable = { which = physique_variable value = 35 }
+		}
+		modifier = {
+			factor = 3
+		check_variable = { which = physique_variable value = 40 }
+		}
+		modifier = {
+			factor = 5
+		check_variable = { which = physique_variable value = 50 }
+		}
+		modifier = {
+			factor = 7
+		check_variable = { which = physique_variable value = 60 }
+		}
+		modifier = {
+			factor = 10
+		check_variable = { which = physique_variable value = 70 }
+		}
+	}
+
+	option = { #Too late to do anything anymore.
+		name = EVTOPTCHFP20661	
+		add_character_modifier = {
+			name = obese_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_obese
+		hidden_tooltip = { 
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 35 } } 
+				health = -0.5
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 40 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 45 } } 
+				health = -0.7
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 50 } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { check_variable = { which = physique_variable value = 55 } } 
+				health = -2.0
+			}
+		} 
+		gain_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}
+
+#Character has become severely underweight.
+character_event = {
+	id = HFP.20662
+	desc = EVTDESCAHFP20662
+	picture = GFX_evt_bad_news
+	min_age = 40	#Unlikely to happen earlier.
+	capable_only = yes
+	prisoner = no 	#Starvation in prison still handled by vanilla events.
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_40 = yes
+		trait = is_malnourished
+		NOT = { has_character_modifier = severely_underweight_modifier }
+		NOT = { check_variable = { which = physique_variable value = -30 } }
+		has_character_flag = flag_becoming_underweight 	#Gained in HFP.20648
+	} 
+	weight_multiplier = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_character_modifier = one_year_fasting
+		}
+		modifier = {
+			factor = 2
+			prisoner = yes
+		}
+		modifier = {
+			factor = 3
+		NOT = { check_variable = { which = physique_variable value = -35 } }
+		}
+		modifier = {
+			factor = 5
+		NOT = { check_variable = { which = physique_variable value = -40 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -45 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -50 } }
+		}
+		modifier = {
+			factor = 10
+		NOT = { check_variable = { which = physique_variable value = -55 } }
+		}
+	}
+
+	option = { #Too late now.
+		name = EVTOPTAHFP20662
+		add_character_modifier = {
+			name = severely_underweight_modifier
+			duration = -1
+		}
+		clr_character_flag = flag_becoming_underweight
+		hidden_tooltip = { 
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -30 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -35 } } } 
+				health = -0.75
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -40 } } } 
+				health = -1.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -45 } } } 
+				health = -1.5
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -50 } } } 
+				health = -2.0
+			}
+			if = { 
+				limit = { NOT = { check_variable = { which = physique_variable value = -55 } } }
+				health = -3.0
+			}
+		} 
+		lose_weight_small_effect = yes
+		ai_chance = { factor = 30 }
+	}
+}
