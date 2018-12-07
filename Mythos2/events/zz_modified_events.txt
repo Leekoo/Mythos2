@@ -5536,34 +5536,39 @@ narrative_event = {
 	}
 	picture = { 
 		trigger = { 
-			OR = { 
-				religion = hellenic_pagan
-				religion = hellenic_pagan_reformed
+			ROOT = {
+				OR = { 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+				}
 			}
 		} 
 		picture = GFX_evt_hellenic_temple
 	}
 	picture = { 
 		trigger = { 
-			OR = { 
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
+			ROOT = {
+				OR = { 
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
 			}
-		} 
+		}
 		picture = GFX_evt_west_african_ruler
 	}
 	picture = { 
 		trigger = { 
-			NOR = { 
-				religion = hellenic_pagan
-				religion = hellenic_pagan_reformed
-				religion = west_african_pagan
-				religion = west_african_pagan_reformed
+			ROOT = { 
+				NOR = { 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
 			}
 		} 
 		picture = GFX_evt_pagan_reformation
 	}
-	picture = GFX_evt_pagan_reformation
 	border = "GFX_event_narrative_frame_religion"	
 	
 	is_triggered_only = yes
@@ -5819,12 +5824,17 @@ narrative_event = {
 							cooldown = no
 							opinion_effect = no
 						}
-						add_law = {
-							law = succ_turkish_succession
-							cooldown = no
-							opinion_effect = no
+						if = { 
+							limit = { 
+								NOT = { has_law = succ_byzantine_elective } 
+							}
+							add_law = {
+								law = succ_turkish_succession
+								cooldown = no
+								opinion_effect = no
+							}
 						}
-					} 
+					}
 					recalc_succession = yes
 				} 
 			}
@@ -5872,12 +5882,17 @@ narrative_event = {
 							cooldown = no
 							opinion_effect = no
 						}
-						add_law = {
-							law = succ_turkish_succession
-							cooldown = no
-							opinion_effect = no
+						if = { 
+							limit = { 
+								NOT = { has_law = succ_byzantine_elective } 
+							}
+							add_law = {
+								law = succ_turkish_succession
+								cooldown = no
+								opinion_effect = no
+							}
 						}
-					} 
+					}
 					recalc_succession = yes
 				} 
 			}
@@ -13590,12 +13605,40 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		create_random_soldier = {
-			random_traits = yes
-			dynasty = none
-			female = no
-			attributes = {
-				martial = 10
+		if = {
+			limit = {
+				gender_equality_trigger = yes
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 50
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = 90
+				attributes = {
+					martial = 10
+				}
+			}
+		}
+		else = {
+			create_random_soldier = {
+				random_traits = yes
+				dynasty = none
+				female = no
+				attributes = {
+					martial = 10
+				}
 			}
 		}
 		new_character = {
@@ -14735,7 +14778,9 @@ character_event = {
 			trait = vampire
 		}
 		father_of_unborn = {
-			is_consort = ROOT
+			ROOT = {
+				is_consort = PREV
+			}
 			NOT = { trait = vampire }
 		}
 	}
@@ -14760,6 +14805,108 @@ character_event = {
 		tooltip = { add_trait = pregnant }
 		prestige = 10
 		
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						age = 37 
+					}
+					modifier = { 
+						factor = 0.8
+						NOT = { age = 20 } 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.8
+						trait = shieldmaiden
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				30 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 0.25
+						age = 18
+						NOT = { age = 40 }
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					modifier = { 
+						factor = 2
+						has_character_modifier = hashish_addict
+					}
+					modifier = { 
+						factor = 3
+						has_character_modifier = withdrawal_symptoms
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 		if = {
 			limit = {
 				father_of_unborn = {
@@ -14815,10 +14962,14 @@ character_event = {
 			trait = vampire
 		}
 		is_consort = yes
-		father_of_unborn = {
-			NOR = {
-				is_consort = ROOT
-				trait = vampire
+		NOT = {
+			father_of_unborn = {
+				OR = {
+					ROOT = {
+						is_consort = PREV
+					}
+					trait = vampire
+				}
 			}
 		}
 	}
@@ -14842,6 +14993,108 @@ character_event = {
 		name = EVTOPTA412
 		tooltip = { add_trait = pregnant }
 		consort = { character_event = { id = 404 tooltip = EVTTOOLTIP404 } }
+		hidden_tooltip = { 
+			random_list = { 
+				70 = { 
+					modifier = { 
+						factor = 0.8
+						trait = shy 
+					}
+					modifier = { 
+						factor = 0.8
+						is_ill = yes
+					}
+					modifier = { 
+						factor = 0.8
+						trait = possessed 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = paranoid 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = lunatic 
+					}
+					modifier = { 
+						factor = 0.8
+						trait = weak 
+					}
+					modifier = { 
+						factor = 0.8
+						age = 37 
+					}
+					modifier = { 
+						factor = 0.8
+						NOT = { age = 20 } 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 3 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 4 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 5 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 6 
+					}
+					modifier = { 
+						factor = 0.8
+						num_of_children = 7 
+					}
+					modifier = { 
+						factor = 0.8
+						has_character_flag = special_marshal
+					}
+					modifier = { 
+						factor = 0.8
+						trait = shieldmaiden
+					}
+					modifier = { 
+						factor = 0.6
+						trait = feeble
+					}
+					modifier = { 
+						factor = 1.75
+						trait = robust
+					}
+					modifier = { 
+						factor = 1.5
+						trait = strong
+					}
+				} 
+				30 = { 
+					modifier = { 
+						factor = 0.5
+						is_ill = no
+					}
+					modifier = { 
+						factor = 0.25
+						age = 18
+						NOT = { age = 40 }
+					}
+					modifier = { 
+						factor = 2
+						trait = drunkard
+					}
+					modifier = { 
+						factor = 2
+						has_character_modifier = hashish_addict
+					}
+					modifier = { 
+						factor = 3
+						has_character_modifier = withdrawal_symptoms
+					}
+					character_event = { id = HFP.20404	days = 10 random = 5 } #Hard pregnancy
+				}
+			}
+		}
 	}
 }
 
@@ -14912,7 +15165,10 @@ character_event = {
 		clr_character_flag = flag_mother_festival_chaste
 		clr_character_flag = flag_mother_festival_lustful
 		any_lover = {  
-			limit = { ai = no }
+			limit = {
+				ai = no
+				is_female = no # So lesbian lovers will not believe the child is theirs.
+			}
 			character_event = { id = HFP.20067 }
 		}
 		#First pregnancy scare. 
@@ -15502,7 +15758,7 @@ character_event = {
 				character_event = { id = HFP.20571 days = 15 random = 8 }
 			}
 			#Nothing
-			35 = {
+			45 = {
 				modifier = { 
 					factor = 0.5
 					NOT = { num_of_children = 1 }
@@ -15570,7 +15826,7 @@ character_event = {
 					trait = gluttonous
 				}
 				modifier = { 
-					factor = 0.5
+					factor = 0.35
 					trait = temperate
 				}
 				character_event = { id = HFP.20573 days = 40 random = 10 }
@@ -15735,7 +15991,7 @@ character_event = {
 				}
 			}
 			#Spouse organizes Gossiping
-			50 = {
+			40 = {
 				modifier = { 
 					factor = 0.5
 					has_game_rule = {
@@ -16234,5 +16490,1421 @@ narrative_event = {
 		ai_chance = { 
 			factor = 100
 		}
+	}
+}
+
+character_event = { # Generate 'Fake Family' for characters without any
+	id = GR.30
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	only_playable = yes
+	min_age = 16
+	only_men = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				ai = yes
+				has_game_rule = {
+					name = generate_families
+					value = ai_only
+				}
+			}
+			has_game_rule = {
+				name = generate_families
+				value = on
+			} 
+		}
+		is_save_game = no
+		OR = {
+			is_married = no
+			AND = {
+				is_married = yes
+				num_of_children < 1
+				spouse = {
+					is_lowborn = yes
+				}
+			}
+		}
+		mercenary = no
+    	holy_order = no
+    	is_landed = yes
+		OR = {
+			is_feudal = yes
+			is_nomadic = yes
+			is_tribal = yes
+		}
+		NOR = {
+			government = confucian_bureaucracy
+			government = order_government
+			trait = eunuch
+			trait = celibate
+			has_nickname = nick_the_chaste
+		}
+		OR = {
+			NOT = { num_of_dynasty_members = 2 }
+			#NOT = {
+			#	any_dynasty_member = {
+			#		NOR = {
+			#			character = ROOT
+			#			is_child_of = ROOT
+			#		}
+			#		is_alive = yes
+			#	}
+			#}
+			NOT = {
+				any_close_relative = {
+					NOR = {
+						character = ROOT
+						is_child_of = ROOT
+					}
+					is_alive = yes
+				}
+			}
+			AND = {
+				num_of_children >= 1
+				NOT = {
+					any_child = {
+						mother = { always = yes }
+					}
+				}
+				NOT = {
+					any_dynasty_member = {
+						NOT = {
+							ROOT = {
+								is_father = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		
+		# Generate a fitting spouse, first and foremost
+		# Rulers with really old children might still end up with no mother, but that should be rare
+		if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 44
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 44
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 40
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 40
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 35
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 35
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 30
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 30
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 27
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 27
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 25
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 25
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 20
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 20
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+				age >= 18
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 18
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		else_if = {
+			limit = {
+				is_married = no
+				can_marry = yes
+			}
+			set_character_flag = recieved_royal_marriage_aid_duty
+			create_character = {
+				age = 16
+				female = yes
+				religion = ROOT
+				culture = ROOT
+				dynasty = actually_culture
+				random_traits = yes
+			}
+			new_character = {
+				add_spouse = ROOT
+				save_event_target_as = mother_target
+				if = {
+					limit = { ROOT = { trait = dragon } }
+					add_trait = dragon
+				}
+				else_if = {
+					limit = { ROOT = { trait = djinn } }
+					add_trait = djinn
+				}
+				else_if = {
+					limit = { ROOT = { trait = giant } }
+					add_trait = giant
+				}
+				else_if = {
+					limit = { ROOT = { trait = werewolf } }
+					add_trait = werewolf
+					add_trait = secret_werewolf
+				}
+				else_if = {
+					limit = { ROOT = { trait = vampire } }
+					add_trait = vampire
+					add_trait = secret_vampire
+				}
+			}
+			trigger_switch = {
+    			on_trigger = tier
+    			EMPEROR = { prestige = 400 }
+    			KING = { prestige = 300 }
+    			DUKE = { prestige = 200 }
+    			COUNT = { prestige = 100 }
+    		}
+		}
+		
+		# Then, generate a sort of random amount of children
+		if = {
+			limit = {
+				num_of_children < 1
+				age >= 40
+			}
+			
+			random_list = {
+				5 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 22
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 22
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 22
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 21
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 24
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 23
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 22
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 21
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_children < 1
+				age >= 30
+			}
+			random_list = {
+				5 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 12
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 12
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 12
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 11
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 13
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 12
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 11
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_children < 1
+				age >= 25
+			}
+			random_list = {
+				5 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 7
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				10 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 7
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 7
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 6
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 8
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 7
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 6
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_children < 1
+				age >= 20
+			}
+			random_list = {
+				15 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_children < 1
+				age >= 18
+			}
+			random_list = {
+				15 = {
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				5 = {
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 1
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				num_of_children < 1
+			}
+			random_list = {
+				18 = {
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = no
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+				2 = {
+					create_character = {
+						age = 0
+						religion = ROOT
+						culture = ROOT
+						female = yes
+					}
+					new_character = {
+						dynasty = ROOT
+						set_father = ROOT
+						set_mother = event_target:mother_target
+					}
+				}
+			}
+		}
+		
+		# Set orphaned historical children to new mother
+		any_child = {
+			limit = {
+				NOR = {
+					mother = { always = no }
+					trait = legit_bastard
+					trait = bastard
+				}
+				ROOT = {
+					spouse = {
+						could_be_parent_of = PREVPREV
+					}
+				}
+			}
+			ROOT = {
+				spouse = {
+					save_event_target_as = new_mother
+				}
+			}
+			set_mother = event_target:new_mother
+		}
+		
+		if = { # Caste fix
+			limit = {
+				religion = hindu
+				trait = kshatriya
+			}
+			any_child = {
+				limit = {
+					religion = hindu
+					NOT = { trait = kshatriya }
+				}
+				add_trait = kshatriya
+			}
+		}
+		
+		any_child = {
+			character_event = { id = RoI.30121 } # Set religious branch to liege's branch
+		}
+		
+		any_child = { # Fix for children not getting any traits
+			limit = {
+				age = 16
+				NOR = {
+					has_education_diplomacy_trigger = yes
+					has_education_martial_trigger = yes
+					has_education_learning_trigger = yes
+					has_education_stewardship_trigger = yes
+				}
+			}
+			add_random_education_trait = yes
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+		}
+		
+		any_child = {
+			limit = {
+				age = 10
+				NOT = { age = 16 }
+				NOT = { personality_traits = 2 }
+			}
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+		}
+		
+		any_child = {
+			limit = {
+				age = 6
+				NOT = { age = 10 }
+				NOT = { personality_traits = 1 }
+			}
+			random_independent_ruler = {
+				limit = {
+					PREV = {
+						can_copy_personality_trait_from = PREV
+					}
+				}
+				PREV = {
+					copy_random_personality_trait = PREV
+				}
+			}
+		}
+		recalc_succession = yes
 	}
 }
