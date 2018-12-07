@@ -3,7 +3,12 @@
 
 horse_group = {
 	graphical_cultures = { horsegfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	horse = {
 		graphical_cultures = { horsegfx }
@@ -48,7 +53,12 @@ horse_group = {
 
 cat_group = {
 	graphical_cultures = { catgfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	cat = {
 		graphical_cultures = { catgfx }
@@ -93,7 +103,12 @@ cat_group = {
 
 bear_group = {
 	graphical_cultures = { beargfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	bear = {
 		graphical_cultures = { beargfx }
@@ -133,7 +148,12 @@ bear_group = {
 
 hedgehog_group = {
 	graphical_cultures = { hedgehoggfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	hedgehog_culture = {
 		graphical_cultures = { hedgehoggfx }
@@ -175,7 +195,12 @@ hedgehog_group = {
 
 duck_group = {
 	graphical_cultures = { duckgfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	duck_culture = {
 		graphical_cultures = { duckgfx }
@@ -216,7 +241,12 @@ duck_group = {
 }
 dog_group = {
 	graphical_cultures = { doggfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	dog_culture = {
 		graphical_cultures = { doggfx }
@@ -261,7 +291,12 @@ dog_group = {
 
 elephant_group = {
 	graphical_cultures = { elephantgfx }
-	alternate_start = { has_alternate_start_parameter = { key = special_culture value = animal_kingdoms } }
+	alternate_start = {
+		OR = {
+			has_alternate_start_parameter = { key = special_culture value = animal_kingdoms }
+			has_alternate_start_parameter = { key = special_culture value = animal_world }
+		}
+	}
 	
 	elephant_culture = {
 		graphical_cultures = { elephantgfx }
