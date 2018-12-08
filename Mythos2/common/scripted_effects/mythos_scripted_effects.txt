@@ -469,7 +469,10 @@ determine_purity = {
 			change_variable = { which = purity value = 2 }
 		}
 		else_if = {
-			limit = { trait = blood_of_the_gods }
+			limit = {
+				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
+			}
 			change_variable = { which = purity value = 1 }
 		}
 		if = {

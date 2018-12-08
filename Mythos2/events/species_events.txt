@@ -278,131 +278,530 @@ character_event = {
 				}
 			}
 			# Handle gods
-			# Both parents are gods
+			# Without Holy fury uses a BOTG trait. Otherwise use bloodlines
 			if = {
-				limit = {
-					event_target:true_father = { trait = god }
-					mother_even_if_dead = { trait = god }
-				}
-				add_trait = god
-				set_character_flag = ai_flag_refuse_conversion
-			}
-			# One parent is god, other is human, BotG, or Demigod
-			else_if = {
-				limit = {
-					OR = {
-						AND = {
-							event_target:true_father = { trait = god }
-							mother_even_if_dead = { NOT = { trait = god } }
-						}
-						AND = {
-							mother_even_if_dead = { trait = god }
-							event_target:true_father = { NOT = { trait = god } }
-						}
+				limit = { NOT = { has_dlc = "Holy Fury" } }
+				# Both parents are gods
+				if = {
+					limit = {
+						event_target:true_father = { trait = god }
+						mother_even_if_dead = { trait = god }
 					}
+					add_trait = god
+					set_character_flag = ai_flag_refuse_conversion
 				}
-				add_trait = demi_god
-				set_character_flag = ai_flag_refuse_conversion
-			}
-			# Both parents are demigods
-			else_if = {
-				limit = {
-					event_target:true_father = { trait = demi_god }
-					mother_even_if_dead = { trait = demi_god }
-				}
-				random_list = {
-					1 = {
-						add_trait = demi_god
-						set_character_flag = ai_flag_refuse_conversion
-					}
-					1 = {
-						modifier = {
-							factor = 0.6
-							has_game_rule = { name = breeding value = more }
-						}
-						modifier = {
-							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
-						}
-						add_trait = blood_of_the_gods
-					}
-				}
-			}
-			# Demigod and Human or Blood of the Gods
-			else_if = {
-				limit = {
-					OR = {
-						AND = {
-							event_target:true_father = { trait = demi_god }
-							mother_even_if_dead = {
-								NOR = {
-									trait = god
-									trait = demi_god
-								}
+				# One parent is god, other is human, BotG, or Demigod
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = { trait = god }
+								mother_even_if_dead = { NOT = { trait = god } }
 							}
-						}
-						AND = {
-							mother_even_if_dead = { trait = demi_god }
-							event_target:true_father = {
-								NOR = {
-									trait = god
-									trait = demi_god
-								}
+							AND = {
+								mother_even_if_dead = { trait = god }
+								event_target:true_father = { NOT = { trait = god } }
 							}
 						}
 					}
+					add_trait = demi_god
+					set_character_flag = ai_flag_refuse_conversion
 				}
-				add_trait = blood_of_the_gods
-			}
-			# One has blood of the gods, other is human
-			else_if = {
-				limit = {
-					OR = {
-						AND = {
-							event_target:true_father = { trait = blood_of_the_gods }
-							mother_even_if_dead = {
-								OR = {
-									trait = god
-									trait = demi_god
-									trait = blood_of_the_gods
+				# Both parents are demigods
+				else_if = {
+					limit = {
+						event_target:true_father = { trait = demi_god }
+						mother_even_if_dead = { trait = demi_god }
+					}
+					random_list = {
+						1 = {
+							add_trait = demi_god
+							set_character_flag = ai_flag_refuse_conversion
+						}
+						1 = {
+							modifier = {
+								factor = 0.6
+								has_game_rule = { name = breeding value = more }
+							}
+							modifier = {
+								factor = 1.5
+								has_game_rule = { name = breeding value = fewer }
+							}
+							add_trait = blood_of_the_gods
+						}
+					}
+				}
+				# Demigod and Human or Blood of the Gods
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = { trait = demi_god }
+								mother_even_if_dead = {
+									NOR = {
+										trait = god
+										trait = demi_god
+									}
 								}
 							}
-						}
-						AND = {
-							mother_even_if_dead = { trait = blood_of_the_gods }
-							event_target:true_father = {
-								OR = {
-									trait = god
-									trait = demi_god
-									trait = blood_of_the_gods
+							AND = {
+								mother_even_if_dead = { trait = demi_god }
+								event_target:true_father = {
+									NOR = {
+										trait = god
+										trait = demi_god
+									}
 								}
 							}
 						}
 					}
+					add_trait = blood_of_the_gods
 				}
-				random_list = {
-					3 = {
-						add_trait = blood_of_the_gods
-					}
-					7 = {
-						modifier = {
-							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+				# One has blood of the gods, other is human
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = { trait = blood_of_the_gods }
+								mother_even_if_dead = {
+									OR = {
+										trait = god
+										trait = demi_god
+										trait = blood_of_the_gods
+									}
+								}
+							}
+							AND = {
+								mother_even_if_dead = { trait = blood_of_the_gods }
+								event_target:true_father = {
+									OR = {
+										trait = god
+										trait = demi_god
+										trait = blood_of_the_gods
+									}
+								}
+							}
 						}
-						modifier = {
-							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+					}
+					random_list = {
+						3 = {
+							add_trait = blood_of_the_gods
+						}
+						7 = {
+							modifier = {
+								factor = 0.6
+								has_game_rule = { name = breeding value = more }
+							}
+							modifier = {
+								factor = 1.5
+								has_game_rule = { name = breeding value = fewer }
+							}
 						}
 					}
+				}
+				# Both have blood of the gods
+				else_if = {
+					limit = {
+						event_target:true_father = { trait = blood_of_the_gods }
+						mother_even_if_dead = { trait = blood_of_the_gods }
+					}
+					add_trait = blood_of_the_gods
 				}
 			}
-			# Both have blood of the gods
-			else_if = {
-				limit = {
-					event_target:true_father = { trait = blood_of_the_gods }
-					mother_even_if_dead = { trait = blood_of_the_gods }
+			# With Holy Fury, need to use bloodlines
+			if = {
+				limit = { has_dlc = "Holy Fury" }
+				# Both parents are gods
+				if = {
+					limit = {
+						event_target:true_father = { trait = god }
+						mother_even_if_dead = { trait = god }
+					}
+					add_trait = god
+					set_character_flag = gain_blood_of_the_gods
+					set_character_flag = ai_flag_refuse_conversion
 				}
-				add_trait = blood_of_the_gods
+				# One parent is god, other is human, BotG, or Demigod
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = { trait = god }
+								mother_even_if_dead = { NOT = { trait = god } }
+							}
+							AND = {
+								mother_even_if_dead = { trait = god }
+								event_target:true_father = { NOT = { trait = god } }
+							}
+						}
+					}
+					add_trait = demi_god
+					set_character_flag = gain_blood_of_the_gods
+					set_character_flag = ai_flag_refuse_conversion
+				}
+				# Both parents are demigods
+				else_if = {
+					limit = {
+						event_target:true_father = { trait = demi_god }
+						mother_even_if_dead = { trait = demi_god }
+					}
+					random_list = {
+						1 = {
+							add_trait = demi_god
+							set_character_flag = gain_blood_of_the_gods
+							set_character_flag = ai_flag_refuse_conversion
+						}
+						1 = {
+							modifier = {
+								factor = 0.6
+								has_game_rule = { name = breeding value = more }
+							}
+							modifier = {
+								factor = 1.5
+								has_game_rule = { name = breeding value = fewer }
+							}
+							set_character_flag = gain_blood_of_the_gods
+						}
+					}
+				}
+				# Demigod and Human or Blood of the Gods
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = { trait = demi_god }
+								mother_even_if_dead = {
+									NOR = {
+										trait = god
+										trait = demi_god
+									}
+								}
+							}
+							AND = {
+								mother_even_if_dead = { trait = demi_god }
+								event_target:true_father = {
+									NOR = {
+										trait = god
+										trait = demi_god
+									}
+								}
+							}
+						}
+					}
+					set_character_flag = gain_blood_of_the_gods
+				}
+				# One has blood of the gods, other is human
+				else_if = {
+					limit = {
+						OR = {
+							AND = {
+								event_target:true_father = {
+									any_owned_bloodline = { has_bloodline_flag = BOTG }
+								}
+								mother_even_if_dead = {
+									OR = {
+										trait = god
+										trait = demi_god
+										any_owned_bloodline = { has_bloodline_flag = BOTG }
+									}
+								}
+							}
+							AND = {
+								mother_even_if_dead = {
+									any_owned_bloodline = { has_bloodline_flag = BOTG }
+								}
+								event_target:true_father = {
+									OR = {
+										trait = god
+										trait = demi_god
+										any_owned_bloodline = { has_bloodline_flag = BOTG }
+									}
+								}
+							}
+						}
+					}
+					if = {
+						limit = { # Any grandparent is a god or demigod, 80%
+							OR = {
+								mother_even_if_dead = {
+									OR = {
+										mother = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+										true_father = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+									}
+								}
+								event_target:true_father = {
+									OR = {
+										mother = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+										true_father = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+									}
+								}
+							}
+						}
+						random_list = {
+							7 = {
+								set_character_flag = gain_blood_of_the_gods
+							}
+							3 = {
+								modifier = {
+									factor = 0.6
+									has_game_rule = { name = breeding value = more }
+								}
+								modifier = {
+									factor = 1.5
+									has_game_rule = { name = breeding value = fewer }
+								}
+							}
+						}
+					}
+					else = {
+						random_list = {
+							7 = {
+								set_character_flag = gain_blood_of_the_gods
+							}
+							3 = {
+								modifier = {
+									factor = 0.6
+									has_game_rule = { name = breeding value = more }
+								}
+								modifier = {
+									factor = 1.5
+									has_game_rule = { name = breeding value = fewer }
+								}
+							}
+						}
+					}
+				}
+				# Both have blood of the gods
+				else_if = {
+					limit = {
+						event_target:true_father = {
+							any_owned_bloodline = { has_bloodline_flag = BOTG }
+						}
+						mother_even_if_dead = {
+							any_owned_bloodline = { has_bloodline_flag = BOTG }
+						}
+					}
+					if = {
+						limit = { # Any grandparent is a god or demigod, 100%
+							OR = {
+								mother_even_if_dead = {
+									OR = {
+										mother = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+										true_father = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+									}
+								}
+								event_target:true_father = {
+									OR = {
+										mother = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+										true_father = {
+											OR = {
+												trait = god
+												trait = demi_god
+											}
+										}
+									}
+								}
+							}
+						}
+						set_character_flag = gain_blood_of_the_gods
+					}
+					else = {
+						random_list = {
+							9 = {
+								set_character_flag = gain_blood_of_the_gods
+							}
+							1 = {
+								modifier = {
+									factor = 0.6
+									has_game_rule = { name = breeding value = more }
+								}
+								modifier = {
+									factor = 1.5
+									has_game_rule = { name = breeding value = fewer }
+								}
+							}
+						}
+					}
+					if = { # Sanity check - Gods and demi-gods always have divine blood
+						limit = {
+							OR = {
+								trait = god
+								trait = demigod
+							}
+						}
+						set_character_flag = gain_blood_of_the_gods
+					}
+				}
+				# Add bloodline
+				if = {
+					limit = { has_character_flag = gain_blood_of_the_gods }
+					clr_character_flag = gain_blood_of_the_gods
+					# Both parents have a specific bloodline - get one at random
+					if = {
+						limit = {
+							mother = { any_owned_bloodline = { has_bloodline_flag = specific_god } }
+							event_target:true_father = { any_owned_bloodline = { has_bloodline_flag = specific_god } }
+						}
+						random_list = {
+							1 = {
+								mother = {
+									any_owned_bloodline = {
+										limit = { has_bloodline_flag = BOTG }
+										add_bloodline_member = ROOT
+									}
+								}
+							}
+							1 = {
+								event_target:true_father = {
+									any_owned_bloodline = {
+										limit = { has_bloodline_flag = BOTG }
+										add_bloodline_member = ROOT
+									}
+								}
+							}
+						}
+					}
+					# Mother has a specific bloodline
+					else_if = {
+						limit = {
+							mother = { any_owned_bloodline = { has_bloodline_flag = specific_god } }
+						}
+						mother = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					# Father has a specific bloodline
+					else_if = {
+						limit = {
+							event_target:true_father = { any_owned_bloodline = { has_bloodline_flag = specific_god } }
+						}
+						event_target:true_father = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					# Neither has a specific bloodline - Check for pantheon bloodlines
+					# Both parents have a pantheon bloodline
+					else_if = {
+						limit = {
+							mother = { any_owned_bloodline = { has_bloodline_flag = pantheon } }
+							event_target:true_father = { any_owned_bloodline = { has_bloodline_flag = pantheon } }
+						}
+						random_list = {
+							1 = {
+								mother = {
+									any_owned_bloodline = {
+										limit = { has_bloodline_flag = BOTG }
+										add_bloodline_member = ROOT
+									}
+								}
+							}
+							1 = {
+								event_target:true_father = {
+									any_owned_bloodline = {
+										limit = { has_bloodline_flag = BOTG }
+										add_bloodline_member = ROOT
+									}
+								}
+							}
+						}
+					}
+					# Mother has a pantheon bloodline
+					else_if = {
+						limit = {
+							mother = { any_owned_bloodline = { has_bloodline_flag = pantheon } }
+						}
+						mother = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					# Father has a pantheon bloodline
+					else_if = {
+						limit = {
+							event_target:true_father = { any_owned_bloodline = { has_bloodline_flag = pantheon } }
+						}
+						event_target:true_father = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					# Neither have a pantheon bloodline
+					# Check for blood of the gods, patrilineally first unless religion uses enatic clans
+					else_if = {
+						limit = {
+							event_target:true_father = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
+							NOT = { has_religion_feature = religion_matriarchal }
+						}
+						event_target:true_father = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					else_if = {
+						limit = { mother = { any_owned_bloodline = { has_bloodline_flag = BOTG } } }
+						mother = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+					else = {
+						event_target:true_father = {
+							any_owned_bloodline = {
+								limit = { has_bloodline_flag = BOTG }
+								add_bloodline_member = ROOT
+							}
+						}
+					}
+				}
 			}
 			# Djinn
 			# Both parents are Djinni
@@ -882,6 +1281,15 @@ character_event = {
 						set_character_flag = ai_flag_refuse_conversion
 					}
 				}
+				if = {
+					limit = { has_dlc = "Holy Fury" }
+					event_target:parent = {
+						any_owned_bloodline = {
+							limit = { has_bloodline_flag = BOTG }
+							add_bloodline_member = ROOT
+						}
+					}
+				}
 			}
 			# Demigod
 			else_if = {
@@ -903,12 +1311,34 @@ character_event = {
 						add_trait = blood_of_the_gods
 					}
 				}
+				if = {
+					limit = { has_dlc = "Holy Fury" }
+					event_target:parent = {
+						any_owned_bloodline = {
+							limit = { has_bloodline_flag = BOTG }
+							add_bloodline_member = ROOT
+						}
+					}
+				}
 			}
 			# Blood of the God
 			else_if = {
 				limit = { event_target:parent = { trait = blood_of_the_gods } }
 				random_list = {
-					3 = { add_trait = blood_of_the_gods }
+					3 = {
+						if = {
+							limit = { NOT = { has_dlc = "Holy Fury " } }
+							add_trait = blood_of_the_gods
+						}
+						else = {
+							event_target:parent = {
+								any_owned_bloodline = {
+									limit = { has_bloodline_flag = BOTG }
+									add_bloodline_member = ROOT
+								}
+							}
+						}
+					}
 					7 = {
 						modifier = {
 							factor = 0.6
@@ -1194,6 +1624,9 @@ character_event = {
 			trait = zombie # Undead should always be infertile
 			trait = mummy
 			trait = known_vampire
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_effect_no_menopause
+			}
 		}
 	}
 	
@@ -1241,6 +1674,9 @@ character_event = {
 					trait = half_giant
 					trait = blood_of_the_gods
 					trait = dragonborn
+					any_owned_bloodline = {
+						has_bloodline_flag = BOTG
+					}
 					# Lives a bit longer than normal
 				}
 			}
@@ -1621,5 +2057,44 @@ character_event = {
 	
 	immediate = {
 		cancel_pregnancy = yes
+	}
+}
+
+# On startup, replace Blood of the Gods for players with a bloodline
+character_event = {
+	id = SPECIES.14
+	hide_window = yes
+	is_triggered_only = yes
+	
+	has_dlc = "Holy Fury"
+	only_playable = yes
+	ai = no
+	
+	trigger = {
+		NOT = { any_owned_bloodlin = { has_bloodline_flag = BOTG } }
+		trait = blood_of_the_gods
+	}
+	
+	immediate = {
+		remove_trait = blood_of_the_gods
+		if = {
+			limit = { religion_openly_hellenic_or_reformed_trigger = yes }
+			create_bloodline = {
+				type = BL_blood_of_olympus
+			}
+		}
+		else_if = {
+			limit = { religion_openly_norse_or_reformed_trigger = yes }
+			create_bloodline = {
+				type = BL_blood_of_asgard
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_blood_of_the_gods_generic
+				religion = ROOT
+				name = String_blood_of_the_religion_gods
+			}
+		}
 	}
 }

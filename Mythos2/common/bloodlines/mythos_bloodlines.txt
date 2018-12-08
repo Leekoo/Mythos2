@@ -1,0 +1,219 @@
+BL_blood_of_the_gods_generic = { # Generic for when a more specific BotG trait is not used
+	same_religion_opinion = 5
+	health = 2
+	combat_rating = 4
+	monthly_character_prestige = 0.25
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_placeholder_symbol_2
+	flags = { BOTG divine }
+}
+
+BL_blood_of_asgard = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 8
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god pantheon }
+}
+
+BL_blood_of_olympus = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	combat_rating = 4
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god pantheon }
+}
+
+BL_blood_of_odin = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	monthly_character_piety = 0.5
+	learning = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god no_eye_healing war_god knowledge_god }
+}
+
+BL_blood_of_thor = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 18
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god war_god }
+}
+
+BL_blood_of_loki = {
+	jotnar_opinion = 5
+	jotnar_reformed_opinion = 5
+	health = 5
+	intrigue = 2
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_midgard
+	flags = { BOTG divine norse_god specific_god trickster_god }
+}
+
+BL_blood_of_heimdal = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	monthly_character_piety = 0.5
+	command_modifier = {
+		speed = 0.1
+	}
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god knowledge_god }
+}
+
+BL_blood_of_tyr = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 3
+	known_werewolf_opinion = -15
+	vassal_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god no_hand_healing war_god }
+}
+
+BL_blood_of_njorthr = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	sex_appeal_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god }
+}
+
+BL_blood_of_sif = {
+	norse_pagan_opinion = 5
+	norse_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	spouse_opinion = 5
+	child_opinion = 5
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine norse_god specific_god }
+}
+
+BL_blood_of_aphrodite = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.15
+	bloodline_effect_no_menopause = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_norse
+	flags = { BOTG divine greek_god specific_god }
+}
+
+BL_blood_of_zeus = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	fertility = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god }
+}
+
+BL_blood_of_poseidon = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	galleys_perc = 0.1
+	command_modifier = {
+		light_cavalry_morale = 0.1
+	}
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god }
+}
+
+BL_blood_of_hestia = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	dynasty_opinion = 5
+	health = 2
+	global_revolt_risk = -0.01
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god }
+}
+	
+BL_blood_of_hades = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 3
+	global_tax_modifier = 0.01
+	monthly_character_prestige = 0.1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god }
+}
+
+BL_blood_of_demeter = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	days_of_supply = 2
+	stewardship = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god }
+}
+BL_blood_of_athena = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	strategiest_opinion = 5
+	bloodline_effect_strategist = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_generic_hero
+	flags = { BOTG divine greek_god specific_god war_god knowledge_god }
+}
+BL_blood_of_ares = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	combat_rating = 12
+	martial = 1
+	bloodline_effect_great_heroes_appear = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_generic_hero
+	flags = { BOTG divine greek_god specific_god war_god }
+}
+BL_blood_of_hermes = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 2
+	global_tax_modifier = 0.02
+	intrigue = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_stoics
+	flags = { BOTG divine greek_god specific_god trickster_god knowledge_god }
+}
+BL_blood_of_apollo = {
+	hellenic_pagan_opinion = 5
+	hellenic_pagan_reformed_opinion = 5
+	health = 3
+	diplomacy = 1
+	bloodline_effect_better_physicians = 1
+	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
+	picture = GFX_bloodlines_symbol_asclepius
+	flags = { BOTG divine greek_god specific_god knowledge_god }
+}

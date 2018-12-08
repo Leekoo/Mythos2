@@ -6373,7 +6373,7 @@ defined_text = {
 	}
 }
 # Some gods on the draconic pilgrimage need to change if religion is matriarichal
-defined_test = {
+defined_text = {
 	name = GetDewiSybaris
 	text = {
 		localisation_key = GOD_DRAGON_DEWI
@@ -6388,7 +6388,7 @@ defined_test = {
 		}
 	}
 }
-defined_test = {
+defined_text = {
 	name = GetLandvaettirKampe
 	text = {
 		localisation_key = GOD_DRAGON_LANDVAETTUR
@@ -6403,7 +6403,7 @@ defined_test = {
 		}
 	}
 }
-defined_test = {
+defined_text = {
 	name = GetWawelDelphyne
 	text = {
 		localisation_key = GOD_DRAGON_WAWEL
@@ -6418,7 +6418,7 @@ defined_test = {
 		}
 	}
 }
-defined_test = {
+defined_text = {
 	name = GetZirnitraEchidna
 	text = {
 		localisation_key = GOD_DRAGON_ZIRNITA
@@ -6431,5 +6431,263 @@ defined_test = {
 		trigger = {
 			has_religion_feature = religion_matriarchal
 		}
+	}
+}
+defined_text = {
+	name = GetName_Odin
+	text = {
+		localisation_key = GOD_ODIN_ENGLISH
+		trigger = {
+			OR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_SAXON
+		trigger = {
+			culture_group = west_germanic
+			NOR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_ODIN_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Thor
+	text = {
+		localisation_key = GOD_THOR_ENGLISH
+		trigger = {
+			OR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_SAXON
+		trigger = {
+			culture_group = west_germanic
+			NOR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_THOR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Loki
+	text = {
+		localisation_key = GOD_LOKI_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Heimdal
+	text = {
+		localisation_key = GOD_HEIMDAL_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_HEIMDAL_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Tyr
+	text = {
+		localisation_key = GOD_TYR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_TYR_ENGLISH
+		trigger = {
+			culture_group = west_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_TYR_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_TYR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Njorthr
+	text = {
+		localisation_key = GOD_NJORTHR_NORWEGIAN
+		trigger = {
+			culture = norwegian
+		}
+	}
+	text = {
+		localisation_key = GOD_NJORTHR_NORSE
+		trigger = {
+			culture_group = north_germanic
+			NOT = { culture = norwegian }
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_NJORTHR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Freyr
+	text = {
+		localisation_key = GOD_FREYR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_FREYR_SAXON
+		trigger = {
+			culture = old_saxon
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_FREYR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Freyja
+	fallback_text = {
+		localisation_key = GOD_FREYJA_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Sif
+	fallback_text = {
+		localisation_key = GOD_SIF_DEFAULT
+	}
+}
+defined_text = {
+	name = GetCaelusUranusName
+	text = {
+		localisation_key = GOD_URANUS_LATIN
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = String_Uranus_english
+	}
+}
+defined_text = {
+	name = GetHellenicPagan_Greek_Roman
+	text = {
+		localisation_key = roman
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = greek
+	}
+}
+defined_text = {
+	name = GetGreekPallas
+	text = {
+		localisation_key = ""
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = ATHENA_PALLAS_PREFIX
+	}
+}
+defined_text = {
+	name = GetPhobosTimorusName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_TIMORUS
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_PHOBOS
+	}
+
+	fallback_text = {
+		localisation_key = GOD_PHOBOS
+	}
+}
+defined_text = {
+	name = GetDeimosFormidoName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_FORMIDO
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_DEIMOS
+	}
+
+	fallback_text = {
+		localisation_key = GOD_DEIMOS
+	}
+}
+defined_text = {
+	name = GetGaiaTerraName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_TERRA
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_GAIA
+	}
+
+	fallback_text = {
+		localisation_key = GOD_GAIA
 	}
 }

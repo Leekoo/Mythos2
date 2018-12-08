@@ -72,6 +72,7 @@ is_old = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -88,6 +89,7 @@ is_old = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -133,6 +135,7 @@ is_very_old = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -149,6 +152,7 @@ is_very_old = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -188,6 +192,7 @@ is_30 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -203,6 +208,7 @@ is_30 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -240,6 +246,7 @@ is_40 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -255,6 +262,7 @@ is_40 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -291,6 +299,7 @@ is_50 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -306,6 +315,7 @@ is_50 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -342,6 +352,7 @@ is_60 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -357,6 +368,7 @@ is_60 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -393,6 +405,7 @@ is_70 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -408,6 +421,7 @@ is_70 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -444,6 +458,7 @@ is_80 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -459,6 +474,7 @@ is_80 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -495,6 +511,7 @@ is_90 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -510,6 +527,7 @@ is_90 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -546,6 +564,7 @@ is_100 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -561,6 +580,7 @@ is_100 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -1273,6 +1293,7 @@ likes_god_blood = {
 		trait = god
 		trait = demi_god
 		trait = blood_of_the_gods
+		any_owned_bloodline = { has_bloodline_flag = BOTG }
 	}
 }
 likes_druids = {
@@ -1333,14 +1354,7 @@ from_god_convert_to_root_religion = {
 			hidden_tooltip = {
 				NAND = {
 					FROM = { trait = god }
-					OR = {
-						religion_group = christian
-						religion_group = muslim
-						religion_group = jewish_group
-						religion = zun_pagan
-						religion = zun_pagan_reformed
-						religion_group = zoroastrian_group
-					}
+					is_monotheistic = yes
 				}
 			}
 		}
@@ -1352,11 +1366,7 @@ from_god_convert_to_root_religion = {
 			hidden_tooltip = {
 				NAND = {
 					FROM = { trait = god }
-					OR = {
-						religion = buddhist
-						religion = taoist
-						religion = the_damned
-					}
+					is_non_theistic = yes
 				}
 			}
 		}
@@ -1530,16 +1540,7 @@ from_god_convert_to_root_religion = {
 }
 
 follows_polytheistic_religion = {
-	OR = {
-		AND = {
-			religion_group = pagan_group
-			NOR = {
-				religion = zun_pagan
-				religion = zun_pagan_reformed
-			}
-		}
-		religion = hindu
-	}
+	is_monotheistic = no
 }
 
 is_virtuous_minus_6_or_better = {
@@ -3504,4 +3505,27 @@ is_honest_vice = {
 
 is_honest_vice_secret = {
 	always = no
+}
+
+is_monotheistic = {
+	OR = {
+		has_religion_feature = religion_dogmatic
+		religion_group = christian
+		religion_group = muslim
+		religion_group = jewish_group
+		religion_group = zoroastrian_group
+		religion = satanist
+		religion = the_damned
+		religion = zunist_pagan
+		religion = zunist_pagan_reformed
+	}
+}
+
+is_non_theistic = {
+	OR = {
+		religion = buddhist
+		religion = the_damned
+		religion = taoist
+		religion = jain
+	}
 }

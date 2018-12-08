@@ -17864,6 +17864,10 @@ spawn_good_commander_effect = {
 				add_trait = hunter
 			}
 			5 = {
+				modifier = {
+					factor = 10
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = strategist
 			}
 			5 = {
@@ -18018,6 +18022,10 @@ spawn_great_commander_effect = {
 				add_trait = hunter
 			}
 			5 = {
+				modifier = {
+					factor = 10
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = strategist
 			}
 			5 = {
@@ -18246,7 +18254,29 @@ spawn_fantastic_commander_effect = {
 						has_dlc = "Reapers"
 					}
 				}
+				modifier = {
+					factor = 1.5
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = giant
+				add_trait = robust
+				add_trait = strategist
+				add_trait = one_eyed
+				change_martial = 1
+				give_nickname = nick_the_cyclops
+			}
+			20 = {
+				modifier = {
+					factor = 0
+					NOT = {
+						has_dlc = "Reapers"
+					}
+				}
+				modifier = {
+					factor = 1.5
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
+				add_trait = mythos_giant
 				add_trait = robust
 				add_trait = strategist
 				add_trait = one_eyed
@@ -18294,6 +18324,10 @@ spawn_fantastic_commander_effect = {
 				give_nickname = nick_the_brave
 			}
 			20 = {
+				modifier = {
+					factor = 1.5
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = robust
 				add_trait = strategist
 				change_martial = 1
@@ -18307,6 +18341,10 @@ spawn_fantastic_commander_effect = {
 				give_nickname = nick_the_noble
 			}
 			20 = {
+				modifier = {
+					factor = 1.5
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = blinded
 				add_trait = strategist
 				add_trait = genius
@@ -18360,6 +18398,10 @@ spawn_fantastic_commander_effect = {
 				give_nickname = nick_the_boar
 			}
 			20 = {
+				modifier = {
+					factor = 1.5
+					ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
+				}
 				add_trait = fair
 				add_trait = strategist
 				change_martial = 4
@@ -20175,6 +20217,10 @@ china_spawn_commander_effect = {
 								trait = ambitious
 							}
 						}
+					}
+					modifier = {
+						factor = 13
+						ROOT = { any_owned_bloodline = { has_bloodline_flag = bloodline_effect_strategist } }
 					}
 					add_trait = strategist
 				}
@@ -23102,6 +23148,7 @@ random_list = {
 					OR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 					}
@@ -23118,6 +23165,7 @@ random_list = {
 					NOR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 						trait = giant
@@ -23163,6 +23211,7 @@ random_list = {
 					OR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 					}
@@ -23179,6 +23228,7 @@ random_list = {
 					NOR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 						trait = giant
@@ -23616,6 +23666,7 @@ random_list = {
 					OR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 					}
@@ -23632,6 +23683,7 @@ random_list = {
 					NOR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 						trait = giant
@@ -23677,6 +23729,7 @@ random_list = {
 					OR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 					}
@@ -23693,6 +23746,7 @@ random_list = {
 					NOR = {
 						trait = dragonborn
 						trait = blood_of_the_gods
+						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
 						trait = giant
@@ -31493,11 +31547,13 @@ reformation_god_names_changes_effect = { #Reforming religion with certain Doctri
 						add_god_name = GOD_THE_THUNDERER
 						add_god_name = GOD_THE_ALLFATHER
 						add_god_name = GOD_TYR
+						add_god_name = GOD_HEIMDAL
 					}
 					add_evil_god_name = GOD_FRIGG
 					add_evil_god_name = HEL
 					add_evil_god_name = GOD_SIF
 					add_evil_god_name = GOD_SKADI
+					add_evil_god_name = GOD_FREYJA
 				}
 				if = { #Religion is Matriarchal
 					limit = {
@@ -31512,12 +31568,13 @@ reformation_god_names_changes_effect = { #Reforming religion with certain Doctri
 						add_god_name = GOD_SIF
 						add_god_name = GOD_THE_ALLMOTHER
 						add_god_name = GOD_SKADI
-						add_god_name = GOD_FREY
+						add_god_name = GOD_FREYJA
 					}
 					add_evil_god_name = LOKI
 					add_evil_god_name = GOD_THE_THUNDERER
 					add_evil_god_name = FENRIR
 					add_evil_god_name = JORMUNGANDR
+					add_evil_god_name = GOD_FREY
 				}
 				god = {
 					limit = {

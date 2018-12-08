@@ -2264,6 +2264,11 @@
 			set_character_flag = greek_god_uranus
 			set_character_flag = checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+			name = BOTG_Sky
+			desc = BOTG_Sky_desc
+		}
 	}
 	30.3.1 = {
 		death={ death_reason = death_murder killer = 268401 }
@@ -2285,6 +2290,11 @@
 		effect = {
 			set_character_flag = greek_god_chronos
 			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+			name = BOTG_Time
+			desc = BOTG_Time_desc
 		}
 	}
 	17.1.1={
@@ -3893,6 +3903,9 @@
 		birth=yes
 		give_nickname = nick_of_the_evil_eye
 		effect = { set_character_flag = checked_race }
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
 	}
 	1102.7.1={
 		death=yes
@@ -3917,6 +3930,9 @@
 		effect = {
 			add_character_modifier = { name = patron_shiva duration = -1 }
 			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
 		}
 	}
 	1219.1.1={
@@ -4074,6 +4090,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_olympus
+		}
 	}
 	17.1.1={
 		add_spouse=268401
@@ -4101,6 +4120,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_hades
+		}
 	}
 }
 268474={
@@ -4126,6 +4148,9 @@
 			set_character_flag=greek_god_poseidon
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_poseidon
 		}
 	}
 }
@@ -4153,6 +4178,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_aphrodite
+		}
 	}
 }
 268476={
@@ -4175,6 +4203,11 @@
 			set_character_flag=greek_god_hera
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			mother = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268476
+				}
+			}
 		}
 	}
 	36.1.1={
@@ -4206,6 +4239,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_zeus
+		}
 	}
 	36.1.1={
 		add_spouse=268476
@@ -4235,6 +4271,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_athena
+		}
 		employer=268477
 	}
 }
@@ -4263,6 +4302,9 @@
 			set_character_flag=greek_god_ares
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_ares
 		}
 	}
 }
@@ -4295,6 +4337,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_hermes
+		}
 	}
 }
 268481={
@@ -4320,6 +4365,11 @@
 			set_character_flag=greek_god_pan
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			father = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268481
+				}
+			}
 		}
 	}
 }
@@ -4337,6 +4387,9 @@
 		effect = {
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_olympus
 		}
 	}
 }
@@ -4366,6 +4419,9 @@
 			set_character_flag=greek_god_apollo
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_apollo
 		}
 	}
 }
@@ -4397,6 +4453,11 @@
 			set_character_flag=greek_god_artemis
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			father = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268484
+				}
+			}
 		}
 	}
 }
@@ -4425,6 +4486,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_odin
+		}
 	}
 	330.1.1={
 		add_spouse=268489
@@ -4434,6 +4498,7 @@
 	name=Þórr
 	female=no
 	dynasty = 1049006
+	dna="0i0i00hbe00"
 	religion=norse_pagan
 	culture=norse
 	immortal_age = 50
@@ -4453,6 +4518,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_thor
+		}
 	}
 	428.1.1={
 		add_spouse=268495
@@ -4483,6 +4551,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_loki
+		}
 	}
 }
 268488={
@@ -4508,6 +4579,11 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 			set_graphical_culture = horse
+			mother = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268488
+				}
+			}
 		}
 		employer=268485
 	}
@@ -4532,6 +4608,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268305
+		create_bloodline = {
+			type = BL_blood_of_asgard
+		}
 	}
 	330.1.1={
 		add_spouse=268485
@@ -4558,6 +4637,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_njorthr
+		}
 	}
 }
 268491={
@@ -4583,6 +4665,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268305
+		create_bloodline = {
+			type = BL_blood_of_heimdal
+		}
 	}
 }
 268492={
@@ -4607,6 +4692,11 @@
 			set_character_flag=norse_god_baldr
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			father = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268492
+				}
+			}
 		}
 	}
 	439.1.1={
@@ -4631,6 +4721,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_asgard
+		}
 	}
 	439.1.1={
 		add_spouse=268492
@@ -4656,6 +4749,11 @@
 			set_character_flag=norse_god_bragi
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			father = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268494
+				}
+			}
 		}
 	}
 }
@@ -4663,6 +4761,7 @@
 	name=Sif
 	female=yes
 	dynasty = 1049006
+	dna="b0bd000ba00"
 	religion=norse_pagan
 	culture=norse
 	trait = god
@@ -4675,6 +4774,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_sif
+		}
 	}
 	428.1.1={
 		add_spouse=268486
@@ -4706,6 +4808,9 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		create_bloodline = {
+			type = BL_blood_of_sif
+		}
 	}
 }
 268497={
@@ -4728,6 +4833,9 @@
 			set_character_flag=checked_race
 		}
 		employer=268485
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
+		}
 	}
 	736.1.1={
 		add_spouse=268487
@@ -4751,6 +4859,11 @@
 			set_character_flag=norse_god_hel
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
+			father = {
+				any_owned_bloodline = {
+					add_bloodline_member = c_268498
+				}
+			}
 		}
 	}
 }
