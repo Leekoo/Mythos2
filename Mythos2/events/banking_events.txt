@@ -1088,11 +1088,11 @@ character_event = {
 		set_variable = { which = local_double_full which = local_requirement_full }
 		multiply_variable = { which = local_double_full value = 2 } # Used for AI
 		if = {
-			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_large }
+			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_large } }
 			log = "In BANK.13, large payment not reduced properly. [local_payment_full.GetValue]"
 		}
 		if = {
-			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_small }
+			limit = { is_variable_equal = { which = local_requirement_full which = local_requirement_small } }
 			log = "In BANK.13, small payment not reduced properly. [local_payment_full.GetValue]"
 		}
 	}

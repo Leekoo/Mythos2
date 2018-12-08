@@ -803,23 +803,23 @@ disliked_target_selection_score = {
         value = 500
     }
 	additive_modifier = {
-		reverse_has_opinion_modifier = ( who = ROOT modifier = killed_protected }
+		reverse_has_opinion_modifier = { who = ROOT modifier = killed_protected }
 		value = 400
 	}
 	additive_modifier = {
-		reverse_has_opinion_modifier = ( who = ROOT modifier = attacked_protected }
+		reverse_has_opinion_modifier = { who = ROOT modifier = attacked_protected }
 		value = 200
 	}
 	additive_modifier = {
-		reverse_has_opinion_modifier = ( who = ROOT modifier = suspected_attacked_protected }
+		reverse_has_opinion_modifier = { who = ROOT modifier = suspected_attacked_protected }
 		value = 100
 	}
 	additive_modifier = {
-		reverse_has_opinion_modifier = ( who = ROOT modifier = magic_disloyalty }
+		reverse_has_opinion_modifier = { who = ROOT modifier = magic_disloyalty }
 		value = 100
 	}
 	additive_modifier = {
-		reverse_has_opinion_modifier = ( who = ROOT modifier = opinion_monster }
+		reverse_has_opinion_modifier = { who = ROOT modifier = opinion_monster }
 		value = 400
 	}
 }
