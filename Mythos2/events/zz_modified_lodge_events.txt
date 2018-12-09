@@ -730,7 +730,7 @@ character_event = {
 			#Zunist Lodge: pikemen + archers 							150 + 100
 			#Bon Lodge: light_infantry + light_cavalry + archers 		100 + 50 + 100
 			#Hellenic Lodge: pikemen + heavy infantry 					200 + 50
-			#Draconic Lodge: light_infantry + dragon_raiders			200 + 10
+			#Draconic Lodge: light_infantry + dragon_cavalry			200 + 10
 			#Kemetic Lodge: light_infantry + light_cavalry				150 + 75
 			#Druidic Lodge: light_infantry + archers					150 + 100
 			#Jotnar Lodge: heavy_infantry								200
@@ -1122,7 +1122,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 50 50 }
-			                    		dragon_raiders = { 3 3 }
+			                    		dragon_cavalry = { 3 3 }
 			                        }
 			                        earmark = call_to_glory_disciplined
 			                        attrition = 0
@@ -1137,7 +1137,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 75 75 }
-			                    		dragon_raiders = { 3 3 }
+			                    		dragon_cavalry = { 3 3 }
 			                        }
 			                        earmark = call_to_glory_rowdy #Might leave early on occasion.
 			                        attrition = 0
@@ -1657,7 +1657,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 100 100 }
-			                    		dragon_raiders = { 7 7 }
+			                    		dragon_cavalry = { 7 7 }
 			                        }
 			                        earmark = call_to_glory_disciplined
 			                        attrition = 0
@@ -1672,7 +1672,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 150 150 }
-			                    		dragon_raiders = { 7 7 }
+			                    		dragon_cavalry = { 7 7 }
 			                        }
 			                        earmark = call_to_glory_rowdy #Might leave early on occasion.
 			                        attrition = 0
@@ -2192,7 +2192,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 200 200 }
-			                    		dragon_raiders = { 10 10 }
+			                    		dragon_cavalry = { 10 10 }
 			                        }
 			                        earmark = call_to_glory_disciplined
 			                        attrition = 0
@@ -2207,7 +2207,7 @@ character_event = {
 			                        owner = ROOT
 			                        troops = { 
 			                    		light_infantry = { 300 300 }
-			                    		dragon_raiders = { 10 10 }
+			                    		dragon_cavalry = { 10 10 }
 			                        }
 			                        earmark = call_to_glory_rowdy #Might leave early on occasion.
 			                        attrition = 0
@@ -3047,6 +3047,8 @@ character_event = {
 									chance = 40
 									add_trait = mythos_giant
 									add_trait = size_2
+								}
+							}
                             
                             #REQUIRED event targets for setting up duel evaluation!
                             save_event_target_as = combatant_2 #the target of the duel...

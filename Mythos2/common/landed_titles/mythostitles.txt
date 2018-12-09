@@ -215,42 +215,6 @@ d_jotnar_reformed = {
 		Hefring Himinglæva Hroðr Hrönn Hyrrokkin Imd Járnsaxa Kólga Laufey Leikn Menja Móðguðr Nal Nótt Skaði Uðr
 	}
 }
-k_draconic_pagan_reformed = {
-	color={ 100 255 255 }
-	color2={ 0 0 200 }
-	
-	capital = 18
-	
-	primary = yes
-	
-	title = FLAME
-	foa = "SAPPHIRE_FLAME_FOA"
-	
-	creation_requires_capital = no
-	
-	allow = {
-		#religion = draconic_pagan_reformed
-		#num_of_holy_sites = 3
-		#piety = 500
-		# Disallow creation - form through decision
-		always = no
-	}
-	
-	short_name = yes
-	
-	dignity = 100 # Counted as having this many more counties than it does
-	modifier = sapphire_flame_modifier
-	
-	# Controls a religion
-	controls_religion = draconic_pagan_reformed
-	
-	religion = draconic_pagan_reformed
-	graphical_culture = dragongfx
-	
-	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
-	used_for_dynasty_names = no
-	
-}
 d_druidic_reformed = {
 	color={ 122 165 70 }
 	color2={ 220 220 0 }
@@ -301,6 +265,42 @@ d_solomon_legion = {
 	strength_growth_per_century = 0.10
 	
 	modifier = d_solomon_legion_modifier
+}
+k_draconic_pagan_reformed = {
+	color={ 100 255 255 }
+	color2={ 0 0 200 }
+	
+	capital = 18
+	
+	primary = yes
+	
+	title = FLAME
+	foa = "SAPPHIRE_FLAME_FOA"
+	
+	creation_requires_capital = no
+	
+	allow = {
+		#religion = draconic_pagan_reformed
+		#num_of_holy_sites = 3
+		#piety = 500
+		# Disallow creation - form through decision
+		always = no
+	}
+	
+	short_name = yes
+	
+	dignity = 100 # Counted as having this many more counties than it does
+	modifier = sapphire_flame_modifier
+	
+	# Controls a religion
+	controls_religion = draconic_pagan_reformed
+	
+	religion = draconic_pagan_reformed
+	graphical_culture = dragongfx
+	
+	dynasty_title_names = no 	# Will not be named "Seljuk", etc.
+	used_for_dynasty_names = no
+	
 }
 e_djinn = {
 	color={ 210 5 5 }

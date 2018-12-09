@@ -393,7 +393,7 @@ has_religion_matching_any_warrior_lodge_trigger = {
 		religion_openly_hellenic_or_reformed_trigger = yes
 		religion_openly_draconic_or_reformed_trigger = yes
 		religion_openly_kemetic_or_reformed_trigger = yes
-		religion = atensit
+		religion = atenist
 		religion_openly_druidic_or_reformed_trigger = yes
 		religion_openly_jotnar_or_reformed_trigger = yes
 	}
@@ -477,7 +477,7 @@ has_religion_matching_warrior_lodge_to_revive_trigger = {
 			}
 		}
 		AND = {
-			religion_openly_kemtic_or_reformed_trigger = yes
+			religion_openly_kemetic_or_reformed_trigger = yes
 			event_target:warrior_lodge_to_revive = {
 				is_society = warrior_lodge_kemetic
 			}

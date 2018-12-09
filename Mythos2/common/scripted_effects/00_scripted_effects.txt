@@ -23304,7 +23304,7 @@ random_list = {
 		}
 		modifier = {
 			factor = 0.5
-			trait = demigod
+			trait = demi_god
 		}
 		modifier = {
 			factor = 0.1
@@ -23822,7 +23822,7 @@ random_list = {
 		}
 		modifier = {
 			factor = 0.5
-			trait = demigod
+			trait = demi_god
 		}
 		modifier = {
 			factor = 0.1
@@ -28381,7 +28381,7 @@ move_childrens_crusade_region_effect = {
 	}
 	if = { #Move to Genoa first.
 		limit = {
-			as_character_flag = flag_children_at_beginning
+			has_character_flag = flag_children_at_beginning
 		}
 		primary_title = { set_preferred_capital = c_genoa } #Historically traveled here.
 		change_variable = { which = children_crusade_forces value = 1 }

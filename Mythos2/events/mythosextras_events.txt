@@ -3409,279 +3409,279 @@ character_event = {
 	}
 }
 
-character_event = {
-	id = MYTHMORE.56
-	hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		# Lucifer's Own
-		if = {
-			limit = {
-				OR = {
-					society = the_satanists
-					society = the_trollcrafters
-				}
-			}
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					trait = elusive_shadow
-				}
-				new_character = {
-					if = { limit = { trait = chaste } remove_trait = chaste add_trait = lustful }
-					if = { limit = { trait = temperate } remove_trait = temperate add_trait = gluttonous }
-					if = { limit = { trait = charitable } remove_trait = charitable add_trait = greedy }
-					if = { limit = { trait = diligent } remove_trait = diligent add_trait = slothful }
-					if = { limit = { trait = patient } remove_trait = patient add_trait = wroth }
-					if = { limit = { trait = kind } remove_trait = kind add_trait = envious }
-					if = { limit = { trait = humble } remove_trait = humble add_trait = proud }
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = the_cult_of_kali }
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					trait = elusive_shadow
-					trait = ambitious
-					trait = cruel
-				}
-				new_character = {
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = the_cold_ones }
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					trait = arcane_master
-					trait = necromancer
-					trait = craven
-				}
-				new_character = {
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = the_plaguebringers }
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					health = 7
-					flag = plague_bearer
-				}
-				new_character = {
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = the_vodouns }
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					trait = veteran_wizard
-					trait = necromancer
-				}
-				new_character = {
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = the_vodouns }
-			FROM = {
-				create_character = {
-					dynasty = random
-					culture = FROM
-					religion = FROM
-					random_traits = yes
-					trait = hedonist
-				}
-				new_character = {
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_norse }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = berserker
-					add_trait = norse_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_tengri }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = hunter
-					add_trait = tengri_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_baltic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = baltic_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_finnish }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = finnish_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_slavic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = slavic_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_west_african }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = west_african_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_zun }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = zun_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_bon }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = bon_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_hellenic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = hellenic_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_draconic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = draconic_leader
-					add_trait = dragon
-					culture = draconic
-					set_graphical_culture = draconic
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_kemetic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = kemetic_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_druidic }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = druidic_leader
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-		else_if = {
-			limit = { society = warrior_lodge_jotnar }
-			FROM = {
-				spawn_good_commander_effect = yes
-				new_character = {
-					add_trait = jotnar_leader
-					add_trait = mythos_giant
-					add_trait = giant_hrimthursar
-					join_society = ROOT
-					set_society_grandmaster = yes
-				}
-			}
-		}
-	}
-}
+#character_event = {
+#	id = MYTHMORE.56
+#	hide_window = yes
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		# Lucifer's Own
+#		if = {
+#			limit = {
+#				OR = {
+#					society = the_satanists
+#					society = the_trollcrafters
+#				}
+#			}
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = elusive_shadow
+#				}
+#				new_character = {
+#					if = { limit = { trait = chaste } remove_trait = chaste add_trait = lustful }
+#					if = { limit = { trait = temperate } remove_trait = temperate add_trait = gluttonous }
+#					if = { limit = { trait = charitable } remove_trait = charitable add_trait = greedy }
+#					if = { limit = { trait = diligent } remove_trait = diligent add_trait = slothful }
+#					if = { limit = { trait = patient } remove_trait = patient add_trait = wroth }
+#					if = { limit = { trait = kind } remove_trait = kind add_trait = envious }
+#					if = { limit = { trait = humble } remove_trait = humble add_trait = proud }
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_cult_of_kali }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = elusive_shadow
+#					trait = ambitious
+#					trait = cruel
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_cold_ones }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = arcane_master
+#					trait = necromancer
+#					trait = craven
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_plaguebringers }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					health = 7
+#					flag = plague_bearer
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_vodouns }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = veteran_wizard
+#					trait = necromancer
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = the_vodouns }
+#			FROM = {
+#				create_character = {
+#					dynasty = random
+#					culture = FROM
+#					religion = FROM
+#					random_traits = yes
+#					trait = hedonist
+#				}
+#				new_character = {
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_norse }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = berserker
+#					add_trait = norse_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_tengri }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = hunter
+#					add_trait = tengri_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_baltic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = baltic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_finnish }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = finnish_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_slavic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = slavic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_west_african }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = west_african_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_zun }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = zun_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_bon }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = bon_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_hellenic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = hellenic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_draconic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = draconic_leader
+#					add_trait = dragon
+#					culture = draconic
+#					set_graphical_culture = draconic
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_kemetic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = kemetic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_druidic }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = druidic_leader
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#		else_if = {
+#			limit = { society = warrior_lodge_jotnar }
+#			FROM = {
+#				spawn_good_commander_effect = yes
+#				new_character = {
+#					add_trait = jotnar_leader
+#					add_trait = mythos_giant
+#					add_trait = giant_hrimthursar
+#					join_society = ROOT
+#					set_society_grandmaster = yes
+#				}
+#			}
+#		}
+#	}
+#}
 
 # MYTHMORE.57 - Gain supplies from annual flooding
 character_event = {

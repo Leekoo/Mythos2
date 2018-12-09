@@ -125,11 +125,11 @@
 	culture="draconic"
 	trait="dragon"
 	female = yes
-	718.3.1 = {
+	748.3.1 = {
 		birth="718.3.1"
 		effect = { set_character_flag = checked_race }
 	}
-	830.2.2 = {
+	860.2.2 = {
 		death=yes
 	}
 }
@@ -149,7 +149,7 @@
 		birth="711.4.5"
 		effect = { set_character_flag = checked_race }
 	}
-	735.1.1 = { add_spouse = 268295 }
+	764.1.1 = { add_spouse = 268295 }
 	821.1.1 = {
 		death=yes
 	}
@@ -404,6 +404,9 @@
 		effect = {
 			set_character_flag = norse_god_ymir
 			set_character_flag = checked_race
+		}
+		create_bloodline = {
+			type = BL_blood_of_the_gods_generic
 		}
 	}
 	316.1.1={
@@ -2267,7 +2270,7 @@
 		create_bloodline = {
 			type = BL_blood_of_the_gods_generic
 			name = BOTG_Sky
-			desc = BOTG_Sky_desc
+			desc = "Uranus, primal god of the sky, hated the children born to him by Gaia and imprisoned them until he was castrated by his son, Chronos."
 		}
 	}
 	30.3.1 = {
@@ -2275,7 +2278,7 @@
 	}
 }
 268401 = {
-	name="Chronos"
+	name="Kronos"
 	dynasty=1049005
 	religion="hellenic_pagan"
 	culture="greek"
@@ -2294,7 +2297,7 @@
 		create_bloodline = {
 			type = BL_blood_of_the_gods_generic
 			name = BOTG_Time
-			desc = BOTG_Time_desc
+			desc = "After castrating his father Usanus, Kronos feared that he too would be overthrown by his offspring and ate them, save his youngest, Zeus, who was hidden from him."
 		}
 	}
 	17.1.1={
@@ -3683,7 +3686,7 @@
 	culture=jotunn
 	religion=druidic
 	trait=mythos_giant
-	trait=mythos_giant_bergrisar
+	trait=giant_bergrisar
 	trait=strong
 	trait=skilled_tactician
 	trait=wroth
@@ -3720,7 +3723,7 @@
 	culture=jotunn
 	religion=druidic
 	trait=mythos_giant
-	trait=mythos_giant_bergrisar
+	trait=giant_bergrisar
 	740.1.1={
 		birth=yes
 		effect = { set_character_flag = checked_race }
@@ -3799,6 +3802,7 @@
 	dynasty=1049423
 	culture=greek
 	religion=hellenic_pagan
+	trait = mythos_giant
 	731.1.1={
 		birth=yes
 		effect = { set_character_flag = checked_race }
@@ -3828,7 +3832,7 @@
 	culture=jotunn
 	religion=jotnar
 	trait=mythos_giant
-	trait=mythos_giant_eldjotnar
+	trait=giant_eldjotnar
 	trait=size_1
 	840.1.1={
 		birth=yes
@@ -3845,7 +3849,7 @@
 	culture=jotunn
 	religion=norse_pagan
 	trait=mythos_giant
-	trait=mythos_giant_hrimthursar
+	trait=giant_hrimthursar
 	trait=size_2
 	821.1.1={
 		birth=yes
@@ -4203,11 +4207,6 @@
 			set_character_flag=greek_god_hera
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			mother = {
-				any_owned_bloodline = {
-					add_bloodline_member = c_268476
-				}
-			}
 		}
 	}
 	36.1.1={
@@ -4365,11 +4364,6 @@
 			set_character_flag=greek_god_pan
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			father = {
-				any_owned_bloodline = {
-					add_bloodline_member = c_268481
-				}
-			}
 		}
 	}
 }
@@ -4381,6 +4375,7 @@
 	employer=268400
 	immortal_age = 25
 	trait=charismatic_negotiator
+	trait = god
 	trait=fair
 	20.1.1={
 		birth=yes
@@ -4453,11 +4448,6 @@
 			set_character_flag=greek_god_artemis
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			father = {
-				any_owned_bloodline = {
-					add_bloodline_member = c_268484
-				}
-			}
 		}
 	}
 }
@@ -4501,7 +4491,7 @@
 	dna="0i0i00hbe00"
 	religion=norse_pagan
 	culture=norse
-	immortal_age = 50
+	immortal_age = 30
 	trait = god
 	trait = brave
 	trait = just
@@ -4567,7 +4557,7 @@
 	trait = horse
 	trait = immortal
 	trait = tough_soldier
-	trait = half_mythos_giant
+	trait = half_giant
 	trait = strong
 	trait = content
 	trait = cavalry_leader
@@ -4579,11 +4569,6 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 			set_graphical_culture = horse
-			mother = {
-				any_owned_bloodline = {
-					add_bloodline_member = c_268488
-				}
-			}
 		}
 		employer=268485
 	}
@@ -4692,11 +4677,6 @@
 			set_character_flag=norse_god_baldr
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			father = {
-				any_owned_bloodline = {
-					add_bloodline_member = PREVPREV
-				}
-			}
 		}
 	}
 	439.1.1={
@@ -4741,7 +4721,7 @@
 	trait = poet
 	trait = grey_eminence
 	trait = socializer
-	trait = half_mythos_giant
+	trait = half_giant
 	trait = size_5
 	408.1.1={
 		birth = yes
@@ -4749,11 +4729,6 @@
 			set_character_flag=norse_god_bragi
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			father = {
-				any_owned_bloodline = {
-					add_bloodline_member = PREVPREV
-				}
-			}
 		}
 	}
 }
@@ -4858,11 +4833,33 @@
 			set_character_flag=norse_god_hel
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
-			father = {
-				any_owned_bloodline = {
-					add_bloodline_member = c_268498
-				}
-			}
 		}
+	}
+}
+268499={
+	name=Hestia
+	female=yes
+	father=268401
+	mother=268472
+	dynasty=1049005
+	religion=hellenic_pagan
+	culture=greek
+	trait=god
+	trait=charismatic_negotiator
+	trait=administrator
+	trait=charitable
+	trait=diligent
+	trait=humble
+	trait=content
+	trait=gregarious
+	immortal_age=40
+	18.1.1={
+		birth=yes
+		effect = {
+			set_character_flag=greek_god_hestia
+			set_character_flag=ai_flag_refuse_conversion
+			set_character_flag=checked_race
+		}
+		create_bloodline = { type = BL_blood_of_hestia }
 	}
 }

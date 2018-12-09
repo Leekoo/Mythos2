@@ -661,7 +661,7 @@ character_event = {
 						limit = {
 							OR = {
 								trait = god
-								trait = demigod
+								trait = demi_god
 							}
 						}
 						set_character_flag = gain_blood_of_the_gods
@@ -1327,7 +1327,7 @@ character_event = {
 				random_list = {
 					3 = {
 						if = {
-							limit = { NOT = { has_dlc = "Holy Fury " } }
+							limit = { NOT = { has_dlc = "Holy Fury" } }
 							add_trait = blood_of_the_gods
 						}
 						else = {
@@ -2071,7 +2071,7 @@ character_event = {
 	ai = no
 	
 	trigger = {
-		NOT = { any_owned_bloodlin = { has_bloodline_flag = BOTG } }
+		NOT = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
 		trait = blood_of_the_gods
 	}
 	
@@ -2093,7 +2093,111 @@ character_event = {
 			create_bloodline = {
 				type = BL_blood_of_the_gods_generic
 				religion = ROOT
-				name = String_blood_of_the_religion_gods
+			}
+		}
+	}
+}
+
+# On startup, add bloodlines to gods not gaining them through history
+character_event = {
+	id = SPECIES.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	religion_group = pagan_group
+	ai = yes
+	
+	trigger = {
+		OR = {
+			trait = god
+			trait = demi_god
+		}
+		NOT = {
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
+		OR = {
+			mother_even_if_dead = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
+			true_father_even_if_dead = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				true_father_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = specific_god }
+				}
+			}
+			true_father_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = specific_god }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				mother_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = specific_god }
+				}
+			}
+			mother_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = specific_god }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				true_father_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = pantheon }
+				}
+			}
+			true_father_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = pantheon }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				mother_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = pantheon }
+				}
+			}
+			mother_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = pantheon }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				true_father_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = BOTG }
+				}
+			}
+			true_father_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = BOTG }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				mother_even_if_dead = {
+					any_owned_bloodline = { has_bloodline_flag = BOTG }
+				}
+			}
+			mother_even_if_dead = {
+				random_owned_bloodline = {
+					limit = { has_bloodline_flag = BOTG }
+					add_bloodline_member = ROOT
+				}
 			}
 		}
 	}

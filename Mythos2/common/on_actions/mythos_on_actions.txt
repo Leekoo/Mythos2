@@ -7,6 +7,7 @@ on_startup = {
 		SPECIES.12		# Set Djinn natural magic
 		ZOMBIE.10		# Zombie corpse gain control event
 		DRAGON.169		# Recalculate draconic tribute succession effect
+		SPECIES.15		# Set bloodlines for gods
 	}
 }
 
@@ -306,6 +307,7 @@ on_chronicle_owner_change = {
 	events = {
 		WEREWOLF.95		# Set initial werewolf control
 		MYTHMORE.39		# Fix Ruler Designer Immortality
+		SPECIES.14		# With Holy Fury, replace Blood of the Gods
 	}
 }
 
@@ -323,6 +325,7 @@ on_chronicle_start = {
 		MYTHMORE.39		# Fix Ruler Designer Immortality
 		ZOMBIE.37		# Force zombies to be nomadic
 		SPECIES.14		# With Holy Fury, replace Blood of the Gods
+		SPECIES.15		# Set bloodlines for gods
 	}
 }
 
@@ -533,8 +536,8 @@ on_pregnancy = {
 }
 
 # From = Previous leader
-on_society_failed_to_find_new_leader = {
-	events = {
-		MYTHMORE.56		# Assign grandmasters with appropriate traits
-	}
-}
+#on_society_failed_to_find_new_leader = {
+#	events = {
+#		MYTHMORE.56		# Assign grandmasters with appropriate traits
+#	}
+#}

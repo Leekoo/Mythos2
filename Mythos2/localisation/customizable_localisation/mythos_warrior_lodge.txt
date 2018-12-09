@@ -638,7 +638,7 @@ defined_text = {
 		trigger = {
 			FROM  = {
 				trait = dragon
-				gold < 100
+				wealth < 100
 			}
 		}
 		localisation_key = string_WL_flyting_character_insult_option_35
@@ -683,7 +683,7 @@ defined_text = {
 		trigger = {
 			FROM  = {
 				OR = {
-					AND = { trait = necromancer trait = lustful has_reverse_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
 						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
 						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
@@ -1205,7 +1205,7 @@ defined_text = {
 	text = {
 		trigger = {
 			trait = dragon
-			gold < 100
+			wealth < 100
 		}
 		localisation_key = string_WL_flyting_character_insult_desc_54
 	}
@@ -1249,7 +1249,7 @@ defined_text = {
 		trigger = {
 			ROOT  = {
 				OR = {
-					AND = { trait = necromancer trait = lustful has_reverse_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
 						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
 						NOR = { trait = zombie trait = mummy trait = ethereal_trait }
@@ -1264,7 +1264,7 @@ defined_text = {
 		trigger = {
 			ROOT  = {
 				OR = {
-					AND = { trait = necromancer trait = lustful has_reverse_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
+					AND = { trait = necromancer trait = lustful reverse_has_opinion_modifier = { who = FROM modifier = aware_of_secret_actions } }
 					AND = {
 						any_lover = { OR = { trait = zombie trait = mummy trait = ethereal_trait } }
 						NOR = { trait = zombie trait = mummy trait = ethereal_trait }

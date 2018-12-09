@@ -18276,13 +18276,14 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			any_courtier_or_vassal = {
-			liege = { character = ROOT }
-			has_minor_title = title_court_physician
-			any_owned_bloodline = { has_bloodline_flag = bloodline_effect_better_physicians }
+				liege = { character = ROOT }
+				has_minor_title = title_court_physician
+				any_owned_bloodline = { has_bloodline_flag = bloodline_effect_better_physicians }
+			}
 		}
 	}
 
-	option = {
+	immediate = {
 		random_courtier_or_vassal = {
 			limit = {
 				liege = { character = ROOT }
