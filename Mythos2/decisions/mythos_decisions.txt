@@ -664,15 +664,16 @@ society_decisions = {
 			custom_tooltip = { text = tooltip_gain_kemetic_supply }
 			hidden_tooltip = { character_event = MYTHMORE.57 }
 		}
+		
 		ai_will_do = {
-			factor = 0.02
+			factor = 0.1
 			modifier = { # More useful in a defensive war
 				factor = 2
 				any_war = {
 					defender = { character = ROOT }
 				}
 			}
-			modifier = { # More useful early in a war (assumed by war score
+			modifier = { # More useful early in a war (assumed by war score)
 				factor = 2
 				any_war = {
 					war_score < 10
@@ -702,7 +703,7 @@ society_decisions = {
 	}
 }
 
-society_decisions = {	
+society_decisions = {
 	warrior_lodge_druidic_mobility = {
 		is_in_society = yes
 		ai_check_interval = 12 #check only once every 12 months.
