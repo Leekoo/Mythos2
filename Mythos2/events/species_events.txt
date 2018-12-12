@@ -54,6 +54,19 @@ character_event = {
 			father_even_if_dead = { save_event_target_as = true_father }
 		}
 		
+		# Zombies, regardless of number of parents
+		if = {
+			limit = { graphical_cultuer = undeadgfx }
+			add_trait = zombie
+			set_undead_culture = yes
+			if = {
+				limit = { ai = no } # Not playable
+				abdicate = yes
+			}
+			religion = the_damned
+			any_claim = { remove_claim = PREV }
+			character_event = { id = ZOMBIE.39 }
+		}
 		
 		# Handle characters with 2 parents
 		if = {

@@ -294,6 +294,7 @@ character_event = {
 					factor = 1.5
 					liege = { trait = zombie }
 				}
+				log = "[Root.GetBestName] is becoming a zombie through the plague."
 				character_event = { id = ZOMBIE.6 }
 			}
 		}
@@ -367,12 +368,14 @@ province_event = {
 					NOT = { culture_group = undead_culture_group }
 				}
 				set_undead_province_culture = yes
+				log = "[Root.GetName] converted to undead culture through plague"
 			}
 			5 = {
 				trigger = {
 					NOT = { religion = the_damned }
 				}
 				religion = the_damned
+				log = "[Root.GetName] converted to undead religion through plague"
 			}
 			1 = {
 				trigger = {
@@ -383,6 +386,7 @@ province_event = {
 				}
 				set_undead_province_culture = yes
 				religion = the_damned
+				log = "[Root.GetName] converted to undead culture and religion through plague"
 			}
 		}
 	}
@@ -571,6 +575,7 @@ province_event = {
 					factor = 2
 					religion = the_damned
 				}
+				log = "Triggering undead revolt in [Root.GetName] on [Root.owner.GetBestName]."
 				province_event = { id = ZOMBIE.13 }
 			}
 			9 = {}
@@ -614,6 +619,7 @@ province_event = {
 				name = "ZOMBIE_UPRISING_TITLE"
 				holder = THIS
 			}
+			log = "Creating undead revolt leader, [Root.GetBestName]"
 			
 			wealth = 50
 			
@@ -668,6 +674,7 @@ province_event = {
 							casus_belli = zombie_uprising
 							thirdparty_title = ROOT # The county
 						}
+						log = "[PrevPrevPrev.GetBestName] declared zombie revolt on [This.GetBestName] over [Root.GetName]"
 						reverse_opinion = {
 							who = PREVPREVPREV
 							modifier = opinion_evil_tyrant
