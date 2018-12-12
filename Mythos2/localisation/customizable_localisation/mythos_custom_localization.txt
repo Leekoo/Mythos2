@@ -1950,9 +1950,31 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[GetPurityTooltip_Begger]"
+		localisation_key = "[GetPurityTooltip_Warrior]"
 		trigger = {
 			NOT = { has_character_modifier = potion_of_purity }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Warrior
+	text = {
+		localisation_key = tt_purity_warrior
+		trigger = {
+			is_in_society = warrior_lodge_draconic
+			society_rank >= 3
+			NOT = { trait = dragon }
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Begger]"
+		trigger = {
+			OR = {
+				NOT = { is_in_society = warrior_lodge_draconic }
+				society_rank < 3
+				trait = dragon
+			}
 		}
 	}
 }

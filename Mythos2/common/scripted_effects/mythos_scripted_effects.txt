@@ -821,6 +821,14 @@ determine_purity = {
 		change_variable = { which = purity value = 1 }
 	}
 	if = {
+		limit = {
+			is_in_society = warrior_lodge_draconic
+			society_rank >= 3
+			NOT = { trait = dragon }
+		}
+		change_variable = { which = purity value = 2 }
+	}
+	if = {
 		limit = { 
 			OR = {
 				has_character_modifier = begger 
