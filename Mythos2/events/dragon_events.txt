@@ -8193,43 +8193,43 @@ letter_event = {
 	}
 }
 
-# DRAGON.104 - On reformation, the Sapphire Flame is always created from one of your vassals instead of leaving it to the decision. So, remove it.
-# Can't simply remove it.  Using an event to set a flag, then a separate event the removes it when received and unsets it
-character_event = {
-	id = DRAGON.104
-	hide_window = yes
-	is_triggered_only = yes
-	
-	religion = draconic_pagan_reformed
-	
-	trigger = {
-		OR = {
-			NOT = { has_dlc = "Holy Fury" }
-			has_religion_feature = religion_theocratic_head
-		}
-	}
-	
-	immediate = {
-		#k_draconic_pagan_reformed = {
-		#	holder_scope = {
-		#		activate_title = { title = k_draconic_pagan_reformed status = no }
-		#		set_defacto_liege = ROOT
-		#	}
-		#}
-		set_global_flag = deactivate_sapphire_flame
-		set_character_flag = reformed_draconic_paganism
-		k_draconic_pagan_reformed = {
-			holder_scope = {
-				k_draconic_pagan_reformed = {
-					activate_title = { title = THIS status = no }
-					destroy_landed_title = THIS
-				}
-				set_defacto_liege = ROOT
-			}
-		}
-		piety = 500
-	}
-}
+## DRAGON.104 - On reformation, the Sapphire Flame is always created from one of your vassals instead of leaving it to the decision. So, remove it.
+## Can't simply remove it.  Using an event to set a flag, then a separate event the removes it when received and unsets it
+#character_event = {
+#	id = DRAGON.104
+#	hide_window = yes
+#	is_triggered_only = yes
+#	
+#	religion = draconic_pagan_reformed
+#	
+#	trigger = {
+#		OR = {
+#			NOT = { has_dlc = "Holy Fury" }
+#			has_religion_feature = religion_theocratic_head
+#		}
+#	}
+#	
+#	immediate = {
+#		#k_draconic_pagan_reformed = {
+#		#	holder_scope = {
+#		#		activate_title = { title = k_draconic_pagan_reformed status = no }
+#		#		set_defacto_liege = ROOT
+#		#	}
+#		#}
+#		set_global_flag = deactivate_sapphire_flame
+#		set_character_flag = reformed_draconic_paganism
+#		k_draconic_pagan_reformed = {
+#			holder_scope = {
+#				k_draconic_pagan_reformed = {
+#					activate_title = { title = THIS status = no }
+#					destroy_landed_title = THIS
+#				}
+#				set_defacto_liege = ROOT
+#			}
+#		}
+#		piety = 500
+#	}
+#}
 
 # Take half of a character's wealth after draconic tribute war
 character_event = {

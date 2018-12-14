@@ -1348,80 +1348,86 @@ decisions = {
 	}
 	
 	make_sapphire_flame_sjaelland = {
+		only_independent = yes
 		only_playable = yes
 		is_high_prio = yes
+		ai_check_interval = 36
 		
 		potential = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			is_playable = yes
+			independent = yes
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			controls_religion = no
 			OR = {
 				has_religion_feature = religion_theocratic_head
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_lejre = {
 				holder_scope = {
-					any_liege = { character = ROOT }
-					is_theocracy = yes
+					OR = {
+						character = ROOT
+						de_facto_liege = ROOT
+					}
 				}
 			}
 			c_sjaelland = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_lejre = {
 				holder_scope = {
 					OR = {
-						religion = draconic_pagan # We'll force convert in that case, too avoid issues when you can't convert them due to low MA, but have low MA due to no religious head
-						religion = draconic_pagan_reformed
+						character = ROOT
+						de_facto_liege = ROOT
 					}
-					trait = dragon
-					any_liege = { character = ROOT }
-					is_theocracy = yes
 					war = no
 				}
 				has_building = tp_eternal_flame
 			}
 			c_sjaelland = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
-			num_of_holy_sites = 3
-			piety = 500
 		}
 		effect = {
 			custom_tooltip = { text = grant_sjaelland_sapphire_flame }
-			b_lejre = {
-				holder_scope = {
-					c_sjaelland = { grant_title = PREV }
-					activate_title = { title = k_draconic_pagan_reformed status = yes }
-					k_draconic_pagan_reformed = { 
-						grant_title = PREV
-						copy_title_laws = c_sjaelland
+			k_draconic_pagan_reformed = {
+				grant_title = c_sjaelland
+				grant_title = b_lejre
+				opinion = { modifier = opinion_granted_county who = ROOT }
+				hidden_tooltip = { 
+					remove_rival = ROOT
+				}
+				if = {
+					limit = { NOT = { de_facto_liege = ROOT } }
+					if = {
+						limit = { ROOT = { tier = emperor } }
+						set_de_facto_liege = ROOT
 					}
-					opinion = { modifier = opinion_granted_empire who = ROOT }
-					hidden_tooltip = { 
-						remove_rival = ROOT
-						religion = draconic_pagan_reformed
-					}
-					if = { 
-						limit = { NOT = { trait = flametender } }
-						add_trait = flametender
+					else = {
+						set_de_facto_liege = THIS
 					}
 				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
 			}
 			custom_tooltip = {
 				text = tt_remove_claims
@@ -1456,39 +1462,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_lejre = {
-					holder_scope = {
-						opinion = { who = ROOT value = 25 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_lejre = {
-					holder_scope = {
-						opinion = { who = ROOT value = 50 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_lejre = {
-					holder_scope = {
-						opinion = { who = ROOT value = 75 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_lejre = {
-					holder_scope = {
-						opinion = { who = ROOT value = 100 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_lejre = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 25 }
 					}
@@ -1496,7 +1470,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_lejre = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 50 }
 					}
@@ -1504,7 +1478,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_lejre = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 75 }
 					}
@@ -1512,89 +1486,112 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_lejre = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 100 }
 					}
 				}
 			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
 		}
 	}
 	
 	make_sapphire_flame_plock = {
+		only_independent = yes
 		only_playable = yes
 		is_high_prio = yes
+		ai_check_interval = 36
 		
 		potential = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			is_playable = yes
+			independent = yes
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			controls_religion = no
 			OR = {
 				has_religion_feature = religion_theocratic_head
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_wyszogrod = {
 				holder_scope = {
-					any_liege = { character = ROOT }
-					is_theocracy = yes
+					OR = {
+						character = ROOT
+						de_facto_liege = ROOT
+					}
 				}
 			}
 			c_plock = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_wyszogrod = {
 				holder_scope = {
 					OR = {
-						religion = draconic_pagan # We'll force convert in that case, too avoid issues when you can't convert them due to low MA, but have low MA due to no religious head
-						religion = draconic_pagan_reformed
+						character = ROOT
+						de_facto_liege = ROOT
 					}
-					trait = dragon
-					any_liege = { character = ROOT }
-					is_theocracy = yes
 					war = no
 				}
 				has_building = tp_eternal_flame
 			}
 			c_plock = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
-			num_of_holy_sites = 3
-			piety = 500
 		}
 		effect = {
 			custom_tooltip = { text = grant_plock_sapphire_flame }
-			b_wyszogrod = {
-				holder_scope = {
-					c_plock = { grant_title = PREV }
-					k_draconic_pagan_reformed = { 
-						grant_title = PREV
-						copy_title_laws = c_plock
+			k_draconic_pagan_reformed = {
+				grant_title = c_plock
+				grant_title = b_wyszogrod
+				opinion = { modifier = opinion_granted_county who = ROOT }
+				hidden_tooltip = { 
+					remove_rival = ROOT
+				}
+				if = {
+					limit = { NOT = { de_facto_liege = ROOT } }
+					if = {
+						limit = { ROOT = { tier = emperor } }
+						set_de_facto_liege = ROOT
 					}
-					opinion = { modifier = opinion_granted_empire who = ROOT }
-					hidden_tooltip = { 
-						remove_rival = ROOT
-						religion = draconic_pagan_reformed
-					}
-					if = { 
-						limit = { NOT = { trait = flametender } }
-						add_trait = flametender
+					else = {
+						set_de_facto_liege = THIS
 					}
 				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
 			}
 			custom_tooltip = {
 				text = tt_remove_claims
@@ -1629,39 +1626,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_wyszogrod = {
-					holder_scope = {
-						opinion = { who = ROOT value = 25 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_wyszogrod = {
-					holder_scope = {
-						opinion = { who = ROOT value = 50 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_wyszogrod = {
-					holder_scope = {
-						opinion = { who = ROOT value = 75 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_wyszogrod = {
-					holder_scope = {
-						opinion = { who = ROOT value = 100 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_wyszogrod = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 25 }
 					}
@@ -1669,7 +1634,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_wyszogrod = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 50 }
 					}
@@ -1677,7 +1642,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_wyszogrod = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 75 }
 					}
@@ -1685,90 +1650,112 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_wyszogrod = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 100 }
 					}
 				}
 			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
 		}
 	}
 	
 	make_sapphire_flame_galloway = {
+		only_independent = yes
 		only_playable = yes
 		is_high_prio = yes
+		ai_check_interval = 36
 		
 		potential = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			is_playable = yes
+			independent = yes
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			controls_religion = no
 			OR = {
 				has_religion_feature = religion_theocratic_head
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_whithorn = {
 				holder_scope = {
-					any_liege = { character = ROOT }
-					is_theocracy = yes
+					OR = {
+						character = ROOT
+						de_facto_liege = ROOT
+					}
 				}
 			}
 			c_galloway = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_whithorn = {
 				holder_scope = {
 					OR = {
-						religion = draconic_pagan # We'll force convert in that case, too avoid issues when you can't convert them due to low MA, but have low MA due to no religious head
-						religion = draconic_pagan_reformed
+						character = ROOT
+						de_facto_liege = ROOT
 					}
-					trait = dragon
-					any_liege = { character = ROOT }
-					is_theocracy = yes
 					war = no
 				}
 				has_building = tp_eternal_flame
 			}
 			c_galloway = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
-			num_of_holy_sites = 3
-			piety = 500
 		}
 		effect = {
 			custom_tooltip = { text = grant_galloway_sapphire_flame }
-			b_whithorn = {
-				holder_scope = {
-					c_galloway = { grant_title = PREV }
-					activate_title = { title = k_draconic_pagan_reformed status = yes }
-					k_draconic_pagan_reformed = { 
-						grant_title = PREV
-						copy_title_laws = c_galloway
+			k_draconic_pagan_reformed = {
+				grant_title = c_galloway
+				grant_title = b_whithorn
+				opinion = { modifier = opinion_granted_county who = ROOT }
+				hidden_tooltip = { 
+					remove_rival = ROOT
+				}
+				if = {
+					limit = { NOT = { de_facto_liege = ROOT } }
+					if = {
+						limit = { ROOT = { tier = emperor } }
+						set_de_facto_liege = ROOT
 					}
-					opinion = { modifier = opinion_granted_empire who = ROOT }
-					hidden_tooltip = { 
-						remove_rival = ROOT
-						religion = draconic_pagan_reformed
-					}
-					if = { 
-						limit = { NOT = { trait = flametender } }
-						add_trait = flametender
+					else = {
+						set_de_facto_liege = THIS
 					}
 				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
 			}
 			custom_tooltip = {
 				text = tt_remove_claims
@@ -1803,39 +1790,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_whithorn = {
-					holder_scope = {
-						opinion = { who = ROOT value = 25 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_whithorn = {
-					holder_scope = {
-						opinion = { who = ROOT value = 50 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_whithorn = {
-					holder_scope = {
-						opinion = { who = ROOT value = 75 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_whithorn = {
-					holder_scope = {
-						opinion = { who = ROOT value = 100 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_whithorn = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 25 }
 					}
@@ -1843,7 +1798,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_whithorn = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 50 }
 					}
@@ -1851,7 +1806,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_whithorn = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 75 }
 					}
@@ -1859,90 +1814,112 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_whithorn = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 100 }
 					}
 				}
 			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
 		}
 	}
 	
 	make_sapphire_flame_uppland = {
+		only_independent = yes
 		only_playable = yes
 		is_high_prio = yes
+		ai_check_interval = 36
 		
 		potential = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			is_playable = yes
+			independent = yes
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			controls_religion = no
 			OR = {
 				has_religion_feature = religion_theocratic_head
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_uppsala = {
 				holder_scope = {
-					any_liege = { character = ROOT }
-					is_theocracy = yes
+					OR = {
+						character = ROOT
+						de_facto_liege = ROOT
+					}
 				}
 			}
 			c_uppland = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_uppsala = {
 				holder_scope = {
 					OR = {
-						religion = draconic_pagan # We'll force convert in that case, too avoid issues when you can't convert them due to low MA, but have low MA due to no religious head
-						religion = draconic_pagan_reformed
+						character = ROOT
+						de_facto_liege = ROOT
 					}
-					trait = dragon
-					any_liege = { character = ROOT }
-					is_theocracy = yes
 					war = no
 				}
 				has_building = tp_eternal_flame
 			}
 			c_uppland = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
-			num_of_holy_sites = 3
-			piety = 500
 		}
 		effect = {
 			custom_tooltip = { text = grant_uppland_sapphire_flame }
-			b_uppsala = {
-				holder_scope = {
-					c_uppland = { grant_title = PREV }
-					activate_title = { title = k_draconic_pagan_reformed status = yes }
-					k_draconic_pagan_reformed = { 
-						grant_title = PREV
-						copy_title_laws = c_uppland
+			k_draconic_pagan_reformed = {
+				grant_title = c_uppland
+				grant_title = b_uppsala
+				opinion = { modifier = opinion_granted_county who = ROOT }
+				hidden_tooltip = { 
+					remove_rival = ROOT
+				}
+				if = {
+					limit = { NOT = { de_facto_liege = ROOT } }
+					if = {
+						limit = { ROOT = { tier = emperor } }
+						set_de_facto_liege = ROOT
 					}
-					opinion = { modifier = opinion_granted_empire who = ROOT }
-					hidden_tooltip = { 
-						remove_rival = ROOT
-						religion = draconic_pagan_reformed
-					}
-					if = { 
-						limit = { NOT = { trait = flametender } }
-						add_trait = flametender
+					else = {
+						set_de_facto_liege = THIS
 					}
 				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
 			}
 			custom_tooltip = {
 				text = tt_remove_claims
@@ -1977,39 +1954,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_uppsala = {
-					holder_scope = {
-						opinion = { who = ROOT value = 25 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_uppsala = {
-					holder_scope = {
-						opinion = { who = ROOT value = 50 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_uppsala = {
-					holder_scope = {
-						opinion = { who = ROOT value = 75 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_uppsala = {
-					holder_scope = {
-						opinion = { who = ROOT value = 100 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_uppsala = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 25 }
 					}
@@ -2017,7 +1962,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_uppsala = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 50 }
 					}
@@ -2025,7 +1970,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_uppsala = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 75 }
 					}
@@ -2033,90 +1978,112 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_uppsala = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 100 }
 					}
 				}
 			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
 		}
 	}
 	
 	make_sapphire_flame_kent = {
+		only_independent = yes
 		only_playable = yes
 		is_high_prio = yes
+		ai_check_interval = 36
 		
 		potential = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			is_playable = yes
+			independent = yes
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			controls_religion = no
 			OR = {
 				has_religion_feature = religion_theocratic_head
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_canterbury = {
 				holder_scope = {
-					any_liege = { character = ROOT }
-					is_theocracy = yes
+					OR = {
+						character = ROOT
+						de_facto_liege = ROOT
+					}
 				}
 			}
 			c_kent = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			NOT = { is_title_active = k_draconic_pagan_reformed }
+			k_draconic_pagan_reformed = { is_landed = no }
 			b_canterbury = {
 				holder_scope = {
 					OR = {
-						religion = draconic_pagan # We'll force convert in that case, too avoid issues when you can't convert them due to low MA, but have low MA due to no religious head
-						religion = draconic_pagan_reformed
+						character = ROOT
+						de_facto_liege = ROOT
 					}
-					trait = dragon
-					any_liege = { character = ROOT }
-					is_theocracy = yes
 					war = no
 				}
 				has_building = tp_eternal_flame
 			}
 			c_kent = {
 				holder_scope = {
-					OR = {
-						any_liege = { character = ROOT }
-						character = ROOT
-					}
+					character = ROOT
 				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
-			num_of_holy_sites = 3
-			piety = 500
 		}
 		effect = {
 			custom_tooltip = { text = grant_kent_sapphire_flame }
-			b_canterbury = {
-				holder_scope = {
-					c_kent = { grant_title = PREV }
-					activate_title = { title = k_draconic_pagan_reformed status = yes }
-					k_draconic_pagan_reformed = { 
-						grant_title = PREV
-						copy_title_laws = c_kent
+			k_draconic_pagan_reformed = {
+				grant_title = c_kent
+				grant_title = b_canterbury
+				opinion = { modifier = opinion_granted_county who = ROOT }
+				hidden_tooltip = { 
+					remove_rival = ROOT
+				}
+				if = {
+					limit = { NOT = { de_facto_liege = ROOT } }
+					if = {
+						limit = { ROOT = { tier = emperor } }
+						set_de_facto_liege = ROOT
 					}
-					opinion = { modifier = opinion_granted_empire who = ROOT }
-					hidden_tooltip = { 
-						remove_rival = ROOT
-						religion = draconic_pagan_reformed
-					}
-					if = { 
-						limit = { NOT = { trait = flametender } }
-						add_trait = flametender
+					else = {
+						set_de_facto_liege = THIS
 					}
 				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
 			}
 			custom_tooltip = {
 				text = tt_remove_claims
@@ -2151,39 +2118,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_canterbury = {
-					holder_scope = {
-						opinion = { who = ROOT value = 25 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_canterbury = {
-					holder_scope = {
-						opinion = { who = ROOT value = 50 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_canterbury = {
-					holder_scope = {
-						opinion = { who = ROOT value = 75 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_canterbury = {
-					holder_scope = {
-						opinion = { who = ROOT value = 100 }
-					}
-				}
-			}
-			modifier = {
-				factor = 1.5
-				b_canterbury = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 25 }
 					}
@@ -2191,7 +2126,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_canterbury = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 50 }
 					}
@@ -2199,7 +2134,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_canterbury = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 75 }
 					}
@@ -2207,11 +2142,27 @@ decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				b_canterbury = {
+				k_draconic_pagan_reformed = {
 					holder_scope = {
 						reverse_opinion = { who = ROOT value = 100 }
 					}
 				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
 			}
 		}
 	}
