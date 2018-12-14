@@ -2171,146 +2171,146 @@ decisions = {
 
 targetted_decisions = {
 	
-	SF_land_for_alliance = {
-		filter = independent_rulers
-		ai_target_filter = independent_rulers
-		only_independent = yes
-		
-		from_potential = {
-			independent = yes
-			higher_real_tier_than = baron
-			religion = draconic_pagan_reformed
-			k_draconic_pagan_reformed = {
-				has_holder = yes
-				OR = {
-					independent = yes
-					holder_scope = { same_liege = ROOT }
-				}
-			}
-			is_incapable = no
-			controls_religion = no
-		}
-		
-		potential = {
-			controls_religion = yes
-			religion = draconic_pagan_reformed
-			has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
-			is_incapable = no
-			is_within_diplo_range = FROM
-			OR = {
-				NOT = { has_dlc = "Holy Fury" }
-				has_religion_feature = religion_theocratic_head
-			}
-		}
-		
-		allow = {
-			FROM = {
-				NOT = { k_draconic_pagan_reformed = { holder_scope = { is_allied_with = FROM } } }
-				conditional_tooltip = {
-					trigger = { primary_title = { temporary = yes } }
-					primary_title = { temporary = no }
-				}
-			}
-			custom_tooltip = {
-				text = SF_not_considering
-				hidden_tooltip = {
-					FROM = { NOT = { has_character_modifier = current_SF_offer } }
-				}
-			}
-			custom_tooltip = {
-				text = SF_nearby_province
-				hidden_tooltip = {
-					FROM ={
-						any_demesne_province = {
-							county = { can_be_given_away = yes }
-							OR = {
-								any_neighbor_province = {
-									owner = { 
-										top_liege = {
-											has_landed_title = k_draconic_pagan_reformed
-										}
-									}
-								}
-								sea_zone = {
-									any_neighbor_province = {
-										owner = { 
-											top_liege = {
-												has_landed_title = k_draconic_pagan_reformed
-											}
-										}
-									}
-								}
-								sea_zone = {
-									sea_zone = {
-										any_neighbor_province = {
-											owner = { 
-												top_liege = {
-													has_landed_title = k_draconic_pagan_reformed
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		effect = {
-			FROM = { character_event = { id = DRAGON.69 } }
-			hidden_tooltip = {
-				FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0.04
-			
-			modifier = {
-				factor = 0
-				FROM = { ai_greed = 50 }
-			}
-			modifier = {
-				factor = 0
-				FROM = { ai_ambition = 50 }
-			}
-			modifier = {
-				factor = 0 
-				NOT = { religion_authority = 0.1 }
-			}
-			modifier = {
-				factor = 0
-				FROM = { war = yes }
-			}
-			modifier = {
-				factor = 0
-				age = 100
-			}
-			modifier = {
-				factor = 0
-				FROM = { age = 100 }
-			}
-			
-			modifier = {
-				factor = 2
-				FROM = { ai_zeal = 30 }
-			}
-			modifier = {
-				factor = 2
-				FROM = { ai_zeal = 60 }
-			}
-			modifier = {
-				factor = 1.5
-				dynasty = FROM
-			}
-			modifier = {
-				factor = 1.1
-				FROM = { trait = flametender }
-			}
-		}
-	}
+	#SF_land_for_alliance = {
+	#	filter = independent_rulers
+	#	ai_target_filter = independent_rulers
+	#	only_independent = yes
+	#	
+	#	from_potential = {
+	#		independent = yes
+	#		higher_real_tier_than = baron
+	#		religion = draconic_pagan_reformed
+	#		k_draconic_pagan_reformed = {
+	#			has_holder = yes
+	#			OR = {
+	#				independent = yes
+	#				holder_scope = { same_liege = ROOT }
+	#			}
+	#		}
+	#		is_incapable = no
+	#		controls_religion = no
+	#	}
+	#	
+	#	potential = {
+	#		controls_religion = yes
+	#		religion = draconic_pagan_reformed
+	#		has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
+	#		is_incapable = no
+	#		is_within_diplo_range = FROM
+	#		OR = {
+	#			NOT = { has_dlc = "Holy Fury" }
+	#			has_religion_feature = religion_theocratic_head
+	#		}
+	#	}
+	#	
+	#	allow = {
+	#		FROM = {
+	#			NOT = { k_draconic_pagan_reformed = { holder_scope = { is_allied_with = FROM } } }
+	#			conditional_tooltip = {
+	#				trigger = { primary_title = { temporary = yes } }
+	#				primary_title = { temporary = no }
+	#			}
+	#		}
+	#		custom_tooltip = {
+	#			text = SF_not_considering
+	#			hidden_tooltip = {
+	#				FROM = { NOT = { has_character_modifier = current_SF_offer } }
+	#			}
+	#		}
+	#		custom_tooltip = {
+	#			text = SF_nearby_province
+	#			hidden_tooltip = {
+	#				FROM ={
+	#					any_demesne_province = {
+	#						county = { can_be_given_away = yes }
+	#						OR = {
+	#							any_neighbor_province = {
+	#								owner = { 
+	#									top_liege = {
+	#										has_landed_title = k_draconic_pagan_reformed
+	#									}
+	#								}
+	#							}
+	#							sea_zone = {
+	#								any_neighbor_province = {
+	#									owner = { 
+	#										top_liege = {
+	#											has_landed_title = k_draconic_pagan_reformed
+	#										}
+	#									}
+	#								}
+	#							}
+	#							sea_zone = {
+	#								sea_zone = {
+	#									any_neighbor_province = {
+	#										owner = { 
+	#											top_liege = {
+	#												has_landed_title = k_draconic_pagan_reformed
+	#											}
+	#										}
+	#									}
+	#								}
+	#							}
+	#						}
+	#					}
+	#				}
+	#			}
+	#		}
+	#	}
+	#	
+	#	effect = {
+	#		FROM = { character_event = { id = DRAGON.69 } }
+	#		hidden_tooltip = {
+	#			FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 0.04
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { ai_greed = 50 }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { ai_ambition = 50 }
+	#		}
+	#		modifier = {
+	#			factor = 0 
+	#			NOT = { religion_authority = 0.1 }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { war = yes }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			age = 100
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { age = 100 }
+	#		}
+	#		
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { ai_zeal = 30 }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { ai_zeal = 60 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			dynasty = FROM
+	#		}
+	#		modifier = {
+	#			factor = 1.1
+	#			FROM = { trait = flametender }
+	#		}
+	#	}
+	#}
 	
 	SF_disinherit = {
 		filter = independent_rulers
@@ -2439,81 +2439,81 @@ targetted_decisions = {
 		}
 	}
 	
-	SF_borrow_money = {
-		filter = independent_rulers
-		ai_target_filter = independent_rulers
-		
-		from_potential = {
-			is_ruler = yes
-			religion = draconic_pagan_reformed
-			k_draconic_pagan_reformed = { has_holder = yes }
-			is_incapable = no
-			controls_religion = no
-		}
-		
-		potential = {
-			controls_religion = yes
-			religion = draconic_pagan_reformed
-			has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
-			is_incapable = no
-			is_within_diplo_range = FROM
-		}
-		
-		allow = {
-			FROM = {
-				piety = 300
-				NOR = { has_character_modifier = begger }
-			}
-			custom_tooltip = {
-				text = SF_not_considering
-				hidden_tooltip = {
-					FROM = { NOT = { has_character_modifier = current_SF_offer } }
-				}
-			}
-			accept_SF_request_gold = yes
-		}
-		
-		effect = {
-			hidden_tooltip = {
-				export_to_variable = { which = GoldAmt value = yearly_income who = FROM }
-			}
-			letter_event = { id = DRAGON.90 days = 1 }
-			hidden_tooltip = {
-				FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0.01
-			
-			modifier = {
-				factor = 0
-				trait = zealous
-				wealth = 0
-			}
-			modifier = {
-				factor = 0
-				scaled_wealth = 4
-			}
-			modifier = {
-				factor = 2
-				NOT = { wealth = 0 }
-			}
-			modifier = {
-				factor = 2
-				trait = greedy
-			}
-			modifier = {
-				factor = 2
-				NOT = { scaled_wealth = 2 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { wealth = 0 }
-				scaled_wealth = -2
-			}
-		}
-	}
+	#SF_borrow_money = {
+	#	filter = independent_rulers
+	#	ai_target_filter = independent_rulers
+	#	
+	#	from_potential = {
+	#		is_ruler = yes
+	#		religion = draconic_pagan_reformed
+	#		k_draconic_pagan_reformed = { has_holder = yes }
+	#		is_incapable = no
+	#		controls_religion = no
+	#	}
+	#	
+	#	potential = {
+	#		controls_religion = yes
+	#		religion = draconic_pagan_reformed
+	#		has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
+	#		is_incapable = no
+	#		is_within_diplo_range = FROM
+	#	}
+	#	
+	#	allow = {
+	#		FROM = {
+	#			piety = 300
+	#			NOR = { has_character_modifier = begger }
+	#		}
+	#		custom_tooltip = {
+	#			text = SF_not_considering
+	#			hidden_tooltip = {
+	#				FROM = { NOT = { has_character_modifier = current_SF_offer } }
+	#			}
+	#		}
+	#		accept_SF_request_gold = yes
+	#	}
+	#	
+	#	effect = {
+	#		hidden_tooltip = {
+	#			export_to_variable = { which = GoldAmt value = yearly_income who = FROM }
+	#		}
+	#		letter_event = { id = DRAGON.90 days = 1 }
+	#		hidden_tooltip = {
+	#			FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 0.01
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			trait = zealous
+	#			wealth = 0
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			scaled_wealth = 4
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			NOT = { wealth = 0 }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			trait = greedy
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			NOT = { scaled_wealth = 2 }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			NOT = { wealth = 0 }
+	#			scaled_wealth = -2
+	#		}
+	#	}
+	#}
 	
 	SF_request_blessing = {
 		filter = independent_rulers
@@ -2527,6 +2527,11 @@ targetted_decisions = {
 			k_draconic_pagan_reformed = { has_holder = yes }
 			is_incapable = no
 			controls_religion = no
+			OR = {
+				NOT = { has_dlc = "Holy Fury" }
+				has_religion_feature = religion_autocephaly
+				has_religion_feature = religion_theocratic_head
+			}
 		}
 		potential = {
 			religion = draconic_pagan_reformed
@@ -3171,476 +3176,476 @@ settlement_decisions = {
 
 title_decisions = {
 	
-	SF_request_claim_vassal = {
-		filter = sub_realm_owned
-		ai_target_filter = sub_realm_owned
-		
-		from_potential = {
-			independent = no
-			religion = draconic_pagan_reformed
-			k_draconic_pagan_reformed = { has_holder = yes }
-			is_incapable = no
-			NOT = { has_character_modifier = current_SF_offer }
-			controls_religion = no
-			has_positive_purity = yes
-		}
-		potential = {
-			holder_scope = {
-				religion = draconic_pagan_reformed
-				controls_religion = no
-				NOT = { character = FROM }
-				top_liege = { NOT = { has_landed_title = k_draconic_pagan_reformed } }
-			}
-			FROM = { NOT = { has_claim = ROOT } }
-		}
-		allow = {
-			temporary = no
-			FROM = { piety = 100 }
-			holder_scope = {
-				religion = draconic_pagan_reformed
-				controls_religion = no
-				custom_tooltip = {
-					text = has_negative_purity
-					hidden_tooltip = {
-						has_negative_purity = yes
-					}
-				}
-			}
-		}
-		effect = {
-			FROM = { piety = -100 }
-			k_draconic_pagan_reformed = {
-				holder_scope = { letter_event = { id = DRAGON.79 days = 2 } }
-			}
-			hidden_effect = { FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } } }
-		}
-		ai_will_do ={
-			factor = 0.05
-			
-			modifier = {
-				factor = 0
-				FROM = { trait = content }
-			}
-			modifier = {
-				factor = 0
-				FROM = { num_of_claims = 5 }
-			}
-			modifier = {
-				factor = 0
-				holder_scope = { current_heir = { character = FROM } }
-			}
-			modifier = {
-				factor = 0
-				holder_scope = { any_spouse = { character = FROM } }
-			}
-			modifier = {
-				factor = 0
-				FROM = { any_spouse = { has_claim = ROOT } }
-			}
-			modifier = {
-				factor = 0
-				location = {
-					distance = { who = FROM value = 1200 }
-				}
-			}
-			
-			modifier = {
-				factor = 2
-				FROM = { NOT = { num_of_claims = 1 } }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { trait = zealous }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 30 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 60 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 90 }
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -19 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -39 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -59 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -79 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -99 } }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 25 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 50 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 75 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 100 }
-				}
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 4 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 5 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 6 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 7 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 4 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 5 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 6 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 7 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { religion = FROM }
-			}
-			modifier = {
-				factor = 1.5
-				location = { culture = FROM }
-			}
-			modifier = {
-				factor = 2
-				tier = count
-				FROM = {
-					OR = {
-						tier = baron
-						tier = count
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = duke
-				FROM = {
-					OR = {
-						tier = duke
-						tier = count
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = king
-				FROM = {
-					OR = {
-						tier = duke
-						tier = king
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = emperor
-				FROM = {
-					OR = {
-						tier = king
-						tier = emperor
-					}
-				}
-			}
-			modifier = {
-				factor = 0.2
-				location = {
-					distance = { who = FROM value = 400 }
-				}
-			}
-		}
-	}
-	
-	SF_request_claim_indep = {
-		filter = all
-		ai_target_filter = all
-		
-		from_potential = {
-			independent = yes
-			religion = draconic_pagan_reformed
-			k_draconic_pagan_reformed = { has_holder = yes }
-			is_incapable = no
-			NOT = { has_character_modifier = current_SF_offer }
-			controls_religion = no
-			has_positive_purity = yes
-		}
-		potential = {
-			holder_scope = {
-				religion = draconic_pagan_reformed
-				controls_religion = no
-				NOT = { character = FROM }
-				top_liege = { NOT = { has_landed_title = k_draconic_pagan_reformed } }
-			}
-			FROM = { NOT = { has_claim = ROOT } }
-		}
-		allow = {
-			temporary = no
-			FROM = { piety = 100 }
-			holder_scope = {
-				religion = draconic_pagan_reformed
-				controls_religion = no
-				custom_tooltip = {
-					text = has_negative_purity
-					hidden_tooltip = {
-						has_negative_purity = yes
-					}
-				}
-			}
-		}
-		effect = {
-			FROM = { piety = -100 }
-			k_draconic_pagan_reformed = {
-				holder_scope = { letter_event = { id = DRAGON.79 days = 2 } }
-			}
-			hidden_effect = { FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } } }
-		}
-		ai_will_do ={
-			factor = 0.05
-			
-			modifier = {
-				factor = 0
-				FROM = { trait = content }
-			}
-			modifier = {
-				factor = 0
-				FROM = { num_of_claims = 5 }
-			}
-			modifier = {
-				factor = 0
-				holder_scope = { current_heir = { character = FROM } }
-			}
-			modifier = {
-				factor = 0
-				holder_scope = { any_spouse = { character = FROM } }
-			}
-			modifier = {
-				factor = 0
-				FROM = { any_spouse = { has_claim = ROOT } }
-			}
-			modifier = {
-				factor = 0
-				location = {
-					distance = { who = FROM value = 1200 }
-				}
-			}
-			
-			modifier = {
-				factor = 2
-				FROM = { NOT = { num_of_claims = 1 } }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { trait = zealous }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 30 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 60 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_ambition = 90 }
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -19 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -39 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -59 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -79 } }
-				}
-			}
-			modifier = {
-				factor = 2
-				holder_scope = {
-					NOT = { reverse_opinion = { who = FROM value = -99 } }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 25 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 50 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 75 }
-				}
-			}
-			modifier = {
-				factor = 0.5
-				holder_scope = {
-					reverse_opinion = { who = FROM value = 100 }
-				}
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 4 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 5 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 6 }
-			}
-			modifier = {
-				factor = 1.3
-				location = { num_of_max_settlements = 7 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 4 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 5 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 6 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { num_of_settlements = 7 }
-			}
-			modifier = {
-				factor = 1.5
-				location = { religion = FROM }
-			}
-			modifier = {
-				factor = 1.5
-				location = { culture = FROM }
-			}
-			modifier = {
-				factor = 2
-				tier = count
-				FROM = {
-					OR = {
-						tier = baron
-						tier = count
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = duke
-				FROM = {
-					OR = {
-						tier = duke
-						tier = count
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = king
-				FROM = {
-					OR = {
-						tier = duke
-						tier = king
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				tier = emperor
-				FROM = {
-					OR = {
-						tier = king
-						tier = emperor
-					}
-				}
-			}
-			modifier = {
-				factor = 0.2
-				location = {
-					distance = { who = FROM value = 400 }
-				}
-			}
-		}
-	}
+	#SF_request_claim_vassal = {
+	#	filter = sub_realm_owned
+	#	ai_target_filter = sub_realm_owned
+	#	
+	#	from_potential = {
+	#		independent = no
+	#		religion = draconic_pagan_reformed
+	#		k_draconic_pagan_reformed = { has_holder = yes }
+	#		is_incapable = no
+	#		NOT = { has_character_modifier = current_SF_offer }
+	#		controls_religion = no
+	#		has_positive_purity = yes
+	#	}
+	#	potential = {
+	#		holder_scope = {
+	#			religion = draconic_pagan_reformed
+	#			controls_religion = no
+	#			NOT = { character = FROM }
+	#			top_liege = { NOT = { has_landed_title = k_draconic_pagan_reformed } }
+	#		}
+	#		FROM = { NOT = { has_claim = ROOT } }
+	#	}
+	#	allow = {
+	#		temporary = no
+	#		FROM = { piety = 100 }
+	#		holder_scope = {
+	#			religion = draconic_pagan_reformed
+	#			controls_religion = no
+	#			custom_tooltip = {
+	#				text = has_negative_purity
+	#				hidden_tooltip = {
+	#					has_negative_purity = yes
+	#				}
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		FROM = { piety = -100 }
+	#		k_draconic_pagan_reformed = {
+	#			holder_scope = { letter_event = { id = DRAGON.79 days = 2 } }
+	#		}
+	#		hidden_effect = { FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } } }
+	#	}
+	#	ai_will_do ={
+	#		factor = 0.05
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { trait = content }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { num_of_claims = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			holder_scope = { current_heir = { character = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			holder_scope = { any_spouse = { character = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { any_spouse = { has_claim = ROOT } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			location = {
+	#				distance = { who = FROM value = 1200 }
+	#			}
+	#		}
+	#		
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { NOT = { num_of_claims = 1 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { trait = zealous }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 30 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 60 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 90 }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -19 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -39 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -59 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -79 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -99 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 25 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 50 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 75 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 100 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 4 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 6 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 7 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 4 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 6 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 7 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { religion = FROM }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { culture = FROM }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = count
+	#			FROM = {
+	#				OR = {
+	#					tier = baron
+	#					tier = count
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = duke
+	#			FROM = {
+	#				OR = {
+	#					tier = duke
+	#					tier = count
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = king
+	#			FROM = {
+	#				OR = {
+	#					tier = duke
+	#					tier = king
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = emperor
+	#			FROM = {
+	#				OR = {
+	#					tier = king
+	#					tier = emperor
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.2
+	#			location = {
+	#				distance = { who = FROM value = 400 }
+	#			}
+	#		}
+	#	}
+	#}
+	#
+	#SF_request_claim_indep = {
+	#	filter = all
+	#	ai_target_filter = all
+	#	
+	#	from_potential = {
+	#		independent = yes
+	#		religion = draconic_pagan_reformed
+	#		k_draconic_pagan_reformed = { has_holder = yes }
+	#		is_incapable = no
+	#		NOT = { has_character_modifier = current_SF_offer }
+	#		controls_religion = no
+	#		has_positive_purity = yes
+	#	}
+	#	potential = {
+	#		holder_scope = {
+	#			religion = draconic_pagan_reformed
+	#			controls_religion = no
+	#			NOT = { character = FROM }
+	#			top_liege = { NOT = { has_landed_title = k_draconic_pagan_reformed } }
+	#		}
+	#		FROM = { NOT = { has_claim = ROOT } }
+	#	}
+	#	allow = {
+	#		temporary = no
+	#		FROM = { piety = 100 }
+	#		holder_scope = {
+	#			religion = draconic_pagan_reformed
+	#			controls_religion = no
+	#			custom_tooltip = {
+	#				text = has_negative_purity
+	#				hidden_tooltip = {
+	#					has_negative_purity = yes
+	#				}
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		FROM = { piety = -100 }
+	#		k_draconic_pagan_reformed = {
+	#			holder_scope = { letter_event = { id = DRAGON.79 days = 2 } }
+	#		}
+	#		hidden_effect = { FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } } }
+	#	}
+	#	ai_will_do ={
+	#		factor = 0.05
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { trait = content }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { num_of_claims = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			holder_scope = { current_heir = { character = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			holder_scope = { any_spouse = { character = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			FROM = { any_spouse = { has_claim = ROOT } }
+	#		}
+	#		modifier = {
+	#			factor = 0
+	#			location = {
+	#				distance = { who = FROM value = 1200 }
+	#			}
+	#		}
+	#		
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { NOT = { num_of_claims = 1 } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { trait = zealous }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 30 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 60 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_ambition = 90 }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -19 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -39 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -59 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -79 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			holder_scope = {
+	#				NOT = { reverse_opinion = { who = FROM value = -99 } }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 25 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 50 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 75 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			holder_scope = {
+	#				reverse_opinion = { who = FROM value = 100 }
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 4 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 6 }
+	#		}
+	#		modifier = {
+	#			factor = 1.3
+	#			location = { num_of_max_settlements = 7 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 4 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 5 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 6 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { num_of_settlements = 7 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { religion = FROM }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			location = { culture = FROM }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = count
+	#			FROM = {
+	#				OR = {
+	#					tier = baron
+	#					tier = count
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = duke
+	#			FROM = {
+	#				OR = {
+	#					tier = duke
+	#					tier = count
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = king
+	#			FROM = {
+	#				OR = {
+	#					tier = duke
+	#					tier = king
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			tier = emperor
+	#			FROM = {
+	#				OR = {
+	#					tier = king
+	#					tier = emperor
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 0.2
+	#			location = {
+	#				distance = { who = FROM value = 400 }
+	#			}
+	#		}
+	#	}
+	#}
 	
 }
