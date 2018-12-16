@@ -7,12 +7,16 @@
 scorch_tactic = {
 	days = 18
 	sprite = 7
-	group = harass
+	group = volley
 	
 	trigger = {
 		phase = skirmish
 		troops = {
 			who = dragon_cavalry
+			value = 0.01
+		}
+		troops = {
+			who = archers
 			value = 0.01
 		}
 	}
@@ -29,37 +33,59 @@ scorch_tactic = {
 		}
 		modifier = {
 			factor = 1.5
-			troops = {
-				who = dragon_cavalry
-				value = 0.2
+			flank_has_leader = yes
+			leader = {
+				martial = 8
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.6
+				}
+				light_troops = {
+					who = archers
+					value = 0.6
+				}
 			}
 		}
 		modifier = {
 			factor = 1.5
-			troops = {
-				who = dragon_cavalry
-				value = 0.5
+			flank_has_leader = yes
+			leader = {
+				martial = 12
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.4
+				}
+				light_troops = {
+					who = archers
+					value = 0.5
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			flank_has_leader = yes
+			leader = {
+				martial = 16
+			}
+			OR = {
+				heavy_troops = {
+					who = dragon_cavalry
+					value = 0.2
+				}
+				light_troops = {
+					who = archers
+					value = 0.4
+				}
 			}
 		}
 	}
 	
 	dragon_cavalry_offensive = 2
-	light_cavalry_offensive = -0.7
-	knights_offensive = -0.7
-	light_infantry_offensive = -0.7
-	vampires_offensive = -0.7
-	zombie_troops_offensive = -0.7
-	etherial_soldiers_offensive = -0.5
-	heavy_infantry_offensive = -0.7
-	lycan_berzerkers_offensive = -0.7
-	einherjar_offensive = -0.7
-	angels_offensive = -0.7
-	fire_giants_offensive = 0.5
-	frost_giants_offensive = -0.7
-	golems_offensive = -0.7
-	archers_offensive = -0.7
-	horse_archers_offensive = -0.7
-	pikemen_offensive = -0.7
+	archers_offensive = 2
 	
 	enemy = {
 		group = harass
@@ -901,6 +927,10 @@ glorious_draconic_tactic = {
 		phase = melee
 		troops = {
 			who = dragon_cavalry
+			value = 0.01
+		}
+		troops = {
+			who = archers
 			value = 0.01
 		}
 		leader = {

@@ -7559,100 +7559,20 @@ letter_event = {
 	is_triggered_only = yes
 	show_from_from = yes
 	
-	# Changed to only allow requests that will be accepted
-	
-	#immediate = {
-	#	export_to_variable = { which = currGold value = wealth }
-	#}
-	
 	option = {
 		name = EVTOPTA_DRAGON.90
-		FROMFROM = { letter_event = { id = DRAGON.91 days = 1 } }
+		FROMFROMFROM = { letter_event = { id = DRAGON.91 days = 1 } }
 		tooltip = {
-			FROMFROM = {
-				transfer_scaled_wealth = { from = ROOT value = 5 } # Might be too high - adjust value as needed. Also in next event
-				add_character_modifier = { modifier = begger years = 10 }
+			FROMFROMFROM = {
+				transfer_scaled_wealth = { from = ROOT value = 2 } 
+				add_character_modifier = { modifier = SF_loan years = 10 }
 			}
 		}
-		#ai_chance = {
-		#	factor = 10
-		#	modifier = {
-		#		factor = 0
-		#		check_variable = { which = GoldAmt which = currGold } # Can't afford
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		trait = charitable
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		FROMFROM = { NOT = { wealth = 0 } }
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		trait = kind
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 25 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 50 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 75 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 100 }
-		#	}
-		#}
 	}
-	
-	#option = {
-	#	name = EVTOPTB_DRAGON.90
-	#	FROMFROM = { letter_event = { id = DRAGON.92 days = 1 } }
-	#	ai_chance = {
-	#		factor = 10
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 25
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 50
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 75
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 100
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -24 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -49 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -74 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -99 } }
-	#		}
-	#	}
-	#}
 	
 	after = {
 		opinion = { who = FROMFROM modifier = opinion_asked_for_gold }
+		FROMFROMFROM = { character_event = { id = DRAGON.173 years = 1 } }
 	}
 }
 
@@ -7665,9 +7585,9 @@ letter_event = {
 	
 	option = {
 		name = EVTOPT_DRAGON.91
-		transfer_scaled_wealth = { from = FROM value = 5 }
-		add_character_modifier = { modifier = begger years = 10 }
-		custom_tooltip = { text = purity_down_3 }
+		transfer_scaled_wealth = { from = FROM value = 2 }
+		add_character_modifier = { modifier = SF_loan years = 10 }
+		hidden_tooltip = { set_variable = { which = years_SF_loan value = 0 } } # Used for telling you when it's over
 	}
 }
 
@@ -9783,5 +9703,80 @@ character_event = {
 		any_tributary = {
 			character_event = { id = DRAGON.170 days = 1 }
 		}
+	}
+}
+
+# Sapphire Flame cannot afford your requested loan
+character_event = {
+	id = DRAGON.171
+	desc = EVTDESC_DRAGON.171
+	picture = GFX_evt_dragon_horde
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAHF20017
+	}
+}
+
+# Make sure loan will be accepted.  Redo math in case of issues
+character_event = {
+	id = DRAGON.172
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = { 
+			limit = { NOT = { check_variable = local_ai_acceptance_score value = 1 } }
+			FROMFROM = { letter_event = { id = DRAGON.92 } }
+			break = yes
+		}
+		export_to_variable = { which = GoldAmt value = yearly_income who = FROMFROM }
+		multiply_variable = { which = GoldAmt value = 2 }
+		export_to_variable = { which = MyGoldAmt value = wealth }
+		if = {
+			limit = {
+				NOT = { check_variable = { which = MyGoldAmt which = GoldAmt } }
+			}
+			FROMFROM = {
+				character_event = { id = DRAGON.171 }
+			}
+			break = yes
+		}
+		letter_event = { id = DRAGON.90 }
+	}
+}
+
+# Pay back Sapphire Flame for loan
+character_event = {
+	id = DRAGON.173
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		change_variable = { which = years_SF_loan value = 1 }
+		transfer_scaled_wealth = { to = FROM value = 0.25 }
+		if = {
+			limit = { check_variable = { which = years_SF_loan value = 10 }
+			character_event = { id = DRAGON.174 }
+			set_variable = { which = years_SF_loan value = 0 }
+		}
+		else = {
+			repeat_event = { id = DRAGON.173 years = 1 }
+		}
+	}
+}
+
+# Announce end of loan
+character_event = {
+	id = DRAGON.174
+	desc = EVTDESC_DRAGON.174
+	picture = GFX_evt_dragon_face
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA3542
+		remove_character_modifier = SF_loan
 	}
 }

@@ -1808,80 +1808,6 @@ accept_SF_disinherit = {
 	}
 }
 
-accept_SF_request_gold = {
-	custom_tooltip = {
-		text = SF_will_accept
-		hidden_tooltip = {
-			NOT = { FROM = { has_character_modifier = begger } }
-			calc_true_if = {
-				amount = 18
-				trait = charitable
-				trait = kind
-				opinion = { who = FROM value = -99 }
-				opinion = { who = FROM value = -74 }
-				opinion = { who = FROM value = -49 }
-				opinion = { who = FROM value = -24 }
-				opinion = { who = FROM value = 25 }
-				opinion = { who = FROM value = 50 }
-				opinion = { who = FROM value = 75 }
-				opinion = { who = FROM value = 100 }
-				NOT = { ai_greed = 100 }
-				NOT = { ai_greed = 80 }
-				NOT = { ai_greed = 60 }
-				NOT = { ai_greed = 40 }
-				NOT = { ai_greed = 20 }
-				FROM = { trait = flametender }
-				OR = {
-					trait = purity_3
-					trait = purity_4
-					trait = purity_5
-					trait = purity_6
-					trait = purity_7
-					trait = purity_8
-					trait = purity_9
-					trait = purity_10
-				}
-				OR = {
-					trait = purity_6
-					trait = purity_7
-					trait = purity_8
-					trait = purity_9
-					trait = purity_10
-				}
-				OR = {
-					trait = purity_9
-					trait = purity_10
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-					trait = purity_minus_8
-					trait = purity_minus_7
-					trait = purity_minus_6
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-					trait = purity_minus_8
-					trait = purity_minus_7
-					trait = purity_minus_6
-					trait = purity_minus_5
-					trait = purity_minus_4
-					trait = purity_minus_3
-				}
-				is_virtuous_minus_6_or_better = yes
-				is_virtuous_minus_3_or_better = yes
-				is_virtuous_3_or_better = yes
-				is_virtuous_6_or_better = yes
-			}
-		}
-	}
-}
-
 is_antimaterialist = {
 	OR = {
 		society_member_of = monastic_order_dominican
@@ -2233,7 +2159,7 @@ is_monster_to_prev = {
 }
 
 is_monster_to_from = {
-	FROM = {
+	ROOT_FROM = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
@@ -2243,7 +2169,7 @@ is_monster_to_from = {
 	OR = {
 		AND = {
 			trait = necromancer
-			PREV = {
+			ROOT_FROM = {
 				NOR = {
 					trait = zombie
 					trait = necromancer
@@ -2252,7 +2178,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = dragon
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = dragon
 					trait = dragonborn
@@ -2264,7 +2190,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = known_werewolf
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = werewolf
 					trait = pup
@@ -2276,7 +2202,7 @@ is_monster_to_from = {
 			OR = {
 				trait = known_vampire
 			}
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = vampire
 					trait = demon_trait
@@ -2288,7 +2214,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = demon_trait
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = vampire
 					trait = demon_trait
@@ -2299,7 +2225,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = djinn
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					religion_group = muslim
 					culture = djinni
@@ -2313,7 +2239,7 @@ is_monster_to_from = {
 				trait = giant
 				trait = half_giant
 			}
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = giant
 					trait = half_giant
@@ -2326,7 +2252,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = zombie
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = zombie
 					society_member_of = the_cold_ones
@@ -2336,7 +2262,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = mummy
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = mummy
 					religion = kemetic_pagan
@@ -2347,7 +2273,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = ethereal_trait
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = ethereal_trait
 					trait = summoner
@@ -2356,8 +2282,8 @@ is_monster_to_from = {
 		}
 	}
 	NOR = {
-		any_lover = { character = FROM }
-		any_spouse = { character = FROM }
+		any_lover = { character = ROOT_FROM }
+		any_spouse = { character = ROOT_FROM }
 	}
 }
 

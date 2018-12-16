@@ -1241,7 +1241,11 @@ decisions = {
 		potential = {
 			has_landed_title = k_draconic_pagan_reformed
 			NOT = { trait = dragon }
-			has_religion_feature = religion_theocratic_head
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				has_religion_feature = religion_autocephaly
+				NOT = { has_dlc = "Holy Fury" }
+			}
 		}
 		allow = {
 			NOT = { trait = dragon }
@@ -2312,25 +2316,158 @@ targetted_decisions = {
 	#	}
 	#}
 	
-	SF_disinherit = {
-		filter = independent_rulers
-		ai_target_filter = independent_rulers
+	#SF_disinherit = {
+	#	filter = independent_rulers
+	#	ai_target_filter = independent_rulers
+	#	
+	#	from_potential = {
+	#		is_ruler = yes
+	#		religion = draconic_pagan_reformed
+	#		k_draconic_pagan_reformed = { has_holder = yes }
+	#		is_incapable = no
+	#		controls_religion = no
+	#		is_patrician = no
+	#		trait = dragon
+	#		OR = {
+	#			NOT = { has_dlc = "Holy Fury" }
+	#			has_religion_feature = religion_theocratic_head
+	#		}
+	#	}
+	#	
+	#	potential = {
+	#		controls_religion = yes
+	#		religion = draconic_pagan_reformed
+	#		has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
+	#		is_incapable = no
+	#		is_within_diplo_range = FROM
+	#		OR = {
+	#			NOT = { has_dlc = "Holy Fury" }
+	#			has_religion_feature = religion_autocephaly
+	#			has_religion_feature = religion_theocratic_head
+	#		}
+	#	}
+	#	
+	#	allow = {
+	#		FROM = {
+	#			piety = 300
+	#			has_children = yes
+	#			current_heir = {
+	#				NOT = { trait = dragon }
+	#				OR = {
+	#					father = { character = FROM }
+	#					mother = { character = FROM }
+	#				}
+	#			}
+	#		}
+	#		custom_tooltip = {
+	#			text = SF_not_considering
+	#			hidden_tooltip = {
+	#				FROM = { NOT = { has_character_modifier = current_SF_offer } }
+	#			}
+	#		}
+	#		accept_SF_disinherit = yes
+	#	}
+	#	
+	#	effect = {
+	#		FROM = { piety = -300 }
+	#		letter_event = { id = DRAGON.86 days = 1 }
+	#		hidden_tooltip = {
+	#			FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
+	#		}
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 0.05
+	#		
+	#		modifier = {
+	#			factor = 0
+	#			NOT = {
+	#				FROM = {
+	#					any_child = {
+	#						trait = dragon
+	#						NOT = { trait = bastard }
+	#						count = 1
+	#					}
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 5
+	#			FROM = { has_ambition = obj_purify_succession }
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { spouse = { trait = dragon } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_zeal = 30 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_zeal = 60 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { ai_zeal = 90 }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = { current_heir = { NOT = { trait = dragonborn } } }
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			FROM = {
+	#				OR = {
+	#					trait = purity_9
+	#					trait = purity_8
+	#					trait = purity_minus_1
+	#				}
+	#			}
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			FROM = { current_heir = { is_rival = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0.1
+	#			FROM = { current_heir = { is_friend = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0.2
+	#			FROM = { current_heir = { is_lover = FROM } }
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			FROM = { trait = kind }
+	#		}
+	#		modifier = {
+	#			factor = 0.8
+	#			FROM = { has_focus = focus_family }
+	#		}
+	#	}
+	#}
+	
+	SF_borrow_money = {
+		filter = rel_head
+		ai_target_filter = rel_head
 		
 		from_potential = {
 			is_ruler = yes
 			religion = draconic_pagan_reformed
 			k_draconic_pagan_reformed = { has_holder = yes }
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				has_religion_feature = religion_autocephaly
+				NOT = { has_dlc = "Holy Fury"
+			}
 			is_incapable = no
 			controls_religion = no
-			is_patrician = no
-			trait = dragon
-			OR = {
-				NOT = { has_dlc = "Holy Fury" }
-				has_religion_feature = religion_theocratic_head
-			}
+			NOT = { has_character_modifier = SF_loan }
 		}
 		
 		potential = {
+			ai = yes
 			controls_religion = yes
 			religion = draconic_pagan_reformed
 			has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
@@ -2341,179 +2478,80 @@ targetted_decisions = {
 		allow = {
 			FROM = {
 				piety = 300
-				has_children = yes
-				current_heir = {
-					NOT = { trait = dragon }
-					OR = {
-						father = { character = FROM }
-						mother = { character = FROM }
-					}
-				}
+				NOT = { has_character_modifier = SF_loan }
 			}
+			wealth = 50
 			custom_tooltip = {
 				text = SF_not_considering
 				hidden_tooltip = {
 					FROM = { NOT = { has_character_modifier = current_SF_offer } }
 				}
 			}
-			accept_SF_disinherit = yes
+			NOT = { FROM = { excommunicated_for = ROOT } }
 		}
 		
 		effect = {
-			FROM = { piety = -300 }
-			letter_event = { id = DRAGON.86 days = 1 }
+			custom_tooltip = {
+				text = tt_request_sf_loan
+			}
+			hidden_tooltip = {
+				export_to_variable = { which = local_GoldAmt value = yearly_income who = FROM }
+				multiply_variable = { which = local_GoldAmt value = 2 }
+				export_to_variable = { which = MyGoldAmt value = wealth }
+			}
+			if = {
+				limit = { check_variable = { which = MyGoldAmt which = local_GoldAmt } }
+				character_event = { id = DRAGON.172 days = 1 }
+			}
+			else = {
+				FROM = { character_event = { id = DRAGON.171 } }
+			}
 			hidden_tooltip = {
 				FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
 			}
 		}
 		
 		ai_will_do = {
-			factor = 0.05
+			factor = 0.01
 			
 			modifier = {
 				factor = 0
-				NOT = {
-					FROM = {
-						any_child = {
-							trait = dragon
-							NOT = { trait = bastard }
-							count = 1
-						}
-					}
-				}
-			}
-			modifier = {
-				factor = 5
-				FROM = { has_ambition = obj_purify_succession }
-			}
-			modifier = {
-				factor = 2
-				FROM = { spouse = { trait = dragon } }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_zeal = 30 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_zeal = 60 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { ai_zeal = 90 }
-			}
-			modifier = {
-				factor = 1.5
-				FROM = { current_heir = { NOT = { trait = dragonborn } } }
-			}
-			modifier = {
-				factor = 1.5
 				FROM = {
-					OR = {
-						trait = purity_9
-						trait = purity_8
-						trait = purity_minus_1
-					}
+					trait = zealous
+					wealth = 0
 				}
 			}
 			modifier = {
+				factor = 0
+				FROM = { scaled_wealth = 2 }
+			}
+			modifier = {
+				factor = 0
+				
+			modifier = {
 				factor = 2
-				FROM = { current_heir = { is_rival = FROM } }
+				FROM = { NOT = { wealth = 0 } }
 			}
 			modifier = {
-				factor = 0.1
-				FROM = { current_heir = { is_friend = FROM } }
+				factor = 2
+				FROM = { trait = greedy }
 			}
 			modifier = {
-				factor = 0.2
-				FROM = { current_heir = { is_lover = FROM } }
+				factor = 2
+				FROM = { NOT = { scaled_wealth = 1 } }
 			}
 			modifier = {
-				factor = 0.5
-				FROM = { trait = kind }
-			}
-			modifier = {
-				factor = 0.8
-				FROM = { has_focus = focus_family }
+				factor = 2
+				FROM = {
+					NOT = { wealth = 0 }
+					scaled_wealth = -2
+				}
 			}
 		}
+		ai_acceptance = {
+			ask_for_loan_chance = yes
+		}
 	}
-	
-	#SF_borrow_money = {
-	#	filter = independent_rulers
-	#	ai_target_filter = independent_rulers
-	#	
-	#	from_potential = {
-	#		is_ruler = yes
-	#		religion = draconic_pagan_reformed
-	#		k_draconic_pagan_reformed = { has_holder = yes }
-	#		is_incapable = no
-	#		controls_religion = no
-	#	}
-	#	
-	#	potential = {
-	#		controls_religion = yes
-	#		religion = draconic_pagan_reformed
-	#		has_landed_title = k_draconic_pagan_reformed # In case the Pope converts or something
-	#		is_incapable = no
-	#		is_within_diplo_range = FROM
-	#	}
-	#	
-	#	allow = {
-	#		FROM = {
-	#			piety = 300
-	#			NOR = { has_character_modifier = begger }
-	#		}
-	#		custom_tooltip = {
-	#			text = SF_not_considering
-	#			hidden_tooltip = {
-	#				FROM = { NOT = { has_character_modifier = current_SF_offer } }
-	#			}
-	#		}
-	#		accept_SF_request_gold = yes
-	#	}
-	#	
-	#	effect = {
-	#		hidden_tooltip = {
-	#			export_to_variable = { which = GoldAmt value = yearly_income who = FROM }
-	#		}
-	#		letter_event = { id = DRAGON.90 days = 1 }
-	#		hidden_tooltip = {
-	#			FROM = { add_character_modifier = { modifier = current_SF_offer days = 4 } }
-	#		}
-	#	}
-	#	
-	#	ai_will_do = {
-	#		factor = 0.01
-	#		
-	#		modifier = {
-	#			factor = 0
-	#			trait = zealous
-	#			wealth = 0
-	#		}
-	#		modifier = {
-	#			factor = 0
-	#			scaled_wealth = 4
-	#		}
-	#		modifier = {
-	#			factor = 2
-	#			NOT = { wealth = 0 }
-	#		}
-	#		modifier = {
-	#			factor = 2
-	#			trait = greedy
-	#		}
-	#		modifier = {
-	#			factor = 2
-	#			NOT = { scaled_wealth = 2 }
-	#		}
-	#		modifier = {
-	#			factor = 2
-	#			NOT = { wealth = 0 }
-	#			scaled_wealth = -2
-	#		}
-	#	}
-	#}
 	
 	SF_request_blessing = {
 		filter = independent_rulers
