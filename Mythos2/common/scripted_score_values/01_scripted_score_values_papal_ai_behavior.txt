@@ -160,7 +160,11 @@ ask_for_excommunication_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -183,7 +187,11 @@ ask_for_excommunication_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -203,7 +211,11 @@ ask_for_excommunication_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -3450,9 +3462,13 @@ ask_for_excommunication_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			NOR = {
@@ -3475,9 +3491,13 @@ ask_for_excommunication_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 20
+		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = demi_god
@@ -3497,9 +3517,13 @@ ask_for_excommunication_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 80
+		value = -80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = god
@@ -4459,7 +4483,7 @@ ask_for_excommunication_chance = {
 	}
 	#Modifiers vs Wicked Pope
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CHASTE_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_chaste_vice = yes
@@ -4484,7 +4508,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = chaste }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_TEMPERATE_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_temperate_vice = yes
@@ -4509,7 +4533,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = temperate }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CHARITABLE_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_charitable_vice = yes
@@ -4534,7 +4558,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = charitable }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DILIGENT_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_diligent_vice = yes
@@ -4559,7 +4583,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = diligent }
 	}
 	additive_modifier = { 
-		value = 5
+		value =- 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PATIENT_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_patient_vice = yes
@@ -4584,7 +4608,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = patient }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_KIND_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_kind_vice = yes
@@ -4609,7 +4633,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = kind }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_HUMBLE_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_humble_vice = yes
@@ -4634,7 +4658,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = humble }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_LUSTFUL_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_lustful_vice = yes
@@ -4659,7 +4683,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = lustful }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GLUTTONOUS_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_gluttonous_vice = yes
@@ -4684,7 +4708,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = gluttonous }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GREEDY_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_greedy_vice = yes
@@ -4709,7 +4733,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = greedy }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_SLOTHFUL_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_slothful_vice = yes
@@ -4734,7 +4758,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = slothful }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_WROTH_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_wroth_vice = yes
@@ -4759,7 +4783,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = wroth }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_ENVIOUS_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_envious_vice = yes
@@ -4784,7 +4808,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = envious }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PROUD_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_proud_vice = yes
@@ -4809,7 +4833,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = proud }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BRAVE_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_brave_vice = yes
@@ -4834,7 +4858,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = brave }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_JUST_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_just_vice = yes
@@ -4859,7 +4883,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = just }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_AMBITIOUS_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_ambitious_vice = yes
@@ -4884,7 +4908,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = ambitious }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CRAVEN_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_craven_vice = yes
@@ -4909,7 +4933,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = craven }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_ARBITRARY_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_arbitrary_vice = yes
@@ -4934,7 +4958,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = arbitrary }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PARANOID_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_paranoid_vice = yes
@@ -4959,7 +4983,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = paranoid }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_TRUSTING_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_trusting_vice = yes
@@ -4984,7 +5008,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = trusting }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CRUEL_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_cruel_vice = yes
@@ -5009,7 +5033,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = cruel }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CONTENT_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_content_vice = yes
@@ -5034,7 +5058,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = content }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_HONEST_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_content_vice = yes
@@ -5059,7 +5083,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = honest }
 	}
 	additive_modifier = { 
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_CYNICAL_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		FROM = { 
@@ -5083,7 +5107,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = cynical }
 	}
 	additive_modifier = { 
-		value = -10
+		value = 10
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_ZEALOUS_NEGATIVE_TARGET
 		FROM = { 
 			OR = { 
@@ -5593,7 +5617,11 @@ ask_for_invasion_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -5616,7 +5644,11 @@ ask_for_invasion_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -5636,7 +5668,11 @@ ask_for_invasion_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -8186,9 +8222,13 @@ ask_for_invasion_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			NOR = {
@@ -8211,9 +8251,13 @@ ask_for_invasion_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 20
+		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = demi_god
@@ -8233,9 +8277,13 @@ ask_for_invasion_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 80
+		value = -80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = god
@@ -15182,8 +15230,11 @@ ask_to_lift_excommunication_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
-		is_non_theistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}		is_non_theistic = no
 		NOR = {
 			trait = god
 			trait = demi_god
@@ -15205,7 +15256,11 @@ ask_to_lift_excommunication_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -15225,7 +15280,11 @@ ask_to_lift_excommunication_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -21668,7 +21727,11 @@ ask_for_money_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = n0
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -21691,7 +21754,11 @@ ask_for_money_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -21711,7 +21778,11 @@ ask_for_money_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -24883,7 +24954,11 @@ ask_for_crusade_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -24906,7 +24981,11 @@ ask_for_crusade_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -24926,7 +25005,11 @@ ask_for_crusade_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -28560,7 +28643,11 @@ ask_for_claim_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -28583,7 +28670,11 @@ ask_for_claim_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -28603,7 +28694,11 @@ ask_for_claim_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -31588,9 +31683,13 @@ ask_for_claim_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			NOR = {
@@ -31613,9 +31712,13 @@ ask_for_claim_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 20
+		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = demi_god
@@ -31635,9 +31738,13 @@ ask_for_claim_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 80
+		value = -80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = god
@@ -33600,7 +33707,11 @@ nominate_bishop_chance = {
 	additive_modifier = {
 		value = 5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		NOR = {
 			trait = god
@@ -33623,7 +33734,11 @@ nominate_bishop_chance = {
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = demi_god
 		any_owned_bloodline = {
@@ -33643,7 +33758,11 @@ nominate_bishop_chance = {
 	additive_modifier = {
 		value = 80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		trait = god
 		any_owned_bloodline = {
@@ -36839,9 +36958,13 @@ nominate_bishop_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_BLOOD_OF_THE_GODS_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			NOR = {
@@ -36864,9 +36987,13 @@ nominate_bishop_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 20
+		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_DEMIGOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = demi_god
@@ -36886,9 +37013,13 @@ nominate_bishop_chance = {
 		}
 	}
 	additive_modifier = {
-		value = 80
+		value = -80
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_GOD_TARGET
-		is_monotheistic = no
+		OR = {
+			is_monotheistic = no
+			religion_group = pagan_group
+			has_religion_feature = religion_holy_family
+		}
 		is_non_theistic = no
 		FROMFROM = {
 			trait = god
