@@ -3351,7 +3351,7 @@ ask_for_excommunication_chance = {
 		society_rank == 4
 		FROMFROM = {
 			trait = known_vampire
-			trait - known_vampire
+			trait = known_werewolf
 			has_education_magic_trigger = yes
 			has_character_modifier = known_monster
 			has_character_modifier = voice_of_satan
@@ -4583,7 +4583,7 @@ ask_for_excommunication_chance = {
 		FROMFROM = { trait = diligent }
 	}
 	additive_modifier = { 
-		value =- 5
+		value = -5
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PATIENT_NEGATIVE_TARGET
 		NOT = { character = FROM } #Not on yourself, dirty Pope.
 		is_patient_vice = yes
@@ -31572,7 +31572,7 @@ ask_for_claim_chance = {
 		society_rank == 4
 		FROMFROM = {
 			trait = known_vampire
-			trait - known_vampire
+			trait = known_werewolf
 			has_education_magic_trigger = yes
 			has_character_modifier = known_monster
 			has_character_modifier = voice_of_satan
