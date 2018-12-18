@@ -9757,7 +9757,7 @@ character_event = {
 		change_variable = { which = years_SF_loan value = 1 }
 		transfer_scaled_wealth = { to = FROM value = 0.25 }
 		if = {
-			limit = { check_variable = { which = years_SF_loan value = 10 }
+			limit = { check_variable = { which = years_SF_loan value = 10 } }
 			character_event = { id = DRAGON.174 }
 			set_variable = { which = years_SF_loan value = 0 }
 		}
