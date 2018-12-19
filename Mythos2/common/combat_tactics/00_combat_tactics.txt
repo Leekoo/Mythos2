@@ -1046,8 +1046,6 @@ fient_tactic = {
 				}
 				NOT = {
 					heavy_infantry = 0.01 # Any type
-						value = 0.01
-					}
 				}
 				NOT = {
 					troops = {
@@ -2236,10 +2234,10 @@ reckless_charge_tactic = {
 				trait = wroth
 				AND = {
 					trait = werewolf
-					NOT = { check_variable = { which = control value = 3 }
+					NOT = { check_variable = { which = control value = 3 } }
 				}
 			}
-		}		
+		}
 	}
 
 	mean_time_to_happen = {

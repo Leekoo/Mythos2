@@ -9726,8 +9726,8 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		if = { 
-			limit = { NOT = { check_variable = local_ai_acceptance_score value = 1 } }
+		if = {
+			limit = { NOT = { check_variable = { which = local_ai_acceptance_score value = 1 } } }
 			FROMFROM = { letter_event = { id = DRAGON.92 } }
 			break = yes
 		}
