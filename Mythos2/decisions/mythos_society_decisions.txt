@@ -1,73 +1,4 @@
 society_decisions = {
-	warrior_lodge_kemetic_gift_of_shemu = {
-		only_playable = yes
-		ai_check_interval = 3 #check only once every 3 months.
-		
-		potential = {
-			has_dlc = "Holy Fury"
-			is_playable = yes
-			is_adult = yes
-			society_member_of = warrior_lodge_kemetic
-			society_rank = 2
-			OR = { 
-				religion = kemetic_pagan 
-				religion = kemetic_pagan_reformed
-				religion = atenist
-			}
-		}
-		allow = {
-			war = yes
-			month >= 2
-			month <= 5
-			has_society_currency_minor_trigger = yes
-			is_inaccessible_trigger = no
-			custom_tooltip = { 
-				NOT = { has_character_modifier = well_supplied }
-			}
-			any_realm_province = { borders_major_river = yes }
-		}
-		effect = {
-			detract_society_currency_minor_effect = yes
-			custom_tooltip = { text = tooltip_gain_kemetic_supply }
-			hidden_tooltip = { character_event = MYTHMORE.57 }
-		}
-		
-		ai_will_do = {
-			factor = 0.1
-			modifier = { # More useful in a defensive war
-				factor = 2
-				any_war = {
-					defender = { character = ROOT }
-				}
-			}
-			modifier = { # More useful early in a war (assumed by war score)
-				factor = 2
-				any_war = {
-					war_score < 10
-					war_score > -10
-				}
-			}
-			modifier = { # More useful with large armies
-				factor = 2
-				realm_levies = 20000
-			}
-			modifier = { # More useful with large armies
-				factor = 2
-				realm_levies = 30000
-			}
-			modifier = { # More useful with large armies
-				factor = 2
-				realm_levies = 40000
-			}
-			modifier = { # Less useful in easy wars (almost always offensive
-				factor = 0.2
-				any_war = {
-					attacker = { character = ROOT }
-					defender = { ROOT = { realm_levy_diff = { who = PREV value = 6000 } } }
-				}
-			}
-		}
-	}
 	
 	warrior_lodge_druidic_mobility = {
 		is_in_society = yes
@@ -148,4 +79,75 @@ society_decisions = {
 			}
 		}
 	}
+	
+	warrior_lodge_kemetic_gift_of_shemu = {
+		only_playable = yes
+		ai_check_interval = 3 #check only once every 3 months.
+		
+		potential = {
+			has_dlc = "Holy Fury"
+			is_playable = yes
+			is_adult = yes
+			society_member_of = warrior_lodge_kemetic
+			society_rank = 2
+			OR = { 
+				religion = kemetic_pagan 
+				religion = kemetic_pagan_reformed
+				religion = atenist
+			}
+		}
+		allow = {
+			war = yes
+			month >= 2
+			month <= 5
+			has_society_currency_minor_trigger = yes
+			is_inaccessible_trigger = no
+			custom_tooltip = { 
+				NOT = { has_character_modifier = well_supplied }
+			}
+			any_realm_province = { borders_major_river = yes }
+		}
+		effect = {
+			detract_society_currency_minor_effect = yes
+			custom_tooltip = { text = tooltip_gain_kemetic_supply }
+			hidden_tooltip = { character_event = { id = MYTHMORE.57 } }
+		}
+		
+		ai_will_do = {
+			factor = 0.1
+			modifier = { # More useful in a defensive war
+				factor = 2
+				any_war = {
+					defender = { character = ROOT }
+				}
+			}
+			modifier = { # More useful early in a war (assumed by war score)
+				factor = 2
+				any_war = {
+					war_score < 10
+					war_score > -10
+				}
+			}
+			modifier = { # More useful with large armies
+				factor = 2
+				realm_levies = 20000
+			}
+			modifier = { # More useful with large armies
+				factor = 2
+				realm_levies = 30000
+			}
+			modifier = { # More useful with large armies
+				factor = 2
+				realm_levies = 40000
+			}
+			modifier = { # Less useful in easy wars (almost always offensive
+				factor = 0.2
+				any_war = {
+					attacker = { character = ROOT }
+					defender = { ROOT = { realm_levy_diff = { who = PREV value = 6000 } } }
+				}
+			}
+		}
+	}
+	
 }
