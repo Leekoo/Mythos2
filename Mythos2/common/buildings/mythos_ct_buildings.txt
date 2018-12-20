@@ -13,6 +13,10 @@ city = {
 						trait = dragonborn
 						culture = draconic
 					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
 				}
 				FROMFROM = {
 					has_building = ct_dragon_tribute_1
@@ -46,6 +50,10 @@ city = {
 					trait = dragon
 					trait = dragonborn
 				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 			owner = {
 				NOR = {
@@ -77,6 +85,10 @@ city = {
 						trait = dragon
 						trait = dragonborn
 						culture = draconic
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
 					}
 				}
 				FROMFROM = {
@@ -110,6 +122,10 @@ city = {
 				OR = {
 					trait = dragon
 					trait = dragonborn
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 			owner = {
@@ -145,6 +161,10 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 		}
 		is_active_trigger = {
@@ -152,6 +172,10 @@ city = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 		}
@@ -176,6 +200,10 @@ city = {
 					OR = {
 						trait = werewolf
 						culture = werewolf_culture
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
 					}
 				}
 				FROMFROM = {
@@ -212,6 +240,10 @@ city = {
 			holder_scope = {
 				trait = known_werewolf
 				culture = werewolf_culture
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 			owner = {
 				NOR = {
@@ -243,6 +275,10 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 		}
 		is_active_trigger = {
@@ -250,6 +286,10 @@ city = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 		}
@@ -272,6 +312,10 @@ city = {
 			OR = {
 				holder_scope = {
 					trait = vampire
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
 				}
 				FROMFROM = {
 					has_building = ct_vampire_blood_warehouse
@@ -294,6 +338,10 @@ city = {
 			TECH_CITY_CONSTRUCTION = 1
 			holder_scope = {
 				trait = vampire
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 			owner = {
 				NOR = {
@@ -305,6 +353,10 @@ city = {
 		is_active_trigger = {
 			holder_scope = {
 				trait = known_vampire
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 			owner = {
 				NOR = {
@@ -335,6 +387,10 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 		}
 		is_active_trigger = {
@@ -342,6 +398,10 @@ city = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 		}
@@ -367,6 +427,10 @@ city = {
 					OR = {
 						trait = giant
 						trait = half_giant
+					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
 					}
 				}
 				FROMFROM = {
@@ -399,6 +463,10 @@ city = {
 				OR = {
 					trait = giant
 					trait = half_giant
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 			owner = {
@@ -435,6 +503,10 @@ city = {
 						}
 						follows_polytheistic_religion = yes
 					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
 				}
 				FROMFROM = {
 					has_building = ct_gods_pantheon
@@ -446,6 +518,10 @@ city = {
 				OR = {
 					trait = god
 					trait = demi_god
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
@@ -463,6 +539,10 @@ city = {
 					trait = demi_god
 					trait = blood_of_the_gods
 					any_owned_bloodline = { has_bloodline_flag = BOTG }
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 			owner = {
@@ -499,6 +579,10 @@ city = {
 						trait = veteran_wizard
 						trait = arcane_master
 					}
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
 				}
 				FROMFROM = { has_building = tb_mage_library }
 			}
@@ -510,6 +594,10 @@ city = {
 					trait = eldritch_scholar
 					trait = veteran_wizard
 					trait = arcane_master
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 			TECH_CITY_CONSTRUCTION = 1
@@ -525,6 +613,10 @@ city = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 		}
@@ -550,6 +642,10 @@ city = {
 			OR = {
 				holder_scope = {
 					trait = mummy
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
 				}
 				FROMFROM = {
 					has_building = ct_mummy_temple_district
@@ -567,7 +663,13 @@ city = {
 			}
 		}
 		trigger = {
-			holder_scope = { trait = mummy }
+			holder_scope = {
+				trait = mummy
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
 			TECH_CITY_CONSTRUCTION = 1
 			owner = {
 				NOR = {
@@ -582,6 +684,10 @@ city = {
 				NOR = {
 					government = zombie_horde
 					trait = zombie
+				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
 				}
 			}
 		}
@@ -604,7 +710,13 @@ city = {
 		
 		potential = {
 			OR = {
-				holder_scope = { trait = djinn }
+				holder_scope = {
+					trait = djinn
+					OR = {
+						government = draconic_merchant_republic_government
+						government = merchant_republic_government
+					}
+				}
 				FROMFROM = {
 					has_building = ct_mummy_temple_district
 					NOT = {
@@ -628,10 +740,20 @@ city = {
 					government = zombie_horde
 					trait = zombie
 				}
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
 			}
 		}
 		is_active_trigger = {
-			holder_scope = { trait = djinn }
+			holder_scope = {
+				trait = djinn
+				OR = {
+					government = draconic_merchant_republic_government
+					government = merchant_republic_government
+				}
+			}
 			owner = {
 				NOR = {
 					government = zombie_horde
