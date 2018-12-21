@@ -1297,6 +1297,7 @@ character_event = {
 		NOT = { has_character_flag = magic_child_event }
 		OR = {
 			educator = { 
+				NOT = { character = ROOT }
 				AND = {
 					has_education_magic_trigger = yes
 					OR = {
@@ -1317,6 +1318,7 @@ character_event = {
 				NOT = { educator = { always = yes } }
 				guardian = {
 					AND = {
+						NOT = { character = ROOT }
 						has_education_magic_trigger = yes
 						OR = {
 							diplomacy = 12
@@ -1352,6 +1354,8 @@ character_event = {
 	}
 }
 
+# Mage gifts abilities to a child
+# ROOT is the mage, FROM is the child
 character_event = {
 	id = MYTHMORE.47
 	desc = EVTDESC_MYTHMORE.47
