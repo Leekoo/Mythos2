@@ -12,6 +12,12 @@ character_event = {
 	mean_time_to_happen = { days = 1 }
 	
 	immediate = {
+		if = {
+			limit = {
+				NOT = { has_character_flag = checked_race }
+			}
+			set_character_flag = checked_race
+		}
 		race_placeholder = {
 			character_event = { id = SPECIES.2 } # The heavy lifting is in its own event for easier modding
 		}
