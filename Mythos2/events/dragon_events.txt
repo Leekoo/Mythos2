@@ -933,13 +933,13 @@ character_event = {
 	
 	trigger = {
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
 	immediate = {
 		any_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = { any_province_holding = { has_building = tp_eternal_flame } }
 			if = {
 				limit = {
 					ROOT = {
@@ -970,7 +970,7 @@ character_event = {
 	trigger = {
 		religion_openly_draconic_or_reformed_trigger = no
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1122,7 +1122,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 		any_vassal = {
 			trait = zealous
@@ -1152,28 +1152,28 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 5
 			}
 		}
@@ -1181,7 +1181,7 @@ character_event = {
 	
 	immediate = {
 		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = { any_province_holding = { has_building = tp_eternal_flame } }
 			save_event_target_as = upset_province
 		}
 		random_vassal = {
@@ -1222,7 +1222,7 @@ character_event = {
 			religion = the_damned
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 		any_courtier = {
 			is_landed = no
@@ -1309,7 +1309,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1513,7 +1513,7 @@ character_event = {
 			controls_religion = no
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1573,7 +1573,7 @@ character_event = {
 	
 	trigger = {
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 			NOR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -1726,7 +1726,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed

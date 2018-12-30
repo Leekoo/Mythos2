@@ -729,7 +729,7 @@ decisions = {
 			has_dlc = "Way of Life"
 			age = 16
 			any_demesne_province = {
-				has_capital = no
+				ROOT = { capital_scope = { NOT = { province = PREVPREV } } }
 				OR = {
 					has_building = ca_mage_tower_enchantment
 					has_building = ca_mage_tower_conjuration
