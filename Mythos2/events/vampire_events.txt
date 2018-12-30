@@ -1972,6 +1972,7 @@ character_event = {
 				limit = {
 					FROMFROM = {
 						has_minor_title = title_vampiric_protection
+						NOT = { liege = { character = ROOT } }
 					}
 				}
 				FROMFROM = {
@@ -2014,10 +2015,18 @@ character_event = {
 				if = {
 					limit = { has_character_flag = vampire_feed_kill }
 					character_event = { id = 10 }
-					FROMFROM = {
-						liege = {
-							opinion = { who = ROOT modifier = killed_protected years = 50 }
-							character_event = { id = VAMPIRE.164 }
+					if = {
+						limit = { 
+							FROMFROM = {
+								has_minor_title = title_vampiric_protection
+								NOT = { liege = { character = ROOT } }
+							}
+						}
+						FROMFROM = {
+							liege = {
+								opinion = { who = ROOT modifier = killed_protected years = 50 }
+								character_event = { id = VAMPIRE.164 }
+							}
 						}
 					}
 				}
@@ -2027,6 +2036,7 @@ character_event = {
 						limit = {
 							FROMFROM = {
 								has_minor_title = title_vampiric_protection
+								NOT = { liege = { character = ROOT } }
 							}
 						}
 						FROMFROM = {
@@ -2872,6 +2882,26 @@ character_event = {
 				FROM = { character_event = { id = VAMPIRE.11 } }
 				# Vampire alerted to failure and awareness
 				character_event = { id = VAMPIRE.12 }
+				if = {
+					limit = {
+						has_minor_title = title_vampiric_protection
+						NOT = { liege = { character = FROM } }
+						liege = { trait = vampire }
+					}
+					liege = {
+						FROM = {
+							if = {
+								limit = { NOT = { ROOT = { has_character_flag = vampire_feed_kill } } }
+								reverse_opinion = { who = PREV modifier = attacked_protected years = 20 }
+								character_event = { id = VAMPIRE.162 }
+							}
+							else = {
+								reverse_opinion = { who = PREV modifier = killed_protected years = 50 }
+								character_event = { id = VAMPIRE.164 }
+							}
+						}
+					}
+				}
 			}
 			# Failure - Suspected
 			if = {
@@ -2880,6 +2910,37 @@ character_event = {
 				FROM = { character_event = { id = VAMPIRE.47 } }
 				# Vampire alerted
 				character_event = { id = VAMPIRE.43 }
+				if = {
+					limit = {
+						has_minor_title = title_vampiric_protection
+						NOT = { liege = { character = FROM } }
+						liege = { trait = vampire }
+					}
+					liege = {
+						random_list = {
+							4 = {
+								modifier = {
+									factor = 0.5
+									FROM = {
+										liege = {
+											NOT = { character = PREVPREV }
+										}
+									}
+								}
+								FROM = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+							1 = {
+								random_courtier = {
+									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
+									character_event = { id = VAMPIRE.163 }
+								}
+							}
+						}
+					}
+				}
 			}
 			# Failure, got away
 			if = {
