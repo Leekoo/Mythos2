@@ -2665,14 +2665,6 @@ is_kemetic_secret_religious_society_member_trigger = {
 	}
 }
 
-is_hellenic_secret_religious_society_member_trigger = {
-	society_member_of = secret_religious_cult
-	OR = {
-		society_member_of = secret_religious_society_hellenic_pagan
-		society_member_of = secret_religious_society_hellenic_pagan_reformed
-	}
-}
-
 is_satanist_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_society_satanist
 }
@@ -2813,7 +2805,7 @@ is_temperate_vice = {
 	}
 }
 
-is_temperate_vice = {
+is_temperate_vice_secret = {
 	OR = {
 		use_secret_satanist_vice_virtue = yes
 		use_secret_black_flame_vice_virtue = yes
