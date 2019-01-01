@@ -9383,3 +9383,96 @@ remove_minor_injuries = {
 	remove_character_modifier = badly_bruised
 	remove_character_modifier = sore_muscles
 }
+
+record_MR_conversion_buildings = {
+	if = {
+		limit = { capital_holding = { has_building = tb_dragon_tower_2 } }
+		set_character_flag = get_fp_dragon_tower_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_dragon_tower_3 } }
+		set_character_flag = get_fp_dragon_tower_2
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_werewolf_lodge_2 } }
+		set_character_flag = get_fp_werewolf_lodge_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_vampire_citadel_2 } }
+		set_character_flag = get_fp_vampire_mansion_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_giant_shield } }
+		set_character_flag = get_fp_giant_shield_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_giant_hall } }
+		set_character_flag = get_fp_giant_mansion
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_mummy_necropolis } }
+		set_character_flag = get_fp_mummy_necropolis_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_djinn_caves } }
+		set_character_flag = get_fp_djinni_caves_1
+	}
+	if = {
+		limit = { capital_holding = { has_building = tb_monster_hunter_lodge } }
+		set_character_flag = get_fp_monster_hunter_lodge_1
+	}
+}
+
+convert_fp_buildings = {
+	family_palace = {
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_dragon_tower_1 } }
+			add_building = fp_dragon_tower_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_dragon_tower_2 } }
+			add_building = fp_dragon_tower_2
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_werewolf_lodge_1 } }
+			add_building = fp_werewolf_lodge_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_vampire_mansion_1 } }
+			add_building = fp_vampire_mansion_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_giant_shield_1 } }
+			add_building = fp_giant_shield_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_giant_mansion } }
+			add_building = fp_giant_mansion
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_mummy_necropolis_1 } }
+			add_building = fp_mummy_necropolis_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_djinni_caves_1 } }
+			add_building = fp_djinni_caves_1
+		}
+		if = {
+			limit = { PREV = { has_character_flag = get_fp_monster_hunter_lodge_1 } }
+			add_building = fp_monster_hunter_lodge_1
+		}
+	}
+}
+
+clear_MR_conversion_flags = {
+	clr_character_flag = get_fp_dragon_tower_1
+	clr_character_flag = get_fp_dragon_tower_2
+	clr_character_flag = get_fp_werewolf_lodge_1
+	clr_character_flag = get_fp_vampire_mansion_1
+	clr_character_flag = get_fp_giant_shield_1
+	clr_character_flag = get_fp_giant_shield_1
+	clr_character_flag = get_fp_giant_mansion
+	clr_character_flag = get_fp_mummy_necropolis_1
+	clr_character_flag = get_fp_djinni_caves_1
+	clr_character_flag = get_fp_monster_hunter_lodge_1
+}
