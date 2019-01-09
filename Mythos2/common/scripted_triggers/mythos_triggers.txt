@@ -72,6 +72,7 @@ is_old = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -88,6 +89,7 @@ is_old = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -133,6 +135,7 @@ is_very_old = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -149,6 +152,7 @@ is_very_old = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -188,6 +192,7 @@ is_30 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -203,6 +208,7 @@ is_30 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -240,6 +246,7 @@ is_40 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -255,6 +262,7 @@ is_40 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -291,6 +299,7 @@ is_50 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -306,6 +315,7 @@ is_50 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -342,6 +352,7 @@ is_60 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -357,6 +368,7 @@ is_60 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -393,6 +405,7 @@ is_70 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -408,6 +421,7 @@ is_70 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -444,6 +458,7 @@ is_80 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -459,6 +474,7 @@ is_80 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -495,6 +511,7 @@ is_90 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -510,6 +527,7 @@ is_90 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -546,6 +564,7 @@ is_100 = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 			}
@@ -561,6 +580,7 @@ is_100 = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = werewolf
 				trait = half_giant
 				trait = giant
@@ -1273,6 +1293,7 @@ likes_god_blood = {
 		trait = god
 		trait = demi_god
 		trait = blood_of_the_gods
+		any_owned_bloodline = { has_bloodline_flag = BOTG }
 	}
 }
 likes_druids = {
@@ -1333,14 +1354,7 @@ from_god_convert_to_root_religion = {
 			hidden_tooltip = {
 				NAND = {
 					FROM = { trait = god }
-					OR = {
-						religion_group = christian
-						religion_group = muslim
-						religion_group = jewish_group
-						religion = zun_pagan
-						religion = zun_pagan_reformed
-						religion_group = zoroastrian_group
-					}
+					is_monotheistic = yes
 				}
 			}
 		}
@@ -1352,11 +1366,7 @@ from_god_convert_to_root_religion = {
 			hidden_tooltip = {
 				NAND = {
 					FROM = { trait = god }
-					OR = {
-						religion = buddhist
-						religion = taoist
-						religion = the_damned
-					}
+					is_non_theistic = yes
 				}
 			}
 		}
@@ -1530,16 +1540,7 @@ from_god_convert_to_root_religion = {
 }
 
 follows_polytheistic_religion = {
-	OR = {
-		AND = {
-			religion_group = pagan_group
-			NOR = {
-				religion = zun_pagan
-				religion = zun_pagan_reformed
-			}
-		}
-		religion = hindu
-	}
+	is_monotheistic = no
 }
 
 is_virtuous_minus_6_or_better = {
@@ -1802,80 +1803,6 @@ accept_SF_disinherit = {
 				FROM = { current_heir = { NOT = { is_virtuous_3_or_better = yes } } }
 				FROM = { current_heir = { NOT = { is_virtuous_5_or_better = yes } } }
 				FROM = { current_heir = { NOT = { is_virtuous_7 = yes } } }
-			}
-		}
-	}
-}
-
-accept_SF_request_gold = {
-	custom_tooltip = {
-		text = SF_will_accept
-		hidden_tooltip = {
-			NOT = { FROM = { has_character_modifier = begger } }
-			calc_true_if = {
-				amount = 18
-				trait = charitable
-				trait = kind
-				opinion = { who = FROM value = -99 }
-				opinion = { who = FROM value = -74 }
-				opinion = { who = FROM value = -49 }
-				opinion = { who = FROM value = -24 }
-				opinion = { who = FROM value = 25 }
-				opinion = { who = FROM value = 50 }
-				opinion = { who = FROM value = 75 }
-				opinion = { who = FROM value = 100 }
-				NOT = { ai_greed = 100 }
-				NOT = { ai_greed = 80 }
-				NOT = { ai_greed = 60 }
-				NOT = { ai_greed = 40 }
-				NOT = { ai_greed = 20 }
-				FROM = { trait = flametender }
-				OR = {
-					trait = purity_3
-					trait = purity_4
-					trait = purity_5
-					trait = purity_6
-					trait = purity_7
-					trait = purity_8
-					trait = purity_9
-					trait = purity_10
-				}
-				OR = {
-					trait = purity_6
-					trait = purity_7
-					trait = purity_8
-					trait = purity_9
-					trait = purity_10
-				}
-				OR = {
-					trait = purity_9
-					trait = purity_10
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-					trait = purity_minus_8
-					trait = purity_minus_7
-					trait = purity_minus_6
-				}
-				NOR = {
-					trait = purity_minus_10
-					trait = purity_minus_9
-					trait = purity_minus_8
-					trait = purity_minus_7
-					trait = purity_minus_6
-					trait = purity_minus_5
-					trait = purity_minus_4
-					trait = purity_minus_3
-				}
-				is_virtuous_minus_6_or_better = yes
-				is_virtuous_minus_3_or_better = yes
-				is_virtuous_3_or_better = yes
-				is_virtuous_6_or_better = yes
 			}
 		}
 	}
@@ -2232,7 +2159,7 @@ is_monster_to_prev = {
 }
 
 is_monster_to_from = {
-	FROM = {
+	ROOT_FROM = {
 		NOR = {
 			trait = demon_trait
 			trait = ethereal_trait
@@ -2242,7 +2169,7 @@ is_monster_to_from = {
 	OR = {
 		AND = {
 			trait = necromancer
-			PREV = {
+			ROOT_FROM = {
 				NOR = {
 					trait = zombie
 					trait = necromancer
@@ -2251,7 +2178,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = dragon
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = dragon
 					trait = dragonborn
@@ -2263,7 +2190,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = known_werewolf
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = werewolf
 					trait = pup
@@ -2275,7 +2202,7 @@ is_monster_to_from = {
 			OR = {
 				trait = known_vampire
 			}
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = vampire
 					trait = demon_trait
@@ -2287,7 +2214,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = demon_trait
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = vampire
 					trait = demon_trait
@@ -2298,7 +2225,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = djinn
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					religion_group = muslim
 					culture = djinni
@@ -2312,7 +2239,7 @@ is_monster_to_from = {
 				trait = giant
 				trait = half_giant
 			}
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = giant
 					trait = half_giant
@@ -2325,7 +2252,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = zombie
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = zombie
 					society_member_of = the_cold_ones
@@ -2335,7 +2262,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = mummy
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = mummy
 					religion = kemetic_pagan
@@ -2346,7 +2273,7 @@ is_monster_to_from = {
 		}
 		AND = {
 			trait = ethereal_trait
-			FROM = {
+			ROOT_FROM = {
 				NOR = {
 					trait = ethereal_trait
 					trait = summoner
@@ -2355,8 +2282,8 @@ is_monster_to_from = {
 		}
 	}
 	NOR = {
-		any_lover = { character = FROM }
-		any_spouse = { character = FROM }
+		any_lover = { character = ROOT_FROM }
+		any_spouse = { character = ROOT_FROM }
 	}
 }
 
@@ -2738,14 +2665,6 @@ is_kemetic_secret_religious_society_member_trigger = {
 	}
 }
 
-is_hellenic_secret_religious_society_member_trigger = {
-	society_member_of = secret_religious_cult
-	OR = {
-		society_member_of = secret_religious_society_hellenic_pagan
-		society_member_of = secret_religious_society_hellenic_pagan_reformed
-	}
-}
-
 is_satanist_secret_religious_society_member_trigger = {
 	society_member_of = secret_religious_society_satanist
 }
@@ -2833,5 +2752,698 @@ is_infertile = {
 		trait = eunuch
 		trait = zombie
 		trait = mummy
+	}
+}
+
+is_chaste_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+	}
+}
+
+is_chaste_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+	}
+}
+
+is_chaste_vice = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+	}
+}
+
+is_chaste_vice_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+	}
+}
+
+is_temperate_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+	}
+}
+
+is_temperate_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+	}
+}
+
+is_temperate_vice = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_temperate_vice_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_charitable_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_charitable_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_charitable_vice = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_satanist_vice_virtue = yes
+	}
+}
+
+is_charitable_vice_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_satanist_vice_virtue = yes
+	}
+}
+
+is_diligent_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_diligent_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_diligent_vice = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_diligent_vice_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_patient_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_draconic_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+	}
+}
+
+is_patient_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_draconic_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+	}
+}
+
+is_patient_vice = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_patient_vice_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_kind_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_kind_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_kind_vice = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_kind_vice_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_humble_virtue = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+	}
+}
+
+is_humble_virtue_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+	}
+}
+
+is_humble_vice = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_satanist_vice_virtue = yes
+	}
+}
+
+is_humble_vice_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_satanist_vice_virtue = yes
+	}
+}
+
+is_lustful_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+	}
+}
+
+is_lustful_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+	}
+}
+
+is_lustful_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+	}
+}
+
+is_lustful_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+	}
+}
+
+is_gluttonous_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_gluttonous_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_gluttonous_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+	}
+}
+
+is_gluttonous_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+	}
+}
+
+is_greedy_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_draconic_vice_virtue = yes
+	}
+}
+
+is_greedy_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_draconic_vice_virtue = yes
+	}
+}
+
+is_greedy_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_greedy_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_slothful_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_slothful_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_slothful_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+	}
+}
+
+is_slothful_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+	}
+}
+
+is_wroth_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_wroth_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_wroth_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_wroth_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_envious_virtue = {
+	use_satanist_vice_virtue = yes
+}
+
+is_envious_virtue_secret = {
+	use_secret_satanist_vice_virtue = yes
+}
+
+is_envious_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_envious_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_proud_virtue = {
+	OR = {
+		use_satanist_vice_virtue = yes
+		use_draconic_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+	}
+}
+
+is_proud_virtue_secret = {
+	OR = {
+		use_secret_satanist_vice_virtue = yes
+		use_secret_draconic_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+	}
+}
+
+is_proud_vice = {
+	OR = {
+		use_christian_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+	}
+}
+
+is_proud_vice_secret = {
+	OR = {
+		use_secret_christian_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+	}
+}
+
+is_brave_virtue = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_norse_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_brave_virtue_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_brave_vice = {
+	always = no
+}
+
+is_brave_vice_secret = {
+	always = no
+}
+
+is_just_virtue = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_just_virtue_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_just_vice = {
+	use_undead_vice_virtue = yes
+}
+
+is_just_vice_secret = {
+	use_secret_undead_vice_virtue = yes
+}
+
+is_ambitious_virtue = {
+	use_draconic_vice_virtue = yes
+}
+
+is_ambitious_virtue_secret = {
+	use_secret_draconic_vice_virtue = yes
+}
+
+is_ambitious_vice = {
+	always = no
+}
+
+is_ambitious_vice_secret = {
+	always = no
+}
+
+is_craven_virtue = {
+	always = no
+}
+
+is_craven_virtue_secret = {
+	always = no
+}
+
+is_craven_vice = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_norse_vice_virtue = yes
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_craven_vice_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_arbitrary_virtue = {
+	OR = {
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_arbitrary_virtue_secret = {
+	OR = {
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_arbitrary_vice = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_aztec_vice_virtue = yes
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+		use_norse_vice_virtue = yes
+	}
+}
+
+is_arbitrary_vice_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_aztec_vice_virtue = yes
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+		use_secret_norse_vice_virtue = yes
+	}
+}
+
+is_paranoid_virtue = {
+	always = no
+}
+
+is_paranoid_virtue_secret = {
+	always = no
+}
+
+is_paranoid_vice = {
+	OR = {
+		use_draconic_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+	}
+}
+
+is_paranoid_vice_secret = {
+	OR = {
+		use_secret_draconic_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+	}
+}
+
+is_trusting_virtue = {
+	use_tengri_vice_virtue = yes
+}
+
+is_trusting_virtue_secret = {
+	use_secret_tengri_vice_virtue = yes
+}
+
+is_trusting_vice = {
+	always = no
+}
+
+is_trusting_vice_secret= {
+	always = no
+}
+
+is_cruel_virtue = {
+	OR = {
+		use_black_flame_vice_virtue = yes
+		use_undead_vice_virtue = yes
+	}
+}
+
+is_cruel_virtue_secret = {
+	OR = {
+		use_secret_black_flame_vice_virtue = yes
+		use_secret_undead_vice_virtue = yes
+	}
+}
+
+is_cruel_vice = {
+	OR = {
+		use_zoroastrian_vice_virtue = yes
+		use_tengri_vice_virtue = yes
+	}
+}
+
+is_cruel_vice_secret = {
+	OR = {
+		use_secret_zoroastrian_vice_virtue = yes
+		use_secret_tengri_vice_virtue = yes
+	}
+}
+
+is_content_virtue = {
+	always = no
+}
+
+is_content_virtue_secret = {
+	always = no
+}
+
+is_content_vice = {
+	use_black_flame_vice_virtue = yes
+}
+
+is_content_vice_secret = {
+	use_secret_black_flame_vice_virtue = yes
+}
+
+is_honest_virtue = {
+	use_norse_vice_virtue = yes
+}
+
+is_honest_virtue_secret = {
+	use_secret_norse_vice_virtue = yes
+}
+
+is_honest_vice = {
+	always = no
+}
+
+is_honest_vice_secret = {
+	always = no
+}
+
+is_monotheistic = {
+	OR = {
+		has_religion_feature = religion_dogmatic
+		religion_group = christian
+		religion_group = muslim
+		religion_group = jewish_group
+		religion_group = zoroastrian_group
+		religion = satanist
+		religion = the_damned
+		religion = zun_pagan
+		religion = zun_pagan_reformed
+	}
+}
+
+is_non_theistic = {
+	OR = {
+		religion = buddhist
+		religion = the_damned
+		religion = taoist
+		religion = jain
 	}
 }

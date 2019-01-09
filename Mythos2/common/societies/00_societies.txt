@@ -25,6 +25,7 @@ monastic_order_benedictine = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		OR = {
@@ -68,6 +69,7 @@ monastic_order_benedictine = {
 			}
 			society_member_of = monastic_order_benedictine
 		}
+		NOT = { trait = zombie }
 	}
 	
 	potential = {
@@ -83,6 +85,7 @@ monastic_order_benedictine = {
 				}
 			}
 		}
+		NOT = { trait = zombie }
 	}
 	
 	society_rank = {
@@ -334,6 +337,7 @@ monastic_order_benedictine = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -364,6 +368,7 @@ monastic_order_dominican = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		religion = catholic
@@ -388,9 +393,13 @@ monastic_order_dominican = {
 			religion = catholic
 			society_member_of = monastic_order_dominican
 		}
+		NOT = { trait = zombie }
 	}
 
-	potential = { religion = catholic }
+	potential = {
+		religion = catholic
+		NOT = { trait = zombie }
+	}
 
 	society_rank = {
 		level = 1
@@ -641,6 +650,8 @@ monastic_order_dominican = {
 				learning = 16
 				is_priest = yes
 			}
+			
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -672,6 +683,7 @@ monastic_order_orthodox = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		OR = {
@@ -715,6 +727,7 @@ monastic_order_orthodox = {
 			}
 			society_member_of = monastic_order_orthodox
 		}
+		NOT = { trait = zombie }
 	}
 
 	potential = {
@@ -730,6 +743,7 @@ monastic_order_orthodox = {
 				}
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -980,6 +994,7 @@ monastic_order_orthodox = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -1010,6 +1025,7 @@ monastic_order_nestorian = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		OR = {
@@ -1041,8 +1057,9 @@ monastic_order_nestorian = {
 				is_heretic = no
 				religion = messalian
 			}
+			society_member_of = monastic_order_nestorian
 		}
-		society_member_of = monastic_order_nestorian
+		NOT = { trait = zombie }
 	}
 
 	potential = {
@@ -1053,6 +1070,7 @@ monastic_order_nestorian = {
 				religion = messalian
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -1303,6 +1321,7 @@ monastic_order_nestorian = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -1333,6 +1352,7 @@ monastic_order_monophysite = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		OR = {
@@ -1364,8 +1384,9 @@ monastic_order_monophysite = {
 				is_heretic = no
 				religion = monophysite
 			}
+			society_member_of = monastic_order_monophysite
 		}
-		society_member_of = monastic_order_monophysite
+		NOT = { trait = zombie }
 	}
 
 	potential = {
@@ -1554,6 +1575,7 @@ monastic_order_monophysite = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -1599,6 +1621,7 @@ monastic_order_hindu = {
 			limit = { prisoner = yes }
 			prisoner = no
 		}
+		NOT = { trait = zombie }
 	}
 
 	show_society = {
@@ -1606,9 +1629,13 @@ monastic_order_hindu = {
 			religion = hindu
 			society_member_of = monastic_order_hindu
 		}
+		NOT = { trait = zombie }
 	}
 
-	potential = { religion = hindu }
+	potential = {
+		religion = hindu
+		NOT = { trait = zombie }
+	}
 
 	society_rank = {
 		level = 1
@@ -1812,6 +1839,7 @@ monastic_order_hindu = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -1842,6 +1870,7 @@ monastic_order_buddhist = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		religion = buddhist
@@ -1864,9 +1893,13 @@ monastic_order_buddhist = {
 			religion = buddhist
 			society_member_of = monastic_order_buddhist
 		}
+		NOT = { trait = zombie }
 	}
 
-	potential = { religion = buddhist }
+	potential = {
+		religion = buddhist
+		NOT = { trait = zombie }
+	}
 
 	society_rank = {
 		level = 1
@@ -2070,6 +2103,7 @@ monastic_order_buddhist = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -2100,6 +2134,7 @@ monastic_order_jain = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		religion = jain
@@ -2122,9 +2157,13 @@ monastic_order_jain = {
 			religion = jain
 			society_member_of = monastic_order_jain
 		}
+		NOT = { trait = zombie }
 	}
 
-	potential = { religion = jain }
+	potential = {
+		religion = jain
+		NOT = { trait = zombie }
+	}
 
 	society_rank = {
 		level = 1
@@ -2338,6 +2377,7 @@ monastic_order_jain = {
 				learning = 16
 				is_priest = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -2369,6 +2409,7 @@ monastic_order_stoics = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		NOR = { #Not for savages.
@@ -2423,9 +2464,11 @@ monastic_order_stoics = {
 			}
 			society_member_of = monastic_order_stoics
 		}
+		NOT = { trait = zombie }
 	}
 
 	potential = { 
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -2676,6 +2719,7 @@ monastic_order_stoics = {
 				trait = diligent
 				learning = 16
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -2709,6 +2753,7 @@ hermetics = {
 				is_landed = yes
 				is_patrician = yes
 			}
+			NOT = { trait = zombie }
 		}
 		learning = 10
 		OR = {
@@ -2765,6 +2810,7 @@ hermetics = {
 			religion = taoist
 			society_member_of = hermetics
 		}
+		NOT = { trait = zombie }
 	}
 	
 	potential = {
@@ -2923,6 +2969,15 @@ hermetics = {
 			factor = 1.5
 			trait = just
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = knowledge_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -2975,6 +3030,7 @@ hermetics = {
 				religion = hellenic_pagan_reformed
 				religion = taoist
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -3007,6 +3063,7 @@ the_assassins = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		OR = {
@@ -3091,6 +3148,7 @@ the_assassins = {
 				}
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	potential = {
@@ -3098,6 +3156,7 @@ the_assassins = {
 			religion = shiite
 			secret_religion = shiite
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -3366,6 +3425,7 @@ the_assassins = {
 				NOT = { holy_order = yes }
 				primary_title = { title = d_hashshashin }
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -3410,6 +3470,7 @@ the_satanists = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_satanists_prerequisites = yes
 		hidden_trigger = {
@@ -3438,9 +3499,12 @@ the_satanists = {
 			religion = zun_pagan_reformed
 			society_member_of = the_satanists
 		}
+		NOT = { trait = zombie }
 	}
 
-	potential = { } #no rules
+	potential = {
+		NOT = { trait = zombie }
+	}
 
 	society_rank = {
 		level = 1
@@ -3695,6 +3759,15 @@ the_satanists = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -3728,6 +3801,7 @@ the_satanists = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -3771,6 +3845,7 @@ the_trollcrafters = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_trollcrafters_prerequisites = yes
 		hidden_trigger = {
@@ -3797,9 +3872,12 @@ the_trollcrafters = {
 			secret_religion = norse_pagan_reformed
 			society_member_of = the_trollcrafters
 		}
+		NOT = { trait = zombie }
 	}
 	
-	potential = { } #no rules
+	potential = {
+		NOT = { trait = zombie }
+	}
 	
 	society_rank = {
 		level = 1
@@ -4043,6 +4121,15 @@ the_trollcrafters = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -4073,6 +4160,7 @@ the_trollcrafters = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -4117,6 +4205,7 @@ the_cult_of_kali = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_cult_of_kali_prerequisites = yes
 		hidden_trigger = {
@@ -4141,6 +4230,7 @@ the_cult_of_kali = {
 			secret_religion = hindu
 			society_member_of = the_cult_of_kali
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -4156,7 +4246,9 @@ the_cult_of_kali = {
 		#custom_tooltip = unlockable_DW_powers_at_rank_2;
 	}
 
-	potential = { } #no rules
+	potential = {
+		NOT = { trait = zombie }
+	} #no rules
 	
 	society_rank = { 
 		level = 2
@@ -4379,6 +4471,15 @@ the_cult_of_kali = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -4406,6 +4507,7 @@ the_cult_of_kali = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -4449,6 +4551,7 @@ the_cold_ones = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_cold_ones_prerequisites = yes
 		hidden_trigger = {
@@ -4483,6 +4586,7 @@ the_cold_ones = {
 			secret_religion = finnish_pagan_reformed
 			society_member_of = the_cold_ones			
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = {
@@ -4709,6 +4813,15 @@ the_cold_ones = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 
 	startup_populate = {
@@ -4788,6 +4901,7 @@ the_plaguebringers = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_plaguebringers_prerequisites = yes
 		hidden_trigger = {
@@ -4814,6 +4928,7 @@ the_plaguebringers = {
 			secret_religion = tengri_pagan_reformed
 			society_member_of = the_plaguebringers
 		}
+		NOT = { trait = zombie }
 	}
 	
 	society_rank = {
@@ -5050,6 +5165,15 @@ the_plaguebringers = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -5080,6 +5204,7 @@ the_plaguebringers = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -5123,6 +5248,7 @@ the_vodouns = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_vodouns_prerequisites = yes
 		hidden_trigger = {
@@ -5385,6 +5511,15 @@ the_vodouns = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -5415,6 +5550,7 @@ the_vodouns = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -5460,6 +5596,7 @@ the_bacchants = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		has_bacchants_prerequisites = yes
 		hidden_trigger = {
@@ -5493,9 +5630,12 @@ the_bacchants = {
 				top_liege = { has_landed_title = e_roman_empire } #Historically a plague for the Empire.
 			} 
 		}
+		NOT = { trait = zombie }
 	}
 	
-	potential = { } #no rules
+	potential = {
+		NOT = { trait = zombie }
+	} #no rules
 	
 	society_rank = {
 		level = 1
@@ -5739,6 +5879,15 @@ the_bacchants = {
 			trait = arbitrary
 			factor = 1.1
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = trickster_god
+			}
+		}
 	}
 	
 	startup_populate = {
@@ -5774,6 +5923,7 @@ the_bacchants = {
 				mercenary = yes
 				holy_order = yes
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -5806,6 +5956,7 @@ secret_religious_society_template = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		age = 16
 		FROM = {
@@ -5826,11 +5977,13 @@ secret_religious_society_template = {
 			num_of_society_members > 0
 		}
 		secret_religion = FROM
+		NOT = { trait = zombie }
 	}
 	
 	potential = {
 		age = 16
 		secret_religion = FROM
+		NOT = { trait = zombie }
 	}
 	
 	society_rank = {
@@ -6077,6 +6230,7 @@ warrior_lodge_norse = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -6130,6 +6284,7 @@ warrior_lodge_norse = {
 			#Always show if: You are already a member. Duh.
 			society_member_of = warrior_lodge_norse
 		}
+		NOT = { trait = zombie }
 	}
 
 	potential = { #if you change religion or become zealous while NOT pagan, you are kicked out
@@ -6140,6 +6295,7 @@ warrior_lodge_norse = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -6348,38 +6504,6 @@ warrior_lodge_norse = {
 			trait = valhalla_bound
 			value = 1
 		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
-			value = 1
-		}
 		#NEGATIVE modifiers
 		has_trait = {
 			trait = craven
@@ -6599,6 +6723,15 @@ warrior_lodge_norse = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -6618,6 +6751,7 @@ warrior_lodge_norse = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -6648,6 +6782,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -6703,6 +6838,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			#Always show if: You are already a member. Duh.
 			society_member_of = warrior_lodge_tengri
 		}
+		NOT = { trait = zombie }
 	}
 
 	potential = { #if you change religion or become zealous while NOT pagan, you are kicked out
@@ -6714,6 +6850,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -6915,42 +7052,6 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
 			trait = tengri_warrior
 			value = 1
 		}
@@ -7133,10 +7234,6 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = tengri_warrior
 			factor = 1.1
 		}
@@ -7173,6 +7270,15 @@ warrior_lodge_tengri = { # Also generally for Nomads
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -7195,6 +7301,7 @@ warrior_lodge_tengri = { # Also generally for Nomads
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -7225,6 +7332,7 @@ warrior_lodge_baltic = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -7289,6 +7397,7 @@ warrior_lodge_baltic = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -7490,43 +7599,7 @@ warrior_lodge_baltic = {
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
 			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -7708,10 +7781,6 @@ warrior_lodge_baltic = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = romuvas_own
 			factor = 1.1
 		}
@@ -7748,6 +7817,15 @@ warrior_lodge_baltic = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -7767,6 +7845,7 @@ warrior_lodge_baltic = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -7797,6 +7876,7 @@ warrior_lodge_finnish = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -7861,6 +7941,7 @@ warrior_lodge_finnish = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -8062,43 +8143,7 @@ warrior_lodge_finnish = {
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
 			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -8280,10 +8325,6 @@ warrior_lodge_finnish = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = ukkos_shield
 			factor = 1.1
 		}
@@ -8320,6 +8361,15 @@ warrior_lodge_finnish = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -8339,6 +8389,7 @@ warrior_lodge_finnish = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -8369,6 +8420,7 @@ warrior_lodge_slavic = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -8433,6 +8485,7 @@ warrior_lodge_slavic = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -8634,43 +8687,7 @@ warrior_lodge_slavic = {
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
 			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -8852,10 +8869,6 @@ warrior_lodge_slavic = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = peruns_chosen
 			factor = 1.1
 		}
@@ -8892,6 +8905,15 @@ warrior_lodge_slavic = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -8911,6 +8933,7 @@ warrior_lodge_slavic = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -8941,6 +8964,7 @@ warrior_lodge_west_african = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -9005,6 +9029,7 @@ warrior_lodge_west_african = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -9210,43 +9235,7 @@ warrior_lodge_west_african = {
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
 			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -9428,10 +9417,6 @@ warrior_lodge_west_african = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = nyames_shield
 			factor = 1.1
 		}
@@ -9468,6 +9453,15 @@ warrior_lodge_west_african = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -9487,6 +9481,7 @@ warrior_lodge_west_african = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -9518,6 +9513,7 @@ warrior_lodge_zun = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -9581,6 +9577,7 @@ warrior_lodge_zun = {
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -9782,43 +9779,7 @@ warrior_lodge_zun = {
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
 			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -10000,10 +9961,6 @@ warrior_lodge_zun = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = sun_warrior
 			factor = 1.1
 		}
@@ -10040,6 +9997,15 @@ warrior_lodge_zun = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -10059,6 +10025,7 @@ warrior_lodge_zun = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -10090,6 +10057,7 @@ warrior_lodge_bon = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
 		is_adult = yes
 		custom_tooltip = {
@@ -10153,6 +10121,7 @@ warrior_lodge_bon = {
 				NOT = { religion_openly_bon_or_reformed_trigger = yes }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -10357,42 +10326,6 @@ warrior_lodge_bon = {
 			trait = varangian
 			value = 1
 		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
-			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
-			value = 1
-		}
 		#NEGATIVE modifiers
 		has_trait = {
 			trait = craven
@@ -10572,7 +10505,7 @@ warrior_lodge_bon = {
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
+			trait = kailash_guardian
 			factor = 1.1
 		}
 		#NEGATIVE modifiers
@@ -10608,6 +10541,15 @@ warrior_lodge_bon = {
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -10627,6 +10569,7 @@ warrior_lodge_bon = {
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }
@@ -10659,8 +10602,9 @@ warrior_lodge_hellenic = {
 					rank = 1
 				}
 			}
+			NOT = { trait = zombie }
 		}
-is_adult = yes
+		is_adult = yes
 		custom_tooltip = {
 			text = has_not_angered_society_tt
 			hidden_trigger = { NOT = { has_character_modifier = warrior_lodge_failed_joining_cd } }
@@ -10722,6 +10666,7 @@ is_adult = yes
 				NOT = { trait = zealous }
 			}
 		}
+		NOT = { trait = zombie }
 	}
 
 	society_rank = { #"Fledling"
@@ -10922,43 +10867,7 @@ is_adult = yes
 			value = 1
 		}
 		has_trait = {
-			trait = varangian
-			value = 1
-		}
-		has_trait = {
-			trait = valhalla_bound
-			value = 1
-		}
-		has_trait = {
-			trait = eagle_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = sun_warrior
-			value = 1
-		}
-		has_trait = {
-			trait = ukkos_shield
-			value = 1
-		}
-		has_trait = {
-			trait = nyames_shield
-			value = 1
-		}
-		has_trait = {
-			trait = peruns_chosen
-			value = 1
-		}
-		has_trait = {
-			trait = romuvas_own
-			value = 1
-		}
-		has_trait = {
 			trait = ares_own
-			value = 1
-		}
-		has_trait = {
-			trait = tengri_warrior
 			value = 1
 		}
 		#NEGATIVE modifiers
@@ -11140,10 +11049,6 @@ is_adult = yes
 			factor = 1.1
 		}
 		modifier = {
-			trait = varangian
-			factor = 1.1
-		}
-		modifier = {
 			trait = ares_own
 			factor = 1.1
 		}
@@ -11180,6 +11085,15 @@ is_adult = yes
 			trait = hunchback
 			factor = 0.8
 		}
+		
+		# Hopefully this will encourage certain ai to join without giving them bonuses within
+		modifier = {
+			factor = 2
+			is_in_society = no
+			any_owned_bloodline = {
+				has_bloodline_flag = war_god
+			}
+		}
 	}	
 
 	startup_populate = {
@@ -11199,6 +11113,7 @@ is_adult = yes
 					duelist_skill_is_high_group_trigger = yes
 				}
 			}
+			NOT = { trait = zombie }
 		}
 	}
 }

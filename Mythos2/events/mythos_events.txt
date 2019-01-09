@@ -2431,6 +2431,7 @@ character_event = {
 			trait = god
 			trait = demi_god
 			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
 		}
 		OR = {
 			trait = infirm
@@ -2467,7 +2468,10 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.1
-			trait = blood_of_the_gods
+			NOT = {
+				trait = god
+				trait = demi_god
+			}
 		}
 	}
 	
@@ -2507,17 +2511,18 @@ character_event = {
 			trait = god
 			trait = demi_god
 			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
 		}
 		OR = {
 			trait = wounded
 			trait = maimed
 			AND = {
 				trait = one_eyed
-				NOT = { has_character_flag = norse_god_odin }
+				NOT = { any_owned_bloodline = { has_bloodline_flag = no_eye_healing } }
 			}
 			AND = {
 				trait = one_handed
-				NOT = { has_character_flag = norse_god_tyr }
+				NOT = { any_owned_bloodline = { has_bloodline_flag = no_hand_healing } }
 			}
 			trait = one_legged
 			trait = disfigured
@@ -2545,7 +2550,10 @@ character_event = {
 		}
 		modifier = {
 			factor = 0.1
-			trait = blood_of_the_gods
+			NOR = {
+				trait = god
+				trait = demi_god
+			}
 		}
 	}
 	

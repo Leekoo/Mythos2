@@ -88,10 +88,45 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		export_to_variable = { which = transfer_gold value = wealth }
-		divide_variable = { which = transfer_gold value = 3 }
-		FROMFROMFROM = { set_variable = { which = transfer_gold which = ROOT } }
-		multiply_variable = { which = transfer_gold value = -1 }
+		
+		# Determine stakes
+		FROMFROMFROM = {
+			export_to_variable = { which = local_attacker_pot value = wealth }
+			divide_variable = { which = local_attacker_pot value = 3 }
+		}
+		export_to_variable = { which = local_defender_pot value = wealth }
+		divide_variable = { which = local_defender_pot value = 3 }
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { which = local_attacker_pot value = 20 } }
+			}
+			set_variable = { which = local_attacker_pot value = 20 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = local_attacker_pot value = 600 }
+			}
+			set_variable = { which = local_attacker_pot value = 600 }
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { which = local_defender_pot value = 20 } }
+			}
+			set_variable = { which = local_defender_pot value = 20 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { which = local_defender_pot value = 600 }
+			}
+			set_variable = { which = local_defender_pot value = 600 }
+		}
+		
+		set_variable = { which = local_attacker_pay value = local_attacker_pot}
+		multiply_variable = { which = local_attacker_pay value = -1 }
+		set_variable = { which = local_defender_pay value = local_defender_pot}
+		multiply_variable = { which = local_defender_pay value = -1 }
+		
 		
 		save_event_target_as = challenged_party
 		FROMFROMFROM = {
@@ -120,7 +155,7 @@ character_event = {
 	}
 	option = {
 		name = EVTOPTB_DRAGON.109
-		wealth = transfer_gold
+		wealth = local_defender_pay
 		prestige = -50
 		hidden_tooltip = {
 			FROMFROMFROM = { character_event = { id = DRAGON.111 days = 1 } }
@@ -137,7 +172,7 @@ character_event = {
 			}
 			modifier = {
 				factor = 2
-				combat_rating < 5
+				combat_rating < 10
 			}
 		}
 	}
@@ -161,9 +196,6 @@ character_event = {
 				combat_rating = 7
 			}
 		}
-	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
 	}
 }
 
@@ -204,11 +236,8 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.111
-		wealth = transfer_gold
+		wealth = local_defender_pot
 		prestige = 50
-	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
 	}
 }
 
@@ -589,26 +618,9 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		# Determine reward
-		event_target:challenged_party = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { check_variable = { which = transfer_gold value < 20 } }
-				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-		}
-		set_variable = { which = transfer_gold which = event_target:challenged_party }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.118
-		wealth = transfer_gold
+		wealth = local_defender_pot
 		if = {
 			limit = { event_target:challenged_party = { has_character_flag = fled_from_raid } }
 			prestige = 200
@@ -671,13 +683,12 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
 		add_blood_splatter_effect = yes
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.119
-		wealth = transfer_gold
+		wealth = local_defender_pay
 		if = {
 			limit = { has_character_flag = fled_from_raid }
 			prestige = -200
@@ -764,9 +775,6 @@ character_event = {
         }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
-	}
 }
 
 # DRAGON.120 - Defender lost, but uninjured
@@ -790,13 +798,12 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
 		add_blood_splatter_effect = yes
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.120
-		wealth = transfer_gold
+		wealth = local_defender_pay
 		if = {
 			limit = { has_character_flag = fled_from_raid }
 			prestige = -200
@@ -820,9 +827,6 @@ character_event = {
 			prestige = -100
 		}
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
-	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
 	}
 }
 
@@ -999,30 +1003,16 @@ character_event = {
 				}
 				save_event_target_as = selected_ward
 			}
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { NOT = { check_variable = { which = transfer_gold value = 20 } } }
-				export_to_variable = { which = transfer_gold value = wealth }
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-			ROOT = {
-				set_variable = { which = transfer_gold which = PREV }
-			}
-			multiply_variable = { which = transfer_gold value = -1 }
 		}
 	}
 	
 	# Force reparations
 	option = {
 		name = EVTOPTA_DRAGON.122
-		wealth = transfer_gold
+		wealth = local_attacker_pot
 		tooltip = {
 			event_target:challenger = {
-				wealth = transfer_gold
+				wealth = local_attacker_pay
 			}
 		}
 		if = {
@@ -1355,24 +1345,13 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.123
-		wealth = transfer_gold
+		wealth = local_attacker_pay
 		tooltip = {
 			event_target:challenged_party = {
-				wealth = transfer_gold
+				wealth = local_attacker_pot
 			}
-		}
-		if = {
-			limit = { has_character_flag = fled_from_raid }
-			prestige = -200
-		}
-		else = {
-			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = fled_from_raid }
@@ -1392,6 +1371,9 @@ character_event = {
 					hidden_tooltip = { character_event = { id = 38257 } }
 				}
 			}
+		}
+		else = {
+			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
@@ -1464,9 +1446,6 @@ character_event = {
         }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
-	}
 }
 
 # DRAGON.124 - Forced to owe a favor
@@ -1505,21 +1484,9 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	
-	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.124
 		tooltip = { event_target:challenged_party = { add_favor = event_target:challenger } }
-		if = {
-			limit = { has_character_flag = fled_from_raid }
-			prestige = -200
-		}
-		else = {
-			prestige = -100
-		}
 		if = {
 			limit = { has_character_flag = fled_from_raid }
 			prestige = -200
@@ -1538,6 +1505,9 @@ character_event = {
 					hidden_tooltip = { character_event = { id = 38257 } }
 				}
 			}
+		}
+		else = {
+			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
@@ -1650,20 +1620,12 @@ character_event = {
 	
 	
 	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
 		add_blood_splatter_effect = yes
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.125
 		tooltip = { event_target:challenged_party = { add_favor = event_target:challenger } }
-		if = {
-			limit = { has_character_flag = fled_from_raid }
-			prestige = -200
-		}
-		else = {
-			prestige = -100
-		}
 		if = {
 			limit = { has_character_flag = fled_from_raid }
 			prestige = -200
@@ -1682,6 +1644,9 @@ character_event = {
 					hidden_tooltip = { character_event = { id = 38257 } }
 				}
 			}
+		}
+		else = {
+			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
@@ -1814,9 +1779,6 @@ character_event = {
 		}
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
-	}
 }
 
 # DRAGON.126 - Attacker lost, killed
@@ -1839,11 +1801,6 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	
-	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.126
 		if = {
@@ -1855,9 +1812,6 @@ character_event = {
 		}
 		death = { death_reason = death_battle killer = FROM }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
-	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
 	}
 }
 # DRAGON.127 - Attacker loses, heir taken
@@ -1896,22 +1850,10 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	
-	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.127
 		event_target:selected_ward = {
 			set_guardian = FROM
-		}
-		if = {
-			limit = { has_character_flag = fled_from_raid }
-			prestige = -200
-		}
-		else = {
-			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = fled_from_raid }
@@ -1931,6 +1873,9 @@ character_event = {
 					hidden_tooltip = { character_event = { id = 38257 } }
 				}
 			}
+		}
+		else = {
+			prestige = -100
 		}
 		if = {
 			limit = { has_character_flag = dragon_raid_wounded }
@@ -1996,9 +1941,6 @@ character_event = {
         }
 		hidden_tooltip = { clear_dragon_raid_variables_flags = yes }
 	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
-	}
 }
 # DRAGON.128 - Defender wins but is injured, attacker survives
 character_event = {
@@ -2023,21 +1965,6 @@ character_event = {
 	immediate = {
 		# Determine reward
 		event_target:challenger = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { NOT = { check_variable = { which = transfer_gold value = 20 } } }
-				export_to_variable = { which = transfer_gold value = wealth }
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-			ROOT = {
-				set_variable = { which = transfer_gold which = event_target:challenger }
-			}
-			multiply_variable = { which = transfer_gold value = -1 }
-			
 			random_child = {
 				limit = {
 					is_adult = no
@@ -2052,10 +1979,10 @@ character_event = {
 	# Force reparations
 	option = {
 		name = EVTOPTA_DRAGON.122
-		wealth = transfer_gold
+		wealth = local_attacker_pot
 		tooltip = {
 			event_target:challenger = {
-				wealth = transfer_gold
+				wealth = local_attacker_pay
 			}
 		}
 		if = {
@@ -2411,10 +2338,6 @@ character_event = {
 			limit = { has_character_flag = gain_badly_bruised }
 			add_character_modifier = { modifier = badly_bruised months = 10 }
         }
-		hidden_tooltip = { 
-			set_variable = { which = transfer_gold value = 0 }
-			event_target:challenger = { set_variable = { which = transfer_gold value = 0 } }
-		}
 	}
 }
 
@@ -2427,29 +2350,13 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		# Determine reward
-		event_target:challenger = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { check_variable = { which = transfer_gold value < 20 } }
-				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-		}
-		set_variable = { which = transfer_gold which = event_target:challenger }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.118
-		wealth = transfer_gold
+		wealth = local_attacker_pot
 		prestige = 100
 		tooltip = {
 			event_target:challenger = {
+				wealth = local_attacker_pay
 				death = { death_reason = death_battle killer = ROOT }
 			}
 		}
@@ -2475,9 +2382,6 @@ character_event = {
 			clear_dragon_raid_variables_flags = yes
 		}
 	}
-	after = {
-		hidden_tooltip = { set_variable = { which = transfer_gold value = 0 } }
-	}
 }
 
 # DRAGON.130 - You died in battle
@@ -2489,20 +2393,11 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		multiply_variable = { which = transfer_gold value = -1 }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.130
-		wealth = transfer_gold
+		wealth = local_attacker_pay
 		prestige = -100
 		death = { death_reason = death_battle killer = FROM }
-	}
-	after = {
-		hidden_tooltip = {
-			set_variable = { which = transfer_gold value = 0 }
-		}
 	}
 }
 
@@ -2515,29 +2410,13 @@ character_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		# Determine reward
-		event_target:challenged_party = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { check_variable = { which = transfer_gold value < 20 } }
-				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-		}
-		set_variable = { which = transfer_gold which = event_target:challenged_party }
-	}
-	
 	option = {
 		name = EVTOPTA_DRAGON.118
-		wealth = transfer_gold
+		wealth = local_defender_pot
 		prestige = 100
 		tooltip = {
 			event_target:challenged_party = {
+				wealth = local_defender_pay
 				death = { death_reason = death_battle killer = ROOT }
 			}
 		}
@@ -2561,7 +2440,6 @@ character_event = {
 				character_event = { id = DRAGON.130 }
 			}
 			clear_dragon_raid_variables_flags = yes
-			set_variable = { which = transfer_gold value = 0 }
 		}
 	}
 }
@@ -2579,28 +2457,16 @@ character_event = {
 	
 	immediate = {
 		# Determine reward
-		event_target:challenger = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { check_variable = { which = transfer_gold value < 20 } }
-				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-		}
 		add_blood_splatter_effect = yes
-		set_variable = { which = transfer_gold which = event_target:challenger }
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.133
-		wealth = transfer_gold
+		wealth = local_attacker_pot
 		prestige = 100
 		tooltip = {
 			event_target:challenger = {
+				wealth = local_attacker_pay
 				death = { death_reason = death_battle killer = ROOT }
 			}
 		}
@@ -2686,7 +2552,6 @@ character_event = {
 				character_event = { id = DRAGON.130 }
 			}
 			clear_dragon_raid_variables_flags = yes
-			set_variable = { which = transfer_gold value = 0 }
 		}
 	}
 }
@@ -2701,28 +2566,16 @@ character_event = {
 	
 	immediate = {
 		# Determine reward
-		event_target:challenged_party = {
-			export_to_variable = { which = transfer_gold value = wealth }
-			divide_variable = { which = transfer_gold value = 2 }
-			if = {
-				limit = { check_variable = { which = transfer_gold value < 20 } }
-				export_to_variable = { which = transfer_gold value = wealth } # Take all of it if too low
-			}
-			else_if = {
-				limit = { check_variable = { which = transfer_gold value = 600 } }
-				set_variable = { which = transfer_gold value = 600 }
-			}
-		}
-		set_variable = { which = transfer_gold which = event_target:challenged_party }
 		add_blood_splatter_effect = yes
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.134
-		wealth = transfer_gold
+		wealth = local_defender_pay
 		prestige = 100
 		tooltip = {
 			event_target:challenged_party = {
+				wealth = local_defender_pay
 				death = { death_reason = death_battle killer = ROOT }
 			}
 		}
@@ -2808,7 +2661,6 @@ character_event = {
 				character_event = { id = DRAGON.130 }
 			}
 			clear_dragon_raid_variables_flags = yes
-			set_variable = { which = transfer_gold value = 0 }
 		}
 	}
 }

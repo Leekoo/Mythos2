@@ -320,7 +320,11 @@ decisions = {
 			religion = satanist
 		}
 		ai_will_do = {
-			factor = 0.5
+			factor = 0.02
+			modifier = {
+				factor = 5
+				liege = { religion = satanist }
+			}
 			modifier = {
 				factor = 0.1
 				trait = secret_vampire

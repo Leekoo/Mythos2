@@ -897,10 +897,7 @@ character_event = {
 	immediate = {
 		if = {
 			limit = {
-				NOR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
-				}
+				religion_openly_draconic_or_reformed_trigger = no
 			}
 			remove_character_modifier = unfit_flame_controller
 			break = yes
@@ -936,19 +933,18 @@ character_event = {
 	
 	trigger = {
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
 	immediate = {
 		any_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = { any_province_holding = { has_building = tp_eternal_flame } }
 			if = {
 				limit = {
 					ROOT = {
 						OR = {
-							religion = draconic_pagan
-							religion = draconic_pagan_reformed
+							religion_openly_draconic_or_reformed_trigger = yes
 						}
 					}
 				}
@@ -972,12 +968,9 @@ character_event = {
 	only_playable = yes
 	
 	trigger = {
-		NOR = {
-			religion = draconic_pagan
-			religion = draconic_pagan_reformed
-		}
+		religion_openly_draconic_or_reformed_trigger = no
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1062,10 +1055,7 @@ character_event = {
 			any_province_holding = {
 				has_building = tp_eternal_flame
 				owner = {
-					NOR = {
-						religion = draconic_pagan
-						religion = draconic_pagan_reformed
-					}
+					religion_openly_draconic_or_reformed_trigger = yes
 				}
 			}
 		}
@@ -1132,7 +1122,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 		any_vassal = {
 			trait = zealous
@@ -1162,28 +1152,28 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
 			any_demesne_province = {
-				has_building = tp_eternal_flame
+				any_province_holding = { has_building = tp_eternal_flame }
 				count = 5
 			}
 		}
@@ -1191,7 +1181,7 @@ character_event = {
 	
 	immediate = {
 		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = { any_province_holding = { has_building = tp_eternal_flame } }
 			save_event_target_as = upset_province
 		}
 		random_vassal = {
@@ -1232,7 +1222,7 @@ character_event = {
 			religion = the_damned
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 		any_courtier = {
 			is_landed = no
@@ -1319,7 +1309,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1523,7 +1513,7 @@ character_event = {
 			controls_religion = no
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 		}
 	}
 	
@@ -1583,7 +1573,7 @@ character_event = {
 	
 	trigger = {
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 			NOR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -1736,7 +1726,7 @@ character_event = {
 			religion = draconic_pagan_reformed
 		}
 		any_demesne_province = {
-			has_building = tp_eternal_flame
+			any_province_holding = { has_building = tp_eternal_flame }
 			OR = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
@@ -7569,100 +7559,20 @@ letter_event = {
 	is_triggered_only = yes
 	show_from_from = yes
 	
-	# Changed to only allow requests that will be accepted
-	
-	#immediate = {
-	#	export_to_variable = { which = currGold value = wealth }
-	#}
-	
 	option = {
 		name = EVTOPTA_DRAGON.90
-		FROMFROM = { letter_event = { id = DRAGON.91 days = 1 } }
+		FROMFROMFROM = { letter_event = { id = DRAGON.91 days = 1 } }
 		tooltip = {
-			FROMFROM = {
-				transfer_scaled_wealth = { from = ROOT value = 5 } # Might be too high - adjust value as needed. Also in next event
-				add_character_modifier = { modifier = begger years = 10 }
+			FROMFROMFROM = {
+				transfer_scaled_wealth = { from = ROOT value = 2 } 
+				add_character_modifier = { modifier = SF_loan years = 10 }
 			}
 		}
-		#ai_chance = {
-		#	factor = 10
-		#	modifier = {
-		#		factor = 0
-		#		check_variable = { which = GoldAmt which = currGold } # Can't afford
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		trait = charitable
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		FROMFROM = { NOT = { wealth = 0 } }
-		#	}
-		#	modifier = {
-		#		factor = 2
-		#		trait = kind
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 25 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 50 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 75 }
-		#	}
-		#	modifier = {
-		#		factor = 1.5
-		#		opinion = { who = FROMFROM value = 100 }
-		#	}
-		#}
 	}
-	
-	#option = {
-	#	name = EVTOPTB_DRAGON.90
-	#	FROMFROM = { letter_event = { id = DRAGON.92 days = 1 } }
-	#	ai_chance = {
-	#		factor = 10
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 25
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 50
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 75
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			ai_greed = 100
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -24 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -49 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -74 } }
-	#		}
-	#		modifier = {
-	#			factor = 1.5
-	#			NOT = { opinion = { who = FROMFROM value = -99 } }
-	#		}
-	#	}
-	#}
 	
 	after = {
 		opinion = { who = FROMFROM modifier = opinion_asked_for_gold }
+		FROMFROMFROM = { character_event = { id = DRAGON.173 years = 1 } }
 	}
 }
 
@@ -7675,9 +7585,9 @@ letter_event = {
 	
 	option = {
 		name = EVTOPT_DRAGON.91
-		transfer_scaled_wealth = { from = FROM value = 5 }
-		add_character_modifier = { modifier = begger years = 10 }
-		custom_tooltip = { text = purity_down_3 }
+		transfer_scaled_wealth = { from = FROM value = 2 }
+		add_character_modifier = { modifier = SF_loan years = 10 }
+		hidden_tooltip = { set_variable = { which = years_SF_loan value = 0 } } # Used for telling you when it's over
 	}
 }
 
@@ -8203,43 +8113,43 @@ letter_event = {
 	}
 }
 
-# DRAGON.104 - On reformation, the Sapphire Flame is always created from one of your vassals instead of leaving it to the decision. So, remove it.
-# Can't simply remove it.  Using an event to set a flag, then a separate event the removes it when received and unsets it
-character_event = {
-	id = DRAGON.104
-	hide_window = yes
-	is_triggered_only = yes
-	
-	religion = draconic_pagan_reformed
-	
-	trigger = {
-		OR = {
-			NOT = { has_dlc = "Holy Fury" }
-			has_religion_feature = religion_theocratic_head
-		}
-	}
-	
-	immediate = {
-		#k_draconic_pagan_reformed = {
-		#	holder_scope = {
-		#		activate_title = { title = k_draconic_pagan_reformed status = no }
-		#		set_defacto_liege = ROOT
-		#	}
-		#}
-		set_global_flag = deactivate_sapphire_flame
-		set_character_flag = reformed_draconic_paganism
-		k_draconic_pagan_reformed = {
-			holder_scope = {
-				k_draconic_pagan_reformed = {
-					activate_title = { title = THIS status = no }
-					destroy_landed_title = THIS
-				}
-				set_defacto_liege = ROOT
-			}
-		}
-		piety = 500
-	}
-}
+## DRAGON.104 - On reformation, the Sapphire Flame is always created from one of your vassals instead of leaving it to the decision. So, remove it.
+## Can't simply remove it.  Using an event to set a flag, then a separate event the removes it when received and unsets it
+#character_event = {
+#	id = DRAGON.104
+#	hide_window = yes
+#	is_triggered_only = yes
+#	
+#	religion = draconic_pagan_reformed
+#	
+#	trigger = {
+#		OR = {
+#			NOT = { has_dlc = "Holy Fury" }
+#			has_religion_feature = religion_theocratic_head
+#		}
+#	}
+#	
+#	immediate = {
+#		#k_draconic_pagan_reformed = {
+#		#	holder_scope = {
+#		#		activate_title = { title = k_draconic_pagan_reformed status = no }
+#		#		set_defacto_liege = ROOT
+#		#	}
+#		#}
+#		set_global_flag = deactivate_sapphire_flame
+#		set_character_flag = reformed_draconic_paganism
+#		k_draconic_pagan_reformed = {
+#			holder_scope = {
+#				k_draconic_pagan_reformed = {
+#					activate_title = { title = THIS status = no }
+#					destroy_landed_title = THIS
+#				}
+#				set_defacto_liege = ROOT
+#			}
+#		}
+#		piety = 500
+#	}
+#}
 
 # Take half of a character's wealth after draconic tribute war
 character_event = {
@@ -9793,5 +9703,80 @@ character_event = {
 		any_tributary = {
 			character_event = { id = DRAGON.170 days = 1 }
 		}
+	}
+}
+
+# Sapphire Flame cannot afford your requested loan
+character_event = {
+	id = DRAGON.171
+	desc = EVTDESC_DRAGON.171
+	picture = GFX_evt_dragon_horde
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAHF20017
+	}
+}
+
+# Make sure loan will be accepted.  Redo math in case of issues
+character_event = {
+	id = DRAGON.172
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { NOT = { check_variable = { which = local_ai_acceptance_score value = 1 } } }
+			FROMFROM = { letter_event = { id = DRAGON.92 } }
+			break = yes
+		}
+		export_to_variable = { which = GoldAmt value = yearly_income who = FROMFROM }
+		multiply_variable = { which = GoldAmt value = 2 }
+		export_to_variable = { which = MyGoldAmt value = wealth }
+		if = {
+			limit = {
+				NOT = { check_variable = { which = MyGoldAmt which = GoldAmt } }
+			}
+			FROMFROM = {
+				character_event = { id = DRAGON.171 }
+			}
+			break = yes
+		}
+		letter_event = { id = DRAGON.90 }
+	}
+}
+
+# Pay back Sapphire Flame for loan
+character_event = {
+	id = DRAGON.173
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		change_variable = { which = years_SF_loan value = 1 }
+		transfer_scaled_wealth = { to = FROM value = 0.25 }
+		if = {
+			limit = { check_variable = { which = years_SF_loan value = 10 } }
+			character_event = { id = DRAGON.174 }
+			set_variable = { which = years_SF_loan value = 0 }
+		}
+		else = {
+			repeat_event = { id = DRAGON.173 years = 1 }
+		}
+	}
+}
+
+# Announce end of loan
+character_event = {
+	id = DRAGON.174
+	desc = EVTDESC_DRAGON.174
+	picture = GFX_evt_dragon_face
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA3542
+		remove_character_modifier = SF_loan
 	}
 }

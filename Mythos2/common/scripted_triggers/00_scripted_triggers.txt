@@ -1945,6 +1945,7 @@ sad_example_trigger = {
 			OR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = known_werewolf
 				trait = half_giant
 			}
@@ -1960,6 +1961,7 @@ sad_example_trigger = {
 			NOR = {
 				trait = dragonborn
 				trait = blood_of_the_gods
+				any_owned_bloodline = { has_bloodline_flag = BOTG }
 				trait = known_werewolf
 				trait = half_giant
 				trait = dragon
@@ -2153,6 +2155,7 @@ block_general_event_trigger = {
 		trait = incapable
 		prisoner = yes
 		is_inaccessible_trigger = yes
+		trait = zombie
 		hidden_trigger = { is_alive = no }
 	}
 }
@@ -7920,6 +7923,9 @@ parent_for_elective_succession_trigger = {
 			trait = horse
 			trait = eunuch
 			trait = bastard
+			trait = demon_trait
+			trait = ethereal_trait
+			trait = zombie
 			is_ascetic_trigger = yes
 			is_theocracy = yes
 			is_republic = yes
@@ -8084,6 +8090,10 @@ this_has_execution_reason_opinion_trigger = {
 		has_opinion_modifier = { who = THIS modifier = opinion_mutilated_close_kin }
 		has_opinion_modifier = { who = THIS modifier = opinion_outlawed_society }
 		has_opinion_modifier = { who = THIS modifier = opinion_accused_apostate }
+		has_opinion_modifier = { who = THIS modifier = newly_found_werewolf }
+		has_opinion_modifier = { who = THIS modifier = newly_found_vampire }
+		has_opinion_modifier = { who = THIS modifier = opinion_monster }
+		has_opinion_modifier = { who = THIS modifier = killed_protected }
 	}
 }
 
@@ -8117,6 +8127,10 @@ root_has_execution_reason_opinion_trigger = {
 		has_opinion_modifier = { who = ROOT modifier = opinion_mutilated_close_kin }
 		has_opinion_modifier = { who = ROOT modifier = opinion_outlawed_society }
 		has_opinion_modifier = { who = ROOT modifier = opinion_accused_apostate }
+		has_opinion_modifier = { who = ROOT modifier = newly_found_werewolf }
+		has_opinion_modifier = { who = ROOT modifier = newly_found_vampire }
+		has_opinion_modifier = { who = ROOT modifier = opinion_monster }
+		has_opinion_modifier = { who = ROOT modifier = killed_protected }
 	}
 }
 
@@ -8170,6 +8184,11 @@ root_has_imprisonment_reason_opinion_trigger = {
 		has_opinion_modifier = { who = ROOT modifier = opinion_thief }
 		has_opinion_modifier = { who = ROOT modifier = opinion_outlawed_society }
 		has_opinion_modifier = { who = ROOT modifier = opinion_accused_apostate }
+		has_opinion_modifier = { who = ROOT modifier = newly_found_werewolf }
+		has_opinion_modifier = { who = ROOT modifier = newly_found_vampire }
+		has_opinion_modifier = { who = ROOT modifier = opinion_monster }
+		has_opinion_modifier = { who = ROOT modifier = killed_protected }
+		has_opinion_modifier = { who = ROOT modifier = attacked_protected }
 	}
 }
 

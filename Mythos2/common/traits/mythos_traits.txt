@@ -172,10 +172,10 @@ god = {
 	
 	immortal = yes
 	
-	same_religion_opinion = 20
+	same_religion_opinion = 15
 	levy_size = 1
 	
-	health = 20
+	health = 18
 	martial = 20
 	diplomacy = 20
 	stewardship = 20
@@ -191,7 +191,7 @@ god = {
 		damage = 0.5
 	}
 	
-	monthly_character_prestige = 10
+	monthly_character_prestige = 9
 	
 	ai_ambition = -10
 	
@@ -202,19 +202,19 @@ demi_god = {
 
 	opposites = { god }
 	
-	same_religion_opinion = 10
+	same_religion_opinion = 5
 	levy_size = 0.5
 	
-	health = 10
+	health = 8
 	martial = 5
 	diplomacy = 3
 	stewardship = 3
 	intrigue = 3
 	learning = 5
 	
-	combat_rating = 30
+	combat_rating = 25
 	
-	monthly_character_prestige = 1
+	monthly_character_prestige = 0.75
 	
 	ai_ambition = 20
 	
@@ -329,6 +329,7 @@ dragon = {
 	stewardship = 2
 	martial = 2
 	health = 10
+	fertility = -0.3 # To make up for longevity
 	
 	combat_rating = 30
 	
@@ -1976,4 +1977,45 @@ natural_magic_4 = {
 	muslim_opinion = 20
 	
 	customizer = no
+}
+draconic_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		terrain = mountain
+		terrain = hills
+		damage = 0.1
+		dragon_cavalry_offensive = 0.1
+	}
+}
+kemetic_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		morale_offence = 0.2
+		speed = 0.1
+		terrain = desert
+		terrain = plains
+	}
+}
+druidic_leader = {
+	leader = yes
+	random = no
+	attrition = -0.1
+	days_of_supply = 10
+	command_modifier = {
+		speed = 0.2
+		terrain = forest
+		terrain = plains
+	}
+}
+jotnar_leader = {
+	leader = yes
+	random = no
+	command_modifier = {
+		damage = 0.1
+		morale_offence = 0.1
+		terrain = mountain
+		heavy_infantry = 0.15
+	}
 }

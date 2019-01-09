@@ -138,7 +138,7 @@ tribal = {
 		build_time = 625
 		
 		convert_to_castle = ca_dragon_tower_1
-		convert_to_city = ct_dragon_tower_1
+		#convert_to_city = ct_dragon_tower_1
 		
 		extra_tech_building_start = 10.0
 	}
@@ -212,7 +212,7 @@ tribal = {
 		build_time = 1020
 		
 		convert_to_castle = ca_dragon_tower_2
-		convert_to_city = ct_dragon_tower_2
+		#convert_to_city = ct_dragon_tower_2
 		
 		extra_tech_building_start = 10.0
 	}
@@ -402,50 +402,7 @@ tribal = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = draconic }
-				FROMFROM = {
-					has_building = tb_dragon_militia_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = draconic }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -519,50 +476,7 @@ tribal = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = draconic }
-				FROMFROM = {
-					has_building = tb_dragon_militia_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = draconic }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -638,50 +552,7 @@ tribal = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = draconic }
-				FROMFROM = {
-					has_building = tb_dragon_militia_3
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = draconic }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -755,50 +626,7 @@ tribal = {
 		desc = ca_dragon_militia_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = draconic }
-				FROMFROM = {
-					has_building = tb_dragon_militia_4
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = draconic }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -994,7 +822,7 @@ tribal = {
 		build_time = 250
 		
 		convert_to_castle = ca_werewolf_lodge_1
-		convert_to_city = ct_werewolf_lodge_1
+		#convert_to_city = ct_werewolf_lodge_1
 		
 		extra_tech_building_start = 10.0
 	}
@@ -1096,50 +924,7 @@ tribal = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = werewolf_culture }
-				FROMFROM = {
-					has_building = tb_werewolf_soldiers_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = werewolf_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -1214,50 +999,7 @@ tribal = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = werewolf_culture }
-				FROMFROM = {
-					has_building = tb_werewolf_soldiers_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = werewolf_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -1334,50 +1076,7 @@ tribal = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = werewolf_culture }
-				FROMFROM = {
-					has_building = tb_werewolf_soldiers_3
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = werewolf_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -1452,50 +1151,7 @@ tribal = {
 		desc = ca_werewolf_soldiers_desc
 
 		potential = {
-			OR = {
-				holder_scope = { culture = werewolf_culture }
-				FROMFROM = {
-					has_building = tb_werewolf_soldiers_4
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_vampire_catacomb_1
-							has_building = tb_giant_arena_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = werewolf_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -1702,7 +1358,7 @@ tribal = {
 		build_time = 1825
 		
 		convert_to_castle = ca_vampire_citadel_1
-		convert_to_city = ct_vampire_mansion
+		#convert_to_city = ct_vampire_mansion
 		
 		extra_tech_building_start = 10.0
 	}
@@ -1812,50 +1468,7 @@ tribal = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = vampire_culture }
-				FROMFROM = {
-					has_building = tb_vampire_catacomb_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = vampire_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -1930,50 +1543,7 @@ tribal = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = vampire_culture }
-				FROMFROM = {
-					has_building = tb_vampire_catacomb_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_giant_arena_1
-							has_building = tb_ritual_crypt_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = vampire_culture }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 3
@@ -2051,50 +1621,7 @@ tribal = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = vampire_culture }
-				FROMFROM = {
-					has_building = tb_vampire_catacomb_3
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_giant_arena_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = vampire_culture }
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 5
@@ -2170,50 +1697,7 @@ tribal = {
 		desc = ca_vampire_catacomb_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = vampire_culture }
-				FROMFROM = {
-					has_building = tb_vampire_catacomb_4
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_giant_arena_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = vampire_culture }
 		}
 		trigger = { 
 			TECH_CASTLE_CONSTRUCTION = 7
@@ -2436,7 +1920,7 @@ tribal = {
 		build_time = 550
 		
 		convert_to_castle = ca_giant_hall
-		convert_to_city = ct_giant_mansion
+		#convert_to_city = ct_giant_mansion
 		
 		extra_tech_building_start = 10.0
 	}
@@ -2516,50 +2000,7 @@ tribal = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = jotunn }
-				FROMFROM = {
-					has_building = tb_giant_arena_1
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = jotunn }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 0
@@ -2578,7 +2019,7 @@ tribal = {
 				}
 			}
 		}
-		prerequisites = { tb_wall_2 }
+		prerequisites = { tb_hillfort_2 }
 		
 		prestige_cost = 100
 		build_time = 730
@@ -2594,50 +2035,7 @@ tribal = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = jotunn }
-				FROMFROM = {
-					has_building = tb_giant_arena_2
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = jotunn }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 1
@@ -2673,50 +2071,7 @@ tribal = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = jotunn }
-				FROMFROM = {
-					has_building = tb_giant_arena_3
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = jotunn }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 2
@@ -2750,50 +2105,7 @@ tribal = {
 		desc = ca_giant_arena_desc
 		
 		potential = {
-			OR = {
-				holder_scope = { culture = jotunn }
-				FROMFROM = {
-					has_building = tb_giant_arena_4
-					NOT = {
-						calc_true_if = {
-							amount = 1
-							has_building = tb_ritual_crypt_1
-							has_building = tb_culture_saxon_english_1
-							has_building = tb_culture_scottish_1
-							has_building = tb_culture_group_baltic_1
-							has_building = tb_culture_group_altaic_1
-							has_building = tb_culture_frank_norman_german_1
-							has_building = tb_culture_group_iberian_1
-							has_building = tb_culture_italian_1
-							has_building = tb_culture_russian_1
-							has_building = tb_culture_group_north_germanic_1
-							has_building = tb_culture_hungarian_1
-							has_building = tb_culture_group_arabic_1
-							has_building = tb_culture_group_byzantine_1
-							has_building = tb_culture_irish_1
-							has_building = tb_culture_ethiopian_1
-							has_building = tb_culture_somali_1
-							has_building = tb_culture_west_african_1
-							has_building = tb_culture_group_south_slavic_1
-							has_building = tb_culture_dutch_1
-							has_building = tb_culture_nahuatl_1
-							has_building = tb_culture_jewish_1
-							has_building = tb_culture_indian_1
-							has_building = tb_culture_nubian_1
-							has_building = tb_culture_germanic_1
-							has_building = tb_culture_pictish_1
-							has_building = tb_culture_suebi_1
-							has_building = tb_culture_moors_1
-							has_building = tb_culture_chinese_han_1
-							has_building = tb_culture_altaic_jurchen_1
-							has_building = tb_culture_tibetan_1
-							has_building = tb_dragon_militia_1
-							has_building = tb_werewolf_soldiers_1
-							has_building = tb_vampire_catacomb_1
-						}
-					}
-				}
-			}
+			holder_scope = { culture = jotunn }
 		}
 		trigger = {
 			TECH_CASTLE_CONSTRUCTION = 4
@@ -2867,6 +2179,7 @@ tribal = {
 					trait = god
 					trait = demi_god
 					trait = blood_of_the_gods
+					any_owned_bloodline = { has_bloodline_flag = BOTG }
 				}
 			}
 			owner = {
@@ -3019,7 +2332,7 @@ tribal = {
 		extra_tech_building_start = 10.0
 		
 		convert_to_castle = ca_mummy_necropolis
-		convert_to_city = ct_mummy_necropolis
+		#convert_to_city = ct_mummy_necropolis
 	}
 	# Mummy Holding
 	tb_mummy_mastaba = {
@@ -3133,7 +2446,7 @@ tribal = {
 		extra_tech_building_start = 10.0
 		
 		convert_to_castle = ca_djinni_caves
-		convert_to_city = ct_djinni_caves
+		#convert_to_city = ct_djinni_caves
 	}
 	# Djinn Holding
 	tb_djinni_town = {
@@ -3243,5 +2556,269 @@ tribal = {
 		prestige_cost = 150
 		build_time = 350
 		extra_tech_building_start = 10.0
+	}
+	
+	# Necromancer Building
+	tb_ritual_crypt_1 = {
+		desc = ca_ritual_crypt_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 1
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			# No other special troop
+			holder_scope = { trait = necromancer }
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+			
+		ai_creation_factor = 90
+
+		gold_cost = 200
+		build_time = 730
+
+		zombie_troops = 25
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 2.0
+	}
+	tb_ritual_crypts_2 = {
+		desc = tb_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 3
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_1
+		ai_creation_factor = 90
+
+		gold_cost = 300
+		build_time = 1095
+
+		zombie_troops = 35
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 4.0
+	}
+	tb_ritual_crypts_3 = {
+		desc = tb_citual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 5
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_2
+		ai_creation_factor = 90
+
+		gold_cost = 400
+		build_time = 2190
+
+		zombie_troops = 50
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 6.0
+	}
+	tb_ritual_crypts_4 = {
+		desc = tb_ritual_crypts_desc
+
+		potential = {
+			holder_scope = { trait = necromancer }
+		}
+		trigger = {
+			TECH_CASTLE_CONSTRUCTION = 7
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+		}
+		is_active_trigger = {
+			holder_scope = { trait = necromancer }
+			# No other special troop
+			custom_tooltip = {
+				text = tt_no_other_special_troop
+				hidden_tooltip = {
+					FROMFROM = {
+						NOR = {
+							has_building = tb_dragon_tower_1
+							has_building = tb_dragon_militia_1
+							has_building = tb_werewolf_lodge_1
+							has_building = tb_werewolf_soldiers_1
+							has_building = tb_culture_group_altaic_1
+							has_building = tb_culture_group_arabic_1
+							has_building = tb_culture_group_byzantine_1
+							has_building = tb_culture_indian_1
+							has_building = tb_culture_moors_1
+							has_building = tb_vampire_catacomb
+						}
+					}
+				}
+			}
+			owner = {
+				NOR = {
+					government = zombie_horde
+					trait = zombie
+				}
+			}
+		}
+		upgrades_from = tb_ritual_crypts_3
+		ai_creation_factor = 90
+
+		gold_cost = 500
+		build_time = 2190
+
+		zombie_troops = 75
+		zombie_troops_offensive = 0.1
+
+		extra_tech_building_start = 8.0
 	}
 }

@@ -9,6 +9,7 @@ dragon_cavalry = {
 	phase_pursue_defense = 15
 	base_type = knights
 }
+# Generally behaves like heavy infantry, but acts more like cavalry in charge tactics.
 lycan_berzerkers = {
 	morale = 10
 	maintenance = 5
@@ -31,6 +32,7 @@ vampires = {
 	phase_pursue_defense = 1.5
 	base_type = light_infantry
 }
+# Generally only shambles towards the enemy. Terrible at charging
 zombie_troops = {
 	morale = 100
 	maintenance = 0.01
@@ -53,6 +55,7 @@ einherjar = {
 	phase_pursue_defense = 2.5
 	base_type = heavy_infantry
 }
+# Very good at "heroic" tactics or zeal tactics
 angels = {
 	morale = 10
 	maintenance = 4
@@ -97,6 +100,7 @@ demons = {
 	phase_pursue_defense = 1
 	base_type = knights
 }
+# Generally behaves like heavy infantry, but terrible at charging
 golems = {
 	morale = 25
 	maintenance = 8

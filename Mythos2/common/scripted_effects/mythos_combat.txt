@@ -256,7 +256,10 @@ set_werewolf_fitness = {
 		change_variable = { which = fitness value = 2 }
 	}
 	if = {
-		limit = { trait = blood_of_the_gods }
+		limit = {
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
 		change_variable = { which = fitness value = 1 }
 	}
 	if = {
@@ -1103,7 +1106,10 @@ get_health = {
 		change_variable = { which = var_health value = 10 }
 	}
 	if = {
-		limit = { trait = blood_of_the_gods }
+		limit = {
+			trait = blood_of_the_gods
+			any_owned_bloodline = { has_bloodline_flag = BOTG }
+		}
 		change_variable = { which = var_health value = 2 }
 	}
 	if = {

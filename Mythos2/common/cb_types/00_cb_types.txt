@@ -7090,7 +7090,7 @@ bid_for_independence = {
 		}
 		any_attacker = {
 			limit = { trait = zombie }
-			death = death_vanished
+			death = { death_reason =  death_vanished }
 		}
 		FROM = {
 			prestige = 50

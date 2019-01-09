@@ -1385,7 +1385,11 @@ cb_reclaim_defaulted_loan = {
 	
 	on_add = {
 		hidden_tooltip = { fire_haruspicy_event_effect = yes }
-		ROOT = { set_variable = { which = local_payment which = loan_amount who = FROM } }
+		FROM = { set_variable = { which = local_temp which = loan_amount } }
+		ROOT = {
+			set_variable = { which = local_temp which = FROM }
+			set_variable = { which = local_payment which = local_temp }
+		}
 	}
 	
 	on_success = {
@@ -1577,7 +1581,7 @@ zombie_uprising = {
 	on_fail = {
 		ROOT = {
 			clear_wealth = yes
-			death = death_vanished
+			death = { death_reason = death_vanished }
 			clr_character_flag = zombie_revolter
 		}
 		FROM = {
@@ -1599,7 +1603,7 @@ zombie_uprising = {
 		}
 		ROOT = {
 			clear_wealth = yes
-			death = death_vanished
+			death = { death_reason = death_vanished }
 		}
 	}
 	

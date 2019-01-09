@@ -1950,9 +1950,31 @@ defined_text = {
 		}
 	}
 	text = {
-		localisation_key = "[GetPurityTooltip_Begger]"
+		localisation_key = "[GetPurityTooltip_Warrior]"
 		trigger = {
 			NOT = { has_character_modifier = potion_of_purity }
+		}
+	}
+}
+
+defined_text = {
+	name = GetPurityTooltip_Warrior
+	text = {
+		localisation_key = tt_purity_warrior
+		trigger = {
+			is_in_society = warrior_lodge_draconic
+			society_rank >= 3
+			NOT = { trait = dragon }
+		}
+	}
+	text = {
+		localisation_key = "[GetPurityTooltip_Begger]"
+		trigger = {
+			OR = {
+				NOT = { is_in_society = warrior_lodge_draconic }
+				society_rank < 3
+				trait = dragon
+			}
 		}
 	}
 }
@@ -1972,17 +1994,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_christian_vice_virtue = yes
-			use_aztec_vice_virtue = yes
+			is_chaste_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_chaste_vice = yes
 		}
 	}
 }
@@ -1992,20 +2010,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_temperate_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_temperate_vice = yes
 		}
 	}
 }
@@ -2015,21 +2026,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_charitable_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_satanist_vice_virtue = yes
-			}
+			is_charitable_vice = yes
 		}
 	}
 }
@@ -2039,20 +2042,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_diligent_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = yes
-			use_undead_vice_virtue = yes
+			is_diligent_vice = yes
 		}
 	}
 }
@@ -2062,22 +2058,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_patient_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_patient_vice = yes
 		}
 	}
 }
@@ -2087,23 +2074,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_kind_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_kind_vice = yes
 		}
 	}
 }
@@ -2113,19 +2090,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-			}
+			is_humble_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_satanist_vice_virtue = yes
-			}
+			is_humble_vice = yes
 		}
 	}
 }
@@ -2135,19 +2106,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_lustful_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_lustful_vice = yes
 		}
 	}
 }
@@ -2157,20 +2122,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_gluttonous_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-			}
+			is_gluttonous_vice = yes
 		}
 	}
 }
@@ -2180,21 +2138,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-			}
+			is_greedy_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_greedy_vice = yes
 		}
 	}
 }
@@ -2204,17 +2154,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_slothful_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_satanist_vice_virtue = no
-			use_undead_vice_virtue = no
+			is_slothful_vice = yes
 		}
 	}
 }
@@ -2224,22 +2170,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_wroth_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_wroth_vice = yes
 		}
 	}
 }
@@ -2249,17 +2186,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_satanist_vice_virtue = yes
+			is_envious_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_envious_vice = yes
 		}
 	}
 }
@@ -2269,20 +2202,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_satanist_vice_virtue = yes
-				use_draconic_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-			}
+			is_proud_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_christian_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-			}
+			is_proud_vice = yes
 		}
 	}
 }
@@ -2292,13 +2218,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_norse_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_brave_virtue = yes
 		}
 	}
 }
@@ -2308,19 +2228,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_just_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_undead_vice_virtue = yes
+			is_just_vice = yes
 		}
 	}
 }
@@ -2330,7 +2244,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_draconic_vice_virtue = yes
+			is_ambitious_virtue = yes
 		}
 	}
 }
@@ -2340,13 +2254,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_norse_vice_virtue = yes
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_craven_vice = yes
 		}
 	}
 }
@@ -2356,22 +2264,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_arbitrary_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_aztec_vice_virtue = yes
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-				use_norse_vice_virtue = yes
-			}
+			is_arbitrary_vice = yes
 		}
 	}
 }
@@ -2381,10 +2280,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_draconic_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_paranoid_vice = yes
 		}
 	}
 }
@@ -2394,7 +2290,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_tengri_vice_virtue = yes
+			is_trusting_virtue = yes
 		}
 	}
 }
@@ -2404,19 +2300,13 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			OR = {
-				use_black_flame_vice_virtue = yes
-				use_undead_vice_virtue = yes
-			}
+			is_cruel_virtue = yes
 		}
 	}
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			OR = {
-				use_zoroastrian_vice_virtue = yes
-				use_tengri_vice_virtue = yes
-			}
+			is_cruel_vice = yes
 		}
 	}
 }
@@ -2426,7 +2316,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_vice
 		trigger = {
-			use_black_flame_vice_virtue = yes
+			is_content_vice = yes
 		}
 	}
 }
@@ -2436,7 +2326,7 @@ defined_text = {
 	text = {
 		localisation_key = tt_trait_virtue
 		trigger = {
-			use_norse_vice_virtue = yes
+			is_honest_virtue = yes
 		}
 	}
 }
@@ -6502,5 +6392,332 @@ defined_text = {
 				}
 			}
 		}
+	}
+}
+# Some gods on the draconic pilgrimage need to change if religion is matriarichal
+defined_text = {
+	name = GetDewiSybaris
+	text = {
+		localisation_key = GOD_DRAGON_DEWI
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_SYBARIS
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_text = {
+	name = GetLandvaettirKampe
+	text = {
+		localisation_key = GOD_DRAGON_LANDVAETTUR
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_KAMPE
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_text = {
+	name = GetWawelDelphyne
+	text = {
+		localisation_key = GOD_DRAGON_WAWEL
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_DELPHYNE
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_text = {
+	name = GetZirnitraEchidna
+	text = {
+		localisation_key = GOD_DRAGON_ZIRNITA
+		trigger = {
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+	}
+	text = {
+		localisation_key = GOD_DRAGON_ECHIDNA
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+	}
+}
+defined_text = {
+	name = GetName_Odin
+	text = {
+		localisation_key = GOD_ODIN_ENGLISH
+		trigger = {
+			OR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_SAXON
+		trigger = {
+			culture_group = west_germanic
+			NOR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_ODIN_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_ODIN_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Thor
+	text = {
+		localisation_key = GOD_THOR_ENGLISH
+		trigger = {
+			OR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_SAXON
+		trigger = {
+			culture_group = west_germanic
+			NOR = {
+				culture = saxon # Anglo-Saxon
+				culture = english
+			}
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_THOR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_THOR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Loki
+	text = {
+		localisation_key = GOD_LOKI_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Heimdal
+	text = {
+		localisation_key = GOD_HEIMDAL_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_HEIMDAL_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Tyr
+	text = {
+		localisation_key = GOD_TYR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_TYR_ENGLISH
+		trigger = {
+			culture_group = west_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_TYR_GERMAN
+		trigger = {
+			culture_group = central_germanic
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_TYR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Njorthr
+	text = {
+		localisation_key = GOD_NJORTHR_NORWEGIAN
+		trigger = {
+			culture = norwegian
+		}
+	}
+	text = {
+		localisation_key = GOD_NJORTHR_NORSE
+		trigger = {
+			culture_group = north_germanic
+			NOT = { culture = norwegian }
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_NJORTHR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Freyr
+	text = {
+		localisation_key = GOD_FREYR_NORSE
+		trigger = {
+			culture_group = north_germanic
+		}
+	}
+	text = {
+		localisation_key = GOD_FREYR_SAXON
+		trigger = {
+			culture = old_saxon
+		}
+	}
+	fallback_text = {
+		localisation_key = GOD_FREYR_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Freyja
+	fallback_text = {
+		localisation_key = GOD_FREYJA_DEFAULT
+	}
+}
+defined_text = {
+	name = GetName_Sif
+	fallback_text = {
+		localisation_key = GOD_SIF_DEFAULT
+	}
+}
+defined_text = {
+	name = GetCaelusUranusName
+	text = {
+		localisation_key = GOD_URANUS_LATIN
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = String_Uranus_english
+	}
+}
+defined_text = {
+	name = GetHellenicPagan_Greek_Roman
+	text = {
+		localisation_key = roman
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = greek
+	}
+}
+defined_text = {
+	name = GetGreekPallas
+	text = {
+		localisation_key = ""
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+	}
+	fallback_text = {
+		localisation_key = ATHENA_PALLAS_PREFIX
+	}
+}
+defined_text = {
+	name = GetPhobosTimorusName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_TIMORUS
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_PHOBOS
+	}
+
+	fallback_text = {
+		localisation_key = GOD_PHOBOS
+	}
+}
+defined_text = {
+	name = GetDeimosFormidoName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_FORMIDO
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_DEIMOS
+	}
+
+	fallback_text = {
+		localisation_key = GOD_DEIMOS
+	}
+}
+defined_text = {
+	name = GetGaiaTerraName
+	text = {
+		trigger = {
+			has_global_flag = flag_hellenic_imperial_reformation
+		}
+		localisation_key = GOD_TERRA
+	}
+	text = {
+		trigger = {
+			NOT = { has_global_flag = flag_hellenic_imperial_reformation }
+		}
+		localisation_key = GOD_GAIA
+	}
+
+	fallback_text = {
+		localisation_key = GOD_GAIA
+	}
+}
+defined_text = {
+	name = GetApolloName
+	# Same name for Greeks and Romans
+	text = {
+		trigger = { always = yes }
+		localisation_key = GOD_APOLLO
 	}
 }
