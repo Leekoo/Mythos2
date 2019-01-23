@@ -5552,6 +5552,19 @@ character_event = {
 			has_dlc = "Holy Fury"
 			is_member_of_any_warrior_lodge_trigger = yes
 			has_religion_matching_joined_warrior_lodge_trigger = yes
+			event_target:captured_commander = {
+				OR = {
+					NOT = { trait = god }
+					NOT = { religion_group = ROOT }
+					AND = { 
+						religion_group = pagan_group
+						NOR = {
+							religion = ROOT
+							is_heresy_of = ROOT
+						}
+					}
+				}
+			}
 		}
 	}
 	# Non-Warrior Lodge members only...
