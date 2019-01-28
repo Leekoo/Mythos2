@@ -3075,6 +3075,10 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = immune_rabies }
+					NOR = {
+						race_disease_resist = yes
+						race_disease_immune = yes
+					}
 				}
 				if = {
 					limit = {
@@ -3128,6 +3132,10 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = immune_rabies }
+					NOR = {
+						race_disease_resist = yes
+						race_disease_immune = yes
+					}
 				}
 				if = {
 					limit = {
