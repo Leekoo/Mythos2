@@ -155,19 +155,19 @@ letter_event = {
 			}
 			modifier = {
 				factor = 1.2
-				FROM = { diplomacy = 10 }
+				FROMFROM = { diplomacy = 10 }
 			}
 			modifier = {
 				factor = 1.2
-				FROM = { diplomacy = 20 }
+				FROMFROM = { diplomacy = 20 }
 			}
 			modifier = {
 				factor = 1.2
-				FROM = { diplomacy = 30 }
+				FROMFROM = { diplomacy = 30 }
 			}
 			modifier = {
 				factor = 1.2
-				FROM = { diplomacy = 40 }
+				FROMFROM = { diplomacy = 40 }
 			}
 			modifier = {
 				factor = 1.2
@@ -181,7 +181,11 @@ letter_event = {
 			}
 			modifier = {
 				factor = 5
-				religion = satanist
+				OR = {
+					religion = satanist
+					secret_religion = satanist
+					is_in_society = the_satanists
+				}
 			}
 			# Characters who need supernatural healing likely to accept. Covers less than Werewolf
 			modifier = {
@@ -202,7 +206,7 @@ letter_event = {
 			}
 			modifier = {
 				factor = 1.5
-				is_friend = FROM
+				is_friend = FROMFROM
 			}
 			modifier = {
 				factor = 3
