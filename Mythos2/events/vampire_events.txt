@@ -40,7 +40,16 @@ character_event = {
 	trigger = {
 		trait = vampire 
 		spouse = {
-			NOT = { trait = vampire }
+			NOR = {
+				trait = vampire
+				trait = werewolf
+				trait = monster_hunter
+				trait = god
+				trait = zombie
+				trait = dragon
+				trait = djinn
+				trait = giant
+			}
 		}
 	}
 	
@@ -12545,5 +12554,1307 @@ character_event = {
 		else = {
 			prestige = 20
 		}
+	}
+}
+
+# 192 - Chance to feed on a minor character - determine character type
+character_event = {
+	id = VAMPIRE.192
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = vampire
+		OR = {
+			trait = hunger_1
+			trait = hunger_2
+			trait = hunger_3
+			trait = hunger_4
+			trait = hunger_5
+		}
+	}
+	
+	immediate = {
+		random_list = {
+			# Maid
+			10 = {
+				modifier = {
+					OR = {
+						AND = {
+							is_female = no
+							NOT = { trait = homosexual }
+						}
+						AND = {
+							is_female = yes
+							trait = homosexual
+						}
+					}
+					factor = 2
+				}
+				set_character_flag = vampire_mini_feed_maid
+			}
+			# Servant
+			5 = {
+				modifier = {
+					OR = {
+						AND = {
+							is_female = yes
+							NOT = { trait = homosexual }
+						}
+						AND = {
+							is_female = no
+							trait = homosexual
+						}
+					}
+					factor = 2
+				}
+				set_character_flag = vampire_mini_feed_servant
+			}
+			# Guard
+			5 = {
+				modifier = {
+					OR = {
+						AND = {
+							is_female = yes
+							NOT = { trait = homosexual }
+						}
+						AND = {
+							is_female = no
+							trait = homosexual
+						}
+					}
+					factor = 2
+				}
+				set_character_flag = vampire_mini_feed_guard
+			}
+			# Clerk
+			5 = {
+				set_character_flag = vampire_mini_feed_clerk
+			}
+		}
+		character_event = { id = VAMPIRE.193 }
+	}
+}
+
+# 193 - Actual event for mini feeding chance
+character_events = {
+	id = VAMPIRE.193
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_maid }
+		text = EVTDESCA_VAMPIRE.193
+		picture = GFX_evt_wise_woman
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_servant }
+		text = EVTDESCB_VAMPIRE.193
+		picture = GFX_evt_council_speaker
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_guard }
+		text = EVTDESCB_VAMPIRE.193
+		picture = GFX_evt_longbowman
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_clerk }
+		text = EVTDESCB_VAMPIRE.193
+		picture = GFX_evt_recieve_letter
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	# Just a taste
+	# Automatically lower hunger by one
+	option = {
+		name = EVTOPTA_VAMPIRE.193
+		if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+		else_if = {
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+			add_trait = hunger_1
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+			add_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+			add_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+			add_trait = hunger_4
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = hunger_1
+			}
+			modifier = {
+				factor = 1.4
+				has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+			}
+			modifier = {
+				factor = 1.4
+				has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+			}
+		}
+	}
+	
+	# Feed fully
+	option = {
+		name = EVTOPTB_VAMPIRE.193
+		
+		custom_tooltip = { text = EVTOPTB_TT_VAMPIRE.193 }
+		
+		# Determine feeding results
+		evaluate_duel_result_score_effect = yes
+		random_list = {
+			# Fail
+			10 = {
+				modifier = {
+					factor = 2
+					has_character_flag = vampire_mini_feed_guard
+				}
+				modifier = {
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+				}
+				modifier = {
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+				}
+				modifier = {
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+				}
+				set_character_flag = vampire_feed_failure
+			}
+			# Feed
+			10 = {
+				# Slightly more likely to succeed
+				modifier = {
+					factor = 1.05
+					trait = hunger_1
+				}
+				modifier = {
+					factor = 1.1
+					trait = hunger_2
+				}
+				modifier = {
+					factor = 1.15
+					trait = hunger_3
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunger_4
+				}
+				modifier = {
+					factor = 1.25
+					trait = hunger_5
+				}
+				modifier = {
+					factor = 0.5
+					duel_result_score_the_worst_trigger = yes
+				}
+				modifier = {
+					factor = 0.6
+					duel_result_score_terrible_trigger = yes
+				}
+				modifier = {
+					factor = 0.8
+					duel_result_score_bad_trigger = yes
+				}
+				modifier = {
+					factor = 0.9
+					duel_result_score_ok_trigger = yes
+				}
+				modifier = {
+					factor = 1.1
+					duel_result_score_good_trigger = yes
+				}
+				modifier = {
+					factor = 1.3
+					duel_result_score_great_trigger = yes
+				}
+				modifier = {
+					factor = 1.6
+					duel_result_score_fantastic_trigger = yes
+				}
+				modifier = {
+					factor = 2
+					duel_result_score_the_best_trigger = yes
+				}
+				modifier = {
+					factor = 0.75
+					intrigue < 5
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.2
+					intrigue = 40
+				}
+				modifier = {
+					factor = 3
+					OR = {
+						trait = duelist
+						trait = hunter
+						trait = schemer
+					}
+				}
+				set_character_flag = vampire_feed_success
+			}
+		}
+		# Caught?
+		random_list = {
+			5 = {
+				modifier = {
+					factor = 2
+					trait = known_vampire
+				}
+				modifier = {
+					factor = 1.2
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.1
+					trait = hunger_2
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunger_3
+				}
+				modifier = {
+					factor = 1.3
+					trait = hunger_4
+				}
+				modifier = {
+					factor = 1.4
+					trait = hunger_5
+				}
+				modifier = {
+					factor = 1.3
+					intrigue < 5
+				}
+				modifier = {
+					factor = 1.3
+					diplomacy < 5
+				}
+				modifier = {
+					factor = 1.5
+					has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+				}
+				modifier = {
+					factor = 1.5
+					has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+				}
+				modifier = {
+					factor = 2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
+				}
+				modifier = {
+					factor = 2
+					has_game_rule = { name = secrecy value = more }
+				}
+				modifier = {
+					factor = 0.5
+					has_game_rule = { name = secrecy value = fewer }
+				}
+				if = {
+					limit = {
+						NAND = {
+							trait = known_vampire
+							culture = vampire_culture
+						}
+					}
+					set_character_flag = vampire_feed_caught
+				}
+				else = {
+					set_character_falg = vampire_feed_escape
+				}
+			}
+			# Suspected
+			10 = {
+				modifier = {
+					factor = 1.5
+					trait = known_vampire
+					# And gives suspected murderer instead of suspected monster
+				}
+				modifier = {
+					factor = 1.05
+					trait = hunger_2
+				}
+				modifier = {
+					factor = 1.1
+					trait = hunger_3
+				}
+				modifier = {
+					factor = 1.15
+					trait = hunger_4
+				}
+				modifier = {
+					factor = 1.2
+					trait = hunger_5
+				}
+				modifier = {
+					factor = 1.1
+					trait = wroth
+				}
+				modifier = {
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
+				}
+				modifier = {
+					factor = 1.2
+					has_instances_of_character_modifier = { modifier = known_monster amount = 2 }
+				}
+				modifier = {
+					factor = 2
+					has_game_rule = { name = secrecy value = more }
+				}
+				modifier = {
+					factor = 0.5
+					has_game_rule = { name = secrecy value = fewer }
+				}
+				set_character_flag = vampire_feed_suspected
+			}
+			# Got away
+			15 = {
+				modifier = {
+					factor = 1.2
+					trait = kind
+				}
+				modifier = {
+					factor = 0.8
+					trait = ambitious
+				}
+				modifier = {
+					factor = 1.5
+					trait = schemer
+				}
+				modifier = {
+					factor = 0.75
+					intrigue < 5
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 10
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 15
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 20
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 25
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 30
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 35
+				}
+				modifier = {
+					factor = 1.5
+					intrigue = 40
+				}
+				set_character_flag = vampire_feed_escape
+			}
+		}
+		
+		# Results
+		if = {
+			limit = { has_character_flag = vampire_feed_success }
+			character_event = { id = VAMPIRE.194 }
+		}
+		if = {
+			limit = { NOT = { has_character_flag = vampire_feed_success } }
+			# Failure - Caught
+			if = {
+				limit = { has_character_flag = vampire_feed_caught }
+				character_event = { id = VAMPIRE.195 }
+			}
+			else_if = {
+				limit = { has_character_flag = vampire_feed_suspected }
+				character_event = { id = VAMPIRE.196 }
+			}
+			else_if = {
+				limit = { has_character_flag = vampire_feed_escape }
+				character_event = { id = VAMPIRE.197 }
+			}
+		}
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				trait = hunger_4
+			}
+			modifier = {
+				factor = 5
+				trait = hunger_5
+			}
+		}
+	}
+	
+	# Decide against
+	option = {
+		name = EVTOPTC_VAMPIRE.193
+		hidden_tooltip = {
+			clr_character_flag = vampire_mini_feed_maid
+			clr_character_flag = vampire_mini_feed_servant
+			clr_character_flag = vampire_mini_feed_guard
+			clr_character_flag = vampire_mini_feed_clerk
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# 194 - Mini-feed success
+character_event = {
+	id = VAMPIRE.194
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_maid }
+		text = EVTDESCA_VAMPIRE.194
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_servant }
+		text = EVTDESCB_VAMPIRE.194
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_guard }
+		text = EVTDESCC_VAMPIRE.194
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_clerk }
+		text = EVTDESCD_VAMPIRE.194
+	}
+	picture = {
+		tirgger = { has_dlc = "Holy Fury" }
+		picture = GFX_evt_dead_body_hf
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Holy Fury" } }
+		picture = GFX_evt_powerful_ruler
+	}
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					trait = wounded
+					trait = infirm
+					trait = blinded
+					trait = eunuch
+					trait = severely_injured
+					is_maimed_trigger = yes
+					has_minor_injury = yes
+					has_scarred_trait_trigger = yes
+				}
+			}
+			random = {
+				chance = 10
+				set_character_flag = vf_heal
+			}
+		}
+		if = {
+			limit = { NOT = { base_diplomacy = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_stewardship = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_martial = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_intrigue = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_learning = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		# Heal an injury
+		if = {
+			limit = {
+				has_character_flag = vf_heal
+			}
+			random_list = {
+				3 = {
+					trigger = { trait = wounded }
+					set_character_flag = vf_heal_wounded
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = infirm }
+					set_character_flag = vf_heal_infirm
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = maimed }
+					set_character_flag = vf_heal_maimed
+					set_variable = { which = healing value = 5 }
+				}
+				1 = {
+					trigger = { has_scarred_trait_trigger = yes }
+					set_character_flag = vf_heal_scarred
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = disfigured }
+					set_character_flag = vf_heal_disfigured
+					set_variable = { which = healing value = 6 }
+				}
+				3 = {
+					trigger = { trait = one_eyed }
+					set_character_flag = vf_heal_one_eyed
+					set_variable = { which = healing value = 3 }
+				}
+				3 = {
+					trigger = { trait = blinded }
+					set_character_flag = vf_heal_blinded
+					set_variable = { which = healing value = 4 }
+				}
+				3 = {
+					trigger = { trait = one_handed }
+					set_character_flag = vf_heal_one_handed
+					set_variable = { which = healing value = 5 }
+				}
+				3 = {
+					trigger = { trait = one_legged }
+					set_character_flag = vf_heal_one_legged
+					set_variable = { which = healing value = 5 }
+				}
+				3 = {
+					trigger = { trait = mangled }
+					set_character_flag = vf_heal_mangled
+					set_variable = { which = healing value = 6 }
+				}
+				3 = {
+					trigger = { trait = eunuch }
+					set_character_flag = vf_heal_eunuch
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = severely_injured }
+					set_character_flag = vf_heal_severely_injured
+					set_variable = { which = healing value = 1 }
+				}
+				1 = {
+					trigger = { has_minor_injury = yes }
+					# Minor, so heal all of them
+					set_character_flag = vf_heal_minor_injuries
+					set_variable = { which = healing value = 1 }
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_character_flag = vf_stat }
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						base_diplomacy = 5
+					}
+					set_character_flag = vf_stat_diplomacy
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_stewardship = 5
+					}
+					set_character_flag = vf_stat_stewardship
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_martial = 5
+					}
+					set_character_flag = vf_stat_martial
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_intrigue = 5
+					}
+					set_character_flag = vf_stat_intrigue
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_learning = 5
+					}
+					set_character_flag = vf_stat_learning
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.194
+		if = {
+			limit = { has_character_flag = vf_heal_wounded }
+			remove_trait = wounded
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_infirm }
+			remove_trait = infirm
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_maimed }
+			remove_trait = maimed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_scarred }
+			remove_scarred = yes
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_disfigured }
+			remove_trait = disfigured
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_eyed }
+			remove_trait = one_eyed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_blinded }
+			remove_trait = blinded
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_handed }
+			remove_trait = one_handed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_legged }
+			remove_trait = one_legged
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_mangled }
+			remove_trait = mangled
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_eunuch }
+			remove_trait = eunuch
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_severely_injured }
+			remove_trait = severely_injured
+			clear_delayed_event = { id = RIP.11000 }
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_minor_injuries }
+			remove_minor_injuries = yes
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_diplomacy }
+			change_diplomacy = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_martial }
+			change_martial = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_stewardship }
+			change_stewardship = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_intrigue }
+			change_intrigue = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_learning }
+			change_learning = 1
+		}
+		if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+		else_if = { 
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+		}
+	}
+	
+	after = {
+		clr_character_flag = vf_heal
+		clr_character_flag = vf_stat
+		clr_character_flag = vf_heal_wounded
+		clr_character_flag = vf_heal_infirm
+		clr_character_flag = vf_heal_maimed
+		clr_character_flag = vf_heal_scarred
+		clr_character_flag = vf_heal_disfigured
+		clr_character_flag = vf_heal_one_eyed
+		clr_character_flag = vf_heal_blinded
+		clr_character_flag = vf_heal_one_handed
+		clr_character_flag = vf_heal_one_legged
+		clr_character_flag = vf_heal_mangled
+		clr_character_flag = vf_heal_eunuch
+		clr_character_flag = vf_heal_severely_injured
+		clr_character_flag = vf_heal_minor_injuries
+		clr_character_flag = vf_stat_diplomacy
+		clr_character_flag = vf_stat_martial
+		clr_character_flag = vf_stat_stewardship
+		clr_character_flag = vf_stat_intrigue
+		clr_character_flag = vf_stat_learning
+		clr_character_flag = vampire_mini_feed_maid
+		clr_character_flag = vampire_mini_feed_servant
+		clr_character_flag = vampire_mini_feed_guard
+		clr_character_flag = vampire_mini_feed_clerk
+	}
+}
+
+# 195 - Mini-feed caught
+character_event = {
+	id = VAMPIRE.195
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_maid }
+		text = EVTDESCA_VAMPIRE.195
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_servant }
+		text = EVTDESCB_VAMPIRE.195
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_guard }
+		text = EVTDESCC_VAMPIRE.195
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_clerk }
+		text = EVTDESCD_VAMPIRE.195
+	}
+	picture = GFX_evt_hiding_from_pursuers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.195
+		trigger = { trait = secret_vampire }
+		hidden_tooltip = {
+			any_realm_character = { character_event = { id = VAMPIRE.23 } } # Court finds out character is a vampire
+			if = {
+				limit = {
+					independent = no
+				}
+				liege = { character_event = { id = VAMPIRE.23 } } # Liege finds out character is a vampire
+			}
+			remove_trait = secret_vampire
+		}
+		add_trait = known_vampire
+		hidden_tooltip = { remove_character_modifier = known_monster }
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.195
+		trigger = {
+			NOR = {
+				trait = secret_vampire
+				culture = vampire_culture
+			}
+		}
+		any_courtier = {
+			opinion = { who = ROOT modifier = opinion_horrified years = 5 }
+		}
+	}
+	
+	opinion = {
+		name = EVTOPTC_VAMPIRE.195
+		trigger = {
+			NOT = { trait = secret_vampire }
+			culture = vampire_culture
+		}
+		random_courtier_or_vassal = {
+			limit = {
+				culture = vampire_culture
+				NOT = { trait = vampire }
+			}
+			opinion = { who = ROOT modifier = opinion_envy years = 3 }
+		}
+		random_courtier_or_vassal = {
+			limit = {
+				culture = vampire_culture
+				NOT = { trait = vampire }
+			}
+			opinion = { who = ROOT modifier = opinion_envy years = 3 }
+		}
+		random_courtier_or_vassal = {
+			limit = {
+				culture = vampire_culture
+				NOT = { trait = vampire }
+			}
+			opinion = { who = ROOT modifier = opinion_envy years = 3 }
+		}
+	}
+	
+	after = {
+		clr_character_flag = vf_heal
+		clr_character_flag = vf_stat
+		clr_character_flag = vf_heal_wounded
+		clr_character_flag = vf_heal_infirm
+		clr_character_flag = vf_heal_maimed
+		clr_character_flag = vf_heal_scarred
+		clr_character_flag = vf_heal_disfigured
+		clr_character_flag = vf_heal_one_eyed
+		clr_character_flag = vf_heal_blinded
+		clr_character_flag = vf_heal_one_handed
+		clr_character_flag = vf_heal_one_legged
+		clr_character_flag = vf_heal_mangled
+		clr_character_flag = vf_heal_eunuch
+		clr_character_flag = vf_heal_severely_injured
+		clr_character_flag = vf_heal_minor_injuries
+		clr_character_flag = vf_stat_diplomacy
+		clr_character_flag = vf_stat_martial
+		clr_character_flag = vf_stat_stewardship
+		clr_character_flag = vf_stat_intrigue
+		clr_character_flag = vf_stat_learning
+		clr_character_flag = vampire_mini_feed_maid
+		clr_character_flag = vampire_mini_feed_servant
+		clr_character_flag = vampire_mini_feed_guard
+		clr_character_flag = vampire_mini_feed_clerk
+	}
+}
+
+# 196 - Mini-feed suspected
+character_event = {
+	id = VAMPIRE.196
+	desc = EVTDESC_VAMPIRE.196
+	picture = GFX_evt_eavesdropping
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					trait = wounded
+					trait = infirm
+					trait = blinded
+					trait = eunuch
+					trait = severely_injured
+					is_maimed_trigger = yes
+					has_minor_injury = yes
+					has_scarred_trait_trigger = yes
+				}
+			}
+			random = {
+				chance = 10
+				set_character_flag = vf_heal
+			}
+		}
+		if = {
+			limit = { NOT = { base_diplomacy = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_stewardship = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_martial = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_intrigue = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		if = {
+			limit = { NOT = { base_learning = 5 } }
+			random = {
+				chance = 10
+				set_character_flag = vf_stat
+			}
+		}
+		# Heal an injury
+		if = {
+			limit = {
+				has_character_flag = vf_heal
+			}
+			random_list = {
+				3 = {
+					trigger = { trait = wounded }
+					set_character_flag = vf_heal_wounded
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = infirm }
+					set_character_flag = vf_heal_infirm
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = maimed }
+					set_character_flag = vf_heal_maimed
+					set_variable = { which = healing value = 5 }
+				}
+				1 = {
+					trigger = { has_scarred_trait_trigger = yes }
+					set_character_flag = vf_heal_scarred
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = disfigured }
+					set_character_flag = vf_heal_disfigured
+					set_variable = { which = healing value = 6 }
+				}
+				3 = {
+					trigger = { trait = one_eyed }
+					set_character_flag = vf_heal_one_eyed
+					set_variable = { which = healing value = 3 }
+				}
+				3 = {
+					trigger = { trait = blinded }
+					set_character_flag = vf_heal_blinded
+					set_variable = { which = healing value = 4 }
+				}
+				3 = {
+					trigger = { trait = one_handed }
+					set_character_flag = vf_heal_one_handed
+					set_variable = { which = healing value = 5 }
+				}
+				3 = {
+					trigger = { trait = one_legged }
+					set_character_flag = vf_heal_one_legged
+					set_variable = { which = healing value = 5 }
+				}
+				3 = {
+					trigger = { trait = mangled }
+					set_character_flag = vf_heal_mangled
+					set_variable = { which = healing value = 6 }
+				}
+				3 = {
+					trigger = { trait = eunuch }
+					set_character_flag = vf_heal_eunuch
+					set_variable = { which = healing value = 1 }
+				}
+				3 = {
+					trigger = { trait = severely_injured }
+					set_character_flag = vf_heal_severely_injured
+					set_variable = { which = healing value = 1 }
+				}
+				1 = {
+					trigger = { has_minor_injury = yes }
+					# Minor, so heal all of them
+					set_character_flag = vf_heal_minor_injuries
+					set_variable = { which = healing value = 1 }
+				}
+			}
+		}
+		
+		if = {
+			limit = { has_character_flag = vf_stat }
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						base_diplomacy = 5
+					}
+					set_character_flag = vf_stat_diplomacy
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_stewardship = 5
+					}
+					set_character_flag = vf_stat_stewardship
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_martial = 5
+					}
+					set_character_flag = vf_stat_martial
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_intrigue = 5
+					}
+					set_character_flag = vf_stat_intrigue
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						base_learning = 5
+					}
+					set_character_flag = vf_stat_learning
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.196
+		if = {
+			limit = { has_character_flag = vf_heal_wounded }
+			remove_trait = wounded
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_infirm }
+			remove_trait = infirm
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_maimed }
+			remove_trait = maimed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_scarred }
+			remove_scarred = yes
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_disfigured }
+			remove_trait = disfigured
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_eyed }
+			remove_trait = one_eyed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_blinded }
+			remove_trait = blinded
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_handed }
+			remove_trait = one_handed
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_one_legged }
+			remove_trait = one_legged
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_mangled }
+			remove_trait = mangled
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_eunuch }
+			remove_trait = eunuch
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_severely_injured }
+			remove_trait = severely_injured
+			clear_delayed_event = { id = RIP.11000 }
+		}
+		if = {
+			limit = { has_character_flag = vf_heal_minor_injuries }
+			remove_minor_injuries = yes
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_diplomacy }
+			change_diplomacy = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_martial }
+			change_martial = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_stewardship }
+			change_stewardship = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_intrigue }
+			change_intrigue = 1
+		}
+		if = {
+			limit = { has_character_flag = vf_stat_learning }
+			change_learning = 1
+		}
+		if = {
+			limit = { trait = hunger_1 }
+			remove_trait = hunger_1
+		}
+		else_if = { 
+			limit = { trait = hunger_2 }
+			remove_trait = hunger_2
+		}
+		else_if = {
+			limit = { trait = hunger_3 }
+			remove_trait = hunger_3
+		}
+		else_if = {
+			limit = { trait = hunger_4 }
+			remove_trait = hunger_4
+		}
+		else_if = {
+			limit = { trait = hunger_5 }
+			remove_trait = hunger_5
+		}
+		
+		if = {
+			limit = { trait = known_vampire }
+			hidden_tooltip = {
+				any_realm_character = {
+					opinion = { who = ROOT modifier = suspect_of_murder years = 10 }
+				}
+			}
+		}
+		else = {
+			add_character_modifier = {
+				name = known_monster
+				years = 10
+				stacking = yes
+			}
+		}
+	}
+	
+	after = {
+		clr_character_flag = vf_heal
+		clr_character_flag = vf_stat
+		clr_character_flag = vf_heal_wounded
+		clr_character_flag = vf_heal_infirm
+		clr_character_flag = vf_heal_maimed
+		clr_character_flag = vf_heal_scarred
+		clr_character_flag = vf_heal_disfigured
+		clr_character_flag = vf_heal_one_eyed
+		clr_character_flag = vf_heal_blinded
+		clr_character_flag = vf_heal_one_handed
+		clr_character_flag = vf_heal_one_legged
+		clr_character_flag = vf_heal_mangled
+		clr_character_flag = vf_heal_eunuch
+		clr_character_flag = vf_heal_severely_injured
+		clr_character_flag = vf_heal_minor_injuries
+		clr_character_flag = vf_stat_diplomacy
+		clr_character_flag = vf_stat_martial
+		clr_character_flag = vf_stat_stewardship
+		clr_character_flag = vf_stat_intrigue
+		clr_character_flag = vf_stat_learning
+		clr_character_flag = vampire_mini_feed_maid
+		clr_character_flag = vampire_mini_feed_servant
+		clr_character_flag = vampire_mini_feed_guard
+		clr_character_flag = vampire_mini_feed_clerk
+	}
+}
+		
+# 197 - Mini-feed failure
+character_event = {
+	id = VAMPIRE.197
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_maid }
+		text = EVTDESCA_VAMPIRE.197
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_servant }
+		text = EVTDESCB_VAMPIRE.197
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_guard }
+		text = EVTDESCC_VAMPIRE.197
+	}
+	desc = {
+		trigger = { has_character_flag = vampire_mini_feed_clerk }
+		text = EVTDESCD_VAMPIRE.197
+	}
+	picture = GFX_evt_hiding_from_pursuers
+	border = GFX_event_normal_frame_intrigue
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.197
+		clr_character_flag = vf_heal
+		clr_character_flag = vf_stat
+		clr_character_flag = vf_heal_wounded
+		clr_character_flag = vf_heal_infirm
+		clr_character_flag = vf_heal_maimed
+		clr_character_flag = vf_heal_scarred
+		clr_character_flag = vf_heal_disfigured
+		clr_character_flag = vf_heal_one_eyed
+		clr_character_flag = vf_heal_blinded
+		clr_character_flag = vf_heal_one_handed
+		clr_character_flag = vf_heal_one_legged
+		clr_character_flag = vf_heal_mangled
+		clr_character_flag = vf_heal_eunuch
+		clr_character_flag = vf_heal_severely_injured
+		clr_character_flag = vf_heal_minor_injuries
+		clr_character_flag = vf_stat_diplomacy
+		clr_character_flag = vf_stat_martial
+		clr_character_flag = vf_stat_stewardship
+		clr_character_flag = vf_stat_intrigue
+		clr_character_flag = vf_stat_learning
+		clr_character_flag = vampire_mini_feed_maid
+		clr_character_flag = vampire_mini_feed_servant
+		clr_character_flag = vampire_mini_feed_guard
+		clr_character_flag = vampire_mini_feed_clerk
 	}
 }
