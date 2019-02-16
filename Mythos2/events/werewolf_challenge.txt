@@ -2232,6 +2232,7 @@ character_event = {
 			}
 			# Untransformed werewolf can take turn to transform
 			1 = {
+				trigger = { has_character_flag = not_shapeshifted }
 				modifier = {
 					factor = 0
 					NAND = {
