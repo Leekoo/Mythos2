@@ -92,11 +92,12 @@ decisions = {
 											NOT = { has_dlc = "Zeus" }
 											has_law = agnatic_succession
 										}
+										has_religion_feature = religion_patriarchal
 									}
 									NOR = {
-										liege = { has_religion_feature = religion_matriarchal } 
-										liege = { has_religion_feature = religion_equal } 
-										liege = { has_religion_feature = religion_feature_bon }
+										has_religion_feature = religion_matriarchal
+										has_religion_feature = religion_equal
+										has_religion_feature = religion_feature_bon
 									}
 								}
 							}
@@ -111,7 +112,7 @@ decisions = {
 							liege = {
 								AND = {
 									NOT = { has_law = werewolf_law_4 }
-									liege = { has_religion_feature = religion_matriarchal }
+									has_religion_feature = religion_matriarchal
 								}
 							}
 						}

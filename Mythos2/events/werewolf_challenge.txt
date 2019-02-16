@@ -12,7 +12,221 @@ namespace = CHALLENGE
 # CHALLENGE.1 - Control the initial start of the challenge.  A few different twists depending on the nature of the challenge
 character_event = {
 	id = CHALLENGE.1
-	desc = EVTDESC_CHALLENGE.1
+	#desc = EVTDESC_CHALLENGE.1
+	desc = {
+		text = EVTDESCA_CHALLENGE.1
+		# Challenged ruler is incapable
+		trigger = {
+			trait = incapable
+		}
+	}
+	desc = {
+		desc = EVTDESCB_CHALLENGE.1
+		# Challenged ruler is a tyrant
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_1
+				has_law = werewolf_law_2
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			OR = {
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
+			}
+		}
+	}
+	desc = {
+		desc = EVTDESCC_CHALLENGE.1
+		# Challenged ruler is infamous
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_1
+				has_law = werewolf_law_2
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			NOT = { prestige = 0 }
+		}
+	}
+	desc = {
+		desc = EVTDESCD_CHALLENGE.1
+		# Challenged ruler is Inbred
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			trait = inbred
+			NOR = {
+				AND = {
+					religion = zoroastrian
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = messalian
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = atenist
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = kemetic_pagan_reformed
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = kemetic_pagan
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				OR = {
+					has_religion_feature = religion_holy_family
+					has_religion_feature = religion_feature_zun
+				}
+			}
+		}
+	}
+	desc = {
+		desc = EVTDESCE_CHALLENGE.1
+		# Challenged ruler is deformed
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_genetic = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCF_CHALLENGE.1
+		# Challenged ruler is a dwarf
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			trait = dwarf
+		}
+	}
+	desc = {
+		desc = EVTDESCG_CHALLENGE.1
+		# Challenged ruler is weak
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_weak = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCH_CHALLENGE.1
+		# Challenged ruler is female
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_female = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCI_CHALLENGE.1
+		# Challenged ruler is male
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_male = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCJ_CHALLENGE.1
+		# Challenged ruler is new
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_new_ruler = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCK_CHALLENGE.1
+		# Challenged ruler is a child. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = yes
+		}
+	}
+	desc = {
+		desc = EVTDESCL_CHALLENGE.1
+		# Challenged ruler is a non-werewolf. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			NOT = { trait = known_werewolf }
+		}
+	}
+	desc = {
+		desc = EVTDESCM_CHALLENGE.1
+		# Challenged ruler is a foreigner. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			trait = known_werewolf
+			NOT = { culture = werewolf_culture }
+		}
+	}
+	desc = {
+		desc = EVTDESC_CHALLENGE.1
+		# Fallback
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			trait = known_werewolf
+			culture = werewolf_culture
+		}
+	}
 	picture = GFX_evt_poke_king_in_chest
 	border = GFX_event_normal_frame_war
 	is_triggered_only = yes
