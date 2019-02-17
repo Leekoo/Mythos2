@@ -273,3 +273,90 @@ ingredient_asclepois = {
 	picture = "GFX_pouch_of_ingredients"
 	history = no
 }
+
+crown_draconic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	martial = 2
+	same_religion_opinion = 3
+	quality = 4
+	active = { 
+		has_landed_title = d_draconic_pagan_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be elaborite jewelry attached to the horns, If wearer is human, includes a horned crown
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	stacking = no
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_celtic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	diplomacy = 2
+	martial = 2
+	tribal_opinion = 10
+	quality = 4
+	active = { 
+		has_landed_title = d_druidic_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be a gold circlet with red cloth around it
+	picture = "GFX_crown_byzantine"
+	slot = crown
+	stacking = no
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_kemetic_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	diplomacy = 2
+	martial = 2
+	same_religion_opinion = 3
+	quality = 4
+	active = { 
+		has_landed_title = d_kemetic_pagan_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	# Placeholder image. Final image should be a sun disc
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	stacking = no
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}
+
+crown_jotnar_fylkir = { 
+	monthly_character_prestige = 0.4
+	monthly_character_piety = 0.7
+	stewardship = 2
+	martial = 2
+	tribal_opinion = 10
+	quality = 4
+	active = { 
+		has_landed_title = d_jotnar_reformed
+	}
+	flags = { religious unique crown jewelry crown_jewel }
+	stacking = no
+	picture = "GFX_crown_fylkir"
+	slot = crown
+	stacking = no
+	indestructible = yes
+	allowed_gift = {
+		always = no
+	}
+}

@@ -6230,6 +6230,41 @@ narrative_event = {
 				}
 				add_artifact = scepter_hellenic_fylkir
 			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = draconic_reformed 
+
+				}
+				add_artifact = crown_draconic_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = druidic_reformed 
+
+				}
+				add_artifact = crown_celtic_fylkir
+			}
+			if = {
+				limit = { 
+					has_religion_feature = religion_temporal_head 
+					religion = druidic_reformed 
+
+				}
+				add_artifact = crown_kemetic_fylkir
+			}
+			if = {
+				limit = { 
+					OR = {
+						NOT = { has_dlc = "Holy Fury" } 
+						has_religion_feature = religion_temporal_head 
+					} 
+					religion = kemetic_pagan_reformed 
+
+				}
+				add_artifact = crown_kemetic_fylkir
+			}
 			#hidden_effect = { reformation_god_names_changes_effect = yes }
 			#Opinion boost to new religious head (if any) and Reformer.
 			if = {
