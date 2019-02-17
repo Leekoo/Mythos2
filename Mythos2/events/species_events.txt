@@ -28,11 +28,11 @@ character_event = {
 	id = SPECIES.2
 	
 	hide_window = yes
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	ai = yes # Players will either be set through the ruler designer or have been AI, be manually created in history, or have previously been AI.
 	
-	mean_time_to_happen = { days = 1 }
+	#mean_time_to_happen = { days = 1 }
 	trigger = {
 		trait = race_placeholder
 		NOT = { has_character_flag = checked_race }
@@ -2086,5 +2086,23 @@ character_event = {
 				}
 			}
 		}
+	}
+}
+
+# Call Species.2 if a character is newly created
+character_event = {
+	id = SPECIES.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { character = no }
+	}
+	immediate = {
+		if = {
+			limit = { NOT = { has_character_flag = checked_race } }
+			add_trait = race_placeholder
+		}
+		repeat_event = { id = SPECIES.2 } # Repeat event to keep scopes correct
 	}
 }
