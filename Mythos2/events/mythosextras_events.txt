@@ -3811,19 +3811,19 @@ character_event = {
 		else = {
 			draconic_pagan = {
 				random_landed_title = {
-					limit = { is_holy_site = yes }
+					limit = { is_holy_site = PREV }
 					save_event_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
-						is_holy_site = yes
+						is_holy_site = PREV
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 					}
 					save_event_persistent_event_target = { name = draconic_holy_site_2 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
-						is_holy_site = yes
+						is_holy_site = PREV
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 					}
@@ -3831,7 +3831,7 @@ character_event = {
 				}
 				random_landed_title = {
 					limit = {
-						is_holy_site = yes
+						is_holy_site = PREV
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
@@ -3840,7 +3840,7 @@ character_event = {
 				}
 				random_landed_title = {
 					limit = {
-						is_holy_site = yes
+						is_holy_site = PREV
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
@@ -3853,7 +3853,7 @@ character_event = {
 		
 		draconic_pagan = {
 			any_title = {
-				limit = { is_holy_site = yes }
+				limit = { is_holy_site = PREV }
 				add_building = tp_eternal_flame
 			}
 		}
