@@ -3720,3 +3720,418 @@ character_event = {
 		}
 	}
 }
+
+# Draconic Pilgrimage start for alternate starts
+character_event = {
+	id = DragonPilgrimage.73
+	desc = EVTDESCDragonPilgrimage.1
+	picture = GFX_evt_tribal_shrine
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { which = pilgrimage_quality value = 2 }
+		capital_scope = { save_event_target_as = my_capital }
+		# Check number of valid provinces
+		set_variable = { which = province_count value = 0 }
+		if = {
+			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { has_building = tp_eternal_flame } } }
+			change_variable = { which = province_count value = 1 }
+		}
+		if = {
+			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { has_building = tp_eternal_flame } } }
+			change_variable = { which = province_count value = 1 }
+		}
+		if = {
+			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { has_building = tp_eternal_flame } } }
+			change_variable = { which = province_count value = 1 }
+		}
+		if = {
+			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_4 = { has_building = tp_eternal_flame } } }
+			change_variable = { which = province_count value = 1 }
+		}
+		if = {
+			limit = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_5 = { has_building = tp_eternal_flame } } }
+			change_variable = { which = province_count value = 1 }
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = province_count value = 4 } } }
+			# Omit none
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = province_count value = 5 } } }
+			# Omit one
+			random_list = {
+				1 = { set_variable = { which = omit_locations value = 1 } }
+				1 = { set_variable = { which = omit_locations value = 2 } }
+				1 = { set_variable = { which = omit_locations value = 3 } }
+				1 = { set_variable = { which = omit_locations value = 4 } }
+				1 = { set_variable = { which = omit_locations value = 5 } }
+			}
+		}
+		else = {
+			random_list = {
+				1 = { set_variable = { which = omit_locations value = 12 } }
+				1 = { set_variable = { which = omit_locations value = 13 } }
+				1 = { set_variable = { which = omit_locations value = 14 } }
+				1 = { set_variable = { which = omit_locations value = 15 } }
+				1 = { set_variable = { which = omit_locations value = 23 } }
+				1 = { set_variable = { which = omit_locations value = 24 } }
+				1 = { set_variable = { which = omit_locations value = 25 } }
+				1 = { set_variable = { which = omit_locations value = 34 } }
+				1 = { set_variable = { which = omit_locations value = 35 } }
+				1 = { set_variable = { which = omit_locations value = 45 } }
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTDragonPilgrimage.1
+		trigger = {
+			k_draconic_pagan_reformed = {
+				NOR = {
+					persistent_event_target:draconic_holy_site_1 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_2 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_3 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_4 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_5 = { location = { province = event_target:my_capital } }
+				}
+			}
+		}
+		piety = 20
+		set_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = {
+			character_event = { id = DragonPilgrimage.74 }
+		}
+	}
+	option = {
+		name = EVTOPTBDragonPilgrimage.1
+		trigger = {
+			k_draconic_pagan_reformed = {
+				OR = {
+					persistent_event_target:draconic_holy_site_1 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_2 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_3 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_4 = { location = { province = event_target:my_capital } }
+					persistent_event_target:draconic_holy_site_5 = { location = { province = event_target:my_capital } }
+				}
+			}
+		}
+		piety = 20
+		set_character_flag = preparing_pilgrimage
+		clr_character_flag = activated_pilgrimage
+		hidden_tooltip = {
+			character_event = { id = DragonPilgrimage.7 }
+		}
+	}
+}
+
+# Choose destination in Random World
+character_event = {
+	id = DragonPilgrimage.74
+	desc = EVTDESCDragonPilgrimage.74
+	picture = GFX_evt_tribal_shrine
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTADragonPilgrimage.74
+		trigger = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = { has_building = tp_eternal_flame }
+			}
+			NOR = {
+				is_variable_equal = { which = omit_locations value = 1 }
+				is_variable_equal = { which = omit_locations value = 12 }
+				is_variable_equal = { which = omit_locations value = 13 }
+				is_variable_equal = { which = omit_locations value = 14 }
+				is_variable_equal = { which = omit_locations value = 15 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_random_1
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.75 } }
+	}
+	option = {
+		name = EVTOPTBDragonPilgrimage.74
+		trigger = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = { has_building = tp_eternal_flame }
+			}
+			NOR = {
+				is_variable_equal = { which = omit_locations value = 2 }
+				is_variable_equal = { which = omit_locations value = 12 }
+				is_variable_equal = { which = omit_locations value = 23 }
+				is_variable_equal = { which = omit_locations value = 24 }
+				is_variable_equal = { which = omit_locations value = 25 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_random_2
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.75 } }
+	}
+	option = {
+		name = EVTOPTCDragonPilgrimage.74
+		trigger = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = { has_building = tp_eternal_flame }
+			}
+			NOR = {
+				is_variable_equal = { which = omit_locations value = 3 }
+				is_variable_equal = { which = omit_locations value = 13 }
+				is_variable_equal = { which = omit_locations value = 23 }
+				is_variable_equal = { which = omit_locations value = 34 }
+				is_variable_equal = { which = omit_locations value = 35 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_random_3
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.75 } }
+	}
+	option = {
+		name = EVTOPTDDragonPilgrimage.74
+		trigger = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = { has_building = tp_eternal_flame }
+			}
+			NOR = {
+				is_variable_equal = { which = omit_locations value = 4 }
+				is_variable_equal = { which = omit_locations value = 14 }
+				is_variable_equal = { which = omit_locations value = 24 }
+				is_variable_equal = { which = omit_locations value = 34 }
+				is_variable_equal = { which = omit_locations value = 45 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_random_4
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.75 } }
+	}
+	option = {
+		name = EVTOPTEDragonPilgrimage.74
+		trigger = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = { has_building = tp_eternal_flame }
+			}
+			NOR = {
+				is_variable_equal = { which = omit_locations value = 5 }
+				is_variable_equal = { which = omit_locations value = 15 }
+				is_variable_equal = { which = omit_locations value = 25 }
+				is_variable_equal = { which = omit_locations value = 35 }
+				is_variable_equal = { which = omit_locations value = 45 }
+			}
+		}
+		ai_chance = { factor = 50 }
+		set_character_flag = pilgrimage_to_random_5
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.75 } }
+	}
+	
+	after = {
+		set_variable = { which = omit_locations value = 0 }
+	}
+}
+
+# Setting out for Random location and setting events for the road
+character_event = {
+	id = DragonPilgrimage.75
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_1 }
+		text = EVTDESCADragonPilgrimage.75
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_2 }
+		text = EVTDESCBDragonPilgrimage.75
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_3 }
+		text = EVTDESCCDragonPilgrimage.75
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_4 }
+		text = EVTDESCDDragonPilgrimage.75
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_5 }
+		text = EVTDESCEDragonPilgrimage.75
+	}
+	picture = GFX_evt_dragon_spire
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_character_flag = pilgrimage_to_random_1 }
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = {
+					owner = {
+						save_event_target_as = target_location
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = pilgrimage_to_random_2 }
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = {
+					owner = {
+						save_event_target_as = target_location
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = pilgrimage_to_random_3 }
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = {
+					owner = {
+						save_event_target_as = target_location
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = pilgrimage_to_random_4 }
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = {
+					owner = {
+						save_event_target_as = target_location
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_character_flag = pilgrimage_to_random_5 }
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = {
+					owner = {
+						save_event_target_as = target_location
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = OPT_JOURNEY
+		clr_character_flag = preparing_pilgrimage
+		hidden_tooltip = {
+			add_trait = on_pilgrimage
+			narrative_event = { id = DragonPilgrimage.76 days = 30 }
+			if = {
+				limit = {
+					location = {
+						distance = {
+							who = event_target:target_location
+							value = 400 # Longer journey
+						}
+					}
+				}
+				random_list = {
+					10 = { character_event = { id = DragonPilgrimage.11 days = 5 random = 9 } } # Events for longer journeys
+					10 = { character_event = { id = DragonPilgrimage.12 days = 5 random = 9 } }
+					10 = { character_event = { id = DragonPilgrimage.13 days = 5 random = 9 } }
+					10 = { 
+						modifier = {
+							factor = 0
+							trait = dragon
+						}
+						character_event = { id = DragonPilgrimage.14 days = 5 random = 9 } # Non-event if you can fly
+					}
+					10 = {
+						modifier = {
+							factor = 0
+							location = { is_winter = no }
+						}
+						character_event = { id = DragonPilgrimage.15 days = 5 random = 9 } # No blizzards outside of winter
+					}
+				}
+			}
+			
+			random_list = {
+				10 = {  character_event = { id = DragonPilgrimage.16 days = 15 random = 7 } } # List that is always checked
+				#10 = {  character_event = { id = DragonPilgrimage.17 days = 15 random = 7 } } # Not with random world
+				10 = {
+					modifier = {
+						factor = 0
+						NOT = { trait = dragon }
+					}
+					narrative_event = { id = DragonPilgrimage.18 days = 15 random = 7 } # Dragon version
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						trait = dragon
+					}
+					narrative_event = { id = DragonPilgrimage.19 days = 15 random = 7 } # Dragonborn version
+				}
+				10 = {  character_event = { id = DragonPilgrimage.20 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.21 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.22 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.23 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.24 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.25 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.26 days = 15 random = 7 } }
+				10 = {  character_event = { id = DragonPilgrimage.27 days = 15 random = 7 } }
+			}
+			if = {
+				limit = {
+					is_title_active = d_golden_order
+				}
+				random_list = {
+					10 = {  narrative_event = { id = DragonPilgrimage.28 days = 23 random = 4 } } # Holy orders events, close to destination
+					10 = {  
+						modifier = {
+							factor = 0
+							has_landed_title = k_draconic_pagan_reformed
+						}
+						character_event = { id = DragonPilgrimage.29 days = 23 random = 4 }
+					}
+					10 = {  character_event = { id = DragonPilgrimage.30 days = 23 random = 4 } }
+				}
+			}
+		}
+	}
+}
+
+# Arrived at Galloway
+narrative_event = {
+	id = DragonPilgrimage.76
+	title = EVTNAMEDragonPilgrimage.76
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_1 }
+		text = EVTDESCADragonPilgrimage.76
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_2 }
+		text = EVTDESCBDragonPilgrimage.76
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_3 }
+		text = EVTDESCCDragonPilgrimage.76
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_4 }
+		text = EVTDESCDDragonPilgrimage.76
+	}
+	desc = {
+		trigger = { has_character_flag = pilgrimage_to_random_5 }
+		text = EVTDESCEDragonPilgrimage.76
+	}
+	picture = GFX_evt_tribal_shrine
+	border = GFX_event_narrative_frame_religion
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTADragonPilgrimage.10
+		hidden_tooltip = { character_event = { id = DragonPilgrimage.36 days = 5 } }
+	}
+}
+
+
+# Use existing events if possible, but fork based on random religion setting
+
+# Adjust 10

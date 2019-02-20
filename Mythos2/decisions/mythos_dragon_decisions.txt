@@ -1109,11 +1109,28 @@ decisions = {
 			NOT = { trait = flametender }
 			is_title_active = k_draconic_pagan_reformed
 			OR = {
-				b_whithorn = { has_building = tp_eternal_flame }
-				b_canterbury = { has_building = tp_eternal_flame }
-				b_lejre = { has_building = tp_eternal_flame }
-				b_uppsala = { has_building = tp_eternal_flame }
-				b_wyszogrod = { has_building = tp_eternal_flame }
+				AND = {
+					NOT = { has_alternate_start_parameter = { key = religion_names value = random } }
+					OR = {
+						b_whithorn = { has_building = tp_eternal_flame }
+						b_canterbury = { has_building = tp_eternal_flame }
+						b_lejre = { has_building = tp_eternal_flame }
+						b_uppsala = { has_building = tp_eternal_flame }
+						b_wyszogrod = { has_building = tp_eternal_flame }
+					}
+				}
+				AND = {
+					has_alternate_start_parameter = { key = religion_names value = random }
+					k_draconic_pagan_reformed = {
+						OR = {
+							persistent_event_target:draconic_holy_site_1 = { has_building = tp_eternal_flame }
+							persistent_event_target:draconic_holy_site_2 = { has_building = tp_eternal_flame }
+							persistent_event_target:draconic_holy_site_3 = { has_building = tp_eternal_flame }
+							persistent_event_target:draconic_holy_site_4 = { has_building = tp_eternal_flame }
+							persistent_event_target:draconic_holy_site_5 = { has_building = tp_eternal_flame }
+						}
+					}
+				}
 			}
 		}
 		allow = {
@@ -1158,8 +1175,14 @@ decisions = {
 			set_character_flag = activated_pilgrimage
 			set_character_flag = do_not_disturb
 			hidden_tooltip = {
-				character_event = { 
-					id = DragonPilgrimage.1
+				if = {
+					limit = { NOT = { has_alternate_start_parameter = { key = religion_names value = random } } }
+					character_event = { 
+						id = DragonPilgrimage.1
+					}
+				}
+				else = {
+					character_event = { id = DragonPilgrimage.73 }
 				}
 			}
 		}
