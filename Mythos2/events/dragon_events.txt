@@ -5411,6 +5411,51 @@ character_event = {
 				save_event_target_as = relit_flame
 			}
 		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_random_1 }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_1 = { 
+					add_building = tp_eternal_flame
+					save_event_target_as = relit_flame
+				}
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_random_2 }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_2 = { 
+					add_building = tp_eternal_flame
+					save_event_target_as = relit_flame
+				}
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_random_3 }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_3 = { 
+					add_building = tp_eternal_flame
+					save_event_target_as = relit_flame
+				}
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_random_4 }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_4 = { 
+					add_building = tp_eternal_flame
+					save_event_target_as = relit_flame
+				}
+			}
+		}
+		else_if = { 
+			limit = { has_character_flag = restore_flame_random_5 }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_5 = { 
+					add_building = tp_eternal_flame
+					save_event_target_as = relit_flame
+				}
+			}
+		}
 		religion_authority = { modifier = relit_eternal_flame }
 		prestige = 1000
 		add_character_modifier = { name = flame_restorer }
@@ -5451,6 +5496,11 @@ character_event = {
 			clr_character_flag = restore_flame_plock
 			clr_character_flag = restore_flame_galloway
 			clr_character_flag = restore_flame_uppland
+			clr_character_flag = restore_flame_random_1
+			clr_character_flag = restore_flame_random_2
+			clr_character_flag = restore_flame_random_3
+			clr_character_flag = restore_flame_random_4
+			clr_character_flag = restore_flame_random_5
 		}
 	}
 }
