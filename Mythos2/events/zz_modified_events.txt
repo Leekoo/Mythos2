@@ -20224,3 +20224,201 @@ character_event = {
 #		}
 #	}
 }
+
+#On_looted_settlement: Destroying large city as a Ravager/Seaking.
+character_event = {
+	id = HF.23210
+	desc = EVTDESCHF23210
+	picture = { 
+		trigger = { is_female = no } 
+		picture = GFX_evt_vikings_arriving_oldgods
+	}
+	picture = { 
+		trigger = { is_female = yes } 
+		picture = GFX_evt_norse_tempest
+	}
+	border = GFX_event_normal_frame_war
+	
+	has_dlc = "Holy Fury"
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			trait = ravager
+			trait = seaking
+			trait = sea_queen
+		}
+		FROM = {
+			location = { capital_holding = { title = FROM } } #Do not reiterate the event after taking the capital holding.
+			location = { num_of_settlements = 5 } #Only fires for big cities. 
+			is_tribal = no
+			is_nomadic = no
+			location = { port = yes } 		#Coastal provinces are what the Seaking should be terrorizing.
+		}
+		location = { 
+			ROOT = {
+				any_realm_province = { #Avoid the event firing for raiders who raided on land all the way to the port of a sea they do not have access to.
+					port = yes 
+					TECH_NAVAL = 1
+					OR = { 
+						has_building = tb_shipyard_1
+						has_building = ca_shipyard_1
+						has_building = tp_shipyard_1
+						has_building = ct_shipyard_1
+					} 
+					can_naval_path_to = PREVPREV
+				} 
+			} 
+		}
+		# Not on eternal flames in random worlds
+		NAND = {
+			has_alternate_start_parameter = { key = religion_names value = random }
+			k_draconic_pagan_reformed = { 
+				OR = {
+					persistant_event_target:draconic_holy_site_1 = { title = FROM }
+					persistant_event_target:draconic_holy_site_2 = { title = FROM }
+					persistant_event_target:draconic_holy_site_3 = { title = FROM }
+					persistant_event_target:draconic_holy_site_4 = { title = FROM }
+					persistant_event_target:draconic_holy_site_5 = { title = FROM }
+				}
+			}
+		}
+	}
+	
+	#Burn it all to the ground.
+	#Steal weapons and tools.
+	#Scare villagers into telling tales of your fearsome army. (Prestige)
+	#Nothing.
+
+	option = { #Destroy
+		name = EVTOPTAHF23210
+		add_blood_splatter_effect = yes
+		if = { 
+			limit = { 
+				NOR = {
+					trait = kind
+					trait = cruel
+				}
+			}
+			random = { chance = 5 add_trait = cruel }
+		}
+		if = { 
+			limit = { 
+					trait = kind
+			}
+			random = { chance = 25 remove_trait = kind }
+		}
+		if = { 
+			limit = {
+				trait = ravager
+			}
+			custom_tooltip = {
+				text = "TOOLTIP_EVTOPTAHF230210"
+				hidden_tooltip = {
+					FROM = {
+						destroy_random_building = THIS
+						destroy_random_building = THIS
+						add_holding_modifier = {
+							modifier = recently_burnt_the_land
+							months = 7
+						}
+					}
+				}
+			}
+		}
+		if = { 
+			limit = {
+				OR = {
+					trait = seaking
+					trait = sea_queen
+				}
+			}
+			custom_tooltip = {
+				text = "TOOLTIP_EVTOPTAHF230210"
+				hidden_tooltip = {
+					FROM = {
+						destroy_random_building = THIS
+						destroy_random_building = THIS
+						destroy_random_building = THIS
+						destroy_random_building = THIS
+						destroy_random_building = THIS
+						add_holding_modifier = {
+							modifier = recently_burnt_the_land
+							months = 20
+						}
+					}
+				}
+			}
+		}
+		hidden_tooltip = {
+			change_variable = { which = viking_raids value = 5 } #Exp bump.
+			if = {
+				limit = {
+					FROM = { NOT = { has_any_building = yes } }
+				}
+				hidden_tooltip = {
+					location = {
+						province_event = { id = HF.23211 days = 1 } #Inform owner that his holding has been destroyed.
+					}
+				}
+				FROM = { destroy_settlement = THIS }
+			}
+		}
+	}
+	option = { #Steal
+		name = EVTOPTBHF23210
+		if = { 
+			limit = {
+				trait = ravager
+			}
+			wealth = 100
+			if = { 
+				limit = {
+					FROM = { location = { has_higher_tech_than = ROOT } }
+				}
+				military_techpoints = 25
+			}
+		}
+		if = { 
+			limit = {
+				OR = {
+					trait = seaking
+					trait = sea_queen
+				}
+			}
+			wealth = 200
+			if = { 
+				limit = {
+					FROM = { location = { has_higher_tech_than = ROOT } }
+				}
+				military_techpoints = 50
+			}
+		}
+	}
+	option = { #Scare
+		name = EVTOPTCHF23210
+		if = { 
+			limit = {
+				trait = ravager
+			}
+			prestige = 150
+		}
+		if = { 
+			limit = {
+				OR = {
+					trait = seaking
+					trait = sea_queen
+				}
+			}
+			prestige = 300
+		}
+		hidden_tooltip = {
+			change_variable = { which = viking_raids value = 4 } #Exp bump.
+		}
+	}
+	option = { #Nothing
+		name = EVTOPTDHF23210
+		trigger = { ai = no }
+	}
+}

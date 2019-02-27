@@ -1036,11 +1036,21 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
+				has_landed_title = b_uppsala
+				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+			}
+			OR = {
 				has_landed_title = c_sjaelland
 				has_landed_title = b_lejre
 			}
 			b_lejre = {
 				has_building = tp_eternal_flame
+			}
+			NOT = {
+				has_alternate_start_parameter = {
+					key = religion_names
+					value = random
+				}
 			}
 		}
 		allow = {
@@ -1057,6 +1067,11 @@ decisions = {
 						has_character_flag = destroy_flame_galloway
 						has_character_flag = destroy_flame_plock
 						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
 					}
 				}
 			}
@@ -1137,11 +1152,21 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
+				has_landed_title = b_uppsala
+				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+			}
+			OR = {
 				has_landed_title = c_kent
 				has_landed_title = b_canterbury
 			}
 			b_canterbury = {
 				has_building = tp_eternal_flame
+			}
+			NOT = {
+				has_alternate_start_parameter = {
+					key = religion_names
+					value = random
+				}
 			}
 		}
 		allow = {
@@ -1158,6 +1183,11 @@ decisions = {
 						has_character_flag = destroy_flame_galloway
 						has_character_flag = destroy_flame_plock
 						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
 					}
 				}
 			}
@@ -1237,11 +1267,21 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
+				has_landed_title = b_uppsala
+				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+			}
+			OR = {
 				has_landed_title = c_plock
 				has_landed_title = b_wyszogrod
 			}
 			b_wyszogrod = {
 				has_building = tp_eternal_flame
+			}
+			NOT = {
+				has_alternate_start_parameter = {
+					key = religion_names
+					value = random
+				}
 			}
 		}
 		allow = {
@@ -1258,6 +1298,11 @@ decisions = {
 						has_character_flag = destroy_flame_galloway
 						has_character_flag = destroy_flame_plock
 						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
 					}
 				}
 			}
@@ -1337,11 +1382,21 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
+				has_landed_title = b_uppsala
+				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+			}
+			OR = {
 				has_landed_title = c_galloway
 				has_landed_title = b_whithorn
 			}
 			b_whithorn = {
 				has_building = tp_eternal_flame
+			}
+			NOT = {
+				has_alternate_start_parameter = {
+					key = religion_names
+					value = random
+				}
 			}
 		}
 		allow = {
@@ -1358,6 +1413,11 @@ decisions = {
 						has_character_flag = destroy_flame_galloway
 						has_character_flag = destroy_flame_plock
 						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
 					}
 				}
 			}
@@ -1437,11 +1497,21 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
+				has_landed_title = b_uppsala
+				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+			}
+			OR = {
 				has_landed_title = c_uppland
 				has_landed_title = b_uppsala
 			}
 			b_uppsala = {
 				has_building = tp_eternal_flame
+			}
+			NOT = {
+				has_alternate_start_parameter = {
+					key = religion_names
+					value = random
+				}
 			}
 		}
 		allow = {
@@ -1458,6 +1528,11 @@ decisions = {
 						has_character_flag = destroy_flame_galloway
 						has_character_flag = destroy_flame_plock
 						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
 					}
 				}
 			}
@@ -1522,6 +1597,591 @@ decisions = {
 			modifier = {
 				factor = 0.1
 				NOT = { has_landed_title = b_uppsala }
+			}
+		}
+	}
+	
+	destroy_flame_random_1 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			OR = {
+				has_landed_title = persistant_event_target:draconic_holy_site_1
+				is_liege_or_above = persistant_event_target:draconic_holy_site_1
+			}
+			persistant_event_target:draconic_holy_site_1 = {
+				OR = {
+					ROOT = { has_landed_title = PREV }
+					county = { ROOT = { has_landed_title = PREV } }
+				}
+			}
+			persistant_event_target:draconic_holy_site_1 = {
+				has_building = tp_eternal_flame
+			}
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		allow = {
+			OR = {
+				scaled_wealth = 0.25
+				wealth = 200
+			}
+			custom_tooltip = {
+				text = not_destroying_flame
+				hidden_tooltip = {
+					NOR = {
+						has_character_flag = destroy_flame_sjaelland
+						has_character_flag = destroy_flame_kent
+						has_character_flag = destroy_flame_galloway
+						has_character_flag = destroy_flame_plock
+						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
+					}
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = { value = -0.25 max = -200 }
+			hidden_tooltip = {
+				set_character_flag = destroy_flame_random_1
+				persistant_event_target:draconic_holy_site_1 = {
+					location = {
+						save_event_target_as = destroy_flame
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = TTDestroyFlameSearch }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					persistant_event_target:draconic_holy_site_1 = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				persistant_event_target:draconic_holy_site_1 = {
+					location = { has_province_modifier = religious_unrest }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_character_modifier = annoyed_religious
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = suspected_witch
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_1 }
+			}
+		}
+	}
+	
+	destroy_flame_random_2 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			OR = {
+				has_landed_title = persistant_event_target:draconic_holy_site_2
+				is_liege_or_above = persistant_event_target:draconic_holy_site_2
+			}
+			persistant_event_target:draconic_holy_site_2 = {
+				OR = {
+					ROOT = { has_landed_title = PREV }
+					county = { ROOT = { has_landed_title = PREV } }
+				}
+			}
+			persistant_event_target:draconic_holy_site_2 = {
+				has_building = tp_eternal_flame
+			}
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		allow = {
+			OR = {
+				scaled_wealth = 0.25
+				wealth = 200
+			}
+			custom_tooltip = {
+				text = not_destroying_flame
+				hidden_tooltip = {
+					NOR = {
+						has_character_flag = destroy_flame_sjaelland
+						has_character_flag = destroy_flame_kent
+						has_character_flag = destroy_flame_galloway
+						has_character_flag = destroy_flame_plock
+						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
+					}
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = { value = -0.25 max = -200 }
+			hidden_tooltip = {
+				set_character_flag = destroy_flame_random_2
+				persistant_event_target:draconic_holy_site_2 = {
+					location = {
+						save_event_target_as = destroy_flame
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = TTDestroyFlameSearch }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					persistant_event_target:draconic_holy_site_2 = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				persistant_event_target:draconic_holy_site_2 = {
+					location = { has_province_modifier = religious_unrest }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_character_modifier = annoyed_religious
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = suspected_witch
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_2 }
+			}
+		}
+	}
+	
+	destroy_flame_random_3 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			OR = {
+				has_landed_title = persistant_event_target:draconic_holy_site_3
+				is_liege_or_above = persistant_event_target:draconic_holy_site_3
+			}
+			persistant_event_target:draconic_holy_site_3 = {
+				OR = {
+					ROOT = { has_landed_title = PREV }
+					county = { ROOT = { has_landed_title = PREV } }
+				}
+			}
+			persistant_event_target:draconic_holy_site_3 = {
+				has_building = tp_eternal_flame
+			}
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		allow = {
+			OR = {
+				scaled_wealth = 0.25
+				wealth = 200
+			}
+			custom_tooltip = {
+				text = not_destroying_flame
+				hidden_tooltip = {
+					NOR = {
+						has_character_flag = destroy_flame_sjaelland
+						has_character_flag = destroy_flame_kent
+						has_character_flag = destroy_flame_galloway
+						has_character_flag = destroy_flame_plock
+						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
+					}
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = { value = -0.25 max = -200 }
+			hidden_tooltip = {
+				set_character_flag = destroy_flame_random_3
+				persistant_event_target:draconic_holy_site_3 = {
+					location = {
+						save_event_target_as = destroy_flame
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = TTDestroyFlameSearch }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					persistant_event_target:draconic_holy_site_3 = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				persistant_event_target:draconic_holy_site_3 = {
+					location = { has_province_modifier = religious_unrest }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_character_modifier = annoyed_religious
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = suspected_witch
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_3 }
+			}
+		}
+	}
+	
+	destroy_flame_random_4 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			OR = {
+				has_landed_title = persistant_event_target:draconic_holy_site_4
+				is_liege_or_above = persistant_event_target:draconic_holy_site_4
+			}
+			persistant_event_target:draconic_holy_site_4 = {
+				OR = {
+					ROOT = { has_landed_title = PREV }
+					county = { ROOT = { has_landed_title = PREV } }
+				}
+			}
+			persistant_event_target:draconic_holy_site_4 = {
+				has_building = tp_eternal_flame
+			}
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		allow = {
+			OR = {
+				scaled_wealth = 0.25
+				wealth = 200
+			}
+			custom_tooltip = {
+				text = not_destroying_flame
+				hidden_tooltip = {
+					NOR = {
+						has_character_flag = destroy_flame_sjaelland
+						has_character_flag = destroy_flame_kent
+						has_character_flag = destroy_flame_galloway
+						has_character_flag = destroy_flame_plock
+						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
+					}
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = { value = -0.25 max = -200 }
+			hidden_tooltip = {
+				set_character_flag = destroy_flame_random_4
+				persistant_event_target:draconic_holy_site_4 = {
+					location = {
+						save_event_target_as = destroy_flame
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = TTDestroyFlameSearch }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					persistant_event_target:draconic_holy_site_4 = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				persistant_event_target:draconic_holy_site_4 = {
+					location = { has_province_modifier = religious_unrest }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_character_modifier = annoyed_religious
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = suspected_witch
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_4 }
+			}
+		}
+	}
+	
+	destroy_flame_random_5 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			OR = {
+				has_landed_title = persistant_event_target:draconic_holy_site_5
+				is_liege_or_above = persistant_event_target:draconic_holy_site_5
+			}
+			persistant_event_target:draconic_holy_site_5 = {
+				OR = {
+					ROOT = { has_landed_title = PREV }
+					county = { ROOT = { has_landed_title = PREV } }
+				}
+			}
+			persistant_event_target:draconic_holy_site_5 = {
+				has_building = tp_eternal_flame
+			}
+			has_alternate_start_parameter = {
+				key = religion_names
+				value = random
+			}
+		}
+		allow = {
+			OR = {
+				scaled_wealth = 0.25
+				wealth = 200
+			}
+			custom_tooltip = {
+				text = not_destroying_flame
+				hidden_tooltip = {
+					NOR = {
+						has_character_flag = destroy_flame_sjaelland
+						has_character_flag = destroy_flame_kent
+						has_character_flag = destroy_flame_galloway
+						has_character_flag = destroy_flame_plock
+						has_character_flag = destroy_flame_uppland
+						has_character_flag = destroy_flame_random_1
+						has_character_flag = destroy_flame_random_2
+						has_character_flag = destroy_flame_random_3
+						has_character_flag = destroy_flame_random_4
+						has_character_flag = destroy_flame_random_5
+					}
+				}
+			}
+		}
+		effect = {
+			scaled_wealth = { value = -0.25 max = -200 }
+			hidden_tooltip = {
+				set_character_flag = destroy_flame_random_5
+				persistant_event_target:draconic_holy_site_5 = {
+					location = {
+						save_event_target_as = destroy_flame
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = TTDestroyFlameSearch }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 0
+				NOR = {
+					persistant_event_target:draconic_holy_site_5 = {
+						location = { has_province_modifier = religious_unrest }
+					}
+					has_character_modifier = annoyed_religious
+					has_character_modifier = suspected_witch
+				}
+			}
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 2
+				persistant_event_target:draconic_holy_site_5 = {
+					location = { has_province_modifier = religious_unrest }
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_character_modifier = annoyed_religious
+			}
+			modifier = {
+				factor = 2
+				has_character_modifier = suspected_witch
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.1
+				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_5 }
 			}
 		}
 	}
@@ -2574,6 +3234,926 @@ decisions = {
 					title = c_kent
 				}
 			}
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 25 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
+		}
+	}
+	
+	make_sapphire_flame_random_1 = {
+		only_independent = yes
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_alternate_start_parameter = { key = religion_names value = random }
+			controls_religion = no
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				NOT = { has_dlc = "Holy Fury" }
+			}
+			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_1 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+					}
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			religion = draconic_pagan_reformed
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_1 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+						war = no
+					}
+					has_building = tp_eternal_flame
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			war = no
+			religion = draconic_pagan_reformed
+		}
+		effect = {
+			custom_tooltip = { text = grant_random_1_sapphire_flame }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_1 = {
+					location = {
+						k_draconic_pagan_reformed = {
+							grant_title = PREV
+							grant_title = PREVPREV
+							opinion = { modifier = opinion_granted_county who = ROOT }
+							hidden_tooltip = { 
+								remove_rival = ROOT
+							}
+							if = {
+								limit = { NOT = { de_facto_liege = ROOT } }
+								if = {
+									limit = { ROOT = { tier = emperor } }
+									set_defacto_liege = ROOT
+								}
+								else = {
+									set_defacto_liege = THIS
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_1 = {
+							location = {
+								any_character = {
+									limit = {
+										OR = {
+											has_claim = PREVPREV
+											has_claim = PREV
+										}
+										religion = draconic_pagan_reformed
+									}
+									remove_claim = PREVPREV
+									remove_claim = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+			piety = 400
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				capital_scope = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_1 = {
+							location = {
+								PREVPREVPREV = { title = PREV }
+							}
+						}
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 25 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
+		}
+	}
+	
+	make_sapphire_flame_random_2 = {
+		only_independent = yes
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_alternate_start_parameter = { key = religion_names value = random }
+			controls_religion = no
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				NOT = { has_dlc = "Holy Fury" }
+			}
+			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_2 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+					}
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			religion = draconic_pagan_reformed
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_2 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+						war = no
+					}
+					has_building = tp_eternal_flame
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			war = no
+			religion = draconic_pagan_reformed
+		}
+		effect = {
+			custom_tooltip = { text = grant_random_2_sapphire_flame }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_2 = {
+					location = {
+						k_draconic_pagan_reformed = {
+							grant_title = PREV
+							grant_title = PREVPREV
+							opinion = { modifier = opinion_granted_county who = ROOT }
+							hidden_tooltip = { 
+								remove_rival = ROOT
+							}
+							if = {
+								limit = { NOT = { de_facto_liege = ROOT } }
+								if = {
+									limit = { ROOT = { tier = emperor } }
+									set_defacto_liege = ROOT
+								}
+								else = {
+									set_defacto_liege = THIS
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_2 = {
+							location = {
+								any_character = {
+									limit = {
+										OR = {
+											has_claim = PREVPREV
+											has_claim = PREV
+										}
+										religion = draconic_pagan_reformed
+									}
+									remove_claim = PREVPREV
+									remove_claim = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+			piety = 400
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				capital_scope = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_2 = {
+							location = {
+								PREVPREVPREV = { title = PREV }
+							}
+						}
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 25 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
+		}
+	}
+	
+	make_sapphire_flame_random_3 = {
+		only_independent = yes
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_alternate_start_parameter = { key = religion_names value = random }
+			controls_religion = no
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				NOT = { has_dlc = "Holy Fury" }
+			}
+			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_3 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+					}
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			religion = draconic_pagan_reformed
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_3 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+						war = no
+					}
+					has_building = tp_eternal_flame
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			war = no
+			religion = draconic_pagan_reformed
+		}
+		effect = {
+			custom_tooltip = { text = grant_random_3_sapphire_flame }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_3 = {
+					location = {
+						k_draconic_pagan_reformed = {
+							grant_title = PREV
+							grant_title = PREVPREV
+							opinion = { modifier = opinion_granted_county who = ROOT }
+							hidden_tooltip = { 
+								remove_rival = ROOT
+							}
+							if = {
+								limit = { NOT = { de_facto_liege = ROOT } }
+								if = {
+									limit = { ROOT = { tier = emperor } }
+									set_defacto_liege = ROOT
+								}
+								else = {
+									set_defacto_liege = THIS
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_3 = {
+							location = {
+								any_character = {
+									limit = {
+										OR = {
+											has_claim = PREVPREV
+											has_claim = PREV
+										}
+										religion = draconic_pagan_reformed
+									}
+									remove_claim = PREVPREV
+									remove_claim = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+			piety = 400
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				capital_scope = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_3 = {
+							location = {
+								PREVPREVPREV = { title = PREV }
+							}
+						}
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 25 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
+		}
+	}
+	
+	make_sapphire_flame_random_4 = {
+		only_independent = yes
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_alternate_start_parameter = { key = religion_names value = random }
+			controls_religion = no
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				NOT = { has_dlc = "Holy Fury" }
+			}
+			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_4 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+					}
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			religion = draconic_pagan_reformed
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_4 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+						war = no
+					}
+					has_building = tp_eternal_flame
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			war = no
+			religion = draconic_pagan_reformed
+		}
+		effect = {
+			custom_tooltip = { text = grant_random_4_sapphire_flame }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_4 = {
+					location = {
+						k_draconic_pagan_reformed = {
+							grant_title = PREV
+							grant_title = PREVPREV
+							opinion = { modifier = opinion_granted_county who = ROOT }
+							hidden_tooltip = { 
+								remove_rival = ROOT
+							}
+							if = {
+								limit = { NOT = { de_facto_liege = ROOT } }
+								if = {
+									limit = { ROOT = { tier = emperor } }
+									set_defacto_liege = ROOT
+								}
+								else = {
+									set_defacto_liege = THIS
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_4 = {
+							location = {
+								any_character = {
+									limit = {
+										OR = {
+											has_claim = PREVPREV
+											has_claim = PREV
+										}
+										religion = draconic_pagan_reformed
+									}
+									remove_claim = PREVPREV
+									remove_claim = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+			piety = 400
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				capital_scope = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_4 = {
+							location = {
+								PREVPREVPREV = { title = PREV }
+							}
+						}
+					}
+				}
+			}
+			
+			modifier = {
+				factor = 3
+				trait = zealous
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 25 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 50 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 75 }
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				k_draconic_pagan_reformed = {
+					holder_scope = {
+						reverse_opinion = { who = ROOT value = 100 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 2
+				trait = excommunicated
+			}
+			modifier = {
+				factor = 3
+				tier = emperor
+			}
+			modifier = {
+				factor = 0.01
+				num_of_count_titles == 1
+			}
+		}
+	}
+	
+	make_sapphire_flame_random_5 = {
+		only_independent = yes
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 36
+		
+		potential = {
+			is_playable = yes
+			independent = yes
+			has_alternate_start_parameter = { key = religion_names value = random }
+			controls_religion = no
+			OR = {
+				has_religion_feature = religion_theocratic_head
+				NOT = { has_dlc = "Holy Fury" }
+			}
+			has_global_flag = draconic_reformation
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_5 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+					}
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			religion = draconic_pagan_reformed
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				is_landed = no
+				persistant_event_target:draconic_holy_site_5 = {
+					holder_scope = {
+						OR = {
+							character = ROOT
+							de_facto_liege = ROOT
+						}
+						war = no
+					}
+					has_building = tp_eternal_flame
+					location = {
+						holder_scope = {
+							character = ROOT
+						}
+					}
+				}
+			}
+			war = no
+			religion = draconic_pagan_reformed
+		}
+		effect = {
+			custom_tooltip = { text = grant_random_5_sapphire_flame }
+			k_draconic_pagan_reformed = {
+				persistant_event_target:draconic_holy_site_5 = {
+					location = {
+						k_draconic_pagan_reformed = {
+							grant_title = PREV
+							grant_title = PREVPREV
+							opinion = { modifier = opinion_granted_county who = ROOT }
+							hidden_tooltip = { 
+								remove_rival = ROOT
+							}
+							if = {
+								limit = { NOT = { de_facto_liege = ROOT } }
+								if = {
+									limit = { ROOT = { tier = emperor } }
+									set_defacto_liege = ROOT
+								}
+								else = {
+									set_defacto_liege = THIS
+								}
+							}
+						}
+					}
+				}
+			}
+			if = { 
+				limit = { NOT = { trait = flametender } }
+				add_trait = flametender
+			}
+			if = {
+				limit = { trait = excommunicated }
+				remove_trait = excommunicated
+			}
+			custom_tooltip = {
+				text = tt_remove_claims
+				hidden_tooltip = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_5 = {
+							location = {
+								any_character = {
+									limit = {
+										OR = {
+											has_claim = PREVPREV
+											has_claim = PREV
+										}
+										religion = draconic_pagan_reformed
+									}
+									remove_claim = PREVPREV
+									remove_claim = PREV
+								}
+							}
+						}
+					}
+				}
+			}
+			piety = 400
+		}
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 0
+				capital_scope = {
+					k_draconic_pagan_reformed = {
+						persistant_event_target:draconic_holy_site_5 = {
+							location = {
+								PREVPREVPREV = { title = PREV }
+							}
+						}
+					}
+				}
+			}
+			
 			modifier = {
 				factor = 3
 				trait = zealous
