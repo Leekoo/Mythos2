@@ -659,8 +659,8 @@ decisions = {
 				religion = draconic_pagan_reformed
 			}
 			k_draconic_pagan_reformed = {
-				is_title_active = persistant_event_target:draconic_holy_site_1
-				persistant_event_target:draconic_holy_site_1 = {
+				is_title_active = persistent_event_target:draconic_holy_site_1
+				persistent_event_target:draconic_holy_site_1 = {
 					NOT = { has_building = tp_eternal_flame }
 				}
 			}
@@ -674,7 +674,7 @@ decisions = {
 		allow = {
 			has_landed_title = c_sjaelland
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					county = {
 						ROOT = {
 							has_landed_title = PREV
@@ -734,8 +734,8 @@ decisions = {
 				religion = draconic_pagan_reformed
 			}
 			k_draconic_pagan_reformed = {
-				is_title_active = persistant_event_target:draconic_holy_site_2
-				persistant_event_target:draconic_holy_site_2 = {
+				is_title_active = persistent_event_target:draconic_holy_site_2
+				persistent_event_target:draconic_holy_site_2 = {
 					NOT = { has_building = tp_eternal_flame }
 				}
 			}
@@ -749,7 +749,7 @@ decisions = {
 		allow = {
 			has_landed_title = c_sjaelland
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					county = {
 						ROOT = {
 							has_landed_title = PREV
@@ -809,8 +809,8 @@ decisions = {
 				religion = draconic_pagan_reformed
 			}
 			k_draconic_pagan_reformed = {
-				is_title_active = persistant_event_target:draconic_holy_site_3
-				persistant_event_target:draconic_holy_site_3 = {
+				is_title_active = persistent_event_target:draconic_holy_site_3
+				persistent_event_target:draconic_holy_site_3 = {
 					NOT = { has_building = tp_eternal_flame }
 				}
 			}
@@ -824,7 +824,7 @@ decisions = {
 		allow = {
 			has_landed_title = c_sjaelland
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					county = {
 						ROOT = {
 							has_landed_title = PREV
@@ -884,8 +884,8 @@ decisions = {
 				religion = draconic_pagan_reformed
 			}
 			k_draconic_pagan_reformed = {
-				is_title_active = persistant_event_target:draconic_holy_site_4
-				persistant_event_target:draconic_holy_site_4 = {
+				is_title_active = persistent_event_target:draconic_holy_site_4
+				persistent_event_target:draconic_holy_site_4 = {
 					NOT = { has_building = tp_eternal_flame }
 				}
 			}
@@ -899,7 +899,7 @@ decisions = {
 		allow = {
 			has_landed_title = c_sjaelland
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					county = {
 						ROOT = {
 							has_landed_title = PREV
@@ -959,8 +959,8 @@ decisions = {
 				religion = draconic_pagan_reformed
 			}
 			k_draconic_pagan_reformed = {
-				is_title_active = persistant_event_target:draconic_holy_site_5
-				persistant_event_target:draconic_holy_site_5 = {
+				is_title_active = persistent_event_target:draconic_holy_site_5
+				persistent_event_target:draconic_holy_site_5 = {
 					NOT = { has_building = tp_eternal_flame }
 				}
 			}
@@ -974,7 +974,7 @@ decisions = {
 		allow = {
 			has_landed_title = c_sjaelland
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					county = {
 						ROOT = {
 							has_landed_title = PREV
@@ -1612,16 +1612,16 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = persistant_event_target:draconic_holy_site_1
-				is_liege_or_above = persistant_event_target:draconic_holy_site_1
+				has_landed_title = persistent_event_target:draconic_holy_site_1
+				is_liege_or_above = persistent_event_target:draconic_holy_site_1
 			}
-			persistant_event_target:draconic_holy_site_1 = {
+			persistent_event_target:draconic_holy_site_1 = {
 				OR = {
 					ROOT = { has_landed_title = PREV }
 					county = { ROOT = { has_landed_title = PREV } }
 				}
 			}
-			persistant_event_target:draconic_holy_site_1 = {
+			persistent_event_target:draconic_holy_site_1 = {
 				has_building = tp_eternal_flame
 			}
 			has_alternate_start_parameter = {
@@ -1656,7 +1656,7 @@ decisions = {
 			scaled_wealth = { value = -0.25 max = -200 }
 			hidden_tooltip = {
 				set_character_flag = destroy_flame_random_1
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					location = {
 						save_event_target_as = destroy_flame
 					}
@@ -1670,7 +1670,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOR = {
-					persistant_event_target:draconic_holy_site_1 = {
+					persistent_event_target:draconic_holy_site_1 = {
 						location = { has_province_modifier = religious_unrest }
 					}
 					has_character_modifier = annoyed_religious
@@ -1691,7 +1691,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 2
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					location = { has_province_modifier = religious_unrest }
 				}
 			}
@@ -1713,7 +1713,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.1
-				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_1 }
+				NOT = { has_landed_title = persistent_event_target:draconic_holy_site_1 }
 			}
 		}
 	}
@@ -1729,16 +1729,16 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = persistant_event_target:draconic_holy_site_2
-				is_liege_or_above = persistant_event_target:draconic_holy_site_2
+				has_landed_title = persistent_event_target:draconic_holy_site_2
+				is_liege_or_above = persistent_event_target:draconic_holy_site_2
 			}
-			persistant_event_target:draconic_holy_site_2 = {
+			persistent_event_target:draconic_holy_site_2 = {
 				OR = {
 					ROOT = { has_landed_title = PREV }
 					county = { ROOT = { has_landed_title = PREV } }
 				}
 			}
-			persistant_event_target:draconic_holy_site_2 = {
+			persistent_event_target:draconic_holy_site_2 = {
 				has_building = tp_eternal_flame
 			}
 			has_alternate_start_parameter = {
@@ -1773,7 +1773,7 @@ decisions = {
 			scaled_wealth = { value = -0.25 max = -200 }
 			hidden_tooltip = {
 				set_character_flag = destroy_flame_random_2
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					location = {
 						save_event_target_as = destroy_flame
 					}
@@ -1787,7 +1787,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOR = {
-					persistant_event_target:draconic_holy_site_2 = {
+					persistent_event_target:draconic_holy_site_2 = {
 						location = { has_province_modifier = religious_unrest }
 					}
 					has_character_modifier = annoyed_religious
@@ -1808,7 +1808,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 2
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					location = { has_province_modifier = religious_unrest }
 				}
 			}
@@ -1830,7 +1830,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.1
-				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_2 }
+				NOT = { has_landed_title = persistent_event_target:draconic_holy_site_2 }
 			}
 		}
 	}
@@ -1846,16 +1846,16 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = persistant_event_target:draconic_holy_site_3
-				is_liege_or_above = persistant_event_target:draconic_holy_site_3
+				has_landed_title = persistent_event_target:draconic_holy_site_3
+				is_liege_or_above = persistent_event_target:draconic_holy_site_3
 			}
-			persistant_event_target:draconic_holy_site_3 = {
+			persistent_event_target:draconic_holy_site_3 = {
 				OR = {
 					ROOT = { has_landed_title = PREV }
 					county = { ROOT = { has_landed_title = PREV } }
 				}
 			}
-			persistant_event_target:draconic_holy_site_3 = {
+			persistent_event_target:draconic_holy_site_3 = {
 				has_building = tp_eternal_flame
 			}
 			has_alternate_start_parameter = {
@@ -1890,7 +1890,7 @@ decisions = {
 			scaled_wealth = { value = -0.25 max = -200 }
 			hidden_tooltip = {
 				set_character_flag = destroy_flame_random_3
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					location = {
 						save_event_target_as = destroy_flame
 					}
@@ -1904,7 +1904,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOR = {
-					persistant_event_target:draconic_holy_site_3 = {
+					persistent_event_target:draconic_holy_site_3 = {
 						location = { has_province_modifier = religious_unrest }
 					}
 					has_character_modifier = annoyed_religious
@@ -1925,7 +1925,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 2
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					location = { has_province_modifier = religious_unrest }
 				}
 			}
@@ -1947,7 +1947,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.1
-				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_3 }
+				NOT = { has_landed_title = persistent_event_target:draconic_holy_site_3 }
 			}
 		}
 	}
@@ -1963,16 +1963,16 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = persistant_event_target:draconic_holy_site_4
-				is_liege_or_above = persistant_event_target:draconic_holy_site_4
+				has_landed_title = persistent_event_target:draconic_holy_site_4
+				is_liege_or_above = persistent_event_target:draconic_holy_site_4
 			}
-			persistant_event_target:draconic_holy_site_4 = {
+			persistent_event_target:draconic_holy_site_4 = {
 				OR = {
 					ROOT = { has_landed_title = PREV }
 					county = { ROOT = { has_landed_title = PREV } }
 				}
 			}
-			persistant_event_target:draconic_holy_site_4 = {
+			persistent_event_target:draconic_holy_site_4 = {
 				has_building = tp_eternal_flame
 			}
 			has_alternate_start_parameter = {
@@ -2007,7 +2007,7 @@ decisions = {
 			scaled_wealth = { value = -0.25 max = -200 }
 			hidden_tooltip = {
 				set_character_flag = destroy_flame_random_4
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					location = {
 						save_event_target_as = destroy_flame
 					}
@@ -2021,7 +2021,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOR = {
-					persistant_event_target:draconic_holy_site_4 = {
+					persistent_event_target:draconic_holy_site_4 = {
 						location = { has_province_modifier = religious_unrest }
 					}
 					has_character_modifier = annoyed_religious
@@ -2042,7 +2042,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 2
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					location = { has_province_modifier = religious_unrest }
 				}
 			}
@@ -2064,7 +2064,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.1
-				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_4 }
+				NOT = { has_landed_title = persistent_event_target:draconic_holy_site_4 }
 			}
 		}
 	}
@@ -2080,16 +2080,16 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = persistant_event_target:draconic_holy_site_5
-				is_liege_or_above = persistant_event_target:draconic_holy_site_5
+				has_landed_title = persistent_event_target:draconic_holy_site_5
+				is_liege_or_above = persistent_event_target:draconic_holy_site_5
 			}
-			persistant_event_target:draconic_holy_site_5 = {
+			persistent_event_target:draconic_holy_site_5 = {
 				OR = {
 					ROOT = { has_landed_title = PREV }
 					county = { ROOT = { has_landed_title = PREV } }
 				}
 			}
-			persistant_event_target:draconic_holy_site_5 = {
+			persistent_event_target:draconic_holy_site_5 = {
 				has_building = tp_eternal_flame
 			}
 			has_alternate_start_parameter = {
@@ -2124,7 +2124,7 @@ decisions = {
 			scaled_wealth = { value = -0.25 max = -200 }
 			hidden_tooltip = {
 				set_character_flag = destroy_flame_random_5
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					location = {
 						save_event_target_as = destroy_flame
 					}
@@ -2138,7 +2138,7 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOR = {
-					persistant_event_target:draconic_holy_site_5 = {
+					persistent_event_target:draconic_holy_site_5 = {
 						location = { has_province_modifier = religious_unrest }
 					}
 					has_character_modifier = annoyed_religious
@@ -2159,7 +2159,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 2
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					location = { has_province_modifier = religious_unrest }
 				}
 			}
@@ -2181,7 +2181,7 @@ decisions = {
 			}
 			modifier = {
 				factor = 0.1
-				NOT = { has_landed_title = persistant_event_target:draconic_holy_site_5 }
+				NOT = { has_landed_title = persistent_event_target:draconic_holy_site_5 }
 			}
 		}
 	}
@@ -3307,7 +3307,7 @@ decisions = {
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3326,7 +3326,7 @@ decisions = {
 		allow = {
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3348,7 +3348,7 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_random_1_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_1 = {
+				persistent_event_target:draconic_holy_site_1 = {
 					location = {
 						k_draconic_pagan_reformed = {
 							grant_title = PREV
@@ -3383,7 +3383,7 @@ decisions = {
 				text = tt_remove_claims
 				hidden_tooltip = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							location = {
 								any_character = {
 									limit = {
@@ -3409,7 +3409,7 @@ decisions = {
 				factor = 0
 				capital_scope = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							location = {
 								PREVPREVPREV = { title = PREV }
 							}
@@ -3491,7 +3491,7 @@ decisions = {
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3510,7 +3510,7 @@ decisions = {
 		allow = {
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3532,7 +3532,7 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_random_2_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_2 = {
+				persistent_event_target:draconic_holy_site_2 = {
 					location = {
 						k_draconic_pagan_reformed = {
 							grant_title = PREV
@@ -3567,7 +3567,7 @@ decisions = {
 				text = tt_remove_claims
 				hidden_tooltip = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							location = {
 								any_character = {
 									limit = {
@@ -3593,7 +3593,7 @@ decisions = {
 				factor = 0
 				capital_scope = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							location = {
 								PREVPREVPREV = { title = PREV }
 							}
@@ -3675,7 +3675,7 @@ decisions = {
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3694,7 +3694,7 @@ decisions = {
 		allow = {
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3716,7 +3716,7 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_random_3_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_3 = {
+				persistent_event_target:draconic_holy_site_3 = {
 					location = {
 						k_draconic_pagan_reformed = {
 							grant_title = PREV
@@ -3751,7 +3751,7 @@ decisions = {
 				text = tt_remove_claims
 				hidden_tooltip = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							location = {
 								any_character = {
 									limit = {
@@ -3777,7 +3777,7 @@ decisions = {
 				factor = 0
 				capital_scope = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							location = {
 								PREVPREVPREV = { title = PREV }
 							}
@@ -3859,7 +3859,7 @@ decisions = {
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3878,7 +3878,7 @@ decisions = {
 		allow = {
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -3900,7 +3900,7 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_random_4_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_4 = {
+				persistent_event_target:draconic_holy_site_4 = {
 					location = {
 						k_draconic_pagan_reformed = {
 							grant_title = PREV
@@ -3935,7 +3935,7 @@ decisions = {
 				text = tt_remove_claims
 				hidden_tooltip = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							location = {
 								any_character = {
 									limit = {
@@ -3961,7 +3961,7 @@ decisions = {
 				factor = 0
 				capital_scope = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							location = {
 								PREVPREVPREV = { title = PREV }
 							}
@@ -4043,7 +4043,7 @@ decisions = {
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -4062,7 +4062,7 @@ decisions = {
 		allow = {
 			k_draconic_pagan_reformed = {
 				is_landed = no
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					holder_scope = {
 						OR = {
 							character = ROOT
@@ -4084,7 +4084,7 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_random_5_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_5 = {
+				persistent_event_target:draconic_holy_site_5 = {
 					location = {
 						k_draconic_pagan_reformed = {
 							grant_title = PREV
@@ -4119,7 +4119,7 @@ decisions = {
 				text = tt_remove_claims
 				hidden_tooltip = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							location = {
 								any_character = {
 									limit = {
@@ -4145,7 +4145,7 @@ decisions = {
 				factor = 0
 				capital_scope = {
 					k_draconic_pagan_reformed = {
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							location = {
 								PREVPREVPREV = { title = PREV }
 							}
