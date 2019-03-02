@@ -7398,3 +7398,51 @@ defined_text = {
 		localisation_key = TurnCanExpose_Key
 	}
 }
+
+defined_text = {
+	name = GetHighPriestKemetic
+	text = {
+		trigger = {
+			has_religion_feature = religion_dogmatic
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_AMUN_RA # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			NOT = { has_religion_feature = religion_dogmatic }
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_AMUN # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_ISIS # Specify Amun-Ra to avoid confusion
+	}
+}
+
+defined_text = {
+	name = GetHighPriestessKemetic
+	text = {
+		trigger = {
+			has_religion_feature = religion_dogmatic
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_AMUN_RA # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			NOT = { has_religion_feature = religion_dogmatic }
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_AMUN # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_ISIS # Specify Amun-Ra to avoid confusion
+	}
+}
