@@ -1036,8 +1036,8 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = b_uppsala
-				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+				has_landed_title = b_lejre
+				is_liege_or_above = b_lejre # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_sjaelland
@@ -1152,8 +1152,8 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = b_uppsala
-				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+				has_landed_title = b_canterbury
+				is_liege_or_above = b_canterbury # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_kent
@@ -1267,8 +1267,8 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = b_uppsala
-				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+				has_landed_title = b_wyszogrod
+				is_liege_or_above = b_wyszogrod # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_plock
@@ -1382,8 +1382,8 @@ decisions = {
 				secret_religion = draconic_pagan_reformed
 			}
 			OR = {
-				has_landed_title = b_uppsala
-				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+				has_landed_title = b_whithorn
+				is_liege_or_above = b_whithorn # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_galloway
@@ -2526,11 +2526,11 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_sjaelland_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				grant_title = c_sjaelland
-				grant_title = b_lejre
-				opinion = { modifier = opinion_granted_county who = ROOT }
-				hidden_tooltip = { 
-					remove_rival = ROOT
+				holder_scope = {
+					grant_title = c_sjaelland
+					grant_title = b_lejre
+					opinion = { modifier = opinion_granted_county who = ROOT }
+					hidden_tooltip = { remove_rival = ROOT }
 				}
 				if = {
 					limit = { NOT = { de_facto_liege = ROOT } }
@@ -2690,11 +2690,11 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_plock_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				grant_title = c_plock
-				grant_title = b_wyszogrod
-				opinion = { modifier = opinion_granted_county who = ROOT }
-				hidden_tooltip = { 
-					remove_rival = ROOT
+				holder_scope = {
+					grant_title = c_plock
+					grant_title = b_wyszogrod
+					opinion = { modifier = opinion_granted_county who = ROOT }
+					hidden_tooltip = { remove_rival = ROOT }
 				}
 				if = {
 					limit = { NOT = { de_facto_liege = ROOT } }
@@ -2854,11 +2854,11 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_galloway_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				grant_title = c_galloway
-				grant_title = b_whithorn
-				opinion = { modifier = opinion_granted_county who = ROOT }
-				hidden_tooltip = { 
-					remove_rival = ROOT
+				holder_scope = {
+					grant_title = c_galloway
+					grant_title = b_whithorn
+					opinion = { modifier = opinion_granted_county who = ROOT }
+					hidden_tooltip = { remove_rival = ROOT }
 				}
 				if = {
 					limit = { NOT = { de_facto_liege = ROOT } }
@@ -3018,11 +3018,11 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_uppland_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				grant_title = c_uppland
-				grant_title = b_uppsala
-				opinion = { modifier = opinion_granted_county who = ROOT }
-				hidden_tooltip = { 
-					remove_rival = ROOT
+				holder_scope = {
+					grant_title = c_uppland
+					grant_title = b_uppsala
+					opinion = { modifier = opinion_granted_county who = ROOT }
+					hidden_tooltip = { remove_rival = ROOT }
 				}
 				if = {
 					limit = { NOT = { de_facto_liege = ROOT } }
@@ -3182,11 +3182,11 @@ decisions = {
 		effect = {
 			custom_tooltip = { text = grant_kent_sapphire_flame }
 			k_draconic_pagan_reformed = {
-				grant_title = c_kent
-				grant_title = b_canterbury
-				opinion = { modifier = opinion_granted_county who = ROOT }
-				hidden_tooltip = { 
-					remove_rival = ROOT
+				holder_scope = {
+					grant_title = c_kent
+					grant_title = b_canterbury
+					opinion = { modifier = opinion_granted_county who = ROOT }
+					hidden_tooltip = { remove_rival = ROOT }
 				}
 				if = {
 					limit = { NOT = { de_facto_liege = ROOT } }
@@ -3355,7 +3355,7 @@ decisions = {
 							grant_title = PREVPREV
 							opinion = { modifier = opinion_granted_county who = ROOT }
 							hidden_tooltip = { 
-								remove_rival = ROOT
+								holder_scope = { remove_rival = ROOT }
 							}
 							if = {
 								limit = { NOT = { de_facto_liege = ROOT } }
@@ -3539,7 +3539,7 @@ decisions = {
 							grant_title = PREVPREV
 							opinion = { modifier = opinion_granted_county who = ROOT }
 							hidden_tooltip = { 
-								remove_rival = ROOT
+								holder_scope = { remove_rival = ROOT }
 							}
 							if = {
 								limit = { NOT = { de_facto_liege = ROOT } }
@@ -3723,7 +3723,7 @@ decisions = {
 							grant_title = PREVPREV
 							opinion = { modifier = opinion_granted_county who = ROOT }
 							hidden_tooltip = { 
-								remove_rival = ROOT
+								holder_scope = { remove_rival = ROOT }
 							}
 							if = {
 								limit = { NOT = { de_facto_liege = ROOT } }
@@ -3907,7 +3907,7 @@ decisions = {
 							grant_title = PREVPREV
 							opinion = { modifier = opinion_granted_county who = ROOT }
 							hidden_tooltip = { 
-								remove_rival = ROOT
+								holder_scope = { remove_rival = ROOT }
 							}
 							if = {
 								limit = { NOT = { de_facto_liege = ROOT } }
@@ -4091,7 +4091,7 @@ decisions = {
 							grant_title = PREVPREV
 							opinion = { modifier = opinion_granted_county who = ROOT }
 							hidden_tooltip = { 
-								remove_rival = ROOT
+								holder_scope = { remove_rival = ROOT }
 							}
 							if = {
 								limit = { NOT = { de_facto_liege = ROOT } }
