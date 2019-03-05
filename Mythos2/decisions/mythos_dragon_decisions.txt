@@ -1037,7 +1037,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = b_lejre
-				is_liege_or_above = b_lejre # Prevent destroying flames you don't control
+				b_lejre = { de_facto_liege = ROOT }  # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_sjaelland
@@ -1153,7 +1153,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = b_canterbury
-				is_liege_or_above = b_canterbury # Prevent destroying flames you don't control
+				b_canterbury = { de_facto_liege = ROOT }  # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_kent
@@ -1268,7 +1268,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = b_wyszogrod
-				is_liege_or_above = b_wyszogrod # Prevent destroying flames you don't control
+				b_wyszogrod = { de_facto_liege = ROOT }  # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_plock
@@ -1383,7 +1383,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = b_whithorn
-				is_liege_or_above = b_whithorn # Prevent destroying flames you don't control
+				b_whithorn = { de_facto_liege = ROOT }  # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_galloway
@@ -1498,7 +1498,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = b_uppsala
-				is_liege_or_above = b_uppsala # Prevent destroying flames you don't control
+				b_uppsala = { de_facto_liege = ROOT } # Prevent destroying flames you don't control
 			}
 			OR = {
 				has_landed_title = c_uppland
@@ -1613,7 +1613,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = persistent_event_target:draconic_holy_site_1
-				is_liege_or_above = persistent_event_target:draconic_holy_site_1
+				persistent_event_target:draconic_holy_site_1 = { de_facto_liege = ROOT } 
 			}
 			persistent_event_target:draconic_holy_site_1 = {
 				OR = {
@@ -1730,7 +1730,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = persistent_event_target:draconic_holy_site_2
-				is_liege_or_above = persistent_event_target:draconic_holy_site_2
+				persistent_event_target:draconic_holy_site_2 = { de_facto_liege = ROOT } 
 			}
 			persistent_event_target:draconic_holy_site_2 = {
 				OR = {
@@ -1847,7 +1847,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = persistent_event_target:draconic_holy_site_3
-				is_liege_or_above = persistent_event_target:draconic_holy_site_3
+				persistent_event_target:draconic_holy_site_3 = { de_facto_liege = ROOT } 
 			}
 			persistent_event_target:draconic_holy_site_3 = {
 				OR = {
@@ -1964,7 +1964,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = persistent_event_target:draconic_holy_site_4
-				is_liege_or_above = persistent_event_target:draconic_holy_site_4
+				persistent_event_target:draconic_holy_site_4 = { de_facto_liege = ROOT } 
 			}
 			persistent_event_target:draconic_holy_site_4 = {
 				OR = {
@@ -2081,7 +2081,7 @@ decisions = {
 			}
 			OR = {
 				has_landed_title = persistent_event_target:draconic_holy_site_5
-				is_liege_or_above = persistent_event_target:draconic_holy_site_5
+				persistent_event_target:draconic_holy_site_5 = { de_facto_liege = ROOT } 
 			}
 			persistent_event_target:draconic_holy_site_5 = {
 				OR = {
