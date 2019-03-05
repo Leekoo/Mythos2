@@ -2138,35 +2138,35 @@ character_event = {
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_1 }
-			persistant_event_target:draconic_holy_site_1 = {
+			persistent_event_target:draconic_holy_site_1 = {
 				remove_building = tp_eternal_flame
 				save_event_target_as = destroyed_flame
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_2 }
-			persistant_event_target:draconic_holy_site_2 = {
+			persistent_event_target:draconic_holy_site_2 = {
 				remove_building = tp_eternal_flame
 				save_event_target_as = destroyed_flame
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_3 }
-			persistant_event_target:draconic_holy_site_3 = {
+			persistent_event_target:draconic_holy_site_3 = {
 				remove_building = tp_eternal_flame
 				save_event_target_as = destroyed_flame
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_4 }
-			persistant_event_target:draconic_holy_site_4 = {
+			persistent_event_target:draconic_holy_site_4 = {
 				remove_building = tp_eternal_flame
 				save_event_target_as = destroyed_flame
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_5 }
-			persistant_event_target:draconic_holy_site_5 = {
+			persistent_event_target:draconic_holy_site_5 = {
 				remove_building = tp_eternal_flame
 				save_event_target_as = destroyed_flame
 			}
@@ -2328,8 +2328,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2339,8 +2339,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2350,8 +2350,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2361,8 +2361,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2372,8 +2372,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2420,31 +2420,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -2589,8 +2589,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2600,8 +2600,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2611,8 +2611,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2622,8 +2622,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2633,8 +2633,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -2681,31 +2681,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -3152,8 +3152,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3163,8 +3163,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3174,8 +3174,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3185,8 +3185,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3196,8 +3196,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3244,31 +3244,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -3794,8 +3794,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3805,8 +3805,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3816,8 +3816,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3827,8 +3827,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3838,8 +3838,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -3886,31 +3886,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -4277,8 +4277,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4288,8 +4288,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4299,8 +4299,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4310,8 +4310,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4321,8 +4321,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4369,31 +4369,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -4746,8 +4746,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4757,8 +4757,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4768,8 +4768,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4779,8 +4779,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4790,8 +4790,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -4838,31 +4838,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -5602,8 +5602,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_1
-							persistant_event_target:draconic_holy_site_1 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_1
+							persistent_event_target:draconic_holy_site_1 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -5613,8 +5613,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_2
-							persistant_event_target:draconic_holy_site_2 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_2
+							persistent_event_target:draconic_holy_site_2 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -5624,8 +5624,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_3
-							persistant_event_target:draconic_holy_site_3 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_3
+							persistent_event_target:draconic_holy_site_3 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -5635,8 +5635,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_4
-							persistant_event_target:draconic_holy_site_4 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_4
+							persistent_event_target:draconic_holy_site_4 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -5646,8 +5646,8 @@ character_event = {
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						NOR = {
-							has_landed_title = persistant_event_target:draconic_holy_site_5
-							persistant_event_target:draconic_holy_site_5 = {
+							has_landed_title = persistent_event_target:draconic_holy_site_5
+							persistent_event_target:draconic_holy_site_5 = {
 								location = {
 									ROOT = { has_landed_title = PREV }
 								}
@@ -5694,31 +5694,31 @@ character_event = {
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistant_event_target:draconic_holy_site_1 = {
+						persistent_event_target:draconic_holy_site_1 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistant_event_target:draconic_holy_site_2 = {
+						persistent_event_target:draconic_holy_site_2 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistant_event_target:draconic_holy_site_3 = {
+						persistent_event_target:draconic_holy_site_3 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistant_event_target:draconic_holy_site_4 = {
+						persistent_event_target:draconic_holy_site_4 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistant_event_target:draconic_holy_site_5 = {
+						persistent_event_target:draconic_holy_site_5 = {
 							NOT = { has_building = tp_eternal_flame }
 						}
 					}
@@ -6069,7 +6069,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_1 }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_1 = { 
+				persistent_event_target:draconic_holy_site_1 = { 
 					add_building = tp_eternal_flame
 					save_event_target_as = relit_flame
 				}
@@ -6078,7 +6078,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_2 }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_2 = { 
+				persistent_event_target:draconic_holy_site_2 = { 
 					add_building = tp_eternal_flame
 					save_event_target_as = relit_flame
 				}
@@ -6087,7 +6087,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_3 }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_3 = { 
+				persistent_event_target:draconic_holy_site_3 = { 
 					add_building = tp_eternal_flame
 					save_event_target_as = relit_flame
 				}
@@ -6096,7 +6096,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_4 }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_4 = { 
+				persistent_event_target:draconic_holy_site_4 = { 
 					add_building = tp_eternal_flame
 					save_event_target_as = relit_flame
 				}
@@ -6105,7 +6105,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_5 }
 			k_draconic_pagan_reformed = {
-				persistant_event_target:draconic_holy_site_5 = { 
+				persistent_event_target:draconic_holy_site_5 = { 
 					add_building = tp_eternal_flame
 					save_event_target_as = relit_flame
 				}
@@ -10467,7 +10467,7 @@ character_event = {
 			set_variable = { which = years_SF_loan value = 0 }
 		}
 		else = {
-			repeat_event = { id = DRAGON.173 years = 1 }
+			repeat_event = { id = DRAGON.173 days = 365 }
 		}
 	}
 }
