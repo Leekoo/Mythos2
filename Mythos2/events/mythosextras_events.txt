@@ -3802,24 +3802,24 @@ character_event = {
 					}
 				}
 			}
-			b_lejre = { save_event_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed } }
-			b_canterbury = { save_event_persistent_event_target = { name = draconic_holy_site_2 scope = k_draconic_pagan_reformed } }
-			b_wyszogrod = { save_event_persistent_event_target = { name = draconic_holy_site_3 scope = k_draconic_pagan_reformed } }
-			b_whithorn = { save_event_persistent_event_target = { name = draconic_holy_site_4 scope = k_draconic_pagan_reformed } }
-			b_uppsala = { save_event_persistent_event_target = { name = draconic_holy_site_5 scope = k_draconic_pagan_reformed } }
+			b_lejre = { save_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed } }
+			b_canterbury = { save_persistent_event_target = { name = draconic_holy_site_2 scope = k_draconic_pagan_reformed } }
+			b_wyszogrod = { save_persistent_event_target = { name = draconic_holy_site_3 scope = k_draconic_pagan_reformed } }
+			b_whithorn = { save_persistent_event_target = { name = draconic_holy_site_4 scope = k_draconic_pagan_reformed } }
+			b_uppsala = { save_persistent_event_target = { name = draconic_holy_site_5 scope = k_draconic_pagan_reformed } }
 		}
 		else = {
 			draconic_pagan = {
 				random_landed_title = {
 					limit = { is_holy_site = PREV }
-					save_event_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed }
+					save_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
 						is_holy_site = PREV
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 					}
-					save_event_persistent_event_target = { name = draconic_holy_site_2 scope = k_draconic_pagan_reformed }
+					save_persistent_event_target = { name = draconic_holy_site_2 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
@@ -3827,7 +3827,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 					}
-					save_event_persistent_event_target = { name = draconic_holy_site_3 scope = k_draconic_pagan_reformed }
+					save_persistent_event_target = { name = draconic_holy_site_3 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
@@ -3836,7 +3836,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
 					}
-					save_event_persistent_event_target = { name = draconic_holy_site_4 scope = k_draconic_pagan_reformed }
+					save_persistent_event_target = { name = draconic_holy_site_4 scope = k_draconic_pagan_reformed }
 				}
 				random_landed_title = {
 					limit = {
@@ -3846,7 +3846,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_4 = { title = PREVPREV } } }
 					}
-					save_event_persistent_event_target = { name = draconic_holy_site_5 scope = k_draconic_pagan_reformed }
+					save_persistent_event_target = { name = draconic_holy_site_5 scope = k_draconic_pagan_reformed }
 				}
 			}
 		}
