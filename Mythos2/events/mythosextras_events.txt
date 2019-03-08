@@ -3809,7 +3809,7 @@ character_event = {
 			b_uppsala = { save_persistent_event_target = { name = draconic_holy_site_5 scope = k_draconic_pagan_reformed } }
 		}
 		else = {
-			draconic_pagan = {
+			draconic_pagan = { # If there are errors, this might need to scope to a random character of this religion instead
 				random_landed_title = {
 					limit = { is_holy_site = PREV }
 					save_persistent_event_target = { name = draconic_holy_site_1 scope = k_draconic_pagan_reformed }
