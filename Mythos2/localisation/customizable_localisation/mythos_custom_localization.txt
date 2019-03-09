@@ -7447,3 +7447,27 @@ defined_text = {
 		localisation_key = HIGH_PREISTESS_KEMETIC_ISIS # Specify Amun-Ra to avoid confusion
 	}
 }
+
+defined_text = {
+	name = GetMenWomen
+	text = {
+		trigger = { is_female = no }
+		localisation_key = String_Men
+	}
+	text = {
+		trigger = { is_female = yes }
+		localisation_key = String_Women
+	}
+}
+
+defined_text = {
+	name = GetMenWomenOpp
+	text = {
+		trigger = { is_female = yes }
+		localisation_key = String_Men
+	}
+	text = {
+		trigger = { is_female = no }
+		localisation_key = String_Women
+	}
+}
