@@ -4826,33 +4826,6 @@ character_event = {
 				preferred_limit = { 
 					is_dumb_trigger = no
 				}
-				preferred_limit = { 
-					is_ill = no
-					has_education_diplomacy_trigger = yes
-					diplomacy = 5
-					NOT = { diplomacy = 12 }
-				}
-				preferred_limit = {
-					has_education_diplomacy_trigger = yes
-					diplomacy = 5
-					NOT = { diplomacy = 12 }
-				}
-				preferred_limit = {
-					diplomacy = 5
-					NOT = { diplomacy = 12 }
-				}
-				preferred_limit = {
-					is_dumb_trigger = no
-					NOR = { 
-						trait = shy
-						trait = stutter
-						trait = lisp
-						trait = harelip
-					}
-				}
-				preferred_limit = { 
-					is_dumb_trigger = no
-				}
 				clr_character_flag = flyting_strong
 				clr_character_flag = flyting_medium
 				clr_character_flag = flyting_weak
