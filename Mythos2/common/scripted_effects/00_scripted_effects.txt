@@ -19701,8 +19701,10 @@ calculate_health_level_of_ingredient_1_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_1 }
-    			ingredient_is_perceived_healthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					ingredient_is_perceived_healthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19713,8 +19715,10 @@ calculate_health_level_of_ingredient_1_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_1 }
-    			ingredient_is_unhealthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					ingredient_is_unhealthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19734,8 +19738,10 @@ calculate_health_level_of_ingredient_2_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_2 }
-    			ingredient_is_perceived_healthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_2
+					ingredient_is_perceived_healthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19746,8 +19752,10 @@ calculate_health_level_of_ingredient_2_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_2 }
-    			ingredient_is_unhealthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_2
+					ingredient_is_unhealthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
