@@ -6049,7 +6049,7 @@ character_event = {
 		trigger = {
 			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				NOT = { capital_scope = { province = PREV } }
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
 			}
 		}
 		event_target:random_province = {
@@ -6526,7 +6526,7 @@ character_event = {
 		trigger = {
 			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				NOT = { capital_scope = { province = PREV } }
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
 			}
 		}
 				
