@@ -5047,14 +5047,14 @@ character_event = {
 				limit = { NOT = { trait = werewolf } }
 				random = {
 					chance = 50
-					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+					opinion = { who = ROOT modifier = opinion_terrified years = 5 }
 				}
 			}
 			any_vassal = {
 				limit = { NOT = { trait = werewolf } }
 				random = {
 					chance = 50
-					opinion = { who = FROM modifier = opinion_terrified years = 5 }
+					opinion = { who = ROOT modifier = opinion_terrified years = 5 }
 				}
 			}
 		}
