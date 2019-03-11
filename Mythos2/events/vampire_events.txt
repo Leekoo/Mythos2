@@ -12118,7 +12118,7 @@ character_event = {
 			1 = {
 				trigger = { NOT = { has_character_flag = blood_feast_rival } }
 				set_character_flag = blood_feast_rival
-				character_event = { id = vampire.186 }
+				character_event = { id = VAMPIRE.186 }
 				# Call event tombola
 				repeat_event = { id = VAMPIRE.178 days = 4 }
 				change_variable = { which = count_blood_feast_events value = 1 }
@@ -12126,7 +12126,7 @@ character_event = {
 			# Liege ends a rivalry
 			1 = {
 				trigger = { NOT = { has_character_flag = blood_feast_rival } }
-				character_event = { id = vampire.188 }
+				character_event = { id = VAMPIRE.188 }
 				# Call event tombola
 				repeat_event = { id = VAMPIRE.178 days = 4 }
 				change_variable = { which = count_blood_feast_events value = 1 }
@@ -12134,7 +12134,7 @@ character_event = {
 			# Liege overeats
 			1 = {
 				trigger = { NOT = { trait = gluttonous } }
-				character_event = { id = vampire.190 }
+				character_event = { id = VAMPIRE.190 }
 				# Call event tombola
 				repeat_event = { id = VAMPIRE.178 days = 4 }
 				change_variable = { which = count_blood_feast_events value = 1 }
@@ -12149,7 +12149,7 @@ character_event = {
 				}
 				random_courtier_or_vassal = {
 					limit = { has_character_flag = attending_blood_feast }
-					character_event = { id = vampire.190 }
+					character_event = { id = VAMPIRE.190 }
 				}
 				# Call event tombola
 				repeat_event = { id = VAMPIRE.178 days = 4 }
@@ -12367,7 +12367,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.184
-		add_friend = new_friend
+		add_friend = event_target:new_friend
 		event_target:new_friend = { character_event = { id = VAMPIRE.185 } }
 	}
 }
@@ -12419,7 +12419,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.186
-		add_rival = new_rival
+		add_rival = event_target:new_rival
 		event_target:new_rival = { character_event = { id = VAMPIRE.187 } }
 		custom_tooltip = { text = tt_kick_out_rival }
 	}
@@ -12470,7 +12470,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.188
-		remove_rival = old_rival
+		remove_rival = event_target:old_rival
 		event_target:old_rival = { character_event = { id = VAMPIRE.189 } }
 	}
 }
