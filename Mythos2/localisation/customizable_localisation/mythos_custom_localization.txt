@@ -6611,13 +6611,13 @@ defined_text = {
 }
 defined_text = {
 	name = GetName_Freyja
-	fallback_text = {
+	text = {
 		localisation_key = GOD_FREYJA_DEFAULT
 	}
 }
 defined_text = {
 	name = GetName_Sif
-	fallback_text = {
+	text = {
 		localisation_key = GOD_SIF_DEFAULT
 	}
 }
@@ -6739,7 +6739,7 @@ defined_text = {
 			}
 			FROM = { trait = vampire }
 		}
-		localisation_key = TurnAcceptanceReasons_Vampire
+		localisation_key = TurnAcceptanceList_Vampire
 	}
 	text = {
 		trigger = {
@@ -6749,7 +6749,7 @@ defined_text = {
 			}
 			FROM = { trait = werewolf }
 		}
-		localisation_key = TurnAcceptanceReasons_Werewolf
+		localisation_key = TurnRejectionList_Werewolf
 	}
 }
 defined_text = {
@@ -6790,7 +6790,7 @@ defined_text = {
 		localisation_key = TurnAcceptanceList_Vampire
 	}
 	fallback_text = {
-		localisation_key = TurnRejectionReasons_Vampire
+		localisation_key = TurnRejectionList_Vampire
 	}
 }
 defined_text = {
@@ -7132,7 +7132,7 @@ defined_text = {
 		localisation_key = TurnAcceptanceList_Werewolf
 	}
 	fallback_text = {
-		localisation_key = TurnRejectionReasons_Werewolf
+		localisation_key = TurnRejectionList_Werewolf
 	}
 }
 defined_text = {
@@ -7452,11 +7452,11 @@ defined_text = {
 	name = GetMenWomen
 	text = {
 		trigger = { is_female = no }
-		localisation_key = String_Men
+		localisation_key = String_men
 	}
 	text = {
 		trigger = { is_female = yes }
-		localisation_key = String_Women
+		localisation_key = String_women
 	}
 }
 
@@ -7464,10 +7464,10 @@ defined_text = {
 	name = GetMenWomenOpp
 	text = {
 		trigger = { is_female = yes }
-		localisation_key = String_Men
+		localisation_key = String_men
 	}
 	text = {
 		trigger = { is_female = no }
-		localisation_key = String_Women
+		localisation_key = String_women
 	}
 }
