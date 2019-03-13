@@ -2899,6 +2899,19 @@ increase_prosperity_effect = {
 	}
 }
 
+decrease_prosperity_effect = {
+	if = {
+		limit = {
+			has_province_modifier = prosperity_modifier_3
+		}
+		hidden_tooltip = {
+			remove_province_modifier = prosperity_modifier_3
+			set_variable = { which = prosperity_value value = 250 }
+		}
+		add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+	}
+}
+
 add_disease_level_effect = {
 		random_list = {
 			65 = { 
