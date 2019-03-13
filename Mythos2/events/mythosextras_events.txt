@@ -3854,7 +3854,57 @@ character_event = {
 		draconic_pagan = {
 			any_title = {
 				limit = { is_holy_site = PREV }
-				add_building = tp_eternal_flame
+				if = {
+					limit = {
+						tier = baron
+						holding_type = temple
+					}
+					add_building = tp_eternal_flame
+				}
+				else = {
+					limit = {
+						tier = count
+					}
+					location = {
+						if = {
+							limit = { any_province_holding = { holding_type = temple } }
+							random_province_holding = {
+								limit = { holding_type = temple }
+								add_building = tp_eternal_flame
+							}
+						}
+						else = {
+							holder_scope = {
+								create_random_priest = {
+									random_traits = yes
+									female = no
+									religion = PREV
+									culture = PREV
+									race = PREV
+									employer = PREV
+								}
+								new_character = {
+									random = {
+										chance = 2
+										culture = draconic
+									}
+									random = {
+										chance = 5
+										religion = draconic_pagan
+									}
+								}
+							}
+							build_holding = {
+								type = temple
+								holder = new_character
+							}
+							random_province_holding = { # Not sure if I can use new_title after build_holding
+								limit = { holding_type = temple }
+								add_building = tp_eternal_flame
+							}
+						}
+					}
+				}
 			}
 		}
 		
