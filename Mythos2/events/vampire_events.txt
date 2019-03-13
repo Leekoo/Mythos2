@@ -13515,35 +13515,35 @@ character_event = {
 			}
 		}
 		if = {
-			limit = { NOT = { base_diplomacy = 5 } }
+			limit = { NOT = { diplomacy = 8 } }
 			random = {
 				chance = 10
 				set_character_flag = vf_stat
 			}
 		}
 		if = {
-			limit = { NOT = { base_stewardship = 5 } }
+			limit = { NOT = { stewardship = 8 } }
 			random = {
 				chance = 10
 				set_character_flag = vf_stat
 			}
 		}
 		if = {
-			limit = { NOT = { base_martial = 5 } }
+			limit = { NOT = { martial = 8 } }
 			random = {
 				chance = 10
 				set_character_flag = vf_stat
 			}
 		}
 		if = {
-			limit = { NOT = { base_intrigue = 5 } }
+			limit = { NOT = { intrigue = 8 } }
 			random = {
 				chance = 10
 				set_character_flag = vf_stat
 			}
 		}
 		if = {
-			limit = { NOT = { base_learning = 5 } }
+			limit = { NOT = { learning = 8 } }
 			random = {
 				chance = 10
 				set_character_flag = vf_stat
@@ -13630,35 +13630,35 @@ character_event = {
 				1 = {
 					modifier = {
 						factor = 0
-						base_diplomacy = 5
+						diplomacy = 8
 					}
 					set_character_flag = vf_stat_diplomacy
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						base_stewardship = 5
+						stewardship = 8
 					}
 					set_character_flag = vf_stat_stewardship
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						base_martial = 5
+						martial = 8
 					}
 					set_character_flag = vf_stat_martial
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						base_intrigue = 5
+						intrigue = 8
 					}
 					set_character_flag = vf_stat_intrigue
 				}
 				1 = {
 					modifier = {
 						factor = 0
-						base_learning = 5
+						learning = 8
 					}
 					set_character_flag = vf_stat_learning
 				}
