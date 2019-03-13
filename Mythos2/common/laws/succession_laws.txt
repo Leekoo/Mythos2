@@ -337,9 +337,9 @@ succession_laws = {
 						is_tribal = yes
 						religion = west_african_pagan
 					}
-					religion_scope = { has_religion_feature = religion_beatification }
-					religion_scope = { has_religion_feature = religion_feature_baltic }
-					religion_scope = { has_religion_feature = religion_feature_west_african }
+					has_religion_feature = religion_beatification
+					has_religion_feature = religion_feature_baltic
+					has_religion_feature = religion_feature_west_african
 				}
 			}
 			holder_scope = {
@@ -355,8 +355,8 @@ succession_laws = {
 				}
 				NOR = { 
 					religion_group = muslim 
-					religion_scope = { has_religion_feature = religion_matriarchal }
-					religion_scope = { has_religion_feature = religion_patriarchal }
+					has_religion_feature = religion_matriarchal
+					has_religion_feature = religion_patriarchal
 				}
 				NOR = { 
 					government = draconic_feudal_government
@@ -408,9 +408,9 @@ succession_laws = {
 							is_tribal = yes
 							religion = west_african_pagan
 						}
-						religion_scope = { has_religion_feature = religion_beatification }
-						religion_scope = { has_religion_feature = religion_feature_baltic }
-						religion_scope = { has_religion_feature = religion_feature_west_african }
+						has_religion_feature = religion_beatification
+						has_religion_feature = religion_feature_baltic
+						has_religion_feature = religion_feature_west_african
 					}
 				}
 				custom_tooltip = {
@@ -1457,7 +1457,10 @@ succession_laws = {
 	}
 	succ_papal_succession = {
 		potential = {
-			title = k_papal_state
+			OR={
+				title = k_papal_state
+				title = d_druidic_reformed
+			}
 		}
 		
 		effect = {
@@ -1664,10 +1667,8 @@ gender_laws = {
 	cognatic_succession = {
 		potential = {
 			holder_scope = {
-				religion_scope = { 
-					NOT = { has_religion_feature = religion_matriarchal }
-					NOT = { has_religion_feature = religion_equal }
-				}
+				NOT = { has_religion_feature = religion_matriarchal }
+				NOT = { has_religion_feature = religion_equal }
 				OR = {
 					NOT = { tier = baron }
 					is_theocracy = yes
@@ -1751,10 +1752,8 @@ gender_laws = {
 	
 		potential = {
 			holder_scope = { 
-				religion_scope = {
-					NOT = { has_religion_feature = religion_matriarchal } 
-					NOT = { has_religion_feature = religion_equal }
-				}
+				NOT = { has_religion_feature = religion_matriarchal } 
+				NOT = { has_religion_feature = religion_equal }
 			}
 		}
 		effect = {
@@ -1801,8 +1800,8 @@ gender_laws = {
 		male_dynasty_opinion = -5
 		
 		potential = {
-			holder_scope = { religion_scope = { NOT = { has_religion_feature = religion_matriarchal } } }
-			holder_scope = { religion_scope = { NOT = { has_religion_feature = religion_patriarchal } } }
+			holder_scope = { NOT = { has_religion_feature = religion_matriarchal } }
+			holder_scope = { NOT = { has_religion_feature = religion_patriarchal } }
 			OR = {
 				AND = {
 					has_dlc = "Zeus"
@@ -1823,8 +1822,8 @@ gender_laws = {
 							is_merchant_republic = no
 							is_patrician = no
 						}
-						religion_scope = { has_religion_feature = religion_equal }
-						religion_scope = { has_religion_feature = religion_feature_bon }
+						has_religion_feature = religion_equal
+						has_religion_feature = religion_feature_bon
 						AND = {
 							has_dlc = "Zeus"
 							ROOT = { holder_scope = { primary_title = { has_law = status_of_women_4 } } }
@@ -1860,7 +1859,7 @@ gender_laws = {
 					}
 				}
 				holder_scope = {
-					religion_scope = { has_religion_feature = religion_equal }
+					has_religion_feature = religion_equal
 				}
 			}
 			
@@ -1876,7 +1875,7 @@ gender_laws = {
 						religion = cathar
 						religion = messalian
 						religion = mazdaki
-						religion_scope = { has_religion_feature = religion_equal }
+						has_religion_feature = religion_equal
 					}
 				}
 				OR = {
@@ -1902,7 +1901,7 @@ gender_laws = {
 				factor = 0.1
 				NOT = {
 					holder_scope = {
-						religion_scope = { has_religion_feature = religion_equal }
+						has_religion_feature = religion_equal
 					}
 				}
 			}
@@ -1910,7 +1909,7 @@ gender_laws = {
 			modifier = {
 				factor = 100
 				holder_scope = {
-					religion_scope = { has_religion_feature = religion_equal }
+					has_religion_feature = religion_equal
 				}
 			}
 		}
@@ -1921,7 +1920,7 @@ gender_laws = {
 		female_dynasty_opinion = 10
 		
 		potential = {
-			holder_scope = { religion_scope = { has_religion_feature = religion_matriarchal } }
+			holder_scope = { has_religion_feature = religion_matriarchal }
 		}
 		allow = {
 			
@@ -1945,7 +1944,7 @@ gender_laws = {
 		potential = {
 			holder_scope = {
 				OR = {
-					religion_scope = { has_religion_feature = religion_matriarchal }
+					has_religion_feature = religion_matriarchal
 					any_owned_bloodline = {
 						has_bloodline_flag = bloodline_enatic_cognatic 
 					}
@@ -1969,7 +1968,7 @@ gender_laws = {
 				NOT = {
 					holder_scope = {
 						OR = {
-							religion_scope = { has_religion_feature = religion_matriarchal }
+							has_religion_feature = religion_matriarchal
 							any_owned_bloodline = {
 								has_bloodline_flag = bloodline_enatic_cognatic 
 							}
@@ -1982,7 +1981,7 @@ gender_laws = {
 				factor = 100
 				holder_scope = {
 					OR = {
-						religion_scope = { has_religion_feature = religion_matriarchal }
+						has_religion_feature = religion_matriarchal
 						any_owned_bloodline = {
 							has_bloodline_flag = bloodline_enatic_cognatic 
 						}
