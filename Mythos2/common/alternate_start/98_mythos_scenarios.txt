@@ -9,8 +9,10 @@ mythos_generate_monsters = {
 				count = 3
 				random_province = {
 					limit = {
-						culture = none
-						religion = none
+						OR = {
+							no_religion = yes
+							no_culture = yes
+						}
 					}
 					save_event_target_as = base_province
 					religion = the_damned
@@ -172,7 +174,13 @@ mythos_generate_monsters = {
 							NOT = { check_variable = { which = province_count which = num_provinces } }
 						}
 						random_province = {
-							limit = { any_neighbor_province = { culture = event_target:base_province } }
+							limit = {
+								any_neighbor_province = { culture = event_target:base_province }
+								OR = {
+									no_religion = yes
+									no_culture = yes
+								}
+							}
 							religion = the_damned
 							culture = event_target:base_province
 						}
@@ -185,13 +193,13 @@ mythos_generate_monsters = {
 			while = {
 				count = 4
 				random_province = {
-					limit = { religion = none }
+					limit = { no_religion = yes }
 					if = {
 						limit = {
-							any_neighbor_province = { NOT = { religion = none } }
+							any_neighbor_province = { no_religion = no }
 						}
 						random_neighbor_province = {
-							limit = { NOT = { religion = none } }
+							limit = { no_religion = no }
 							religion = PREV
 						}
 					}
@@ -278,14 +286,14 @@ mythos_generate_monsters = {
 			while = {
 				limit = {
 					any_province = {
-						religion = none
-						any_neighbor_province = { NOT = { religion = none } }
+						no_religion = yes
+						any_neighbor_province = { no_religion = no }
 					}
 				}
 				any_province = {
 					limit = { 
-						religion = none
-						any_neighbor_province = { NOT = { religion = none } }
+						no_religion = yes
+						any_neighbor_province = { no_religion = no }
 					}
 					random_neighbor_province = {
 						PREV = {
@@ -297,7 +305,7 @@ mythos_generate_monsters = {
 			# Handle any leftovers
 			while = {
 				limit = {
-					any_province = { religion = none }
+					any_province = { no_religion = yes }
 				}
 				random_province = {
 					random_list = {
@@ -376,13 +384,13 @@ mythos_generate_monsters = {
 						}
 					}
 					any_neighbor_province = {
-						limit = { religion = none }
+						limit = { no_religion = yes }
 						religion = PREV
 						any_neighbor_province = {
-							limit = { religion = none }
+							limit = { no_religion = yes }
 							religion = PREV
 							any_neighbor_province = {
-								limit = { religion = none }
+								limit = { no_religion = yes }
 								religion = PREV
 							}
 						}
@@ -391,7 +399,7 @@ mythos_generate_monsters = {
 			}
 			# Any characters with no religion should take their province religion
 			any_character = {
-				limit = { religion = none }
+				limit = { no_religion = yes }
 				location = {
 					PREV = {
 						religion = PREV
@@ -403,11 +411,11 @@ mythos_generate_monsters = {
 			while = {
 				count = 5
 				random_province = {
-					limit = { culture = none }
+					limit = { no_culture = yes }
 					if = {
-						limit = { any_neighbor_province = { NOT = { culture = none } } }
+						limit = { any_neighbor_province = { no_culture = no } }
 						random_neigbor_province = {
-							limit = { NOT = { culture = noe } }
+							limit = { no_culture = no }
 							PREV = { culture = PREV }
 						}
 					}
@@ -891,14 +899,14 @@ mythos_generate_monsters = {
 			while = {
 				limit = {
 					any_province = {
-						culture = none
-						any_neighbor_province = { NOT = { culture = none } }
+						no_culture = yes
+						any_neighbor_province = { no_culture = no }
 					}
 				}
 				any_province = {
 					limit = { 
-						culture = none
-						any_neighbor_province = { NOT = { culture = none } }
+						no_culture = yes
+						any_neighbor_province = { no_culture = no }
 					}
 					random_neighbor_province = {
 						PREV = {
@@ -910,9 +918,10 @@ mythos_generate_monsters = {
 			# Handle any leftovers
 			while = {
 				limit = {
-					any_province = { religion = none }
+					any_province = { no_culture = yes }
 				}
 				random_province = {
+					limit = { no_culture = yes }
 					random_list = {
 						1 = {
 							modifier = {
@@ -1387,13 +1396,13 @@ mythos_generate_monsters = {
 						}
 					}
 					any_neighbor_province = {
-						limit = { culture = none }
+						limit = { no_culture = yes }
 						culture = PREV
 						any_neighbor_province = {
-							limit = { culture = none }
+							limit = { no_culture = yes }
 							culture = PREV
 							any_neighbor_province = {
-								limit = { culture = none }
+								limit = { no_culture = yes }
 								culture = PREV
 							}
 						}
@@ -1402,7 +1411,7 @@ mythos_generate_monsters = {
 			}
 			# Handle characters with no culture
 			any_character = {
-				limit = { culture = none }
+				limit = { no_culture = yes }
 				location = {
 					PREV = { culture = PREV }
 				}
