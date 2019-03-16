@@ -298,7 +298,9 @@ dragon_culture_group = {
 
 monster_culture_group = {
 	graphical_cultures = { westernslavicgfx ugricgfx }
-	alternate_start = { always = no }
+	alternate_start = {
+		has_alternate_start_parameter = { key = special_culture value = monster_kingdoms }
+	}
 	vampire_culture = {
 		graphical_cultures = { westernslavicgfx }
 
