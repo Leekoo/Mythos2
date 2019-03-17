@@ -9475,3 +9475,17 @@ clear_MR_conversion_flags = {
 	clr_character_flag = get_fp_djinni_caves_1
 	clr_character_flag = get_fp_monster_hunter_lodge_1
 }
+
+fix_local_character_religion = {
+	any_province_character = {
+		limit = { no_religion = yes }
+		religion = PREV
+	}
+}
+
+fix_local_character_culture = {
+	any_province_character = {
+		limit = { no_culture = yes }
+		culture = PREV
+	}
+}

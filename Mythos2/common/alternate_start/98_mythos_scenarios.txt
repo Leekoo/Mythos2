@@ -168,6 +168,8 @@ mythos_generate_monsters = {
 						8 = { set_variable = { which = num_provinces value = 3 } }
 						9 = { set_variable = { which = num_provinces value = 2 } }
 					}
+					fix_local_character_religion = yes
+					fix_local_character_culture = yes
 					set_variable = { which = province_count value = 0 }
 					while = {
 						limit = {
@@ -183,6 +185,8 @@ mythos_generate_monsters = {
 							}
 							religion = the_damned
 							culture = event_target:base_province
+							fix_local_character_religion = yes
+							fix_local_character_culture = yes
 						}
 						change_variable = { which = province_count value = 1 }
 					}
@@ -193,13 +197,15 @@ mythos_generate_monsters = {
 			while = {
 				count = 4
 				random_province = {
-					limit = { no_religion = yes }
+					limit = {
+						no_religion = yes
+					}
 					if = {
 						limit = {
-							any_neighbor_province = { no_religion = no }
+							any_neighbor_province = { has_religion = yes }
 						}
 						random_neighbor_province = {
-							limit = { no_religion = no }
+							limit = { has_religion = yes }
 							religion = PREV
 						}
 					}
@@ -280,6 +286,7 @@ mythos_generate_monsters = {
 							}
 						}
 					}
+					fix_local_character_religion = yes
 				}
 			}
 			# Find each province with no religion where a neighbor has a religion
@@ -287,27 +294,41 @@ mythos_generate_monsters = {
 				limit = {
 					any_province = {
 						no_religion = yes
-						any_neighbor_province = { no_religion = no }
+						any_neighbor_province = {
+							has_religion = yes
+						}
 					}
 				}
 				any_province = {
 					limit = { 
 						no_religion = yes
-						any_neighbor_province = { no_religion = no }
+						any_neighbor_province = {
+							has_religion = yes
+						}
 					}
+					save_event_target_as = base_province
 					random_neighbor_province = {
-						PREV = {
+						limit = {
+							has_religion = yes
+						}
+						event_target:base_province = {
 							religion = PREV
 						}
 					}
+					fix_local_character_religion = yes
 				}
 			}
 			# Handle any leftovers
 			while = {
 				limit = {
-					any_province = { no_religion = yes }
+					any_province = {
+						no_religion = yes
+					}
 				}
 				random_province = {
+					limit = {
+						no_religion = yes
+					}
 					random_list = {
 						5 = { religion = catholic }
 						1 = { religion = cathar }
@@ -383,15 +404,25 @@ mythos_generate_monsters = {
 							religion = satanist
 						}
 					}
+					fix_local_character_religion = yes
 					any_neighbor_province = {
-						limit = { no_religion = yes }
+						limit = {
+							no_religion = yes
+						}
 						religion = PREV
+						fix_local_character_religion = yes
 						any_neighbor_province = {
-							limit = { no_religion = yes }
+							limit = {
+								no_religion = yes
+							}
 							religion = PREV
+							fix_local_character_religion = yes
 							any_neighbor_province = {
-								limit = { no_religion = yes }
+								limit = {
+									no_religion = yes
+								}
 								religion = PREV
+								fix_local_character_religion = yes
 							}
 						}
 					}
@@ -400,23 +431,23 @@ mythos_generate_monsters = {
 			# Any characters with no religion should take their province religion
 			any_character = {
 				limit = { no_religion = yes }
-				location = {
-					PREV = {
-						religion = PREV
-					}
-				}
+				religion = location
 			}
 			
 			# Now handle cultures
+			log = "Setting culture seed provinces"
 			while = {
 				count = 5
 				random_province = {
-					limit = { no_culture = yes }
+					limit = {
+						no_culture = yes
+					}
 					if = {
-						limit = { any_neighbor_province = { no_culture = no } }
+						limit = { any_neighbor_province = { has_culture = yes } }
+						save_event_target_as = base_province
 						random_neigbor_province = {
-							limit = { no_culture = no }
-							PREV = { culture = PREV }
+							limit = { has_culture = yes }
+							event_target:base_province = { culture = PREV }
 						}
 					}
 					else = {
@@ -894,28 +925,35 @@ mythos_generate_monsters = {
 							}
 						}
 					}
+					fix_local_character_culture = yes
 				}
 			}
 			while = {
 				limit = {
 					any_province = {
 						no_culture = yes
-						any_neighbor_province = { no_culture = no }
+						any_neighbor_province = {
+							has_culture = yes
+						}
 					}
 				}
 				any_province = {
 					limit = { 
 						no_culture = yes
-						any_neighbor_province = { no_culture = no }
+						any_neighbor_province = { has_culture = yes }
 					}
+					save_event_target_as = base_province
 					random_neighbor_province = {
-						PREV = {
+						limit = { has_culture = yes }
+						event_target:base_province = {
 							culture = PREV
 						}
 					}
+					fix_local_character_culture = yes
 				}
 			}
 			# Handle any leftovers
+			log = "Handling culture of leftovers"
 			while = {
 				limit = {
 					any_province = { no_culture = yes }
@@ -1395,15 +1433,19 @@ mythos_generate_monsters = {
 							culture = werewolf_culture
 						}
 					}
+					fix_local_character_culture = yes
 					any_neighbor_province = {
 						limit = { no_culture = yes }
 						culture = PREV
+						fix_local_character_culture = yes
 						any_neighbor_province = {
 							limit = { no_culture = yes }
 							culture = PREV
+							fix_local_character_culture = yes
 							any_neighbor_province = {
 								limit = { no_culture = yes }
 								culture = PREV
+								fix_local_character_culture = yes
 							}
 						}
 					}
@@ -1412,8 +1454,9 @@ mythos_generate_monsters = {
 			# Handle characters with no culture
 			any_character = {
 				limit = { no_culture = yes }
+				save_event_target_as = base_character
 				location = {
-					PREV = { culture = PREV }
+					event_target:base_character = { culture = PREV }
 				}
 			}
 			
@@ -1438,6 +1481,11 @@ mythos_generate_monsters = {
 					add_trait = zombie
 					set_graphical_culture = undead_revenant
 					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
 				}
 			}
 			if = {
@@ -1461,6 +1509,11 @@ mythos_generate_monsters = {
 					add_trait = zombie
 					set_graphical_culture = undead_revenant
 					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
 				}
 			}
 			if = {
@@ -1479,6 +1532,11 @@ mythos_generate_monsters = {
 					add_trait = zombie
 					set_graphical_culture = undead_revenant
 					set_government_type = zombie_horde
+					any_demesne_province = {
+						religion = the_damned
+						culture = PREV
+						fix_local_character_culture = yes
+					}
 				}
 			}
 			
@@ -1568,6 +1626,7 @@ mythos_generate_monsters = {
 				}
 			}
 			# Vampires
+			log = "Set Vampires"
 			any_character = {
 				limit = {
 					culture = vampire_culture
@@ -1636,24 +1695,24 @@ mythos_generate_monsters = {
 				else_if = {
 					limit = { tier = emperor }
 					add_trait = vampire
-						add_trait = secret_vampire
+					add_trait = secret_vampire
 				}
 				if = {
 					limit = {
 						trait = vampire
 						NOT = { religion = satanist }
-						random = {
-							chance = 70
-							religion = satanism
-							any_demesne_province = {
-								religion = satanist
-							}
+					}
+					random = {
+						chance = 70
+						religion = satanism
+						any_demesne_province = {
+							religion = satanist
 						}
 					}
 				}
 			}
 			# Djinni
-			if = {
+			any_character = {
 				limit = { culture = djinni }
 				random = {
 					chance = 20
@@ -1665,25 +1724,25 @@ mythos_generate_monsters = {
 				}
 			}
 			# Revenants
-			if = {
+			any_character = {
 				limit = { culture_group = undead_culture_group }
 				add_trait = zombie
 				religion = the_damned
 				set_government_type = zombie_horde
-				ste_graphical_culture = undead_revenant
+				set_graphical_culture = undead_revenant
 			}
 			# Demons and ethereal just in case
-			if = {
+			any_character = {
 				limit = { culture = demon_culture }
 				add_trait = demon_trait
 				set_graphical_culture = demon_culture
 			}
-			if = {
+			any_character = {
 				limit = { culture = ethereal_culture }
 				add_trait = ethereal_trait
 				set_graphical_culture = ethereal_culture
 			}
-			# Add one random mummty, two with monster kingdoms
+			# Add one random mummy, two with monster kingdoms
 			random_independent_ruler = {
 				limit = {
 					realm_size < 70
@@ -1707,6 +1766,7 @@ mythos_generate_monsters = {
 							trait = djinn
 							trait = demon_trait
 							trait = ethereal_trait
+							trait = mummy
 						}
 					}
 					random = {
@@ -1727,6 +1787,7 @@ mythos_generate_monsters = {
 							trait = djinn
 							trait = demon_trait
 							trait = ethereal_trait
+							trait = mummy
 						}
 					}
 					random = {
