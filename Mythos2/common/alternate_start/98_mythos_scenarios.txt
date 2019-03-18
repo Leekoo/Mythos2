@@ -287,6 +287,11 @@ mythos_generate_monsters = {
 						}
 					}
 					fix_local_character_religion = yes
+					any_neighbor_province = {
+						limit = { no_religion = yes }
+						religion = PREV
+						fix_local_character_religion = yes
+					}
 				}
 			}
 			# Find each province with no religion where a neighbor has a religion
@@ -316,6 +321,11 @@ mythos_generate_monsters = {
 						}
 					}
 					fix_local_character_religion = yes
+					any_neighbor_province = {
+						limit = { no_religion = yes }
+						religion = PREV
+						fix_local_character_religion = yes
+					}
 				}
 			}
 			# Handle any leftovers
