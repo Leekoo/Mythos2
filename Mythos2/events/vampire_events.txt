@@ -566,6 +566,27 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		# Clear disease flags here since they are no longer cleared at the end
+		clr_character_flag = vf_sick_tuberculosis
+		clr_character_flag = vf_sick_typhoid_fever
+		clr_character_flag = vf_sick_typhus
+		clr_character_flag = vf_sick_bubonic_plague
+		clr_character_flag = vf_sick_measles
+		clr_character_flag = vf_sick_small_pox
+		clr_character_flag = vf_sick_aztec_disease
+		clr_character_flag = vf_sick_syphilitic
+		clr_character_flag = vf_sick_flu
+		clr_character_flag = vf_sick_dysentery
+		clr_character_flag = vf_sick_gout
+		clr_character_flag = vf_sick_food_poisoning
+		clr_character_flag = vf_sick_rabies
+		clr_character_flag = vf_sick_cancer
+		clr_character_flag = vf_sick_pneumonic
+		clr_character_flag = vf_sick_dancing_plague
+		clr_character_flag = vf_sick_ill
+		clr_character_flag = vf_sick_leper
+		clr_character_flag = vf_sick_lovers_pox
+		
 		# What effect does feeding give
 		if = {
 			limit = {
@@ -1097,9 +1118,7 @@ character_event = {
 				set_character_flag = got_tuberculosis
 				add_tuberculosis_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_tuberculosis
-			}
+			set_character_flag = vf_sick_tuberculosis
 		}
 		if = {
 			limit = { 
@@ -1118,9 +1137,7 @@ character_event = {
 				set_character_flag = got_typhoid_fever
 				add_typhoid_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_typhoid_fever
-			}
+			set_character_flag = vf_sick_typhoid_fever
 		}
 		if = {
 			limit = { 
@@ -1140,9 +1157,7 @@ character_event = {
 				set_character_flag = got_typhus
 				add_typhus_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_typhus
-			}
+			set_character_flag = vf_sick_typhus
 		}
 		if = {
 			limit = { 
@@ -1163,9 +1178,7 @@ character_event = {
 				set_character_flag = got_bubonic_plague
 				add_plague_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_bubonic_plague
-			}
+			set_character_flag = vf_sick_bubonic_plague
 		}
 		if = {
 			limit = { 
@@ -1187,9 +1200,7 @@ character_event = {
 				set_character_flag = got_measles
 				add_measles_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_measles
-			}
+			set_character_flag = vf_sick_measles
 		}
 		if = {
 			limit = { 
@@ -1212,9 +1223,7 @@ character_event = {
 				set_character_flag = got_smallpox
 				add_smallpox_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_small_pox
-			}
+			set_character_flag = vf_sick_small_pox
 		}
 		if = {
 			limit = { 
@@ -1238,9 +1247,7 @@ character_event = {
 				set_character_flag = got_aztec_disease
 				add_aztec_disease_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_aztec_disease
-			}
+			set_character_flag = vf_sick_aztec_disease
 		}
 		if = {
 			limit = { 
@@ -1265,9 +1272,7 @@ character_event = {
 				set_character_flag = got_syphilis
 				add_syphilis_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_syphilitic
-			}
+			set_character_flag = vf_sick_syphilitic
 		}
 		if = {
 			limit = { 
@@ -1293,9 +1298,7 @@ character_event = {
 				set_character_flag = got_flu
 				add_flu_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_flu
-			}
+			set_character_flag = vf_sick_flu
 		}
 		if = {
 			limit = { 
@@ -1322,9 +1325,7 @@ character_event = {
 				set_character_flag = got_dysentery
 				add_dysentery_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_dysentery
-			}
+			set_character_flag = vf_sick_dysentery
 		}
 		if = {
 			limit = { 
@@ -1352,9 +1353,7 @@ character_event = {
 				set_character_flag = got_gout
 				add_gout_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_gout
-			}
+			set_character_flag = vf_sick_gout
 		}
 		if = {
 			limit = { 
@@ -1383,9 +1382,7 @@ character_event = {
 				set_character_flag = got_food_poisoning
 				add_food_poisoning_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_food_poisoning
-			}
+			set_character_flag = vf_sick_food_poisoning
 		}
 		if = {
 			limit = { 
@@ -1415,9 +1412,7 @@ character_event = {
 				set_character_flag = got_rabies
 				add_rabies_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_rabies
-			}
+			set_character_flag = vf_sick_rabies
 		}
 		if = {
 			limit = { 
@@ -1448,9 +1443,7 @@ character_event = {
 				set_character_flag = got_cancer
 				add_cancer_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_cancer
-			}
+			set_character_flag = vf_sick_cancer
 		}
 		if = {
 			limit = { 
@@ -1482,9 +1475,7 @@ character_event = {
 				set_character_flag = got_pneumonic
 				add_pneumonia_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_pneumonic
-			}
+			set_character_flag = vf_sick_pneumonic
 		}
 		if = {
 			limit = { 
@@ -1590,9 +1581,7 @@ character_event = {
 				set_character_flag = got_bubonic_plague
 				add_plague_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_bubonic_plague
-			}
+			set_character_flag = vf_sick_bubonic_plague
 		}
 		if = {
 			limit = { FROMFROM = { trait = werewolf } }
@@ -1601,9 +1590,7 @@ character_event = {
 				set_character_flag = got_rabies
 				add_rabies_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_rabies
-			}
+			set_character_flag = vf_sick_rabies
 		}
 		if = {
 			limit = { FROMFROM = { trait = demon_trait } }
@@ -1612,9 +1599,7 @@ character_event = {
 				set_character_flag = got_tuberculosis
 				add_tuberculosis_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_tuberculosis
-			}
+			set_character_flag = vf_sick_tuberculosis
 		}
 		if = {
 			limit = { FROMFROM = { trait = ethereal_trait } }
@@ -1627,9 +1612,7 @@ character_event = {
 				set_character_flag = got_food_poisoning
 				add_food_poisoning_symptom_effect = yes
 			}
-			else = {
-				set_character_flag = vf_sick_food_poisoning
-			}
+			set_character_flag = vf_sick_food_poisoning
 		}
 		
 		# Spread an illness
@@ -2203,25 +2186,7 @@ character_event = {
 			clr_character_flag = vf_stat_intrigue
 			clr_character_flag = vf_stat_learning
 			clr_character_flag = vf_stat_health
-			clr_character_flag = vf_sick_tuberculosis
-			clr_character_flag = vf_sick_typhoid_fever
-			clr_character_flag = vf_sick_typhus
-			clr_character_flag = vf_sick_bubonic_plague
-			clr_character_flag = vf_sick_measles
-			clr_character_flag = vf_sick_small_pox
-			clr_character_flag = vf_sick_aztec_disease
-			clr_character_flag = vf_sick_syphilitic
-			clr_character_flag = vf_sick_flu
-			clr_character_flag = vf_sick_dysentery
-			clr_character_flag = vf_sick_gout
-			clr_character_flag = vf_sick_food_poisoning
-			clr_character_flag = vf_sick_rabies
-			clr_character_flag = vf_sick_cancer
-			clr_character_flag = vf_sick_pneumonic
-			clr_character_flag = vf_sick_dancing_plague
-			clr_character_flag = vf_sick_ill
-			clr_character_flag = vf_sick_leper
-			clr_character_flag = vf_sick_lovers_pox
+			# Disease spreading moved to beforehand so it will be present to check when spreading to other characters
 			clr_character_flag = vampire_feed_success
 			clr_character_flag = vampire_feed_failure
 			clr_character_flag = vampire_feed_caught
