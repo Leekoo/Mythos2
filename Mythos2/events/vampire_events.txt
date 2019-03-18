@@ -2089,7 +2089,7 @@ character_event = {
 				FROMFROM = { death = { death_reason = death_vampire killer = ROOT } }
 			}
 			else = {
-				FROMFROM = { death = { death_reason = death_vampire_unknown } }
+				FROMFROM = { death = { death_reason = death_vampire_unknown killer = ROOT } }
 			}
 		}
 	}
@@ -12196,7 +12196,7 @@ character_event = {
 		}
 		if = {
 			limit = { trait = secret_vampire }
-			FROM = { death = { death_reason = death_vampire_unknown } }
+			FROM = { death = { death_reason = death_vampire_unknown killer = ROOT } }
 		}
 		else = {
 			FROM = { death = { death_reason = death_vampire killer = ROOT } }
