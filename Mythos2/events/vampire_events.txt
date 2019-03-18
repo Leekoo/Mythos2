@@ -5148,6 +5148,369 @@ character_event = {
 				ROOT = {
 					spread_vampire_illness = yes
 				}
+				# Chance to lose one disease you've spread
+				random_list = {
+					3 = {}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_tuberculosis
+								has_character_flag = got_tuberculosis
+							}
+							NOT = { has_character_flag = vf_sick_tuberculosis }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_tuberculosis
+									has_character_flag = got_tuberculosis
+								}
+							}
+						}
+						remove_trait = has_tuberculosis
+						clr_character_flag = got_tuberculosis
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_typhoid_fever
+								has_character_flag = got_typhoid_fever
+							}
+							NOT = { has_character_flag = vf_sick_typhoid_fever }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_typhoid_fever
+									has_character_flag = got_typhoid_fever
+								}
+							}
+						}
+						remove_trait = has_typhoid_fever
+						clr_character_flag = got_typhoid_fever
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_typhus
+								has_character_flag = got_typhus
+							}
+							NOT = { has_character_flag = vf_sick_typhus }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_typhus
+									has_character_flag = got_typhus
+								}
+							}
+						}
+						remove_trait = has_typhus
+						clr_character_flag = got_typhus
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_bubonic_plague
+								has_character_flag = got_bubonic_plague
+							}
+							NOT = { has_character_flag = vf_sick_bubonic_plague }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_bubonic_plague
+									has_character_flag = got_bubonic_plague
+								}
+							}
+						}
+						remove_trait = has_bubonic_plague
+						clr_character_flag = got_bubonic_plague
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_measles
+								has_character_flag = got_measles
+							}
+							NOT = { has_character_flag = vf_sick_measles }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_measles
+									has_character_flag = got_measles
+								}
+							}
+						}
+						remove_trait = has_measles
+						clr_character_flag = got_measles
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_small_pox
+								has_character_flag = got_smallpox
+							}
+							NOT = { has_character_flag = vf_sick_small_pox }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_small_pox
+									has_character_flag = got_smallpox
+								}
+							}
+						}
+						remove_trait = has_small_pox
+						clr_character_flag = got_smallpox
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = has_aztec_disease
+								has_character_flag = got_aztec_disease
+							}
+							NOT = { has_character_flag = vf_sick_aztec_disease }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = has_aztec_disease
+									has_character_flag = got_aztec_disease
+								}
+							}
+						}
+						remove_trait = has_aztec_disease
+						clr_character_flag = got_aztec_disease
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = syphilitic
+								has_character_flag = got_syphilis
+							}
+							NOT = { has_character_flag = vf_sick_syphilitic }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = syphilitic
+									has_character_flag = got_syphilis
+								}
+							}
+						}
+						remove_trait = syphilitic
+						clr_character_flag = got_syphilis
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = flu
+								has_character_flag = got_flu
+							}
+							NOT = { has_character_flag = vf_sick_flu }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = flu
+									has_character_flag = got_flu
+								}
+							}
+						}
+						remove_trait = flu
+						clr_character_flag = got_flu
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = dysentery
+								has_character_flag = got_dysentery
+							}
+							NOT = { has_character_flag = vf_sick_dysentery }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = dysentery
+									has_character_flag = got_dysentery
+								}
+							}
+						}
+						remove_trait = dysentery
+						clr_character_flag = got_dysentery
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = gout
+								has_character_flag = got_gout
+							}
+							NOT = { has_character_flag = vf_sick_gout }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = gout
+									has_character_flag = got_gout
+								}
+							}
+						}
+						remove_trait = gout
+						clr_character_flag = got_gout
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = food_poisoning
+								has_character_flag = got_food_poisoning
+							}
+							NOT = { has_character_flag = vf_sick_food_poisoning }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = food_poisoning
+									has_character_flag = got_food_poisoning
+								}
+							}
+						}
+						remove_trait = food_poisoning
+						clr_character_flag = got_food_poisoning
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = rabies
+								has_character_flag = got_rabies
+							}
+							NOT = { has_character_flag = vf_sick_food_poisoning }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = rabies
+									has_character_flag = got_rabies
+								}
+							}
+						}
+						remove_trait = rabies
+						clr_character_flag = got_rabies
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = cancer
+								has_character_flag = got_cancer
+							}
+							NOT = { has_character_flag = vf_sick_cancer }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = cancer
+									has_character_flag = got_cancer
+								}
+							}
+						}
+						remove_trait = cancer
+						clr_character_flag = got_cancer
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = pneumonic
+								has_character_flag = got_pneumonic
+							}
+							NOT = { has_character_flag = vf_sick_pneumonic }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = pneumonic
+									has_character_flag = got_pneumonic
+								}
+							}
+						}
+						remove_trait = pneumonic
+						clr_character_flag = got_pneumonic
+					}
+					1 = {
+						trigger = {
+							OR = { 
+								trait = dancing_plague
+								has_character_flag = got_dancing_plague
+							}
+							NOT = { has_character_flag = vf_sick_dancing_plague }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								OR = {
+									trait = dancing_plague
+									has_character_flag = got_dancing_plague
+								}
+							}
+						}
+						remove_trait = dancing_plague
+						clr_character_flag = got_dancing_plague
+					}
+					1 = {
+						trigger = {
+							trait = ill
+							NOT = { has_character_flag = vf_sick_ill }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								trait = ill
+							}
+						}
+						remove_trait = ill
+					}
+					1 = {
+						trigger = {
+							trait = leper
+							NOT = { has_character_flag = vf_sick_leper }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								trait = leper
+							}
+						}
+						remove_trait = leper
+					}
+					1 = {
+						trigger = {
+							trait = lovers_pox
+							NOT = { has_character_flag = vf_sick_lovers_pox }
+						}
+						modifier = {
+							factor = 12
+							ROOT = {
+								trait = lovers_pox
+							}
+						}
+						remove_trait = lovers_pox
+					}
+				}
 			}
 		}
 	}
