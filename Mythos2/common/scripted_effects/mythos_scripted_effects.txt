@@ -1180,25 +1180,25 @@ spread_vampire_illness = {
 			add_trait = gout
 		}
 	}
-	if = {
-		limit = {
-			PREV = {
-				OR = {
-					trait = food_poisoning
-					has_character_flag = got_food_poisoning
-				}
-			}
-		}
-		if = {
-			limit = { has_dlc = "Reapers" }
-			set_character_flag = got_food_poisoning
-			add_food_poisoning_symptom_effect = yes
-		}
-		if = {
-			limit = { NOT = { has_dlc = "Reapers" } }
-			add_trait = food_poisoning
-		}
-	}
+	#if = {
+	#	limit = {
+	#		PREV = {
+	#			OR = {
+	#				trait = food_poisoning
+	#				has_character_flag = got_food_poisoning
+	#			}
+	#		}
+	#	}
+	#	if = {
+	#		limit = { has_dlc = "Reapers" }
+	#		set_character_flag = got_food_poisoning
+	#		add_food_poisoning_symptom_effect = yes
+	#	}
+	#	if = {
+	#		limit = { NOT = { has_dlc = "Reapers" } }
+	#		add_trait = food_poisoning
+	#	}
+	#}
 	if = {
 		limit = {
 			PREV = {

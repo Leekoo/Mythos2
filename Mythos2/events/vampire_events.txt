@@ -1355,35 +1355,35 @@ character_event = {
 			}
 			set_character_flag = vf_sick_gout
 		}
-		if = {
-			limit = { 
-				FROMFROM = {
-					OR = { 
-						trait = food_poisoning
-						has_character_flag = got_food_poisoning
-					}
-				}
-				NOR = {
-					has_character_flag = vf_sick_tuberculosis
-					has_character_flag = vf_sick_typhoid_fever
-					has_character_flag = vf_sick_typhus
-					has_character_flag = vf_sick_bubonic_plague
-					has_character_flag = vf_sick_measles
-					has_character_flag = vf_sick_small_pox
-					has_character_flag = vf_sick_aztec_disease
-					has_character_flag = vf_sick_syphilitic
-					has_character_flag = vf_sick_flu
-					has_character_flag = vf_sick_dysentery
-					has_character_flag = vf_sick_gout
-				}
-			}
-			if = {
-				limit = { has_dlc = "Reapers" }
-				set_character_flag = got_food_poisoning
-				add_food_poisoning_symptom_effect = yes
-			}
-			set_character_flag = vf_sick_food_poisoning
-		}
+		#if = {
+		#	limit = { 
+		#		FROMFROM = {
+		#			OR = { 
+		#				trait = food_poisoning
+		#				has_character_flag = got_food_poisoning
+		#			}
+		#		}
+		#		NOR = {
+		#			has_character_flag = vf_sick_tuberculosis
+		#			has_character_flag = vf_sick_typhoid_fever
+		#			has_character_flag = vf_sick_typhus
+		#			has_character_flag = vf_sick_bubonic_plague
+		#			has_character_flag = vf_sick_measles
+		#			has_character_flag = vf_sick_small_pox
+		#			has_character_flag = vf_sick_aztec_disease
+		#			has_character_flag = vf_sick_syphilitic
+		#			has_character_flag = vf_sick_flu
+		#			has_character_flag = vf_sick_dysentery
+		#			has_character_flag = vf_sick_gout
+		#		}
+		#	}
+		#	if = {
+		#		limit = { has_dlc = "Reapers" }
+		#		set_character_flag = got_food_poisoning
+		#		add_food_poisoning_symptom_effect = yes
+		#	}
+		#	set_character_flag = vf_sick_food_poisoning
+		#}
 		if = {
 			limit = { 
 				FROMFROM = {
@@ -1613,6 +1613,38 @@ character_event = {
 				add_food_poisoning_symptom_effect = yes
 			}
 			set_character_flag = vf_sick_food_poisoning
+		}
+		
+		# Gain "Tainted Blood" from feeding on diseased or supernatural characters
+		if = {
+			limit = {
+				OR = {
+					has_character_flag = vf_sick_tuberculosis
+					has_character_flag = vf_sick_typhoid_fever
+					has_character_flag = vf_sick_typhus
+					has_character_flag = vf_sick_bubonic_plague
+					has_character_flag = vf_sick_measles
+					has_character_flag = vf_sick_small_pox
+					has_character_flag = vf_sick_aztec_disease
+					has_character_flag = vf_sick_syphilitic
+					has_character_flag = vf_sick_food_poisoning
+					has_character_flag = vf_sick_flu
+					has_character_flag = vf_sick_dysentery
+					has_character_flag = vf_sick_gout
+					has_character_flag = vf_sick_rabies
+					has_character_flag = vf_sick_pneumonic
+					has_character_flag = vf_sick_dancing_plague
+					has_character_flag = vf_sick_leper
+					FROMFROM = {
+						OR = {
+							trait = ill
+							trait = leper
+							trait = lovers_pox
+						}
+					}
+				}
+			}
+			set_character_flag = vf_tainted_blood
 		}
 		
 		# Spread an illness
@@ -1879,6 +1911,11 @@ character_event = {
 				NOT = { has_dlc = "Reapers" }
 			}
 			add_trait = lovers_pox
+		}
+		
+		if = {
+			limit = { has_character_flag = vf_tainted_blood }
+			add_character_modifier = { name = tainted_blood duration = 180 }
 		}
 		
 		if = {
