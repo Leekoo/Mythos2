@@ -1218,25 +1218,25 @@ spread_vampire_illness = {
 			add_trait = rabies
 		}
 	}
-	if = {
-		limit = {
-			PREV = {
-				OR = {
-					trait = cancer
-					has_character_flag = got_cancer
-				}
-			}
-		}
-		if = {
-			limit = { has_dlc = "Reapers" }
-			set_character_flag = got_cancer
-			add_cancer_symptom_effect = yes
-		}
-		if = {
-			limit = { NOT = { has_dlc = "Reapers" } }
-			add_trait = cancer
-		}
-	}
+	#if = {
+	#	limit = {
+	#		PREV = {
+	#			OR = {
+	#				trait = cancer
+	#				has_character_flag = got_cancer
+	#			}
+	#		}
+	#	}
+	#	if = {
+	#		limit = { has_dlc = "Reapers" }
+	#		set_character_flag = got_cancer
+	#		add_cancer_symptom_effect = yes
+	#	}
+	#	if = {
+	#		limit = { NOT = { has_dlc = "Reapers" } }
+	#		add_trait = cancer
+	#	}
+	#}
 	if = {
 		limit = {
 			PREV = {

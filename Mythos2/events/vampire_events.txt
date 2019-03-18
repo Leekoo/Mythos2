@@ -1414,37 +1414,37 @@ character_event = {
 			}
 			set_character_flag = vf_sick_rabies
 		}
-		if = {
-			limit = { 
-				FROMFROM = {
-					OR = { 
-						trait = cancer
-						has_character_flag = got_cancer
-					}
-				}
-				NOR = {
-					has_character_flag = vf_sick_tuberculosis
-					has_character_flag = vf_sick_typhoid_fever
-					has_character_flag = vf_sick_typhus
-					has_character_flag = vf_sick_bubonic_plague
-					has_character_flag = vf_sick_measles
-					has_character_flag = vf_sick_small_pox
-					has_character_flag = vf_sick_aztec_disease
-					has_character_flag = vf_sick_syphilitic
-					has_character_flag = vf_sick_flu
-					has_character_flag = vf_sick_dysentery
-					has_character_flag = vf_sick_gout
-					has_character_flag = vf_sick_food_poisoning
-					has_character_flag = vf_sick_rabies
-				}
-			}
-			if = {
-				limit = { has_dlc = "Reapers" }
-				set_character_flag = got_cancer
-				add_cancer_symptom_effect = yes
-			}
-			set_character_flag = vf_sick_cancer
-		}
+		#if = {
+		#	limit = { 
+		#		FROMFROM = {
+		#			OR = { 
+		#				trait = cancer
+		#				has_character_flag = got_cancer
+		#			}
+		#		}
+		#		NOR = {
+		#			has_character_flag = vf_sick_tuberculosis
+		#			has_character_flag = vf_sick_typhoid_fever
+		#			has_character_flag = vf_sick_typhus
+		#			has_character_flag = vf_sick_bubonic_plague
+		#			has_character_flag = vf_sick_measles
+		#			has_character_flag = vf_sick_small_pox
+		#			has_character_flag = vf_sick_aztec_disease
+		#			has_character_flag = vf_sick_syphilitic
+		#			has_character_flag = vf_sick_flu
+		#			has_character_flag = vf_sick_dysentery
+		#			has_character_flag = vf_sick_gout
+		#			has_character_flag = vf_sick_food_poisoning
+		#			has_character_flag = vf_sick_rabies
+		#		}
+		#	}
+		#	if = {
+		#		limit = { has_dlc = "Reapers" }
+		#		set_character_flag = got_cancer
+		#		add_cancer_symptom_effect = yes
+		#	}
+		#	set_character_flag = vf_sick_cancer
+		#}
 		if = {
 			limit = { 
 				FROMFROM = {
