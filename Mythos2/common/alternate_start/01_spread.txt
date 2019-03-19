@@ -656,6 +656,18 @@ religion_spread = {
 		religion = draconic_pagan
 		FROM = { culture = draconic }
 	}
+	# Draconic pagans should avoid nomadic areas
+	modifier = {
+		factor = 0.1
+		religion = draconic_pagan
+		FROM = {
+			OR = {
+				government = marauding_dragon_government
+				government = nomadic_government
+				government = zombie_horde
+			}
+		}
+	}
 	# Jotnar religion should spread will with Jotnar culture
 	modifier = {
 		factor = 4
