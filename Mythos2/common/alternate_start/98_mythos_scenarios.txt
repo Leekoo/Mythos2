@@ -1721,6 +1721,239 @@ mythos_generate_monsters = {
 					}
 				}
 			}
+			# Dragons
+			any_character = {
+				limit = { graphical_culture = draconicgfx }
+				add_trait = dragon
+			}
+			any_character = {
+				limit = { religion = draconic_pagan }
+				random = {
+					chance = 2
+					modifier = {
+						factor = 5
+						has_landed_title = yes
+					}
+					modifier = {
+						factor = 3
+						tier = count
+					}
+					modifier = {
+						factor = 4
+						tier = duke
+					}
+					modifier = {
+						factor = 5
+						tier = king
+					}
+					modifier = {
+						factor = 8
+						tier = emperor
+					}
+					add_trait = dragon
+					set_graphical_culture = draconic
+					any_spouse = {
+						random_list = {
+							10 = {
+								add_trait = dragon
+								set_graphical_culture = draconic
+							}
+							3 = {
+								add_trait = dragonborn
+							}
+							1 = {}
+						}
+					}
+					any_consort = {
+						random_list = {
+							4 = {
+								add_trait = dragon
+								set_graphical_culture = draconic
+							}
+							2 = {
+								add_trait = dragonborn
+							}
+							1 = {}
+						}
+					}
+					any_child = {
+						random_list = {
+							3 = {
+								trigger = {
+									OR = {
+										AND = {
+											father = {
+												OR = { trait = dragon trait = dragonborn }
+											}
+											mother = { OR = { trait = dragon trait = dragonborn } }
+										}
+										NOT = { father = { always = yes } }
+										NOT = { mother = { always = yes } }
+									}
+								}
+								modifier = {
+									factor = 100
+									father = { trait = dragon }
+									mother = { trait = dragon }
+								}
+								add_trait = dragon
+								set_graphical_culture = draconic
+							}
+							2 = {
+								trigger = {
+									NAND = {
+										father = { trait = dragon }
+										mother = { trait = dragon }
+									}
+								}
+								add_trait = dragonborn
+							}
+							1 = {
+								trigger = {
+									NOR = {
+										AND = {
+											father = {
+												OR = { trait = dragon trait = dragonborn }
+											}
+											mother = { OR = { trait = dragon trait = dragonborn } }
+										}
+										NOT = { father = { always = yes } }
+										NOT = { mother = { always = yes } }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			# Giants and Jotun culture or Jotnar religion
+			any_character = {
+				limit = { culture = jotunn }
+				random = {
+					chance = 10
+					modifier = {
+						factor = 1.5
+						has_landed_title = yes
+					}
+					modifier = {
+						factor = 1.2
+						tier = count
+					}
+					modifier = {
+						factor = 1.5
+						tier = duke
+					}
+					modifier = {
+						factor = 2
+						tier = king
+					}
+					modifier = {
+						factor = 3
+						tier = emperor
+					}
+					add_trait = mythos_giant
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									terrain = hills
+								}
+							}
+							modifier = {
+								factor = 3
+								location = { terrain = mountain }
+							}
+							add_trait = giant_bergrisar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = { climate = severe_winter }
+							}
+							add_trait = giant_hrimthursar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									NOR = {
+										climate = severe_winter
+										climate = normal_winter
+										climate = mild_winter
+									}
+								}
+							}
+							add_trait = giant_eldjotnar
+						}
+					}
+				}
+			}
+			any_character = {
+				limit = {
+					religion = jotnar
+					NOT = { trait = mythos_giant }
+				}
+				random = {
+					chance = 3
+					modifier = {
+						factor = 1.5
+						has_landed_title = yes
+					}
+					modifier = {
+						factor = 1.2
+						tier = count
+					}
+					modifier = {
+						factor = 1.5
+						tier = duke
+					}
+					modifier = {
+						factor = 2
+						tier = king
+					}
+					modifier = {
+						factor = 3
+						tier = emperor
+					}
+					add_trait = mythos_giant
+					random_list = {
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									terrain = hills
+								}
+							}
+							modifier = {
+								factor = 3
+								location = { terrain = mountain }
+							}
+							add_trait = giant_bergrisar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = { climate = severe_winter }
+							}
+							add_trait = giant_hrimthursar
+						}
+						1 = {
+							modifier = {
+								factor = 5
+								location = {
+									NOR = {
+										climate = severe_winter
+										climate = normal_winter
+										climate = mild_winter
+									}
+								}
+							}
+							add_trait = giant_eldjotnar
+						}
+					}
+				}
+			}
 			# Djinni
 			any_character = {
 				limit = { culture = djinni }
