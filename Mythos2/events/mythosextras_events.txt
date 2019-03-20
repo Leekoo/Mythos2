@@ -3795,6 +3795,7 @@ character_event = {
 		log = "Running MYTHMORE.61"
 		# First, fix up any holy sites missing temples. Add eternal flames
 		draconic_pagan = {
+			save_event_target_as = target_religion
 			any_title = {
 				limit = { is_holy_site = PREV }
 				log = "Setting up eternal flame in [This.GetName]"
@@ -3813,18 +3814,23 @@ character_event = {
 						limit = {
 							location = { any_province_holding = {  holding_type = temple } }
 						}
-						remove_holy_site = draconic_pagan
+						log = "There is a temple"
+						remove_holy_site_with_heresies = event_target:target_religion
 						location = {
 							random_province_holding = {
 								limit = { holding_type = temple }
-								add_holy_site = draconic_pagan
+								set_holy_site_with_heresies = event_target:target_religion
+								log = "Moving holy site to [This.GetName]"
 							}
 						}
 					}
 					else = {
-						remove_holy_site = draconic_pagan
-						location = {
+						log = "No temple available"
+						remove_holy_site_with_heresies = event_target:target_religion
+						county = {
+							log = "location = [This.GetName]"
 							holder_scope = {
+								log = "Holder = [This.GetTitledName]"
 								create_random_priest = {
 									random_traits = yes
 									female = no
@@ -3837,24 +3843,28 @@ character_event = {
 									random = {
 										chance = 2
 										culture = draconic
+										set_graphical_culture = draconic
 									}
 									random = {
 										chance = 5
 										religion = draconic_pagan
 									}
 									log = "Created priest [This.GetFullName]"
+									save_event_target_as = new_holder
 								}
 							}
 							log = "Creating temple"
-							build_holding = {
-								type = temple
-								holder = new_character
-							}
-							random_province_holding = { # Not sure if I can use new_title after build_holding
-								limit = { holding_type = temple }
-								add_building = tp_eternal_flame
-								add_holy_site = 
-								log = "Adding eternal flame to new temple, [This.GetName]"
+							location = {
+								build_holding = {
+									type = temple
+									holder = event_target:new_holder
+								}
+								random_province_holding = { # Not sure if I can use new_title after build_holding
+									limit = { holding_type = temple }
+									add_building = tp_eternal_flame
+									set_holy_site_with_heresies = event_target:target_religion
+									log = "Adding eternal flame to new temple, [This.GetName]"
+								}
 							}
 						}
 					}
@@ -3892,12 +3902,13 @@ character_event = {
 										religion = draconic_pagan
 									}
 									log = "Created priest [This.GetFullName]"
+									save_event_target_as = new_holder
 								}
 							}
 							log = "Creating temple"
 							build_holding = {
 								type = temple
-								holder = new_character
+								holder = event_target:new_holder
 							}
 							random_province_holding = { # Not sure if I can use new_title after build_holding
 								limit = { holding_type = temple }
