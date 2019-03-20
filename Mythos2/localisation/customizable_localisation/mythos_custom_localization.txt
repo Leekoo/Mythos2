@@ -6771,7 +6771,7 @@ defined_text = {
 				trait = has_bubonic_plague
 				trait = has_small_pox
 				trait = has_aztec_disease
-				opinion = { who = FROM value = 40 }
+				reverse_opinion = { who = FROM value = 40 }
 				FROM = { diplomacy = 10 }
 				liege = { character = FROM }
 				religion = satanist
@@ -6869,7 +6869,7 @@ defined_text = {
 	name = AcceptOpinion_Vampire
 	text = {
 		trigger = {
-			opinion = { who = FROM value = 40 }
+			reverse_opinion = { who = FROM value = 40 }
 		}
 		localisation_key = AcceptOpinion_Vampire_Key
 	}
@@ -6986,7 +6986,7 @@ defined_text = {
 			religion_group = muslim
 			religion_group = jewish_group
 			culture = werewolf_culture
-			opinion = { who = FROM value < 0 }
+			reverse_opinion = { who = FROM value < 0 }
 			trait = lustful
 			trait = drunkard
 			trait = gluttonous
@@ -7050,7 +7050,7 @@ defined_text = {
 	name = RejectOpinion_Vampire
 	text = {
 		trigger = {
-			opinion = { who = FROM value < 0 }
+			reverse_opinion = { who = FROM value < 0 }
 		}
 		localisation_key = RejectOpinion_Vampire_Key
 	}
@@ -7112,7 +7112,7 @@ defined_text = {
 				trait = cruel
 				trait = wroth
 				trait = berserker
-				opinion = { who = FROM value = 60 }
+				reverse_opinion = { who = FROM value = 60 }
 				FROM = { diplomacy = 10 }
 				liege = { character = FROM }
 				culture = werewolf_culture
@@ -7190,7 +7190,7 @@ defined_text = {
 	name = AcceptOpinion_Werewolf
 	text = {
 		trigger = {
-			opinion = { who = FROM value = 60 }
+			reverse_opinion = { who = FROM value = 60 }
 		}
 		localisation_key = AcceptOpinion_Werewolf_Key
 	}
@@ -7291,7 +7291,7 @@ defined_text = {
 				religion_group = pagan_group
 				trait = kind
 				culture = vampire_culture
-				opinion = { who = FROM value < 0 }
+				reverse_opinion = { who = FROM value < 0 }
 			}
 		}
 		localisation_key = TurnRejectionList_Werewolf
@@ -7376,7 +7376,7 @@ defined_text = {
 	name = RejectOpinion_Werewolf
 	text = {
 		trigger = {
-			opinion = { who = FROM value < 0 }
+			reverse_opinion = { who = FROM value < 0 }
 		}
 		localisation_key = RejectOpinion_Werewolf_Key
 	}
