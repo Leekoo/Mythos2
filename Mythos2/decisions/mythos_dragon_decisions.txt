@@ -13,10 +13,14 @@ decisions = {
 			}
 			is_title_active = b_lejre
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -77,10 +81,14 @@ decisions = {
 			c_sjaelland = { location = { has_empty_holding = yes } }
 			NOT = { is_title_active = b_lejre }
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -143,10 +151,14 @@ decisions = {
 			}
 			is_title_active = b_canterbury
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -207,10 +219,14 @@ decisions = {
 			c_kent = { location = { has_empty_holding = yes } }
 			NOT = { is_title_active = b_canterbury }
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -273,10 +289,14 @@ decisions = {
 			}
 			is_title_active = b_wyszogrod
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -337,10 +357,14 @@ decisions = {
 			c_plock = { location = { has_empty_holding = yes } }
 			NOT = { is_title_active = b_wyszogrod }
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -403,10 +427,14 @@ decisions = {
 			}
 			is_title_active = b_whithorn
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -467,10 +495,14 @@ decisions = {
 			c_galloway = { location = { has_empty_holding = yes } }
 			NOT = { is_title_active = b_whithorn }
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -533,10 +565,14 @@ decisions = {
 			}
 			is_title_active = b_uppsala
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -597,10 +633,14 @@ decisions = {
 			c_uppland = { location = {  has_empty_holding = yes } }
 			NOT = { is_title_active = b_uppsala }
 			trait = dragon
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -665,9 +705,15 @@ decisions = {
 				}
 			}
 			trait = dragon
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		
@@ -740,9 +786,15 @@ decisions = {
 				}
 			}
 			trait = dragon
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		
@@ -815,9 +867,15 @@ decisions = {
 				}
 			}
 			trait = dragon
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		
@@ -890,9 +948,15 @@ decisions = {
 				}
 			}
 			trait = dragon
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		
@@ -965,9 +1029,15 @@ decisions = {
 				}
 			}
 			trait = dragon
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		
@@ -1046,10 +1116,14 @@ decisions = {
 			b_lejre = {
 				has_building = tp_eternal_flame
 			}
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1162,10 +1236,14 @@ decisions = {
 			b_canterbury = {
 				has_building = tp_eternal_flame
 			}
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1277,10 +1355,14 @@ decisions = {
 			b_wyszogrod = {
 				has_building = tp_eternal_flame
 			}
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1392,10 +1474,14 @@ decisions = {
 			b_whithorn = {
 				has_building = tp_eternal_flame
 			}
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1507,10 +1593,14 @@ decisions = {
 			b_uppsala = {
 				has_building = tp_eternal_flame
 			}
-			NOT = {
+			NOR = {
 				has_alternate_start_parameter = {
-					key = religion_names
+					key = religion
 					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1624,9 +1714,15 @@ decisions = {
 			persistent_event_target:draconic_holy_site_1 = {
 				has_building = tp_eternal_flame
 			}
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		allow = {
@@ -1741,9 +1837,15 @@ decisions = {
 			persistent_event_target:draconic_holy_site_2 = {
 				has_building = tp_eternal_flame
 			}
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		allow = {
@@ -1858,9 +1960,15 @@ decisions = {
 			persistent_event_target:draconic_holy_site_3 = {
 				has_building = tp_eternal_flame
 			}
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		allow = {
@@ -1975,9 +2083,15 @@ decisions = {
 			persistent_event_target:draconic_holy_site_4 = {
 				has_building = tp_eternal_flame
 			}
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		allow = {
@@ -2092,9 +2206,15 @@ decisions = {
 			persistent_event_target:draconic_holy_site_5 = {
 				has_building = tp_eternal_flame
 			}
-			has_alternate_start_parameter = {
-				key = religion_names
-				value = random
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
 			}
 		}
 		allow = {
