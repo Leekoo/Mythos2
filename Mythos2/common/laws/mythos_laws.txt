@@ -88,7 +88,6 @@ laws = {
 		default = yes
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -99,15 +98,28 @@ laws = {
 			}
 		}
 		allow = {
-			NOR = {
+			OR ={
 				has_law = werewolf_law_2
-				has_law = werewolf_law_3
-				has_law = werewolf_law_4
+				NOR = {
+					has_law = werewolf_law_0
+					has_law = werewolf_law_1
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+					has_law = werewolf_law_4
+				}
 			}
-			holder_scope = { culture = werewolf_culture }
-		}
-		revoke_allowed = {
-			always = no
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -123,9 +135,6 @@ laws = {
 				factor = 0.2
 				holder_scope = { NOT = { prestige = 0 } }
 			}
-		}
-		ai_will_revoke = {
-			factor = 0
 		}
 		pass_effect = {
 			
@@ -205,7 +214,6 @@ laws = {
 		tribal_opinion = -5
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -223,7 +231,18 @@ laws = {
 				}
 				has_law = werewolf_law_2
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -333,7 +352,6 @@ laws = {
 		tribal_opinion = -10
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -351,7 +369,18 @@ laws = {
 				}
 				has_law = werewolf_law_3
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -471,7 +500,6 @@ laws = {
 		tribal_opinion = -15
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -497,7 +525,18 @@ laws = {
 				}
 				has_law = werewolf_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -625,7 +664,6 @@ laws = {
 		tribal_opinion = -20
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -643,7 +681,18 @@ laws = {
 					trait = feeble
 				}
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -748,7 +797,6 @@ laws = {
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -764,7 +812,18 @@ laws = {
 				has_law = werewolf_wait_law_3
 				has_law = werewolf_wait_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -860,7 +919,6 @@ laws = {
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -875,7 +933,18 @@ laws = {
 				has_law = werewolf_wait_law_3
 				has_law = werewolf_wait_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -994,7 +1063,6 @@ laws = {
 		default = yes
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -1005,9 +1073,28 @@ laws = {
 			}
 		}
 		allow = {
-			NOR = {
-				has_law = werewolf_wait_law_0
-				has_law = werewolf_wait_law_4
+			OR = {
+				has_law = werewolf_wait_law_1
+				has_law = werewolf_wait_law_3
+				NOR = {
+					has_law = werewolf_wait_law_0
+					has_law = werewolf_wait_law_1
+					has_law = werewolf_wait_law_2
+					has_law = werewolf_wait_law_3
+					has_law = werewolf_wait_law_4
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {
@@ -1129,7 +1216,6 @@ laws = {
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -1143,6 +1229,18 @@ laws = {
 			NOR = {
 				has_law = werewolf_wait_law_0
 				has_law = werewolf_wait_law_1
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {
@@ -1258,7 +1356,6 @@ laws = {
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -1273,6 +1370,18 @@ laws = {
 				has_law = werewolf_wait_law_0
 				has_law = werewolf_wait_law_1
 				has_law = werewolf_wait_law_2
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {
