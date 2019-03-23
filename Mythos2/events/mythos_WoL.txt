@@ -22323,17 +22323,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_1
 				NOT = { opinion = { who = event_target:character_1 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_1 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_1 value = -75 } }
 			}
 			modifier = {
 				factor = 0.5
@@ -22377,17 +22370,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_1
 				NOT = { opinion = { who = event_target:character_2 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_2 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_2 value = -75 } }
 			}
 			modifier = {
 				factor = 0.5
@@ -22431,17 +22417,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = -75 } }
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_3
+				NOT = { opinion = { who = event_target:character_1 value = 0 } }
 			}
 			modifier = {
 				factor = 0.5
