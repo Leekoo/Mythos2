@@ -6656,6 +6656,14 @@ character_event = {
 				limit = { selected_ingredient_is_unhealthy_trigger = yes }
 				FROM = { set_character_flag = recieve_potion_bad }
 			}
+			if = {
+				limit = { selected_ingredient_is_perceived_healthy_trigger = yes }
+				FROM = { set_characcter_flag = potion_looks_good }
+			}
+			else_if = {
+				limit = { selected_ingredient_is_unhealthy_trigger = yes }
+				FROM = { set_characcter_flag = potion_looks_bad }
+			}
 			FROM = { character_event = { id = MYTH_WoL.91 days = 1 } }
 		}
 		destroy_selected_ingredient_1_effect = yes
@@ -6849,6 +6857,10 @@ character_event = {
 				factor = 2
 				FROM = { has_minor_title = title_court_physician }
 			}
+			modifier = {
+				factor = 4
+				has_character_flag = potion_looks_good
+			}
 		}
 	}
 	# Refuse the potion
@@ -6869,12 +6881,18 @@ character_event = {
 				}
 				is_plot_target_of = FROM
 			}
+			modifier = {
+				factor = 4
+				has_character_flag = potion_looks_bad
+			}
 		}
 	}
 	
 	after = {
 		clr_character_flag = recieve_potion_good
 		clr_character_flag = recieve_potion_bad
+		clr_character_flag = potion_looks_good
+		clr_character_flag = potion_looks_bad
 	}
 }
 # MYTH_WoL.92 - Great result
