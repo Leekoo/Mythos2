@@ -656,14 +656,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = liege
 			}
 			modifier = {
 				factor = 1.5
@@ -707,15 +703,7 @@ character_event = {
 		name = EVTOPTB_CHALLENGE.9
 		liege = { father = { character_event = { id = CHALLENGE.10 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -764,15 +752,7 @@ character_event = {
 		name = EVTOPTC_CHALLENGE.9
 		liege = { mother = { character_event = { id = CHALLENGE.11 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -831,15 +811,7 @@ character_event = {
 			liege = { character_event = { id = CHALLENGE.11 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -893,14 +865,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = event_target:challenged_party
 			}
 			modifier = {
 				factor = 1.5
@@ -943,15 +911,7 @@ character_event = {
 		name = EVTOPTC_CHALLENGE.9
 		event_target:challenged_party = { mother = { character_event = { id = CHALLENGE.11 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -993,15 +953,7 @@ character_event = {
 			event_target:challenged_party = { character_event = { id = CHALLENGE.11 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -1051,14 +1003,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = event_target:challenged_party
 			}
 			modifier = {
 				factor = 1.5
@@ -1093,15 +1041,7 @@ character_event = {
 			event_target:challenged_party = { character_event = { id = CHALLENGE.12 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -1611,34 +1551,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 25 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 100 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -75 } }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:challenged_party
 			}
 		}
 	}
@@ -1669,34 +1585,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 25 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 100 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -75 } }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:champion
 			}
 		}
 	}
@@ -1732,52 +1624,15 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 25 }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:challenger
 			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 100 }
-			}
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.7
+				who = event_target:challenger
 				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -75 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -75 } }
 			}
 		}
 	}
@@ -1792,7 +1647,7 @@ character_event = {
 		}
 		name = EVTOPTC_CHALLENGE.20
 		ai_chance = {
-			factor = 2
+			factor = 20
 			modifier = {
 				factor = 2
 				trait = slothful
@@ -9032,14 +8887,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = liege
 			}
 			modifier = {
 				factor = 1.5
@@ -9083,15 +8934,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -9142,15 +8985,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -9204,15 +9039,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -9277,15 +9104,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }

@@ -10006,6 +10006,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 1
+			additive_opinion_modifier = {
+				factor = 0.04
+				who = liege
+			}
 			modifier = {
 				factor = 1.5
 				trait = content
@@ -10013,18 +10017,6 @@ character_event = {
 			modifier = {
 				factor = 1.5
 				trait = arbitrary
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 1.5
-				opinion = { who = liege value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 100 }
 			}
 		}
 	}
@@ -12048,7 +12040,7 @@ letter_event = {
 		
 		hidden_tooltip = { character_event = { id = VAMPIRE.167 days = 50 } } # Safety catch flag clearing
 		ai_chance = {
-			factor = 4
+			factor = 40
 			modifier = {
 				factor = 2
 				trait = hunger_5
@@ -12065,7 +12057,11 @@ letter_event = {
 		name = EVTOPTA_VAMPIRE.169
 		hidden_tooltip = { FROM = { letter_event = { id = VAMPIRE.170 days = 2 random = 3 } } }
 		ai_chance = {
-			factor = 1
+			factor = 10
+			additive_opinion_modifier = {
+				factor = -0.1
+				who = FROM
+			}
 			modifier = {
 				factor = 8
 				NOR = {
@@ -12075,22 +12071,6 @@ letter_event = {
 					trait = hunger_4
 					trait = hunger_5
 				}
-			}
-			modifier = {
-				factor = 3
-				trait = shy
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = FROM value = 0 } }
-			}
-			modifier  = {
-				factor = 2
-				NOT = { opinion = { who = from value = -60 } }
-			}
-			modifier  = {
-				factor = 2
-				NOT = { opinion = { who = from value = -80 } }
 			}
 		}
 	}

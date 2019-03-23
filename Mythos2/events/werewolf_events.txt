@@ -771,7 +771,7 @@ letter_event = {
 		name = EVTOPTA_WEREWOLF.14 # Accept
 		trigger = { NOT = { trait = vampire } }
 		ai_chance = {
-			factor = 2
+			factor = 20
 			modifier = {
 				factor = 1.3
 				trait = ambitious
@@ -879,7 +879,7 @@ letter_event = {
 	option = {
 		name = EVTOPTB_WEREWOLF.14 # Decline
 		ai_chance = {
-			factor = 3
+			factor = 30
 			modifier = {
 				factor = 2
 				OR = {
@@ -943,7 +943,7 @@ letter_event = {
 			NOT = { culture = werewolf_culture }
 		}
 		ai_chance = {
-			factor = 1
+			factor = 10
 			modifier = {
 				factor = 5
 				OR = {
