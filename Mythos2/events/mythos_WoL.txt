@@ -4539,6 +4539,7 @@ character_event = {
 	trigger = {
 		has_character_modifier = reading_books_hermes
 		true_religion_group = pagan_group
+		is_monotheistic = no
 		NOT = {	trait = blinded }
 		prisoner = no
 	}
@@ -4594,7 +4595,9 @@ character_event = {
 	option = {
 		name = EVTOPTCMYTH_WoL.61
 		religion = zoroastrian
-		# Don't need to filter for this - if you're playing as a pagan, you already have The Old Gods
+		trigger = {
+			has_dlc = "The Old Gods" # With Holy Fury, it's now possible to be able to play pagans but not zoroastrians
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
