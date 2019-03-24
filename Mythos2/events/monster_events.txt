@@ -1152,38 +1152,6 @@ character_event = {
 			event_target:accused_apostate = {
 				character_event = { id = MONSTER.18 }
 			}
-			if = {
-				limit = { trait = secret_vampire }
-				add_trait = known_vampire
-				remove_trait = secret_vampire
-				hidden_tooltip = { remove_character_modifier = known_monster }
-				any_realm_character = {
-					limit = {
-						NOR = {
-							character = PREV
-							character = FROM
-							character = ROOT
-						}
-					}
-					character_event = { id = VAMPIRE.23 }
-				}
-			}
-			if = {
-				limit = { trait = secret_werewolf }
-				add_trait = known_werewolf
-				remove_trait = secret_werewolf
-				hidden_tooltip = { remove_character_modifier = known_monster }
-				any_realm_character = {
-					limit = {
-						NOR = {
-							character = PREV
-							character = FROM
-							character = ROOT
-						}
-					}
-					character_event = { id = WEREWOLF.33 }
-				}
-			}
 		}
 		opinion = {
 			modifier = opinion_accused_apostate 

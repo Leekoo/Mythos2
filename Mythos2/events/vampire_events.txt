@@ -366,6 +366,8 @@ letter_event = {
 		FROM = {
 			add_trait = vampire
 			hidden_tooltip = { add_trait = secret_vampire }
+			save_persistent_event_target = { name = sire scope = ROOT }
+			opinion = { who = ROOT modifier = vampire_blood_bond years = 50 }
 			if = {
 				limit = { NOT = { dynasty = ROOT } }
 				dynasty = ROOT
@@ -5622,6 +5624,14 @@ character_event = {
 	trigger = {
 		is_voter = yes
 		liege = { government = blood_court_government }
+		NAND = {
+			liege = {
+				ROOT = {
+					persistent_event_target:sire = { character = PREVPREV }
+				}
+			}
+			has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire }
+		}
 		OR = {
 			AND  = {
 				diplomacy = 10
@@ -5673,6 +5683,10 @@ character_event = {
 		modifier = {
 			factor = 1.2
 			trait = envious
+		}
+		modifier = {
+			factor = 2
+			has_minor_title = title_regent
 		}
 	}
 	
@@ -6790,6 +6804,14 @@ character_event = {
 			has_character_modifier = military_influence
 			has_character_modifier = minor_economic_influence
 			has_character_modifier = economic_influence
+		}
+		NAND = {
+			liege = {
+				ROOT = {
+					persistent_event_target:sire = { character = PREVPREV }
+				}
+			}
+			has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire }
 		}
 	}
 	

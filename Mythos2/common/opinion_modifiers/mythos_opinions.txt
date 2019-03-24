@@ -125,13 +125,11 @@ opinion_monster = {
 	divorce_reason = yes
 }
 
-# Voter forced by blood to support their liege
+# Vampire has a blood bond with their sire
 vampire_blood_bond = {
-	opinion = 50
-}
-can_blood_bond = {
-	opinion = 0
-	months = 24
+	opinion = 25
+	obedient = yes
+	months = 600
 }
 
 # Aware of seized power
