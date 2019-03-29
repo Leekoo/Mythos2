@@ -400,17 +400,17 @@ laws = {
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = clubfooted }
+				holder_scope = { OR = { trait = clubfooted trait = quailfooted } }
 			}
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = harelip }
+				holder_scope = { OR = { trait = harelip trait = cleft_lip } }
 			}
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = hunchback }
+				holder_scope = { OR = { trait = hunchback trait = twisted } }
 			}
 			modifier = {
 				factor = 0.2
@@ -516,8 +516,11 @@ laws = {
 					holder_scope = {
 						NOR = {
 							trait = clubfooted
+							trait = quailfooted
 							trait = harelip
+							trait = cleft_lip
 							trait = hunchback
+							trait = twisted
 							trait = dwarf
 							trait = inbred
 						}
@@ -566,17 +569,17 @@ laws = {
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = clubfooted }
+				current_heir = { OR = { trait = clubfooted trait = quailfooted } }
 			}
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = harelip }
+				current_heir = { OR = { trait = harelip trait = cleft_lip } }
 			}
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = hunchback }
+				current_heir = { OR = { trait = hunchback trait = twisted } }
 			}
 			modifier = {
 				factor = 4

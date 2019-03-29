@@ -440,8 +440,11 @@ has_unattractive_trait_trigger = {
 		trait = dwarf
 		trait = giant
 		trait = clubfooted
+		trait = quailfooted
 		trait = harelip
+		trait = cleft_lip
 		trait = hunchback
+		trait = twisted
 		trait = lisp
 		trait = weak
 		trait = lunatic
@@ -660,7 +663,9 @@ has_medium_disability_trigger = {
 		trait = one_handed
 		trait = one_eyed
 		trait = clubfooted
+		trait = quailfooted
 		trait = hunchback
+		trait = twisted
 		trait = dwarf
 		trait = giant
 	}
@@ -671,6 +676,7 @@ has_minor_disability_trigger = {
 		trait = disfigured
 		trait = eunuch
 		trait = harelip
+		trait = cleft_lip
 		trait = stutter
 		trait = lisp
 	}
@@ -2864,6 +2870,7 @@ interesting_face_trigger = {
 		trait = one_eyed
 		trait = leper
 		trait = harelip
+		trait = cleft_lip
 		is_strong_trigger = yes
 		is_weak_trigger = yes
 		trait = lunatic
@@ -8430,3 +8437,198 @@ can_still_be_marshal_byzantine_trigger = {
 	}
 }
 
+ingredient_1_poison_mother = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_1
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_herb6
+			artifact_type = ingredient_herb8
+			artifact_type = ingredient_animal3
+			artifact_type = ingredient_animal4
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_animal9
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic3
+			artifact_type = ingredient_metal_exotic4
+			artifact_type = ingredient_metal_exotic5
+			artifact_type = ingredient_metal_exotic8
+			artifact_type = ingredient_metal_exotic9
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_wolfsbane
+		}
+	}
+}
+
+ingredient_2_poison_mother = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_2
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_herb6
+			artifact_type = ingredient_herb8
+			artifact_type = ingredient_animal3
+			artifact_type = ingredient_animal4
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_animal9
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic3
+			artifact_type = ingredient_metal_exotic4
+			artifact_type = ingredient_metal_exotic5
+			artifact_type = ingredient_metal_exotic8
+			artifact_type = ingredient_metal_exotic9
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_wolfsbane
+		}
+	}
+}
+
+ingredient_1_poison_child = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_1
+		OR = {
+			artifact_type = ingredient_herb1
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_animal4
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_moly
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_lotus
+		}
+	}
+}
+
+ingredient_2_poison_child = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_2
+		OR = {
+			artifact_type = ingredient_herb1
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_animal4
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_moly
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_lotus
+		}
+	}
+}
+
+ingredient_1_boon_mother = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_1
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_herb6
+			artifact_type = ingredient_herb7
+			artifact_type = ingredient_herb9
+			artifact_type = ingredient_animal5
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_animal8
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_metal_exotic8
+			artifact_type = ingredient_asclepois
+			artifact_type = ingredient_thyme
+			artifact_type = ingredient_lotus
+			artifact_type = ingredient_sage
+		}
+	}
+}
+
+ingredient_2_boon_mother = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_2
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_herb6
+			artifact_type = ingredient_herb7
+			artifact_type = ingredient_herb9
+			artifact_type = ingredient_animal5
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_animal8
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_metal_exotic8
+			artifact_type = ingredient_asclepois
+			artifact_type = ingredient_thyme
+			artifact_type = ingredient_lotus
+			artifact_type = ingredient_sage
+		}
+	}
+}
+
+ingredient_1_boon_child = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_1
+		OR = {
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_metal_exotic5
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_fern_flower
+			artifact_type = ingredient_asclepois
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_thyme
+		}
+	}
+}
+
+ingredient_2_boon_child = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_2
+		OR = {
+			artifact_type = ingredient_animal7
+			artifact_type = ingredient_metal_exotic5
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_fern_flower
+			artifact_type = ingredient_asclepois
+			artifact_type = ingredient_mistletoe
+			artifact_type = ingredient_thyme
+		}
+	}
+}
+
+ingredient_1_side_effects = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_1
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic3
+			artifact_type = ingredient_metal_exotic4
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_wolfsbane
+			artifact_type = ingredient_lotus
+			artifact_type = ingredient_mistletoe
+		}
+	}
+}
+
+ingredient_2_side_effects = {
+	any_artifact = {
+		has_artifact_flag = selected_ingredient_2
+		OR = {
+			artifact_type = ingredient_herb3
+			artifact_type = ingredient_herb5
+			artifact_type = ingredient_metal_exotic1
+			artifact_type = ingredient_metal_exotic2
+			artifact_type = ingredient_metal_exotic3
+			artifact_type = ingredient_metal_exotic4
+			artifact_type = ingredient_metal_exotic6
+			artifact_type = ingredient_wolfsbane
+			artifact_type = ingredient_lotus
+			artifact_type = ingredient_mistletoe
+		}
+	}
+}

@@ -2019,3 +2019,44 @@ jotnar_leader = {
 		heavy_infantry = 0.15
 	}
 }
+
+# Non-congenital Hare-lip
+cleft_lip = {
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	diplomacy = -1
+	
+	male_insult = INSULT_HARELIP
+	female_insult = INSULT_HARELIP
+	male_insult_adj = INSULT_CLEFT_LIPPED
+	female_insult_adj = INSULT_CLEFT_LIPPED
+}
+# Non-congenital hunchback
+twisted = {
+	sex_appeal_opinion = -30
+	same_opinion = 5
+	
+	vassal_opinion = -5
+	
+	martial = -1
+	
+	male_insult = INSULT_HUNCHBACK
+	female_insult = INSULT_HUNCHBACK
+	male_insult_adj = INSULT_CROOKED
+	female_insult_adj = INSULT_CROOKED
+}
+# Non-congenital clubfoot
+quailfooted = {
+	combat_rating = -5 #old value: -1
+	
+	sex_appeal_opinion = -10
+	same_opinion = 5
+	
+	martial = -1
+	
+	male_insult = INSULT_CLUBFOOT
+	female_insult = INSULT_CLUBFOOT
+	male_insult_adj = INSULT_LIMPING
+	female_insult_adj = INSULT_LIMPING
+}

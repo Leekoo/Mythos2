@@ -2607,7 +2607,10 @@ character_event = {
 	
 	trigger = {
 		in_command = no
-		trait = clubfooted
+		OR = {
+			trait = clubfooted
+			trait = quailfooted
+		}
 		NOT = {
 			trait = wounded
 		}
@@ -2638,7 +2641,10 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		trait = clubfooted
+		OR = {
+			trait = clubfooted
+			trait = quailfooted
+		}
 		in_command = no
 		any_courtier = {
 			age = 6
@@ -2720,7 +2726,10 @@ character_event = {
 	
 	trigger = {
 		in_command = no
-		trait = clubfooted
+		OR = {
+			trait = clubfooted
+			trait = quailfooted
+		}
 		OR = {
 			trait = brave
 			trait = hunter
@@ -2848,7 +2857,10 @@ character_event = {
 	trigger = {
 		in_command = no
 		is_betrothed = no
-		trait = clubfooted
+		OR = {
+			trait = clubfooted
+			trait = quailfooted
+		}
 		NOT = {
 			has_ambition = obj_get_married
 		}

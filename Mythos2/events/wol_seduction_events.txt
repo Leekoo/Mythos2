@@ -10401,8 +10401,11 @@ character_event = {
 				trait = inbred
 				trait = imbecile
 				trait = clubfooted
+				trait = quailfooted
 				trait = harelip
+				trait = club_lip
 				trait = hunchback
+				trait = twisted
 				trait = gluttonous
 				trait = eunuch
 			}
@@ -10579,8 +10582,11 @@ character_event = {
 				trait = inbred
 				trait = imbecile
 				trait = clubfooted
+				trait = quailfooted
 				trait = harelip
+				trait = club_lip
 				trait = hunchback
+				trait = twisted
 				trait = gluttonous
 				trait = eunuch
 			}
@@ -10752,8 +10758,11 @@ character_event = {
 				trait = inbred
 				trait = imbecile
 				trait = clubfooted
+				trait = quailfooted
 				trait = harelip
+				trait = cleft_lip
 				trait = hunchback
+				trait = twisted
 				trait = gluttonous
 				trait = eunuch
 			}
@@ -11648,7 +11657,15 @@ character_event = {
 		}
 		modifier = {
 			factor = 2.0
+			trait = cleft_lip
+		}
+		modifier = {
+			factor = 2.0
 			trait = clubfooted
+		}
+		modifier = {
+			factor = 2.0
+			trait = quailfooted
 		}
 		modifier = {
 			factor = 3.0
@@ -11665,6 +11682,10 @@ character_event = {
 		modifier = {
 			factor = 5.0
 			trait = hunchback
+		}
+		modifier = {
+			factor = 5.0
+			trait = twisted
 		}
 		modifier = {
 			factor = 10.0
@@ -11738,6 +11759,12 @@ character_event = {
 				}
 			}
 			modifier = {
+				factor = 0.33
+				FROM = {
+					trait = twisted
+				}
+			}
+			modifier = {
 				factor = 0.5
 				FROM = {
 					trait = cruel
@@ -11758,7 +11785,19 @@ character_event = {
 			modifier = {
 				factor = 0.75
 				FROM = {
+					trait = quailfooted
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
 					trait = harelip
+				}
+			}
+			modifier = {
+				factor = 0.75
+				FROM = {
+					trait = cleft_lip
 				}
 			}
 			modifier = {

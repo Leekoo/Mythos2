@@ -206,7 +206,10 @@ nick_the_lisp_and_lame = {
 	allow = {
 		age = 16
 		trait = lisp
-		trait = clubfooted
+		OR = {
+			trait = clubfooted
+			trait = quailfooted
+		}
 	}
 	chance = {
 		factor = 5
@@ -503,6 +506,7 @@ nick_the_lame = {
 		age = 15
 		OR = {
 			trait = clubfooted
+			trait = quailfooted
 			trait = inbred
 			trait = maimed
 			trait = one_legged
@@ -529,7 +533,9 @@ nick_the_handsome = {
 		NOT = { trait = dwarf }
 		NOT = { trait = inbred }
 		NOT = { trait = harelip }
+		NOT = { trait = cleft_lip }
 		NOT = { trait = hunchback }
+		NOT = { trait = twisted }
 		NOT = { trait = disfigured }
 		NOT = { age = 60 }
 	}
@@ -546,7 +552,9 @@ nick_the_fair = {
 		NOT = { trait = dwarf }
 		NOT = { trait = inbred }
 		NOT = { trait = harelip }
+		NOT = { trait = cleft_lip }
 		NOT = { trait = hunchback }
+		NOT = { trait = twisted }
 		NOT = { trait = disfigured }
 		NOT = { age = 50 }
 	}
@@ -2069,7 +2077,10 @@ nick_of_the_empty_pockets = {
 nick_the_hunchback = {
 	allow = {
 		age = 20
-		trait = hunchback
+		OR = {
+			trait = hunchback
+			trait = twisted
+		}
 	}
 	chance = {
 		factor = 1

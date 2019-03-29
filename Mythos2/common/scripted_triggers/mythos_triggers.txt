@@ -714,8 +714,11 @@ is_unblemished = {
 		trait = mangled
 		trait = severely_injured
 		trait = clubfooted
+		trait = quailfooted
 		trait = harelip
+		trait = cleft_lip
 		trait = hunchback
+		trait = twisted
 		trait = lisp
 		trait = stutter
 		trait = dwarf
@@ -793,8 +796,11 @@ trigger_minor_challenge = {
 	OR = {
 		NOR = {
 			trait = clubfooted
+			trait = quailfooted
 			trait = harelip
+			trait = cleft_lip
 			trait = hunchback
+			trait = twisted
 			trait = dwarf
 			trait = inbred
 		}
@@ -3466,8 +3472,11 @@ can_challenge_genetic = {
 	OR = {
 		trait = inbred
 		trait = clubfooted
+		trait = quailfooted
 		trait = hunchback
+		trait = twisted
 		trait = harelip
+		trait = cleft_lip
 		trait = dwarf
 	}
 	NOR = {
@@ -3722,5 +3731,13 @@ has_culture = {
 		province = 1510
 		province = 1512
 		province = 1549
+	}
+}
+
+has_any_ingredient = {
+	OR = {
+		any_artifact = {
+			has_artifact_flag = ingredient
+		}
 	}
 }

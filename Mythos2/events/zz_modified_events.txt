@@ -15835,17 +15835,460 @@ character_event = {
 				}
 			}
 		}
-		#Mother has weird cravings.
+		# Selection of events that can give the child different traits on birth
+		# First, find appropraite characters to make things easier
+		# Evil sorcerer
 		random_list = {
-			#Yes
-			10 = {
+			1 = { # Jealous heir
+				trigger = {
+					has_landed_title = yes
+					current_heir = { trait = enchanter }
+					NOT = { has_law = succ_seniority }
+					NOT = { has_law = succ_appointment }
+					NOT = { has_law = succ_patrician_elective }
+					OR = {
+						NOT = { has_law = succ_primogeniture }
+						current_heir = { mother = { NOT = { character = ROOT } } }
+						AND = {
+							current_heir = { is_female = yes }
+							has_law = cognatic_succession
+						}
+						AND = {
+							current_heir = { is_female = no }
+							has_law = enatic_cognatic_succession
+						}
+					}
+				}
+				current_heir = { save_event_target_as = evil_sorcerer }
+			}
+			1 = { # Jelous heir of spouse
+				trigger = {
+					any_spouse = {
+						has_landed_title = yes
+						current_heir = {
+							trait = enchanter
+							NOT = { character = ROOT }
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						has_landed_title = yes
+						current_heir = {
+							trait = enchanter
+							NOT = { character = ROOT }
+						}
+					}
+					current_heir = { save_event_target_as = evil_sorcerer }
+				}
+			}
+			1 = { # Rival
+				trigger = {
+					any_rival = { trait = enchanter }
+				}
+				random_rival = {
+					limit = { trait = enchanter }
+					save_event_target_as = evil_sorcerer
+				}
+			}
+			1 = { # Father's rival
+				trigger = {
+					father_of_unborn = {
+						any_rival = {
+							NOT = { character = ROOT }
+							NOT = { any_spouse = { character = ROOT } }
+							trait = enchanter
+						}
+					}
+				}
+				father_of_unborn = {
+					random_rival = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { any_spouse = { character = ROOT } }
+							trait = enchanter
+						}
+						save_event_target_as = evil_sorcerer
+					}
+				}
+			}
+			1 = { # Spouse's rival
+				trigger = {
+					any_spouse = {
+						any_rival = {
+							NOT = { character = ROOT }
+							trait = enchanter
+						}
+					}
+				}
+				random_spouse = {
+					random_rival = {
+						limit = {
+							NOT = { character = ROOT }
+							trait = enchanter
+						}
+						save_event_target_as = evil_sorcerer
+					}
+				}
+			}
+			1 = { # Rival Wife
+				trigger = {
+					any_spouse = {
+						any_spouse = {
+							NOT = { character = ROOT }
+							trait = enchanter
+						}
+					}
+				}
+				random_spouse = {
+					random_spouse = {
+						limit = {
+							NOT = { character = ROOT }
+							trait = enchanter
+						}
+						save_event_target_as = evil_sorcerer
+					}
+				}
+			}
+		}
+		# Evil poisoner
+		random_list = {
+			1 = { # Jealous heir
+				trigger = {
+					has_landed_title = yes
+					current_heir = {
+						trait = herbalist
+						same_realm = ROOT
+						has_any_ingredient = yes
+					}
+				}
+				current_heir = { save_event_target_as = evil_herbalist }
+			}
+			1 = { # Jelous heir of spouse
+				trigger = {
+					any_spouse = {
+						has_landed_title = yes
+						current_heir = {
+							trait = herbalist
+							NOT = { character = ROOT }
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						has_landed_title = yes
+						current_heir = {
+							trait = herbalist
+							NOT = { character = ROOT }
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+					}
+					current_heir = { save_event_target_as = evil_herbalist }
+				}
+			}
+			1 = { # Rival
+				trigger = {
+					any_rival = {
+						trait = herbalist
+						same_realm = ROOT
+						has_any_ingredient = yes
+					}
+				}
+				random_rival = {
+					limit = {
+						trait = herbalist
+						same_realm = ROOT
+						has_any_ingredient = yes
+					}
+					save_event_target_as = evil_herbalist
+				}
+			}
+			1 = { # Father's rival
+				trigger = {
+					father_of_unborn = {
+						any_rival = {
+							NOT = { character = ROOT }
+							NOT = { any_spouse = { character = ROOT } }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+					}
+				}
+				father_of_unborn = {
+					random_rival = {
+						limit = {
+							NOT = { character = ROOT }
+							NOT = { any_spouse = { character = ROOT } }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+						save_event_target_as = evil_herbalist
+					}
+				}
+			}
+			1 = { # Spouse's rival
+				trigger = {
+					any_spouse = {
+						any_rival = {
+							NOT = { character = ROOT }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+					}
+				}
+				random_spouse = {
+					random_rival = {
+						limit = {
+							NOT = { character = ROOT }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+						save_event_target_as = evil_herbalist
+					}
+				}
+			}
+			1 = { # Rival Wife
+				trigger = {
+					any_spouse = {
+						any_spouse = {
+							NOT = { character = ROOT }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+					}
+				}
+				random_spouse = {
+					random_spouse = {
+						limit = {
+							NOT = { character = ROOT }
+							trait = herbalist
+							same_realm = ROOT
+							has_any_ingredient = yes
+						}
+						save_event_target_as = evil_herbalist
+					}
+				}
+			}
+		}
+		# Good sorcerer
+		random_list = {
+			1 = {
+				trigger = {
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician
+						liege = { character = ROOT }
+						trait = enchanter
+					}
+				}
+				random_courtier_or_vassal = {
+					limit = {
+						has_minor_title = title_court_physician
+						liege = { character = ROOT }
+						trait = enchanter
+					}
+					save_event_target_as = good_sorcerer
+				}
+			}
+			1 = {
+				trigger = {
+					any_spouse = {
+						any_courtier_or_vassal = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = enchanter
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						any_courtier_or_vassal = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = enchanter
+						}
+					}
+					random_courtier_or_vassal = {
+						limit = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = enchanter
+						}
+						save_event_target_as = good_sorcerer
+					}
+				}
+			}
+			1 = {
+				trigger = {
+					any_friend = { trait = enchanter }
+				}
+				random_friend = {
+					limit = { trait = enchanter }
+					save_event_target_as = good_sorcerer
+				}
+			}
+			1 = {
+				trigger = {
+					father_of_unborn = { trait = enchanter }
+				}
+				father_of_unborn = {
+					save_event_target_as = good_sorcerer
+				}
+			}
+			1 = {
+				trigger = {
+					any_spouse = {
+						any_friend = {
+							trait = enchanter
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						any_friend = { trait = enchanter }
+					}
+					random_friend = {
+						limit = { trait = enchanter }
+						save_event_target_as = good_sorcerer
+					}
+				}
+			}
+			1 = {
+				trigger = {
+					father_of_unborn = {
+						any_friend = { trait = enchanter }
+					}
+				}
+				father_of_unborn = {
+					random_friend = {
+						limit = { trait = enchanter }
+						save_event_target_as = good_sorcerer
+					}
+				}
+			}
+		}
+		# Good Herbalist
+		random_list = {
+			1 = {
+				trigger = {
+					any_courtier_or_vassal = {
+						has_minor_title = title_court_physician
+						liege = { character = ROOT }
+						trait = herbalist
+						has_any_ingredient = yes
+					}
+				}
+				random_courtier_or_vassal = {
+					limit = {
+						has_minor_title = title_court_physician
+						liege = { character = ROOT }
+						trait = herbalist
+						has_any_ingredient = yes
+					}
+					save_event_target_as = good_herbalist
+				}
+			}
+			1 = {
+				trigger = {
+					any_spouse = {
+						any_courtier_or_vassal = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = herbalist
+							has_any_ingredient = yes
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						any_courtier_or_vassal = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = herbalist
+							has_any_ingredient = yes
+						}
+					}
+					random_courtier_or_vassal = {
+						limit = {
+							has_minor_title = title_court_physician
+							liege = { character = ROOT }
+							trait = herbalist
+							has_any_ingredient = yes
+						}
+						save_event_target_as = good_herbalist
+					}
+				}
+			}
+			1 = {
+				trigger = {
+					any_friend = { trait = herbalist has_any_ingredient = yes }
+				}
+				random_friend = {
+					limit = { trait = herbalist has_any_ingredient = yes }
+					save_event_target_as = good_herbalist
+				}
+			}
+			1 = {
+				trigger = {
+					father_of_unborn = { trait = herbalist has_any_ingredient = yes }
+				}
+				father_of_unborn = {
+					save_event_target_as = good_herbalist
+				}
+			}
+			1 = {
+				trigger = {
+					any_spouse = {
+						any_friend = {
+							trait = herbalist
+							has_any_ingredient = yes
+						}
+					}
+				}
+				random_spouse = {
+					limit = {
+						any_friend = { trait = herbalist has_any_ingredient = yes }
+					}
+					random_friend = {
+						limit = { trait = herbalist has_any_ingredient = yes }
+						save_event_target_as = good_herbalist
+					}
+				}
+			}
+			1 = {
+				trigger = {
+					father_of_unborn = {
+						any_friend = { trait = herbalist has_any_ingredient = yes }
+					}
+				}
+				father_of_unborn = {
+					random_friend = {
+						limit = { trait = herbalist has_any_ingredient = yes }
+						save_event_target_as = good_herbalist
+					}
+				}
+			}
+		}
+		random_list = {
+			#Mother has weird cravings.
+			5 = {
 				modifier = { 
 					factor = 1.5
 					NOR = { num_of_children = 3 } 
 					NOR = { 
 						any_child = { trait = harelip } 
+						any_child = { trait = cleft_lip } 
 						any_child = { trait = ugly } 
+						any_child = { trait = uncouth } 
 						any_child = { trait = clubfooted } 
+						any_child = { trait = quailfooted } 
 					}
 				}
 				modifier = { 
@@ -15869,7 +16312,184 @@ character_event = {
 				}
 				character_event = { id = HFP.20573 days = 40 random = 10 }
 			}
-			#No
+			#Sorcerer tries to curse the child
+			5 = {
+				trigger = {
+					event_target:evil_sorcerer = { is_alive = yes }
+				}
+				additive_opinion_modifier = {
+					factor = -0.2
+					who = ROOT
+					this = event_target:evil_sorcerer
+				}
+				modifier = {
+					factor = 1.5
+					is_foe = ROOT
+				}
+				modifier = { # Heir that may lose position
+					factor = 2
+					ROOT = {
+						has_landed_title = yes
+						current_heir = { character = event_target:evil_sorcerer }
+						OR = {
+							has_law = succ_ultimogeniture
+							AND = {
+								has_law = succ_primogeniture
+								NOT = {
+									any_child = { character = event_target:evil_sorcerer }
+								}
+							}
+							has_law = succ_gavelkind
+							has_law = succ_elective_gavelkind
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					ROOT = {
+						spouse = {
+							has_landed_title = yes
+							current_heir = { character = event_target:evil_sorcerer }
+							OR = {
+								has_law = succ_ultimogeniture
+								AND = {
+									has_law = succ_primogeniture
+									NOT = {
+										any_child = { character = event_target:evil_sorcerer }
+									}
+								}
+								has_law = succ_gavelkind
+								has_law = succ_elective_gavelkind
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 1.3
+					trait = paranoid
+				}
+				event_target:evil_sorcerer = {
+					character_event = { id = MYTHMORE.63 days = 40 random = 10 }
+				}
+			}
+			# Herbalist tries to poison the mother
+			5 = {
+				trigger = {
+					event_target:evil_herbalist = { is_alive = yes }
+				}
+				additive_opinion_modifier = {
+					factor = -0.2
+					who = ROOT
+					this = event_target:evil_herbalist
+				}
+				modifier = {
+					factor = 1.5
+					is_foe = ROOT
+				}
+				modifier = { # Heir that may lose position
+					factor = 2
+					ROOT = {
+						has_landed_title = yes
+						current_heir = { character = event_target:evil_sorcerer }
+						OR = {
+							has_law = succ_ultimogeniture
+							AND = {
+								has_law = succ_primogeniture
+								NOT = {
+									any_child = { character = event_target:evil_sorcerer }
+								}
+							}
+							has_law = succ_gavelkind
+							has_law = succ_elective_gavelkind
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					ROOT = {
+						spouse = {
+							has_landed_title = yes
+							current_heir = { character = event_target:evil_sorcerer }
+							OR = {
+								has_law = succ_ultimogeniture
+								AND = {
+									has_law = succ_primogeniture
+									NOT = {
+										any_child = { character = event_target:evil_sorcerer }
+									}
+								}
+								has_law = succ_gavelkind
+								has_law = succ_elective_gavelkind
+							}
+						}
+					}
+				}
+				modifier = {
+					factor = 1.3
+					trait = paranoid
+				}
+				event_target:evil_sorcerer = {
+					character_event = { id = MYTHMORE.64 days = 40 random = 10 }
+				}
+			}
+			# Sorcerer tries to bless the child
+			4 = {
+				trigger = {
+					event_target:good_sorcerer = { is_alive = yes }
+				}
+				additive_opinion_modifier = {
+					factor = 0.1
+					who = ROOT
+					this = event_target:good_sorcerer
+				}
+				modifier = {
+					factor = 1.2
+					father_of_unborn = { character = event_target:good_sorcerer }
+				}
+				modifier = {
+					factor = 1.2
+					any_spouse = { character = event_target:good_sorcerer }
+					NOR = {
+						reverse_has_opinion_modifier = { who = event_target:good_sorcerer modifier = opinion_unfaithful_private }
+						reverse_has_opinion_modifier = { who = event_target:good_sorcerer modifier = opinion_unfaithful_wife }
+						reverse_has_opinion_modifier = { who = event_target:good_sorcerer modifier = opinion_unfaithful_husband }
+						reverse_has_opinion_modifier = { who = event_target:good_sorcerer modifier = opinion_unfaithful_husband_crime }
+					}
+				}
+				event_target:good_sorcerer = {
+					character_event = { id = MYTHMORE.65 days = 40 random = 10 }
+				}
+			}
+			# Herbalist tries to aid the mother
+			5 = {
+				trigger = {
+					event_target:good_herbalist = { is_alive = yes }
+				}
+				additive_opinion_modifier = {
+					factor = 0.1
+					who = ROOT
+					this = event_target:good_herbalist
+				}
+				modifier = {
+					factor = 1.2
+					father_of_unborn = { character = event_target:good_herbalist }
+				}
+				modifier = {
+					factor = 1.2
+					any_spouse = { character = event_target:good_herbalist }
+					NOR = {
+						reverse_has_opinion_modifier = { who = event_target:good_herbalist modifier = opinion_unfaithful_private }
+						reverse_has_opinion_modifier = { who = event_target:good_herbalist modifier = opinion_unfaithful_wife }
+						reverse_has_opinion_modifier = { who = event_target:good_herbalist modifier = opinion_unfaithful_husband }
+						reverse_has_opinion_modifier = { who = event_target:good_herbalist modifier = opinion_unfaithful_husband_crime }
+					}
+				}
+				event_target:good_herbalist = {
+					character_event = { id = MYTHMORE.66 days = 40 random = 10 }
+				}
+			}
+				
+			#None
 			90 = {
 				modifier = { 
 					factor = 0.5
@@ -20419,5 +21039,2350 @@ character_event = {
 	option = { #Nothing
 		name = EVTOPTDHF23210
 		trigger = { ai = no }
+	}
+}
+
+Mother craved for quail's leg: child is good at talking but clubfooted.
+character_event = {
+	id = HFP.20582
+	desc = EVTDESCHFPA20582
+	picture = GFX_evt_birth
+	
+	trigger = { 
+		FROM = { 
+			OR = {
+				trait = clubfooted 
+				trait = quailfooted
+			}
+			is_alive = yes
+		}
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20582
+		FROM = { change_diplomacy = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Mother craved for hare's head: child is good at spying but harelipped.
+character_event = {
+	id = HFP.20583
+	desc = EVTDESCHFPA20583
+	picture = GFX_evt_birth
+	
+	trigger = { 
+		FROM = { 
+			OR = {
+				trait = harelip
+				trait = cleft_lip
+			}
+			is_alive = yes
+			}
+		}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20583
+		FROM = { change_intrigue = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
+
+#Mother craved for trout's eye: child is good at learning but ugly.
+character_event = {
+	id = HFP.20584
+	desc = EVTDESCHFPA20584
+	picture = GFX_evt_birth
+	
+	trigger = { 
+		FROM = { 
+			OR = {
+				trait = ugly 
+				trait = uncouth
+			}
+			is_alive = yes
+		} 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20584
+		FROM = { change_learning = 2 } 
+		ai_chance = { factor = 100 }
+	}
+}
+
+#on_birth (fired on the child), remove the trait and check all flavor flags.
+character_event = {
+	id = HFP.20403
+	hide_window = yes
+	
+	#trigger = { 
+#		mother = { trait = pregnancy_finishing } 
+#	}
+
+	is_triggered_only = yes
+
+	immediate = { 
+		mother = { 
+			remove_trait = pregnancy_finishing
+			remove_trait = in_hiding
+			remove_trait = travelling
+			remove_character_modifier = mother_praying_health
+			remove_character_modifier = mother_resting_health
+			remove_character_modifier = mother_partying_health
+			clr_character_flag = mother_asked_retirement 
+			clr_character_flag = flag_mother_dark_rest
+			clr_character_flag = mother_gossip_listening #Safety check, they should already have been removed
+			clr_character_flag = mother_gossip_talking
+			clr_character_flag = mother_gossip_trusting
+			clr_character_flag = mother_gossip_plotting
+			clr_character_flag = mother_gossip_envious
+			clr_character_flag = mother_gossip_shy
+			clr_character_flag = mother_gossip_learning
+			clr_character_flag = mother_gossip_content
+			clr_character_flag = mother_gossip_gluttonous
+
+			character_event = { id = HFP.20597 days = 35 } #Clears persistent Physician targets. They are still on on_birth since post-partum complications may require their services.
+		} 
+		#Mother took part in fertility feast, chance of blessed girl.
+		if = { 
+			limit = { 
+				mother = { 
+					has_character_modifier = mother_fertility_festival_2
+				}
+				is_female = yes
+			}
+			random_list = { 
+				40 = { 
+					modifier = {  
+						factor = 1.75
+						mother_even_if_dead = { trait = ugly }
+					}
+					modifier = {  
+						factor = 1.75
+						father_even_if_dead = { trait = ugly }
+					}
+					modifier = {  
+						factor = 0.5
+						mother_even_if_dead = { trait = fair }
+					}
+					modifier = {  
+						factor = 0.5
+						father_even_if_dead = { trait = fair }
+					}
+					modifier = {  
+						factor = 1.75
+						mother_even_if_dead = { any_child = { trait = fair } } #Avoid entire litters of them.
+					}
+					modifier = {  
+						factor = 1.75
+						father_even_if_dead = { any_child = { trait = fair } } #Avoid entire litters of them.
+					}
+				}
+				60 = { 
+					remove_trait = hunchback
+					remove_trait = dwarf
+					remove_trait = ugly
+					remove_trait = inbred
+					remove_sickly = yes
+					remove_trait = harelip
+					remove_trait = lisp
+					mother = { character_event = { id = HFP.20055 days = 3600 random = 200 } } 
+					father = { character_event = { id = HFP.20055 days = 3600 random = 200 } } 
+				}
+			}
+		} 
+
+		#Catholic/Orthodox Kings/Emperors: chance for special baptism.
+		father = { save_event_target_as = scoped_father }
+		mother = { save_event_target_as = scoped_mother }
+		ROOT = { save_event_target_as = scoped_baby }
+		if = { 
+			limit = { 
+				OR = { 
+					event_target:scoped_father = { higher_tier_than = event_target:scoped_mother }
+					event_target:scoped_father = { 
+						real_tier = event_target:scoped_mother 
+						is_married_matrilineally = no
+					}
+				}
+			}
+			event_target:scoped_father = { character_event = { id = HF.20100 days = 12 } }
+		}
+		if = { 
+			limit = { 
+				OR = { 
+					event_target:scoped_mother = { higher_tier_than = event_target:scoped_father }
+					event_target:scoped_mother = { 
+						real_tier = event_target:scoped_father 
+						is_married_matrilineally = yes
+					}
+				}
+			}
+			event_target:scoped_mother = { character_event = { id = HF.20100 days = 12 } }
+		} 
+		father = { clear_event_target = scoped_father }
+		mother = { clear_event_target = scoped_mother }
+		ROOT = { clear_event_target = scoped_baby }
+
+		#Catholic/Orthodox rulers: chance of Churching after the first pregnancy is over.
+		if = { 
+			limit = { 
+				mother = { 
+					OR = { 
+						religion = catholic
+						religion = orthodox
+					}
+					is_married = yes
+					NOT = { num_of_children = 2 }
+					NOT = { society_member_of = the_satanists }
+					OR = { 
+						is_ruler = yes
+						spouse = { is_ruler = yes }
+					}
+					NOR = { 
+						has_character_modifier = adulteress
+						has_character_modifier = incestuous_adulteress 
+					}
+				}
+			}
+			mother = { character_event = { id = HFP.20018 days = 24 } }
+		} 
+
+		#Mother drunk/had drugs during pregnancy, chance of dumb child.
+		if = {
+			limit = { 
+				mother = { 
+					trait = drunkard 
+				} 
+			}
+			random = { 
+				chance = 30
+				set_character_flag = flag_drunk_birth
+				if = { 
+					limit = { trait = slow }
+					remove_trait = slow
+					add_trait = imbecile
+					mother = { character_event = { id = HFP.20001 days = 451 } }
+					father = { character_event = { id = HFP.20002 days = 450 } }
+				}
+				if = { 
+					limit = { trait = dull }
+					remove_trait = dull
+					add_trait = imbecile
+					mother = { character_event = { id = HFP.20001 days = 451 } }
+					father = { character_event = { id = HFP.20002 days = 450 } }
+				}
+				if = { 
+					limit = { 
+						NOR = { 
+							trait = genius 
+							trait = quick 
+							trait = slow 
+							trait = dull
+							trait = imbecile 
+						} 
+					}
+					add_trait = dull
+					mother = { character_event = { id = HFP.20001 days = 451 } }
+					father = { character_event = { id = HFP.20002 days = 450 } }
+				}
+				if = { 
+					limit = { trait = quick }
+					remove_trait = quick
+				}
+				if = { 
+					limit = { trait = genius }
+					remove_trait = genius
+					add_trait = quick 
+				}
+			}
+		}
+		if = {
+			limit = { 
+				mother = { 
+					has_character_modifier = hashish_addict
+				} 
+			}
+			random = { 
+				chance = 30
+				set_character_flag = flag_drugged_birth
+				if = { 
+					limit = { trait = slow }
+					remove_trait = slow
+					add_trait = imbecile
+					mother = { character_event = { id = HFP.20001 days = 551 } }
+					father = { character_event = { id = HFP.20002 days = 550 } }
+				}
+				if = { 
+					limit = { trait = dull }
+					remove_trait = dull
+					add_trait = imbecile
+					mother = { character_event = { id = HFP.20001 days = 551 } }
+					father = { character_event = { id = HFP.20002 days = 550 } }
+				}
+				if = { 
+					limit = { 
+						NOR = { 
+							trait = genius 
+							trait = quick 
+							trait = slow 
+							trait = dull
+							trait = imbecile 
+						} 
+					}
+					add_trait = dull
+					mother = { character_event = { id = HFP.20001 days = 551 } }
+					father = { character_event = { id = HFP.20002 days = 550 } }
+				}
+				if = { 
+					limit = { trait = quick }
+					remove_trait = quick
+				}
+				if = { 
+					limit = { trait = genius }
+					remove_trait = genius
+					add_trait = quick 
+				}
+			}
+		}
+		random_list = { #Chance of imprinting (mother)
+			50 = { 
+				modifier = {  
+					factor = 0.5
+					mother = { num_of_children = 2 }
+				}
+				modifier = {  
+					factor = 0.35
+					mother = { num_of_children = 3 }
+				}
+				modifier = {  
+					factor = 0.25
+					mother = { num_of_children = 4 }
+				}
+				modifier = {  
+					factor = 0.1
+					mother = { num_of_children = 5 }
+				}
+				modifier = {  
+					factor = 0.5
+					mother = { age = 30 }
+				}
+				modifier = {  
+					factor = 1.5
+					mother = { trait = kind }
+				}
+				modifier = {  
+					factor = 1.5
+					mother = { trait = charitable }
+				}
+				modifier = {  
+					factor = 0.5
+					mother = { trait = envious }
+				}
+				modifier = {  
+					factor = 0.5
+					mother = { trait = cruel }
+				}
+				mother = { character_event = { id = HFP.20599 days = 70 } } 
+			} 
+			50 = {  } 
+		}
+		random_list = { #Chance of imprinting (father)
+			50 = { 
+				modifier = {  
+					factor = 0.5
+					father = { num_of_children = 2 }
+				}
+				modifier = {  
+					factor = 0.35
+					father = { num_of_children = 3 }
+				}
+				modifier = {  
+					factor = 0.25
+					father = { num_of_children = 4 }
+				}
+				modifier = {  
+					factor = 0.1
+					father = { num_of_children = 5 }
+				}
+				modifier = {  
+					factor = 0.5
+					father = { age = 30 }
+				}
+				modifier = {  
+					factor = 1.5
+					father = { trait = kind }
+				}
+				modifier = {  
+					factor = 1.5
+					father = { trait = charitable }
+				}
+				modifier = {  
+					factor = 0.5
+					father = { trait = envious }
+				}
+				modifier = {  
+					factor = 0.5
+					father = { trait = cruel }
+				}
+				father = { character_event = { id = HFP.20000 days = 700 random = 500 } } 
+			} 
+			50 = {  } 
+		}
+
+		if = { 
+			limit = { #The Papal orgy bears fruits.
+				mother = { has_character_flag = flag_vatican_prince } 
+			} 
+			mother = { 
+				clr_character_flag = flag_vatican_prince 
+				character_event = { id = HFP.20598 days = 7 random = 7 } #Notify mother.
+			} 
+		}
+		if = { 
+			limit = { 
+				mother = { trait = troubled_pregnancy } 
+			} 
+			random_list = {
+				80 = { set_character_flag = flag_troubled_pregnancy_child
+				}
+				20 = { } #Nothing happens
+			} 
+		}
+		if = { 
+			limit = { 
+				mother = { trait = stressed } 
+			} 
+			random_list = {
+				30 = { 
+					mother = { 
+						character_event = { id = HFP.20581 days = 30 random = 50 } #chance to recover from stressed.
+					}
+				}
+				70 = { } #Nothing happens
+			} 
+		}
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mother_craved_quail } 
+			} 
+			random_list = {
+				70 = { 
+					add_trait = quailfooted
+					mother = { 
+						character_event = { id = HFP.20582 days = 950 random = 550 } #Notify mother child gains 2 diplomacy.
+						clr_character_flag = mother_craved_quail 
+					}
+				}
+				30 = { mother = { clr_character_flag = mother_craved_quail } } #Nothing happens
+			} 
+		}
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mother_craved_hare } 
+			} 
+			random_list = {
+				70 = { 
+					add_trait = cleft_lip
+					mother = { 
+						character_event = { id = HFP.20583 days = 950 random = 550 } #Notify mother child gains 2 intrigue.
+						clr_character_flag = mother_craved_hare 
+					}
+				}
+				30 = { mother = { clr_character_flag = mother_craved_hare } } #Nothing happens
+			} 
+		}
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mother_craved_trout } 
+			} 
+			random_list = {
+				70 = { 
+					add_trait = uncouth
+					mother = { 
+						character_event = { id = HFP.20584 days = 950 random = 550 } #Notify mother child gains 2 learning.
+						clr_character_flag = mother_craved_trout 
+					}
+				}
+				30 = { mother = { clr_character_flag = mother_craved_trout } } #Nothing happens
+			} 
+		}
+		# Cursed child
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_body }
+			}
+			mother = { clr_character_flag = baby_cursed_body }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					add_trait = twisted
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = twisted
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					remove_trait = twisted
+					add_trait = hunchback
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_mouth }
+			}
+			mother = { clr_character_flag = baby_cursed_mouth }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					add_trait = cleft_lip
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = cleft_lip
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					random_list = {
+						3 = { remove_trait = cleft_lip add_trait = harelip }
+						1 = { add_trait = stutter }
+						1 = { add_trait = lisp }
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_legs }
+			}
+			mother = { clr_character_flag = baby_cursed_legs }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					add_trait = quailfooted
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = quailfooted
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					remove_trait = quailfooted
+					add_trait = clubfooted
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_mind }
+			}
+			mother = { clr_character_flag = baby_cursed_mind }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = genius }
+						remove_trait = genius
+						add_trait = quick
+					}
+					else_if = { 
+						limit = { trait = quick }
+						remove_trait = quick
+					}
+					else_if = { 
+						limit = { trait = shrewd }
+						remove_trait = shrewd
+					}
+					else_if = {
+						limit = { trait = dull }
+						remove_trait = dull
+						add_trait = imbecile
+					}
+					else_if = {
+						limit = { trait = slow }
+						remove_trait = slow
+						add_trait = imbecile
+					}
+					else_if = {
+						limit = { NOT = { trait = imbecile } }
+						add_trait = dull
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = genius }
+						remove_trait = genius
+						add_trait = shrewd
+					}
+					else_if = { 
+						limit = { trait = quick }
+						remove_trait = quick
+					}
+					else_if = { 
+						limit = { trait = shrewd }
+						remove_trait = shrewd
+					}
+					else_if = {
+						limit = { trait = dull }
+						remove_trait = dull
+						add_trait = imbecile
+					}
+					else_if = {
+						limit = { trait = slow }
+						remove_trait = slow
+						add_trait = imbecile
+					}
+					else_if = {
+						limit = { NOT = { trait = imbecile } }
+						add_trait = slow
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_muscles }
+			}
+			mother = { clr_character_flag = baby_cursed_muscles }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = strong }
+						remove_trait = strong
+					}
+					else_if = {
+						limit = { trait = robust }
+						remove_trait = robust
+					}
+					else_if = {
+						limit = { trait = sturdy }
+						remove_trait = sturdy
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								trait = frail
+								trait = weak
+							}
+						}
+						add_trait = frail
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = frail
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = strong }
+						remove_trait = strong
+					}
+					else_if = {
+						limit = { trait = brawny }
+						remove_trait = brawny
+					}
+					else_if = {
+						limit = { trait = robust }
+						remove_trait = robust
+					}
+					else = {
+						remove_trait = frail
+						add_trait = weak
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_appearance }
+			}
+			mother = { clr_character_flag = baby_cursed_appearance }
+			random_list = {
+				40 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = fair }
+						remove_trait = fair
+					}
+					else_if = {
+						limit = { trait = groomed }
+						remove_trait = groomed
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								trait = ugly
+								trait = uncouth
+							}
+						}
+						add_trait = uncouth
+					}
+				}
+				10 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = curse_1
+								has_character_flag = curse_2
+								has_character_flag = curse_3
+								has_character_flag = curse_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = uncouth
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = curse_4 }
+					}
+					if = {
+						limit = { trait = fair }
+						remove_trait = fair
+					}
+					else_if = {
+						limit = { trait = groomed }
+						remove_trait = groomed
+					}
+					else = {
+						remove_trait = uncouth
+						add_trait = ugly
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_cursed_size }
+				NOR = {
+					trait = giant
+					trait = mythos_giant
+					trait = dwarf
+				}
+			}
+			mother = { clr_character_flag = baby_cursed_size }
+			random_list = {
+				25 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					add_trait = giant
+				}
+				25 = {
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = curse_1 }
+					}
+					modifier = {
+						factor = 1.4
+						mother = { has_character_flag = curse_2 }
+					}
+					modifier = {
+						factor = 1.5
+						mother = { has_character_flag = curse_3 }
+					}
+					modifier = {
+						factor = 1.6
+						mother = { has_character_flag = curse_4 }
+					}
+					add_trait = dwarf
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_frail }
+			}
+			clr_character_flag = baby_poisoned_frail
+			if = {
+				limit = { trait = strong }
+				remove_trait = strong
+			}
+			else_if = {
+				limit = { trait = robust }
+				remove_trait = robust
+			}
+			else_if = {
+				limit = { trait = sturdy }
+				remove_trait = sturdy
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						trait = weak
+						trait = feeble
+					}
+				}
+				add_trait = feeble
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_weak }
+			}
+			clr_character_flag = baby_poisoned_weak
+			if = {
+				limit = { trait = strong }
+				remove_trait = strong
+			}
+			else_if = {
+				limit = { trait = robust }
+				remove_trait = robust
+			}
+			else_if = {
+				limit = { trait = sturdy }
+				remove_trait = sturdy
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						trait = weak
+						trait = feeble
+					}
+				}
+				add_trait = weak
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_dull }
+			}
+			clr_character_flag = baby_poisoned_dull
+			if = {
+				limit = { trait = genius }
+				remove_trait = genius
+				add_trait = quick
+			}
+			else_if = {
+				limit = { trait = quick }
+				remove_trait = quick
+			}
+			else_if = {
+				limit = { trait = shrewd }
+				remove_trait = shrewd
+			}
+			else_if = {
+				limit = {
+					NOR = {
+						trait = dull
+						trait = slow
+						trait = imbecile
+					}
+				}
+				add_trait = dull
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_slow }
+			}
+			clr_character_flag = baby_poisoned_slow
+			if = {
+				limit = { trait = genius }
+				remove_trait = genius
+				add_trait = quick
+			}
+			else_if = {
+				limit = { trait = quick }
+				remove_trait = quick
+			}
+			else_if = {
+				limit = { trait = shrewd }
+				remove_trait = shrewd
+			}
+			else_if = {
+				limit = {
+					trait = slow
+				}
+				remove_trait = slow
+				add_trait = imbecile
+			}
+			else = {
+				remove_trait = dull
+				add_trait = slow
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_quailfooted }
+			}
+			clr_character_flag = baby_poisoned_quailfooted
+			if = {
+				limit = {
+					NOR = {
+						trait = quailfooted
+						trait = clubfooted
+					}
+				}
+				add_trait = quailfooted
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_clubfooted }
+			}
+			clr_character_flag = baby_poisoned_clubfooted
+			if = {
+				limit = {
+					NOT = { trait = clubfooted }
+				}
+				remove_trait = quailfooted
+				add_trait = clubfooted
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_sickly }
+			}
+			clr_character_flag = baby_poisoned_sickly
+			if = {
+				limit = {
+					NOT = { trait = sickly }
+				}
+				add_trait = sickly
+				update_sickly_trait = yes
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_craven }
+			}
+			clr_character_flag = baby_poisoned_sickly
+			add_trait = craven
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_slothful }
+			}
+			clr_character_flag = baby_poisoned_sickly
+			add_trait = slothful
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_poisoned_magic }
+			}
+			clr_character_flag = baby_poisoned_magic
+			remove_trait = magic_heritage
+		}
+		
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_blessed_strength }
+			}
+			mother = { clr_character_flag = baby_blessed_strength }
+			random_list = {
+				45 = {
+					if = {
+						limit = { trait = weak }
+						remove_trait = weak
+					}
+					else_if = {
+						limit = { trait = feeble }
+						remove_trait = feeble
+					}
+					else_if = {
+						limit = { NOT = { trait = strong } }
+						random_list = {
+							1 = {
+								trigger = { NOT = { trait = robust } }
+								add_trait = robust
+							}
+							1 = {
+								trigger = { NOT = { trait = sturdy } }
+								add_trait = sturdy
+							}
+						}
+					}
+					else = {
+						add_trait = sturdy
+					}
+				}
+				5 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = bless_1
+								has_character_flag = bless_2
+								has_character_flag = bless_3
+								has_character_flag = bless_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = robust
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = bless_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = bless_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = bless_4 }
+					}
+					if = {
+						limit = { trait = weak }
+						remove_trait = weak
+					}
+					else_if = {
+						limit = { trait = robust }
+						remove_trait = robust
+						add_trait = strong
+					}
+					else_if = {
+						limit = { trait = strong }
+						add_trait = sturdy
+					}
+					else = {
+						add_trait = strong
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = can_bless_mind }
+			}
+			mother = { clr_character_flag = can_bless_mind }
+			random_list = {
+				45 = {
+					if = {
+						limit = { trait = imbecile }
+						remove_trait = imbecile
+						add_trait = slow
+					}
+					else_if = {
+						limit = { trait = slow }
+						remove_trait = slow
+					}
+					else_if = {
+						limit = { trait = dull }
+						remove_trait = dull						
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								trait = genius
+								trait = quick
+								trait = shrewd
+							}
+						}
+						add_trait = shrewd
+					}
+				}
+				5 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = bless_1
+								has_character_flag = bless_2
+								has_character_flag = bless_3
+								has_character_flag = bless_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = robust
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = bless_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = bless_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = bless_4 }
+					}
+					if = {
+						limit = { trait = imbecile }
+						remove_trait = imbecile
+						add_trait = slow
+					}
+					else_if = {
+						limit = { trait = slow }
+						remove_trait = slow
+					}
+					else_if = {
+						limit = { trait = dull }
+						remove_trait = dull						
+					}
+					else_if = {
+						limit = { trait = quick }
+						remove_trait = quick
+						add_trait = genius
+					}
+					else_if = {
+						limit = { trait = shrewd }
+						remove_trait = shrewd
+						add_trait = quick
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								trait = genius
+								trait = quick
+								trait = shrewd
+							}
+						}
+						add_trait = quick
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = can_bless_beauty }
+			}
+			mother = { clr_character_flag = can_bless_beauty }
+			random_list = {
+				45 = {
+					if = {
+						limit = { trait = ugly }
+						remove_trait = ugly
+					}
+					else_if = {
+						limit = { trait = uncouth }
+						remove_trait = uncouth
+					}
+					else_if = {
+						limit = {
+							NOR = {
+								trait = fair
+								trait = groomed
+							}
+						}
+						add_trait = groomed				
+					}
+				}
+				5 = {
+					modifier = {
+						factor = 0
+						mother = {
+							NOR = {
+								has_character_flag = bless_1
+								has_character_flag = bless_2
+								has_character_flag = bless_3
+								has_character_flag = bless_4
+							}
+						}
+					}
+					modifier = {
+						factor = 2
+						trait = robust
+					}
+					modifier = {
+						factor = 1.2
+						mother = { has_character_flag = bless_2 }
+					}
+					modifier = {
+						factor = 2
+						mother = { has_character_flag = bless_3 }
+					}
+					modifier = {
+						factor = 3
+						mother = { has_character_flag = bless_4 }
+					}
+					if = {
+						limit = { trait = ugly }
+						remove_trait = ugly
+					}
+					else_if = {
+						limit = { trait = uncouth }
+						remove_trait = uncouth
+					}
+					else_if = {
+						limit = { trait = groomed }
+						remove_trait = groomed
+						add_trait = fair
+					}
+					else_if = {
+						limit = {
+							NOT = { trait = fair }
+						}
+						add_trait = fair				
+					}
+				}
+				50 = {}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = can_bless_health }
+			}
+			mother = { clr_character_flag = can_bless_health }
+			random_list = {
+				
+				1 = {
+					trigger = { trait = clubfooted }
+					remove_trait = clubfooted
+				}
+				1 = {
+					trigger = { trait = quailfooted }
+					remove_trait = quailfooted
+				}
+				1 = {
+					trigger = { trait = dwarf }
+					remove_trait = dwarf
+				}
+				1 = {
+					trigger = { trait = harelip }
+					remove_trait = harelip
+				}
+				1 = {
+					trigger = { trait = cleft_lip }
+					remove_trait = cleft_lip
+				}
+				1 = {
+					trigger = { trait = hunchback }
+					remove_trait = hunchback
+				}
+				1 = {
+					trigger = { trait = twisted }
+					remove_trait = twisted
+				}
+				1 = {
+					trigger = { trait = imbecile }
+					remove_trait = imbecile
+					add_trait = slow
+				}
+				1 = {
+					trigger = { trait = inbred }
+					remove_trait = inbred
+				}
+				1 = {
+					trigger = { trait = lisp }
+					remove_trait = lisp
+				}
+				1 = {
+					trigger = { trait = slow }
+					remove_trait = slow
+				}
+				1 = {
+					trigger = { trait = dull }
+					remove_trait = dull
+				}
+				1 = {
+					trigger = { trait = stutter }
+					remove_trait = stutter
+				}
+				1 = {
+					trigger = { trait = ugly }
+					remove_trait = ugly
+				}
+				1 = {
+					trigger = { trait = uncouth }
+					remove_trait = uncouth
+				}
+				1 = {
+					trigger = { trait = weak }
+					remove_trait = weak
+				}
+				1 = {
+					trigger = { trait = feeble }
+					remove_trait = feeble
+				}
+				1 = {
+					trigger = { trait = giant }
+					remove_trait = giant
+				}
+				1 = {
+					trigger = { trait = sickly }
+					remove_trait = sickly
+				}
+				1 = {
+					add_trait = sturdy
+				}
+			}
+			mother = {
+				clr_character_flag = bless_1
+				clr_character_flag = bless_2
+				clr_character_flag = bless_3
+				clr_character_flag = bless_4
+			}
+		}
+		
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_prevent_sickly }
+			}
+			mother = { clr_character_flag = baby_prevent_sickly }
+			if = {
+				limit = { is_sickly = yes }
+				remove_sickly = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_all_traits }
+			}
+			mother = { clr_character_flag = baby_all_traits }
+			random = {
+				chance = 35
+				if = {
+					limit = { trait = ugly }
+					remove_trait = ugly
+				}
+				else_if = {
+					limit = { trait = uncouth }
+					remove_trait = uncouth
+				}
+				else = {
+					remove_trait = groomed
+					add_trait = fair
+				}
+			}
+			random = {
+				chance = 35
+				if = {
+					limit = { trait = imbecile }
+					remove_trait = imbecile
+					add_trait = slow
+				}
+				else_if = {
+					limit = {
+						OR = {
+							trait = slow
+							trait = dull
+						}
+					}
+					remove_trait = slow
+					remove_trait = dull
+				}
+				else_if = {
+					limit = {
+						OR = {
+							trait = quick
+							trait = shrewd
+						}
+					}
+					remove_trait = quick
+					remove_trait = shrewd
+					add_trait = genius
+				}
+				else_if = {
+					limit = { NOT = { trait = genius } }
+					add_trait = quick
+				}
+			}
+			random = {
+				chance = 35
+				if = {
+					limit = { trait = weak }
+					remove_trait = weak
+				}
+				else_if = {
+					limit = { trait = feeble }
+					remove_trait = feebly
+				}
+				else = {
+					remove_trait = robust
+					add_trait = strong
+				}
+			}
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_patient }
+			}
+			mother = { clr_character_flag = baby_patient }
+			add_trait = patient
+		}
+		if = {
+			limit = {
+				mother = { has_character_flag = baby_brave }
+			}
+			mother = { clr_character_flag = baby_brave }
+			add_trait = brave
+		}
+		
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mom_hopes_child_warrior } 
+			} 
+			#Small chance of child actually gaining positive trait.
+			random_list = {
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = weak } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = feeble } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = inbred } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = hunchback } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = twisted } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = dwarf } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = weak } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = feeble } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = inbred } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = hunchback } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = twisted } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = dwarf } 
+					} 
+					if = { 
+						limit = { trait = weak } 
+						remove_trait = weak
+					} 
+					if = { 
+						limit = { trait = feeble } 
+						remove_trait = feeble
+					} 
+					if = { 
+						limit = { trait = inbred } 
+						remove_trait = inbred
+					} 
+					if = { 
+						limit = { trait = hunchback } 
+						remove_trait = hunchback
+					} 
+					if = { 
+						limit = { trait = twisted } 
+						remove_trait = twisted
+					} 
+					if = { 
+						limit = { trait = dwarf } 
+						remove_trait = dwarf
+					} 
+					if = { 
+						limit = { trait = sickly } 
+						remove_sickly = yes
+					} 
+
+				} 
+				80 = { #No luck.
+
+				} 
+			}
+			#Notify mother. 
+			if = { 
+				limit = { 
+					NOR = { 
+						trait = weak
+						trait = feeble
+						trait = inbred
+						trait = hunchback
+						trait = twisted
+						trait = dwarf
+						trait = sickly
+					}
+				}
+				mother = { 
+					character_event = { id = HFP.20585 days = 250 random = 250 } #Notify mother child gains 2 martial.
+					clr_character_flag = mom_hopes_child_warrior
+				} 
+			} 
+		} #Close what if warrior child
+
+		#Mother offered sacrifice for strong child
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mom_hopes_child_strong } 
+			} 
+			#Small chance of child actually gaining positive trait.
+			random_list = {
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = weak } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = feeble } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = inbred } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = hunchback } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = twisted } 
+					} 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = dwarf } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = weak } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = feeble } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = inbred } 
+					}   
+					remove_trait = weak
+					remove_sickly = yes
+					add_trait = brawny
+
+				} 
+				80 = { #No luck.
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = strong } 
+					}   
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = strong } 
+					}   
+
+				} 
+			}
+			#Notify mother. 
+			if = { 
+				limit = {
+					OR = {
+						trait = brawny
+						trait = strong
+					}
+				}
+				mother = { 
+					character_event = { id = HFP.20586 days = 250 random = 250 } #Notify mother child is growing strong.
+					clr_character_flag = mom_hopes_child_strong
+				} 
+			} 
+			mother = { clr_character_flag = mom_hopes_child_strong }
+		} 
+		#Mother offered sacrifice for pretty child
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mom_hopes_child_pretty } 
+			} 
+			#Small chance of child actually gaining positive trait.
+			random_list = {
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = ugly } 
+					} 
+					modifier = { 
+						factor = 2
+						mother_even_if_dead = { trait = fair } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = ugly } 
+					} 
+					modifier = { 
+						factor = 2
+						father_even_if_dead = { trait = fair } 
+					}   
+					remove_trait = harelip
+					remove_trait = cleft_lip
+					remove_trait = ugly
+					remove_trait = uncouth
+					add_trait = groomed
+
+				} 
+				80 = { #No luck.
+
+				} 
+			}
+			#Notify mother. 
+			if = { 
+				limit = { trait = fair }
+				mother = { 
+					character_event = { id = HFP.20587 days = 250 random = 250 } #Notify mother child is growing strong.
+					clr_character_flag = mom_hopes_child_pretty
+				} 
+			} 
+			mother = { clr_character_flag = mom_hopes_child_pretty }
+		}
+		#Mother offered sacrifice for smart child
+		if = { 
+			limit = { 
+				mother = { has_character_flag = mom_hopes_child_smart } 
+			} 
+			#Small chance of child actually gaining positive trait.
+			random_list = {
+				20 = { 
+					modifier = { 
+						factor = 0.5
+						mother_even_if_dead = { trait = slow } 
+					} 
+					modifier = { 
+						factor = 0.25
+						mother_even_if_dead = { trait = imbecile } 
+					} 
+					modifier = { 
+						factor = 1.5
+						mother_even_if_dead = { trait = quick } 
+					} 
+					modifier = { 
+						factor = 2
+						mother_even_if_dead = { trait = genius } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = slow } 
+					} 
+					modifier = { 
+						factor = 0.25
+						father_even_if_dead = { trait = imbecile } 
+					} 
+					modifier = { 
+						factor = 0.5
+						father_even_if_dead = { trait = ugly } 
+					} 
+					modifier = { 
+						factor = 1.5
+						father_even_if_dead = { trait = quick } 
+					} 
+					modifier = { 
+						factor = 2
+						father_even_if_dead = { trait = genius } 
+					} 
+					remove_trait = slow
+					remove_trait = imbecile
+					if = { 
+						limit = { trait = quick } 
+						remove_trait = quick
+						add_trait = genius
+					} 
+					if = { 
+						limit = { trait = shrewd } 
+						remove_trait = shrewd
+						add_trait = genius
+					} 
+					if = { 
+						limit = { NOR = { trait = quick trait = shrewd } } 
+						add_trait = shrewd
+					} 
+				} 
+				80 = { #No luck.
+
+				} 
+			}
+			#Notify mother. 
+			if = { 
+				limit = { 
+					OR = { 
+						trait = quick 
+						trait = genius
+						trait = shrewd
+					} 
+				}
+				mother = { 
+					character_event = { id = HFP.20588 days = 450 random = 450 } #Notify mother child is growing smart.
+					clr_character_flag = mom_hopes_child_smart
+				} 
+			} 
+			mother = { clr_character_flag = mom_hopes_child_smart }
+		}
+		#Mother wanted a boy/girl 
+		if = { 
+			limit = { 
+				mother = { 
+					OR = { 
+						has_character_flag = mom_hopes_child_boy
+						has_character_flag = mom_hopes_child_girl
+					}
+				} 
+			}
+			mother = { 
+				character_event = { id = HFP.20589 days = 15 random = 15 } #Did the bet pay out?
+			} 
+		}
+		#Mother made a vow to the Holy Virgin
+		if = { 
+			limit = { 
+				mother = { 
+					OR = { 
+						has_character_modifier = mother_vow_chastity
+						has_character_modifier = mother_vow_humility
+						has_character_modifier = mother_vow_charity
+						has_character_modifier = mother_vow_temperance
+					}
+				} 
+			}
+			#Possible divine intervention
+			random_list = { 
+				70 = { #Nothing happens
+				}
+				30 = { 
+					#Broke the vow, decreased chance.
+					modifier = { 
+						factor = 0.5
+						mother = { 
+							has_character_modifier = mother_vow_temperance 
+							OR = { 
+								trait = gluttonous
+								trait = hedonist
+							} 
+						} 
+					}
+					modifier = { 
+						factor = 0.5
+						mother = { 
+							has_character_modifier = mother_vow_charity 
+							trait = greedy
+						} 
+					}
+					modifier = { 
+						factor = 0.5
+						mother = { 
+							has_character_modifier = mother_vow_humility 
+							trait = proud
+						} 
+					}
+					modifier = { 
+						factor = 0.5
+						mother = { 
+							has_character_modifier = mother_vow_chastity 
+							trait = lustful
+						} 
+					}
+
+
+					#Remained true to the vow, increased chance.
+					modifier = { 
+						factor = 1.75
+						mother = { 
+							has_character_modifier = mother_vow_temperance 
+							trait = temperate
+						} 
+					}
+					modifier = { 
+						factor = 1.75
+						mother = { 
+							has_character_modifier = mother_vow_charity 
+							trait = charitable
+						} 
+					}
+					modifier = { 
+						factor = 1.75
+						mother = { 
+							has_character_modifier = mother_vow_humility 
+							trait = humble
+						} 
+					}
+					modifier = { 
+						factor = 1.75
+						mother = { 
+							has_character_modifier = mother_vow_chastity 
+							OR = { 
+								trait = chaste
+								trait = celibate
+							} 
+						} 
+					} 
+					remove_sickly = yes
+					remove_trait = inbred
+					remove_trait = harelip
+					remove_trait = cleft_lip
+					remove_trait = clubfooted
+					remove_trait = quailfooted
+					remove_trait = hunchback
+					remove_trait = twisted
+					remove_trait = lisp
+					remove_trait = stutter
+					remove_trait = ugly
+					remove_trait = dwarf
+					remove_trait = slow
+					remove_trait = imbecile
+					remove_trait = weak
+				}
+			}
+			mother = { 
+				character_event = { id = HFP.20590 days = 25 random = 25 } #Did it work? If so, does she keep her word?
+			} 
+		}
+	}
+}
+
+#Troubled pregnancy: DEATH before birth
+character_event = {
+	id = HFP.20537
+	desc = EVTDESCHFPA20537	
+	picture = GFX_evt_illness
+
+	trigger = { 
+		trait = troubled_pregnancy
+		trait = pregnant 
+	}
+
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20537
+		hidden_tooltip = { 
+			remove_trait = cough
+			remove_trait = fever
+			remove_trait = diarrhea
+			remove_trait = vomiting
+			remove_trait = chest_pain
+			remove_trait = cramps
+			remove_trait = rash
+			remove_trait = headache
+			remove_trait = abdominal_pain
+			remove_trait = fatigue
+			remove_trait = malaise
+			remove_trait = infection
+		}
+		if = {
+			limit = { any_spouse = { always = yes } }
+			spouse = { save_event_target_as = scoped_father }
+		}
+		#Hollow child is born in this circumstance, giving another chance to avoid game over.
+		custom_tooltip = { text = tooltip_HFP20537_A }
+		hidden_tooltip = {
+			random_list = { 
+				50 = {
+					create_character = {
+						random_traits = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						female = no
+						age = 0
+					}
+				} 
+				50 = {
+					create_character = {
+						random_traits = no
+						dynasty = ROOT
+						culture = ROOT
+						religion = ROOT
+						female = yes
+						age = 0
+					}
+				}
+			}
+			new_character = {
+				set_mother = ROOT
+				random = { 
+					chance = 5
+					add_trait = quailfooted
+				}
+				random = { 
+					chance = 5 
+					add_trait = uncouth
+				}
+				lose_weight_large_effect = yes
+				lose_weight_medium_effect = yes
+				add_trait = is_malnourished
+				save_event_target_as = hollow_baby
+				set_character_flag = flag_hollow_child_primed
+				if = { #If a dad exists...
+					limit = { event_target:scoped_father = { always = yes } }
+					set_father = event_target:scoped_father
+					if = { # and mom is not matrilineally married...
+						limit = { ROOT = { is_married_matrilineally = no } }
+						event_target:hollow_baby = { 
+							dynasty = event_target:scoped_father 
+							culture = event_target:scoped_father
+							religion = event_target:scoped_father
+						}  
+					}
+				}
+			}
+			#event_target:hollow_baby = { character_event = { id = HFP.20057 days = 820 } } 
+		}
+		hidden_tooltip = { 
+			event_target:scoped_father = { #Check if father likes mother
+				if = { 
+					limit = { 
+						opinion = { 
+							who = ROOT
+							value = 40 
+						} 
+					}
+					set_character_flag = flag_loved_dead_mother 
+				}
+				character_event = { id = HFP.20056 } 
+			} 	
+			death = { death_reason = death_troubled_pregnancy }
+		}
+	}
+}
+
+#on_birth baby vision child event
+character_event = {
+	id = HFP.20538
+	desc = EVTDESCHFP20538
+	picture = GFX_evt_comet
+	
+	is_triggered_only = yes
+
+	option = { 
+		name = EVTOPTAHFP20538 #Yay! I'm vision baby!"
+	if = { 
+		limit = { 
+			mother = { has_character_flag = gabriel_baby } 
+		}
+		change_diplomacy = 2
+		mother = { character_event = { id = HFP.20539 days = 1 } }
+		father = { character_event = { id = HFP.20539 days = 1 } }
+		remove_trait = hunchback
+		remove_trait = twisted
+		remove_trait = dwarf
+		remove_trait = inbred
+		remove_trait = lisp
+		remove_trait = stutter
+		#remove_trait = blind_birth
+		remove_trait = freckles
+		remove_trait = clubfooted
+		remove_trait = quailfooted
+		remove_trait = slow
+		remove_trait = full
+		remove_trait = imbecile
+		remove_trait = harelip
+		remove_trait = cleft_lip
+		remove_trait = ugly
+		remove_trait = uncouth
+		remove_trait = weak
+		remove_trait = feeble
+		remove_sickly = yes
+		random_list = { 
+			50 = { add_trait = fair }
+			50 = { 
+				if = { 
+					limit = { 
+						NOT = { trait = genius } 
+					}
+					add_trait = quick 
+				}
+			}
+		}
+	}
+	if = { 
+		limit = { mother = { has_character_flag = lucifer_baby } }
+		change_intrigue = 1
+		mother = { character_event = { id = HFP.20540 days = 1 } }
+		father = { character_event = { id = HFP.20540 days = 1 } }
+		add_trait = lefthanded
+	}
+	if = { 
+		limit = { mother = { has_character_flag = iblis_baby } }
+		change_learning = 1
+		mother = { character_event = { id = HFP.20540 days = 1 } }
+		father = { character_event = { id = HFP.20540 days = 1 } }
+		add_trait = hunchback
+	}
+	if = { 
+		limit = { mother = { has_character_flag = thor_baby } }
+		change_martial = 2
+		mother = { character_event = { id = HFP.20539 days = 1 } }
+		father = { character_event = { id = HFP.20539 days = 1 } }
+		remove_trait = hunchback
+		remove_trait = twisted
+		remove_trait = dwarf
+		remove_trait = inbred
+		remove_trait = lisp
+		remove_trait = stutter
+		#remove_trait = blind_birth
+		remove_trait = freckles
+		remove_trait = clubfooted
+		remove_trait = quailfooted
+		remove_trait = slow
+		remove_trait = imbecile
+		remove_trait = harelip
+		remove_trait = cleft_lip
+		remove_trait = ugly
+		remove_trait = uncouth
+		remove_trait = weak
+		remove_trait = feeble
+		remove_sickly = yes
+		add_trait = strong
+	}
+	if = { 
+		limit = { mother = { has_character_flag = loki_baby } }
+		change_intrigue = 1
+		mother = { character_event = { id = HFP.20540 days = 1 } }
+		father = { character_event = { id = HFP.20540 days = 1 } }
+		add_trait = blinded
+		if = {
+			limit = { NOT = { trait = mythos_giant } }
+			random_list = {
+				1 = { add_trait = mythos_giant }
+				9 = { add_trait = giant  }
+			}
+		}
+	}
+	if = { 
+		limit = { mother = { has_character_flag = tengri_baby } }
+		change_martial = 2
+		mother = { character_event = { id = HFP.20539 days = 1 } }
+		father = { character_event = { id = HFP.20539 days = 1 } }
+		remove_trait = hunchback
+		remove_trait = twisted
+		remove_trait = dwarf
+		remove_trait = inbred
+		remove_trait = lisp
+		remove_trait = stutter
+		#remove_trait = blind_birth
+		remove_trait = freckles
+		remove_trait = clubfooted
+		remove_trait = quailfooted
+		remove_trait = slow
+		remove_trait = imbecile
+		remove_trait = harelip
+		remove_trait = cleft_lip
+		remove_trait = ugly
+		remove_trait = uncouth
+		remove_trait = weak
+		remove_trait = feeble
+		remove_sickly = yes
+		add_trait = shrewd
+	}
+	if = { 
+		limit = { mother = { has_character_flag = erlik_baby } }
+		change_stewardship = 1
+		mother = { character_event = { id = HFP.20540 days = 1 } }
+		father = { character_event = { id = HFP.20540 days = 1 } }
+		add_trait = feeble
+		}
 	}
 }

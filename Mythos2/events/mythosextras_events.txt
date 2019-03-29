@@ -4042,3 +4042,2414 @@ character_event = {
 		}
 	}
 }
+
+# Pregnancy event - Character tried to curse the child
+character_event = {
+	id = MYTHMORE.63
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = { # Rival is pregnant
+		text = EVT_DESCA_MYTHMORE.63
+		trigger = { 
+			any_rival = { character = FROM }
+		}
+	}
+	desc = { # Rival's wife is pregnant
+		text = EVT_DESCB_MYTHMORE.63
+		trigger = {
+			any_rival = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Rival's baby-mama is pregnant
+		text = EVT_DESCC_MYTHMORE.63
+		trigger = {
+			FROM = {
+				father_of_unborn = {
+					any_rival = { character = ROOT }
+				}
+			}
+		}
+	}
+	desc = { # Rival wife
+		text = EVT_DESCD_MYTHMORE.63
+		trigger = {
+			any_spouse = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (lose position as heir or lose gavelkind land)
+		text = EVT_DESCE_MYTHMORE.63
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			OR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (elective)
+		text = EVT_DESCF_MYTHMORE.63
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			NOR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Curse the body (twisted or hunchback)
+	# Curse the mouth (cleft lip or harelip/lisp/stutter)
+	# Curse the legs (clubfooted or quailfooted)
+	# Curse the mind (dull or slow)
+	# Curse the muscles (frail or weak)
+	# Curse appearance (uncouth or ugly)
+	# Curse size (rare) (giant or dwarf)
+	
+	immediate = {
+		# Select 3 curses
+		while = {
+			count = 3
+			random_list = {
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_body }
+					}
+					set_character_flag = can_curse_body
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_mouth }
+					}
+					set_character_flag = can_curse_mouth
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_legs }
+					}
+					set_character_flag = can_curse_legs
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_mind }
+					}
+					set_character_flag = can_curse_mind
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_muscles }
+					}
+					set_character_flag = can_curse_muscles
+				}
+				5 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_appearance }
+					}
+					set_character_flag = can_curse_appearance
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_curse_size }
+					}
+					set_character_flag = can_curse_size
+				}
+			}
+		}
+	}
+	
+	# Curse the body
+	option = {
+		trigger = { has_character_flag = can_curse_body }
+		name = EVT_OPTA_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_body }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_body } }
+	}
+	
+	# Curse the mouth
+	option = {
+		trigger = { has_character_flag = can_curse_mouth }
+		name = EVT_OPTB_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_mouth }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_mouth } }
+	}
+	
+	# Curse the legs
+	option = {
+		trigger = { has_character_flag = can_curse_legs }
+		name = EVT_OPTC_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_legs }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_legs } }
+	}
+	
+	# Curse the mind
+	option = {
+		trigger = { has_character_flag = can_curse_mind }
+		name = EVT_OPTD_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_mind }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_mind } }
+	}
+	
+	# Curse the muscles
+	option = {
+		trigger = { has_character_flag = can_curse_muscles }
+		name = EVT_OPTE_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_muscles }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_muscles } }
+	}
+	
+	# Curse the appearance
+	option = {
+		trigger = { has_character_flag = can_curse_appearance }
+		name = EVT_OPTF_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_appearance }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_appearance } }
+	}
+	
+	# Curse the size
+	option = {
+		trigger = { has_character_flag = can_curse_size }
+		name = EVT_OPTG_MYTHMORE.63
+		piety = -100
+		custom_tooltip = { text = tt_cursed_size }
+		hidden_tooltip = { FROM = { set_character_flag = baby_cursed_size } }
+	}
+	
+	# Nothing
+	option = {
+		name = EVT_OPTH_MYTHMORE.63
+	}
+	
+	after = {
+		clr_character_flag = can_curse_body
+		clr_character_flag = can_curse_mouth
+		clr_character_flag = can_curse_legs
+		clr_character_flag = can_curse_mind
+		clr_character_flag = can_curse_muscles
+		clr_character_flag = can_curse_appearance
+		clr_character_flag = can_curse_size
+		if = {
+			limit = {
+				FROM = {
+					OR = {
+						has_character_flag = baby_cursed_body
+						has_character_flag = baby_cursed_mouth
+						has_character_flag = baby_cursed_legs
+						has_character_flag = baby_cursed_mind
+						has_character_flag = baby_cursed_muscles
+						has_character_flag = baby_cursed_appearance
+						has_character_flag = baby_cursed_size
+					}
+				}
+			}
+			if = {
+				limit = {
+					trait = novice_mage
+				}
+				FROM = { set_event_flag = curse_1 }
+			}
+			else_if = {
+				limit = {
+					trait = eldritch_scholar
+				}
+				FROM = { set_event_flag = curse_2 }
+			}
+			else_if = {
+				limit = {
+					trait = veteran_wizard
+				}
+				FROM = { set_event_flag = curse_3 }
+			}
+			else_if = {
+				limit = {
+					trait = arcane_master
+				}
+				FROM = { set_event_flag = curse_4 }
+			}
+		}
+	}
+}
+
+# Herbalist can poison the mother
+character_event = {
+	id = MYTHMORE.64
+	picture = GFX_evt_shadow
+	border = GFX_event_normal_frame_intrigue
+	desc = { # Rival is pregnant
+		text = EVT_DESCA_MYTHMORE.64
+		trigger = { 
+			any_rival = { character = FROM }
+		}
+	}
+	desc = { # Rival's wife is pregnant
+		text = EVT_DESCB_MYTHMORE.64
+		trigger = {
+			any_rival = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Rival's baby-mama is pregnant
+		text = EVT_DESCC_MYTHMORE.64
+		trigger = {
+			FROM = {
+				father_of_unborn = {
+					any_rival = { character = ROOT }
+				}
+			}
+		}
+	}
+	desc = { # Rival wife
+		text = EVT_DESCD_MYTHMORE.64
+		trigger = {
+			any_spouse = {
+				any_spouse = { character = FROM }
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (lose position as heir or lose gavelkind land)
+		text = EVT_DESCE_MYTHMORE.64
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			OR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	desc = { # Otherwise, you are an heir and the new child is a threat (elective)
+		text = EVT_DESCF_MYTHMORE.64
+		trigger = {
+			NOR = {
+				any_rival = { character = FROM }
+				any_rival = {
+					any_spouse = { character = FROM }
+				}
+				FROM = {
+					father_of_unborn = {
+						any_rival = { character = ROOT }
+					}
+				}
+				any_spouse = {
+					any_spouse = { character = FROM }
+				}
+			}
+			NOR = {
+				FROM = {
+					has_law = succ_gavelkind
+					has_law = succ_elective_gavelkind
+					has_law = succ_primogeniture
+					has_law = succ_ultimogeniture
+					has_law = succ_turkish_succession
+					has_law = succ_nomad_succession
+				}
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Select ingredients
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	# Use ingredient 1
+	option = {
+		trigger = { has_selected_ingredient_1_trigger = yes }
+		name = EVT_OPTA_MYTHMORE.64
+		# Mother may be poisoned
+		if = {
+			limit = {
+				ingredient_1_poison_mother = yes
+			}
+			custom_tooltip = { test = tt_poison_mother }
+		}
+		# Child may be poisoned
+		if = {
+			limit = {
+				ingredient_1_poison_child = yes
+			}
+			custom_tooltip = { test = tt_poison_child }
+		}
+		hidden_tooltip = {
+			if = { # Child may gain frail or weak
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb1
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_frail }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_weak }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain dull or slow
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_dull }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_slow }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain lunatic
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random_list = {
+					3 = { FROM = { set_character_flag = baby_poisoned_lunatic } }
+					7 = {}
+				}
+			}
+			if = { # Child may gain quailfooted or clubfooted
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_animal4
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_quailfooted }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_clubfooted }
+					}
+					6 = {}
+				}
+			}
+			if = { # Mother may start vomiting
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain diarreah
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_animal9
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother can gain fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal3
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain rash
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb8
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5007 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain cough
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5000 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain food poisoning
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_exotic2
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						set_character_flag = got_food_poisoning
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_exotic9
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain lunatic
+				limit = {
+					NOT = { FROM = { trait = lunatic } }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { character_event = { id = 6020 days = 1 random = 9 } }
+				}
+			}
+			if = { # Mother may be poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							AND = {
+								artifact_type = ingredient_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.5
+						FROM = { trait = werewolf }
+						any_artifact = { 
+							has_artifact_flag = selected_ingredient_1
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 7 } }
+				}
+			}
+			if = { # Child may become sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_moly
+						}
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_sickly }
+				}
+			}
+			if = { # Child may become craven
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_craven }
+				}
+			}
+			if = { # Child may become slothful
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_slothful }
+				}
+			}
+			if = { # Child may be lose magical talent
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_moly
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_magic }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	# Use ingredient 2
+	option = {
+		trigger = { has_selected_ingredient_2_trigger = yes }
+		name = EVT_OPTB_MYTHMORE.64
+		# Mother may be poisoned
+		if = {
+			limit = {
+				ingredient_2_poison_mother = yes
+			}
+			custom_tooltip = { test = tt_poison_mother }
+		}
+		# Child may be poisoned
+		if = {
+			limit = {
+				ingredient_2_poison_child = yes
+			}
+			custom_tooltip = { test = tt_poison_child }
+		}
+		hidden_tooltip = {
+			if = { # Child may gain frail or weak
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb1
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_frail }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_weak }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain dull or slow
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_dull }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_slow }
+					}
+					6 = {}
+				}
+			}
+			if = { # Child may gain lunatic
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random_list = {
+					3 = { FROM = { set_character_flag = baby_poisoned_lunatic } }
+					7 = {}
+				}
+			}
+			if = { # Child may gain quailfooted or clubfooted
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_animal4
+					}
+				}
+				random_list = {
+					3 = {
+						FROM = { set_character_flag = baby_poisoned_quailfooted }
+					}
+					1 = {
+						FROM = { set_character_flag = baby_poisoned_clubfooted }
+					}
+					6 = {}
+				}
+			}
+			if = { # Mother may start vomiting
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain diarreah
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal4
+							artifact_type = ingredient_animal9
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother can gain fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_animal3
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain rash
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb8
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5007 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain cough
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5000 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain food poisoning
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_exotic2
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						set_character_flag = got_food_poisoning
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_exotic9
+						}
+					}
+				}
+				random = {
+					chance = 30
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 9 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+						
+				}
+			}
+			if = { # Mother may gain lunatic
+				limit = {
+					NOT = { FROM = { trait = lunatic } }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_exotic2
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { character_event = { id = 6020 days = 1 random = 9 } }
+				}
+			}
+			if = { # Mother may be poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							AND = {
+								artifact_type = ingredient_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 30
+					modifier = {
+						factor = 1.5
+						FROM = { trait = werewolf }
+						any_artifact = { 
+							has_artifact_flag = selected_ingredient_2
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 7 } }
+				}
+			}
+			if = { # Child may become sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_moly
+						}
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_sickly }
+				}
+			}
+			if = { # Child may become craven
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_craven }
+				}
+			}
+			if = { # Child may become slothful
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_slothful }
+				}
+			}
+			if = { # Child may be lose magical talent
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_moly
+					}
+				}
+				random = {
+					chance = 30
+					FROM = { set_character_flag = baby_poisoned_magic }
+				}
+			}
+		}
+		destroy_selected_ingredient_1_effect = yes
+	}
+	
+	# Do nothing
+	option = {
+		name = EVT_OPTC_MYTHMORE.64
+		trigger = { ai = no }
+	}
+}
+
+# Good sorcerer tries to bless mother
+character_event = {
+	id = MYTHMORE.65
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	desc = { # Physician
+		text = EVT_DESCA_MYTHMORE.65
+		trigger = {
+			has_minor_title = title_court_physician
+			NOR = {
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	desc = { # Anyone else
+		text = EVT_DESCB_MYTHMORE.65
+		trigger = {
+			OR = {
+				NOT = { has_minor_title = title_court_physician }
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Bless Strength (Improve Strength trait - robust, sturdy, and strong versions)
+	# Bless Mind (Improve Intelligence trait - shrewd, quick, and genius versions)
+	# Bless Beauty (Improve appearance - groomed and attractive versions)
+	# Bless Health (Remove random defect, remove sickly, give sturdy)
+	# Bless Healthy mother (Give good_nights_sleep, invigorated, and/or remove drunkard)
+	
+	immediate = {
+		# Select 3 blessings
+		while = {
+			count = 3
+			random_list = {
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_strength }
+					}
+					set_character_flag = can_bless_strength
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_mind }
+					}
+					set_character_flag = can_bless_mind
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_beauty }
+					}
+					set_character_flag = can_bless_beauty
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_health }
+					}
+					set_character_flag = can_bless_health
+				}
+				1 = {
+					trigger = {
+						NOT = { has_character_flag = can_bless_health_mother }
+					}
+					set_character_flag = can_bless_health_mother
+				}
+			}
+		}
+	}
+	
+	# Bless the child's body
+	option = {
+		name = EVT_OPTA_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_strength }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_strength }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_strength } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's mind
+	option = {
+		name = EVT_OPTB_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_mind }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_mind }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_mind } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's beauty
+	option = {
+		name = EVT_OPTC_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_beauty }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_beauty }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_beauty } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the child's health
+	option = {
+		name = EVT_OPTD_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_health }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_health }
+		hidden_tooltip = { FROM = { set_character_flag = baby_blessed_health } }
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Bless the mother's health
+	option = {
+		name = EVT_OPTE_MYTHMORE.65
+		trigger = { has_character_flag = can_bless_health_mother }
+		piety = -100
+		custom_tooltip = { text = tt_blessed_health_mother }
+		hidden_tooltip = {
+			random = {
+				chance = 15
+				FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+			}
+			random = {
+				chance = 15
+				FROM = { add_character_modifier = { name = invigorated months = 6 } }
+			}
+			random = {
+				chance = 5
+				trigger = { FROM = { trait = drunkard } }
+				FROM = { character_event = { id = 65046 days = 3 } }
+			}
+		}
+		hidden_tooltip = {
+			trigger_switch = {
+				on_trigger = trait
+				novice_mage = { FROM = { set_character_flag = bless_1 } }
+				eldritch_scholar = { FROM = { set_character_flag = bless_2 } }
+				veteran_wizard = { FROM = { set_character_flag = bless_2 } }
+				arcane_master = { FROM = { set_character_flag = bless_2 } }
+			}
+		}
+	}
+	
+	# Nothing
+	option = {
+		name = EVT_OPTF_MYTHMORE.65
+		trigger = { ai = no }
+	}
+	
+	after = {
+		clr_character_flag = can_bless_strength
+		clr_character_flag = can_bless_mind
+		clr_character_flag = can_bless_beauty
+		clr_character_flag = can_bless_health
+		clr_character_flag = can_bless_health_mother
+	}
+}
+
+# Herbalist can make a benefician potion for the mother
+character_event = {
+	id = MYTHMORE.66
+	picture = GFX_evt_pregnancy
+	border = GFX_event_normal_frame_religion
+	desc = { # Physician
+		text = EVT_DESCA_MYTHMORE.66
+		trigger = {
+			has_minor_title = title_court_physician
+			NOR = {
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	desc = { # Anyone else
+		text = EVT_DESCB_MYTHMORE.66
+		trigger = {
+			OR = {
+				NOT = { has_minor_title = title_court_physician }
+				any_spouse = { character = FROM }
+				any_lover = { character = FROM }
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	# Select ingredients
+	immediate = {
+		select_random_magic_ingredient_effect = yes
+		select_random_magic_ingredient_effect = yes
+	}
+	
+	# Use ingredient 1
+	option = {
+		trigger = { has_selected_ingredient_1_trigger = yes }
+		name = EVT_OPTA_MYTHMORE.64
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				ingredient_1_boon_mother = yes
+			
+			}
+			modifier = {
+				factor = 1.5
+				ingredient_1_boon_child = yes
+			
+			}
+			modifier = {
+				factor = 0.5
+				ingredient_1_side_effects = yes
+			
+			}
+		}	
+		# Mother may be given a boon
+		if = {
+			limit = {
+				ingredient_1_boon_mother = yes
+			}
+			custom_tooltip = { test = tt_boon_mother }
+		}
+		# Child may be given a boon
+		if = {
+			limit = {
+				ingredient_1_boon_child = yes
+			}
+			custom_tooltip = { test = tt_boon_child }
+		}
+		# There may be side effects
+		if = {
+			limit = {
+				ingredient_1_side_effects = yes
+			}
+			custom_tooltip = { test = tt_side_effects }
+		}
+		hidden_tooltip = {
+			if = { # May cure depression
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+					FROM = { trait = depressed }
+				}
+				random_list = {
+					4 = {
+						FROM = { character_event = { id = 6051 days = 2 random = 10 } }
+					}
+					6 = {}
+				}
+			}
+			if = { # May cause vomiting
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause diarrhea
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fatigue
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5009 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cure fever
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11003 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure cramps
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11007 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure food poisoning
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure drunkard
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May give good night's sleep
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb7
+							artifact_type = ingredient_thyme
+							artifact_type = ingredient_lotus
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+				}
+			}
+			if = { # May give invigorated
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal5
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_animal8
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = invigorated months = 6 } }
+				}
+			}
+			if = { # May give successful treatment
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_herb9
+							artifact_type = ingredient_exotic1
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_sage
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = successful_treatment_1 months = 6 } }
+				}
+			}
+			if = { # May give poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							AND = {
+								artifact_type = ingredient_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 15
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_1
+							artifact_type = ingredient_wolfsbane
+						}
+						FROM = { trait = werewolf }
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 6 } }
+				}
+			}
+			if = { # May prevent sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_fern_flower
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { set_character_flag = baby_prevent_sickly }
+				}
+			}
+			if = { # May give any (or all) positive genetic traits
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 5
+					FROM = { set_character_flag = baby_all_traits }
+				}
+			}
+			if = { # May give patient
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_patient }
+				}
+			}
+			if = { # May give brave
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_1
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_thyme
+						}
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_brave }
+				}
+			}
+		}
+	}
+	
+	# Ingredient 2
+	option = {
+		trigger = { has_selected_ingredient_2_trigger = yes }
+		name = EVT_OPTB_MYTHMORE.64
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				ingredient_2_boon_mother = yes
+			
+			}
+			modifier = {
+				factor = 1.5
+				ingredient_2_boon_child = yes
+			
+			}
+			modifier = {
+				factor = 0.5
+				ingredient_2_side_effects = yes
+			
+			}
+		}	
+		# Mother may be given a boon
+		if = {
+			limit = {
+				ingredient_2_boon_mother = yes
+			}
+			custom_tooltip = { test = tt_boon_mother }
+		}
+		# Child may be given a boon
+		if = {
+			limit = {
+				ingredient_2_boon_child = yes
+			}
+			custom_tooltip = { test = tt_boon_child }
+		}
+		# There may be side effects
+		if = {
+			limit = {
+				ingredient_2_side_effects = yes
+			}
+			custom_tooltip = { test = tt_side_effects }
+		}
+		hidden_tooltip = {
+			if = { # May cure depression
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+					FROM = { trait = depressed }
+				}
+				random_list = {
+					4 = {
+						FROM = { character_event = { id = 6051 days = 2 random = 10 } }
+					}
+					6 = {}
+				}
+			}
+			if = { # May cause vomiting
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5003 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause diarrhea
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb3
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5002 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fever
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_herb5
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5001 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause headache
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb5
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5004 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause chest pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5005 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause abdominal pain
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+						}
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5008 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cause fatigue
+				limit = {
+					NOT = { has_character_flag = made_ill }
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_lotus
+					}
+				}
+				random = {
+					chance = 15
+					if = {
+						limit = { has_dlc = Reapers }
+						random = {
+							chance = 95
+							set_character_flag = disease_not_serious
+						}
+						FROM = { character_event = { id = RIP.5009 days = 1 random = 15 } }
+					}
+					else = {
+						FROM = { character_event = { id = 6060 } } 
+						set_character_flag = made_ill
+					}
+				}
+			}
+			if = { # May cure fever
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11003 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure cramps
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11007 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure food poisoning
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May cure drunkard
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { character_event = { id = RIP.11018 days = 1 random = 15 } }
+				}
+			}
+			if = { # May give good night's sleep
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb7
+							artifact_type = ingredient_thyme
+							artifact_type = ingredient_lotus
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = good_nights_sleep months = 6 } }
+				}
+			}
+			if = { # May give invigorated
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal5
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_animal8
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = invigorated months = 6 } }
+				}
+			}
+			if = { # May give successful treatment
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_herb9
+							artifact_type = ingredient_exotic1
+							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_sage
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { add_character_modifier = { name = successful_treatment_1 months = 6 } }
+				}
+			}
+			if = { # May give poisoned
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							AND = {
+								artifact_type = ingredient_exotic1
+								FROM = { trait = werewolf }
+							}
+							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_exotic3
+							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_wolfsbane
+							artifact_type = ingredient_mistletoe
+						}
+					}
+				}
+				random = {
+					chance = 15
+					modifier = {
+						factor = 2
+						any_artifact = {
+							has_artifact_flag = selected_ingredient_2
+							artifact_type = ingredient_wolfsbane
+						}
+						FROM = { trait = werewolf }
+					}
+					FROM = { add_character_modifier = { name = poisoned months = 6 } }
+				}
+			}
+			if = { # May prevent sickly
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_fern_flower
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 40
+					FROM = { set_character_flag = baby_prevent_sickly }
+				}
+			}
+			if = { # May give any (or all) positive genetic traits
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_asclepois
+						}
+					}
+				}
+				random = {
+					chance = 5
+					FROM = { set_character_flag = baby_all_traits }
+				}
+			}
+			if = { # May give patient
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						artifact_type = ingredient_mistletoe
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_patient }
+				}
+			}
+			if = { # May give brave
+				limit = {
+					any_artifact = {
+						has_artifact_flag = selected_ingredient_2
+						OR = {
+							artifact_type = ingredient_animal7
+							artifact_type = ingredient_thyme
+						}
+					}
+				}
+				random = {
+					chance = 20
+					FROM = { set_character_flag = baby_brave }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVT_OPTC_MYTHMORE.64
+		ai_chance = 4
+	}
+	
+}

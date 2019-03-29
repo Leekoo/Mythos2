@@ -6908,11 +6908,13 @@ defined_text = {
 			OR = {
 				religion = satanist
 				AND = {
-					secret_religion = satanist
-					FROM = { secret_religion = satanist }
+					true_religion = satanist
+					FROM = { true_religion = satanist }
 				}
 				AND = {
+					is_in_society = yes
 					is_in_society = the_satanists
+					FROM = { is_in_society = yes }
 					FROM = { is_in_society = the_satanists }
 				}
 			}

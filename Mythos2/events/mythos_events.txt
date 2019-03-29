@@ -2527,9 +2527,6 @@ character_event = {
 			trait = one_legged
 			trait = disfigured
 			trait = mangled
-			trait = clubfooted
-			trait = harelip
-			trait = hunchback
 			trait = eunuch
 			trait = blinded
 			has_scarred_trait_trigger = yes
@@ -2582,9 +2579,6 @@ character_event = {
 		if = { limit = { trait = one_legged } remove_trait = one_legged }
 		if = { limit = { trait = disfigured } remove_trait = disfigured }
 		if = { limit = { trait = mangled } remove_trait = mangled }
-		if = { limit = { trait = clubfooted } remove_trait = clubfooted }
-		if = { limit = { trait = harelip } remove_trait = harelip }
-		if = { limit = { trait = hunchback } remove_trait = hunchback }
 		if = { limit = { trait = eunuch } remove_trait = eunuch }
 		if = { limit = { trait = blinded } remove_trait = blinded }
 		remove_scarred = yes
