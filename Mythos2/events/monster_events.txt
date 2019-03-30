@@ -18,23 +18,25 @@ province_event = {
 		}
 		
 		OR = {
-			AND = {
-				OR = {
-					owner = { top_liege = { trait = known_vampire } }
-					owner = { trait = known_vampire }
-				}
-				NOR = {
-					culture = vampire_culture
-					religion = satanist
-				}
-			}
-			AND = {
-				OR = {
-					owner = { top_liege = { trait = known_werewolf } }
-					owner = { trait = known_werewolf }
-				}
-				NOT = { culture = werewolf_culture }
-			}
+			#AND = {
+			#	OR = {
+			#		owner = { top_liege = { trait = known_vampire } }
+			#		owner = { trait = known_vampire }
+			#	}
+			#	NOR = {
+			#		culture = vampire_culture
+			#		religion = satanist
+			#	}
+			#}
+			#AND = {
+			#	OR = {
+			#		owner = { top_liege = { trait = known_werewolf } }
+			#		owner = { trait = known_werewolf }
+			#	}
+			#	NOT = { culture = werewolf_culture }
+			#}
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
 			AND = {
 				OR = {
 					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
@@ -43,6 +45,7 @@ province_event = {
 				NOR = {
 					culture = werewolf_culture
 					culture = vampire_culture
+					culture_group = undead_culture_group
 					religion = satanist
 				}
 			}
@@ -1485,6 +1488,14 @@ character_event = {
 		OR = {
 			trait = known_vampire
 			trait = known_werewolf
+			trait = dragon
+			trait = demon_trait
+			trait = djinn
+			trait = mythos_giant
+			trait = half_giant
+			trait = zombie
+			trait = mummy
+			trait = ethereal_trait
 			has_instances_of_character_modifier = { modifier = known_monster amount = 3 }
 		}
 	}
@@ -1579,33 +1590,27 @@ character_event = {
 			modifier = {
 				factor = 0.58 # Offset the scaling for non-monsters with known_monster
 				NOR = {
-					trait = known_werewolf
 					trait = known_vampire
+					trait = known_werewolf
+					trait = dragon
+					trait = demon_trait
+					trait = djinn
+					trait = mythos_giant
+					trait = half_giant
+					trait = zombie
+					trait = mummy
+					trait = ethereal_trait
 				}
+			}
+			modifier = {
+				factor = 0.2 # Some monsters get less frequent events since they are common in other cultures
+				rare_revolt_monster = yes
 			}
 			random_demesne_province = {
 				if = {
 					limit = {
-						OR = {
-							AND = {
-								ROOT = { trait = known_werewolf }
-								NOT = { culture = werewolf_culture }
-							}
-							AND = {
-								ROOT = { trait = known_vampire }
-								NOR = {
-									culture = vampire_culture
-									religion = satanist
-								}
-							}
-							AND = {
-								ROOT = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-								NOR = {
-									culture = werewolf_culture
-									culture = vampire_culture
-									religion = satanist
-								}
-							}
+						ROOT = {
+							is_monster_to_prev = yes
 						}
 					}
 					random_list = {
@@ -1965,5 +1970,392 @@ province_event = {
 			remove_province_modifier = growing_discontent
 			remove_province_modifier = human_riots
 		#}
+	}
+}
+
+# MONSTER.27 - Lose monster_hunter_training due to deaths in revolt (White peace)
+province_event = {
+	id = MONSTER.27
+	desc = EVTDESC_MONSTER.27
+	picture = GFX_evt_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunter_training
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.28 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.28 - MONSTER.27 notification if not province owner
+province_event = {
+	id = MONSTER.28
+	desc = EVTDESC_MONSTER.28
+	picture = GFX_evt_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.29 - Lose monster_hunter_training due to executed soldiers (Loss)
+province_event = {
+	id = MONSTER.29
+	desc = EVTDESC_MONSTER.29
+	picture = GFX_evt_death_execution_beheading
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunter_training
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.30 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.30 - MONSTER.29 notification if not province owner
+province_event = {
+	id = MONSTER.30
+	desc = EVTDESC_MONSTER.30
+	picture = GFX_evt_death_execution_beheading
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.31 - Lose monster_hunting_weapons due to locating caches afterwards (White peace)
+province_event = {
+	id = MONSTER.31
+	desc = EVTDESC_MONSTER.31
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunting_weapons
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.32 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.32 - MONSTER.31 notification if not province owner
+province_event = {
+	id = MONSTER.32
+	desc = EVTDESC_MONSTER.32
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.33 - Lose monster_hunting_weapons due to seizing weapons (Loss)
+province_event = {
+	id = MONSTER.33
+	desc = EVTDESC_MONSTER.33
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = monster_hunting_weapons
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.34 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.34 - MONSTER.33 notification if not province owner
+province_event = {
+	id = MONSTER.34
+	desc = EVTDESC_MONSTER.34
+	picture = GFX_evt_armory
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.35 - Lose growing_discontent due to losing steam (White peace)
+province_event = {
+	id = MONSTER.35
+	desc = EVTDESC_MONSTER.35
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = growing_discontent
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.36 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.36 - MONSTER.35 notification if not province owner
+province_event = {
+	id = MONSTER.36
+	desc = EVTDESC_MONSTER.36
+	picture = GFX_evt_market
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.37 - Lose growing_discontent due to being cowed by loss (Loss)
+province_event = {
+	id = MONSTER.37
+	desc = EVTDESC_MONSTER.37
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = growing_discontent
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.38 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.38 - MONSTER.37 notification if not province owner
+province_event = {
+	id = MONSTER.38
+	desc = EVTDESC_MONSTER.38
+	picture = GFX_evt_noble_haughty_talking_to_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.39 - Lose human_riots due to instigators dying in battle (White peace)
+province_event = {
+	id = MONSTER.39
+	desc = EVTDESC_MONSTER.39
+	picture = GFX_evt_died_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = human_riots
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.40 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.40 - MONSTER.39 notification if not province owner
+province_event = {
+	id = MONSTER.40
+	desc = EVTDESC_MONSTER.40
+	picture = GFX_evt_died_battle
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.41 - Lose human_riots due to rounding up and executing instigators (White Peace)
+province_event = {
+	id = MONSTER.41
+	desc = EVTDESC_MONSTER.41
+	picture = GFX_evt_hung_from_trees_hf
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	immediate = {
+		remove_province_modifier = human_riots
+		if = {
+			limit = {
+				NOT = { owner = { character = FROMFROM } }
+			}
+			FROMFROM = { character_event = { id = MONSTER.42 } }
+		}
+	}
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.42 - MONSTER.41 notification if not province owner
+province_event = {
+	id = MONSTER.42
+	desc = EVTDESC_MONSTER.42
+	picture = GFX_evt_hung_from_trees_hf
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+	option = {
+		name = OK
+	}
+}
+# MONSTER.43 - Culture conversion after rebellion
+province_event = {
+	id = MONSTER.43
+	desc = EVTDESC_MONSTER.43
+	picture = GFX_evt_culture_change
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			1 = {
+				trigger = { 
+					FROMFROM = { trait = known_werewolf }
+					has_global_flag = founded_werewolf_culture
+				}
+				culture = werewolf_culture
+			}
+			1 = {
+				trigger = { 
+					FROMFROM = { trait = known_vampire }
+					has_global_flag = founded_vampire_culture
+				}
+				culture = vampire_culture
+			}
+			1 = {
+				trigger = {
+					limit = { FROMFROM = { trait = dragon } }
+				}
+				culture = draconic
+			}
+			1 = {
+				trigger = {
+					limit = { FROMFROM = { trait = djinn } }
+				}
+				culture = djinni
+			}
+			1 = {
+				trigger = {
+					limit = { 
+						FROMFROM = {
+							OR = {
+								trait = mythos_giant
+								trait = half_giant
+							}
+						}
+					}
+				}
+				culture = jotunn
+			}
+			1 = {
+				trigger = {
+					limit = { FROMFROM = { trait = zombie } }
+				}
+				culture = FROMFROM
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTA55000
+		tooltip = { culture = ROOT }
+		hidden_tooltip ={
+			if = {
+				limit = { NOT = { owner = { character = FROMFROM } } }
+				FROMFROM = { character_event = { id = MONSTER.44 } }
+			}
+		}
+	}
+}
+# MONSTER.44 - MONSTER.43 notification if not province owner
+character_event = {
+	id = MONSTER.44
+	desc = EVTDESC_MONSTER.44
+	picture = GFX_evt_culture_change
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA55000
+		tooltip = { FROM = { culture = FROM } }
 	}
 }

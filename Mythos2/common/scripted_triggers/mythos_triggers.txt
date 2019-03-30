@@ -600,7 +600,17 @@ race_monster = {
 		trait = zombie
 		trait = mummy
 		trait = demon_trait
+		trait = ethereal_trait
 		trait = necromancer
+	}
+}
+
+rare_revolt_monster = {
+	OR = {
+		trait = dragon
+		trait = mythos_giant
+		trait = half_giant
+		trait = djinn
 	}
 }
 
@@ -1914,16 +1924,21 @@ is_monster_to_root = {
 			trait = zombie
 		}
 	}
+	NOT = {
+		trait = god
+		religion = ROOT
+	}
 	OR = {
-		AND = {
-			trait = necromancer
-			ROOT = {
-				NOR = {
-					trait = zombie
-					trait = necromancer
-				}
-			}
-		}
+		# Necromancer trait is hidden, don't consider
+		#AND = {
+		#	trait = necromancer
+		#	ROOT = {
+		#		NOR = {
+		#			trait = zombie
+		#			trait = necromancer
+		#		}
+		#	}
+		#}
 		AND = {
 			trait = dragon
 			ROOT = {
@@ -2014,6 +2029,7 @@ is_monster_to_root = {
 				NOR = {
 					trait = mummy
 					religion = kemetic_pagan
+					religion = kemetic_pagan_reformed
 					religion = atenist
 					trait = necromancer
 				}
@@ -2033,6 +2049,25 @@ is_monster_to_root = {
 		any_lover = { character = ROOT }
 		any_spouse = { character = ROOT }
 	}
+	# Prevent constant revolts against hybrids
+	NAND = {
+		# Root is a province
+		ROOT = { province = THIS }
+		# This has two monster traits
+		calc_true_if = {
+			amount = 2
+			trait = dragon
+			trait = known_werewolf
+			trait = known_vampire
+			trait = demon_trait
+			trait = djinn
+			trait = mythos_giant
+			trait = half_giant
+			trait = zombie
+			trait = mummy
+			trait = ethereal_trait
+		}
+	}
 }
 
 is_monster_to_prev = {
@@ -2042,6 +2077,10 @@ is_monster_to_prev = {
 			trait = ethereal_trait
 			trait = zombie
 		}
+	}
+	NOT = {
+		trait = god
+		religion = PREV
 	}
 	OR = {
 		AND = {
@@ -2162,6 +2201,25 @@ is_monster_to_prev = {
 		any_lover = { character = PREV }
 		any_spouse = { character = PREV }
 	}
+	# Prevent constant revolts against hybrids
+	NAND = {
+		# Prev is a province
+		PREV = { province = THIS }
+		# This has two monster traits
+		calc_true_if = {
+			amount = 2
+			trait = dragon
+			trait = known_werewolf
+			trait = known_vampire
+			trait = demon_trait
+			trait = djinn
+			trait = mythos_giant
+			trait = half_giant
+			trait = zombie
+			trait = mummy
+			trait = ethereal_trait
+		}
+	}
 }
 
 is_monster_to_from = {
@@ -2171,6 +2229,10 @@ is_monster_to_from = {
 			trait = ethereal_trait
 			trait = zombie
 		}
+	}
+	NOT = {
+		trait = god
+		religion = ROOT_FROM
 	}
 	OR = {
 		AND = {
@@ -2290,6 +2352,25 @@ is_monster_to_from = {
 	NOR = {
 		any_lover = { character = ROOT_FROM }
 		any_spouse = { character = ROOT_FROM }
+	}
+	# Prevent constant revolts against hybrids
+	NAND = {
+		# From is a province
+		ROOT_FROM = { province = THIS }
+		# This has two monster traits
+		calc_true_if = {
+			amount = 2
+			trait = dragon
+			trait = known_werewolf
+			trait = known_vampire
+			trait = demon_trait
+			trait = djinn
+			trait = mythos_giant
+			trait = half_giant
+			trait = zombie
+			trait = mummy
+			trait = ethereal_trait
+		}
 	}
 }
 
