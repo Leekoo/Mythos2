@@ -1655,6 +1655,7 @@ character_event = {
 				NOT = { has_character_flag = vampire_feed_kill }
 				has_vampire_spread_illness = yes
 			}
+			set_character_flag = vf_spread_illness
 			FROMFROM = { character_event = { id = VAMPIRE.51 } }
 		}
 	}
@@ -1748,6 +1749,15 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vf_stat_health }
 			health = 0.25
+		}
+		if = {
+			limit = {
+				has_character_flag = vf_spread_illness
+				has_character_flag = vampire_feed_caught
+				trait = known_vampire
+				NOT = { has_character_flag = vampire_feed_kill }
+			}
+			add_character_modifier = { name = plague_vampire years = 2 }
 		}
 		if = {
 			limit = {
@@ -2235,6 +2245,7 @@ character_event = {
 			clr_character_flag = vampire_feed_survive
 			clr_character_flag = vampire_feed_turn
 			clr_character_flag = vampire_feed_minor
+			clr_character_flag = vf_spread_illness
 		}
 	}
 }
