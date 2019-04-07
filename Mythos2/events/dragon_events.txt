@@ -11369,3 +11369,24 @@ character_event = {
 		remove_character_modifier = SF_loan
 	}
 }
+
+# Automatically add eternal flame when building shrine
+character_event = {
+	id = DRAGON.175
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = {
+			has_wonder = wonder_eternal_flame
+			NOR = {
+				has_wonder_upgrade = upgrade_dragon_flame
+				has_wonder_upgrade = upgrade_dead_flame
+			}
+		}
+	}
+	
+	immediate = {
+		add_wonder_upgrade = upgrade_dragon_flame
+	}
+}
