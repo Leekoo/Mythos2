@@ -8,7 +8,7 @@ decisions = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			c_sjaelland = {
+			266 = {
 				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 			}
 			trait = dragon
@@ -149,7 +149,7 @@ decisions = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			c_kent = {
+			73 = {
 				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 			}
 			trait = dragon
@@ -290,7 +290,7 @@ decisions = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			c_plock = {
+			529 = {
 				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 			}
 			trait = dragon
@@ -431,7 +431,7 @@ decisions = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			c_galloway = {
+			50 = {
 				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 			}
 			trait = dragon
@@ -572,7 +572,7 @@ decisions = {
 				religion = draconic_pagan
 				religion = draconic_pagan_reformed
 			}
-			c_uppland = {
+			290 = {
 				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 			}
 			trait = dragon
@@ -1119,27 +1119,28 @@ decisions = {
 		only_rulers = yes
 		
 		potential = {
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-				secret_religion = draconic_pagan
-				secret_religion = draconic_pagan_reformed
-			}
-			is_liege_or_above = c_sjaelland
-			c_sjaelland = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-			NOR = {
-				has_alternate_start_parameter = {
-					key = religion
-					value = random
-				}
-				has_alternate_start_parameter = {
-					key = religion
-					value = full_random
-				}
-			}
+			#NOR = {
+			#	religion = draconic_pagan
+			#	religion = draconic_pagan_reformed
+			#	secret_religion = draconic_pagan
+			#	secret_religion = draconic_pagan_reformed
+			#}
+			#completely_controls = c_sjaelland
+			#266 = {
+			#	has_wonder = wonder_eternal_flame
+			#	has_wonder_upgrade = upgrade_dragon_flame
+			#}
+			#NOR = {
+			#	has_alternate_start_parameter = {
+			#		key = religion
+			#		value = random
+			#	}
+			#	has_alternate_start_parameter = {
+			#		key = religion
+			#		value = full_random
+			#	}
+			#}
+			always = yes
 		}
 		allow = {
 			OR = {
@@ -1161,6 +1162,30 @@ decisions = {
 						has_character_flag = destroy_flame_random_4
 						has_character_flag = destroy_flame_random_5
 					}
+				}
+			}
+			
+			### Testing
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_sjaelland
+			#c_sjaelland
+			266 = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
 				}
 			}
 		}
@@ -1239,8 +1264,8 @@ decisions = {
 				secret_religion = draconic_pagan
 				secret_religion = draconic_pagan_reformed
 			}
-			is_liege_or_above = c_kent
-			c_kent = {
+			completely_controls = c_kent
+			73 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -1352,8 +1377,8 @@ decisions = {
 				secret_religion = draconic_pagan
 				secret_religion = draconic_pagan_reformed
 			}
-			is_liege_or_above = c_plock
-			c_plock = {
+			completely_controls = c_plock
+			529 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -1465,8 +1490,8 @@ decisions = {
 				secret_religion = draconic_pagan
 				secret_religion = draconic_pagan_reformed
 			}
-			is_liege_or_above = c_galloway
-			c_galloway = {
+			completely_controls = c_galloway
+			50 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -1578,8 +1603,8 @@ decisions = {
 				secret_religion = draconic_pagan
 				secret_religion = draconic_pagan_reformed
 			}
-			is_liege_or_above = c_uppland
-			c_uppland = {
+			completely_controls = c_uppland
+			290 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -2831,8 +2856,10 @@ decisions = {
 						war = no
 					}
 				}
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					has_wonder = wonder_eternal_flame
+					has_wonder_upgrade = upgrade_dragon_flame
+				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
@@ -3001,7 +3028,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_galloway = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3019,7 +3046,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_galloway = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3033,8 +3060,10 @@ decisions = {
 						war = no
 					}
 				}
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					has_wonder = wonder_eternal_flame
+					has_wonder_upgrade = upgrade_dragon_flame
+				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
@@ -3203,7 +3232,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_uppland = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3221,7 +3250,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_uppland = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3235,8 +3264,10 @@ decisions = {
 						war = no
 					}
 				}
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					has_wonder = wonder_eternal_flame
+					has_wonder_upgrade = upgrade_dragon_flame
+				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
@@ -3405,7 +3436,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_kent = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3423,7 +3454,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			c_kent = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -3437,8 +3468,10 @@ decisions = {
 						war = no
 					}
 				}
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					has_wonder = wonder_eternal_flame
+					has_wonder_upgrade = upgrade_dragon_flame
+				}
 			}
 			war = no
 			religion = draconic_pagan_reformed
