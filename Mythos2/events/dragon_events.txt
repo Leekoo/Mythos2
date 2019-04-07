@@ -2213,7 +2213,7 @@ character_event = {
 		name = EVTOPTA_DRAGON.35
 		if = {
 			limit = { has_character_flag = destroy_flame_sjaelland }
-			c_sjaelland = {
+			266 = {
 				#remove_building = tp_eternal_flame
 				#save_event_target_as = destroyed_flame
 				wonder = {
@@ -2269,7 +2269,7 @@ character_event = {
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_kent }
-			c_kent = {
+			73 = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
@@ -2323,7 +2323,7 @@ character_event = {
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_plock }
-			c_plock = {
+			529 = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
@@ -2377,7 +2377,7 @@ character_event = {
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_galloway }
-			c_galloway = {
+			50 = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
@@ -2431,7 +2431,7 @@ character_event = {
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_uppland }
-			b_uppland = {
+			290 = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
