@@ -1119,28 +1119,28 @@ decisions = {
 		only_rulers = yes
 		
 		potential = {
-			#NOR = {
-			#	religion = draconic_pagan
-			#	religion = draconic_pagan_reformed
-			#	secret_religion = draconic_pagan
-			#	secret_religion = draconic_pagan_reformed
-			#}
-			#completely_controls = c_sjaelland
-			#266 = {
-			#	has_wonder = wonder_eternal_flame
-			#	has_wonder_upgrade = upgrade_dragon_flame
-			#}
-			#NOR = {
-			#	has_alternate_start_parameter = {
-			#		key = religion
-			#		value = random
-			#	}
-			#	has_alternate_start_parameter = {
-			#		key = religion
-			#		value = full_random
-			#	}
-			#}
-			always = yes
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_sjaelland
+			#c_sjaelland
+			266 = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
 		}
 		allow = {
 			OR = {
@@ -1162,30 +1162,6 @@ decisions = {
 						has_character_flag = destroy_flame_random_4
 						has_character_flag = destroy_flame_random_5
 					}
-				}
-			}
-			
-			### Testing
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-				secret_religion = draconic_pagan
-				secret_religion = draconic_pagan_reformed
-			}
-			completely_controls = c_sjaelland
-			#c_sjaelland
-			266 = {
-				has_wonder = wonder_eternal_flame
-				has_wonder_upgrade = upgrade_dragon_flame
-			}
-			NOR = {
-				has_alternate_start_parameter = {
-					key = religion
-					value = random
-				}
-				has_alternate_start_parameter = {
-					key = religion
-					value = full_random
 				}
 			}
 		}
