@@ -37,19 +37,22 @@ character_event = {
 					OR = {
 						capital_holding = { region = world_europe_west_brittania }
 						NOR = {
-							c_sjaelland = {
+							# Sjaelland
+							266 = {
 								AND = {
 									has_wonder = wonder_eternal_flame
 									has_wonder_upgrade = upgrade_dragon_flame
 								}
 							}
-							c_uppland = {
+							# Uppland
+							290 = {
 								AND = {
 									has_wonder = wonder_eternal_flame
 									has_wonder_upgrade = upgrade_dragon_flame
 								}
 							}
-							c_plock = {
+							# Plock
+							529 = {
 								AND = {
 									has_wonder = wonder_eternal_flame
 									has_wonder_upgrade = upgrade_dragon_flame
@@ -65,13 +68,15 @@ character_event = {
 					OR = {
 						capital_holding = { NOT = { region = world_europe_west_brittania } }
 						NOR = {
-							c_kent = {
+							# Kent
+							73 = {
 								AND = {
 									has_wonder = wonder_eternal_flame
 									has_wonder_upgrade = upgrade_dragon_flame
 								}
 							}
-							c_galloway = {
+							# Galloway
+							50 = {
 								AND = {
 									has_wonder = wonder_eternal_flame
 									has_wonder_upgrade = upgrade_dragon_flame
@@ -124,7 +129,8 @@ character_event = {
 	option = {
 		name = EVTOPTADragonPilgrimage.2
 		trigger = {
-			c_galloway = {
+			# Galloway
+			50 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -143,7 +149,8 @@ character_event = {
 	option = {
 		name = EVTOPTBDragonPilgrimage.2
 		trigger = {
-			c_kent = {
+			# Kent
+			73 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -180,7 +187,8 @@ character_event = {
 	option = {
 		name = EVTOPTADragonPilgrimage.3
 		trigger = {
-			c_sjaelland = {
+			# Sjaelland
+			266 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -199,7 +207,8 @@ character_event = {
 	option = {
 		name = EVTOPTBDragonPilgrimage.3
 		trigger = {
-			c_uppland = {
+			# Uppland
+			290 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
@@ -218,7 +227,8 @@ character_event = {
 	option = {
 		name = EVTOPTCDragonPilgrimage.3
 		trigger = {
-			c_kent = {
+			# Plock
+			529 = {
 				has_wonder = wonder_eternal_flame
 				has_wonder_upgrade = upgrade_dragon_flame
 			}
