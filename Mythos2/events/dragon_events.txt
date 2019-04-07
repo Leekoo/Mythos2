@@ -915,7 +915,8 @@ character_event = {
 		if = {
 			limit = {
 				any_demesne_province = {
-					has_building = tp_eternal_flame
+					has_wonder = wonder_eternal_flame
+					has_wonder_upgrade = upgrade_dragon_flame
 				}
 			}
 			add_character_modifier = { name = unfit_flame_controller }
@@ -932,20 +933,23 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		independent = yes
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 	}
 	
 	immediate = {
 		any_demesne_province = {
-			limit = { any_province_holding = { has_building = tp_eternal_flame } }
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
 			if = {
 				limit = {
 					ROOT = {
-						OR = {
-							religion_openly_draconic_or_reformed_trigger = yes
-						}
+						religion_openly_draconic_or_reformed_trigger = yes
 					}
 				}
 				remove_province_modifier = heathen_stronghold
@@ -969,8 +973,9 @@ character_event = {
 	
 	trigger = {
 		religion_openly_draconic_or_reformed_trigger = no
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 	}
 	
@@ -978,29 +983,33 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
@@ -1008,7 +1017,10 @@ character_event = {
 	
 	immediate = {
 		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = { 
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
 			save_event_target_as = upset_province
 		}
 	}
@@ -1051,11 +1063,13 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		any_demesne_province = {
-			any_province_holding = {
-				has_building = tp_eternal_flame
-				owner = {
-					religion_openly_draconic_or_reformed_trigger = yes
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
+			location = {
+				any_province_holding = {
+					holding_type = temple
+					owner = { religion_openly_draconic_or_reformed_trigger = yes }
 				}
 			}
 		}
@@ -1065,38 +1079,47 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
-			save_event_target_as = upset_province
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			location = {
+				save_event_target_as = upset_province
+			}
 		}
 	}
 	
@@ -1121,8 +1144,9 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 		any_vassal = {
 			trait = zealous
@@ -1151,38 +1175,47 @@ character_event = {
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				any_province_holding = { has_building = tp_eternal_flame }
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				any_province_holding = { has_building = tp_eternal_flame }
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				any_province_holding = { has_building = tp_eternal_flame }
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				any_province_holding = { has_building = tp_eternal_flame }
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { any_province_holding = { has_building = tp_eternal_flame } }
-			save_event_target_as = upset_province
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			location = {
+				save_event_target_as = upset_province
+			}
 		}
 		random_vassal = {
 			limit = { 
@@ -1221,8 +1254,9 @@ character_event = {
 			religion = draconic_pagan_reformed
 			religion = the_damned
 		}
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 		any_courtier = {
 			is_landed = no
@@ -1235,38 +1269,47 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
-			save_event_target_as = upset_province
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			location = {
+				save_event_target_as = upset_province
+			}
 		}
 		random_courtier = {
 			limit = {
@@ -1308,8 +1351,9 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 	}
 	
@@ -1317,29 +1361,33 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
@@ -1356,9 +1404,14 @@ character_event = {
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
-			save_event_target_as = upset_province
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
+			location = {
+				save_event_target_as = upset_province
+			}
 		}
 		create_character = {
 			age = 26
@@ -1431,13 +1484,16 @@ character_event = {
 			religion = draconic_pagan_reformed
 			religion = the_damned
 		}
-		any_demesne_province = {
-			has_building = tp_eternal_flame
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
+			location = {
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				has_disease = yes
 			}
-			has_disease = yes
 		}
 	}
 	
@@ -1445,45 +1501,52 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { 
-				has_building = tp_eternal_flame
-				NOR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
+					has_disease = yes
 				}
-				has_disease = yes
 			}
-			save_event_target_as = upset_province
+			location = { save_event_target_as = upset_province }
 		}
 	}
 	
@@ -1512,8 +1575,9 @@ character_event = {
 			religion = the_damned
 			controls_religion = no
 		}
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
 		}
 	}
 	
@@ -1521,29 +1585,33 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
@@ -1551,7 +1619,10 @@ character_event = {
 	
 	immediate = {
 		random_demesne_province = {
-			limit = { has_building = tp_eternal_flame }
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
 			save_event_target_as = upset_province
 		}
 	}
@@ -1572,12 +1643,16 @@ character_event = {
 	only_playable = yes
 	
 	trigger = {
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-				religion = the_damned
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
+			location = {
+				any_province_holding = { holding_type = temple }
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+					religion = the_damned
+				}
 			}
 		}
 	}
@@ -1586,29 +1661,33 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
@@ -1620,20 +1699,27 @@ character_event = {
 	}
 	
 	immediate = {
-		random_demesne_province = {
+		any_realm_wonder = {
 			limit = {
-				has_building = tp_eternal_flame
-				NOR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
-					religion = the_damned
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					NOR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						religion = the_damned
+					}
 				}
 			}
-			save_event_target_as = upset_province
-			random_province_holding = {
-				limit = { has_building = tp_eternal_flame }
-				holder_scope = {
-					save_event_target_as = local_priest
+			location = {
+				save_event_target_as = upset_province
+				random_province_holding = {
+					limit = {
+						holding_type = temple
+					}
+					holder_scope = {
+						save_event_target_as = local_priest
+					}
 				}
 			}
 		}
@@ -1725,11 +1811,15 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		any_demesne_province = {
-			any_province_holding = { has_building = tp_eternal_flame }
-			OR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
+		any_realm_wonder = {
+			has_wonder = wonder_eternal_flame
+			has_wonder_upgrade = upgrade_dragon_flame
+			location = {
+				any_province_holding = { holding_type = temple }
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
 			}
 		}
 	}
@@ -1738,29 +1828,33 @@ character_event = {
 		days = 1
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 2
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 3
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 4
 			}
 		}
 		modifier = {
 			factor = 1.5
-			any_demesne_province = {
-				has_building = tp_eternal_flame
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
 				count = 5
 			}
 		}
@@ -1772,15 +1866,19 @@ character_event = {
 	}
 	
 	immediate = {
-		random_demesne_province = {
-			limit = { 
-				has_building = tp_eternal_flame
-				OR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
+		random_realm_wonder = {
+			limit = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+				location = {
+					any_province_holding = { holding_type = temple }
+					OR = {
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+					}
 				}
 			}
-			save_event_target_as = upset_province
+			location = { save_event_target_as = upset_province }
 		}
 	}
 	
@@ -1827,6 +1925,12 @@ character_event = {
 			clr_character_flag = destroy_flame_random_3
 			clr_character_flag = destroy_flame_random_4
 			clr_character_flag = destroy_flame_random_5
+			clr_character_flag = sacrifice_flame_dragon
+			clr_character_flag = sacrifice_flame_personal
+			clr_character_flag = flood_flame
+			clr_character_flag = pray_flame
+			clr_character_flag = counterspell_flame
+			clr_character_flag = bury_flame
 		}
 	}
 }
@@ -1852,6 +1956,12 @@ character_event = {
 			clr_character_flag = destroy_flame_random_3
 			clr_character_flag = destroy_flame_random_4
 			clr_character_flag = destroy_flame_random_5
+			clr_character_flag = sacrifice_flame_dragon
+			clr_character_flag = sacrifice_flame_personal
+			clr_character_flag = flood_flame
+			clr_character_flag = pray_flame
+			clr_character_flag = counterspell_flame
+			clr_character_flag = bury_flame
 		}
 	}
 }
@@ -2090,7 +2200,7 @@ character_event = {
 		}
 	}
 }
-						
+
 # DRAGON.35 - Successfully destroyed flame
 character_event = {
 	id = DRAGON.35
@@ -2103,72 +2213,554 @@ character_event = {
 		name = EVTOPTA_DRAGON.35
 		if = {
 			limit = { has_character_flag = destroy_flame_sjaelland }
-			b_lejre = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+			c_sjaelland = {
+				#remove_building = tp_eternal_flame
+				#save_event_target_as = destroyed_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dragon_flame
+					add_wonder_upgrade = upgrade_dead_flame
+					# Figure out max upgrades
+					if = {
+						limit = { wonder_stage >= 4 }
+						set_variable = { which = max_upgrades value = 8 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 5 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 3 }
+					}
+					else = {
+						set_variable = { which = max_upgrades value = 1 }
+					}
+					while = {
+						limit = {
+							NOT = { num_of_wonder_upgrades = max_upgrades }
+						}
+						if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+							add_wonder_upgrade = upgrade_sacrificial_bodies
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+							add_wonder_upgrade = upgrade_profane_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = flood_flame } }
+							add_wonder_upgrade = upgrade_water_damage
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = pray_flame } }
+							add_wonder_upgrade = upgrade_supernatural_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = counterspell_flame } }
+							add_wonder_upgrade = upgrade_magic_residue
+						}
+						else = {
+							add_wonder_upgrade = upgrade_debris
+						}
+						subtract_variable = { which = max_upgrades value = 1 }
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_kent }
-			b_canterbury = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+			c_kent = {
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dragon_flame
+					add_wonder_upgrade = upgrade_dead_flame
+					# Figure out max upgrades
+					if = {
+						limit = { wonder_stage >= 4 }
+						set_variable = { which = max_upgrades value = 8 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 5 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 3 }
+					}
+					else = {
+						set_variable = { which = max_upgrades value = 1 }
+					}
+					while = {
+						limit = {
+							NOT = { num_of_wonder_upgrades = max_upgrades }
+						}
+						if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+							add_wonder_upgrade = upgrade_sacrificial_bodies
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+							add_wonder_upgrade = upgrade_profane_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = flood_flame } }
+							add_wonder_upgrade = upgrade_water_damage
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = pray_flame } }
+							add_wonder_upgrade = upgrade_supernatural_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = counterspell_flame } }
+							add_wonder_upgrade = upgrade_magic_residue
+						}
+						else = {
+							add_wonder_upgrade = upgrade_debris
+						}
+						subtract_variable = { which = max_upgrades value = 1 }
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_plock }
-			b_wyszogrod = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+			c_plock = {
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dragon_flame
+					add_wonder_upgrade = upgrade_dead_flame
+					# Figure out max upgrades
+					if = {
+						limit = { wonder_stage >= 4 }
+						set_variable = { which = max_upgrades value = 8 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 5 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 3 }
+					}
+					else = {
+						set_variable = { which = max_upgrades value = 1 }
+					}
+					while = {
+						limit = {
+							NOT = { num_of_wonder_upgrades = max_upgrades }
+						}
+						if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+							add_wonder_upgrade = upgrade_sacrificial_bodies
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+							add_wonder_upgrade = upgrade_profane_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = flood_flame } }
+							add_wonder_upgrade = upgrade_water_damage
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = pray_flame } }
+							add_wonder_upgrade = upgrade_supernatural_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = counterspell_flame } }
+							add_wonder_upgrade = upgrade_magic_residue
+						}
+						else = {
+							add_wonder_upgrade = upgrade_debris
+						}
+						subtract_variable = { which = max_upgrades value = 1 }
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_galloway }
-			b_whithorn = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+			c_galloway = {
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dragon_flame
+					add_wonder_upgrade = upgrade_dead_flame
+					# Figure out max upgrades
+					if = {
+						limit = { wonder_stage >= 4 }
+						set_variable = { which = max_upgrades value = 8 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 5 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 3 }
+					}
+					else = {
+						set_variable = { which = max_upgrades value = 1 }
+					}
+					while = {
+						limit = {
+							NOT = { num_of_wonder_upgrades = max_upgrades }
+						}
+						if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+							add_wonder_upgrade = upgrade_sacrificial_bodies
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+							add_wonder_upgrade = upgrade_profane_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = flood_flame } }
+							add_wonder_upgrade = upgrade_water_damage
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = pray_flame } }
+							add_wonder_upgrade = upgrade_supernatural_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = counterspell_flame } }
+							add_wonder_upgrade = upgrade_magic_residue
+						}
+						else = {
+							add_wonder_upgrade = upgrade_debris
+						}
+						subtract_variable = { which = max_upgrades value = 1 }
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_uppland }
-			b_uppsala = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+			b_uppland = {
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dragon_flame
+					add_wonder_upgrade = upgrade_dead_flame
+					# Figure out max upgrades
+					if = {
+						limit = { wonder_stage >= 4 }
+						set_variable = { which = max_upgrades value = 8 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 5 }
+					}
+					else_if = {
+						limit = { wonder_stage == 3 }
+						set_variable = { which = max_upgrades value = 3 }
+					}
+					else = {
+						set_variable = { which = max_upgrades value = 1 }
+					}
+					while = {
+						limit = {
+							NOT = { num_of_wonder_upgrades = max_upgrades }
+						}
+						if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+							add_wonder_upgrade = upgrade_sacrificial_bodies
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+							add_wonder_upgrade = upgrade_profane_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = flood_flame } }
+							add_wonder_upgrade = upgrade_water_damage
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = pray_flame } }
+							add_wonder_upgrade = upgrade_supernatural_energy
+						}
+						else_if = {
+							limit = { ROOT = { has_character_flag = counterspell_flame } }
+							add_wonder_upgrade = upgrade_magic_residue
+						}
+						else = {
+							add_wonder_upgrade = upgrade_debris
+						}
+						subtract_variable = { which = max_upgrades value = 1 }
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_1 }
 			persistent_event_target:draconic_holy_site_1 = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+				location = {
+					wonder = {
+						destroy_wonder_upgrade = upgrade_dragon_flame
+						add_wonder_upgrade = upgrade_dead_flame
+						# Figure out max upgrades
+						if = {
+							limit = { wonder_stage >= 4 }
+							set_variable = { which = max_upgrades value = 8 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 5 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 3 }
+						}
+						else = {
+							set_variable = { which = max_upgrades value = 1 }
+						}
+						while = {
+							limit = {
+								NOT = { num_of_wonder_upgrades = max_upgrades }
+							}
+							if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+								add_wonder_upgrade = upgrade_sacrificial_bodies
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+								add_wonder_upgrade = upgrade_profane_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = flood_flame } }
+								add_wonder_upgrade = upgrade_water_damage
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = pray_flame } }
+								add_wonder_upgrade = upgrade_supernatural_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = counterspell_flame } }
+								add_wonder_upgrade = upgrade_magic_residue
+							}
+							else = {
+								add_wonder_upgrade = upgrade_debris
+							}
+							subtract_variable = { which = max_upgrades value = 1 }
+						}
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_2 }
 			persistent_event_target:draconic_holy_site_2 = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+				location = {
+					wonder = {
+						destroy_wonder_upgrade = upgrade_dragon_flame
+						add_wonder_upgrade = upgrade_dead_flame
+						# Figure out max upgrades
+						if = {
+							limit = { wonder_stage >= 4 }
+							set_variable = { which = max_upgrades value = 8 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 5 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 3 }
+						}
+						else = {
+							set_variable = { which = max_upgrades value = 1 }
+						}
+						while = {
+							limit = {
+								NOT = { num_of_wonder_upgrades = max_upgrades }
+							}
+							if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+								add_wonder_upgrade = upgrade_sacrificial_bodies
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+								add_wonder_upgrade = upgrade_profane_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = flood_flame } }
+								add_wonder_upgrade = upgrade_water_damage
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = pray_flame } }
+								add_wonder_upgrade = upgrade_supernatural_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = counterspell_flame } }
+								add_wonder_upgrade = upgrade_magic_residue
+							}
+							else = {
+								add_wonder_upgrade = upgrade_debris
+							}
+							subtract_variable = { which = max_upgrades value = 1 }
+						}
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_3 }
 			persistent_event_target:draconic_holy_site_3 = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+				location = {
+					wonder = {
+						destroy_wonder_upgrade = upgrade_dragon_flame
+						add_wonder_upgrade = upgrade_dead_flame
+						# Figure out max upgrades
+						if = {
+							limit = { wonder_stage >= 4 }
+							set_variable = { which = max_upgrades value = 8 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 5 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 3 }
+						}
+						else = {
+							set_variable = { which = max_upgrades value = 1 }
+						}
+						while = {
+							limit = {
+								NOT = { num_of_wonder_upgrades = max_upgrades }
+							}
+							if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+								add_wonder_upgrade = upgrade_sacrificial_bodies
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+								add_wonder_upgrade = upgrade_profane_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = flood_flame } }
+								add_wonder_upgrade = upgrade_water_damage
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = pray_flame } }
+								add_wonder_upgrade = upgrade_supernatural_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = counterspell_flame } }
+								add_wonder_upgrade = upgrade_magic_residue
+							}
+							else = {
+								add_wonder_upgrade = upgrade_debris
+							}
+							subtract_variable = { which = max_upgrades value = 1 }
+						}
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_4 }
 			persistent_event_target:draconic_holy_site_4 = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+				location = {
+					wonder = {
+						destroy_wonder_upgrade = upgrade_dragon_flame
+						add_wonder_upgrade = upgrade_dead_flame
+						# Figure out max upgrades
+						if = {
+							limit = { wonder_stage >= 4 }
+							set_variable = { which = max_upgrades value = 8 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 5 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 3 }
+						}
+						else = {
+							set_variable = { which = max_upgrades value = 1 }
+						}
+						while = {
+							limit = {
+								NOT = { num_of_wonder_upgrades = max_upgrades }
+							}
+							if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+								add_wonder_upgrade = upgrade_sacrificial_bodies
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+								add_wonder_upgrade = upgrade_profane_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = flood_flame } }
+								add_wonder_upgrade = upgrade_water_damage
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = pray_flame } }
+								add_wonder_upgrade = upgrade_supernatural_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = counterspell_flame } }
+								add_wonder_upgrade = upgrade_magic_residue
+							}
+							else = {
+								add_wonder_upgrade = upgrade_debris
+							}
+							subtract_variable = { which = max_upgrades value = 1 }
+						}
+					}
+				}
 			}
 		}
 		else_if = {
 			limit = { has_character_flag = destroy_flame_random_5 }
 			persistent_event_target:draconic_holy_site_5 = {
-				remove_building = tp_eternal_flame
-				save_event_target_as = destroyed_flame
+				location = {
+					wonder = {
+						destroy_wonder_upgrade = upgrade_dragon_flame
+						add_wonder_upgrade = upgrade_dead_flame
+						# Figure out max upgrades
+						if = {
+							limit = { wonder_stage >= 4 }
+							set_variable = { which = max_upgrades value = 8 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 5 }
+						}
+						else_if = {
+							limit = { wonder_stage == 3 }
+							set_variable = { which = max_upgrades value = 3 }
+						}
+						else = {
+							set_variable = { which = max_upgrades value = 1 }
+						}
+						while = {
+							limit = {
+								NOT = { num_of_wonder_upgrades = max_upgrades }
+							}
+							if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
+								add_wonder_upgrade = upgrade_sacrificial_bodies
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
+								add_wonder_upgrade = upgrade_profane_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = flood_flame } }
+								add_wonder_upgrade = upgrade_water_damage
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = pray_flame } }
+								add_wonder_upgrade = upgrade_supernatural_energy
+							}
+							else_if = {
+								limit = { ROOT = { has_character_flag = counterspell_flame } }
+								add_wonder_upgrade = upgrade_magic_residue
+							}
+							else = {
+								add_wonder_upgrade = upgrade_debris
+							}
+							subtract_variable = { which = max_upgrades value = 1 }
+						}
+					}
+				}
 			}
 		}
 		if = {
@@ -2216,6 +2808,12 @@ character_event = {
 			clr_character_flag = destroy_flame_random_3
 			clr_character_flag = destroy_flame_random_4
 			clr_character_flag = destroy_flame_random_5
+			clr_character_flag = bury_flame
+			clr_character_flag = counterspell_flame
+			clr_character_flag = pray_flame
+			clr_character_flag = flood_flame
+			clr_character_flag = sacrifice_flame_personal
+			clr_character_flag = sacrifice_flame_dragon
 			# Notification to player characters
 			any_player = {
 				limit = { NOT = { character = ROOT } }
@@ -2232,6 +2830,15 @@ character_event = {
 	picture = GFX_evt_monk
 	border = GFX_event_normal_frame_religion
 	is_triggered_only = yes
+	
+	immediate = {
+		clr_character_flag = bury_flame
+		clr_character_flag = counterspell_flame
+		clr_character_flag = pray_flame
+		clr_character_flag = flood_flame
+		clr_character_flag = sacrifice_flame_personal
+		clr_character_flag = sacrifice_flame_dragon
+	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.36
@@ -2292,90 +2899,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -2390,62 +2992,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -2467,6 +3079,7 @@ character_event = {
 	# Bury it
 	option = {
 		name = EVTOPTA_DRAGON.38
+		set_character_flag = bury_flame
 		random_list = {
 			5 = {
 				custom_tooltip = { text = destroy_flame_success }
@@ -2487,6 +3100,7 @@ character_event = {
 	option = {
 		name = EVTOPTB_DRAGON.38
 		scaled_wealth = { value = -0.25 max = -200 }
+		set_character_flag = bury_flame
 		random_list = {
 			10 = {
 				custom_tooltip = { text = destroy_flame_success }
@@ -2507,6 +3121,7 @@ character_event = {
 	option = {
 		name = EVTOPTC_DRAGON.38
 		scaled_wealth = { value = -1 max = -600 }
+		set_character_flag = bury_flame
 		random_list = {
 			20 = {
 				custom_tooltip = { text = destroy_flame_success }
@@ -2553,90 +3168,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -2651,62 +3261,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -2738,6 +3358,7 @@ character_event = {
 		name = EVTOPTA_DRAGON.40
 		custom_tooltip = { text = strenuous_casting_1 }
 		hidden_tooltip = { add_character_modifier = { name = cast_spell years = 1 } }
+		set_character_flag = counterspell_flame
 		random_list = {
 			1 = {
 				modifier = {
@@ -2832,6 +3453,7 @@ character_event = {
 		}
 		custom_tooltip = { text = strenuous_casting_3 }
 		hidden_tooltip = { add_character_modifier = { name = cast_spell years = 3 } }
+		set_character_flag = counterspell_flame
 		random_list = {
 			2 = {
 				modifier = {
@@ -2940,6 +3562,7 @@ character_event = {
 	# Sacrifice your power
 	option = {
 		name = EVTOPTC_DRAGON.40
+		set_character_flag = counterspell_flame
 		random_list = {
 			4 = {
 				modifier = {
@@ -3116,90 +3739,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -3214,62 +3832,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -3315,6 +3943,7 @@ character_event = {
 	# Pray
 	option = {
 		name = EVTOPTA_DRAGON.42
+		set_character_flag = pray_flame
 		random_list = {
 			1 = {
 				modifier = {
@@ -3449,6 +4078,7 @@ character_event = {
 			NOT = { trait = celibate }
 			NOT = { trait = lustful }
 		}
+		set_character_flag = pray_flame
 		add_trait = celibate
 		random_list = {
 			3 = {
@@ -3584,6 +4214,7 @@ character_event = {
 			NOT = { trait = ascetic }
 			NOT = { trait = greedy }
 		}
+		set_character_flag = pray_flame
 		add_trait = ascetic
 		random_list = {
 			3 = {
@@ -3758,90 +4389,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -3856,62 +4482,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -3950,6 +4586,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.44
+		set_character_flag = bury_flame
 		random_list = {
 			1 = {
 				modifier = {
@@ -4037,6 +4674,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTB_DRAGON.44
+		set_character_flag = bury_flame
 		random_list ={
 			3 = {
 				modifier = {
@@ -4125,6 +4763,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_DRAGON.44
+		set_character_flag = bury_flame
 		random_list = {
 			6 = {
 				modifier = {
@@ -4241,90 +4880,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -4339,62 +4973,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -4433,6 +5077,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.46
+		set_character_flag = flood_flame
 		scaled_wealth = { value = -0.25 max = -400 }
 		random_list = {
 			1 = {
@@ -4513,6 +5158,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTB_DRAGON.46
+		set_character_flag = flood_flame
 		scaled_wealth = { value = -1 max = -800 }
 		random_list = {
 			1 = {
@@ -4593,6 +5239,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTC_DRAGON.46
+		set_character_flag = flood_flame
 		scaled_wealth = { value = -3 max = -2000 }
 		random_list = {
 			1 = {
@@ -4710,90 +5357,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -4808,62 +5450,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							NOT = { has_wonder_upgrade = upgrade_dragon_flame }
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_1 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_2 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_3 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_5 = {
+								NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+							}
 						}
 					}
 				}
@@ -4994,6 +5646,7 @@ character_event = {
 	# Sacrifice your child
 	option = {
 		name = EVTOPTB_DRAGON.48
+		set_character_flag = sacrifice_flame_personal
 		event_target:child_sacrifice = {
 			death = { death_reason = death_sacrificed killer = ROOT }
 			save_event_target_as = target_victim
@@ -5145,6 +5798,7 @@ character_event = {
 			death = { death_reason = death_sacrificed killer = ROOT }
 			save_event_target_as = target_victim
 		}
+		set_character_flag = sacrifice_flame_personal
 		hidden_tooltip = { character_event = { id = 10 } }
 		random_list = {
 			3 = {
@@ -5282,6 +5936,7 @@ character_event = {
 			death = { death_reason = death_sacrificed killer = ROOT }
 			save_event_target_as = target_victim
 		}
+		set_character_flag = sacrifice_flame_personal
 		random_list = {
 			2 = {
 				modifier = {
@@ -5418,6 +6073,7 @@ character_event = {
 			death = { death_reason = death_sacrificed killer = ROOT }
 			save_event_target_as = target_victim
 		}
+		set_character_flag = sacrifice_flame_personal
 		random_list = {
 			2 = {
 				modifier = {
@@ -5566,90 +6222,85 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						NOR = {
-							has_landed_title = c_sjaelland
-							has_landed_title = b_lejre
-						}
+						NOT = { is_liege_or_above = c_sjaelland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						NOR = {
-							has_landed_title = c_kent
-							has_landed_title = b_canterbury
-						}
+						NOT = { is_liege_or_above = c_kent }
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						NOR = {
-							has_landed_title = c_plock
-							has_landed_title = b_wyszogrod
-						}
+						NOT = { is_liege_or_above = c_plock }
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						NOR = {
-							has_landed_title = c_galloway
-							has_landed_title = b_whithorn
-						}
+						NOT = { is_liege_or_above = c_galloway }
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						NOR = {
-							has_landed_title = c_uppland
-							has_landed_title = b_uppsala
-						}
+						NOT = { is_liege_or_above = c_uppland }
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_1
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_1 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_2
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_2 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_3
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_3 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_4
+						k_draconic_pagan_reformed = {
 							persistent_event_target:draconic_holy_site_4 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
-						NOR = {
-							has_landed_title = persistent_event_target:draconic_holy_site_5
-							persistent_event_target:draconic_holy_site_5 = {
-								location = {
-									ROOT = { has_landed_title = PREV }
+						k_draconic_pagan_reformed = {
+							persistent_event_target:draconic_holy_site_4 = {
+								holder_scope = { 
+									NOR = { 
+										character = ROOT
+										any_liege = { character = ROOT }
+									}
 								}
 							}
 						}
@@ -5664,62 +6315,72 @@ character_event = {
 				OR = {
 					AND = {
 						has_character_flag = destroy_flame_sjaelland
-						b_lejre = {
-							NOT = { has_building = tp_eternal_flame }
+						c_sjaelland = {
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_kent
-						b_canterbury = {
-							NOT = { has_building = tp_eternal_flame }
+						c_kent = {
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_plock
-						b_wyszogrod = {
-							NOT = { has_building = tp_eternal_flame }
+						c_plock = {
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_galloway
-						b_whithorn = {
-							NOT = { has_building = tp_eternal_flame }
+						c_galloway = {
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_uppland
-						b_uppsala = {
-							NOT = { has_building = tp_eternal_flame }
+						c_uppland = {
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_1
 						persistent_event_target:draconic_holy_site_1 = {
-							NOT = { has_building = tp_eternal_flame }
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_2
 						persistent_event_target:draconic_holy_site_2 = {
-							NOT = { has_building = tp_eternal_flame }
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_3
 						persistent_event_target:draconic_holy_site_3 = {
-							NOT = { has_building = tp_eternal_flame }
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_4
 						persistent_event_target:draconic_holy_site_4 = {
-							NOT = { has_building = tp_eternal_flame }
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					AND = {
 						has_character_flag = destroy_flame_random_5
 						persistent_event_target:draconic_holy_site_5 = {
-							NOT = { has_building = tp_eternal_flame }
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 				}
@@ -5765,6 +6426,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_DRAGON.50
+		set_character_flag = sacrifice_flame_dragon
 		any_courtier = {
 			limit = { trait = dragon }
 			death = { death_reason = death_sacrificed killer = ROOT }
@@ -6016,6 +6678,12 @@ character_event = {
 			clr_character_flag = destroy_flame_random_3
 			clr_character_flag = destroy_flame_random_4
 			clr_character_flag = destroy_flame_random_5
+			clr_character_flag = bury_flame
+			clr_character_flag = counterspell_flame
+			clr_character_flag = pray_flame
+			clr_character_flag = flood_flame
+			clr_character_flag = sacrifice_flame_personal
+			clr_character_flag = sacrifice_flame_dragon
 		}
 	}
 }
@@ -6033,45 +6701,201 @@ character_event = {
 		name = EVTOPTA_DRAGON.52
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
-			b_lejre = { 
-				add_building = tp_eternal_flame
+			c_sjaelland = {
+				destroy_wonder_upgrade = upgrade_dead_flame
+				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
+				set_province_flag = relit_eternal_flame
+				while = {
+					limit = { has_wonder_upgrade = upgrade_debris }
+					destroy_wonder_upgrade = upgrade_debris
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_magic_residue }
+					destroy_wonder_upgrade = upgrade_magic_residue
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+					destroy_wonder_upgrade = upgrade_supernatural_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_water_damage }
+					destroy_wonder_upgrade = upgrade_water_damage
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_profane_energy }
+					destroy_wonder_upgrade = upgrade_profane_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+					destroy_wonder_upgrade = upgrade_sacrificial_bodies
+				}
 			}
 		}
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
-			b_canterbury = { 
-				add_building = tp_eternal_flame
+			c_kent = {
+				destroy_wonder_upgrade = upgrade_dead_flame
+				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
+				set_province_flag = relit_eternal_flame
+				while = {
+					limit = { has_wonder_upgrade = upgrade_debris }
+					destroy_wonder_upgrade = upgrade_debris
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_magic_residue }
+					destroy_wonder_upgrade = upgrade_magic_residue
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+					destroy_wonder_upgrade = upgrade_supernatural_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_water_damage }
+					destroy_wonder_upgrade = upgrade_water_damage
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_profane_energy }
+					destroy_wonder_upgrade = upgrade_profane_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+					destroy_wonder_upgrade = upgrade_sacrificial_bodies
+				}
 			}
 		}
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
-			b_wyszogrod = { 
-				add_building = tp_eternal_flame
+			c_plock = {
+				destroy_wonder_upgrade = upgrade_dead_flame
+				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
+				set_province_flag = relit_eternal_flame
+				while = {
+					limit = { has_wonder_upgrade = upgrade_debris }
+					destroy_wonder_upgrade = upgrade_debris
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_magic_residue }
+					destroy_wonder_upgrade = upgrade_magic_residue
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+					destroy_wonder_upgrade = upgrade_supernatural_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_water_damage }
+					destroy_wonder_upgrade = upgrade_water_damage
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_profane_energy }
+					destroy_wonder_upgrade = upgrade_profane_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+					destroy_wonder_upgrade = upgrade_sacrificial_bodies
+				}
 			}
 		}
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
-			b_whithorn = { 
-				add_building = tp_eternal_flame
+			c_galloway = {
+				destroy_wonder_upgrade = upgrade_dead_flame
+				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
+				set_province_flag = relit_eternal_flame
+				while = {
+					limit = { has_wonder_upgrade = upgrade_debris }
+					destroy_wonder_upgrade = upgrade_debris
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_magic_residue }
+					destroy_wonder_upgrade = upgrade_magic_residue
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+					destroy_wonder_upgrade = upgrade_supernatural_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_water_damage }
+					destroy_wonder_upgrade = upgrade_water_damage
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_profane_energy }
+					destroy_wonder_upgrade = upgrade_profane_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+					destroy_wonder_upgrade = upgrade_sacrificial_bodies
+				}
 			}
 		}
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
-			b_uppsala = { 
-				add_building = tp_eternal_flame
+			c_uppland = {
+				destroy_wonder_upgrade = upgrade_dead_flame
+				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
+				set_province_flag = relit_eternal_flame
+				while = {
+					limit = { has_wonder_upgrade = upgrade_debris }
+					destroy_wonder_upgrade = upgrade_debris
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_magic_residue }
+					destroy_wonder_upgrade = upgrade_magic_residue
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+					destroy_wonder_upgrade = upgrade_supernatural_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_water_damage }
+					destroy_wonder_upgrade = upgrade_water_damage
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_profane_energy }
+					destroy_wonder_upgrade = upgrade_profane_energy
+				}
+				while = {
+					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+					destroy_wonder_upgrade = upgrade_sacrificial_bodies
+				}
 			}
 		}
 		else_if = { 
 			limit = { has_character_flag = restore_flame_random_1 }
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_1 = { 
-					add_building = tp_eternal_flame
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
+					set_province_flag = relit_eternal_flame
+					while = {
+						limit = { has_wonder_upgrade = upgrade_debris }
+						destroy_wonder_upgrade = upgrade_debris
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_magic_residue }
+						destroy_wonder_upgrade = upgrade_magic_residue
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+						destroy_wonder_upgrade = upgrade_supernatural_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_water_damage }
+						destroy_wonder_upgrade = upgrade_water_damage
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_profane_energy }
+						destroy_wonder_upgrade = upgrade_profane_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+						destroy_wonder_upgrade = upgrade_sacrificial_bodies
+					}
 				}
 			}
 		}
@@ -6079,8 +6903,34 @@ character_event = {
 			limit = { has_character_flag = restore_flame_random_2 }
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_2 = { 
-					add_building = tp_eternal_flame
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
+					set_province_flag = relit_eternal_flame
+					while = {
+						limit = { has_wonder_upgrade = upgrade_debris }
+						destroy_wonder_upgrade = upgrade_debris
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_magic_residue }
+						destroy_wonder_upgrade = upgrade_magic_residue
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+						destroy_wonder_upgrade = upgrade_supernatural_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_water_damage }
+						destroy_wonder_upgrade = upgrade_water_damage
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_profane_energy }
+						destroy_wonder_upgrade = upgrade_profane_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+						destroy_wonder_upgrade = upgrade_sacrificial_bodies
+					}
 				}
 			}
 		}
@@ -6088,8 +6938,34 @@ character_event = {
 			limit = { has_character_flag = restore_flame_random_3 }
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_3 = { 
-					add_building = tp_eternal_flame
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
+					set_province_flag = relit_eternal_flame
+					while = {
+						limit = { has_wonder_upgrade = upgrade_debris }
+						destroy_wonder_upgrade = upgrade_debris
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_magic_residue }
+						destroy_wonder_upgrade = upgrade_magic_residue
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+						destroy_wonder_upgrade = upgrade_supernatural_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_water_damage }
+						destroy_wonder_upgrade = upgrade_water_damage
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_profane_energy }
+						destroy_wonder_upgrade = upgrade_profane_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+						destroy_wonder_upgrade = upgrade_sacrificial_bodies
+					}
 				}
 			}
 		}
@@ -6097,8 +6973,34 @@ character_event = {
 			limit = { has_character_flag = restore_flame_random_4 }
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_4 = { 
-					add_building = tp_eternal_flame
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
+					set_province_flag = relit_eternal_flame
+					while = {
+						limit = { has_wonder_upgrade = upgrade_debris }
+						destroy_wonder_upgrade = upgrade_debris
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_magic_residue }
+						destroy_wonder_upgrade = upgrade_magic_residue
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+						destroy_wonder_upgrade = upgrade_supernatural_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_water_damage }
+						destroy_wonder_upgrade = upgrade_water_damage
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_profane_energy }
+						destroy_wonder_upgrade = upgrade_profane_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+						destroy_wonder_upgrade = upgrade_sacrificial_bodies
+					}
 				}
 			}
 		}
@@ -6106,8 +7008,34 @@ character_event = {
 			limit = { has_character_flag = restore_flame_random_5 }
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_5 = { 
-					add_building = tp_eternal_flame
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
+					set_province_flag = relit_eternal_flame
+					while = {
+						limit = { has_wonder_upgrade = upgrade_debris }
+						destroy_wonder_upgrade = upgrade_debris
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_magic_residue }
+						destroy_wonder_upgrade = upgrade_magic_residue
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
+						destroy_wonder_upgrade = upgrade_supernatural_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_water_damage }
+						destroy_wonder_upgrade = upgrade_water_damage
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_profane_energy }
+						destroy_wonder_upgrade = upgrade_profane_energy
+					}
+					while = {
+						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
+						destroy_wonder_upgrade = upgrade_sacrificial_bodies
+					}
 				}
 			}
 		}
@@ -9487,6 +10415,7 @@ character_event = {
 }
 
 # Reignite Sapphire Flame with no holding - creates the holding
+# No longer needed after conversion to Wonders
 character_event = {
 	id = DRAGON.154
 	desc = EVTDESC_DRAGON.52
@@ -9500,6 +10429,7 @@ character_event = {
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
 			c_sjaelland = {
+				set_province_flag = relit_eternal_flame
 				location = { build_holding = { title = b_lejre type = temple holder = ROOT } }
 			}
 			b_lejre = { 
@@ -9510,6 +10440,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
 			c_kent = {
+				set_province_flag = relit_eternal_flame
 				location = { build_holding = { title = b_canterbury type = temple holder = ROOT } }
 			}
 			b_canterbury = { 
@@ -9520,6 +10451,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
 			c_plock = {
+				set_province_flag = relit_eternal_flame
 				location = { build_holding = { title = b_wyszogrod type = temple holder = ROOT } }
 			}
 			b_wyszogrod = { 
@@ -9530,6 +10462,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
 			c_galloway = {
+				set_province_flag = relit_eternal_flame
 				location = { build_holding = { title = b_whithorn type = temple holder = ROOT } }
 			}
 			b_whithorn = { 
@@ -9540,6 +10473,7 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
 			c_uppland = {
+				set_province_flag = relit_eternal_flame
 				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
 			}
 			b_uppsala = { 
@@ -9818,6 +10752,13 @@ character_event = {
 		modifier = {
 			factor = 1.5
 			mother = { religion_group = pagan_group }
+		}
+		modifier = {
+			factor = 1.5
+			any_realm_wonder = {
+				has_wonder = wonder_eternal_flame
+				has_wonder_upgrade = upgrade_dragon_flame
+			}
 		}
 	}
 	

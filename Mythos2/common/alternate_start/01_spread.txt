@@ -22,7 +22,7 @@ culture_group_spread = {
 	modifier = {
 		factor = 0.01
 		OR = {
-			culture_group = none
+			has_culture = no
 			culture_group = undead_culture_group
 			culture_group = supernatural_culture_group
 			AND = {
@@ -344,7 +344,7 @@ religion_group_spawn = {
 	modifier = {
 		factor = 20
 		religion_group = pagan_group
-		FROM = { culture_group = draconic_culture_group }
+		FROM = { culture_group = dragon_culture_group }
 	}
 }
 

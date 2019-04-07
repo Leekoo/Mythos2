@@ -6658,11 +6658,11 @@ character_event = {
 			}
 			if = {
 				limit = { selected_ingredient_is_perceived_healthy_trigger = yes }
-				FROM = { set_characcter_flag = potion_looks_good }
+				FROM = { set_character_flag = potion_looks_good }
 			}
 			else_if = {
 				limit = { selected_ingredient_is_unhealthy_trigger = yes }
-				FROM = { set_characcter_flag = potion_looks_bad }
+				FROM = { set_character_flag = potion_looks_bad }
 			}
 			FROM = { character_event = { id = MYTH_WoL.91 days = 1 } }
 		}

@@ -2303,24 +2303,22 @@ province_event = {
 			}
 			1 = {
 				trigger = {
-					limit = { FROMFROM = { trait = dragon } }
+					FROMFROM = { trait = dragon }
 				}
 				culture = draconic
 			}
 			1 = {
 				trigger = {
-					limit = { FROMFROM = { trait = djinn } }
+					FROMFROM = { trait = djinn }
 				}
 				culture = djinni
 			}
 			1 = {
-				trigger = {
-					limit = { 
-						FROMFROM = {
-							OR = {
-								trait = mythos_giant
-								trait = half_giant
-							}
+				trigger = { 
+					FROMFROM = {
+						OR = {
+							trait = mythos_giant
+							trait = half_giant
 						}
 					}
 				}
@@ -2328,7 +2326,7 @@ province_event = {
 			}
 			1 = {
 				trigger = {
-					limit = { FROMFROM = { trait = zombie } }
+					FROMFROM = { trait = zombie }
 				}
 				culture = FROMFROM
 			}

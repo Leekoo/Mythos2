@@ -773,7 +773,7 @@ targetted_decisions = {
 			conditional_tooltip = {
 				trigger = {
 					has_minor_title = title_vampiric_protection
-					FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire }
+					FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire } }
 					liege = {
 						FROM = {
 							persistent_event_target:sire = {
@@ -787,7 +787,7 @@ targetted_decisions = {
 					hidden_tooltip = {
 						NAND = {
 							has_minor_title = title_vampiric_protection
-							FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire }
+							FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire } }
 							liege = {
 								FROM = {
 									persistent_event_target:sire = {

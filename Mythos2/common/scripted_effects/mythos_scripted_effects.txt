@@ -861,6 +861,13 @@ determine_purity = {
 		}
 		change_variable = { which = purity value = -3 }
 	}
+	if = {
+		limit = {
+			independent = yes
+			any_realm_province = { has_wonder_upgrade = upgrade_purification_chambers }
+		}
+		change_variable = { which = purity value = 1 }
+	}
 }
 
 set_purity_trait = {

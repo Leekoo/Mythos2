@@ -3779,9 +3779,7 @@ character_event = {
 	}
 }
 
-# Add Eternal Flames to provinces
-# Moved from history to work better with alternate starts
-# Also records eternal flames for random religions
+# Records eternal flames for random religions
 character_event = {
 	id = MYTHMORE.61
 	hide_window = yes
@@ -3793,134 +3791,7 @@ character_event = {
 	
 	immediate = {
 		log = "Running MYTHMORE.61"
-		# First, fix up any holy sites missing temples. Add eternal flames
-		draconic_pagan = {
-			save_event_target_as = target_religion
-			any_title = {
-				limit = { is_holy_site = PREV }
-				log = "Setting up eternal flame in [This.GetName]"
-				if = {
-					limit = {
-						tier = baron
-						holding_type = temple
-					}
-					log = "[This.GetName] is a barony. Adding eternal flame"
-					add_building = tp_eternal_flame
-				}
-				else_if = {
-					limit = { tier = baron }
-					log = "Barony but not a temple"
-					if = {
-						limit = {
-							location = { any_province_holding = {  holding_type = temple } }
-						}
-						log = "There is a temple"
-						remove_holy_site_with_heresies = event_target:target_religion
-						location = {
-							random_province_holding = {
-								limit = { holding_type = temple }
-								set_holy_site_with_heresies = event_target:target_religion
-								log = "Moving holy site to [This.GetName]"
-							}
-						}
-					}
-					else = {
-						log = "No temple available"
-						remove_holy_site_with_heresies = event_target:target_religion
-						county = {
-							log = "location = [This.GetName]"
-							holder_scope = {
-								log = "Holder = [This.GetTitledName]"
-								create_random_priest = {
-									random_traits = yes
-									female = no
-									religion = PREV
-									culture = PREV
-									race = PREV
-									employer = PREV
-								}
-								new_character = {
-									random = {
-										chance = 2
-										culture = draconic
-										set_graphical_culture = draconic
-									}
-									random = {
-										chance = 5
-										religion = draconic_pagan
-									}
-									log = "Created priest [This.GetFullName]"
-									save_event_target_as = new_holder
-								}
-							}
-							log = "Creating temple"
-							location = {
-								build_holding = {
-									type = temple
-									holder = event_target:new_holder
-								}
-								random_province_holding = { # Not sure if I can use new_title after build_holding
-									limit = { holding_type = temple }
-									add_building = tp_eternal_flame
-									set_holy_site_with_heresies = event_target:target_religion
-									log = "Adding eternal flame to new temple, [This.GetName]"
-								}
-							}
-						}
-					}
-				}
-				else = {
-					log = "Not a barony"	
-					location = {
-						if = {
-							limit = { any_province_holding = { holding_type = temple } }
-							log = "[This.GetName] has a temple"
-							random_province_holding = {
-								limit = { holding_type = temple }
-								add_building = tp_eternal_flame
-								log = "Adding eternal flame in holding [This.GetName]"
-							}
-						}
-						else = {
-							log = "[This.GetName] has no temple"
-							holder_scope = {
-								create_random_priest = {
-									random_traits = yes
-									female = no
-									religion = PREV
-									culture = PREV
-									race = PREV
-									employer = PREV
-								}
-								new_character = {
-									random = {
-										chance = 2
-										culture = draconic
-									}
-									random = {
-										chance = 5
-										religion = draconic_pagan
-									}
-									log = "Created priest [This.GetFullName]"
-									save_event_target_as = new_holder
-								}
-							}
-							log = "Creating temple"
-							build_holding = {
-								type = temple
-								holder = event_target:new_holder
-							}
-							random_province_holding = { # Not sure if I can use new_title after build_holding
-								limit = { holding_type = temple }
-								add_building = tp_eternal_flame
-								log = "Adding eternal flame to new temple, [This.GetName]"
-							}
-						}
-					}
-				}
-			}
-		}
-		
+		# Eternal flames are no longer added here - they are added in history for normal starts and can be built in random worlds
 		
 		# Record eternal flame sites
 		if = {
@@ -3933,11 +3804,11 @@ character_event = {
 				}
 			}
 			k_draconic_pagan_reformed = {
-				save_persistent_event_target = { name = draconic_holy_site_1 scope = b_lejre }
-				save_persistent_event_target = { name = draconic_holy_site_1 scope = b_canterbury }
-				save_persistent_event_target = { name = draconic_holy_site_1 scope = b_wyszogrod }
-				save_persistent_event_target = { name = draconic_holy_site_1 scope = b_whithorn }
-				save_persistent_event_target = { name = draconic_holy_site_1 scope = b_uppsala }
+				save_persistent_event_target = { name = draconic_holy_site_1 scope = c_sjaelland }
+				save_persistent_event_target = { name = draconic_holy_site_2 scope = c_kent }
+				save_persistent_event_target = { name = draconic_holy_site_3 scope = c_plock }
+				save_persistent_event_target = { name = draconic_holy_site_4 scope = c_galloway }
+				save_persistent_event_target = { name = draconic_holy_site_5 scope = c_uppland }
 			}
 		}
 		else = {
@@ -3945,8 +3816,7 @@ character_event = {
 				random_landed_title = {
 					limit = { is_holy_site = PREV }
 					k_draconic_pagan_reformed = {
-							save_persistent_event_target = { name = draconic_holy_site_1 scope = PREV }
-						}
+						save_persistent_event_target = { name = draconic_holy_site_1 scope = PREV }
 					}
 				}
 				random_landed_title = {
@@ -3955,8 +3825,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_1 = { title = PREVPREV } } }
 					}
 					k_draconic_pagan_reformed = {
-							save_persistent_event_target = { name = draconic_holy_site_2 scope = PREV }
-						}
+						save_persistent_event_target = { name = draconic_holy_site_2 scope = PREV }
 					}
 				}
 				random_landed_title = {
@@ -3966,8 +3835,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_2 = { title = PREVPREV } } }
 					}
 					k_draconic_pagan_reformed = {
-							save_persistent_event_target = { name = draconic_holy_site_3 scope = PREV }
-						}
+						save_persistent_event_target = { name = draconic_holy_site_3 scope = PREV }
 					}
 				}
 				random_landed_title = {
@@ -3978,8 +3846,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_3 = { title = PREVPREV } } }
 					}
 					k_draconic_pagan_reformed = {
-							save_persistent_event_target = { name = draconic_holy_site_4 scope = PREV }
-						}
+						save_persistent_event_target = { name = draconic_holy_site_4 scope = PREV }
 					}
 				}
 				random_landed_title = {
@@ -3991,8 +3858,7 @@ character_event = {
 						NOT = { k_draconic_pagan_reformed = { persistent_event_target:draconic_holy_site_4 = { title = PREVPREV } } }
 					}
 					k_draconic_pagan_reformed = {
-							save_persistent_event_target = { name = draconic_holy_site_5 scope = PREV }
-						}
+						save_persistent_event_target = { name = draconic_holy_site_5 scope = PREV }
 					}
 				}
 			}
@@ -4011,7 +3877,7 @@ character_event = {
 	
 	trigger = {
 		culture = werewolf_culture
-		has_landed_title = yes
+		is_landed = yes
 		higher_tier_than = count
 	}
 	
@@ -4294,25 +4160,25 @@ character_event = {
 				limit = {
 					trait = novice_mage
 				}
-				FROM = { set_event_flag = curse_1 }
+				FROM = { set_character_flag = curse_1 }
 			}
 			else_if = {
 				limit = {
 					trait = eldritch_scholar
 				}
-				FROM = { set_event_flag = curse_2 }
+				FROM = { set_character_flag = curse_2 }
 			}
 			else_if = {
 				limit = {
 					trait = veteran_wizard
 				}
-				FROM = { set_event_flag = curse_3 }
+				FROM = { set_character_flag = curse_3 }
 			}
 			else_if = {
 				limit = {
 					trait = arcane_master
 				}
-				FROM = { set_event_flag = curse_4 }
+				FROM = { set_character_flag = curse_4 }
 			}
 		}
 	}
@@ -4431,14 +4297,14 @@ character_event = {
 			limit = {
 				ingredient_1_poison_mother = yes
 			}
-			custom_tooltip = { test = tt_poison_mother }
+			custom_tooltip = { text = tt_poison_mother }
 		}
 		# Child may be poisoned
 		if = {
 			limit = {
 				ingredient_1_poison_child = yes
 			}
-			custom_tooltip = { test = tt_poison_child }
+			custom_tooltip = { text = tt_poison_child }
 		}
 		hidden_tooltip = {
 			if = { # Child may gain frail or weak
@@ -4462,7 +4328,7 @@ character_event = {
 				limit = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random_list = {
@@ -4479,7 +4345,7 @@ character_event = {
 				limit = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random_list = {
@@ -4512,7 +4378,7 @@ character_event = {
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_animal4
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -4544,8 +4410,8 @@ character_event = {
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_animal4
 							artifact_type = ingredient_animal9
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -4654,7 +4520,7 @@ character_event = {
 					NOT = { has_character_flag = made_ill }
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random = {
@@ -4682,7 +4548,7 @@ character_event = {
 						OR = {
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_herb6
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 						}
 					}
 				}
@@ -4707,9 +4573,9 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							artifact_type = ingredient_animal7
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic8
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -4737,11 +4603,11 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
-							artifact_type = ingredient_exotic5
-							artifact_type = ingredient_exotic8
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
 						}
 					}
 				}
@@ -4767,7 +4633,7 @@ character_event = {
 					NOT = { FROM = { trait = lunatic } }
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random = {
@@ -4781,14 +4647,14 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							AND = {
-								artifact_type = ingredient_exotic1
+								artifact_type = ingredient_metal_exotic1
 								FROM = { trait = werewolf }
 							}
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_wolfsbane
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_mistletoe
 						}
 					}
@@ -4812,7 +4678,7 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							artifact_type = ingredient_herb3
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_moly
 						}
 					}
@@ -4871,14 +4737,14 @@ character_event = {
 			limit = {
 				ingredient_2_poison_mother = yes
 			}
-			custom_tooltip = { test = tt_poison_mother }
+			custom_tooltip = { text = tt_poison_mother }
 		}
 		# Child may be poisoned
 		if = {
 			limit = {
 				ingredient_2_poison_child = yes
 			}
-			custom_tooltip = { test = tt_poison_child }
+			custom_tooltip = { text = tt_poison_child }
 		}
 		hidden_tooltip = {
 			if = { # Child may gain frail or weak
@@ -4902,7 +4768,7 @@ character_event = {
 				limit = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random_list = {
@@ -4919,7 +4785,7 @@ character_event = {
 				limit = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random_list = {
@@ -4952,7 +4818,7 @@ character_event = {
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_animal4
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -4984,8 +4850,8 @@ character_event = {
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_animal4
 							artifact_type = ingredient_animal9
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -5094,7 +4960,7 @@ character_event = {
 					NOT = { has_character_flag = made_ill }
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random = {
@@ -5122,7 +4988,7 @@ character_event = {
 						OR = {
 							artifact_type = ingredient_herb5
 							artifact_type = ingredient_herb6
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 						}
 					}
 				}
@@ -5147,9 +5013,9 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							artifact_type = ingredient_animal7
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic8
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -5177,11 +5043,11 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
-							artifact_type = ingredient_exotic5
-							artifact_type = ingredient_exotic8
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
+							artifact_type = ingredient_metal_exotic5
+							artifact_type = ingredient_metal_exotic8
+							artifact_type = ingredient_metal_exotic9
 						}
 					}
 				}
@@ -5207,7 +5073,7 @@ character_event = {
 					NOT = { FROM = { trait = lunatic } }
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
-						artifact_type = ingredient_exotic2
+						artifact_type = ingredient_metal_exotic2
 					}
 				}
 				random = {
@@ -5221,14 +5087,14 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							AND = {
-								artifact_type = ingredient_exotic1
+								artifact_type = ingredient_metal_exotic1
 								FROM = { trait = werewolf }
 							}
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_wolfsbane
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic9
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic9
 							artifact_type = ingredient_mistletoe
 						}
 					}
@@ -5252,7 +5118,7 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							artifact_type = ingredient_herb3
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_moly
 						}
 					}
@@ -5471,7 +5337,10 @@ character_event = {
 			}
 			random = {
 				chance = 5
-				trigger = { FROM = { trait = drunkard } }
+				modifier = {
+					factor = 0
+					NOT = { FROM = { trait = drunkard } }
+				}
 				FROM = { character_event = { id = 65046 days = 3 } }
 			}
 		}
@@ -5562,21 +5431,21 @@ character_event = {
 			limit = {
 				ingredient_1_boon_mother = yes
 			}
-			custom_tooltip = { test = tt_boon_mother }
+			custom_tooltip = { text = tt_boon_mother }
 		}
 		# Child may be given a boon
 		if = {
 			limit = {
 				ingredient_1_boon_child = yes
 			}
-			custom_tooltip = { test = tt_boon_child }
+			custom_tooltip = { text = tt_boon_child }
 		}
 		# There may be side effects
 		if = {
 			limit = {
 				ingredient_1_side_effects = yes
 			}
-			custom_tooltip = { test = tt_side_effects }
+			custom_tooltip = { text = tt_side_effects }
 		}
 		hidden_tooltip = {
 			if = { # May cure depression
@@ -5586,7 +5455,7 @@ character_event = {
 						OR = {
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_herb5
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -5686,7 +5555,7 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							artifact_type = ingredient_herb5
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -5713,8 +5582,8 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -5741,8 +5610,8 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -5807,7 +5676,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -5822,7 +5691,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -5837,7 +5706,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -5872,7 +5741,7 @@ character_event = {
 							artifact_type = ingredient_animal5
 							artifact_type = ingredient_animal7
 							artifact_type = ingredient_animal8
-							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_metal_exotic8
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -5888,8 +5757,8 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							artifact_type = ingredient_herb9
-							artifact_type = ingredient_exotic1
-							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic8
 							artifact_type = ingredient_sage
 							artifact_type = ingredient_asclepois
 						}
@@ -5906,12 +5775,12 @@ character_event = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
 							AND = {
-								artifact_type = ingredient_exotic1
+								artifact_type = ingredient_metal_exotic1
 								FROM = { trait = werewolf }
 							}
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 							artifact_type = ingredient_mistletoe
 						}
@@ -5935,7 +5804,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_metal_exotic5
 							artifact_type = ingredient_fern_flower
 							artifact_type = ingredient_asclepois
 						}
@@ -5951,7 +5820,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_1
 						OR = {
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6018,21 +5887,21 @@ character_event = {
 			limit = {
 				ingredient_2_boon_mother = yes
 			}
-			custom_tooltip = { test = tt_boon_mother }
+			custom_tooltip = { text = tt_boon_mother }
 		}
 		# Child may be given a boon
 		if = {
 			limit = {
 				ingredient_2_boon_child = yes
 			}
-			custom_tooltip = { test = tt_boon_child }
+			custom_tooltip = { text = tt_boon_child }
 		}
 		# There may be side effects
 		if = {
 			limit = {
 				ingredient_2_side_effects = yes
 			}
-			custom_tooltip = { test = tt_side_effects }
+			custom_tooltip = { text = tt_side_effects }
 		}
 		hidden_tooltip = {
 			if = { # May cure depression
@@ -6042,7 +5911,7 @@ character_event = {
 						OR = {
 							artifact_type = ingredient_herb3
 							artifact_type = ingredient_herb5
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6142,7 +6011,7 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							artifact_type = ingredient_herb5
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -6169,8 +6038,8 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -6197,8 +6066,8 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 						}
 					}
@@ -6263,7 +6132,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6278,7 +6147,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6293,7 +6162,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic2
+							artifact_type = ingredient_metal_exotic2
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6328,7 +6197,7 @@ character_event = {
 							artifact_type = ingredient_animal5
 							artifact_type = ingredient_animal7
 							artifact_type = ingredient_animal8
-							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_metal_exotic8
 							artifact_type = ingredient_asclepois
 						}
 					}
@@ -6344,8 +6213,8 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							artifact_type = ingredient_herb9
-							artifact_type = ingredient_exotic1
-							artifact_type = ingredient_exotic8
+							artifact_type = ingredient_metal_exotic1
+							artifact_type = ingredient_metal_exotic8
 							artifact_type = ingredient_sage
 							artifact_type = ingredient_asclepois
 						}
@@ -6362,12 +6231,12 @@ character_event = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
 							AND = {
-								artifact_type = ingredient_exotic1
+								artifact_type = ingredient_metal_exotic1
 								FROM = { trait = werewolf }
 							}
-							artifact_type = ingredient_exotic2
-							artifact_type = ingredient_exotic3
-							artifact_type = ingredient_exotic4
+							artifact_type = ingredient_metal_exotic2
+							artifact_type = ingredient_metal_exotic3
+							artifact_type = ingredient_metal_exotic4
 							artifact_type = ingredient_wolfsbane
 							artifact_type = ingredient_mistletoe
 						}
@@ -6391,7 +6260,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic5
+							artifact_type = ingredient_metal_exotic5
 							artifact_type = ingredient_fern_flower
 							artifact_type = ingredient_asclepois
 						}
@@ -6407,7 +6276,7 @@ character_event = {
 					any_artifact = {
 						has_artifact_flag = selected_ingredient_2
 						OR = {
-							artifact_type = ingredient_exotic6
+							artifact_type = ingredient_metal_exotic6
 							artifact_type = ingredient_asclepois
 						}
 					}

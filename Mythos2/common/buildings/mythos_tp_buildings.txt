@@ -8,7 +8,7 @@ temple = {
 		trigger = {
 			FROM = { government = draconic_theocracy_government }
 			OR = {
-				FROMFROM = { has_building = tp_eternal_flame }
+				FROMFROM = { location = { has_wonder = wonder_eternal_flame } }
 				FROM = { controls_religion = yes }
 			}
 			OR = {
@@ -20,9 +20,10 @@ temple = {
 		is_active_trigger = {
 			FROM = { government = draconic_theocracy_government }
 			OR = {
-				FROMFROM = { has_building = tp_eternal_flame }
+				FROMFROM = { location = { has_wonder = wonder_eternal_flame } }
 				FROM = { controls_religion = yes }
 			}
+			FROMFROM = { location = { has_wonder_upgrade  = upgrade_dragon_flame } }
 		}
 		gold_cost = 320
 		build_time = 1095

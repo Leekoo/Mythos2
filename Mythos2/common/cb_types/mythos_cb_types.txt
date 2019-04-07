@@ -1297,14 +1297,14 @@ monster_revolt = {
 							culture = werewolf_culture
 							culture = vampire_culture
 							culture = draconic
-							culture = djinn
+							culture = djinni
 						}
 						ROOT = {
 							NOR = {
 								culture = werewolf_culture
 								culture = vampire_culture
 								culture = draconic
-								culture = djinn
+								culture = djinni
 							}
 						}
 					}
@@ -1396,7 +1396,7 @@ monster_revolt = {
 						trigger = {
 							OR = {
 								AND = {
-									NOT = { culture = vampiric_culture }
+									NOT = { culture = vampire_culture }
 									FROM = { trait = known_vampire }
 									has_global_flag = founded_vampire_culture
 								}

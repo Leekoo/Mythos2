@@ -238,14 +238,14 @@ mythos_generate_monsters = {
 							5 = { religion = baltic_pagan }
 							5 = { religion = finnish_pagan }
 							5 = { 
-								limit = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
+								trigger = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
 								religion = aztec
 							}
 							5 = { religion = slavic_pagan }
 							5 = { religion = west_african_pagan }
 							5 = { religion = zun_pagan }
 							5 = { 
-								limit = { has_alternate_start_parameter = { key = religion value = full_random } }
+								trigger = { has_alternate_start_parameter = { key = religion value = full_random } }
 								religion = hellenic_pagan
 							}
 							5 = { religion = bon }
@@ -367,14 +367,14 @@ mythos_generate_monsters = {
 						5 = { religion = baltic_pagan }
 						5 = { religion = finnish_pagan }
 						5 = { 
-							limit = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
+							trigger = { has_alternate_start_parameter = { key = religion value = full_random } has_dlc = "Sunset Invasion" }
 							religion = aztec
 						}
 						5 = { religion = slavic_pagan }
 						5 = { religion = west_african_pagan }
 						5 = { religion = zun_pagan }
 						5 = { 
-							limit = { has_alternate_start_parameter = { key = religion value = full_random } }
+							trigger = { has_alternate_start_parameter = { key = religion value = full_random } }
 							religion = hellenic_pagan
 						}
 						5 = { religion = bon }
@@ -441,7 +441,11 @@ mythos_generate_monsters = {
 			# Any characters with no religion should take their province religion
 			any_character = {
 				limit = { no_religion = yes }
-				religion = location
+				location = {
+					PREV = {
+						religion = PREV
+					}
+				}
 			}
 			
 			# Now handle cultures
@@ -455,7 +459,7 @@ mythos_generate_monsters = {
 					if = {
 						limit = { any_neighbor_province = { has_culture = yes } }
 						save_event_target_as = base_province
-						random_neigbor_province = {
+						any_neighbor_province = {
 							limit = { has_culture = yes }
 							event_target:base_province = { culture = PREV }
 						}
@@ -1558,7 +1562,7 @@ mythos_generate_monsters = {
 					NOT = { trait = werewolf }
 				}
 				if = {
-					limit = { has_landed_title = no }
+					limit = { is_landed = no }
 					random = {
 						chance = 30
 						additive_modifier = {
@@ -1643,7 +1647,7 @@ mythos_generate_monsters = {
 					NOT = { trait = vampire }
 				}
 				if = {
-					limit = { has_landed_title = no }
+					limit = { is_landed = no }
 					random = {
 						chance = 5
 						additive_modifier = {
@@ -1714,7 +1718,7 @@ mythos_generate_monsters = {
 					}
 					random = {
 						chance = 70
-						religion = satanism
+						religion = satanist
 						any_demesne_province = {
 							religion = satanist
 						}
@@ -1732,7 +1736,7 @@ mythos_generate_monsters = {
 					chance = 2
 					modifier = {
 						factor = 5
-						has_landed_title = yes
+						is_landed = no
 					}
 					modifier = {
 						factor = 3
@@ -1837,7 +1841,7 @@ mythos_generate_monsters = {
 					chance = 10
 					modifier = {
 						factor = 1.5
-						has_landed_title = yes
+						is_landed = yes
 					}
 					modifier = {
 						factor = 1.2
@@ -1902,7 +1906,7 @@ mythos_generate_monsters = {
 					chance = 3
 					modifier = {
 						factor = 1.5
-						has_landed_title = yes
+						is_landed = yes
 					}
 					modifier = {
 						factor = 1.2
@@ -1965,9 +1969,9 @@ mythos_generate_monsters = {
 					chance = 20
 					modifier = {
 						factor = 3.5
-						has_landed_title = yes
+						is_landed = yes
 					}
-					add_trait = djinni
+					add_trait = djinn
 				}
 			}
 			# Revenants

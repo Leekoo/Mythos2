@@ -8935,6 +8935,15 @@ character_event = { # Hunt Apostates meta event
 						factor = 1.25
 						inquisitor = yes
 					}
+					modifier = {
+						factor = 1.25
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
+					}
 					event_target:suspected_society_member = {
 						save_event_target_as = accused_apostate
 					}
@@ -8992,6 +9001,15 @@ character_event = { # Hunt Apostates meta event
 					modifier = {
 						factor = 1.25
 						inquisitor = yes
+					}
+					modifier = {
+						factor = 1.25
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
 					}
 					event_target:suspected_apostate = {
 						save_event_target_as = accused_apostate
@@ -9052,6 +9070,15 @@ character_event = { # Hunt Apostates meta event
 					modifier = {
 						factor = 1.1
 						inquisitor = yes
+					}
+					modifier = {
+						factor = 1.25
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
 					}
 					modifier = {
 						factor = 1.5
@@ -9134,6 +9161,15 @@ character_event = { # Hunt Apostates meta event
 						inquisitor = yes
 					}
 					modifier = {
+						factor = 1.25
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
+					}
+					modifier = {
 						factor = 1.5
 						has_instances_of_character_modifier = { modifier = known_monster amount = 1 }
 					}
@@ -9189,6 +9225,15 @@ character_event = { # Hunt Apostates meta event
 						factor = 1.25
 						society_member_of = monastic_order_dominican
 					}
+					modifier = {
+						factor = 1.25
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
+					}
 					event_target:no_suspicion = {
 						save_event_target_as = accused_apostate
 					}
@@ -9228,6 +9273,15 @@ character_event = { # Hunt Apostates meta event
 					modifier = {
 						factor = 1.25
 						is_dumb_trigger = yes
+					}
+					modifier = {
+						factor = 0.9
+						liege = {
+							independent = yes
+							any_realm_province = {
+								has_wonder_upgrade = upgrade_inquisition_chambers
+							}
+						}
 					}
 					event_target:innocent_victim = {
 						save_event_target_as = accused_apostate
@@ -9292,6 +9346,15 @@ character_event = { # Hunt Apostates meta event
 		modifier = {
 			factor = 0.75
 			inquisitor = yes
+		}
+		modifier = {
+			factor = 0.75
+			liege = {
+				independent = yes
+				any_realm_province = {
+					has_wonder_upgrade = upgrade_inquisition_chambers
+				}
+			}
 		}
 		modifier = {
 			factor = 2
@@ -15877,7 +15940,7 @@ character_event = {
 		random_list = {
 			1 = { # Jealous heir
 				trigger = {
-					has_landed_title = yes
+					is_landed = yes
 					current_heir = { trait = enchanter }
 					NOT = { has_law = succ_seniority }
 					NOT = { has_law = succ_appointment }
@@ -15900,7 +15963,7 @@ character_event = {
 			1 = { # Jelous heir of spouse
 				trigger = {
 					any_spouse = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = {
 							trait = enchanter
 							NOT = { character = ROOT }
@@ -15909,7 +15972,7 @@ character_event = {
 				}
 				random_spouse = {
 					limit = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = {
 							trait = enchanter
 							NOT = { character = ROOT }
@@ -15991,7 +16054,7 @@ character_event = {
 		random_list = {
 			1 = { # Jealous heir
 				trigger = {
-					has_landed_title = yes
+					is_landed = yes
 					current_heir = {
 						trait = herbalist
 						same_realm = ROOT
@@ -16003,7 +16066,7 @@ character_event = {
 			1 = { # Jelous heir of spouse
 				trigger = {
 					any_spouse = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = {
 							trait = herbalist
 							NOT = { character = ROOT }
@@ -16014,7 +16077,7 @@ character_event = {
 				}
 				random_spouse = {
 					limit = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = {
 							trait = herbalist
 							NOT = { character = ROOT }
@@ -16365,7 +16428,7 @@ character_event = {
 				modifier = { # Heir that may lose position
 					factor = 2
 					ROOT = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = { character = event_target:evil_sorcerer }
 						OR = {
 							has_law = succ_ultimogeniture
@@ -16384,7 +16447,7 @@ character_event = {
 					factor = 2
 					ROOT = {
 						spouse = {
-							has_landed_title = yes
+							is_landed = yes
 							current_heir = { character = event_target:evil_sorcerer }
 							OR = {
 								has_law = succ_ultimogeniture
@@ -16425,7 +16488,7 @@ character_event = {
 				modifier = { # Heir that may lose position
 					factor = 2
 					ROOT = {
-						has_landed_title = yes
+						is_landed = yes
 						current_heir = { character = event_target:evil_sorcerer }
 						OR = {
 							has_law = succ_ultimogeniture
@@ -16444,7 +16507,7 @@ character_event = {
 					factor = 2
 					ROOT = {
 						spouse = {
-							has_landed_title = yes
+							is_landed = yes
 							current_heir = { character = event_target:evil_sorcerer }
 							OR = {
 								has_law = succ_ultimogeniture
@@ -21078,7 +21141,7 @@ character_event = {
 	}
 }
 
-Mother craved for quail's leg: child is good at talking but clubfooted.
+#Mother craved for quail's leg: child is good at talking but clubfooted.
 character_event = {
 	id = HFP.20582
 	desc = EVTDESCHFPA20582
@@ -21899,11 +21962,11 @@ character_event = {
 					else_if = {
 						limit = {
 							NOR = {
-								trait = frail
+								trait = feeble
 								trait = weak
 							}
 						}
-						add_trait = frail
+						add_trait = feeble
 					}
 				}
 				10 = {
@@ -21920,7 +21983,7 @@ character_event = {
 					}
 					modifier = {
 						factor = 2
-						trait = frail
+						trait = feeble
 					}
 					modifier = {
 						factor = 1.2
@@ -21939,15 +22002,15 @@ character_event = {
 						remove_trait = strong
 					}
 					else_if = {
-						limit = { trait = brawny }
-						remove_trait = brawny
+						limit = { trait = sturdy }
+						remove_trait = sturdy
 					}
 					else_if = {
 						limit = { trait = robust }
 						remove_trait = robust
 					}
 					else = {
-						remove_trait = frail
+						remove_trait = feeble
 						add_trait = weak
 					}
 				}
@@ -22111,9 +22174,9 @@ character_event = {
 		}
 		if = {
 			limit = {
-				mother = { has_character_flag = baby_poisoned_frail }
+				mother = { has_character_flag = baby_poisoned_feeble }
 			}
-			clr_character_flag = baby_poisoned_frail
+			clr_character_flag = baby_poisoned_feeble
 			if = {
 				limit = { trait = strong }
 				remove_trait = strong
@@ -22723,7 +22786,7 @@ character_event = {
 				}
 				else_if = {
 					limit = { trait = feeble }
-					remove_trait = feebly
+					remove_trait = feeble
 				}
 				else = {
 					remove_trait = robust
@@ -22901,7 +22964,7 @@ character_event = {
 					}   
 					remove_trait = weak
 					remove_sickly = yes
-					add_trait = brawny
+					add_trait = robust
 
 				} 
 				80 = { #No luck.
@@ -22920,7 +22983,7 @@ character_event = {
 			if = { 
 				limit = {
 					OR = {
-						trait = brawny
+						trait = robust
 						trait = strong
 					}
 				}
@@ -23312,7 +23375,7 @@ character_event = {
 		remove_trait = clubfooted
 		remove_trait = quailfooted
 		remove_trait = slow
-		remove_trait = full
+		remove_trait = dull
 		remove_trait = imbecile
 		remove_trait = harelip
 		remove_trait = cleft_lip
