@@ -232,7 +232,18 @@ upgrade_roads = {
 	picture = GFX_upgrade_icon_crates
 	
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -250,7 +261,18 @@ upgrade_watchtower_network = {
 	picture = GFX_upgrade_icon_walls
 
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -270,7 +292,18 @@ upgrade_spikes = {
 	picture = GFX_upgrade_icon_skulls
 
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -307,8 +340,18 @@ upgrade_tower = {
 	picture = GFX_upgrade_icon_stones
 
 	potential = { }
-	allow = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -329,7 +372,18 @@ upgrade_hypocausts = {
 	picture = GFX_upgrade_icon_brazier
 
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -351,7 +405,19 @@ upgrade_heating_pipes = {
 	picture = GFX_upgrade_icon_brazier
 
 	potential = { }
-	allow = { has_wonder_upgrade = upgrade_hypocausts }
+	allow = {
+		has_wonder_upgrade = upgrade_hypocausts
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { has_wonder_upgrade = upgrade_hypocausts }
 
 	flags = {
@@ -373,7 +439,18 @@ upgrade_retinue = {
 	picture = GFX_upgrade_icon_guard_helmet
 
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -478,8 +555,30 @@ upgrade_historical_mural = {
 	picture = GFX_upgrade_icon_decorative
 	
 	potential = { }
-	allow = { }
-	active = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 
 	flags = {
 		is_singular
@@ -502,7 +601,18 @@ upgrade_road_tolls = {
 	picture = GFX_upgrade_icon_ingots_gold
 
 	potential = { }
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = { }
 
 	flags = {
@@ -3643,8 +3753,36 @@ upgrade_runestones = {
 	potential = {
 		religion_openly_norse_or_reformed_trigger = yes
 	}
-	allow = { religion_openly_norse_or_reformed_trigger = yes }
-	active = { religion_openly_norse_or_reformed_trigger = yes }
+	allow = {
+		trigger_if = {
+			limit = {
+				religion_openly_norse_or_reformed_trigger = no
+			}
+			OR = {
+				religion_openly_norse_or_reformed_trigger = yes
+				AND = {
+					religion_openly_draconic_or_reformed_trigger = yes
+					FROM = { has_wonder = wonder_eternal_flame }
+					FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+				}
+			}
+		}
+	}
+	active = {
+		trigger_if = {
+			limit = {
+				religion_openly_norse_or_reformed_trigger = no
+			}
+			OR = {
+				religion_openly_norse_or_reformed_trigger = yes
+				AND = {
+					religion_openly_draconic_or_reformed_trigger = yes
+					FROM = { has_wonder = wonder_eternal_flame }
+					FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+				}
+			}
+		}
+	}
 
 	flags = {
 		is_plural
@@ -3946,8 +4084,30 @@ upgrade_lime_stone_casing = { #For pyramids
 upgrade_overseer_of_rites = {
 	picture = GFX_upgrade_icon_key
 	potential = { }
-	allow = { }
-	active = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
+	active = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 
 	flags = {
 		is_singular

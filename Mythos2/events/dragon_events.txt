@@ -2219,50 +2219,8 @@ character_event = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
-					# Figure out max upgrades
-					if = {
-						limit = { wonder_stage >= 4 }
-						set_variable = { which = max_upgrades value = 8 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 5 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 3 }
-					}
-					else = {
-						set_variable = { which = max_upgrades value = 1 }
-					}
-					while = {
-						limit = {
-							NOT = { num_of_wonder_upgrades = max_upgrades }
-						}
-						if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-							add_wonder_upgrade = upgrade_sacrificial_bodies
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-							add_wonder_upgrade = upgrade_profane_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = flood_flame } }
-							add_wonder_upgrade = upgrade_water_damage
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = pray_flame } }
-							add_wonder_upgrade = upgrade_supernatural_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = counterspell_flame } }
-							add_wonder_upgrade = upgrade_magic_residue
-						}
-						else = {
-							add_wonder_upgrade = upgrade_debris
-						}
-						subtract_variable = { which = max_upgrades value = 1 }
+					hidden_tooltip = {
+						remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 					}
 				}
 			}
@@ -2270,53 +2228,13 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = destroy_flame_kent }
 			73 = {
+				#remove_building = tp_eternal_flame
+				#save_event_target_as = destroyed_flame
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
-					# Figure out max upgrades
-					if = {
-						limit = { wonder_stage >= 4 }
-						set_variable = { which = max_upgrades value = 8 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 5 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 3 }
-					}
-					else = {
-						set_variable = { which = max_upgrades value = 1 }
-					}
-					while = {
-						limit = {
-							NOT = { num_of_wonder_upgrades = max_upgrades }
-						}
-						if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-							add_wonder_upgrade = upgrade_sacrificial_bodies
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-							add_wonder_upgrade = upgrade_profane_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = flood_flame } }
-							add_wonder_upgrade = upgrade_water_damage
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = pray_flame } }
-							add_wonder_upgrade = upgrade_supernatural_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = counterspell_flame } }
-							add_wonder_upgrade = upgrade_magic_residue
-						}
-						else = {
-							add_wonder_upgrade = upgrade_debris
-						}
-						subtract_variable = { which = max_upgrades value = 1 }
+					hidden_tooltip = {
+						remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 					}
 				}
 			}
@@ -2324,53 +2242,13 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = destroy_flame_plock }
 			529 = {
+				#remove_building = tp_eternal_flame
+				#save_event_target_as = destroyed_flame
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
-					# Figure out max upgrades
-					if = {
-						limit = { wonder_stage >= 4 }
-						set_variable = { which = max_upgrades value = 8 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 5 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 3 }
-					}
-					else = {
-						set_variable = { which = max_upgrades value = 1 }
-					}
-					while = {
-						limit = {
-							NOT = { num_of_wonder_upgrades = max_upgrades }
-						}
-						if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-							add_wonder_upgrade = upgrade_sacrificial_bodies
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-							add_wonder_upgrade = upgrade_profane_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = flood_flame } }
-							add_wonder_upgrade = upgrade_water_damage
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = pray_flame } }
-							add_wonder_upgrade = upgrade_supernatural_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = counterspell_flame } }
-							add_wonder_upgrade = upgrade_magic_residue
-						}
-						else = {
-							add_wonder_upgrade = upgrade_debris
-						}
-						subtract_variable = { which = max_upgrades value = 1 }
+					hidden_tooltip = {
+						remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 					}
 				}
 			}
@@ -2378,53 +2256,13 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = destroy_flame_galloway }
 			50 = {
+				#remove_building = tp_eternal_flame
+				#save_event_target_as = destroyed_flame
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
-					# Figure out max upgrades
-					if = {
-						limit = { wonder_stage >= 4 }
-						set_variable = { which = max_upgrades value = 8 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 5 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 3 }
-					}
-					else = {
-						set_variable = { which = max_upgrades value = 1 }
-					}
-					while = {
-						limit = {
-							NOT = { num_of_wonder_upgrades = max_upgrades }
-						}
-						if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-							add_wonder_upgrade = upgrade_sacrificial_bodies
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-							add_wonder_upgrade = upgrade_profane_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = flood_flame } }
-							add_wonder_upgrade = upgrade_water_damage
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = pray_flame } }
-							add_wonder_upgrade = upgrade_supernatural_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = counterspell_flame } }
-							add_wonder_upgrade = upgrade_magic_residue
-						}
-						else = {
-							add_wonder_upgrade = upgrade_debris
-						}
-						subtract_variable = { which = max_upgrades value = 1 }
+					hidden_tooltip = {
+						remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 					}
 				}
 			}
@@ -2432,53 +2270,14 @@ character_event = {
 		else_if = {
 			limit = { has_character_flag = destroy_flame_uppland }
 			290 = {
+				#remove_building = tp_eternal_flame
+				#save_event_target_as = destroyed_flame
 				wonder = {
+					log = "Destroying Uppland Flame"
 					destroy_wonder_upgrade = upgrade_dragon_flame
 					add_wonder_upgrade = upgrade_dead_flame
-					# Figure out max upgrades
-					if = {
-						limit = { wonder_stage >= 4 }
-						set_variable = { which = max_upgrades value = 8 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 5 }
-					}
-					else_if = {
-						limit = { wonder_stage == 3 }
-						set_variable = { which = max_upgrades value = 3 }
-					}
-					else = {
-						set_variable = { which = max_upgrades value = 1 }
-					}
-					while = {
-						limit = {
-							NOT = { num_of_wonder_upgrades = max_upgrades }
-						}
-						if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-							add_wonder_upgrade = upgrade_sacrificial_bodies
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-							add_wonder_upgrade = upgrade_profane_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = flood_flame } }
-							add_wonder_upgrade = upgrade_water_damage
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = pray_flame } }
-							add_wonder_upgrade = upgrade_supernatural_energy
-						}
-						else_if = {
-							limit = { ROOT = { has_character_flag = counterspell_flame } }
-							add_wonder_upgrade = upgrade_magic_residue
-						}
-						else = {
-							add_wonder_upgrade = upgrade_debris
-						}
-						subtract_variable = { which = max_upgrades value = 1 }
+					hidden_tooltip = {
+						remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 					}
 				}
 			}
@@ -2487,53 +2286,13 @@ character_event = {
 			limit = { has_character_flag = destroy_flame_random_1 }
 			persistent_event_target:draconic_holy_site_1 = {
 				location = {
+					#remove_building = tp_eternal_flame
+					#save_event_target_as = destroyed_flame
 					wonder = {
 						destroy_wonder_upgrade = upgrade_dragon_flame
 						add_wonder_upgrade = upgrade_dead_flame
-						# Figure out max upgrades
-						if = {
-							limit = { wonder_stage >= 4 }
-							set_variable = { which = max_upgrades value = 8 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 5 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 3 }
-						}
-						else = {
-							set_variable = { which = max_upgrades value = 1 }
-						}
-						while = {
-							limit = {
-								NOT = { num_of_wonder_upgrades = max_upgrades }
-							}
-							if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-								add_wonder_upgrade = upgrade_sacrificial_bodies
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-								add_wonder_upgrade = upgrade_profane_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = flood_flame } }
-								add_wonder_upgrade = upgrade_water_damage
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = pray_flame } }
-								add_wonder_upgrade = upgrade_supernatural_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = counterspell_flame } }
-								add_wonder_upgrade = upgrade_magic_residue
-							}
-							else = {
-								add_wonder_upgrade = upgrade_debris
-							}
-							subtract_variable = { which = max_upgrades value = 1 }
+						hidden_tooltip = {
+							remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 						}
 					}
 				}
@@ -2543,53 +2302,13 @@ character_event = {
 			limit = { has_character_flag = destroy_flame_random_2 }
 			persistent_event_target:draconic_holy_site_2 = {
 				location = {
+					#remove_building = tp_eternal_flame
+					#save_event_target_as = destroyed_flame
 					wonder = {
 						destroy_wonder_upgrade = upgrade_dragon_flame
 						add_wonder_upgrade = upgrade_dead_flame
-						# Figure out max upgrades
-						if = {
-							limit = { wonder_stage >= 4 }
-							set_variable = { which = max_upgrades value = 8 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 5 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 3 }
-						}
-						else = {
-							set_variable = { which = max_upgrades value = 1 }
-						}
-						while = {
-							limit = {
-								NOT = { num_of_wonder_upgrades = max_upgrades }
-							}
-							if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-								add_wonder_upgrade = upgrade_sacrificial_bodies
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-								add_wonder_upgrade = upgrade_profane_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = flood_flame } }
-								add_wonder_upgrade = upgrade_water_damage
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = pray_flame } }
-								add_wonder_upgrade = upgrade_supernatural_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = counterspell_flame } }
-								add_wonder_upgrade = upgrade_magic_residue
-							}
-							else = {
-								add_wonder_upgrade = upgrade_debris
-							}
-							subtract_variable = { which = max_upgrades value = 1 }
+						hidden_tooltip = {
+							remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 						}
 					}
 				}
@@ -2599,53 +2318,13 @@ character_event = {
 			limit = { has_character_flag = destroy_flame_random_3 }
 			persistent_event_target:draconic_holy_site_3 = {
 				location = {
+					#remove_building = tp_eternal_flame
+					#save_event_target_as = destroyed_flame
 					wonder = {
 						destroy_wonder_upgrade = upgrade_dragon_flame
 						add_wonder_upgrade = upgrade_dead_flame
-						# Figure out max upgrades
-						if = {
-							limit = { wonder_stage >= 4 }
-							set_variable = { which = max_upgrades value = 8 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 5 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 3 }
-						}
-						else = {
-							set_variable = { which = max_upgrades value = 1 }
-						}
-						while = {
-							limit = {
-								NOT = { num_of_wonder_upgrades = max_upgrades }
-							}
-							if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-								add_wonder_upgrade = upgrade_sacrificial_bodies
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-								add_wonder_upgrade = upgrade_profane_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = flood_flame } }
-								add_wonder_upgrade = upgrade_water_damage
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = pray_flame } }
-								add_wonder_upgrade = upgrade_supernatural_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = counterspell_flame } }
-								add_wonder_upgrade = upgrade_magic_residue
-							}
-							else = {
-								add_wonder_upgrade = upgrade_debris
-							}
-							subtract_variable = { which = max_upgrades value = 1 }
+						hidden_tooltip = {
+							remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 						}
 					}
 				}
@@ -2655,53 +2334,13 @@ character_event = {
 			limit = { has_character_flag = destroy_flame_random_4 }
 			persistent_event_target:draconic_holy_site_4 = {
 				location = {
+					#remove_building = tp_eternal_flame
+					#save_event_target_as = destroyed_flame
 					wonder = {
 						destroy_wonder_upgrade = upgrade_dragon_flame
 						add_wonder_upgrade = upgrade_dead_flame
-						# Figure out max upgrades
-						if = {
-							limit = { wonder_stage >= 4 }
-							set_variable = { which = max_upgrades value = 8 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 5 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 3 }
-						}
-						else = {
-							set_variable = { which = max_upgrades value = 1 }
-						}
-						while = {
-							limit = {
-								NOT = { num_of_wonder_upgrades = max_upgrades }
-							}
-							if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-								add_wonder_upgrade = upgrade_sacrificial_bodies
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-								add_wonder_upgrade = upgrade_profane_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = flood_flame } }
-								add_wonder_upgrade = upgrade_water_damage
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = pray_flame } }
-								add_wonder_upgrade = upgrade_supernatural_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = counterspell_flame } }
-								add_wonder_upgrade = upgrade_magic_residue
-							}
-							else = {
-								add_wonder_upgrade = upgrade_debris
-							}
-							subtract_variable = { which = max_upgrades value = 1 }
+						hidden_tooltip = {
+							remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 						}
 					}
 				}
@@ -2711,53 +2350,13 @@ character_event = {
 			limit = { has_character_flag = destroy_flame_random_5 }
 			persistent_event_target:draconic_holy_site_5 = {
 				location = {
+					#remove_building = tp_eternal_flame
+					#save_event_target_as = destroyed_flame
 					wonder = {
 						destroy_wonder_upgrade = upgrade_dragon_flame
 						add_wonder_upgrade = upgrade_dead_flame
-						# Figure out max upgrades
-						if = {
-							limit = { wonder_stage >= 4 }
-							set_variable = { which = max_upgrades value = 8 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 5 }
-						}
-						else_if = {
-							limit = { wonder_stage == 3 }
-							set_variable = { which = max_upgrades value = 3 }
-						}
-						else = {
-							set_variable = { which = max_upgrades value = 1 }
-						}
-						while = {
-							limit = {
-								NOT = { num_of_wonder_upgrades = max_upgrades }
-							}
-							if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_dragon } }
-								add_wonder_upgrade = upgrade_sacrificial_bodies
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = sacrifice_flame_personal } }
-								add_wonder_upgrade = upgrade_profane_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = flood_flame } }
-								add_wonder_upgrade = upgrade_water_damage
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = pray_flame } }
-								add_wonder_upgrade = upgrade_supernatural_energy
-							}
-							else_if = {
-								limit = { ROOT = { has_character_flag = counterspell_flame } }
-								add_wonder_upgrade = upgrade_magic_residue
-							}
-							else = {
-								add_wonder_upgrade = upgrade_debris
-							}
-							subtract_variable = { which = max_upgrades value = 1 }
+						hidden_tooltip = {
+							remove_wonder_upgrade_slots = 1 # Adding the dead flame also adds a slot
 						}
 					}
 				}
@@ -4348,7 +3947,7 @@ character_event = {
 		name = EVTOPTC_DRAGON.42
 		trigger = { ai = no }
 		if = {
-			limit = { NOT = { trait = zealous } }
+			limit = { trait = zealous }
 			random = {
 				chance = 30
 				remove_trait = zealous
@@ -6706,30 +6305,6 @@ character_event = {
 				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
-				while = {
-					limit = { has_wonder_upgrade = upgrade_debris }
-					destroy_wonder_upgrade = upgrade_debris
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_magic_residue }
-					destroy_wonder_upgrade = upgrade_magic_residue
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-					destroy_wonder_upgrade = upgrade_supernatural_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_water_damage }
-					destroy_wonder_upgrade = upgrade_water_damage
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_profane_energy }
-					destroy_wonder_upgrade = upgrade_profane_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-					destroy_wonder_upgrade = upgrade_sacrificial_bodies
-				}
 			}
 		}
 		else_if = { 
@@ -6739,30 +6314,6 @@ character_event = {
 				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
-				while = {
-					limit = { has_wonder_upgrade = upgrade_debris }
-					destroy_wonder_upgrade = upgrade_debris
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_magic_residue }
-					destroy_wonder_upgrade = upgrade_magic_residue
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-					destroy_wonder_upgrade = upgrade_supernatural_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_water_damage }
-					destroy_wonder_upgrade = upgrade_water_damage
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_profane_energy }
-					destroy_wonder_upgrade = upgrade_profane_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-					destroy_wonder_upgrade = upgrade_sacrificial_bodies
-				}
 			}
 		}
 		else_if = { 
@@ -6772,30 +6323,6 @@ character_event = {
 				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
-				while = {
-					limit = { has_wonder_upgrade = upgrade_debris }
-					destroy_wonder_upgrade = upgrade_debris
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_magic_residue }
-					destroy_wonder_upgrade = upgrade_magic_residue
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-					destroy_wonder_upgrade = upgrade_supernatural_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_water_damage }
-					destroy_wonder_upgrade = upgrade_water_damage
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_profane_energy }
-					destroy_wonder_upgrade = upgrade_profane_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-					destroy_wonder_upgrade = upgrade_sacrificial_bodies
-				}
 			}
 		}
 		else_if = { 
@@ -6805,30 +6332,6 @@ character_event = {
 				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
-				while = {
-					limit = { has_wonder_upgrade = upgrade_debris }
-					destroy_wonder_upgrade = upgrade_debris
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_magic_residue }
-					destroy_wonder_upgrade = upgrade_magic_residue
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-					destroy_wonder_upgrade = upgrade_supernatural_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_water_damage }
-					destroy_wonder_upgrade = upgrade_water_damage
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_profane_energy }
-					destroy_wonder_upgrade = upgrade_profane_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-					destroy_wonder_upgrade = upgrade_sacrificial_bodies
-				}
 			}
 		}
 		else_if = { 
@@ -6838,30 +6341,6 @@ character_event = {
 				add_wonder_upgrade = upgrade_dragon_flame
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
-				while = {
-					limit = { has_wonder_upgrade = upgrade_debris }
-					destroy_wonder_upgrade = upgrade_debris
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_magic_residue }
-					destroy_wonder_upgrade = upgrade_magic_residue
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-					destroy_wonder_upgrade = upgrade_supernatural_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_water_damage }
-					destroy_wonder_upgrade = upgrade_water_damage
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_profane_energy }
-					destroy_wonder_upgrade = upgrade_profane_energy
-				}
-				while = {
-					limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-					destroy_wonder_upgrade = upgrade_sacrificial_bodies
-				}
 			}
 		}
 		else_if = { 
@@ -6872,30 +6351,6 @@ character_event = {
 					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
 					set_province_flag = relit_eternal_flame
-					while = {
-						limit = { has_wonder_upgrade = upgrade_debris }
-						destroy_wonder_upgrade = upgrade_debris
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_magic_residue }
-						destroy_wonder_upgrade = upgrade_magic_residue
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-						destroy_wonder_upgrade = upgrade_supernatural_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_water_damage }
-						destroy_wonder_upgrade = upgrade_water_damage
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_profane_energy }
-						destroy_wonder_upgrade = upgrade_profane_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-						destroy_wonder_upgrade = upgrade_sacrificial_bodies
-					}
 				}
 			}
 		}
@@ -6907,30 +6362,6 @@ character_event = {
 					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
 					set_province_flag = relit_eternal_flame
-					while = {
-						limit = { has_wonder_upgrade = upgrade_debris }
-						destroy_wonder_upgrade = upgrade_debris
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_magic_residue }
-						destroy_wonder_upgrade = upgrade_magic_residue
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-						destroy_wonder_upgrade = upgrade_supernatural_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_water_damage }
-						destroy_wonder_upgrade = upgrade_water_damage
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_profane_energy }
-						destroy_wonder_upgrade = upgrade_profane_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-						destroy_wonder_upgrade = upgrade_sacrificial_bodies
-					}
 				}
 			}
 		}
@@ -6942,30 +6373,6 @@ character_event = {
 					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
 					set_province_flag = relit_eternal_flame
-					while = {
-						limit = { has_wonder_upgrade = upgrade_debris }
-						destroy_wonder_upgrade = upgrade_debris
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_magic_residue }
-						destroy_wonder_upgrade = upgrade_magic_residue
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-						destroy_wonder_upgrade = upgrade_supernatural_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_water_damage }
-						destroy_wonder_upgrade = upgrade_water_damage
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_profane_energy }
-						destroy_wonder_upgrade = upgrade_profane_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-						destroy_wonder_upgrade = upgrade_sacrificial_bodies
-					}
 				}
 			}
 		}
@@ -6977,30 +6384,6 @@ character_event = {
 					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
 					set_province_flag = relit_eternal_flame
-					while = {
-						limit = { has_wonder_upgrade = upgrade_debris }
-						destroy_wonder_upgrade = upgrade_debris
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_magic_residue }
-						destroy_wonder_upgrade = upgrade_magic_residue
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-						destroy_wonder_upgrade = upgrade_supernatural_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_water_damage }
-						destroy_wonder_upgrade = upgrade_water_damage
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_profane_energy }
-						destroy_wonder_upgrade = upgrade_profane_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-						destroy_wonder_upgrade = upgrade_sacrificial_bodies
-					}
 				}
 			}
 		}
@@ -7012,30 +6395,6 @@ character_event = {
 					add_wonder_upgrade = upgrade_dragon_flame
 					save_event_target_as = relit_flame
 					set_province_flag = relit_eternal_flame
-					while = {
-						limit = { has_wonder_upgrade = upgrade_debris }
-						destroy_wonder_upgrade = upgrade_debris
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_magic_residue }
-						destroy_wonder_upgrade = upgrade_magic_residue
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_supernatural_energy }
-						destroy_wonder_upgrade = upgrade_supernatural_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_water_damage }
-						destroy_wonder_upgrade = upgrade_water_damage
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_profane_energy }
-						destroy_wonder_upgrade = upgrade_profane_energy
-					}
-					while = {
-						limit = { has_wonder_upgrade = upgrade_sacrificial_bodies }
-						destroy_wonder_upgrade = upgrade_sacrificial_bodies
-					}
 				}
 			}
 		}

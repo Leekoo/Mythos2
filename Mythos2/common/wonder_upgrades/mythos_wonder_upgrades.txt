@@ -27,9 +27,29 @@ upgrade_divine_shrines = {
 	potential = { }
 	allow = {
 		follows_polytheistic_religion = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	active = {
 		follows_polytheistic_religion = yes
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	
 	flags = {
@@ -56,11 +76,35 @@ upgrade_holy_mausoleum = {
 	}
 	allow = {
 		FROMFROM = { has_province_flag = relit_eternal_flame }
+		trigger_if = {
+			limit = {
+				NOR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	active = {
 		OR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
 		}
 	}
 	
@@ -103,11 +147,23 @@ upgrade_flame_custodian = {
 				religion = draconic_pagan_reformed
 			}
 		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	active = {
 		OR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
 		}
 	}
 
@@ -152,6 +208,12 @@ upgrade_eternal_palace = {
 			has_religion_feature = religion_theocratic_head
 			has_religion_feature = religion_autocephaly
 		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	active = {
 		religion = draconic_pagan_reformed
@@ -159,6 +221,12 @@ upgrade_eternal_palace = {
 		OR = {
 			has_religion_feature = religion_theocratic_head
 			has_religion_feature = religion_autocephaly
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
 		}
 	}
 	
@@ -195,11 +263,23 @@ upgrade_purification_chambers = {
 			}
 			religion = draconic_pagan_reformed
 		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
 	}
 	active = {
 		OR = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
+		}
+		trigger_if = {
+			limit = {
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
 		}
 	}
 
@@ -239,7 +319,18 @@ upgrade_inquisition_chambers = {
 			has_religion_feature = religion_cosmopolitan
 		}
 	}
-	allow = { }
+	allow = {
+		trigger_if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+				FROM = { has_wonder_upgrade = upgrade_dead_flame }
+			}
+			FROM = { NOT = { has_wonder_upgrade = upgrade_dead_flame } }
+		}
+	}
 	active = {
 		OR = {
 			religion_group = christian
@@ -310,121 +401,12 @@ upgrade_dead_flame = {
 	gold_cost_flat = 450
 	gold_cost_ticking = 1
 	local_modifier = {
-		local_revolt_risk = -0.005
+		local_revolt_risk = 0.005
 	}
 	owner_modifier = {
 		draconic_pagan_opinion = -2
 		draconic_pagan_reformed_opinion = -2
 		monthly_character_piety = -0.25
 		monthly_character_prestige = -0.25
-	}
-}
-upgrade_debris = {
-	picture = GFX_upgrade_icon_stones
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-}
-upgrade_magic_residue = {
-	picture = GFX_upgrade_icon_roses_purple
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-}
-upgrade_supernatural_energy = {
-	picture = GFX_upgrade_icon_roses_yellow
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-		NOT = {
-			religion = draconic_pagan
-			religion = draconic_pagan_reformed
-		}
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		monthly_character_piety = 0.01
-	}
-}
-upgrade_water_damage = {
-	picture = GFX_upgrade_icon_stones
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-}
-upgrade_profane_energy = {
-	picture = GFX_upgrade_icon_roses_purple
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		monthly_character_piety = -0.025
-	}
-}
-upgrade_sacrificial_bodies = {
-	picture = GFX_upgrade_icon_skull
-	potential = { always = no }
-	allow = { always = no }
-	active = {
-	}
-	
-	flags = {
-		is_plural
-		negative
-		repairable
-	}
-	build_time = 24
-	gold_cost_flat = 450
-	gold_cost_ticking = 1
-	owner_modifier = {
-		monthly_character_prestige = -0.05
 	}
 }
