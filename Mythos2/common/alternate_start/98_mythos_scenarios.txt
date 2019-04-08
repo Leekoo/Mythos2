@@ -1727,13 +1727,9 @@ mythos_generate_monsters = {
 			}
 			# Dragons
 			any_character = {
-				limit = { graphical_culture = draconicgfx }
-				add_trait = dragon
-			}
-			any_character = {
 				limit = { religion = draconic_pagan }
 				random = {
-					chance = 2
+					chance = 4
 					modifier = {
 						factor = 5
 						is_landed = no
@@ -1760,11 +1756,23 @@ mythos_generate_monsters = {
 					}
 					add_trait = dragon
 					set_graphical_culture = draconic
+					random = {
+						chance = 5
+						culture = draconic
+					}
 					any_spouse = {
 						random_list = {
 							10 = {
 								add_trait = dragon
 								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									modifier = {
+										factor = 8
+										any_spouse = { culture = draconic }
+									}
+									culture = draconic
+								}
 							}
 							3 = {
 								add_trait = dragonborn
@@ -1777,6 +1785,10 @@ mythos_generate_monsters = {
 							4 = {
 								add_trait = dragon
 								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									culture = draconic
+								}
 							}
 							2 = {
 								add_trait = dragonborn
@@ -1806,6 +1818,18 @@ mythos_generate_monsters = {
 								}
 								add_trait = dragon
 								set_graphical_culture = draconic
+								random = {
+									chance = 5
+									modifier = {
+										factor = 5
+										mother = { culture = draconic }
+									}
+									modifier = {
+										factor = 5
+										father = { culture = draconic }
+									}
+									culture = draconic
+								}
 							}
 							2 = {
 								trigger = {
@@ -1833,6 +1857,10 @@ mythos_generate_monsters = {
 						}
 					}
 				}
+			}
+			any_character = {
+				limit = { graphical_culture = draconicgfx }
+				add_trait = dragon
 			}
 			# Giants and Jotun culture or Jotnar religion
 			any_character = {
@@ -1959,6 +1987,10 @@ mythos_generate_monsters = {
 							}
 							add_trait = giant_eldjotnar
 						}
+					}
+					random = {
+						chance = 5
+						culture = jotunn
 					}
 				}
 			}
