@@ -7473,3 +7473,24 @@ defined_text = {
 		localisation_key = String_women
 	}
 }
+
+defined_text = {
+	name = GetEternalFlameConstruction
+	text = {
+		trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		localisation_key = String_eternal_flame_construction_draconic
+	}
+	text = {
+		trigger = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		localisation_key = String_eternal_flame_construction_non_draconic
+	}
