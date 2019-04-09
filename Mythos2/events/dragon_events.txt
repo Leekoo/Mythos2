@@ -10747,5 +10747,9 @@ character_event = {
 	
 	immediate = {
 		add_wonder_upgrade = upgrade_dragon_flame
+		if = {
+			limit = { wonder_stage == 1 }
+			religion_authority = { modifier = built_eternal_flame }
+		}
 	}
 }
