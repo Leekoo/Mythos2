@@ -10766,7 +10766,10 @@ character_event = {
 	}
 	
 	immediate = {
-		FROM = { add_wonder_upgrade = upgrade_dragon_flame }
+		FROM = {
+			add_wonder_upgrade = upgrade_dragon_flame
+			remove_wonder_upgrade_slots = 1
+		}
 		if = {
 			limit = { FROM = { wonder_stage == 1 } }
 			religion_authority = { modifier = built_eternal_flame }
