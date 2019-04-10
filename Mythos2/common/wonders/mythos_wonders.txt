@@ -3,7 +3,12 @@ wonder_eternal_flame = {
 	picture = wonder_strip_eternal_flame
 	model = wonder_temple
 	potential = {
-		FROMFROMFROM = { location = { is_holy_site = draconic_pagan } }
+		FROMFROMFROM = {
+			OR = {
+				is_holy_site = draconic_pagan
+				location = { any_province_holding = { is_holy_site = draconic_pagan } }
+			}
+		}
 		OR = {
 			religion = draconic_pagan_reformed
 			religion = draconic_pagan
