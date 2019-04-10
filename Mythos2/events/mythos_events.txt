@@ -2581,7 +2581,7 @@ character_event = {
 		if = { limit = { trait = mangled } remove_trait = mangled }
 		if = { limit = { trait = eunuch } remove_trait = eunuch }
 		if = { limit = { trait = blinded } remove_trait = blinded }
-		remove_scarred = yes
+		hidden_tooltip = { remove_scarred = yes }
 		if = { limit = { has_character_modifier = black_eye } remove_character_modifier = black_eye }
 		if = { limit = { has_character_modifier = swollen_wrist } remove_character_modifier = swollen_wrist }
 		if = { limit = { has_character_modifier = swollen_ankle } remove_character_modifier = swollen_ankle }
