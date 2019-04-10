@@ -1958,7 +1958,11 @@ character_event = {
 	
 	trigger = {
 		NOT = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
-		trait = blood_of_the_gods
+		OR = {
+			trait = blood_of_the_gods
+			trait = god
+			trait = demi_god
+		}
 	}
 	
 	immediate = {
