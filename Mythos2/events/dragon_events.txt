@@ -10756,7 +10756,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		FROM = {
+		FROMFROM = {
 			has_wonder = wonder_eternal_flame
 			NOR = {
 				has_wonder_upgrade = upgrade_dragon_flame
@@ -10766,9 +10766,9 @@ character_event = {
 	}
 	
 	immediate = {
-		add_wonder_upgrade = upgrade_dragon_flame
+		FROM = { add_wonder_upgrade = upgrade_dragon_flame }
 		if = {
-			limit = { wonder_stage == 1 }
+			limit = { FROM = { wonder_stage == 1 } }
 			religion_authority = { modifier = built_eternal_flame }
 		}
 	}
