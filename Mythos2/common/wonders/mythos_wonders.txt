@@ -5,8 +5,8 @@ wonder_eternal_flame = {
 	potential = {
 		FROMFROMFROM = {
 			OR = {
-				is_holy_site = draconic_pagan
-				location = { any_province_holding = { is_holy_site = draconic_pagan } }
+				county = { is_holy_site = draconic_pagan }
+				any_province_holding = { is_holy_site = draconic_pagan }
 			}
 		}
 		OR = {
@@ -52,7 +52,6 @@ wonder_eternal_flame = {
 		upgrade_watchtower_network
 	}
 	stage = {
-		allow = { always = no }
 		build_time = 60
 		gold_cost_flat = 1000
 		gold_cost_ticking = 0

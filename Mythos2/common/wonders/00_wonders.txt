@@ -121,7 +121,12 @@ wonder_cathedral = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -251,7 +256,12 @@ wonder_mosque = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -374,7 +384,12 @@ wonder_synagogue = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -498,7 +513,12 @@ wonder_temple_pagan = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -622,7 +642,12 @@ wonder_temple_buddhist = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -745,7 +770,12 @@ wonder_temple_hindu = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -878,7 +908,12 @@ wonder_statue_ruler = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1017,7 +1052,12 @@ wonder_statue_horse = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1151,7 +1191,12 @@ wonder_fortress = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1304,7 +1349,12 @@ wonder_underground_city = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1420,7 +1470,12 @@ wonder_wall = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FFROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1560,7 +1615,12 @@ wonder_harbor = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1683,7 +1743,12 @@ wonder_lighthouse = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1812,7 +1877,12 @@ wonder_amphitheater = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -1928,7 +1998,12 @@ wonder_palace = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2050,7 +2125,12 @@ wonder_garden = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2200,7 +2280,12 @@ wonder_university = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2367,7 +2452,12 @@ wonder_library = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2505,7 +2595,12 @@ wonder_mausoleum = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2631,7 +2726,12 @@ wonder_pyramid = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2748,7 +2848,12 @@ wonder_pagan_stones = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
@@ -2868,7 +2973,12 @@ wonder_aztec_pyramid = {
 					has_alternate_start_parameter = { key = religion value = full_random }
 				}
 			}
-			FROMFROMFROM = { location = { NOT = {  is_holy_site = draconic_pagan } } }
+			FROMFROMFROM = {
+				NOR = {
+					county = { is_holy_site = draconic_pagan }
+					any_province_holding = { is_holy_site = draconic_pagan }
+				}
+			}
 		}
 	}
 	active = {
