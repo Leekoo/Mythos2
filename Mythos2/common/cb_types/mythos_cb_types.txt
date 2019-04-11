@@ -1202,25 +1202,8 @@ monster_revolt = {
 	is_valid = {
 		OR = {
 			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-			AND = {
-				FROM = { trait = known_werewolf }
-				ROOT = {
-					NOR = {
-						trait = known_werewolf
-						culture = werewolf_culture
-					}
-				}
-			}
-			AND = {
-				FROM = { trait = known_vampire }
-				ROOT = {
-					NOR = {
-						trait = known_vampire
-						culture = vampire_culture
-						religion = satanist
-					}
-				}
-			}
+			FROM = { is_monster_to_root = yes }
+			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
 		}
 	}
 	

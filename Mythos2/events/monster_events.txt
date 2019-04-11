@@ -112,6 +112,38 @@ province_event = {
 				remove_trait = known_werewolf
 				remove_trait = werewolf
 			}
+			if = {
+				limit = { ROOT = { owner = { top_liege = { trait = dragon } } } }
+				remove_trait = dragon
+				random_realm_character = {
+					limit = { NOT = { graphical_culture = dragongfx } }
+					new_character = {
+						set_graphical_culture = PREV
+					}
+				}
+			}
+			if = {
+				limit = { ROOT = { owner = { top_liege = { trait = mythos_giant } } } }
+				remove_trait = mythos_giant
+				remove_trait = half_giant
+				remove_trait = giant_bergrisar
+				remove_trait = giant_hrimthursar
+				remove_trait = giant_eldjotnar
+				remove_trait = size_10
+				remove_trait = size_9
+				remove_trait = size_8
+				remove_trait = size_7
+				remove_trait = size_6
+				remove_trait = size_5
+				remove_trait = size_4
+				remove_trait = size_3
+				remove_trait = size_2
+				remove_trait = size_1
+			}
+			if = {
+				limit = { ROOT = { owner = { top_liege = { trait = mummy } } } }
+				remove_trait = mummy
+			}
 			
 			if = {
 				limit = {
@@ -298,23 +330,8 @@ province_event = {
 		}
 		
 		OR = {
-			AND = {
-				OR = {
-					owner = { top_liege = { trait = known_vampire } }
-					owner = { trait = known_vampire }
-				}
-				NOR = {
-					culture = vampire_culture
-					religion = satanist
-				}
-			}
-			AND = {
-				OR = {
-					owner = { top_liege = { trait = known_werewolf } }
-					owner = { trait = known_werewolf }
-				}
-				NOT = { culture = werewolf_culture }
-			}
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
 			AND = {
 				OR = {
 					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
@@ -323,6 +340,7 @@ province_event = {
 				NOR = {
 					culture = werewolf_culture
 					culture = vampire_culture
+					culture_group = undead_culture_group
 					religion = satanist
 				}
 			}
