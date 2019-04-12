@@ -21,7 +21,7 @@ society_decisions = {
 			custom_tooltip = { 
 				text = tooltip_druidic_battle_trance_cooldown
 				hidden_tooltip = {
-					NOT = { has_character_modifier = lodge_druidic_mobility }
+					NOT = { has_character_modifier = druidic_mobility }
 				}
 			}
 		}
@@ -102,9 +102,7 @@ society_decisions = {
 			month <= 5
 			has_society_currency_minor_trigger = yes
 			is_inaccessible_trigger = no
-			custom_tooltip = { 
-				NOT = { has_character_modifier = well_supplied }
-			}
+			NOT = { has_character_modifier = well_supplied }
 			any_realm_province = { borders_major_river = yes }
 		}
 		effect = {

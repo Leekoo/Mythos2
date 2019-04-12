@@ -366,6 +366,18 @@ add_trait_slothful_effect = {
 	}
 }
 
+add_trait_stressed_effect = {
+	if = {
+		limit = {
+			NOR = {
+				trait = stressed
+			}
+		}
+		add_trait = stressed
+		hidden_tooltip = { character_event = { id = 38282 } } #notify stressed
+	}
+}
+
 add_trait_temperate_effect = {
 	if = {
 		limit = {
@@ -815,6 +827,7 @@ remove_trait_charitable_effect = {
 	if = {
 		limit = { trait = charitable }
 		remove_trait = charitable
+		hidden_tooltip = { character_event = { id = 38321 } }
 	}
 }
 
@@ -869,6 +882,14 @@ remove_trait_envious_effect = {
 	if = {
 		limit = { trait = envious }
 		remove_trait = envious
+	}
+}
+
+remove_trait_greedy_effect = {
+	if = {
+		limit = { trait = greedy }
+		remove_trait = greedy
+		hidden_tooltip = { character_event = { id = 38322 } }
 	}
 }
 
@@ -2899,6 +2920,19 @@ increase_prosperity_effect = {
 	}
 }
 
+decrease_prosperity_effect = {
+	if = {
+		limit = {
+			has_province_modifier = prosperity_modifier_3
+		}
+		hidden_tooltip = {
+			remove_province_modifier = prosperity_modifier_3
+			set_variable = { which = prosperity_value value = 250 }
+		}
+		add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
+	}
+}
+
 add_disease_level_effect = {
 		random_list = {
 			65 = { 
@@ -3979,8 +4013,10 @@ add_crusade_trait_effect = {
 	}
 	if = {
 		limit = {
-			religion = hellenic_pagan
-			religion = hellenic_pagan_reformed
+			OR = {
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
 		}
 		add_trait = ares_own
 		break = yes
@@ -4265,11 +4301,11 @@ major_soul_corruption_effect = {
 				character_event = { id = MNM.7053 days = 32 random = 5 }
 			}
 			5 = {
-				trigger = { NOR = { trait = clubfooted } }
+				trigger = { NOR = { trait = clubfooted trait = quailfooted } }
 				character_event = { id = MNM.7054 days = 32 random = 5} 
 			}
 			5 = {
-				trigger = { NOR = { trait = hunchback } }
+				trigger = { NOR = { trait = hunchback trait = twisted } }
 				character_event = { id = MNM.7055 days = 32 random = 5 }
 			}
 			5 = {
@@ -4448,11 +4484,11 @@ minor_soul_corruption_effect = {
 				character_event = { id = MNM.7053 days = 32 random = 5 }
 			}
 			5 = {
-				trigger = { NOR = { trait = clubfooted } }
+				trigger = { NOR = { trait = clubfooted trait = quailfooted } }
 				character_event = { id = MNM.7054 days = 32 random = 5 }
 			}
 			5 = {
-				trigger = { NOR = { trait = hunchback } }
+				trigger = { NOR = { trait = hunchback trait = twisted } }
 				character_event = { id = MNM.7055 days = 32 random = 5 }
 			}
 			5 = {
@@ -4910,6 +4946,27 @@ remove_random_negative_congenital_effect = {
 			}
 			remove_trait = weak
 		}
+		10 = {
+			modifier = {
+				NOT = { trait = cleft_lip }
+				factor = 0
+			}
+			remove_trait = cleft_lip
+		}
+		10 = {
+			modifier = {
+				NOT = { trait = twisted }
+				factor = 0
+			}
+			remove_trait = twisted
+		}
+		10 = {
+			modifier = {
+				NOT = { trait = quailfooted }
+				factor = 0
+			}
+			remove_trait = quailfooted
+		}
 	}
 }
 
@@ -4961,6 +5018,18 @@ remove_all_negative_congenital_traits_effect = {
 	if = {
 		limit = { trait = imbecile }
 		remove_trait = imbecile
+	}
+	if = {
+		limit = { trait = cleft_lip }
+		remove_trait = cleft_lip
+	}
+	if = {
+		limit = { trait = twisted }
+		remove_trait = twisted
+	}
+	if = {
+		limit = { trait = quailfooted }
+		remove_trait = quailfooted
 	}
 }
 
@@ -13166,8 +13235,6 @@ add_secret_religion_trait_trigger_is_religion_or_old_religion_flag_clear_flag_af
 							has_character_flag = character_was_atenist
 							has_character_flag = character_was_jotnar
 							has_character_flag = character_was_jotnar_reformed
-							has_character_flag = character_was_hellenic_pagan
-							has_character_flag = character_was_roman_pagan
 							has_character_flag = character_was_satanist
     					}
     				}
@@ -17603,7 +17670,6 @@ clean_up_after_leaving_society_effect = {
 		clr_character_flag = 3264_deceitful_flag
 		clr_character_flag = 3264_publish_flag
 		clr_character_flag = 3264_depressed_flag
-		clr_character_flag = 3264_deceitful_flag
 		clr_character_flag = 4202_visit_monastery_flag
 		clr_character_flag = 4202_hire_someone_flag
 		clr_character_flag = 4202_send_my_own_samples_flag
@@ -17619,7 +17685,6 @@ clean_up_after_leaving_society_effect = {
 		clr_character_flag = holy_seclusion_greedy
 		clr_character_flag = holy_seclusion_slothful
 		clr_character_flag = holy_seclusion_struggled_with_loneliness
-		clr_character_flag = holy_seclusion_scripture_reading
 		clr_character_flag = holy_seclusion_scripture_reading
 		clr_character_flag = holy_seclusion_interrupting_child
 		clr_character_flag = success_seculison_desc_A
@@ -17656,8 +17721,6 @@ clean_up_after_leaving_society_effect = {
 			remove_character_modifier = out_traveling #Should hopefully only remove this when relevant
 		}
 		clr_character_flag = call_to_legend_active
-		clr_character_flag = call_to_legend_active
-		clr_character_flag = do_not_disturb
 		clr_character_flag = start_bracket
 		clr_character_flag = mid_bracket
 		clr_character_flag = top_bracket
@@ -17674,8 +17737,6 @@ clean_up_after_leaving_society_effect = {
 		clr_character_flag = HF_legend_skull
 		clr_character_flag = HF_legend_eagle
 		clr_character_flag = HF_legend_upgrade_weapon
-		clr_character_flag = HF_legend_artifact
-		clr_character_flag = HF_legend_artifact
 
 		#Duel outcomes...
 		clr_character_flag = WL_desc_A
@@ -19707,8 +19768,10 @@ calculate_health_level_of_ingredient_1_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_1 }
-    			ingredient_is_perceived_healthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					ingredient_is_perceived_healthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19719,8 +19782,10 @@ calculate_health_level_of_ingredient_1_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_1 }
-    			ingredient_is_unhealthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_1
+					ingredient_is_unhealthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19740,8 +19805,10 @@ calculate_health_level_of_ingredient_2_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_2 }
-    			ingredient_is_perceived_healthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_2
+					ingredient_is_perceived_healthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -19752,8 +19819,10 @@ calculate_health_level_of_ingredient_2_effect = {
     	}
     	if = {
     		limit = {
-    			any_artifact = { has_artifact_flag = selected_ingredient_2 }
-    			ingredient_is_unhealthy_trigger = yes
+    			any_artifact = {
+					has_artifact_flag = selected_ingredient_2
+					ingredient_is_unhealthy_trigger = yes
+				}
     		}
  			ROOT = {
                 change_variable = {
@@ -21508,7 +21577,6 @@ add_chinese_artifact_effect = { #Used in event JD.15016 (possible to use elsewhe
 				new_artifact = {
 					set_name = chinese_tapestry_grand_name
 				}
-				trigger = { ROOT = { NOT = { has_artifact = chinese_tapestry_grand } } }
 			}
 		}
 		new_artifact = {
@@ -23139,7 +23207,7 @@ random_list = {
 				}
 				AND = {
 					OR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					NOR = {
@@ -23158,7 +23226,7 @@ random_list = {
 						trait = half_giant
 					}
 					NOR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23173,7 +23241,7 @@ random_list = {
 						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23202,7 +23270,7 @@ random_list = {
 				}
 				AND = {
 					OR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					NOR = {
@@ -23221,7 +23289,7 @@ random_list = {
 						trait = half_giant
 					}
 					NOR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23236,7 +23304,7 @@ random_list = {
 						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23456,6 +23524,10 @@ random_list = {
 		modifier = { 
 			factor = 1.45
 			trait = hunchback
+		} 
+		modifier = { 
+			factor = 1.45
+			trait = twisted
 		} 
 		modifier = { 
 			factor = 1.5
@@ -23657,7 +23729,7 @@ random_list = {
 				}
 				AND = {
 					OR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					NOR = {
@@ -23676,7 +23748,7 @@ random_list = {
 						trait = half_giant
 					}
 					NOR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23691,7 +23763,7 @@ random_list = {
 						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23720,7 +23792,7 @@ random_list = {
 				}
 				AND = {
 					OR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 					}
 					NOR = {
@@ -23739,7 +23811,7 @@ random_list = {
 						trait = half_giant
 					}
 					NOR = {
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23754,7 +23826,7 @@ random_list = {
 						any_owned_bloodline = { has_bloodline_flag = BOTG }
 						trait = werewolf
 						trait = half_giant
-						trait = giant
+						trait = mythos_giant
 						trait = djinn
 						trait = dragon
 						trait = demi_god
@@ -23974,6 +24046,10 @@ random_list = {
 		modifier = { 
 			factor = 1.45
 			trait = hunchback
+		} 
+		modifier = { 
+			factor = 1.45
+			trait = twisted
 		} 
 		modifier = { 
 			factor = 1.5
@@ -25863,30 +25939,30 @@ tiered_high_piety_negative_effect = {
 }
 #Used for gluttonous and hedonistic actions.
 gain_weight_small_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 5 }
+			change_variable = { which = physique_variable value = 5 }
 		}
-	}
+	#}
 } 
 gain_weight_medium_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 10 }
+			change_variable = { which = physique_variable value = 10 }
 		}
-	}
+	#}
 } 
 gain_weight_large_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-		change_variable = { which = physique_variable value = 15 }
+			change_variable = { which = physique_variable value = 15 }
 		}
-	}
+	#}
 }
 
 #Used for training and balanced lifestyle.
 balance_weight_small_effect =  {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
 			#If variable is above 1, reduce it. If it's below 1 increase it.
 			if = { 
@@ -25902,10 +25978,10 @@ balance_weight_small_effect =  {
 				change_variable = { which = physique_variable value = 2 }
 			}
 		}
-	}
+	#}
 } 
 balance_weight_medium_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
 			#If variable is above 1, reduce it. If it's below 1 increase it.
 			if = { 
@@ -25921,11 +25997,11 @@ balance_weight_medium_effect = {
 				change_variable = { which = physique_variable value = 5 }
 			}
 		}
-	}
+	#}
 } 
 
 balance_weight_large_effect = { #Should be used rarely.
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
 			#If variable is above 1, reduce it. If it's below 1 increase it.
 			if = { 
@@ -25941,30 +26017,30 @@ balance_weight_large_effect = { #Should be used rarely.
 				change_variable = { which = physique_variable value = 10 }
 			}
 		}
-	}
+	#}
 } 
 
 #Used for seclusions, fasting, dungeon starvation, etc.
 lose_weight_small_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-		change_variable = { which = physique_variable value = -6 } #Because of the way trigger works, checks if you are below -5/-10/-15
+			change_variable = { which = physique_variable value = -6 } #Because of the way trigger works, checks if you are below -5/-10/-15
 		}
-	}
+	#}
 } 
 lose_weight_medium_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-	change_variable = { which = physique_variable value = -11 }
+			change_variable = { which = physique_variable value = -11 }
 		}
-	}
+	#}
 } 
 lose_weight_large_effect = {
-	custom_tooltip = {
+	#custom_tooltip = {
 		hidden_tooltip = {
-	change_variable = { which = physique_variable value = -16 }
+			change_variable = { which = physique_variable value = -16 }
 		}
-	}
+	#}
 }  
 
 #Doesn't change the variable, only checks if the character has the correct trait assigned.
@@ -27407,10 +27483,6 @@ pacifists_lose_piety_effect = {
 
 #Current variable values: Scarred = 1, Very Scarred = 5, Horrifically Scarred = 10. To rebalance how quickly a character moves up from one to the other, just change the variable effects on all the following scripted_effects.
 add_scarred_tiered_effect = {
-	if = {
-		limit = { NOT = { check_variable = { which = scarred_variable value = 1 } } }
-		tooltip = { add_trait = scarred }
-	}
 	if = {
 		limit = { has_dlc = "Holy Fury" }
 		hidden_tooltip = { change_variable = { which = scarred_variable value = 1 } } 
@@ -32786,4 +32858,740 @@ princely_elective_apply_elector_setup_effect = {
 			princely_elective_german_elector_setup_effect = yes
 		}
 	}
+}
+
+give_goldsmith_artifacts_flag_okay_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = the_lily_crown
+        add_artifact = noble_scepter
+        add_artifact = engraved_sword
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = engraved_dagger
+        add_artifact = silver_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = engraved_dagger
+        add_artifact = collar_of_pearls
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_twilight
+        add_artifact = silver_staff
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = iron_crown
+        add_artifact = engraved_sword
+	}
+	else = {
+	    add_artifact = engraved_crown
+        add_artifact = ceremonial_axe
+	}
+}
+
+give_goldsmith_artifacts_flag_good_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = crown_of_pearls
+        add_artifact = ruby_scepter
+        add_artifact = golden_sword
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = bejeweled_dagger
+        add_artifact = golden_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = bejeweled_dagger
+        add_artifact = necklace_of_radiance
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_the_heavens
+        add_artifact = golden_staff
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = crown_of_the_sea
+        add_artifact = golden_sword
+	}
+	else = {
+	    add_artifact = amber_crown
+        add_artifact = obsidian_axe
+	}
+}
+
+give_goldsmith_artifacts_flag_expensive_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = crown_of_majesty
+	    add_artifact = emerald_scepter
+	    add_artifact = sword_of_heroes
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory
+	    add_artifact = ruby_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory
+	    add_artifact = celestial_necklace
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_the_heavens
+	    add_artifact = staff_of_majesty
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = crown_of_crows
+	    add_artifact = sword_of_heroes
+	}
+	else = {
+	    add_artifact = heros_crown
+	    add_artifact = axe_of_the_ancestors
+	}
+}
+
+give_goldsmith_artifacts_flag_amazing_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = crown_of_majesty_2
+	    add_artifact = emerald_scepter_2
+	    add_artifact = sword_of_heroes_2
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory_2
+	    add_artifact = ruby_bracelets_2
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory_2
+	    add_artifact = celestial_necklace_2
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_the_heavens_2
+	    add_artifact = staff_of_majesty_2
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = crown_of_crows_2
+	    add_artifact = sword_of_heroes_2
+	}
+	else = {
+	    add_artifact = heros_crown_2
+	    add_artifact = axe_of_the_ancestors_2
+	}
+}
+
+
+give_weaponsmith_artifacts_flag_okay_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = the_lily_crown
+        add_artifact = noble_scepter
+        add_artifact = engraved_sword
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = engraved_dagger
+        add_artifact = silver_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = engraved_dagger
+        add_artifact = collar_of_pearls
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_twilight
+        add_artifact = silver_staff
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = iron_crown
+        add_artifact = engraved_sword
+	}
+	else = {
+	    add_artifact = engraved_crown
+        add_artifact = ceremonial_axe
+	}
+}
+
+give_weaponsmith_artifacts_flag_good_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = crown_of_pearls
+        add_artifact = ruby_scepter
+        add_artifact = golden_sword
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = bejeweled_dagger
+        add_artifact = golden_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = bejeweled_dagger
+        add_artifact = necklace_of_radiance
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_the_heavens
+        add_artifact = golden_staff
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = crown_of_the_sea
+        add_artifact = golden_sword
+	}
+	else = {
+	    add_artifact = amber_crown
+        add_artifact = obsidian_axe
+	}
+}
+
+give_weaponsmith_artifacts_flag_expensive_effect = {
+	if = {
+	    limit = { 
+	    	OR = {
+	    		religion_group = christian 
+	    		religion_group = jewish_group
+			}
+		}
+	    add_artifact = crown_of_majesty
+	    add_artifact = emerald_scepter
+	    add_artifact = sword_of_heroes
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = muslim 
+	        	religion = west_african_pagan
+	        	religion = west_african_pagan_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory
+	    add_artifact = ruby_bracelets
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = indian_group
+	        	religion = bon
+	        	religion = bon_reformed
+	        }
+	    }
+	    add_artifact = dagger_of_glory
+	    add_artifact = celestial_necklace
+	}
+	else_if = {
+	    limit = { 
+	        OR = {
+	        	religion_group = zoroastrian_group
+	        	religion = zun_pagan
+	        	religion = zun_pagan_reformed
+			}
+		}
+	    add_artifact = circlet_of_the_heavens
+	    add_artifact = staff_of_majesty
+	}
+	else_if = {
+	    limit = {
+	       OR = {
+	        	religion = norse_pagan
+	        	religion = norse_pagan_reformed
+	        }
+	    }
+	    add_artifact = crown_of_crows
+	    add_artifact = sword_of_heroes
+	}
+	else = {
+	    add_artifact = heros_crown
+	    add_artifact = axe_of_the_ancestors
+	}
+}
+
+give_smith_artifacts_flag_okay_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_1_new
+        set_character_flag = sword_tier_1   
+            new_artifact = {
+            	set_name = artifact_name
+            	set_description = artifact_description_smith_tier_1
+            }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_1_new
+        set_character_flag = scimitar_tier_1   
+        new_artifact = {
+          	set_name = artifact_name
+           	set_description = artifact_description_smith_tier_1
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_1_new
+		set_character_flag = lance_tier_1   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_1
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_1_new
+        set_character_flag = axe_tier_1   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_1
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_1_new
+        set_character_flag = mace_tier_1   
+        new_artifact = {
+        	set_name = artifact_name
+        	set_description = artifact_description_smith_tier_1
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_1_new
+        set_character_flag = bow_tier_1   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_1
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_1
+    }
+}
+
+give_smith_artifacts_flag_good_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_2_new
+        set_character_flag = sword_tier_2   
+            new_artifact = {
+            	set_name = artifact_name
+            	set_description = artifact_description_smith_tier_2
+            }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_2_new
+        set_character_flag = scimitar_tier_2   
+        new_artifact = {
+          	set_name = artifact_name
+           	set_description = artifact_description_smith_tier_2
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_2_new
+		set_character_flag = lance_tier_2   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_2
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_2_new
+        set_character_flag = axe_tier_2   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_2
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_2_new
+        set_character_flag = mace_tier_2   
+        new_artifact = {
+        	set_name = artifact_name
+        	set_description = artifact_description_smith_tier_2
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_2_new
+        set_character_flag = bow_tier_2   
+        new_artifact = {
+            set_name = artifact_name
+            set_description = artifact_description_smith_tier_2
+        }
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_2
+    }
+}
+
+give_smith_artifacts_flag_amazing_optionA_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_4_heartseeker
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_4_golden
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_4_impaler
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_4_cleaver
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_4_foe_hammer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_4_silent_wind
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_4_guardian
+    }
+}
+
+give_smith_artifacts_flag_amazing_optionB_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_4_vengeance
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_4_fortune
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_4_trident
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_4_ravager
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_4_bone_breaker
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_4_lightning
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_4_champion
+    }
+}
+
+give_smith_artifacts_flag_amazing_optionC_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_4_fury
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_4_conquest
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_4_piercer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_4_marauder
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_4_shatterer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_4_eagle
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_4_warden
+    }
+}
+
+give_smith_artifacts_flag_expensive_optionA_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_3_heartseeker
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_3_golden
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_3_impaler
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_3_cleaver
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_3_foe_hammer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_3_silent_wind
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_3_guardian
+    }
+}
+
+give_smith_artifacts_flag_expensive_optionB_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_3_vengeance
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_3_fortune
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_3_trident
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_3_ravager
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_3_bone_breaker
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_3_lightning
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_3_champion
+    }
+}
+
+give_smith_artifacts_flag_expensive_optionC_effect = {
+	if = {
+        limit = { FROM = { has_character_flag = weapon_sword } }
+        add_artifact = sword_tier_3_fury
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_scimitar } }
+        add_artifact = scimitar_tier_3_conquest
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_lance } }
+        add_artifact = lance_tier_3_piercer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_axe } }
+        add_artifact = axe_tier_3_marauder
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_mace } }
+        add_artifact = mace_tier_3_shatterer
+    }
+    if = {
+        limit = { FROM = { has_character_flag = weapon_bow } }
+        add_artifact = bow_tier_3_eagle
+    }
+    if = {
+        limit = { FROM = { has_character_flag = armor_set } }
+        add_artifact = armor_tier_3_warden
+    }
 }

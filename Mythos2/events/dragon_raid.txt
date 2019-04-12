@@ -46,7 +46,7 @@ character_event = {
 				limit = { check_variable = { which = local_stolen value = 100 } }
 			}
 		}
-		set_variable = { which = local_stolen which = FROM }
+		#set_variable = { which = local_stolen which = FROM }
 	}
 	
 	option = {
@@ -122,9 +122,9 @@ character_event = {
 			set_variable = { which = local_defender_pot value = 600 }
 		}
 		
-		set_variable = { which = local_attacker_pay value = local_attacker_pot}
+		set_variable = { which = local_attacker_pay which = local_attacker_pot}
 		multiply_variable = { which = local_attacker_pay value = -1 }
-		set_variable = { which = local_defender_pay value = local_defender_pot}
+		set_variable = { which = local_defender_pay which = local_defender_pot}
 		multiply_variable = { which = local_defender_pay value = -1 }
 		
 		

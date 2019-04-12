@@ -30,7 +30,7 @@ character_event = {
 		}
 		if = {
 			limit = { culture = undead_cold_ones }
-			set_special_character_title = "Archcoldone"
+			set_special_character_title = "Arch Cold One"
 		}
 		else_if = {
 			limit = { culture = undead_aptrganger }
@@ -1601,9 +1601,10 @@ character_event = {
 	}
 }
 
-# Undead increase depopulation
+# Undead increase devastation
+# Already handled by ZOMBIE.9?
 province_event = {
-	id = ZOMIBE.38
+	id = ZOMBIE.38
 	hide_window = yes
 
 	is_triggered_only = yes

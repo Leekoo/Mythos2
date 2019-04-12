@@ -428,15 +428,15 @@ character_event = {
 		set_variable = { which = local_requirement_full which = local_payment_full }
 		multiply_variable = { which = local_payment_full value = -1 }
 		set_variable = { which = local_payment_large which = loan_amount }
-		divide_variable = { which = small_loan value = 2 }
+		divide_variable = { which = local_payment_large value = 2 }
 		set_variable = { which = local_requirement_large which = local_payment_large }
 		multiply_variable = { which = local_payment_large value = -1 }
 		set_variable = { which = local_payment_medium which = loan_amount }
-		divide_variable = { which = small_loan value = 4 }
+		divide_variable = { which = local_payment_medium value = 4 }
 		set_variable = { which = local_requirement_medium which = local_payment_medium }
 		multiply_variable = { which = local_payment_medium value = -1 }
 		set_variable = { which = local_payment_small which = loan_amount }
-		divide_variable = { which = small_loan value = 7 }
+		divide_variable = { which = local_payment_small value = 7 }
 		set_variable = { which = local_requirement_small which = local_payment_small }
 		multiply_variable = { which = local_payment_small value = -1 }
 		set_variable = { which = local_double_full which = local_requirement_full }

@@ -93,23 +93,21 @@ province_event = {
 		}
 		
 		# Monster revolts have prio
-		NOR = {
+		OR = {
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
 			AND = {
-				NOT = { culture = werewolf_culture }
-				owner = { top_liege = { trait = known_werewolf } }
-			}
-			AND = {
-				NOR = { 
-					religion = satanist
+				OR = {
+					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
+					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+				}
+				NOR = {
+					culture = werewolf_culture
 					culture = vampire_culture
-				}
-				owner = {
-					top_liege = {
-						trait = known_vampire
-					}
+					culture_group = undead_culture_group
+					religion = satanist
 				}
 			}
-			owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
 			has_province_flag = force_monster_revolt
 		}
 		
@@ -815,22 +813,20 @@ province_event = {
 		
 		# Monster revolts have prio
 		NOR = {
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
 			AND = {
-				NOT = { culture = werewolf_culture }
-				owner = { top_liege = { trait = known_werewolf } }
-			}
-			AND = {
-				NOR = { 
-					religion = satanist
+				OR = {
+					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
+					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+				}
+				NOR = {
+					culture = werewolf_culture
 					culture = vampire_culture
-				}
-				owner = {
-					top_liege = {
-						trait = known_vampire
-					}
+					culture_group = undead_culture_group
+					religion = satanist
 				}
 			}
-			owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
 			has_province_flag = force_monster_revolt
 		}
 		
@@ -1261,22 +1257,20 @@ province_event = {
 		
 		# Monster revolts have prio
 		NOR = {
+			owner = { is_monster_to_root = yes }
+			owner = { top_liege = { is_monster_to_root = yes } }
 			AND = {
-				NOT = { culture = werewolf_culture }
-				owner = { top_liege = { trait = known_werewolf } }
-			}
-			AND = {
-				NOR = { 
-					religion = satanist
+				OR = {
+					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
+					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+				}
+				NOR = {
+					culture = werewolf_culture
 					culture = vampire_culture
-				}
-				owner = {
-					top_liege = {
-						trait = known_vampire
-					}
+					culture_group = undead_culture_group
+					religion = satanist
 				}
 			}
-			owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
 			has_province_flag = force_monster_revolt
 		}
 	}

@@ -5387,6 +5387,7 @@ defined_text = {
 	}
 }
 # Continue Opinion
+defined_text = {
 	name = GetTributeContinueOpinion
 	use_first_valid = yes
 	text = {
@@ -6610,13 +6611,13 @@ defined_text = {
 }
 defined_text = {
 	name = GetName_Freyja
-	fallback_text = {
+	text = {
 		localisation_key = GOD_FREYJA_DEFAULT
 	}
 }
 defined_text = {
 	name = GetName_Sif
-	fallback_text = {
+	text = {
 		localisation_key = GOD_SIF_DEFAULT
 	}
 }
@@ -6721,3 +6722,775 @@ defined_text = {
 		localisation_key = GOD_APOLLO
 	}
 }
+defined_text = {
+	name = GetForcedAcceptance
+	text = {
+		trigger = {
+			prisoner = yes
+			host = { character = FROM }
+		}
+		localisation_key = ForcedAcceptTurning
+	}
+	text = {
+		trigger = {
+			NAND = {
+				prisoner = yes
+				host = { character = FROM }
+			}
+			FROM = { trait = vampire }
+		}
+		localisation_key = TurnAcceptanceList_Vampire
+	}
+	text = {
+		trigger = {
+			NAND = {
+				prisoner = yes
+				host = { character = FROM }
+			}
+			FROM = { trait = werewolf }
+		}
+		localisation_key = TurnRejectionList_Werewolf
+	}
+}
+defined_text = {
+	name = TurnAcceptanceReasons_Vampire
+	text = {
+		trigger = {
+			# Anything to report
+			OR = {
+				trait = ambitious
+				trait = cynical
+				trait = cruel
+				trait = impaler
+				trait = proud
+				trait = envious
+				trait = syphilitic
+				trait = infirm
+				trait = leper
+				trait = has_typhus
+				trait = has_bubonic_plague
+				trait = has_small_pox
+				trait = has_aztec_disease
+				reverse_opinion = { who = FROM value = 40 }
+				FROM = { diplomacy = 10 }
+				liege = { character = FROM }
+				religion = satanist
+				AND = {
+					secret_religion = satanist
+					FROM = { secret_religion = satanist }
+				}
+				AND = {
+					is_in_society = the_satanists
+					FROM = { is_in_society = the_satanists }
+				}
+				is_friend = FROM
+				culture = vampire_culture
+			}
+		}
+		localisation_key = TurnAcceptanceList_Vampire
+	}
+	fallback_text = {
+		localisation_key = TurnRejectionList_Vampire
+	}
+}
+defined_text = {
+	name = AcceptAmbitious_Vampire
+	text = {
+		trigger = {
+			trait = ambitious
+		}
+		localisation_key = AcceptAmbitious_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptCynical_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptCynical_Vampire
+	text = {
+		trigger = {
+			trait = cynical
+		}
+		localisation_key = AcceptCynical_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptCruel_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptCruel_Vampire
+	text = {
+		trigger = {
+			trait = cruel
+		}
+		localisation_key = AcceptCruel_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptImpaler_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptImpaler_Vampire
+	text = {
+		trigger = {
+			trait = impaler
+		}
+		localisation_key = AcceptImpaler_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptProud_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptProud_Vampire
+	text = {
+		trigger = {
+			trait = proud
+		}
+		localisation_key = AcceptProud_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptEnvious_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptEnvious_Vampire
+	text = {
+		trigger = {
+			trait = envious
+		}
+		localisation_key = AcceptEnvious_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptOpinion_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptOpinion_Vampire
+	text = {
+		trigger = {
+			reverse_opinion = { who = FROM value = 40 }
+		}
+		localisation_key = AcceptOpinion_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptDiplomacy_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptDiplomacy_Vampire
+	text = {
+		trigger = {
+			FROM = { diplomacy = 10 }
+		}
+		localisation_key = AcceptDiplomacy_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptLiege_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptLiege_Vampire
+	text = {
+		trigger = {
+			liege = { character = FROM }
+		}
+		localisation_key = AcceptLiege_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptSatanist_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptSatanist_Vampire
+	text = {
+		trigger = {
+			OR = {
+				religion = satanist
+				AND = {
+					true_religion = satanist
+					FROM = { true_religion = satanist }
+				}
+				AND = {
+					is_in_society = yes
+					is_in_society = the_satanists
+					FROM = { is_in_society = yes }
+					FROM = { is_in_society = the_satanists }
+				}
+			}
+		}
+		localisation_key = AcceptSatanist_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptInfirm_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptInfirm_Vampire
+	text = {
+		trigger = {
+			trait = infirm
+		}
+		localisation_key = AcceptInfirm_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptIll_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptIll_Vampire
+	text = {
+		trigger = {
+			OR = {
+				trait = leper
+				trait = has_typhus
+				trait = has_bubonic_plague
+				trait = has_small_pox
+				trait = has_aztec_disease
+			}
+		}
+		localisation_key = AcceptIll_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptFriend_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptFriend_Vampire
+	text = {
+		trigger = {
+			is_friend = FROM
+		}
+		localisation_key = AcceptFriend_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptCulture_Vampire]"
+	}
+}
+defined_text = {
+	name = AcceptCulture_Vampire
+	text = {
+		trigger = {
+			culture = vampire_culture
+		}
+		localisation_key = AcceptCulture_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[TurnRejectionReasons_Vampire]"
+	}
+}
+defined_text = {
+	name = TurnRejectionReasons_Vampire
+	text = {
+		trigger = {
+			# Anything to report
+			religion_group = christian
+			religion_group = muslim
+			religion_group = jewish_group
+			culture = werewolf_culture
+			reverse_opinion = { who = FROM value < 0 }
+			trait = lustful
+			trait = drunkard
+			trait = gluttonous
+			trait = kind
+		}
+		localisation_key = TurnRejectionList_Vampire
+	}
+	fallback_text = {
+		localisation_key = "[TurnCanExpose_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectChristian_Vampire
+	text = {
+		trigger = {
+			religion_group = christian
+		}
+		localisation_key = RejectChristian_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectMuslim_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectMuslim_Vampire
+	text = {
+		trigger = {
+			religion_group = muslim
+		}
+		localisation_key = RejectMuslim_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectJewish_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectJewish_Vampire
+	text = {
+		trigger = {
+			religion_group = jewish_group
+		}
+		localisation_key = RejectJewish_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectCulture_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectCulture_Vampire
+	text = {
+		trigger = {
+			culture = werewolf_culture
+		}
+		localisation_key = RejectCulture_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectOpinion_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectOpinion_Vampire
+	text = {
+		trigger = {
+			reverse_opinion = { who = FROM value < 0 }
+		}
+		localisation_key = RejectOpinion_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectHumanPleasure_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectHumanPleasure_Vampire
+	text = {
+		trigger = {
+			OR = {
+				trait = lustful
+				trait = gluttonous
+				trait = drunkard
+			}
+		}
+		localisation_key = RejectHumanPleasure_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectKind_Vampire]"
+	}
+}
+defined_text = {
+	name = RejectKind_Vampire
+	text = {
+		trigger = {
+			trait = kind
+		}
+		localisation_key = RejectKind_Vampire_Key
+	}
+	fallback_text = {
+		localisation_key = "[TurnCanExpose_Vampire]"
+	}
+}
+defined_text = {
+	name = TurnCanExpose_Vampire
+	text = {
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+			trait = zealous
+			NOT = { culture = vampire_culture }
+		}
+		localisation_key = TurnCanExpose_Key
+	}
+}
+defined_text = {
+	name = TurnAcceptanceReasons_Werewolf
+	text = {
+		trigger = {
+			# Anything to report
+			OR = {
+				trait = ambitious
+				trait = cynical
+				trait = cruel
+				trait = wroth
+				trait = berserker
+				reverse_opinion = { who = FROM value = 60 }
+				FROM = { diplomacy = 10 }
+				liege = { character = FROM }
+				culture = werewolf_culture
+				any_spouse = { character = FROM }
+				is_lover = FROM
+				trait = maimed
+				trait = one_eyed
+				trait = one_handed
+				trait = one_legged
+				trait = disfigured
+				trait = mangled
+				trait = severely_injured
+				trait = eunuch
+				trait = infirm
+			}
+		}
+		localisation_key = TurnAcceptanceList_Werewolf
+	}
+	fallback_text = {
+		localisation_key = TurnRejectionList_Werewolf
+	}
+}
+defined_text = {
+	name = AcceptAmbitious_Werewolf
+	text = {
+		trigger = {
+			trait = ambitious
+		}
+		localisation_key = AcceptAmbitious_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptCynical_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptCynical_Werewolf
+	text = {
+		trigger = {
+			trait = cynical
+		}
+		localisation_key = AcceptCynical_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptAnger_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptAnger_Werewolf
+	text = {
+		trigger = {
+			OR = {
+				trait = wroth
+				trait = cruel
+			}
+		}
+		localisation_key = AcceptAnger_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptBerserker_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptBerserker_Werewolf
+	text = {
+		trigger = {
+			trait = berserker
+		}
+		localisation_key = AcceptBerserker_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptOpinion_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptOpinion_Werewolf
+	text = {
+		trigger = {
+			reverse_opinion = { who = FROM value = 60 }
+		}
+		localisation_key = AcceptOpinion_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptDiplomacy_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptDiplomacy_Werewolf
+	text = {
+		trigger = {
+			FROM = { diplomacy = 10 }
+		}
+		localisation_key = AcceptDiplomacy_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptLiege_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptLiege_Werewolf
+	text = {
+		trigger = {
+			liege = { character = FROM }
+		}
+		localisation_key = AcceptLiege_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptCulture_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptCulture_Werewolf
+	text = {
+		trigger = {
+			culture = werewolf_culture
+		}
+		localisation_key = AcceptCulture_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptSpouse_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptSpouse_Werewolf
+	text = {
+		trigger = {
+			any_spouse = { character = FROM }
+		}
+		localisation_key = AcceptSpouse_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptLover_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptLover_Werewolf
+	text = {
+		trigger = {
+			is_lover = FROM
+		}
+		localisation_key = AcceptLover_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[AcceptMaimed_Werewolf]"
+	}
+}
+defined_text = {
+	name = AcceptMaimed_Werewolf
+	text = {
+		trigger = {
+			OR = {
+				trait = maimed
+				trait = one_eyed
+				trait = one_handed
+				trait = one_legged
+				trait = disfigured
+				trait = mangled
+				trait = severely_injured
+				trait = eunuch
+				trait = infirm
+			}
+		}
+		localisation_key = AcceptMaimed_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[TurnRejectionReasons_Werewolf]"
+	}
+}
+defined_text = {
+	name = TurnRejectionReasons_Werewolf
+	text = {
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+				religion_group = pagan_group
+				trait = kind
+				culture = vampire_culture
+				reverse_opinion = { who = FROM value < 0 }
+			}
+		}
+		localisation_key = TurnRejectionList_Werewolf
+	}
+	fallback_text = {
+		localisation_key = "[TurnCanExpose_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectChristian_Werewolf
+	text = {
+		trigger = {
+			religion_group = christian
+		}
+		localisation_key = RejectChristian_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectMuslim_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectMuslim_Werewolf
+	text = {
+		trigger = {
+			religion_group = muslim
+		}
+		localisation_key = RejectMuslim_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectJewish_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectJewish_Werewolf
+	text = {
+		trigger = {
+			religion_group = jewish_group
+		}
+		localisation_key = RejectJewish_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectPagan_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectPagan_Werewolf
+	text = {
+		trigger = {
+			religion_group = pagan_group
+		}
+		localisation_key = RejectPagan_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectCulture_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectCulture_Werewolf
+	text = {
+		trigger = {
+			culture = vampire_culture
+		}
+		localisation_key = RejectCulture_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectKind_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectKind_Werewolf
+	text = {
+		trigger = {
+			trait = kind
+		}
+		localisation_key = RejectKind_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectOpinion_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectOpinion_Werewolf
+	text = {
+		trigger = {
+			reverse_opinion = { who = FROM value < 0 }
+		}
+		localisation_key = RejectOpinion_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[TurnCanExpose_Werewolf]"
+	}
+}
+defined_text = {
+	name = TurnCanExpose_Werewolf
+	text = {
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+			trait = zealous
+			NOT = { culture = werewolf_culture }
+		}
+		localisation_key = TurnCanExpose_Key
+	}
+}
+
+defined_text = {
+	name = GetHighPriestKemetic
+	text = {
+		trigger = {
+			has_religion_feature = religion_dogmatic
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_AMUN_RA # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			NOT = { has_religion_feature = religion_dogmatic }
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_AMUN # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+		localisation_key = HIGH_PREIST_KEMETIC_ISIS # Specify Amun-Ra to avoid confusion
+	}
+}
+
+defined_text = {
+	name = GetHighPriestessKemetic
+	text = {
+		trigger = {
+			has_religion_feature = religion_dogmatic
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_AMUN_RA # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			NOT = { has_religion_feature = religion_dogmatic }
+			NOT = { has_religion_feature = religion_matriarchal }
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_AMUN # Specify Amun-Ra to avoid confusion
+	}
+	text = {
+		trigger = {
+			has_religion_feature = religion_matriarchal
+		}
+		localisation_key = HIGH_PREISTESS_KEMETIC_ISIS # Specify Amun-Ra to avoid confusion
+	}
+}
+
+defined_text = {
+	name = GetMenWomen
+	text = {
+		trigger = { is_female = no }
+		localisation_key = String_men
+	}
+	text = {
+		trigger = { is_female = yes }
+		localisation_key = String_women
+	}
+}
+
+defined_text = {
+	name = GetMenWomenOpp
+	text = {
+		trigger = { is_female = yes }
+		localisation_key = String_men
+	}
+	text = {
+		trigger = { is_female = no }
+		localisation_key = String_women
+	}
+}
+
+defined_text = {
+	name = GetEternalFlameConstruction
+	text = {
+		trigger = {
+			OR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		localisation_key = String_eternal_flame_construction_draconic
+	}
+	text = {
+		trigger = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+		}
+		localisation_key = String_eternal_flame_construction_non_draconic
+	}

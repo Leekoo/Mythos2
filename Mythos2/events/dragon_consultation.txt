@@ -49,7 +49,8 @@ character_event = {
 						factor = 0
 						NOT = {
 							any_realm_province = {
-								has_building = tp_eternal_flame
+								has_wonder = wonder_eternal_flame
+								has_wonder_upgrade = upgrade_dragon_flame
 							}
 						}
 					}
@@ -83,9 +84,12 @@ character_event = {
 						factor = 0
 						OR = {
 							trait = clubfooted
+							trait = quailfooted
 							trait = harelip
+							trait = cleft_lip
 							trait = lisp
 							trait = hunchback
+							trait = twisted
 							trait = stutter
 							trait = ugly
 							trait = dwarf
@@ -122,7 +126,8 @@ character_event = {
 						factor = 0
 						NOT = {
 							any_realm_province = {
-								has_building = tp_eternal_flame
+								has_wonder = wonder_eternal_flame
+								has_wonder_upgrade = upgrade_dragon_flame
 							}
 						}
 					}
@@ -228,7 +233,8 @@ character_event = {
 					modifier = {
 						factor = 0
 						any_realm_province = {
-							has_building = tp_eternal_flame
+							has_wonder = wonder_eternal_flame
+							has_wonder_upgrade = upgrade_dragon_flame
 						}
 					}
 					character_event = { id = Purity.9 } # Dragon, control holy site
@@ -396,9 +402,12 @@ character_event = {
 						factor = 0
 						OR = {
 							trait = clubfooted
+							trait = quailfooted
 							trait = harelip
+							trait = cleft_lip
 							trait = lisp
 							trait = hunchback
+							trait = twisted
 							trait = stutter
 							trait = ugly
 							trait = dwarf
@@ -415,9 +424,12 @@ character_event = {
 					trigger = {
 						OR = {
 							trait = clubfooted
+							trait = quailfooted
 							trait = harelip
+							trait = cleft_lip
 							trait = lisp
 							trait = hunchback
+							trait = twisted
 							trait = stutter
 							trait = ugly
 							trait = dwarf

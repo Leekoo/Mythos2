@@ -29,11 +29,23 @@ set_werewolf_fitness = {
 		subtract_variable = { which = fitness value = 1 }
 	}
 	if = {
+		limit = { trait = quailfooted }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
 		limit = { trait = harelip }
 		subtract_variable = { which = fitness value = 1 }
 	}
 	if = {
+		limit = { trait = cleft_lip }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
 		limit = { trait = hunchback }
+		subtract_variable = { which = fitness value = 1 }
+	}
+	if = {
+		limit = { trait = twisted }
 		subtract_variable = { which = fitness value = 1 }
 	}
 	if = {
@@ -537,12 +549,12 @@ combat_set_accuracy = { # Run in character scope. Ranges 0-7
 		divide_variable = { which = combat_accuracy value = 10 }
 	}
 	if = {
-		limit = { trait = hunchback }
+		limit = { OR = { trait = hunchback trait = twisted } }
 		multiply_variable = { which = combat_accuracy value = 8 }
 		divide_variable = { which = combat_accuracy value = 10 }
 	}
 	if = {
-		limit = { trait = clubfooted }
+		limit = { OR = { trait = clubfooted trait = quailfooted } }
 		multiply_variable = { which = combat_accuracy value = 8 }
 		divide_variable = { which = combat_accuracy value = 10 }
 	}

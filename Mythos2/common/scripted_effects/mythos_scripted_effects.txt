@@ -579,11 +579,23 @@ determine_purity = {
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
+			limit = { trait = quailfooted }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
 			limit = { trait = harelip }
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
+			limit = { trait = cleft_lip }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
 			limit = { trait = hunchback }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
+			limit = { trait = twisted }
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
@@ -723,11 +735,23 @@ determine_purity = {
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
+			limit = { trait = quailfooted }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
 			limit = { trait = harelip }
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
+			limit = { trait = cleft_lip }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
 			limit = { trait = hunchback }
+			change_variable = { which = purity value = -1 }
+		}
+		if = {
+			limit = { trait = twisted }
 			change_variable = { which = purity value = -1 }
 		}
 		if = {
@@ -836,6 +860,13 @@ determine_purity = {
 			}
 		}
 		change_variable = { which = purity value = -3 }
+	}
+	if = {
+		limit = {
+			independent = yes
+			any_realm_province = { has_wonder_upgrade = upgrade_purification_chambers }
+		}
+		change_variable = { which = purity value = 1 }
 	}
 }
 
@@ -1180,25 +1211,25 @@ spread_vampire_illness = {
 			add_trait = gout
 		}
 	}
-	if = {
-		limit = {
-			PREV = {
-				OR = {
-					trait = food_poisoning
-					has_character_flag = got_food_poisoning
-				}
-			}
-		}
-		if = {
-			limit = { has_dlc = "Reapers" }
-			set_character_flag = got_food_poisoning
-			add_food_poisoning_symptom_effect = yes
-		}
-		if = {
-			limit = { NOT = { has_dlc = "Reapers" } }
-			add_trait = food_poisoning
-		}
-	}
+	#if = {
+	#	limit = {
+	#		PREV = {
+	#			OR = {
+	#				trait = food_poisoning
+	#				has_character_flag = got_food_poisoning
+	#			}
+	#		}
+	#	}
+	#	if = {
+	#		limit = { has_dlc = "Reapers" }
+	#		set_character_flag = got_food_poisoning
+	#		add_food_poisoning_symptom_effect = yes
+	#	}
+	#	if = {
+	#		limit = { NOT = { has_dlc = "Reapers" } }
+	#		add_trait = food_poisoning
+	#	}
+	#}
 	if = {
 		limit = {
 			PREV = {
@@ -1218,25 +1249,25 @@ spread_vampire_illness = {
 			add_trait = rabies
 		}
 	}
-	if = {
-		limit = {
-			PREV = {
-				OR = {
-					trait = cancer
-					has_character_flag = got_cancer
-				}
-			}
-		}
-		if = {
-			limit = { has_dlc = "Reapers" }
-			set_character_flag = got_cancer
-			add_cancer_symptom_effect = yes
-		}
-		if = {
-			limit = { NOT = { has_dlc = "Reapers" } }
-			add_trait = cancer
-		}
-	}
+	#if = {
+	#	limit = {
+	#		PREV = {
+	#			OR = {
+	#				trait = cancer
+	#				has_character_flag = got_cancer
+	#			}
+	#		}
+	#	}
+	#	if = {
+	#		limit = { has_dlc = "Reapers" }
+	#		set_character_flag = got_cancer
+	#		add_cancer_symptom_effect = yes
+	#	}
+	#	if = {
+	#		limit = { NOT = { has_dlc = "Reapers" } }
+	#		add_trait = cancer
+	#	}
+	#}
 	if = {
 		limit = {
 			PREV = {
@@ -9470,9 +9501,22 @@ clear_MR_conversion_flags = {
 	clr_character_flag = get_fp_werewolf_lodge_1
 	clr_character_flag = get_fp_vampire_mansion_1
 	clr_character_flag = get_fp_giant_shield_1
-	clr_character_flag = get_fp_giant_shield_1
 	clr_character_flag = get_fp_giant_mansion
 	clr_character_flag = get_fp_mummy_necropolis_1
 	clr_character_flag = get_fp_djinni_caves_1
 	clr_character_flag = get_fp_monster_hunter_lodge_1
+}
+
+fix_local_character_religion = {
+	any_province_character = {
+		limit = { no_religion = yes }
+		religion = PREV
+	}
+}
+
+fix_local_character_culture = {
+	any_province_character = {
+		limit = { no_culture = yes }
+		culture = PREV
+	}
 }

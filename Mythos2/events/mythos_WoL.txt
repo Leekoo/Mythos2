@@ -3075,6 +3075,10 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = immune_rabies }
+					NOR = {
+						race_disease_resist = yes
+						race_disease_immune = yes
+					}
 				}
 				if = {
 					limit = {
@@ -3128,6 +3132,10 @@ character_event = {
 			if = {
 				limit = {
 					NOT = { has_character_flag = immune_rabies }
+					NOR = {
+						race_disease_resist = yes
+						race_disease_immune = yes
+					}
 				}
 				if = {
 					limit = {
@@ -4531,6 +4539,7 @@ character_event = {
 	trigger = {
 		has_character_modifier = reading_books_hermes
 		true_religion_group = pagan_group
+		is_monotheistic = no
 		NOT = {	trait = blinded }
 		prisoner = no
 	}
@@ -4586,7 +4595,9 @@ character_event = {
 	option = {
 		name = EVTOPTCMYTH_WoL.61
 		religion = zoroastrian
-		# Don't need to filter for this - if you're playing as a pagan, you already have The Old Gods
+		trigger = {
+			has_dlc = "The Old Gods" # With Holy Fury, it's now possible to be able to play pagans but not zoroastrians
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -6041,7 +6052,7 @@ character_event = {
 		trigger = {
 			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				NOT = { capital_scope = { province = PREV } }
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
 			}
 		}
 		event_target:random_province = {
@@ -6518,7 +6529,7 @@ character_event = {
 		trigger = {
 			any_demesne_province = {
 				NOT = { has_province_flag = crown_focus_province }
-				NOT = { capital_scope = { province = PREV } }
+				NOT = { ROOT = { capital_scope = { province = PREVPREV } } }
 			}
 		}
 				
@@ -6644,6 +6655,14 @@ character_event = {
 			else_if = {
 				limit = { selected_ingredient_is_unhealthy_trigger = yes }
 				FROM = { set_character_flag = recieve_potion_bad }
+			}
+			if = {
+				limit = { selected_ingredient_is_perceived_healthy_trigger = yes }
+				FROM = { set_character_flag = potion_looks_good }
+			}
+			else_if = {
+				limit = { selected_ingredient_is_unhealthy_trigger = yes }
+				FROM = { set_character_flag = potion_looks_bad }
 			}
 			FROM = { character_event = { id = MYTH_WoL.91 days = 1 } }
 		}
@@ -6838,6 +6857,10 @@ character_event = {
 				factor = 2
 				FROM = { has_minor_title = title_court_physician }
 			}
+			modifier = {
+				factor = 4
+				has_character_flag = potion_looks_good
+			}
 		}
 	}
 	# Refuse the potion
@@ -6858,12 +6881,18 @@ character_event = {
 				}
 				is_plot_target_of = FROM
 			}
+			modifier = {
+				factor = 4
+				has_character_flag = potion_looks_bad
+			}
 		}
 	}
 	
 	after = {
 		clr_character_flag = recieve_potion_good
 		clr_character_flag = recieve_potion_bad
+		clr_character_flag = potion_looks_good
+		clr_character_flag = potion_looks_bad
 	}
 }
 # MYTH_WoL.92 - Great result
@@ -22294,17 +22323,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_1
 				NOT = { opinion = { who = event_target:character_1 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_1 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_1 value = -75 } }
 			}
 			modifier = {
 				factor = 0.5
@@ -22348,17 +22370,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_1
 				NOT = { opinion = { who = event_target:character_2 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_2 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_2 value = -75 } }
 			}
 			modifier = {
 				factor = 0.5
@@ -22402,17 +22417,10 @@ character_event = {
 		}
 		ai_chance = {
 			factor = 4
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = 0 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:character_3 value = -75 } }
+			additive_opinion_modifier = {
+				factor = -0.28
+				who = event_target:character_3
+				NOT = { opinion = { who = event_target:character_1 value = 0 } }
 			}
 			modifier = {
 				factor = 0.5

@@ -83,11 +83,11 @@ laws = {
 	#########################
 	
 	werewolf_law_0 = {
+		# Allows all challenges
 		group = werewolf_law
 		default = yes
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -98,15 +98,28 @@ laws = {
 			}
 		}
 		allow = {
-			NOR = {
+			OR ={
 				has_law = werewolf_law_2
-				has_law = werewolf_law_3
-				has_law = werewolf_law_4
+				NOR = {
+					has_law = werewolf_law_0
+					has_law = werewolf_law_1
+					has_law = werewolf_law_2
+					has_law = werewolf_law_3
+					has_law = werewolf_law_4
+				}
 			}
-			holder_scope = { culture = werewolf_culture }
-		}
-		revoke_allowed = {
-			always = no
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -122,9 +135,6 @@ laws = {
 				factor = 0.2
 				holder_scope = { NOT = { prestige = 0 } }
 			}
-		}
-		ai_will_revoke = {
-			factor = 0
 		}
 		pass_effect = {
 			
@@ -198,12 +208,12 @@ laws = {
 		}
 	}
 	werewolf_law_1 = {
+		# Disallows Infamy-based challenges
 		group = werewolf_law
 		feudal_opinion = -5
 		tribal_opinion = -5
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -221,7 +231,18 @@ laws = {
 				}
 				has_law = werewolf_law_2
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -325,12 +346,12 @@ laws = {
 		}
 	}
 	werewolf_law_2 = {
+		# Disallows Challenges against. Reduces short reign challenges to 4 years
 		group = werewolf_law
 		feudal_opinion = -10
 		tribal_opinion = -10
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -348,7 +369,18 @@ laws = {
 				}
 				has_law = werewolf_law_3
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -368,17 +400,17 @@ laws = {
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = clubfooted }
+				holder_scope = { OR = { trait = clubfooted trait = quailfooted } }
 			}
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = harelip }
+				holder_scope = { OR = { trait = harelip trait = cleft_lip } }
 			}
 			modifier = {
 				factor = 0.2
 				has_law = werewolf_law_3
-				holder_scope = { trait = hunchback }
+				holder_scope = { OR = { trait = hunchback trait = twisted } }
 			}
 			modifier = {
 				factor = 0.2
@@ -462,12 +494,12 @@ laws = {
 		}
 	}
 	werewolf_law_3 = {
+		# Disallows challenges based off negative genetic traits
 		group = werewolf_law
 		feudal_opinion = -15
 		tribal_opinion = -15
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -484,8 +516,11 @@ laws = {
 					holder_scope = {
 						NOR = {
 							trait = clubfooted
+							trait = quailfooted
 							trait = harelip
+							trait = cleft_lip
 							trait = hunchback
+							trait = twisted
 							trait = dwarf
 							trait = inbred
 						}
@@ -493,7 +528,18 @@ laws = {
 				}
 				has_law = werewolf_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -523,17 +569,17 @@ laws = {
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = clubfooted }
+				current_heir = { OR = { trait = clubfooted trait = quailfooted } }
 			}
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = harelip }
+				current_heir = { OR = { trait = harelip trait = cleft_lip } }
 			}
 			modifier = {
 				factor = 4
 				has_law = werewolf_law_3
-				current_heir = { trait = hunchback }
+				current_heir = { OR = { trait = hunchback trait = twisted } }
 			}
 			modifier = {
 				factor = 4
@@ -615,12 +661,12 @@ laws = {
 		}
 	}
 	werewolf_law_4 = {
+		# Disallows challenges physical weakness and reduces short reign challenges to 3 years
 		group = werewolf_law
 		feudal_opinion = -20
 		tribal_opinion = -20
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -638,7 +684,18 @@ laws = {
 					trait = feeble
 				}
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		revoke_allowed = {
 			always = no
@@ -738,10 +795,11 @@ laws = {
 	######################################
 	
 	werewolf_wait_law_0 = {
+		# Can only challenge once per lifetime.
+		# Being challenged does not prevent other challenges
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -757,7 +815,18 @@ laws = {
 				has_law = werewolf_wait_law_3
 				has_law = werewolf_wait_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -848,10 +917,11 @@ laws = {
 		}
 	}
 	werewolf_wait_law_1 = {
+		# A given character can only issue a challenge every 10 years
+		# Being challenged prevents all challenges for 3 months
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -866,7 +936,18 @@ laws = {
 				has_law = werewolf_wait_law_3
 				has_law = werewolf_wait_law_4
 			}
-			holder_scope = { culture = werewolf_culture }
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
+			}
 		}
 		ai_will_do = {
 			factor = 0.01
@@ -979,11 +1060,12 @@ laws = {
 		}
 	}
 	werewolf_wait_law_2 = {
+		# A given character can only issue a challenge every 5 years
+		# Being challenged blocks other challenges for 6 months
 		group = werewolf_wait_law
 		default = yes
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -994,9 +1076,28 @@ laws = {
 			}
 		}
 		allow = {
-			NOR = {
-				has_law = werewolf_wait_law_0
-				has_law = werewolf_wait_law_4
+			OR = {
+				has_law = werewolf_wait_law_1
+				has_law = werewolf_wait_law_3
+				NOR = {
+					has_law = werewolf_wait_law_0
+					has_law = werewolf_wait_law_1
+					has_law = werewolf_wait_law_2
+					has_law = werewolf_wait_law_3
+					has_law = werewolf_wait_law_4
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {
@@ -1113,10 +1214,11 @@ laws = {
 		}
 	}
 	werewolf_wait_law_3 = {
+		# A given character can only challenge every 3 years
+		# Being challenged blocks all challenges for 9 months
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -1130,6 +1232,18 @@ laws = {
 			NOR = {
 				has_law = werewolf_wait_law_0
 				has_law = werewolf_wait_law_1
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {
@@ -1240,10 +1354,11 @@ laws = {
 		}
 	}
 	werewolf_wait_law_4 = {
+		# A given character has no limit on issuing challenges
+		# Being challenged blocks all challenges for 1 year
 		group = werewolf_wait_law
 		
 		potential = {
-			higher_tier_than = count
 			holder_scope = {
 				culture = werewolf_culture
 				independent = yes
@@ -1258,6 +1373,18 @@ laws = {
 				has_law = werewolf_wait_law_0
 				has_law = werewolf_wait_law_1
 				has_law = werewolf_wait_law_2
+			}
+			conditional_tooltip = {
+				trigger = {
+					holder_scope = {
+						NOT = {
+							higher_tier_than = COUNT
+						}
+					}
+				}
+				holder_scope = {
+					higher_tier_than = COUNT
+				}
 			}
 		}
 		ai_will_do = {

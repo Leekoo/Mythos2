@@ -302,6 +302,14 @@ decisions = {
 				factor = 0.5
 				is_friend = liege
 			}
+			modifier = {
+				factor = 0.7
+				NOT = { relative_power_to_liege = 1.0 }
+			}
+			modifier = {
+				factor = 1.5
+				relative_power_to_liege = 2.0
+			}
 		}
 	}
 	
@@ -350,6 +358,7 @@ decisions = {
 		}
 		effect = {
 			prestige = 200
+			set_global_flag = founded_vampire_culture
 			culture = vampire_culture
 			capital_scope = { culture = vampire_culture }
 			if = {
@@ -464,155 +473,155 @@ decisions = {
 
 targetted_decisions = {
 	
-	force_blood_bond = {
-		filter = realm
-		ai_target_filter = realm
-		only_rulers = yes
-		from_potential = {
-			trait = vampire
-			is_incapable = no
-			prisoner = no
-		}
-		potential = {
-			trait = vampire
-			prisoner = yes
-			host = { character = FROM }
-		}
-		allow = {
-			FROM = { 
-				custom_tooltip = {
-					text = tt_caught_root_plotting
-					hidden_tooltip = {
-						has_opinion_modifier = { who = ROOT modifier = can_blood_bond } 
-					}
-				}
-			}
-			NOT = { has_opinion_modifier = { who = FROM modifier = vampire_blood_bond } }
-		}
-		effect = {
-			opinion = { who = FROM modifier = vampire_blood_bond }
-			imprison = no
-			if = {
-				limit = { ai = no }
-				hidden_tooltip = { character_event = { id = VAMPIRE.148 } }
-			}
-			hidden_tooltip = {
-				FROM = {
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = opinion_dishonorable }
-						}
-						remove_opinion = { who = ROOT modifier = opinion_dishonorable }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = opinion_murder_attempt }
-						}
-						remove_opinion = { who = ROOT modifier = opinion_murder_attempt }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 600 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_child }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder_of_child }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_parent }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder_of_parent }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_sibling }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder_of_sibling }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_vassal }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder_of_vassal }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_spouse_vassal }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder_of_spouse_vassal }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-					if = {
-						limit = {
-							has_opinion_modifier = { who = ROOT modifier = attempted_murder }
-						}
-						remove_opinion = { who = ROOT modifier = attempted_murder }
-						if = {
-							limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
-							opinion = { who = ROOT modifier = evil_murderer months = 60 }
-						}
-					}
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.04
-			modifier = {
-				factor = 0.1
-				trait = wroth
-			}
-			modifier = {
-				factor = 0.5
-				trait = impaler
-			}
-			modifier = {
-				factor = 0.8
-				trait = cruel
-			}
-			modifier = {
-				factor = 1.5
-				trait = gregarious
-			}
-			modifier = {
-				factor = 2
-				trait = mystic
-			}
-			modifier = {
-				factor = 3
-				trait = enchanter
-			}
-			modifier = {
-				factor = 1.5
-				trait = patient
-			}
-		}
-	}
+	#force_blood_bond = {
+	#	filter = realm
+	#	ai_target_filter = realm
+	#	only_rulers = yes
+	#	from_potential = {
+	#		trait = vampire
+	#		is_incapable = no
+	#		prisoner = no
+	#	}
+	#	potential = {
+	#		trait = vampire
+	#		prisoner = yes
+	#		host = { character = FROM }
+	#	}
+	#	allow = {
+	#		FROM = { 
+	#			custom_tooltip = {
+	#				text = tt_caught_root_plotting
+	#				hidden_tooltip = {
+	#					has_opinion_modifier = { who = ROOT modifier = can_blood_bond } 
+	#				}
+	#			}
+	#		}
+	#		NOT = { has_opinion_modifier = { who = FROM modifier = vampire_blood_bond } }
+	#	}
+	#	effect = {
+	#		opinion = { who = FROM modifier = vampire_blood_bond }
+	#		imprison = no
+	#		if = {
+	#			limit = { ai = no }
+	#			hidden_tooltip = { character_event = { id = VAMPIRE.148 } }
+	#		}
+	#		hidden_tooltip = {
+	#			FROM = {
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = opinion_dishonorable }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = opinion_dishonorable }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = opinion_murder_attempt }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = opinion_murder_attempt }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 600 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_child }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder_of_child }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_parent }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder_of_parent }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_sibling }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder_of_sibling }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_vassal }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder_of_vassal }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder_of_spouse_vassal }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder_of_spouse_vassal }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#				if = {
+	#					limit = {
+	#						has_opinion_modifier = { who = ROOT modifier = attempted_murder }
+	#					}
+	#					remove_opinion = { who = ROOT modifier = attempted_murder }
+	#					if = {
+	#						limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = evil_murderer } } }
+	#						opinion = { who = ROOT modifier = evil_murderer months = 60 }
+	#					}
+	#				}
+	#			}
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 0.04
+	#		modifier = {
+	#			factor = 0.1
+	#			trait = wroth
+	#		}
+	#		modifier = {
+	#			factor = 0.5
+	#			trait = impaler
+	#		}
+	#		modifier = {
+	#			factor = 0.8
+	#			trait = cruel
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			trait = gregarious
+	#		}
+	#		modifier = {
+	#			factor = 2
+	#			trait = mystic
+	#		}
+	#		modifier = {
+	#			factor = 3
+	#			trait = enchanter
+	#		}
+	#		modifier = {
+	#			factor = 1.5
+	#			trait = patient
+	#		}
+	#	}
+	#}
 	turn_vampire = {
 		filter = realm
 		ai_target_filter = realm
@@ -630,6 +639,7 @@ targetted_decisions = {
 				trait = djinn
 				trait = giant
 				trait = god
+				trait = zombie
 				character = FROM
 			}
 			OR = { 
@@ -671,6 +681,15 @@ targetted_decisions = {
 				text = NOT_CONSIDERING_MAJOR_DECISIONS
 				NOT = { has_character_flag = considering_decision }
 			}
+			conditional_tooltip = {
+				trigger = {
+					has_opinion_modifier = { who = persistent_event_target:sire modifier = vampire_blood_bond }
+				}
+				custom_tooltip = {
+					text = NOT_BONDED_TO_SIRE
+					NOT = { has_opinion_modifier = { who = persistent_event_target:sire modifier = vampire_blood_bond } }
+				}
+			}
 		}
 			
 		effect = {
@@ -687,8 +706,8 @@ targetted_decisions = {
 			}
 			modifier = {
 				factor = 1.5
-				opinion = { who = FROM value = 175 }
-				FROM = { opinion = { who = ROOT value = 175 } }
+				opinion = { who = FROM value = 75 }
+				FROM = { opinion = { who = ROOT value = 75 } }
 			}
 			modifier = {
 				factor = 0.1
@@ -747,6 +766,35 @@ targetted_decisions = {
 							trait = hunger_3
 							trait = hunger_4
 							trait = hunger_5
+						}
+					}
+				}
+			}
+			conditional_tooltip = {
+				trigger = {
+					has_minor_title = title_vampiric_protection
+					FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire } }
+					liege = {
+						FROM = {
+							persistent_event_target:sire = {
+								character = PREVPREV
+							}
+						}
+					}
+				}
+				custom_tooltip = {
+					text = BLOOD_BOND_CANT_FEED_ON_PROTECTED
+					hidden_tooltip = {
+						NAND = {
+							has_minor_title = title_vampiric_protection
+							FROM = { has_opinion_modifier = { modifier = vampire_blood_bond who = persistent_event_target:sire } }
+							liege = {
+								FROM = {
+									persistent_event_target:sire = {
+										character = PREVPREV
+									}
+								}
+							}
 						}
 					}
 				}

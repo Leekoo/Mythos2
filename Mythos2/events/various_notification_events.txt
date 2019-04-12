@@ -137,7 +137,8 @@ character_event = {
 		name = EVTOPTB_NE_1
 		
 		hidden_tooltip = {
-			event_target:invited_character = { 
+			event_target:invited_character = {
+				any_artifact = { destroy_artifact = yes }
 				death = {
 					death_reason = death_missing
 				}

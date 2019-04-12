@@ -28,11 +28,11 @@ character_event = {
 	id = SPECIES.2
 	
 	hide_window = yes
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	
 	ai = yes # Players will either be set through the ruler designer or have been AI, be manually created in history, or have previously been AI.
 	
-	mean_time_to_happen = { days = 1 }
+	#mean_time_to_happen = { days = 1 }
 	trigger = {
 		trait = race_placeholder
 		NOT = { has_character_flag = checked_race }
@@ -132,11 +132,11 @@ character_event = {
 					7 = {
 						modifier = {
 							factor = 0.7
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
@@ -161,11 +161,11 @@ character_event = {
 					9 = {
 						modifier = {
 							factor = 0.7
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
@@ -191,11 +191,11 @@ character_event = {
 						
 						modifier = {
 							factor = 0.7
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
@@ -203,11 +203,11 @@ character_event = {
 					20 = {
 						modifier = {
 							factor = 0.5
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 2
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						remove_trait = dragonborn
 						remove_trait = dragon
@@ -244,11 +244,11 @@ character_event = {
 						remove_trait = dragon
 						modifier = {
 							factor = 3
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 0.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 					9 = {
@@ -340,11 +340,11 @@ character_event = {
 					1 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						set_character_flag = gain_blood_of_the_gods
 					}
@@ -450,11 +450,11 @@ character_event = {
 						3 = {
 							modifier = {
 								factor = 0.6
-								has_game_rule = { name = breeding value = more }
+								has_game_rule = { name = breeding value = strong }
 							}
 							modifier = {
 								factor = 1.5
-								has_game_rule = { name = breeding value = fewer }
+								has_game_rule = { name = breeding value = weak }
 							}
 						}
 					}
@@ -467,11 +467,11 @@ character_event = {
 						3 = {
 							modifier = {
 								factor = 0.6
-								has_game_rule = { name = breeding value = more }
+								has_game_rule = { name = breeding value = strong }
 							}
 							modifier = {
 								factor = 1.5
-								has_game_rule = { name = breeding value = fewer }
+								has_game_rule = { name = breeding value = weak }
 							}
 						}
 					}
@@ -534,11 +534,11 @@ character_event = {
 						1 = {
 							modifier = {
 								factor = 0.6
-								has_game_rule = { name = breeding value = more }
+								has_game_rule = { name = breeding value = strong }
 							}
 							modifier = {
 								factor = 1.5
-								has_game_rule = { name = breeding value = fewer }
+								has_game_rule = { name = breeding value = weak }
 							}
 						}
 					}
@@ -715,11 +715,11 @@ character_event = {
 					1 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -873,21 +873,21 @@ character_event = {
 					2 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 					6 = {
 						modifier = {
 							factor = 0.8
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.2
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = half_giant
 					}
@@ -924,11 +924,11 @@ character_event = {
 					6 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -957,11 +957,11 @@ character_event = {
 					3 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -1012,16 +1012,17 @@ character_event = {
 						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = pup
+						set_character_flag = giant_born_werewolf
 						set_variable = { which = control value = 1 }
 					}
 					17 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -1056,11 +1057,11 @@ character_event = {
 					3 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = dragonborn
 						set_graphical_culture = frankish
@@ -1079,11 +1080,11 @@ character_event = {
 					60 = {
 						modifier = {
 							factor = 0.8
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.2
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
@@ -1092,11 +1093,11 @@ character_event = {
 					39 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						set_graphical_culture = event_target:parent
 						remove_trait = dragonborn
@@ -1156,11 +1157,11 @@ character_event = {
 					1 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = demi_god
 						set_character_flag = ai_flag_refuse_conversion
@@ -1187,11 +1188,11 @@ character_event = {
 					9 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = blood_of_the_gods
 					}
@@ -1227,11 +1228,11 @@ character_event = {
 					7 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -1244,11 +1245,11 @@ character_event = {
 					2 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -1261,11 +1262,11 @@ character_event = {
 					2 = { 
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 						add_trait = half_giant
 					}
@@ -1279,11 +1280,11 @@ character_event = {
 					2 = {
 						modifier = {
 							factor = 0.6
-							has_game_rule = { name = breeding value = more }
+							has_game_rule = { name = breeding value = strong }
 						}
 						modifier = {
 							factor = 1.5
-							has_game_rule = { name = breeding value = fewer }
+							has_game_rule = { name = breeding value = weak }
 						}
 					}
 				}
@@ -1957,7 +1958,11 @@ character_event = {
 	
 	trigger = {
 		NOT = { any_owned_bloodline = { has_bloodline_flag = BOTG } }
-		trait = blood_of_the_gods
+		OR = {
+			trait = blood_of_the_gods
+			trait = god
+			trait = demi_god
+		}
 	}
 	
 	immediate = {
@@ -2085,5 +2090,23 @@ character_event = {
 				}
 			}
 		}
+	}
+}
+
+# Call Species.2 if a character is newly created
+character_event = {
+	id = SPECIES.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { character = no } # Ignore the validator, this works
+	}
+	immediate = {
+		if = {
+			limit = { NOT = { has_character_flag = checked_race } }
+			add_trait = race_placeholder
+		}
+		repeat_event = { id = SPECIES.2 } # Repeat event to keep scopes correct
 	}
 }

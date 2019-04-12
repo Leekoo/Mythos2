@@ -12,7 +12,221 @@ namespace = CHALLENGE
 # CHALLENGE.1 - Control the initial start of the challenge.  A few different twists depending on the nature of the challenge
 character_event = {
 	id = CHALLENGE.1
-	desc = EVTDESC_CHALLENGE.1
+	#desc = EVTDESC_CHALLENGE.1
+	desc = {
+		text = EVTDESCA_CHALLENGE.1
+		# Challenged ruler is incapable
+		trigger = {
+			trait = incapable
+		}
+	}
+	desc = {
+		text = EVTDESCB_CHALLENGE.1
+		# Challenged ruler is a tyrant
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_1
+				has_law = werewolf_law_2
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			OR = {
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_tyrant }
+				reverse_has_opinion_modifier = { who = ROOT modifier = opinion_evil_tyrant }
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCC_CHALLENGE.1
+		# Challenged ruler is infamous
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_1
+				has_law = werewolf_law_2
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			NOT = { prestige = 0 }
+		}
+	}
+	desc = {
+		text = EVTDESCD_CHALLENGE.1
+		# Challenged ruler is Inbred
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			trait = inbred
+			NOR = {
+				AND = {
+					religion = zoroastrian
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = messalian
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = atenist
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = kemetic_pagan_reformed
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				AND = {
+					religion = kemetic_pagan
+					NOT = {
+						has_alternate_start_parameter = {
+							key = religion_names
+							value = random
+						}
+					}
+				}
+				OR = {
+					has_religion_feature = religion_holy_family
+					has_religion_feature = religion_feature_zun
+				}
+			}
+		}
+	}
+	desc = {
+		text = EVTDESCE_CHALLENGE.1
+		# Challenged ruler is deformed
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_genetic = yes
+		}
+	}
+	desc = {
+		text = EVTDESCF_CHALLENGE.1
+		# Challenged ruler is a dwarf
+		trigger = {
+			NOT = { trait = incapable }
+			NOR = {
+				has_law = werewolf_law_3
+				has_law = werewolf_law_4
+			}
+			trait = dwarf
+		}
+	}
+	desc = {
+		text = EVTDESCG_CHALLENGE.1
+		# Challenged ruler is weak
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_weak = yes
+		}
+	}
+	desc = {
+		text = EVTDESCH_CHALLENGE.1
+		# Challenged ruler is female
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_female = yes
+		}
+	}
+	desc = {
+		text = EVTDESCI_CHALLENGE.1
+		# Challenged ruler is male
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_male = yes
+		}
+	}
+	desc = {
+		text = EVTDESCJ_CHALLENGE.1
+		# Challenged ruler is new
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_new_ruler = yes
+		}
+	}
+	desc = {
+		text = EVTDESCK_CHALLENGE.1
+		# Challenged ruler is a child. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = yes
+		}
+	}
+	desc = {
+		text = EVTDESCL_CHALLENGE.1
+		# Challenged ruler is a non-werewolf. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			NOT = { trait = known_werewolf }
+		}
+	}
+	desc = {
+		text = EVTDESCM_CHALLENGE.1
+		# Challenged ruler is a foreigner. No above reasons apply
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			trait = known_werewolf
+			NOT = { culture = werewolf_culture }
+		}
+	}
+	desc = {
+		text = EVTDESC_CHALLENGE.1
+		# Fallback
+		trigger = {
+			NOT = { trait = incapable }
+			can_challenge_infamy = no
+			can_challenge_genetic = no
+			can_challenge_weak = no
+			can_challenge_female = no
+			can_challenge_male = no
+			can_challenge_new_ruler = no
+			can_challenge_child = no
+			trait = known_werewolf
+			culture = werewolf_culture
+		}
+	}
 	picture = GFX_evt_poke_king_in_chest
 	border = GFX_event_normal_frame_war
 	is_triggered_only = yes
@@ -442,14 +656,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = liege
 			}
 			modifier = {
 				factor = 1.5
@@ -493,15 +703,7 @@ character_event = {
 		name = EVTOPTB_CHALLENGE.9
 		liege = { father = { character_event = { id = CHALLENGE.10 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -550,15 +752,7 @@ character_event = {
 		name = EVTOPTC_CHALLENGE.9
 		liege = { mother = { character_event = { id = CHALLENGE.11 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -617,15 +811,7 @@ character_event = {
 			liege = { character_event = { id = CHALLENGE.11 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -679,14 +865,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = event_target:challenged_party
 			}
 			modifier = {
 				factor = 1.5
@@ -729,15 +911,7 @@ character_event = {
 		name = EVTOPTC_CHALLENGE.9
 		event_target:challenged_party = { mother = { character_event = { id = CHALLENGE.11 days = 1 } } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -779,15 +953,7 @@ character_event = {
 			event_target:challenged_party = { character_event = { id = CHALLENGE.11 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -837,14 +1003,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.5
+				who = event_target:challenged_party
 			}
 			modifier = {
 				factor = 1.5
@@ -876,18 +1038,10 @@ character_event = {
 	option = {
 		name = EVTOPTD_CHALLENGE.9
 		hidden_tooltip = {
-			event_target:challenged_party = { character_event = { id = CHALLENGE.11 days = 1 } }
+			event_target:challenged_party = { character_event = { id = CHALLENGE.12 days = 1 } }
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenged_party value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -1397,34 +1551,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 25 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenged_party value = 100 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -75 } }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:challenged_party
 			}
 		}
 	}
@@ -1455,34 +1585,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 25 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:champion value = 100 }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = event_target:challenger value = -75 } }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:champion
 			}
 		}
 	}
@@ -1518,52 +1624,15 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 25 }
+			factor = 10
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = event_target:challenger
 			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 75 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = event_target:challenger value = 100 }
-			}
-			modifier = {
-				factor = 2
+			additive_opinion_modifier = {
+				factor = -0.7
+				who = event_target:challenger
 				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				event_target:challenged_party = { has_character_flag = defending_party }
-				NOT = { opinion = { who = event_target:challenged_party value = -75 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -25 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { event_target:challenged_party = { has_character_flag = defending_party } }
-				NOT = { opinion = { who = event_target:champion value = -75 } }
 			}
 		}
 	}
@@ -1578,7 +1647,7 @@ character_event = {
 		}
 		name = EVTOPTC_CHALLENGE.20
 		ai_chance = {
-			factor = 2
+			factor = 20
 			modifier = {
 				factor = 2
 				trait = slothful
@@ -2210,6 +2279,7 @@ character_event = {
 			}
 			# Low Control
 			2 = {
+				trigger = { trait = werewolf }
 				modifier = {
 					factor = 0
 					NAND = {
@@ -2232,6 +2302,10 @@ character_event = {
 			}
 			# Untransformed werewolf can take turn to transform
 			1 = {
+				trigger = {
+					has_character_flag = not_shapeshifted
+					trait = werewolf
+				}
 				modifier = {
 					factor = 0
 					NAND = {
@@ -5299,6 +5373,12 @@ character_event = {
 					factor = 2
 					event_target:first_turn = {
 						trait = clubfooted
+					}
+				}
+				modifier = {
+					factor = 2
+					event_target:first_turn = {
+						trait = quailfooted
 					}
 				}
 				modifier = {
@@ -8813,14 +8893,10 @@ character_event = {
 			}
 		}
 		ai_chance = {
-			factor = 2
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 50 }
-			}
-			modifier = {
-				factor = 2
-				opinion = { who = liege value = 90 }
+			factor = 20
+			additive_opinion_modifier = {
+				factor = 0.7
+				who = liege
 			}
 			modifier = {
 				factor = 1.5
@@ -8864,15 +8940,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -8923,15 +8991,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -8985,15 +9045,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -9058,15 +9110,7 @@ character_event = {
 		prestige = -50
 		liege = { opinion = { who = ROOT modifier = opinion_dishonorable years = 5 } }
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -50 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { opinion = { who = liege value = -90 } }
-			}
+			factor = 10
 			modifier = {
 				factor = 1.5
 				NOT = { ai_honor = 0 }
@@ -9096,6 +9140,7 @@ character_event = {
 }
 
 # Clear werewolf challenge global flag after 6 months, so be sure
+# Currently unused, as the stability issue where I needed to avoid multiple AI challenges at once was fixed
 character_event = {
 	id = CHALLENGE.90
 	hide_window = yes

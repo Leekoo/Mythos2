@@ -4538,7 +4538,11 @@ new_crusade = {
 					title = PREV
 				}
 				PREV = {
-					title = k_thrace	
+					title = k_thrace
+					FROM = { 
+						has_landed_title = e_byzantium 
+						religion_group = christian
+					}
 				} 
 			}
 		}

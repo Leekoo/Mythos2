@@ -1202,25 +1202,8 @@ monster_revolt = {
 	is_valid = {
 		OR = {
 			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-			AND = {
-				FROM = { trait = known_werewolf }
-				ROOT = {
-					NOR = {
-						trait = known_werewolf
-						culture = werewolf_culture
-					}
-				}
-			}
-			AND = {
-				FROM = { trait = known_vampire }
-				ROOT = {
-					NOR = {
-						trait = known_vampire
-						culture = vampire_culture
-						religion = satanist
-					}
-				}
-			}
+			FROM = { is_monster_to_root = yes }
+			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
 		}
 	}
 	
@@ -1285,6 +1268,36 @@ monster_revolt = {
 			}
 			usurp_title = { target = ROOT type = revolt }
 		}
+		ROOT = {
+			any_realm_province = {
+				remove_province_modifier = monster_hunter_training
+				remove_province_modifier = monster_hunting_weapons
+				remove_province_modifier = growing_discontent
+				remove_province_modifier = human_riots
+				if = {
+					limit = {
+						OR = {
+							culture = werewolf_culture
+							culture = vampire_culture
+							culture = draconic
+							culture = djinni
+						}
+						ROOT = {
+							NOR = {
+								culture = werewolf_culture
+								culture = vampire_culture
+								culture = draconic
+								culture = djinni
+							}
+						}
+					}
+					random = {
+						chance = 5
+						culture = ROOT
+					}
+				}
+			}
+		}
 	}
 	
 	on_fail = {
@@ -1296,6 +1309,40 @@ monster_revolt = {
 				add_character_modifier = { 
 					name = broken_spirit
 					days = -1
+				}
+			}
+			any_realm_province = {
+				# Loss of soldiers - remove monster_hunter_training
+				if = {
+					limit = { has_province_modifier = monster_hunter_training }
+					random = {
+						chance = 10
+						province_event = { id = MONSTER.27 days = 1 }
+					}
+				}
+				# Round up weapon caches - remove monster_hunting_weapons
+				if = {
+					limit = { has_province_modifier = monster_hunting_weapons }
+					random = {
+						chance = 5
+						province_event = { id = MONSTER.31 days = 3 random = 5 }
+					}
+				}
+				# Rebellion let off steam - remove growing_discontent
+				if = {
+					limit = { has_province_modifier = growing_discontent }
+					random = {
+						chance = 10
+						province_event = { id = MONSTER.35 days = 1 }
+					}
+				}
+				# Rioters died in battle - remove human_riots
+				if = {
+					limit = { has_province_modifier = human_riots }
+					random = {
+						chance = 20
+						province_event = { id = MONSTER.39 days = 1 }
+					}
 				}
 			}
 		}
@@ -1323,6 +1370,110 @@ monster_revolt = {
 				add_character_modifier = { 
 					name = broken_spirit
 					days = -1
+				}
+			}
+			any_realm_province = {
+				# Possible province conversion. Remove all modifiers, so don't check the others
+				random_list = {
+					1 = {
+						trigger = {
+							OR = {
+								AND = {
+									NOT = { culture = vampire_culture }
+									FROM = { trait = known_vampire }
+									has_global_flag = founded_vampire_culture
+								}
+								AND = {
+									NOT = { culture = werewolf_culture }
+									FROM = { trait = known_werewolf }
+									has_global_flag = founded_werewolf_culture
+								}
+								AND = {
+									NOT = { culture = draconic }
+									FROM = { trait = dragon }
+								}
+								AND = {
+									NOT = { culture = djinni }
+									FROM = { trait = djinn }
+								}
+								AND = {
+									NOT = { culture = jotunn }
+									FROM = {
+										OR = {
+											trait = mythos_giant
+											trait = half_giant
+										}
+									}
+								}
+								AND = {
+									NOT = { culture_group = undead_culture_group }
+									FROM = { trait = zombie }
+								}
+							}
+						}
+						modifier = {
+							factor = 5
+							FROM = {
+								OR = {
+									AND = {
+										trait = known_werewolf
+										culture = werewolf_culture
+									}
+									AND = {
+										trait = known_vampire
+										culture = vampire_culture
+									}
+									AND = {
+										trait = dragon
+										culture = draconic
+									}
+									AND = {
+										trait = djinn
+										culture = djinni
+									}
+									AND = {
+										trait = giant
+										culture = jotunn
+									}
+								}
+							}
+						}
+						province_event = { id = MONSTER.43 days = 1 }
+					}
+					95 = {
+						# Execution of soldiers - remove monster_hunter_training
+						if = {
+							limit = { has_province_modifier = monster_hunter_training }
+							random = {
+								chance = 30
+								province_event = { id = MONSTER.29 days = 1 }
+							}
+						}
+						# Seize weapons - remove monster_hunting_weapons
+						if = {
+							limit = { has_province_modifier = monster_hunting_weapons }
+							random = {
+								chance = 40
+								province_event = { id = MONSTER.33 days = 1 }
+							}
+						}
+						# Cowed by defeat - remove growing_discontent
+						if = {
+							limit = { has_province_modifier = growing_discontent days = 1 }
+							random = {
+								chance = 60
+								province_event = { id = MONSTER.37 }
+							}
+						}
+						# Execute instigators - remove human_riots
+						if = {
+							limit = { has_province_modifier = human_riots }
+							random = {
+								chance = 40
+								province_event = { id = MONSTER.41 days = 1 }
+							}
+						}
+					}
 				}
 			}
 		}
