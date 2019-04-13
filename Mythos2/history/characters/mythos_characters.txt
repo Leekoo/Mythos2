@@ -4866,3 +4866,107 @@
 		create_bloodline = { type = BL_blood_of_hestia }
 	}
 }
+
+268500 = {
+	# Skrýmir Útgar?a-Loki
+	name = Skrýmir
+	female=no
+	dynasty=1049431
+	religion=jotnar
+	culture=jotunn
+	diplomacy = 6
+	martial = 6
+	intrigue = 8
+	stewardship = 4
+	learning = 7
+	trait = mythos_giant
+	trait = veteran_wizard
+	trait = enchanter
+	trait = quick
+	trait = proud
+	trait = size_3
+	disallow_random_traits=yes
+	823.1.1={
+		birth = yes
+		create_bloodline = { type = BL_of_utgardr_loki }
+		employer=280020
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268501={
+	name = "Logi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = skilled_tactician
+	trait = duelist
+	trait = lustful
+	trait = aggressive_leader
+	trait = size_1
+	disallow_random_traits=yes
+	846.1.1={
+		birth=yes
+		employer=280020
+	}
+	845.1.2={
+		employer=268500
+		give_nickname = nick_the_cleansing_flame
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268502={
+	name="Hugi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = genius
+	trait = mastermind_theologian
+	trait = gamer
+	trait = trickster
+	trait = size_1
+	840.1.1={
+		birth=yes
+		employer=280020
+	}
+	845.1.2={
+		employer=268500
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268503={
+	name="Elli"
+	female=yes
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = immortal
+	trait = size_9
+	trait = cannot_marry
+	immortal_age = 70
+	770.1.1={
+		birth=yes
+		employer=280020
+		effect = {
+			set_character_flag = ai_flag_refuse_marriage
+			set_character_flag = ai_flag_refuse_concubinage
+			set_character_flag = cannot_marry
+			set_character_flag = no_court_invites
+			will_not_marry_effect = yes
+		}
+	}
+	845.1.2={
+		employer=268500
+		give_nickname = nick_the_old
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
