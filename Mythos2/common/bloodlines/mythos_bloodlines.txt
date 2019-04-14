@@ -446,3 +446,64 @@ BL_of_utgardr_loki = {
 	picture = GFX_bloodlines_symbol_norse
 	flags = { historical_bloodline }
 }
+
+BL_alchemist = {
+	alchemist_opinion = 10
+	immortal_opinion = 10
+	global_tax_modifier = 0.02
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_murder
+	flags = { magic_bloodline }
+}
+
+BL_herbalist = {
+	herbalist_opinion = 10
+	health = 0.5
+	vassal_opinion = 3
+	bloodline_effect_better_herbs = yes
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_murder_rose
+	flags = { magic_bloodline }
+}
+
+BL_enchanter = {
+	enchanter_opinion = 10
+	siege_defense = 0.1
+	threat_decay_speed = 0.1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_builder
+	flags = { magic_bloodline }
+}
+
+BL_summoner = {
+	summoner_opinion = 10
+	global_levy_size = 0.5
+	local_build_time_modifier = -0.02
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_bucephalus
+	flags = { magic_bloodline }
+}
+
+BL_necromancer = {
+	bloodline_effect_necromancer_study = yes
+	the_damned_opinion = 30
+	murder_plot_power_modifier = 0.05
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_muder_jester
+	flags = { magic_bloodline }
+}
+
+BL_magic_heritage = {
+	bloodline_effect_magic_heritage = yes
+	bloodline_effect_magic_education = yes
+	magic_heritage_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_family
+	flags = { magic_bloodline }
+}
