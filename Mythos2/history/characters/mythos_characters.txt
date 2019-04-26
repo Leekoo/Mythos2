@@ -3577,9 +3577,11 @@
 	immortal_age=30
 	770.3.13={
 		birth=1.3.13 # Will the game lie for me?
-		effect = { set_global_flag = ramesses_reborn }
 		give_nickname = nick_ozymandias
-		effect = { set_character_flag = checked_race }
+		effect = {
+			set_global_flag = ramesses_reborn
+			set_character_flag = checked_race
+		}
 	}
 }
 268453={
