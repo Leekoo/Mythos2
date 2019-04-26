@@ -73,6 +73,7 @@ character_event = {
 					has_building = ct_mage_tower_herbalism
 				}
 			}
+		}
 	}
 	
 	immediate = {
@@ -858,11 +859,10 @@ character_event = {
 		wealth = -1000
 		random = {
 			chance = 66
-				capital_scope = {
-					add_province_modifier ={
-						name = shining_buildings
-						years = 30
-					}
+			capital_scope = {
+				add_province_modifier ={
+					name = shining_buildings
+					years = 30
 				}
 			}
 		}
@@ -884,11 +884,10 @@ character_event = {
 		wealth = -500
 		random = {
 			chance = 33
-				capital_scope = {
-					add_province_modifier ={
-						name = shining_buildings
-						years = 30
-					}
+			capital_scope = {
+				add_province_modifier ={
+					name = shining_buildings
+					years = 30
 				}
 			}
 		}
@@ -950,11 +949,10 @@ character_event = {
 		prestige = -5000
 		random = {
 			chance = 66
-				capital_scope = {
-					add_province_modifier ={
-						name = preserved_food
-						years = 30
-					}
+			capital_scope = {
+				add_province_modifier ={
+					name = preserved_food
+					years = 30
 				}
 			}
 		}
@@ -976,11 +974,10 @@ character_event = {
 		prestige = -2500
 		random = {
 			chance = 33
-				capital_scope = {
-					add_province_modifier ={
-						name = preserved_food
-						years = 30
-					}
+			capital_scope = {
+				add_province_modifier ={
+					name = preserved_food
+					years = 30
 				}
 			}
 		}
@@ -2789,7 +2786,7 @@ character_event = {
 		any_realm_character = {
 			limit = {
 				NAND = {
-					has_job_title - job_spiritual
+					has_job_title = job_spiritual
 					liege = { character = ROOT }
 				}
 				NOR = {
@@ -2809,12 +2806,12 @@ character_event = {
 	option = {
 		name = MBLOODLINE_EVTOPTC.28
 		trigger = {
-			capital_scope = { any_province_holding = {
-		capital_scope = {
-			any_province_holding = {
-				limit = { holding_type = city }
-				add_holding_modifier = { modifier = necromancer_event_looted months = 36 }
-				ROOT = { wealth = 150 }
+			capital_scope = { 
+				any_province_holding = {
+					limit = { holding_type = city }
+					add_holding_modifier = { modifier = necromancer_event_looted months = 36 }
+					ROOT = { wealth = 150 }
+				}
 			}
 		}
 		any_realm_character = {
@@ -2889,7 +2886,7 @@ character_event = {
 			opinion = { who = FROM modifier = opinion_necromancer_medium years = 20 }
 			if = {
 				limit = {
-					has_job_title - job_spiritual
+					has_job_title = job_spiritual
 					liege = { character = ROOT }
 				}
 				opinion = { who = FROM modifier = opinion_necromancer_large years = 20 }
@@ -3149,9 +3146,9 @@ character_event = {
 		change_variable = { which = local_war_value which = SPS_war_value }
 		random_list = {
 			7 = {}
-			4 = { change_variable = { which = local_war_value = 1 } }
-			2 = { change_variable = { which = local_war_value = 2 } }
-			1 = { change_variable = { which = local_war_value = 3 } }
+			4 = { change_variable = { which = local_war_value value = 1 } }
+			2 = { change_variable = { which = local_war_value value = 2 } }
+			1 = { change_variable = { which = local_war_value value = 3 } }
 		}
 		
 		# If combined war and event values, plus random chance >= 12, forge the bloodline

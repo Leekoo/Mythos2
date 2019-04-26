@@ -149,7 +149,7 @@ BL_blood_of_poseidon = {
 	hellenic_pagan_opinion = 5
 	hellenic_pagan_reformed_opinion = 5
 	health = 2
-	galleys = 2 # Doesn't work. Need another option.
+	#galleys = 2 # Doesn't work. Give light cav instead, since he was associated with horses too
 	light_cavalry_morale = 0.1
 	inheritance = no_inheritance # Passed manually in SPECIES.2. Might not always pass on and passes genetically
 	picture = GFX_bloodlines_symbol_stoics
@@ -461,7 +461,7 @@ BL_herbalist = {
 	herbalist_opinion = 10
 	health = 0.5
 	vassal_opinion = 3
-	bloodline_effect_better_herbs = yes
+	bloodline_effect_better_herbs = 1
 	inheritance = patrilineal
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_murder_rose
@@ -489,7 +489,7 @@ BL_summoner = {
 }
 
 BL_necromancer = {
-	bloodline_effect_necromancer_study = yes
+	bloodline_effect_necromancer_study = 1
 	the_damned_opinion = 30
 	murder_plot_power_modifier = 0.05
 	inheritance = patrilineal
@@ -499,9 +499,9 @@ BL_necromancer = {
 }
 
 BL_magic_heritage = {
-	bloodline_effect_magic_heritage = yes
-	bloodline_effect_magic_education = yes
-	bloodline_effect_magic_tower = yes
+	bloodline_effect_magic_heritage = 1
+	bloodline_effect_magic_education = 1
+	bloodline_effect_magic_tower = 1
 	magic_heritage_opinion = 5
 	inheritance = patrilineal
 	allow_bastards = yes
