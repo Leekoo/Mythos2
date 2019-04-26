@@ -1399,6 +1399,13 @@ character_event = {
 		
 		update_sickly_trait = yes
 		
+		if = {
+			limit = {
+				any_owned_bloodline = { has_bloodline_flag = always_heritage }
+			}
+			add_trait = magic_heritage
+		}
+		
 		character_event = { id = SPECIES.11 }
 	}
 }
@@ -1625,6 +1632,12 @@ character_event = {
 						trait = arcane_master
 					}
 					NOT = { trait = magic_heritage }
+				}
+				add_trait = magic_heritage
+			}
+			else_if = {
+				limit = {
+					any_owned_bloodline = { has_bloodline_flag = always_heritage }
 				}
 				add_trait = magic_heritage
 			}

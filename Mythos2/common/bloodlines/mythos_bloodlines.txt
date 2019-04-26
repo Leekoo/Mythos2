@@ -465,7 +465,7 @@ BL_herbalist = {
 	inheritance = patrilineal
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_murder_rose
-	flags = { magic_bloodline }
+	flags = { magic_bloodline better_herbs }
 }
 
 BL_enchanter = {
@@ -495,15 +495,16 @@ BL_necromancer = {
 	inheritance = patrilineal
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_muder_jester
-	flags = { magic_bloodline }
+	flags = { magic_bloodline necromancer_retinue allow_necromancy_study }
 }
 
 BL_magic_heritage = {
 	bloodline_effect_magic_heritage = yes
 	bloodline_effect_magic_education = yes
+	bloodline_effect_magic_tower = yes
 	magic_heritage_opinion = 5
 	inheritance = patrilineal
 	allow_bastards = yes
 	picture = GFX_bloodlines_symbol_family
-	flags = { magic_bloodline }
+	flags = { magic_bloodline all_towers always_heritage better_magic_education }
 }

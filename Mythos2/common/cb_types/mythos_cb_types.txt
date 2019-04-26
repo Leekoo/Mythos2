@@ -2385,3 +2385,217 @@ undead_conquest = {
 		factor = 100
 	}
 }
+
+show_profane_strength = {
+	name = CB_NAME_SHOW_PROFANE_STRENGTH
+	war_name = WAR_NAME_SHOW_PROFANE_STRENGTH
+	sprite = 21
+	truce_days = 3650
+	infamy_modifier = 1.2
+	
+	is_permanent = yes
+	
+	allow_shitepeace = yes
+	allowed_to_target_suzerains = no
+	allowed_to_target_tributaries = yes
+	
+	attacker_can_call_allies = no
+	defender_can_call_allies = yes
+	max_attacker_battle_score = 100
+	max_defender_battle_score = 100
+	capturing_defender_is_complete_victory = no
+	
+	can_use = {
+		trait = necromancer
+		has_character_flag = has_show_strength_necromancer_cb
+	}
+	
+	can_use_gui = {
+		NOT = {
+			any_war = { using_cb = show_profane_strength }
+		}
+	}
+	
+	is_valid = {
+		trait = necromancer
+		has_character_flag = has_show_strength_necromancer_cb
+	}
+	
+	on_add = {
+		# Set some variables
+		hidden_tooltip = {
+			set_variable = { which = SPS_war_value value = 0 }
+			# Better vs higher tier
+			if = {
+				limit = { lower_real_tier_than = FROM }
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = { higher_real_tier_than = FROM }
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			# Better vs stronger
+			if = {
+				limit = {
+					FROM = { relative_power = { who = ROOT power = 3.0 } }
+				}
+				change_variable = { which = SPS_war_value value = 2 }
+			}
+			else_if = {
+				limit = {
+					FROM = { relative_power = { who = ROOT power = 2.0 } }
+				}
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_power = { who = FROM power = 2.0 }
+				}
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_power = { who = FROM power = 3.0 }
+				}
+				subtract_variable = { which = SPS_war_value value = 2 }
+			}
+			# Better vs larger realm
+			if = {
+				limit = {
+					relative_realm_size = { who = FROM size < 0.8 }
+				}
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_realm_size = { who = FROM size > 1.2 }
+				}
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			# Better vs rival
+			if = {
+				limit = { is_rival = FROM }
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			# Worse vs Revenants - nobody cares about zombies vs zombies
+			if = {
+				limit = { FROM = { trait = zombie } }
+				subtract_variable = { which = SPS_war_value value = 2 }
+			}
+		}
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
+		if = {
+			limit = { defender = { is_offmap_governor = offmap_china } }
+			attacker = {  
+				sound_effect = china_angered_emperor
+				detract_grace_super_huge_effect = yes 
+			}
+		}
+	}
+	
+	on_success = {
+		ROOT = {
+			show_scope_change = no
+			participation_scaled_prestige = 500
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 500 }
+		}
+		FROM = {
+			show_scope_change = no
+			prestige = -500
+		}
+		ROOT = {
+			character_event = { id = MBLOODLINE.35 }
+		}
+	}
+	
+	on_fail = {
+		ROOT = {
+			show_scope_change = no
+			prestige = -200
+		}
+		FROM = {
+			show_scope_change = no
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+	}
+	
+	on_reverse_demand = {
+		FROM = {
+			show_scope_change = no
+			participation_scaled_prestige = 500
+		}
+		any_defender = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 500 }
+		}
+		ROOT = {
+			show_scope_change = no
+			prestige = -500
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = SFS_war_value value = 0 } }
+				}
+				character_event = { id = MBLOODLINE.34 }
+			}
+		}
+	}
+	
+	on_attacker_leader_death { end_war = invalid }
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+	
+	ai_will_do = {
+		factor = 2
+		# Old characters want to hurry up and establish their bloodline
+		modifier = {
+			factor = 3
+			is_old = yes
+		}
+		# AI avoids pointless wars
+		modifier = {
+			factor = 0.5
+			higher_real_tier_than = FROM
+		}
+		modifier = {
+			factor = 0.5
+			relative_power = { who = FROM power = 2.0 }
+		}
+		modifier = {
+			factor = 0.5
+			relative_realm_size = { who = FROM size > 1.2 }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { trait = zombie }
+		}
+		modifier = {
+			factor = 3
+			is_rival = FROM
+		}
+	}
+}

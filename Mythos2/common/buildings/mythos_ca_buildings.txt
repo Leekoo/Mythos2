@@ -2717,7 +2717,12 @@ castle = {
 		}
 		is_active_trigger = {
 			holder_scope = {
-				trait = enchanter
+				OR = {
+					trait = enchanter
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
 			}
 			owner = {
 				NOR = {
@@ -2771,7 +2776,12 @@ castle = {
 		}
 		is_active_trigger = {
 			holder_scope = {
-				trait = summoner
+				OR = {
+					trait = summoner
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
 			}
 			owner = {
 				NOR = {
@@ -2825,7 +2835,12 @@ castle = {
 		}
 		is_active_trigger = {
 			holder_scope = {
-				trait = alchemist
+				OR = {
+					trait = alchemist
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
 			}
 			owner = {
 				NOR = {
@@ -2879,7 +2894,12 @@ castle = {
 		}
 		is_active_trigger = {
 			holder_scope = {
-				trait = herbalist
+				OR = {
+					trait = herbalist
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
 			}
 			owner = {
 				NOR = {
@@ -2926,7 +2946,12 @@ castle = {
 		}
 		is_active_trigger = {
 			holder_scope = {
-				trait = necromancer
+				OR = {
+					trait = necromancer
+					any_owned_bloodline = {
+						has_bloodline_flag = all_towers
+					}
+				}
 			}
 		}
 		not_if_x_exists = {

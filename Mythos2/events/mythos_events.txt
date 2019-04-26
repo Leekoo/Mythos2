@@ -728,7 +728,7 @@ character_event = {
 						merge = yes
 						maintenance = yes
 						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						earmark = unit_summoned_zombie
 					}
 				}
 			}
@@ -2401,6 +2401,7 @@ character_event = {
 				}
 			}
 			disband_event_forces = unit_summoned
+			disband_event_forces = earmark = unit_summoned_zombie
 		}
 		FROM = {
 			if = {
@@ -2414,6 +2415,7 @@ character_event = {
 					}
 				}
 				disband_event_forces = unit_summoned
+				disband_event_forces = earmark = unit_summoned_zombie
 			}
 		}
 	}

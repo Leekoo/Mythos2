@@ -503,6 +503,12 @@ character_event = {
 						trait = inbred
 					}
 				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						had_bloodline_flag = better_magic_education
+					}
+				}
 				set_character_flag = education_outcome_level_2
 			}
 			10 = {
@@ -581,6 +587,12 @@ character_event = {
 					OR = {
 						has_character_flag = was_curious
 						trait = curious
+					}
+				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = {
+						had_bloodline_flag = better_magic_education
 					}
 				}
 				set_character_flag = education_outcome_level_3
@@ -662,6 +674,12 @@ character_event = {
 					OR = {
 						has_character_flag = was_curious
 						trait = curious
+					}
+				}
+				modifier = {
+					factor = 1.6
+					any_owned_bloodline = {
+						had_bloodline_flag = better_magic_education
 					}
 				}
 				set_character_flag = education_outcome_level_4
@@ -3543,6 +3561,23 @@ character_event = {
 	# Study herbalism - does not require magic
 	option = {
 		name = EVTOPTDMYTH_WoL.39
+		# Hide this into a second menu if you have magic and can study necromancy directly
+		trigger = {
+			OR = {
+				NAND = {
+					OR = {
+						trait = novice_mage
+						trait = eldritch_scholar
+						trait = veteran_wizard
+						trait = arcane_master
+					}
+					any_owned_bloodline = {
+						has_bloodline_flag = allow_necromancy_study
+					}
+				}
+				ai = yes
+			}
+		}
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -3572,6 +3607,63 @@ character_event = {
 		}
 		prestige = 5
 		add_character_modifier = { name = studying_herbalism duration = -1 }
+	}
+	
+	# Second page of options if necromancy is available
+	option = {
+		trigger = {
+			AND = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				any_owned_bloodline = {
+					has_bloodline_flag = allow_necromancy_study
+				}
+				ai = no
+			}
+		}
+		name = EVTOPTEMYTH_WoL.39
+		character_event = { id = MYTH_WoL.298 }
+	}
+	
+	# Necromancy for AI
+	option = {
+		name = EVTOPTDMYTH_WoL.39
+		# Only visible to AI, they don't use the second page
+		trigger = {
+			AND = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				any_owned_bloodline = {
+					has_bloodline_flag = allow_necromancy_study
+				}
+				ai = yes
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.2
+				trait = zealous
+				NOR = {
+					religion = satanist
+					religion = undead
+				}
+			}
+			modifier = {
+				factor = 1.5
+				trait = cruel
+			}
+		}
+		prestige = 5
+		add_character_modifier = { name = studying_necromancy duration = -1 }
 	}
 }
 
@@ -9305,6 +9397,79 @@ character_event = {
 		add_artifact = philosopher_stone
 		add_trait = philosopher_stone_trait
 		prestige = 1000
+		if = {
+			limit = {
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = magic_bloodline
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_religion_feature = religion_matriarchal
+				}
+				create_bloodline = {
+					type = BL_alchemist
+					inheritance = matrilineal
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_religion_feature = religion_equal
+						has_selected_religion_feature = religion_feature_bon
+						culture = basque
+						culture = zhangzhung
+						culture = sumpa
+						religion = cathar
+						religion = messalian
+						religion = mazdaki
+					}
+				}
+				create_bloodline = {
+					type = BL_alchemist
+					inheritance = all_descendants
+				}
+			}
+			else = {
+				create_bloodline = {
+					type = BL_alchemist
+				}
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = {
+						NOT = { age = 30 }
+						can_apply_lame_nickname_trigger = yes }
+					}
+					give_nickname = nick_the_youthful
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes } }
+					give_nickname = nick_the_wealthy
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes } }
+					give_nickname = nick_the_undying
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes } }
+					give_nickname = nick_the_scholar
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes } }
+					give_nickname = the_wizard
+				}
+				1 = {
+					trigger = { can_apply_cool_nickname_trigger = yes } }
+					give_nickname = nick_the_alchemist
+				}
+			}
+		}
 	}
 }
 # MYTH_WoL.110 - Partial failure
@@ -21378,7 +21543,7 @@ character_event = {
 character_event = {
 	id = MYTH_WoL.266
 	desc = EVTDESCMYTH_WoL.266
-	picture = GFX_evt_died_funeral
+	picture = GFX_evt_gravedigger_hf
 	border = GFX_event_normal_frame_religion
 	
 	is_triggered_only = yes
@@ -22559,6 +22724,7 @@ character_event = {
 					maintenance_multiplier = 0.2
 					can_toggle_looting = no
 					reinforces = no
+					earmark = event_zombie
 				}
 			}
 			if = {
@@ -23568,5 +23734,49 @@ character_event = {
 	option = {
 		name = EVTOPTBMYTH_WoL.297
 		trigger = { ai = no }
+	}
+}
+
+# MYTH_WoL.298 - Choose magic specialization, page 2
+character_event = {
+	id = MYTH_WoL.298
+	title = EVTNAMEMYTH_WoL.39
+	desc = EVTDESCMYTH_WoL.39
+	picture = GFX_evt_comet
+	border = GFX_event_normal_frame_religion
+	
+	is_triggered_only = yes
+	
+	# Study herbalism - does not require magic
+	option = {
+		name = EVTOPTDMYTH_WoL.39
+		prestige = 5
+		add_character_modifier = { name = studying_herbalism duration = -1 }
+	}
+	
+	# Necromancy
+	option = {
+		name = EVTOPTFMYTH_WoL.39
+		trigger = {
+			AND = {
+				OR = {
+					trait = novice_mage
+					trait = eldritch_scholar
+					trait = veteran_wizard
+					trait = arcane_master
+				}
+				any_owned_bloodline = {
+					has_bloodline_flag = allow_necromancy_study
+				}
+			}
+		}
+		prestige = 5
+		add_character_modifier = { name = studying_necromancy duration = -1 }
+	}
+	
+	# Back to the first page
+	option = {
+		name = EVTOPTEMYTH_WoL.39
+		character_event = { id = MYTH_WoL.39 }
 	}
 }

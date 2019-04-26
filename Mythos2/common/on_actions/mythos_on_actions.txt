@@ -148,6 +148,16 @@ on_five_year_pulse = {
 	}
 }
 
+on_decade_pulse = {
+	random_events = {
+		forged_bloodlines = {
+			500 = MBLOODLINE.1 # Herbalist bloodline
+			100 = MBLOODLINE.7 # Enchanter bloodline
+			300 = MBLOODLINE.17 # Summoner bloodline
+		}
+	}
+}
+
 # For characters older than AGE_CHILDHOOD_PULSE but not an adult as defined by ADULT_AGE_FEMALE and ADULT_AGE_MALE
 on_yearly_childhood_pulse = {
 	events = {
@@ -385,6 +395,10 @@ on_war_ended_victory = {
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
 		DRAGON.169		# Recalculate draconic tribute succession effect
+	}
+	random_events = {
+		100 = 0
+		1 = MBLOODLINE.27 # Necromancy bloodline
 	}
 }
 

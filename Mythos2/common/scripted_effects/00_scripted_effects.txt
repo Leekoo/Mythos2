@@ -15634,6 +15634,10 @@ hermetic_add_herbal_ingredient_effect = {
 					factor = 2
 					trait = herbalist
 				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
+				}
 				add_artifact = ingredient_wolfsbane
 			}
 			25 = {
@@ -15644,6 +15648,10 @@ hermetic_add_herbal_ingredient_effect = {
 				modifier = {
 					factor = 2
 					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
 				}
 				add_artifact = ingredient_fern_flower
 			}
@@ -15656,6 +15664,10 @@ hermetic_add_herbal_ingredient_effect = {
 					factor = 2
 					trait = herbalist
 				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
+				}
 				add_artifact = ingredient_moly
 			}
 			25 = {
@@ -15666,6 +15678,10 @@ hermetic_add_herbal_ingredient_effect = {
 				modifier = {
 					factor = 2
 					trait = herbalist
+				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
 				}
 				add_artifact = ingredient_lotus
 			}
@@ -15678,6 +15694,10 @@ hermetic_add_herbal_ingredient_effect = {
 					factor = 2
 					trait = herbalist
 				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
+				}
 				add_artifact = ingredient_sage
 			}
 			25 = {
@@ -15689,10 +15709,18 @@ hermetic_add_herbal_ingredient_effect = {
 					factor = 2
 					trait = herbalist
 				}
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
+				}
 				add_artifact = ingredient_raskovnik
 			}
 			40 = {
 				trigger = { trait = herbalist }
+				modifier = {
+					factor = 1.5
+					any_owned_bloodline = { has_bloodline_flag = better_herbs }
+				}
 				add_artifact = ingredient_asclepois
 			}
 		}

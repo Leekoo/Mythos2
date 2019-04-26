@@ -115,3 +115,17 @@ HORDE_RETTYPE_DRG4 = {
 		NOT = { trait = zombie }
 	}
 }
+RETTYPE_NECROMANCER_BLOODLINE = {
+	first_type = 6
+	first_amount = 150
+	
+	special_troops = zombie_troops
+	hire_cost = 100
+	maintenance_multiplier = 0.7
+	
+	potential = {
+		is_nomadic = no
+		trait = necromancer
+		any_owned_bloodline = { has_bloodline_flag = necromancer_retinue }
+	}
+}
