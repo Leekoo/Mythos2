@@ -2123,3 +2123,41 @@ character_event = {
 		repeat_event = { id = SPECIES.2 } # Repeat event to keep scopes correct
 	}
 }
+
+# Monthly event setup. Annual event that manages the monthly events
+character_event = {
+	id = SPECIES.17
+	hide_window = yes
+	is_triggered_only = yes
+	
+	# No filtering, handle that in the events themselves to avoid any delay if something about the character changes
+	
+	immediate = {
+		character_event = { id = SPECIES.18 } # Doesn't necessarily fire in January, but try to match the Julian calendar minus leap years for even spacing
+		character_event = { id = SPECIES.18 days = 31 }
+		character_event = { id = SPECIES.18 days = 59 }
+		character_event = { id = SPECIES.18 days = 90 }
+		character_event = { id = SPECIES.18 days = 121 }
+		character_event = { id = SPECIES.18 days = 151 }
+		character_event = { id = SPECIES.18 days = 182 }
+		character_event = { id = SPECIES.18 days = 212 }
+		character_event = { id = SPECIES.18 days = 243 }
+		character_event = { id = SPECIES.18 days = 274 }
+		character_event = { id = SPECIES.18 days = 304 }
+		character_event = { id = SPECIES.18 days = 335 }
+	}
+}
+
+# Monthly event
+character_event = {
+	id = SPECIES.18
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Zombies gain troops
+		character_event = { id = ZOMBIE.11 }
+		# TBA: New Purity system
+		# TBA: New Hunger system
+	}
+}

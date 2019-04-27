@@ -263,7 +263,16 @@ slay_monster = {
 			add_character_modifier = { name = defeated_monster_hunters years = 5 }
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 800
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 400 400 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -500,7 +509,16 @@ dragon_tribal_tribute_cb = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -784,7 +802,16 @@ cb_seize_flame = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1154,7 +1181,16 @@ vassalize_draconic_tribute = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1496,7 +1532,16 @@ monster_revolt = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -2355,7 +2400,16 @@ undead_conquest = {
 			participation_scaled_piety = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {

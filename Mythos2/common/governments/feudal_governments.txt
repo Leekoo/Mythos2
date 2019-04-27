@@ -635,4 +635,73 @@ feudal_governments = {
 		can_be_granted_kingdoms_and_empires_by_other_government = no
 		free_retract_vassalage = yes
 	}
+	
+	zombie_horde = {
+		# Now feudal to avoid bugs they had with their nomad implementation
+		preferred_holdings = { CITY }
+		allowed_holdings = {
+			CASTLE
+			CITY
+			TEMPLE
+			TRIBAL
+			FORT
+		}
+		accepts_liege_governments  = {
+			zombie_horde
+		}
+		no_vassal_tax = {
+			zombie_horde
+		}
+		forced_contract = {
+			feudal_government
+			muslim_government
+			theocracy_government
+			merchant_republic_government
+			draconic_merchant_republic_government
+			republic_government
+			tribal_government
+			draconic_governorship
+			draconic_theocracy_government
+			draconic_feudal_government
+			draconic_tribal_government
+			blood_court_government
+			theocratic_feudal_government
+			chinese_imperial_government
+		}
+		ignore_in_vassal_limit_calculation = {
+			zombie_horde
+			# zombie_horde_no_HL
+		}
+		potential = {
+			trait = zombie
+			OR = {
+				independent = yes
+				liege = { government = zombie_horde }
+			}
+		}
+		
+		unit_home_modifier = {
+			supply_limit = 5 # Supply limit modifier for Nomads in Nomad lands
+		}
+		
+		color = { 20 20 20 }
+		
+		uses_piety_for_law_change = yes
+		allow_title_revokation = yes
+		ignores_de_jure_laws = yes
+		can_build_holdings = no
+		can_build_forts = no
+		can_build_hospitals = no
+		can_build_temple = no
+		can_demand_religious_conversion = no
+		can_imprison_without_reason = yes
+		can_revoke_without_reason = yes
+		free_retract_vassalage = yes
+		free_levies_in_offensive_war = yes
+		can_be_granted_kingdoms_and_empires_by_other_government = no
+		
+		vassal_limit = -10
+		commander_limit = -4
+		capital_move_delay = 120
+	}
 }
