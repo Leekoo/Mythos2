@@ -1723,3 +1723,48 @@ character_event = {
 		abdicate = yes
 	}
 }
+
+# On death, remove zome zombies. They are immortal, so they rarely die and are immune to normal purging.
+character_event = {
+	id = ZOMBIE.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = yes
+	
+	trigger = {
+		OR = {
+			NOT = { trait = zombie }
+			any_courtier = {
+				count = 30
+			}
+		}
+		any_courtier = { trait = zombie }
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = { trait = zombie }
+			random = {
+				chance = 10
+				modifier = {
+					factor = 2
+					dynasty = none
+				}
+				modifier = {
+					factor = 2
+					NOT = { num_of_dynasty_members = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					has_minor_title = yes
+				}
+				modifier = {
+					factor = 0.2
+					is_councillor = yes
+				}
+				death = { death_reason = death_missing }
+			}
+		}
+	}
+}
