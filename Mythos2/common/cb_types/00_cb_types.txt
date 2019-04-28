@@ -239,7 +239,16 @@ claim = {
 			participation_scaled_prestige = 150
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 300
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -753,7 +762,16 @@ other_claim = {
 			participation_scaled_prestige = 150
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 300
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 150 150 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1042,7 +1060,16 @@ claim_on_liege = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1283,7 +1310,16 @@ claim_on_liege_plot = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1426,7 +1462,16 @@ claim_on_vassal_plot = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1841,7 +1886,16 @@ other_claim_on_liege = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -2098,7 +2152,16 @@ claim_all = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -3117,7 +3180,16 @@ invasion = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -3615,7 +3687,16 @@ tribal_invasion = {
 			participation_scaled_prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -4360,7 +4441,16 @@ crusade = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 300
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 150 150 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -6480,7 +6570,16 @@ religious = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -6821,7 +6920,16 @@ excommunicated_ruler = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		# Coronation request locks cleared on invalidation or loss, to avoid locking the player in the middle of the negotiation forever.
@@ -8426,7 +8534,16 @@ coastal_republic = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -8681,7 +8798,16 @@ coastal_county_republic = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -8877,7 +9003,16 @@ weaken_vassal_plot = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -9102,7 +9237,16 @@ decadence_invasion = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		ROOT = { 
@@ -9437,7 +9581,16 @@ muslim_invasion = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 			hidden_tooltip = {
 				if = {
@@ -9793,7 +9946,16 @@ cb_faction_independence = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 50 50 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -10002,7 +10164,16 @@ imperial_reconquest = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -10217,7 +10388,16 @@ embargo_cb = {
 			prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -10418,7 +10598,16 @@ seize_trade_post = {
 			participation_scaled_prestige = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 50 50 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -10667,7 +10856,16 @@ viking_invasion = {
 			participation_scaled_prestige = 250
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 600
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 300 300 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -10907,7 +11105,16 @@ pagan_subjugation = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -11727,7 +11934,16 @@ duchy_adventure = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		
@@ -12451,7 +12667,16 @@ pagan_holy_war = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -12743,7 +12968,16 @@ caliphal_subjugation = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -12945,7 +13179,16 @@ muslim_county_conquest = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -13302,7 +13545,16 @@ pagan_county_conquest = {
 			participation_scaled_piety = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -13765,7 +14017,16 @@ dejure_county_claim = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -14110,7 +14371,16 @@ dejure_barony_claim = {
 			participation_scaled_prestige = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 50 50 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -14499,7 +14769,16 @@ other_dejure_county_claim = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -15430,7 +15709,16 @@ buddhist_holy_war = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -15744,7 +16032,16 @@ indian_subjugation = {
 			participation_scaled_prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -16118,7 +16415,16 @@ manifest_destiny_invasion = {
 			participation_scaled_prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -16274,7 +16580,16 @@ cb_decadence_usurption = {
 			prestige = 250
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 500
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 250 250 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -16432,7 +16747,16 @@ rivalry_cb = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -16705,7 +17029,16 @@ tributary_cb = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -17146,7 +17479,16 @@ free_tributary_cb = {
 			prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -17449,7 +17791,16 @@ cb_install_khan = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 50 50 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -17604,7 +17955,16 @@ nomad_dispute = {
 			participation_scaled_piety = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -17834,7 +18194,16 @@ cb_liberate_nomad_duchy = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 600
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 300 300 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -18043,7 +18412,16 @@ cb_minor_clan_revolt = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 100
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 50 50 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		ROOT = {
@@ -18405,7 +18783,16 @@ nomad_subjugation = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -18701,7 +19088,16 @@ nomad_invasion = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 			
 			if = {
@@ -19096,7 +19492,16 @@ nomad_expansion = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 600
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 300 300 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -19369,7 +19774,16 @@ increase_council_power_war = { # Started from faction
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -19546,7 +19960,16 @@ nomad_humiliate_cb = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -19953,7 +20376,16 @@ powerful_vassal_takeover_war = { # Started from faction
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {

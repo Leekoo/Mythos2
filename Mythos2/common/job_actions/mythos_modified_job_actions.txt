@@ -26,25 +26,3 @@ action_fabricate_claims = {
 	
 	events = { 913 914 }
 }
-
-# Marshal
-action_train_troops_nomadic = {
-	attribute = martial
-	
-	potential = {
-		FROM = {
-			is_nomadic = yes
-			NOT = { government = zombie_horde }
-		}
-	}
-
-	trigger = {
-		FROM = {
-			is_capital = ROOT
-		}
-	}
-	
-	manpower_growth = 0.015
-	
-	events = { }
-}

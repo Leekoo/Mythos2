@@ -148,7 +148,7 @@ character_event = {
 
 # ZOMBIE.3 - Get Zombie Plague
 #Zombie Plague: chest_pain cramps headache abdominal_pain
-character_event = { 
+character_event = {
 	id = ZOMBIE.3
 	
 	hide_window = yes
@@ -180,7 +180,7 @@ character_event = {
 }
 
 # ZOMBIE.4 - Zombie Plague manifests - chest_pain cramps headache abdominal_pain
-character_event = { 
+character_event = {
 	id = ZOMBIE.4
 	desc = EVTDESCZOMBIE.4
 	picture = GFX_evt_illness
@@ -479,6 +479,7 @@ character_event = {
 
 # Setup for monthly corpse gain
 # Runs at game start, anually, and on gaining a title
+# Defunct - from old system where zombie hordes were nomads
 character_event = {
 	id = ZOMBIE.10
 	hide_window = yes
@@ -496,6 +497,7 @@ character_event = {
 	}
 }
 
+# Formerly gave manpower from devastation and depopulation. Now gives troops
 character_event = {
 	id = ZOMBIE.11
 	hide_window = yes
@@ -505,38 +507,60 @@ character_event = {
 	
 	immediate = {
 		any_demesne_province = {
-			if = {
-				limit = {
+			random = {
+				chance = 10
+				modifier = {
+					factor = 1.5
 					OR = {
 						has_province_modifier = devastation_1
-						has_province_modifier = depopulated_1
+						has_province_modifier = depopulation_1
 					}
 				}
-				ROOT = { manpower = 2 }
-				ROOT = { population = -1 }
-			}
-			else_if = {
-				limit = {
+				modifier = {
+					factor = 2
 					OR = {
-						has_province_modifier = devastation_2
-						has_province_modifier = depopulated_2
+						has_province_modifier = devastation_1
+						has_province_modifier = depopulation_1
 					}
 				}
-				ROOT = { manpower = 4 }
-				ROOT = { population = -1 }
-			}
-			else_if = {
-				limit = {
+				modifier = {
+					factor = 2.5
 					OR = {
-						has_province_modifier = devastation_3
-						has_province_modifier = depopulated_3
+						has_province_modifier = devastation_1
+						has_province_modifier = depopulation_1
 					}
 				}
-				ROOT = { manpower = 8 }
-				ROOT = { population = -1 }
+				modifier = {
+					factor = 0.5
+					OR = {
+						has_province_modifier = prosperity_1
+						has_province_modifier = prosperity_2
+						has_province_modifier = prosperity_3
+					}
+				}
+				modifier = {
+					factor = 0.5
+					OR = {
+						has_province_modifier = prosperity_2
+						has_province_modifier = prosperity_3
+					}
+				}
+				modifier = {
+					factor = 0.5
+					has_province_modifier = prosperity_3
+				}
+				spawn_unit = {
+					province = THIS
+					owner = ROOT
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 1 1 }
+					}
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
-		repeat_event = { id = ZOMBIE.11 days = 31 }
 	}
 }
 
@@ -634,7 +658,6 @@ province_event = {
 					}
 				}
 				spawn_zombie_army_effect = yes
-				manpower = 200
 			}
 			
 			if = {
@@ -647,7 +670,6 @@ province_event = {
 				spawn_zombie_army_effect = yes
 				spawn_zombie_army_effect = yes
 				spawn_zombie_army_effect = yes
-				manpower = 400
 			}
 			
 			if = {
@@ -662,7 +684,6 @@ province_event = {
 				spawn_zombie_army_effect = yes
 				spawn_zombie_army_effect = yes
 				spawn_zombie_army_effect = yes
-				manpower = 500
 			}
 			
 			# DoW on the province top liege
@@ -1584,7 +1605,7 @@ province_event = {
 	}
 }
 
-# Force zombies to be nomadic
+# Force zombies to be fuedal
 character_event = {
 	id = ZOMBIE.37
 	hide_window = yes
@@ -1594,7 +1615,6 @@ character_event = {
 	
 	trigger = {
 		is_landed = true
-		higher_tier_than = BARON
 	}
 	
 	immediate = {
@@ -1701,5 +1721,50 @@ character_event = {
 	option = {
 		name = EVTOPTAZOMBIE.39
 		abdicate = yes
+	}
+}
+
+# On death, remove zome zombies. They are immortal, so they rarely die and are immune to normal purging.
+character_event = {
+	id = ZOMBIE.40
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = yes
+	
+	trigger = {
+		OR = {
+			NOT = { trait = zombie }
+			any_courtier = {
+				count = 30
+			}
+		}
+		any_courtier = { trait = zombie }
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = { trait = zombie }
+			random = {
+				chance = 10
+				modifier = {
+					factor = 2
+					dynasty = none
+				}
+				modifier = {
+					factor = 2
+					NOT = { num_of_dynasty_members = 2 }
+				}
+				modifier = {
+					factor = 0.5
+					has_minor_title = yes
+				}
+				modifier = {
+					factor = 0.2
+					is_councillor = yes
+				}
+				death = { death_reason = death_missing }
+			}
+		}
 	}
 }
