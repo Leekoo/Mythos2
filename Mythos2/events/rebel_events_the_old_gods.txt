@@ -94,9 +94,9 @@ province_event = {
 		
 		# Monster revolts have prio
 		OR = {
-			owner = { is_monster_to_root = yes }
-			owner = { top_liege = { is_monster_to_root = yes } }
-			AND = {
+			owner = { is_monster_to_root = no }
+			owner = { top_liege = { is_monster_to_root = no } }
+			NAND = {
 				OR = {
 					owner = { top_liege = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } } }
 					owner = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
@@ -108,7 +108,7 @@ province_event = {
 					religion = satanist
 				}
 			}
-			has_province_flag = force_monster_revolt
+			has_province_flag = force_peasant_revolt
 		}
 		
 		OR = {
