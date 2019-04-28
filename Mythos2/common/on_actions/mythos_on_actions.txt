@@ -8,6 +8,7 @@ on_startup = {
 		#ZOMBIE.10		# Zombie corpse gain control event
 		DRAGON.169		# Recalculate draconic tribute succession effect
 		SPECIES.15		# Set bloodlines for gods
+		ZOMBIE.37		# Force zombies to use zombie government
 	}
 }
 
@@ -23,6 +24,7 @@ on_yearly_pulse = {
 		ZOMBIE.22		# Living culture returns
 		ZOMBIE.24		# Living religion returns
 		ZOMBIE.26		# Undead religious county conversion
+		ZOMBIE.37		# Force zombie government
 		MUMMY.5			# Ramesis reborn
 		MYTH.34 		# Force Zeus to use seduction
 		SPECIES.4		# Species-based infertility
