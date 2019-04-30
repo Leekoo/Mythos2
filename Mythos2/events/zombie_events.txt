@@ -503,63 +503,15 @@ character_event = {
 	hide_window = yes
 	is_triggered_only = yes
 	
-	only_playable = yes
+	only_rulers = yes
 	
-	immediate = {
+	trigger = {
+		trait = zombie
+	}
+	
+	option = {
 		any_demesne_province = {
-			random = {
-				chance = 10
-				modifier = {
-					factor = 1.5
-					OR = {
-						has_province_modifier = devastation_1
-						has_province_modifier = depopulation_1
-					}
-				}
-				modifier = {
-					factor = 2
-					OR = {
-						has_province_modifier = devastation_1
-						has_province_modifier = depopulation_1
-					}
-				}
-				modifier = {
-					factor = 2.5
-					OR = {
-						has_province_modifier = devastation_1
-						has_province_modifier = depopulation_1
-					}
-				}
-				modifier = {
-					factor = 0.5
-					OR = {
-						has_province_modifier = prosperity_1
-						has_province_modifier = prosperity_2
-						has_province_modifier = prosperity_3
-					}
-				}
-				modifier = {
-					factor = 0.5
-					OR = {
-						has_province_modifier = prosperity_2
-						has_province_modifier = prosperity_3
-					}
-				}
-				modifier = {
-					factor = 0.5
-					has_province_modifier = prosperity_3
-				}
-				spawn_unit = {
-					province = THIS
-					owner = ROOT
-					scaled_by_biggest_garrison = 0.5
-					troops = {
-						zombie_troops = { 1 1 }
-					}
-					reinforces = no
-					earmark = event_zombie
-				}
-			}
+			province_event = { id = ZOMBIE.41 }
 		}
 	}
 }
@@ -1614,7 +1566,7 @@ character_event = {
 	religion = the_damned
 	
 	trigger = {
-		is_landed = true
+		is_landed = yes
 		NOT = { government = zombie_horde }
 	}
 	
@@ -1765,6 +1717,77 @@ character_event = {
 					is_councillor = yes
 				}
 				death = { death_reason = death_missing }
+			}
+		}
+	}
+}
+
+# Generate the actual zombies for each province
+province_event = {
+	id = ZOMBIE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	
+	trigger = {
+		trait = zombie
+	}
+	
+	immediate = {
+		random = {
+			chance = 10
+			modifier = {
+				factor = 1.5
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulation_1
+				}
+			}
+			modifier = {
+				factor = 2
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulation_1
+				}
+			}
+			modifier = {
+				factor = 2.5
+				OR = {
+					has_province_modifier = devastation_1
+					has_province_modifier = depopulation_1
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_province_modifier = prosperity_1
+					has_province_modifier = prosperity_2
+					has_province_modifier = prosperity_3
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					has_province_modifier = prosperity_2
+					has_province_modifier = prosperity_3
+				}
+			}
+			modifier = {
+				factor = 0.5
+				has_province_modifier = prosperity_3
+			}
+			FROM = {
+				spawn_unit = {
+					province = PREV
+					owner = FROM
+					scaled_by_biggest_garrison = 0.5
+					troops = {
+						zombie_troops = { 1 1 }
+					}
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
