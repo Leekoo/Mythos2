@@ -26,26 +26,13 @@ slay_monster = {
 			NOT = { trait = zombie }
 		}
 		FROM = {
-			OR = {
-				trait = known_werewolf
-				trait = vampire
-				trait = zombie
-				trait = mummy
-				# TBI: Dragon will have it's own dragonslayer trait instead of monster_hunter
-				# Leaving off giants and djinn for now as being human enough
-			}
+			is_monster_to_root = yes
 		}
 	}
 	
 	is_valid = {
 		FROM = {
-			OR = {
-				# Ends if a non-monster inherits
-				trait = known_werewolf
-				trait = vampire
-				trait = zombie
-				trait = mummy
-			}
+			is_monster_to_root = yes
 		}
 	}
 	
@@ -1235,13 +1222,12 @@ monster_revolt = {
 		ROOT = { has_character_flag = monster_revolter }
 	}
 	
-	is_valid = {
-		OR = {
-			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-			FROM = { is_monster_to_root = yes }
-			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-		}
-	}
+	#is_valid = {
+	#	OR = {
+	#		FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+	#		FROM = { is_monster_to_root = yes }
+	#	}
+	#}
 	
 	on_add = {
 		hidden_tooltip = { fire_haruspicy_event_effect = yes }
@@ -1544,6 +1530,10 @@ monster_revolt = {
 				}
 			}
 		}
+	}
+	
+	on_defender_leader_death = {
+		end_war = invalid
 	}
 	
 	attacker_ai_victory_worth = {
