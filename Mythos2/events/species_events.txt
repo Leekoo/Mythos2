@@ -2161,3 +2161,19 @@ character_event = {
 		# TBA: New Hunger system
 	}
 }
+
+# Lower health of incapable characters
+# Makes having long-lived characters become incapable less extreme
+character_event = {
+	id = SPECIES.19
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = incapable
+	}
+	
+	immediate = {
+		health = -0.2
+	}
+}
