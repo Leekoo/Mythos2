@@ -6311,8 +6311,11 @@ character_event = {
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
 			266 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6320,8 +6323,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
 			73 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6329,8 +6335,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
 			529 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6338,8 +6347,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
 			50 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6347,8 +6359,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
 			290 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6358,8 +6373,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_1 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6371,8 +6389,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_2 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6384,8 +6405,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_3 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6397,8 +6421,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_4 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6410,8 +6437,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_5 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
