@@ -338,39 +338,79 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 172
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
-					}
-					trait = ethereal_trait
-					trait = brave
-					trait = skilled_tactician
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					spawn_unit = {
-						province = PREV
-						owner = ROOT
-						troops = {
-							einherjar = { 1000 1000 }
-							light_infantry = { 500 500 }
-							light_cavalry = { 250 250 }
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 172
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						trait = ethereal_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								einherjar = { 1100 1100 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 172
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = ethereal_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								einherjar = { 1000 1000 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
 				}
 			}
@@ -408,40 +448,81 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 703
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
-					}
-					# Add Angel trait once created
-					trait = immortal
-					trait = brave
-					trait = skilled_tactician
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					spawn_unit = {
-						province = PREV
-						owner = ROOT
-						troops = {
-							angels = { 500 500 }
-							light_infantry = { 500 500 }
-							light_cavalry = { 250 250 }
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						# Add Angel trait once created
+						trait = immortal
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								angels = { 550 550 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						# Add Angel trait once created
+						trait = immortal
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								angels = { 500 500 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
 				}
 			}
@@ -477,55 +558,113 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 80
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 80
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = mythos_giant
+						trait = brave
+						trait = size_6
+						trait = skilled_tactician
+						flag = die_on_war_end
 					}
-					trait = mythos_giant
-					trait = brave
-					trait = size_6
-					trait = skilled_tactician
-					flag = die_on_war_end
-				}
-				new_character = {
-					random_list = {
-						1 = {
-							spawn_unit = {
-								province = PREV
-								owner = ROOT
-								troops = {
-									fire_giants = { 900 900 }
+					new_character = {
+						random_list = {
+							1 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										fire_giants = { 990 990 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
 								}
-								attrition = 0
-								disband_on_peace = yes
-								cannot_inherit = yes
-								merge = yes
-								maintenance = yes
-								maintenance_multiplier = 0.5
-								earmark = unit_summoned
+							}
+							3 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										frost_giants = { 990 990 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
 							}
 						}
-						3 = {
-							spawn_unit = {
-								province = PREV
-								owner = ROOT
-								troops = {
-									frost_giants = { 900 900 }
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 80
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = mythos_giant
+						trait = brave
+						trait = size_6
+						trait = skilled_tactician
+						flag = die_on_war_end
+					}
+					new_character = {
+						random_list = {
+							1 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										fire_giants = { 900 900 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
 								}
-								attrition = 0
-								disband_on_peace = yes
-								cannot_inherit = yes
-								merge = yes
-								maintenance = yes
-								maintenance_multiplier = 0.5
-								earmark = unit_summoned
+							}
+							3 = {
+								spawn_unit = {
+									province = PREV
+									owner = ROOT
+									troops = {
+										frost_giants = { 900 900 }
+									}
+									attrition = 0
+									disband_on_peace = yes
+									cannot_inherit = yes
+									merge = yes
+									maintenance = yes
+									maintenance_multiplier = 0.5
+									earmark = unit_summoned
+								}
 							}
 						}
 					}
@@ -561,38 +700,77 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 703
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
-					}
-					trait = demon_trait
-					trait = brave
-					trait = skilled_tactician
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					spawn_unit = {
-						province = PREV
-						owner = ROOT
-						troops = {
-							demons = { 700 700 }
-							light_infantry = { 500 500 }
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						trait = demon_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								demons = { 770 770 }
+								light_infantry = { 550 550 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 703
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = demon_trait
+						trait = brave
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								demons = { 700 700 }
+								light_infantry = { 500 500 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
 				}
 			}
@@ -627,45 +805,91 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 23
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
-					}
-					trait = immortal
-					trait = celibate
-					trait = slothful
-					trait = zealous
-					trait = temperate
-					trait = diligent
-					trait = patient
-					trait = content
-					trait = skilled_tactician
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					spawn_unit = {
-						province = PREV
-						owner = ROOT
-						troops = {
-							golems = { 800 800 }
-							light_infantry = { 500 500 }
-							light_cavalry = { 250 250 }
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						trait = immortal
+						trait = celibate
+						trait = slothful
+						trait = zealous
+						trait = temperate
+						trait = diligent
+						trait = patient
+						trait = content
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								golems = { 880 880 }
+								light_infantry = { 550 550 }
+								light_cavalry = { 275 275 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = immortal
+						trait = celibate
+						trait = slothful
+						trait = zealous
+						trait = temperate
+						trait = diligent
+						trait = patient
+						trait = content
+						trait = skilled_tactician
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								golems = { 800 800 }
+								light_infantry = { 500 500 }
+								light_cavalry = { 250 250 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
 				}
 			}
@@ -700,35 +924,71 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 23
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
-					}
-					trait = zombie
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					spawn_unit = {
-						province = PREV
-						owner = ROOT
-						troops = {
-							zombie_troops = { 1500 1500 }
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned_zombie
+						trait = zombie
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								zombie_troops = { 1650 1650 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned_zombie
+						}
+					}
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
+						}
+						trait = zombie
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						spawn_unit = {
+							province = PREV
+							owner = ROOT
+							troops = {
+								zombie_troops = { 1500 1500 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned_zombie
+						}
 					}
 				}
 			}
@@ -771,45 +1031,91 @@ character_event = {
 				}
 			}
 			hidden_tooltip = {
-				create_character = {
-					random_traits = yes
-					dynasty = none
-					religion = ROOT
-					culture = ROOT
-					female = no
-					age = 23
-					employer = event_target:summoner_title
-					attributes = {
-						martial = 5
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = better_summons } }
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 6
+						}
+						trait = ethereal_trait
+						immortal_age = 23
+						flag = die_on_war_end
 					}
-					trait = ethereal_trait
-					immortal_age = 23
-					flag = die_on_war_end
-				}
-				new_character = {
-					if = {
-						limit = { 
-							OR = {
-								religion = draconic_pagan
-								religion = draconic_pagan_reformed
+					new_character = {
+						if = {
+							limit = { 
+								OR = {
+									religion = draconic_pagan
+									religion = draconic_pagan_reformed
+								}
 							}
+							add_trait = dragon
+							set_graphical_culture = draconic
 						}
-						add_trait = dragon
-						set_graphical_culture = draconic
+						spawn_unit = {
+							province = PREV
+							owner = PREV
+							troops = {
+								etherial_soldiers = { 1925 1925 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
-					spawn_unit = {
-						province = PREV
-						owner = PREV
-						troops = {
-							etherial_soldiers = { 1750 1750 }
+				}
+				else = {
+					create_character = {
+						random_traits = yes
+						dynasty = none
+						religion = ROOT
+						culture = ROOT
+						female = no
+						age = 23
+						employer = event_target:summoner_title
+						attributes = {
+							martial = 5
 						}
-						attrition = 0
-						disband_on_peace = yes
-						cannot_inherit = yes
-						merge = yes
-						maintenance = yes
-						maintenance_multiplier = 0.5
-						earmark = unit_summoned
+						trait = ethereal_trait
+						immortal_age = 23
+						flag = die_on_war_end
+					}
+					new_character = {
+						if = {
+							limit = { 
+								OR = {
+									religion = draconic_pagan
+									religion = draconic_pagan_reformed
+								}
+							}
+							add_trait = dragon
+							set_graphical_culture = draconic
+						}
+						spawn_unit = {
+							province = PREV
+							owner = PREV
+							troops = {
+								etherial_soldiers = { 1750 1750 }
+							}
+							attrition = 0
+							disband_on_peace = yes
+							cannot_inherit = yes
+							merge = yes
+							maintenance = yes
+							maintenance_multiplier = 0.5
+							earmark = unit_summoned
+						}
 					}
 				}
 			}
