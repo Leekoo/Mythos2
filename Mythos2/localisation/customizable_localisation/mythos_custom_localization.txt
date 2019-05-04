@@ -7212,3 +7212,300 @@ defined_text = {
 		localisation_key = String_eternal_flame_construction_non_draconic
 	}
 }
+
+defined_text = {
+	name = GetDragonslayer
+	use_first_valid = yes
+	text = {
+		trigger = { religion_group = christian }
+		localization_key = ST_GEORGE
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+			}
+			culture_group = north_germanic
+		}
+		localization_key = SIGURD
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+			}
+			culture_group = west_germanic
+			NOR = {
+				culture = frisian
+				culture = dutch
+			}
+		}
+		localization_key = BEOWULF
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+			}
+		}
+		localization_key = String_Siegried
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+		}
+		localization_key = String_Heracles
+	}
+	text = {
+		trigger = {
+			religion_group = zoroastrian_group
+		}
+		localization_key = String_Rostram
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+				religion = atenist
+			}
+		}
+		localization_key = GOD_RA
+	}
+	text = {
+		trigger = {
+			religion = hindu
+		}
+		localization_key = String_Indra
+	}
+	text = {
+		trigger = {
+			religion = taoist
+		}
+		localization_key = String_Nezha
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = slavic_pagan
+				religion = slavic_pagan_reformed
+			}
+		}
+		localization_key = String_Dobrynya_Nikitich
+	}
+	text = {
+		trigger = {
+			OR = {
+				religion = druidic
+				religion = druidic_reformed
+			}
+		}
+		localization_key = String_Fraech
+	}
+	text = {
+		trigger = {
+			religion_group = jewish_group
+		}
+		localization_key = ARCHANGEL_MICHAEL
+	}
+	text = {
+		trigger = {
+			religion_group = muslim
+		}
+		localization_key = String_Mikail
+	}
+	fallback_text = {
+		localization_key = SIGURD
+	}
+}
+
+defined_text = {
+	name = GetMonster1
+	use_first_valid = yes
+	text = {
+		trigger = {
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+			}
+			localization_key = String_werewolf_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = vampire
+				culture = werewolf_culture
+				religion = satanist
+			}
+			localization_key = String_vampire_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = dragonborn
+				culture = draconic
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			localization_key = String_dragon_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = mythos_giant
+				trait = half_giant
+				culture = jotunn
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+			}
+			localization_key = String_giant_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOT = {
+				trait = ethereal_trait
+			}
+			localization_key = String_ghost_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = demon_trait
+				religion = satanist
+			}
+			localization_key = String_demon_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOT = {
+				trait = mummy
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+			}
+			localization_key = String_mummy_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOT = {
+				trait = djinn
+				religion_group = muslim
+			}
+			localization_key = String_djinn_plu_cap
+		}
+	}
+}
+defined_text = {
+	name = GetMonster2
+	use_first_valid = yes
+	text = {
+		trigger = {
+			NOR = {
+				trait = werewolf
+				culture = werewolf_culture
+				trait = vampire
+				culture = werewolf_culture
+				religion = satanist
+			}
+			localization_key = String_vampire_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = vampire
+				culture = werewolf_culture
+				religion = satanist
+				trait = dragon
+				trait = dragonborn
+				culture = draconic
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+			}
+			localization_key = String_dragon_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = dragon
+				trait = dragonborn
+				culture = draconic
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				trait = mythos_giant
+				trait = half_giant
+				culture = jotunn
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+			}
+			localization_key = String_giant_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = mythos_giant
+				trait = half_giant
+				culture = jotunn
+				religion = jotnar_pagan
+				religion = jotnar_pagan_reformed
+				trait = ethereal_trait
+			}
+			localization_key = String_ghost_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOR = {
+				trait = ethereal_trait
+				trait = demon_trait
+				religion = satanist
+			}
+			localization_key = String_demon_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOT = {
+				trait = demon_trait
+				religion = satanist
+				trait = mummy
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+			}
+			localization_key = String_mummy_plu_cap
+		}
+	}
+	text = {
+		trigger = {
+			NOT = {
+				trait = djinn
+				religion_group = muslim
+				trait = mummy
+				religion = kemetic_pagan
+				religion = kemetic_pagan_reformed
+			}
+			localization_key = String_djinn_plu_cap
+		}
+	}
+}

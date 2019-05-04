@@ -3505,3 +3505,318 @@ character_event = {
 		set_character_flag = decline_wizard_bloodline
 	}
 }
+
+# Set initial variables used for gaining bloodlines
+character_event = {
+	id = MBLOODLINE.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	ai = no
+	only_playable = yes
+	
+	trigger = {
+		is_multiplayer_host_character = yes
+		is_save_game = no
+	}
+	
+	immediate = {
+		set_variable = { which = global_bloodline_monster_hunter_kills_needed value = 1 }
+		set_variable = { which = global_bloodline_sigurd_dragons_needed value = 10 }
+		set_variable = { which = global_bloodline_banking_profit_needed value = 2000 }
+	}
+}
+
+# Adjust killer counts and grant bloodlines.
+character_event = {
+	id = MBLOODLINE.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		killer = { always = yes }
+	}
+	
+	immediate = {
+		if = {
+			limit = { trait = dragon }
+			killer = { change_variable = { which = dragon_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = known_vampire }
+			killer = { change_variable = { which = vampire_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = known_werewolf }
+			killer = { change_variable = { which = werewolf_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = zombie }
+			killer = { change_variable = { which = zombie_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = mythos_giant }
+			killer = { change_variable = { which = giant_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = mummy }
+			killer = { change_variable = { which = mummy_kills value = 1 } }
+		}
+		if = {
+			limit = { trait = djinn }
+			killer = { change_variable = { which = djinn_kills value = 1 } }
+		}
+		killer = {
+			# Check for monster hunter bloodline
+			if = {
+				limit = {
+					trait = monster_hunter
+					NOT = {
+						any_owned_bloodline = { has_bloodline_flag = bloodline_monster_hunter }
+					}
+					OR = {
+						trait = dragon
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						culture = draconic
+						trait = dragonborn
+						check_variable = { which = dragon_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = dragon
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = vampire
+						culture = vampire_culture
+						religion = satanist
+						check_variable = { which = vampire_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = known_vampire
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = werewolf
+						culture = werewolf_culture
+						check_variable = { which = werewolf_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = known_werewolf
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = zombie
+						religion = the_damned
+						culture_group = undead_culture_group
+						check_variable = { which = zombie_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = zombie
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = mythos_giant
+						trait = half_giant
+						religion = jotnar
+						religion = jotnar_reformed
+						culture = jotunn
+						check_variable = { which = giant_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = mythos_giant
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = mummy
+						religion = kemetic_pagan
+						religion = kemetic_pagan_reformed
+						religion = atenist
+						check_variable = { which = mummy_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = mummy
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+					OR = {
+						trait = djinn
+						religion_group = muslim
+						check_variable = { which = djinn_kills which = global_bloodline_monster_hunter_kills_needed }
+						any_character = {
+							is_within_diplo_range = PREV
+							trait = djinn
+							count < global_bloodline_monster_hunter_kills_needed
+						}
+					}
+				}
+				multiply_variable = { which = global_bloodline_monster_hunter_kills_needed value = 2 }
+				character_event = { id = MBLOODLINE.43 }
+			}
+			# Check for Blood of Sigurd Bloodline
+			if = {
+				limit = {
+					check_variable = { which = dragon_kills which = global_bloodline_sigurd_dragons_needed }
+					NOR = {
+						trait = dragon
+						religion = draconic_pagan
+						religion = draconic_pagan_reformed
+						culture = draconic
+						any_owned_bloodline = { has_bloodline_flag = bloodline_monster_hunter }
+					}
+				}
+				multiply_variable = { which = global_bloodline_sigurd_dragons_needed value = 2 }
+				character_event = { id = MBLOODLINE.44 }
+			}
+		}
+	}
+}
+
+# Gain monster hunter bloodline
+character_event = {
+	id = MBLOODLINE.43
+	desc = MBLOODLINE_EVTDESC.43
+	picture = GFX_evt_bloody_knife_hf
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.43
+		prestige = 1000
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_monster_hunter
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_monster_hunter
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_monster_hunter
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_brave
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_fearless
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hunter
+				}
+				1 = {
+					trigger = { can_apply_average_nickname_trigger = yes }
+					give_nickname = nick_the_defender
+				}
+				1 = {
+					give_nickname = nick_the_witch_hunter
+				}
+				1 = {
+					give_nickname = nick_dragonbane
+				}
+				1 = {
+					give_nickname = nick_wolf_bane
+				}
+			}
+		}
+	}
+}
+		
+# MBLOODLINE.44 - Gain blood of sigurd bloodline
+character_event = {
+	id = MBLOODLINE.44
+	desc = MBLOODLINE_EVTDESC.44
+	picture = GFX_evt_dragon_immolation
+	border = GFX_event_normal_frame_war
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.44
+		prestige = 1000
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+			}
+		}
+		if = {
+			limit = { can_apply_cool_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_brave
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_fearless
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hunter
+				}
+				1 = {
+					give_nickname = nick_dragonbane
+				}
+			}
+		}
+	}
+}

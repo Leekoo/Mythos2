@@ -508,3 +508,59 @@ BL_magic_heritage = {
 	picture = GFX_bloodlines_symbol_family
 	flags = { magic_bloodline all_towers always_heritage better_magic_education }
 }
+
+BL_monster_hunter = {
+	monster_hunter_opinion = 5
+	combat_rating = 5
+	bloodline_effect_duel_advantage_monster = 1
+	# bloodline_effect_gain_monster_hunter = 1 # Not yet implemented
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_war
+	flags = { duel_advantage_monster gain_monster_hunter bloodline_monster_hunter }
+}
+
+BL_helsing = {
+	intrigue = 1
+	plot_power_modifier = 0.1
+	monthly_character_prestige = 0.1
+	bloodline_effect_duel_advantage_werewolf_vampire = 1
+	# bloodline_effect_gain_monster_hunter = 1 # Not yet implemented
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_cross_1
+	flags = { duel_advantage_werewolf duel_advantage_vampire gain_monster_hunter bloodline_monster_hunter }
+}
+
+BL_blood_of_sigurd = {
+	dragon_opinion = -10
+	martial = 1
+	combat_rating = 5
+	bloodline_effect_duel_advantage_dragon = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_war_knight
+	flags = { duel_advantage_dragon bloodline_monster_hunter }
+}
+
+BL_banking = {
+	stewardship = 1
+	global_tax_modifier = 0.02
+	bloodline_effect_bank_interest = 1
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_munificent
+	flags = { bank_interest bloodline_banking }
+}
+
+BL_ramesis = {
+	kemetic_pagan = 10
+	kemetic_pagan_reformed = 10
+	monthly_character_prestige = 0.2
+	local_build_cost_modifier = -0.05
+	local_build_time_modifier = -0.05
+	inheritance = patrilineal
+	allow_bastards = yes
+	picture = GFX_bloodlines_symbol_architect
+	flags = { }
+}
