@@ -1,4 +1,94 @@
 decisions = {
+
+	found_vampiric_empire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 12
+		potential = {
+			is_playable = yes
+			trait = vampire
+			NOT = { has_global_flag = founded_vampiric_empire }
+			is_adult = yes
+			is_inaccessible_or_incapable_trigger = no
+		}
+		allow = {
+			OR = {
+				tier = king
+				tier = emperor
+			}
+			trait = known_vampire
+			culture = vampire_culture
+			independent = yes
+			prestige = 10000
+			age = 100
+			war = no
+		}
+		effect = {
+			custom_tooltip = {
+				text = tt_found_vampiric_empire
+			}
+			narrative_event = { id = VAMPIRE.199 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				religion = satanist
+			}
+		}
+	}
+	
+	found_highborn_family_vampire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 12
+		potential = {
+			is_playable = yes
+			trait = vampire
+			has_global_flag = founded_vampiric_empire
+			is_adult = yes
+			is_inaccessible_or_incapable_trigger = no
+			NOT = {
+				any_owned_bloodline = { has_bloodline_flag = high_vampiric_inheritance }
+			}
+		}
+		allow = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+			trait = known_vampire
+			culture = vampire_culture
+			independent = yes
+			prestige = 10000
+			age = 100
+			war = no
+		}
+		effect = {
+			tooltip = {
+				create_bloodline = {
+					type = BL_vampiric_highborn
+				}
+			}
+			character_event = { id = VAMPIRE.201 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+			modifier = {
+				factor = 2
+				religion = satanist
+			}
+		}
+	}
 	
 	blood_feast = {
 		only_playable = yes
@@ -742,13 +832,18 @@ targetted_decisions = {
 			is_incapable = no
 		}
 		potential = {
-			NOR = {
-				trait = vampire
-				trait = zombie
-				trait = known_werewolf
-				trait = demon_trait
-				trait = ethereal_trait
+			OR = {
+				FROM = {
+					any_owned_bloodline = { has_bloodline_flag = vampire_feed_any }
+				}
+				NOR = {
+					trait = vampire
+					trait = zombie
+					trait = known_werewolf
+					trait = demon_trait
+				}
 			}
+			NOT = { trait = ethereal_trait }
 			OR = {
 				any_host_courtier = { character = FROM }
 				host = { character = FROM }
@@ -977,6 +1072,32 @@ targetted_decisions = {
 				has_minor_title = title_vampiric_protection
 				FROM = { trait = gluttonous }
 			}
+			modifier = {
+				factor = 0.2
+				any_owned_bloodline = { has_bloodline_flag = vampire_restricted_feeding }
+				FROM = {
+					NOR = {
+						is_landed = yes
+						any_owned_bloodline = { always = yes }
+						trait = fair
+						trait = genius
+						trait = quick
+						trait = strong
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed }
+				FROM = {
+					OR = {
+						trait = fair
+						trait = genius
+						trait = quick
+						trait = strong
+					}
+				}
+			}
 		}
 	}
 	
@@ -989,13 +1110,18 @@ targetted_decisions = {
 			is_incapable = no
 		}
 		potential = {
-			NOR = {
-				trait = vampire
-				trait = zombie
-				trait = known_werewolf
-				trait = demon_trait
-				trait = ethereal_trait
+			OR = {
+				FROM = {
+					any_owned_bloodline = { has_bloodline_flag = vampire_feed_any }
+				}
+				NOR = {
+					trait = vampire
+					trait = zombie
+					trait = known_werewolf
+					trait = demon_trait
+				}
 			}
+			NOT = { trait = ethereal_trait }
 			OR = {
 				any_host_courtier = { character = FROM }
 				host = { character = FROM }
@@ -1182,6 +1308,20 @@ targetted_decisions = {
 				factor = 1.5
 				has_minor_title = title_vampiric_protection
 				FROM = { trait = gluttonous }
+			}
+			modifier = {
+				factor = 0.2
+				any_owned_bloodline = { has_bloodline_flag = vampire_restricted_feeding }
+				FROM = {
+					NOR = {
+						is_landed = yes
+						any_owned_bloodline = { always = yes }
+						trait = fair
+						trait = genius
+						trait = quick
+						trait = strong
+					}
+				}
 			}
 		}
 	}

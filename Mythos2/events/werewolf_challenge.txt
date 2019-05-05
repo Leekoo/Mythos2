@@ -1907,7 +1907,7 @@ character_event = {
 		event_target:challenger = { character_event = { id = CHALLENGE.56 } }
 		event_target:champion = { character_event = { id = CHALLENGE.56 } }
 		
-		# Non-dragons and low-control characters get a penalty
+		# Non-werewolves and low-control characters get a penalty
 		event_target:challenger = {
 			if = {
 				limit = {
@@ -8399,6 +8399,13 @@ character_event = {
 			limit = { has_character_flag = attack_maim }
 			event_target:enemy_turn = {
 				set_character_flag = status_high_maim
+			}
+		}
+		# Morale damage from werewolf nobility
+		if = {
+			limit = { any_owned_bloodline = { has_bloodline_flag = werewolf_challenge_morale } }
+			event_target:enemy_turn = {
+				subtract_variable = { which = combat_morale value = 1 }
 			}
 		}
 		

@@ -1,4 +1,4 @@
-namespace = WEREWOLF
+1namespace = WEREWOLF
 # Events specific to werewolves.  Excudes events based on Way of Life focuses or Conclave education
 
 # WEREWOLF.1 - was MYTH.16 - Spouse injured during love making
@@ -596,6 +596,10 @@ character_event = {
 		remove_trait = pup
 		random = {
 			chance = 20
+			modifier = {
+				factor = 1.5
+				any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+			}
 			modifier = {
 				factor = 2
 				father_even_if_dead = { trait = werewolf }
@@ -5324,6 +5328,22 @@ character_event = {
 	immediate = {
 		FROM = {
 			character_event = { id = WEREWOLF.97 }
+		}
+	}
+}
+
+# WEREWOLF.103 - Found new noble werewolf clan
+character_event = {
+	id = WEREWOLF.103
+	desc = EVTDESC_WEREWOLF.103
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.103
+		create_bloodline = {
+			type = BL_werewolf_nobility
 		}
 	}
 }

@@ -3524,6 +3524,7 @@ character_event = {
 		set_variable = { which = global_bloodline_monster_hunter_kills_needed value = 1 }
 		set_variable = { which = global_bloodline_sigurd_dragons_needed value = 10 }
 		set_variable = { which = global_bloodline_banking_profit_needed value = 2000 }
+		set_variable = { which = global_bloodline_vile_blood_needed value = 3 }
 	}
 }
 
@@ -3815,6 +3816,44 @@ character_event = {
 				}
 				1 = {
 					give_nickname = nick_dragonbane
+				}
+			}
+		}
+	}
+}
+
+# MBLOODLINE.45 - Gain Vile Blood
+character_event = {
+	id = MBLOODLINE.45
+	desc = MBLOODLINE_EVTDESC.45
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = MBLOODLINE_EVTOPTA.45
+		create_bloodline = {
+			type = BL_vile_blood
+		}
+		hidden_tooltip = {
+			remove_character_modifier = plague_vampire
+			if = {
+				limit = { can_apply_cool_nickname_trigger = yes }
+				random_list = {
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_poison_tooth
+					}
+					1 = {
+						capital_scope = { save_event_target_as = nickname_target }
+						give_nickname = nick_the_terror_of_provincename
+					}
+					1 = {
+						give_nickname = nick_the_despoiler
+					}
+					1 = {
+						give_nickname = nick_the_plaguebearer
+					}
 				}
 			}
 		}

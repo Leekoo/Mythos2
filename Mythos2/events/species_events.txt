@@ -733,6 +733,10 @@ character_event = {
 				}
 				random = {
 					chance = 80
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+					}
 					add_trait = pup
 				}
 			}
@@ -746,6 +750,10 @@ character_event = {
 				}
 				random = {
 					chance = 40
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+					}
 					add_trait = pup
 				}
 			}
@@ -760,6 +768,10 @@ character_event = {
 					modifier = {
 						factor = 0.6
 						mother_even_if_dead = { trait = vampire }
+					}
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
 					}
 					add_trait = pup
 				}
@@ -1009,6 +1021,10 @@ character_event = {
 						set_graphical_culture = draconic
 					}
 					1 = {
+						modifier = {
+							factor = 2
+							any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+						}
 						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = pup
@@ -1126,6 +1142,10 @@ character_event = {
 					}
 					random = {
 						chance = 50
+						modifier = {
+							factor = 1.5
+							any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+						}
 						if = {
 							limit = { age = 16 }
 							add_trait = werewolf
