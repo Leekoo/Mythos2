@@ -519,6 +519,36 @@ letter_event = {
 		name = EVTOPTB_VAMPIRE.6
 		FROM = {
 			add_trait = vampire
+			ROOT = {
+				any_owned_bloodline = {
+					limit = {
+						OR = {
+							has_bloodline_flag = high_vampiric_inheritance
+							has_bloodline_flag = vampiric_inheritance
+						}
+					}
+					random = {
+						chance = 50
+						modifier = {
+							factor = 0.1
+							has_bloodline_flag = high_vampiric_inheritance
+						}
+						add_bloodline_member = FROM
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_known } }
+				add_trait = known_vampire
+			}
+			else = {
+				add_trait = secret_vampire
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly } }
+				remove_trait = fair
+				add_trait = ugly
+			}
 			hidden_tooltip = { add_trait = secret_vampire }
 			if = {
 				limit = { host = { character = ROOT } }
@@ -12098,7 +12128,10 @@ character_event = {
 			FROMFROM = {
 				any_owned_bloodline = {
 					limit = { has_bloodline_flag = vampiric_inheritance }
-					add_bloodline_member = ROOT
+					random = {
+						chance = 30
+						add_bloodline_member = ROOT
+					}
 				}
 			}
 			if = {
