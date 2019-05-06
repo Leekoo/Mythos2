@@ -6120,6 +6120,8 @@ narrative_event = {
 				}
 				set_character_flag = achievement_by_jupiter
 			}
+			# Merge effects of features that modify unit stats
+			update_religion_feature_effects = yes
 			any_courtier = {
 				limit = {
 					is_heresy_of = ROOT

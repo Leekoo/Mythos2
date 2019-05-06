@@ -9520,3 +9520,135 @@ fix_local_character_culture = {
 		culture = PREV
 	}
 }
+
+update_religion_feature_effects = { # cover combining religion features
+	hidden_tooltip = {
+		if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				has_religion_feature = religion_relentless
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.5
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.2
+				heavy_infantry_defensive = 0.2
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				OR = {
+					has_religion_feature = religion_relentless
+					has_religion_feature = religion_feature_tengri
+				}
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.2
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.1
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.5
+				
+				heavy_infantry_offensive = 0.2
+				heavy_infantry_defensive = 0.2
+				
+				key = "OFF_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_relentless
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = { 
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.3
+				heavy_infantry_defensive = 0.2
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+		}
+	}
+}
