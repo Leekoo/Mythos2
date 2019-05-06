@@ -651,4 +651,83 @@ BL_werewolf_nobility = {
 	picture = GFX_bloodlines_symbol_norse_wolf
 	flags = { werewolf_election_support werewolf_challenge_morale child_werewolf werewolf_noble }
 }
-	
+
+BL_blood_embers = {
+	monthly_character_piety = 0.5
+	monthly_character_prestige = 0.25
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	vassal_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_flame = {
+	draconic_pagan_opinion = 10
+	draconic_pagan_reformed_opinion = 10
+	saintly_inquisitional_bloodline = 1
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline inquisitional_saintly_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_eternal_flame = {
+	draconic_pagan_reformed_opinion = 10
+	monthly_character_piety = 0.25
+	monthly_character_prestige = 0.25
+	saintly_monastic_bloodline = 1
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline monastic_saintly_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame_blue
+}
+
+BL_blood_sacrifice = {
+	monthly_character_piety = 0.5
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	health = 0.5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame_bluecenter
+}
+
+BL_golden_blood = {
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	greedy_opinion = 5
+	global_tax_modifier = 0.01
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_blood_reclaimer = {
+	command_modifier = {
+		religious_enemy = 0.3
+	}
+	monthly_character_prestige = 0.25
+	monthly_character_piety = 0.25
+	draconic_pagan_opinion = 5
+	draconic_pagan_reformed_opinion = 5
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline defender_of_the_faith }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
+
+BL_everburning_blood = {
+	short_reign_length = -5
+	monthly_character_prestige = 0.25
+	monthly_character_piety = 0.25
+	wonder_build_time_modifier = -0.05
+	inheritance = patrilineal
+	allow_bastards = no
+	flags = { ancestor_worship_bloodline }
+	picture = GFX_bloodlines_symbol_eternal_flame
+}
