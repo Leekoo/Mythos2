@@ -6306,6 +6306,57 @@ character_event = {
 
 	is_triggered_only = yes
 	
+	immediate = {
+		save_persistent_event_target_as = death_location
+		# Select bloodline and nickname
+		random_list = {
+			1 = {
+				set_variable = { which = local_nick value = 1 } # Holy Blood of Embers
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				set_variable = { which = local_nick value = 2 } # Holy Blood of Flame
+			}
+			1 = {
+				trigger = { religion = draconic_pagan_reformed }
+				# Add modifier if member of a monastic order
+				set_variable = { which = local_nick value = 3 } # Holy Blood of the Eternal Flame
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = charitable
+				}
+				set_variable = { which = local_nick value = 4 } # Holy Blood of Sacrifice 
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = greedy
+				}
+				modifier = {
+					factor = 2
+					trait = banker
+				}
+				set_variable = { which = local_nick value = 5 } # Golden Blooded
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = holy_warrior
+				}
+				set_variable = { which = local_nick value = 6 } # Holy Blood of the Reclaimer
+			}
+			1 = {
+				set_variable = { which = local_nick value = 7 } # Everburning Blood
+			}
+		}
+		sound_effect = saint_proclaimed
+	}
+	
 	option = {
 		name = EVTOPTA_DRAGON.52
 		if = { 
@@ -6451,7 +6502,265 @@ character_event = {
 		religion_authority = { modifier = relit_eternal_flame }
 		prestige = 1000
 		add_character_modifier = { name = flame_restorer }
-		give_nickname = nick_the_everburning
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					religion = ROOT
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					religion = ROOT
+				}
+			}
+		}
+		new_bloodline = {
+			set_description = draconic_saint_desc
+		}
 		if = {
 			limit = { NOT = { trait = zealous } }
 			add_trait = zealous
@@ -6472,6 +6781,8 @@ character_event = {
 			limit = { trait = bad_priest_draconic }
 			remove_trait = bad_priest_draconic
 		}
+		add_trait = blessed_ancestor
+		set_special_character_title = BLESSED_TITLE
 		death = { death_reason = death_sacrificed }
 		hidden_tooltip = {
 			any_player = {
