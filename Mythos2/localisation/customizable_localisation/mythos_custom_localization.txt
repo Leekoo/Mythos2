@@ -7004,10 +7004,8 @@ defined_text = {
 	text = {
 		trigger = {
 			OR = {
-				religion_group = christian
-				religion_group = muslim
-				religion_group = jewish_group
-				religion_group = pagan_group
+				high_werewolf_turn_resistance = yes
+				low_werewolf_turn_resistance = yes
 				trait = kind
 				culture = vampire_culture
 				reverse_opinion = { who = FROM value < 0 }
@@ -7017,6 +7015,21 @@ defined_text = {
 	}
 	fallback_text = {
 		localisation_key = "[TurnCanExpose_Werewolf]"
+	}
+}
+defined_text = {
+	name = RejectRegion_Werewolf
+	text = {
+		trigger = {
+			OR = {
+				high_werewolf_turn_resistance = yes
+				low_werewolf_turn_resistance = yes
+			}
+		}
+		localisation_key = RejectRegion_Werewolf_Key
+	}
+	fallback_text = {
+		localisation_key = "[RejectCulture_Werewolf]"
 	}
 }
 defined_text = {

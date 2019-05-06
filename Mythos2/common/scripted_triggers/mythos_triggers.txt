@@ -3823,3 +3823,25 @@ has_any_ingredient = {
 		}
 	}
 }
+
+high_werewolf_turn_resistance = {
+	location = {
+		region = world_europe_west
+		region = world_europe_east
+		region = world_africa
+		region = world_steppe
+	}
+}
+
+low_werewolf_turn_resistance = {
+	location = {
+		region = world_europe_north
+		region = world_europe_south
+		region = world_middle_east
+	}
+}
+
+no_werewolf_turn_resistance = {
+	high_werewolf_turn_resistance = no
+	low_werewolf_turn_resistance = no
+}

@@ -886,15 +886,11 @@ letter_event = {
 			factor = 30
 			modifier = {
 				factor = 2
-				OR = {
-					religion_group = christian
-					religion_group = muslim
-					religion_group = jewish_group
-				}
+				high_werewolf_turn_resistance = yes
 			}
 			modifier = {
 				factor = 1.5
-				religion_group = pagan_group
+				low_werewolf_turn_resistance = yes
 			}
 			modifier = {
 				factor = 2
