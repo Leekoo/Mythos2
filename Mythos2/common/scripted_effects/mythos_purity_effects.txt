@@ -1239,8 +1239,10 @@ calculate_purity_gain = {
 					limit = { trait = dragonborn }
 					change_variable = { which = purity_gain value = -2 }
 				}
-				# Human, always have this penalty
-				change_variable = { which = purity_gain value = -5 }
+				if = {
+					limit = { NOT = { trait = dragonborn } }
+					change_variable = { which = purity_gain value = -5 }
+				}
 				if = {
 					limit = { wealth < 0 }
 					change_variable = { which = purity_gain value = -4 }
