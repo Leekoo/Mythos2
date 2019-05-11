@@ -2306,7 +2306,7 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vampire_feed_minor }
 			set_variable = { which = hunger_progress  value = 0 }
-			remove_character_modifier = starving
+			remove_character_modifier = vampire_starving
 			if = {
 				limit = { trait = hunger_1 }
 				remove_trait = hunger_1
@@ -13033,7 +13033,7 @@ character_event = {
 			character_event = { id = VAMPIRE.175 }
 		}
 		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = starving
+		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13072,7 +13072,7 @@ character_event = {
 		name = EVTOPTA_VAMPIRE.175
 		tooltip = { FROMFROM = { death = { death_reason = death_vampire } } }
 		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = starving
+		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13436,7 +13436,7 @@ character_event = {
 			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
 		}
 		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = starving
+		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13852,7 +13852,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.193
 		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = starving
+		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_1 }
 			remove_trait = hunger_1
@@ -15060,7 +15060,7 @@ character_event = {
 		}
 		if = {
 			limit = { has_character_flag = vf_lose_health }
-			change_health = -0.25
+			health = -0.25
 		}
 		clr_character_flag = vf_lose_fair
 		clr_character_flag = vf_lose_genius
@@ -15349,9 +15349,9 @@ character_event = {
 							trait = sick_incapable
 							prisoner = yes
 						}
-						set_variable = { which = hunger_progress value = 0 }
-						add_character_modifier = { modifier = vampire_starving duration = -1 stacking = yes }
 					}
+					set_variable = { which = hunger_progress value = 0 }
+					add_character_modifier = { modifier = vampire_starving duration = -1 stacking = yes }
 				}
 				else = {
 					# Automatic high-risk feeding
