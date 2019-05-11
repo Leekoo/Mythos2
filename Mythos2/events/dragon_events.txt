@@ -6961,10 +6961,8 @@ character_event = {
 			factor = 2
 			trait = zealous
 		}
-		modifier = {
-			factor = 4
-			has_ambition = obj_purify_marriage
-		}
+		# More likely with human domination
+		# Much more likely with human extermination
 	}
 	
 	immediate = {
@@ -7031,10 +7029,9 @@ character_event = {
 		add_spouse = FROM
 		ai_chance = {
 			factor = 70
-			modifier = {
-				factor = 2
-				has_ambition = obj_purify_marriage
-			}
+			# Less likely with human integration
+			# More likely with human domination
+			# Much more likely with human extermination
 		}
 	}
 	option = {
@@ -7087,19 +7084,12 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		OR = {
-			trait = zealous
-			has_ambition = obj_purify_marriage
-		}
+		trait = zealous
+		# Not human integration
 	}
 	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 2
-			has_ambition = obj_purify_marriage
-		}
-	}
+	# More likely with human domination
+	# Much more likely with human extermination
 	
 	immediate = {
 		random_vassal = {
@@ -7221,16 +7211,13 @@ character_event = {
 				NOT = { trait = dragon }
 			}
 		}
+		# Not human integration
 	}
 	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 1.5
 			ai_zeal = 50
-		}
-		modifier = {
-			factor = 4
-			has_ambition = obj_purify_love
 		}
 		modifier = {
 			factor = 1.5
@@ -7247,6 +7234,8 @@ character_event = {
 				count = 2
 			}
 		}
+		# More likely with human domination
+		# Much more likely with human extermination
 	}
 	immediate = {
 		random_friend = {
@@ -7256,10 +7245,7 @@ character_event = {
 					religion = draconic_pagan
 					religion = draconic_pagan_reformed
 				}
-				OR = {
-					trait = zealous
-					ROOT = { has_ambition = obj_purify_love }
-				}
+				trait = zealous
 				# Don't be a hypocrite
 				NOR = {
 					any_lover = {
@@ -10107,114 +10093,122 @@ character_event = {
 
 # Reignite Sapphire Flame with no holding - creates the holding
 # No longer needed after conversion to Wonders
-character_event = {
-	id = DRAGON.154
-	desc = EVTDESC_DRAGON.52
-	picture = GFX_evt_dragon_face
-	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_DRAGON.52
-		if = { 
-			limit = { has_character_flag = restore_flame_sjaelland }
-			c_sjaelland = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_lejre type = temple holder = ROOT } }
-			}
-			b_lejre = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_kent }
-			c_kent = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_canterbury type = temple holder = ROOT } }
-			}
-			b_canterbury = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_plock }
-			c_plock = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_wyszogrod type = temple holder = ROOT } }
-			}
-			b_wyszogrod = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_galloway }
-			c_galloway = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_whithorn type = temple holder = ROOT } }
-			}
-			b_whithorn = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_uppland }
-			c_uppland = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
-			}
-			b_uppsala = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		religion_authority = { modifier = relit_eternal_flame }
-		prestige = 1000
-		add_character_modifier = { name = flame_restorer }
-		give_nickname = nick_the_everburning
-		if = {
-			limit = { NOT = { trait = zealous } }
-			add_trait = zealous
-		}
-		if = {
-			limit = { NOT = { trait = flametender } }
-			add_trait = flametender
-		}
-		if = {
-			limit = { NOT = { trait = brave } }
-			add_trait = brave
-		}
-		if = {
-			limit = { NOT = { trait = claw_of_fafnir } }
-			add_trait = claw_of_fafnir
-		}
-		if = {
-			limit = { trait = bad_priest_draconic }
-			remove_trait = bad_priest_draconic
-		}
-		death = { death_reason = death_sacrificed }
-		hidden_tooltip = {
-			any_player = {
-				narrative_event = { id = DRAGON.54 }
-			}
-		}
-	}
-	
-	option = {
-		name = EVTOPTB_DRAGON.51
-		hidden_tooltip = {
-			clr_character_flag = restore_flame_sjaelland
-			clr_character_flag = restore_flame_kent
-			clr_character_flag = restore_flame_plock
-			clr_character_flag = restore_flame_galloway
-			clr_character_flag = restore_flame_uppland
-		}
-	}
-}
+#character_event = {
+#	id = DRAGON.154
+#	desc = EVTDESC_DRAGON.52
+#	picture = GFX_evt_dragon_face
+#	border = GFX_event_normal_frame_religion
+#
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_DRAGON.52
+#		if = { 
+#			limit = { has_character_flag = restore_flame_sjaelland }
+#			c_sjaelland = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_lejre type = temple holder = ROOT }
+#				}
+#			}
+#			b_lejre = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_kent }
+#			c_kent = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_canterbury type = temple holder = ROOT }
+#				}
+#			}
+#			b_canterbury = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_plock }
+#			c_plock = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_wyszogrod type = temple holder = ROOT }
+#				}
+#			}
+#			b_wyszogrod = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_galloway }
+#			c_galloway = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_whithorn type = temple holder = ROOT }
+#				}
+#			}
+#			b_whithorn = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_uppland }
+#			c_uppland = {
+#				set_province_flag = relit_eternal_flame
+#				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
+#			}
+#			b_uppsala = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		religion_authority = { modifier = relit_eternal_flame }
+#		prestige = 1000
+#		add_character_modifier = { name = flame_restorer }
+#		give_nickname = nick_the_everburning
+#		if = {
+#			limit = { NOT = { trait = zealous } }
+#			add_trait = zealous
+#		}
+#		if = {
+#			limit = { NOT = { trait = flametender } }
+#			add_trait = flametender
+#		}
+#		if = {
+#			limit = { NOT = { trait = brave } }
+#			add_trait = brave
+#		}
+#		if = {
+#			limit = { NOT = { trait = claw_of_fafnir } }
+#			add_trait = claw_of_fafnir
+#		}
+#		if = {
+#			limit = { trait = bad_priest_draconic }
+#			remove_trait = bad_priest_draconic
+#		}
+#		death = { death_reason = death_sacrificed }
+#		hidden_tooltip = {
+#			any_player = {
+#				narrative_event = { id = DRAGON.54 }
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTB_DRAGON.51
+#		hidden_tooltip = {
+#			clr_character_flag = restore_flame_sjaelland
+#			clr_character_flag = restore_flame_kent
+#			clr_character_flag = restore_flame_plock
+#			clr_character_flag = restore_flame_galloway
+#			clr_character_flag = restore_flame_uppland
+#		}
+#	}
+#}
 
 # Dragon child adopts dragon culture - start
 character_event = {
