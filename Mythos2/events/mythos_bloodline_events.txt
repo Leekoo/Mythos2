@@ -1817,7 +1817,7 @@ character_event = {
 		name = MBLOODLINE_EVTOPTA.21
 		wealth = -5000
 		change_variable = { which = ritual_strength value = 4 }
-		ai_will_do = {
+		ai_chance = {
 			factor = 40
 			modifier = {
 				factor = 0.25
@@ -1833,7 +1833,7 @@ character_event = {
 		name = MBLOODLINE_EVTOPTB.21
 		wealth = -2500
 		change_variable = { which = ritual_strength value = 2 }
-		ai_will_do = {
+		ai_chance = {
 			factor = 30
 			modifier = {
 				factor = 0.3
@@ -1849,7 +1849,7 @@ character_event = {
 		name = MBLOODLINE_EVTOPTC.21
 		wealth = -1000
 		change_variable = { which = ritual_strength value = 1 }
-		ai_will_do = {
+		ai_chance = {
 			factor = 20
 			modifier = {
 				factor = 0.4
@@ -1863,7 +1863,7 @@ character_event = {
 	}
 	option = {
 		name = MBLOODLINE_EVTOPTD.21
-		ai_will_do = {
+		ai_chance = {
 			factor = 10
 		}
 	}
