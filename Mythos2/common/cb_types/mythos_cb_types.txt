@@ -999,10 +999,7 @@ cb_replace_sapphire_flame = {
 		modifier = {
 			factor = 5
 			ROOT = {
-				OR = {
-					trait = purity_9
-					trait = purity_10
-				}
+				check_variable = { which = purity_level value = 9 }
 			}
 		}
 		modifier = {

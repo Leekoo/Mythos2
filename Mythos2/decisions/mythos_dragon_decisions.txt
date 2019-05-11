@@ -2438,51 +2438,6 @@ decisions = {
 		}
 	}
 	
-	consult_on_purity = {
-		only_playable = yes
-		
-		potential = {
-			OR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-			}
-			is_incapable = no
-			age = 16
-			NOT = { trait = infirm }
-			is_playable = yes
-		}
-		allow = {
-			NOT = { has_character_modifier = purity_review_timer }
-			prisoner = no
-		}
-		effect = {
-			character_event = { id = Purity.1 }
-			hidden_tooltip = {
-				add_character_modifier = { modifier = purity_review_timer months = 3 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 0.1
-				has_ambition = yes
-			}
-			modifier = {
-				factor = 2
-				has_positive_purity = no
-			}
-			modifier = {
-				factor = 2
-				ai_zeal = 40
-			}
-			modifier = {
-				factor = 0.2
-				NOT = { ai_zeal = -20 }
-			}
-		}
-	}
-	
 	abdicate_sapphire_flame = {
 		only_playable = yes
 		
@@ -5004,7 +4959,8 @@ targetted_decisions = {
 				}
 			}
 			FROMFROM = {
-				NOT = { trait = purity_10 }
+				tooltip = { NOT = { trait = purity_10 } }
+				hidden_tooltip = { NOT = { check_variable = { which = purity_level value = 10 } }
 				NOT = { has_character_modifier = sapphire_flame_blessing }
 			}
 		}
@@ -5047,7 +5003,7 @@ targetted_decisions = {
 			}
 			modifier = {
 				factor = 0.2
-				trait = purity_10
+				check_variable = { which = purity_level value = 10 }
 			}
 		}
 		ai_will_do = {

@@ -2,7 +2,6 @@
 on_startup = {
 	events = {
 		MYTH.56			# Update Virtues/Vices
-		DRAGON.56		# Update Purity
 		VAMPIRE.155		# Assign missing blood court titles
 		SPECIES.12		# Set Djinn natural magic
 		#ZOMBIE.10		# Zombie corpse gain control event
@@ -37,7 +36,6 @@ on_yearly_pulse = {
 		MONSTER.10		# Remind demons of their true master
 		SPECIES.7		# Make sure heir modifiers aren't out of date
 		#DRAGON.20		# Make sure unfit flame controller isn't out of date
-		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
 		MONSTER.20		# Chance for province modifiers for known monsters.
 		#MONSTER.25		# Remove inappropriate province modifiers
@@ -197,7 +195,6 @@ on_focus_pulse = {
 		SPECIES.5			# Mark new event characters for race checking
 		SPECIES.2			# Doublecheck anyone with an incorrect race
 		SPECIES.11			# Doublecheck for eligable giants with no subrace
-		DRAGON.56			# Update Purity
 		MYTH.56				# Update Virtues/Vices
 		MYTH_WoL.285		# Apprentice experience
 	}
@@ -280,7 +277,6 @@ on_birth = {
 		#SPECIES.2		# Handle race traits - now called from on_employer_change
 		SPECIES.11		# Set subrace on eligable giants
 		SPECIES.8		# Update heir modifiers
-		DRAGON.56		# Set purity initially
 	}
 }
 
@@ -296,7 +292,6 @@ on_adulthood = {
 		SPECIES.11		# Set subrace on eligable giants
 		SPECIES.8		# Update heir modifiers
 		WEREWOLF.70		# Get rid of wolf pet
-		DRAGON.56		# Update Purity
 		MYTH.56			# Update Virtues/Vices
 		SPECIES.9		# Remove and re-add God trait
 		MYTHMORE.50		# Childhood sweethearts become lovers
@@ -335,7 +330,6 @@ on_chronicle_start = {
 		MUMMY.5			# Ramesis Reborn
 		#MYTH.34 		# Force Zeus to use seduction
 		SPECIES.6		# Mark all premade characters as already being the correct race
-		DRAGON.57		# Set initial purity for draconic characters
 		MYTH.56			# Set Virtues/Vices
 		WEREWOLF.95		# Set initial werewolf control
 		SPECIES.11		# Set subrace on eligable giants
@@ -397,7 +391,6 @@ on_forced_consort = {
 on_war_ended_victory = {
 	events = {
 		MYTH.41			# Remove battle-summoned characters
-		DRAGON.56		# Update purity
 		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
 		MONSTER.25		# Remove inappropriate modifiers
 		VAMPIRE.155		# Assign missing blood court titles
@@ -420,7 +413,6 @@ on_war_ended_invalid = {
 on_war_ended_whitepeace = {
 	events = {
 		MYTH.41			# Remove battle-summoned characters
-		DRAGON.56		# Update purity
 	}
 }
 
@@ -428,7 +420,6 @@ on_war_ended_whitepeace = {
 on_war_ended_defeat = {
 	events = {
 		MYTH.41			# Remove battle-summoned characters
-		DRAGON.56		# Update purity
 		VAMPIRE.155		# Assign missing blood court titles
 	}
 }
@@ -464,8 +455,8 @@ on_character_convert_religion = {
 		#MYTH.51		# Rename Greek gods - disabled until new reform option added
 		DRAGON.20		# Update unfit flame controller
 		DRAGON.21		# Update Heathen Stronghold modifier
-		DRAGON.56		# Update purity
 		DRAGON.169		# Recalculate draconic tribute succession effect
+		DRAGON.177		# Remove purity
 	}
 }
 
@@ -495,7 +486,6 @@ on_elective_gavelkind_succession = {
 on_create_title = {
 	events = {
 		SPECIES.7		# Update heir modifiers
-		DRAGON.56		# Update purity
 		VAMPIRE.155		# Assign missing blood court titles
 		DRAGON.169		# Recalculate draconic tribute succession effect
 	}
@@ -507,7 +497,6 @@ on_new_holder = {
 		SPECIES.7		# Update heir modifiers
 		DRAGON.20		# Update flame controller modifiers
 		DRAGON.21		# Update Heathen Stronghold modifier
-		DRAGON.56		# Update purity
 		DRAGON.68		# Update Sapphire flame controller modifiers
 		VAMPIRE.103		# Remove Blood Court vassal bonuses if independent
 		MONSTER.25		# Remove inappropriate modifiers

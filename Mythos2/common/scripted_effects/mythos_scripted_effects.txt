@@ -284,6 +284,50 @@ count_undead_vices = {
 	if = {	limit = { trait = craven } change_variable = { which = num_vices value = 1 } }
 }
 
+count_draconic_human_domination_virtues = {
+	set_variable = { which = num_virtues value = 0 }
+	if = {	limit = { trait = temperate } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = charitable } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = diligent } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = humble } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = content } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = honest } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = shy } change_variable = { which = num_virtues value = 1 } }
+}
+
+count_draconic_human_domination_vices = {
+	set_variable = { which = num_vices value = 0 }
+	if = {	limit = { trait = gluttonous } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = greedy } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = slothful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = proud } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = ambitious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = deceitful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = gregarious } change_variable = { which = num_vices value = 1 } }
+}
+
+count_draconic_human_extermination_virtues = {
+	set_variable = { which = num_virtues value = 0 }
+	if = {	limit = { trait = chaste } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = humble } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = slothful } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = content } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = craven } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = shy } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = trusting } change_variable = { which = num_virtues value = 1 } }
+}
+
+count_draconic_human_domination_vices = {
+	set_variable = { which = num_vices value = 0 }
+	if = {	limit = { trait = lustful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = proud } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = diligent } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = ambitious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = brave } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = gregarious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = paranoid } change_variable = { which = num_vices value = 1 } }
+}
+
 count_personal_virtues = {
 	if = {
 		limit = {
@@ -326,6 +370,18 @@ count_personal_virtues = {
 			use_undead_vice_virtue = yes
 		}
 		count_undead_virtues = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_domination_vice_virtue = yes
+		}
+		count_draconic_human_domination_virtues = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_extermination_vice_virtue = yes
+		}
+		count_draconic_human_extermination_virtues = yes
 	}
 	else = {
 		#limit = {
@@ -378,609 +434,24 @@ count_personal_vices = {
 		}
 		count_undead_vices = yes
 	}
+	else_if = {
+		limit = {
+			use_draconic_human_domination_vice_virtue = yes
+		}
+		count_draconic_human_domination_vices = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_extermination_vice_virtue = yes
+		}
+		count_draconic_human_extermination_vices = yes
+	}
 	else = {
 		#limit = {
 		#	use_christian_vice_virtue = yes
 		#}
 		count_vices = yes
 	}
-}
-
-determine_purity = {
-	set_variable = { which = purity value = 0 }
-	if = {
-		limit = {
-			OR = {
-				religion = draconic_pagan
-				AND = {
-					religion = draconic_pagan_reformed
-					trait = dragon
-				}
-			}
-		}
-		if = {
-			limit = { wealth = 200 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 400 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 800 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 1600 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 3200 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 6400 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 12800 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 2000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 4000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 8000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 5000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 10000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { has_landed_title = k_draconic_pagan_reformed }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = flametender }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				any_realm_province = { has_building = tp_eternal_flame }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = god }
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = { trait = demi_god }
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { tier = emperor }
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = { tier = king }
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				OR = {
-					tier = count
-					tier = duke
-				}
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				any_spouse = {
-					NOT = { trait = dragon }
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -3 }
-		}
-		if = {
-			limit = {
-				NOT = { trait = dragon }
-				any_spouse = {
-					trait = dragon
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				OR = {
-					any_lover = {
-						NOT = { trait = dragon }
-					}
-					any_consort = {
-						NOT = { trait = dragon }
-					}
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				NOT = { trait = dragon }
-				OR = {
-					any_lover = {
-						trait = dragon
-					}
-					any_consort = {
-						trait = dragon
-					}
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				current_heir = {
-					NOT = { trait = dragon }
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dragonborn }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { 
-				NOR = {
-					trait = dragonborn
-					trait = dragon
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -10 }
-		}
-		if = {
-			limit = { NOT = { wealth = 0 } }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { character_disease_trigger = yes }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = clubfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = quailfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = harelip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = cleft_lip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = hunchback }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = twisted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = lisp }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = stutter }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = ugly }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dwarf }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = slow }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = imbecile }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = inbred }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = weak }
-			change_variable = { which = purity value = -1 }
-		}
-	}
-	if = {
-		limit = {
-			NOT = { trait = dragon }
-			religion = draconic_pagan_reformed
-		}
-		if = {
-			limit = { prestige = 2500 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 5000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 10000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 20000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 40000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = diligent }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = dragonborn }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				tier = king
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = {
-				tier = duke
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				tier = count
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				has_secret_religion = no
-				is_society_grandmaster = yes
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { is_voter = yes }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 1000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 2000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 4000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = flametender }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = slothful }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = werewolf }
-			change_variable = { which = purity value = -2 }
-		}
-		if = {
-			limit = { is_undead = yes }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { trait = clubfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = quailfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = harelip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = cleft_lip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = hunchback }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = twisted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = lisp }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = stutter }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = ugly }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dwarf }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = slow }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = imbecile }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = inbred }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = weak }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { diplomacy = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { martial = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { stewardship = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { intrigue = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { learning = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { diplomacy = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { martial = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { stewardship = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { intrigue = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { learning = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-	}
-	# Everyone
-	if = {
-		limit = { has_character_modifier = replaced_impure_flame }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = { has_character_modifier = rebelled_against_religious_head }
-		change_variable = { which = purity value = -3 }
-	}
-	if = {
-		limit = { has_character_modifier = sapphire_flame_blessing }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = { has_character_modifier = potion_of_purity }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = {
-			is_in_society = warrior_lodge_draconic
-			society_rank >= 3
-			NOT = { trait = dragon }
-		}
-		change_variable = { which = purity value = 2 }
-	}
-	if = {
-		limit = { 
-			OR = {
-				has_character_modifier = begger 
-				has_character_modifier = borrowed_from_bank
-			}
-		}
-		change_variable = { which = purity value = -3 }
-	}
-	if = {
-		limit = {
-			independent = yes
-			any_realm_province = { has_wonder_upgrade = upgrade_purification_chambers }
-		}
-		change_variable = { which = purity value = 1 }
-	}
-}
-
-set_purity_trait = {
-	# Set negative purity traits
-	if = { limit = { NOT = { check_variable = { which = purity value = -9 } } }
-		add_trait = purity_minus_10
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -9 } }
-		add_trait = purity_minus_9
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -8 } }
-		add_trait = purity_minus_8
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -7 } }
-		add_trait = purity_minus_7
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -6 } }
-		add_trait = purity_minus_6
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -5 } }
-		add_trait = purity_minus_5
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -4 } }
-		add_trait = purity_minus_4
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -3 } }
-		add_trait = purity_minus_3
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -2 } }
-		add_trait = purity_minus_2
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -1 } }
-		add_trait = purity_minus_1
-	}
-	# Set positive purity traits
-	else_if = { limit = { is_variable_equal = { which = purity value = 1 } }
-		add_trait = purity_1
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 2 } }
-		add_trait = purity_2
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 3 } }
-		add_trait = purity_3
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 4 } }
-		add_trait = purity_4
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 5 } }
-		add_trait = purity_5
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 6 } }
-		add_trait = purity_6
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 7 } }
-		add_trait = purity_7
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 8 } }
-		add_trait = purity_8
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 9 } }
-		add_trait = purity_9
-	}
-	else_if = { limit = { check_variable = { which = purity value = 10 } }
-		add_trait = purity_10
-	}
-}
-
-remove_purity_trait = {
-	remove_trait = purity_1
-	remove_trait = purity_2
-	remove_trait = purity_3
-	remove_trait = purity_4
-	remove_trait = purity_5
-	remove_trait = purity_6
-	remove_trait = purity_7
-	remove_trait = purity_8
-	remove_trait = purity_9
-	remove_trait = purity_10
-	remove_trait = purity_minus_1
-	remove_trait = purity_minus_2
-	remove_trait = purity_minus_3
-	remove_trait = purity_minus_4
-	remove_trait = purity_minus_5
-	remove_trait = purity_minus_6
-	remove_trait = purity_minus_7
-	remove_trait = purity_minus_8
-	remove_trait = purity_minus_9
-	remove_trait = purity_minus_10
-}
-
-clear_purity_ambition_modifiers = {
-	remove_character_modifier = can_ambition_dragon_gold_1
-	remove_character_modifier = can_ambition_dragon_gold_2
-	remove_character_modifier = can_ambition_dragon_gold_3
-	remove_character_modifier = can_ambition_dragon_gold_4
-	remove_character_modifier = can_ambition_dragon_gold_5
-	remove_character_modifier = can_ambition_dragon_gold_6
-	remove_character_modifier = can_ambition_dragon_gold_7
-	remove_character_modifier = can_ambition_dragon_piety_1
-	remove_character_modifier = can_ambition_dragon_piety_2
-	remove_character_modifier = can_ambition_dragon_piety_3
-	remove_character_modifier = can_ambition_pilgrimage
-	remove_character_modifier = can_ambition_clean_marriage
-	remove_character_modifier = can_ambition_clean_love
-	remove_character_modifier = can_ambition_clean_heir
-	remove_character_modifier = can_ambition_human_prestige_1
-	remove_character_modifier = can_ambition_human_prestige_2
-	remove_character_modifier = can_ambition_human_prestige_3
-	remove_character_modifier = can_ambition_human_prestige_4
-	remove_character_modifier = can_ambition_human_prestige_5
-	remove_character_modifier = can_ambition_diligent
-	remove_character_modifier = can_ambition_dragon_prestige_1
-	remove_character_modifier = can_ambition_dragon_prestige_2
 }
 
 clear_vice_virtue_modifiers = {
