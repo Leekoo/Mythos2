@@ -317,7 +317,7 @@ count_draconic_human_extermination_virtues = {
 	if = {	limit = { trait = trusting } change_variable = { which = num_virtues value = 1 } }
 }
 
-count_draconic_human_domination_vices = {
+count_draconic_human_extermination_vices = {
 	set_variable = { which = num_vices value = 0 }
 	if = {	limit = { trait = lustful } change_variable = { which = num_vices value = 1 } }
 	if = {	limit = { trait = proud } change_variable = { which = num_vices value = 1 } }
