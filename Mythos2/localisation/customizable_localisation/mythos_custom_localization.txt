@@ -8726,3 +8726,82 @@ defined_text = {
 		localization_key = tt_purity_progress_red
 	}
 }
+
+defined_text = {
+	name = Hunger_Gain_TT
+	use_first_valid = yes
+	text = {
+		trigger = { check_variable = { which = hunger_gain value = 0 } }
+		localization_key = tt_hunger_gain_increase
+	}
+	text = {
+		trigger = { is_variable_equal = { which = hunger_gain value = 0 } }
+		localization_key = tt_hunger_gain_null
+	}
+	fallback_text = {
+		localization_key = tt_hunger_gain_decrease
+	}
+}
+	
+
+defined_text = {
+	name = Hunger_Personality
+	use_first_valid = yes
+	text = {
+		trigger = { trait = gluttonous }
+		localization_key = tt_hunger_gluttonous
+	}
+	text = {
+		trigger = { trait = temperate }
+		localization_key = tt_hunger_temperate
+	}
+	fallback_text = {
+		localization_key = "[Hunger_Vomiting]"
+	}
+}
+
+defined_text = {
+	name = Hunger_Vomiting
+	use_first_valid = yes
+	text = {
+		trigger = { trait = vomiting }
+		localization_key = tt_hunger_vomiting
+	}
+	fallback_text = {
+		localization_key = "[Hunger_Starving]"
+	}
+}
+
+defined_text = {
+	name = Hunger_Starving
+	use_first_valid = yes
+	text = {
+		trigger = { has_character_modifier = vampire_starving }
+		localization_key = tt_hunger_starving
+	}
+	fallback_text = {
+		localization_key = "[Hunger_Injury]"
+	}
+}
+
+defined_text = {
+	name = Hunger_Injury
+	use_first_valid = yes
+	text = {
+		trigger = { check_variable = { which = hunger_gain_injuries value = 1 } }
+		localization_key = tt_hunger_injuries
+	}
+	fallback_text = {
+		localization_key = "[Hunger_VileBlood]"
+	}
+}
+
+defined_text = {
+	name = Hunger_VileBlood
+	use_first_valid = yes
+	text = {
+		trigger = { check_variable = { which = hunger_gain_vile_blood value = 1 } }
+		localization_key = tt_hunger_vile_blood
+	}
+}
+	

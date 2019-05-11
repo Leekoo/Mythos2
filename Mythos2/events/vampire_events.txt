@@ -2303,36 +2303,34 @@ character_event = {
 		}
 		
 		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			limit = { has_character_flag = vampire_feed_minor }
+			set_variable = { which = hunger_progress  value = 0 }
+			remove_character_modifier = starving
 			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+				limit = { trait = hunger_1 }
+				remove_trait = hunger_1
+			}
+			else_if = { 
+				limit = { trait = hunger_2 }
+				remove_trait = hunger_2
+			}
+			else_if = {
+				limit = { trait = hunger_3 }
+				remove_trait = hunger_3
 				add_trait = hunger_1
 			}
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+			else_if = {
+				limit = { trait = hunger_4 }
+				remove_trait = hunger_4
 				add_trait = hunger_2
 			}
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+			else_if = {
+				limit = { trait = hunger_5 }
 				add_trait = hunger_3
 			}
+		}
+		else = {
+			clear_hunger_trait = yes
 		}
 		
 		# Thrall
@@ -4781,217 +4779,217 @@ character_event = {
 }
 
 # VAMPIRE.27 - Hunger increases
-character_event = {
-	id = VAMPIRE.27
-	hide_window = yes
-	
-	capable_only = yes
-	
-	mean_time_to_happen = {
-		months = 24
-		modifier = {
-			factor = 0.5
-			trait = gluttonous
-		}
-		modifier = {
-			factor = 1.5
-			trait = temperate
-		}
-		modifier = {
-			factor = 0.8
-			is_maimed_trigger = yes
-		}
-		modifier = {
-			factor = 2
-			trait = vomiting
-		}
-		modifier = {
-			factor = 0.9
-			trait = impaler
-		}
-		modifier = {
-			factor = 0.9
-			trait = hunter
-		}
-		modifier = {
-			factor = 1.1
-			trait = hunger_1
-		}
-		modifier = {
-			factor = 1.2
-			trait = hunger_2
-		}
-		modifier = {
-			factor = 1.3
-			trait = hunger_3
-		}
-		modifier = {
-			factor = 1.4
-			trait = hunger_5
-		}
-		modifier = {
-			factor = 1.5
-			trait = hunger_5
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { age = 30 }
-		}
-		modifier = {
-			factor = 1.2
-			age = 50
-		}
-		modifier = {
-			factor = 1.2
-			age = 70
-		}
-		modifier = {
-			factor = 1.2
-			age = 90
-		}
-		modifier = {
-			factor = 1.2
-			age = 110
-		}
-		modifier = {
-			factor = 1.2
-			age = 130
-		}
-		modifier = {
-			factor = 1.2
-			age = 150
-		}
-		modifier = {
-			factor = 1.5
-			ai = yes
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_aztec_disease
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_typhus
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = cancer
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_tuberculosis
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = dancing_plague
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = dysentery
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = flu
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = food_poisoning
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = gout
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = syphilitic
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_typhoid_fever
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = ill
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = leper
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_measles
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = pneumonic
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = rabies
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = scurvy
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = sickly
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_small_pox
-		}
-		modifier = {
-			factor = 1.2
-			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
-			trait = has_bubonic_plague
-		}
-	}
-	
-	trigger = {
-		trait = vampire
-	}
-	
-	immediate = {
-		if = {
-			limit = { trait = hunger_5 }
-			# Fails if imprisoned
-			if = {
-				limit = { prisoner = no }
-				# Automatic high-risk feeding
-				random_courtier = {
-					limit = {
-						NOT = { trait = known_vampire }
-					}
-					character_event = { id = VAMPIRE.28 }
-				}
-			}
-		}
-		else = {
-			# Get hungry
-			character_event = { id = VAMPIRE.35 }
-		}
-	}
-}
+#character_event = {
+#	id = VAMPIRE.27
+#	hide_window = yes
+#	
+#	capable_only = yes
+#	
+#	mean_time_to_happen = {
+#		months = 24
+#		modifier = {
+#			factor = 0.5
+#			trait = gluttonous
+#		}
+#		modifier = {
+#			factor = 1.5
+#			trait = temperate
+#		}
+#		modifier = {
+#			factor = 0.8
+#			is_maimed_trigger = yes
+#		}
+#		modifier = {
+#			factor = 2
+#			trait = vomiting
+#		}
+#		modifier = {
+#			factor = 0.9
+#			trait = impaler
+#		}
+#		modifier = {
+#			factor = 0.9
+#			trait = hunter
+#		}
+#		modifier = {
+#			factor = 1.1
+#			trait = hunger_1
+#		}
+#		modifier = {
+#			factor = 1.2
+#			trait = hunger_2
+#		}
+#		modifier = {
+#			factor = 1.3
+#			trait = hunger_3
+#		}
+#		modifier = {
+#			factor = 1.4
+#			trait = hunger_5
+#		}
+#		modifier = {
+#			factor = 1.5
+#			trait = hunger_5
+#		}
+#		modifier = {
+#			factor = 0.8
+#			NOT = { age = 30 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 50
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 70
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 90
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 110
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 130
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 150
+#		}
+#		modifier = {
+#			factor = 1.5
+#			ai = yes
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_aztec_disease
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_typhus
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = cancer
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_tuberculosis
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = dancing_plague
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = dysentery
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = flu
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = food_poisoning
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = gout
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = syphilitic
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_typhoid_fever
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = ill
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = leper
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_measles
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = pneumonic
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = rabies
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = scurvy
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = sickly
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_small_pox
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_bubonic_plague
+#		}
+#	}
+#	
+#	trigger = {
+#		trait = vampire
+#	}
+#	
+#	immediate = {
+#		if = {
+#			limit = { trait = hunger_5 }
+#			# Fails if imprisoned
+#			if = {
+#				limit = { prisoner = no }
+#				# Automatic high-risk feeding
+#				random_courtier = {
+#					limit = {
+#						NOT = { trait = known_vampire }
+#					}
+#					character_event = { id = VAMPIRE.28 }
+#				}
+#			}
+#		}
+#		else = {
+#			# Get hungry
+#			character_event = { id = VAMPIRE.35 }
+#		}
+#	}
+#}
 
 # VAMPIRE.28 - Determine feeding success. ROOT is target, FROM is vampire
 character_event = {
@@ -13033,6 +13031,8 @@ character_event = {
 			limit = { has_character_flag = attending_blood_feast }
 			character_event = { id = VAMPIRE.175 }
 		}
+		set_variable = { which = hunger_progress  value = 0 }
+		remove_character_modifier = starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13070,6 +13070,8 @@ character_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.175
 		tooltip = { FROMFROM = { death = { death_reason = death_vampire } } }
+		set_variable = { which = hunger_progress  value = 0 }
+		remove_character_modifier = starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13432,6 +13434,8 @@ character_event = {
 			FROMFROM = { death = { death_reason = death_vampire_unknown } }
 			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
 		}
+		set_variable = { which = hunger_progress  value = 0 }
+		remove_character_modifier = starving
 		if = {
 			limit = { trait = hunger_5 }
 			remove_trait = hunger_5
@@ -13707,26 +13711,7 @@ character_event = {
 			gain_weight_small_effect = yes
 			weight_trait_check_effect = yes
 		}
-		if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
+		clear_hunger_trait = yes
 	}
 }
 
@@ -13865,6 +13850,8 @@ character_event = {
 	# Automatically lower hunger by one
 	option = {
 		name = EVTOPTA_VAMPIRE.193
+		set_variable = { which = hunger_progress  value = 0 }
+		remove_character_modifier = starving
 		if = {
 			limit = { trait = hunger_1 }
 			remove_trait = hunger_1
@@ -14522,26 +14509,7 @@ character_event = {
 			limit = { has_character_flag = vf_stat_learning }
 			change_learning = 1
 		}
-		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
+		clear_hunger_trait = yes
 	}
 	
 	after = {
@@ -14938,26 +14906,7 @@ character_event = {
 			limit = { has_character_flag = vf_stat_learning }
 			change_learning = 1
 		}
-		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
+		clear_hunger_trait = yes
 		
 		if = {
 			limit = { trait = known_vampire }
@@ -15373,5 +15322,82 @@ character_event = {
 		create_bloodline = {
 			type = BL_vampiric_highborn
 		}
+	}
+}
+
+# VAMPIRE.202 - Update Hunger with new hunger system
+character_event = {
+	id = VAMPIRE.202
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = { trait = vampire }
+	
+	immediate = {
+		calculate_hunger_gain = yes
+		change_variable = { which = hunger_progress which = hunger_gain }
+		if = {
+			limit = { check_variable = { which = hunger_progress value = 100 } }
+			if = {
+				limit = { trait = hunger_5 }
+				# In unable to attempt to feed, become starving, but reset progress
+				if = {
+					limit = {
+						OR = {
+							trait = incapable
+							trait = sick_incapable
+							prisoner = yes
+						}
+						set_variable = { which = hunger_progress value = 0 }
+						add_character_modifier = { modifier = vampire_starving duration = -1 stacking = yes }
+					}
+				}
+				else = {
+					# Automatic high-risk feeding
+					random_courtier = {
+						limit = {
+							NOT = { trait = known_vampire }
+						}
+						character_event = { id = VAMPIRE.28 }
+					}
+				}
+			}
+			else = {
+				# Increase Hunger
+				character_event = { id = VAMPIRE.203 }
+			}
+		}
+	}
+}
+
+# Hunger increases
+character_event = {
+	id = VAMPIRE.203
+	desc = {
+		trigger = { trait = hunger_5 }
+		text = EVTDESCA_VAMPIRE.203
+	}
+	desc = {
+		trigger = { trait = hunger_1 }
+		text = EVTDESCB_VAMPIRE.203
+	}
+	desc = {
+		trigger = {
+			OR = {
+				trait = hunger_2
+				trait = hunger_3
+				trait = hunger_4
+			}
+		}
+		text = EVTDESC_VAMPIRE.203
+	}
+	picture = GFX_evt_bad_news
+	is_triggered_only = yes
+	notification = yes
+	
+	immediate = { upgrade_hunger_trait = yes }
+	
+	option = {
+		name = OK
 	}
 }

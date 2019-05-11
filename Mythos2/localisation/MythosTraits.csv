@@ -488,15 +488,15 @@ purity_minus9x9_desc;This character's soul may be beyond saving.\n[GetPurityTool
 purity_minus10;Purity (§R-10§!);;;;;;;;;;;;;
 purity_minus10_desc;This character's soul is impure.\n[GetPurityTooltip];;;;;;;;;;;;;
 hunger_1;Hunger (§Y1§!);;;;;;;;;;;;;
-hunger_1_desc;This character is ready to feed on human blood\nYou are §Yslightly§! more likely to be caught.;;;;;;;;;;;;;
+hunger_1_desc;This character is ready to feed on human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
 hunger_2;Hunger (§Y2§!);;;;;;;;;;;;;
-hunger_2_desc;This character hungers for human blood\nYou are §Yslightly§! more likely to be caught.;;;;;;;;;;;;;
+hunger_2_desc;This character hungers for human blood\nYou are §Yslightly§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
 hunger_3;Hunger (§Y3§!);;;;;;;;;;;;;
-hunger_3_desc;This character has not fed for some time\nYou are §Ya good deal§! more likely to be caught.;;;;;;;;;;;;;
+hunger_3_desc;This character has not fed for some time\nYou are §Ya good deal§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
 hunger_4;Hunger (§R4§!);;;;;;;;;;;;;
-hunger_4_desc;This character is ravenous for human blood\nYou are §Rmuch§! more likely to be caught.;;;;;;;;;;;;;
+hunger_4_desc;This character is ravenous for human blood\nYou are §Rmuch§! more likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
 hunger_5;Hunger (§R4§!);;;;;;;;;;;;;
-hunger_5_desc;This character's hunger for blood leaves [From.GetHerHis] a barely controlled beast.\nYou are §Rvery§! likely to be caught.;;;;;;;;;;;;;
+hunger_5_desc;This character's hunger for blood leaves [From.GetHerHis] a barely controlled beast.\nYou are §Rvery§! likely to be caught.[Hunger_Gain_TT];;;;;;;;;;;;;
 control_1;Control (§YFull Moon§!);;;;;;;;;;;;;
 control_1_desc;This character has no control over [From.GetHerHis] shapeshifting, running wild under the full moon or stress.\nYou are §Rvery§! likely to be caught.;;;;;;;;;;;;;
 control_2;Control (§YFull Gibbous Moon§!);;;;;;;;;;;;;
@@ -713,6 +713,15 @@ tt_purity_gain_red;\nChange last month: §R[purity_gain.GetValue]§![GetPurityProg
 tt_purity_progress_yellow;\nProgress: §Y[purity_progress.GetValue]§!/[purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
 tt_purity_progress_green;\nProgress: §G[purity_progress.GetValue]§!/[purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
 tt_purity_progress_red;\nProgress: §R[purity_progress.GetValue]§!/[purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
+tt_hunger_gain_increase;\nChange last month: §R+[hunger_gain.GetValue]§!\nProgress: [hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Personality];;;;;;;;;;;;;
+tt_hunger_gain_null;\nChange last month: §Y+[hunger_gain.GetValue]§!\nProgress: [hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Personality];;;;;;;;;;;;;
+tt_hunger_gain_decrease;\nChange last month: §G[hunger_gain.GetValue]§!\nProgress: [hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Personality];;;;;;;;;;;;;
+tt_hunger_gluttonous;\bGluttonous: §R+5§![Hunger_Vomiting];;;;;;;;;;;;;
+tt_hunger_temperate;\bTemperate: §G-5§![Hunger_Vomiting];;;;;;;;;;;;;
+tt_hunger_vomiting;\bVomiting: §R+5§![Hunger_Starving];;;;;;;;;;;;;
+tt_hunger_starving;\bStarving: §R+20§![Hunger_Injury];;;;;;;;;;;;;
+tt_hunger_injuries;\bInjuries: §R+[hunger_gain_injuries.GetValue]§![Hunger_VileBlood];;;;;;;;;;;;;
+tt_hunger_vile_blood;\bInjuries: §G[hunger_gain_vile_blood.GetValue]§!;;;;;;;;;;;;;
 sickly_30;Sickly;Enfant maladif;Kränklich;;Enfermizo;;;;;;;;;x
 sickly_30_desc;This child was born sickly and might not survive infancy.;Cet enfant est maladif et pourrait donc ne pas atteindre l'âge adulte.;Dieses Kind wurde kränklich geboren und wird vielleicht nicht lange leben;;Este niño nació enfermizo y podría no sobrevivir a la infancia.;;;;;;;;;x
 sickly_30_death;a sickly infant;de son état maladif;als kränkliches Kind;;bebé enfermizo;;;;;;;;;x

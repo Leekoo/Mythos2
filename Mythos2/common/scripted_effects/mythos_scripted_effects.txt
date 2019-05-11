@@ -9123,3 +9123,346 @@ update_religion_feature_effects = { # cover combining religion features
 		}
 	}
 }
+
+calculate_hunger_gain = {
+	# Base of 10
+	set_variable = { which = hunger_gain value = 10 }
+	set_variable = { which = hunger_gain_injuries value = 0 }
+	set_variable = { which = hunger_gain_vile_blood value = 0 }
+	if = {
+		limit = { trait = temperate }
+		subtract_variable = { which = hunger_gain value = 5 }
+	}
+	else_if = {
+		limit = { trait = gluttonous }
+		change_variable = { which = hunger_gain value = 5 }
+	}
+	if = {
+		limit = { trait = vomiting }
+		change_variable = { which = hunger_gain value = 5 }
+	}
+	if = {
+		limit = { has_character_modifier = vampire_starving }
+		change_variable = { which = hunger_gain value = 20 }
+	}
+	# Increased hunger from injuries - 3 for major injuries, 2 for standard injuries, 1 for minor injuries
+	# Major - Severely Injured, Mangled, Disfigured
+	# Standard - Maimed, One-Eyed, One-Handed, One-Legged, Blinded, Eunuch
+	# Minor - Wounded, Scarred, Grievously Scarred, Horrifically Scarred, badly_bruised, black_eye, swollen_ankle, swollen_wrist, sore_muscles, cracked_ribs, concussion
+	if = {
+		limit = { trait = severely_injured }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = mangled }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = disfigured }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = maimed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_eyed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_handed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_legged }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = blinded }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = eunuch }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = wounded }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred_mid }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred_high }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = badly_bruised }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = black_eye }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = swollen_ankle }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = swollen_wrist }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = sore_muscles }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = cracked_ribs }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = concussion }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = {
+			trait = has_aztec_disease
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_typhus
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = cancer
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_tuberculosis
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = dancing_plague
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = dysentery
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = flu
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = food_poisoning
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = gout
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = syphilitic
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_typhoid_fever
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = ill
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = leper
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_measles
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = pneumonic
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = rabies
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = scurvy
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_small_pox
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_bubonic_plague
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+}
+
+clear_hunger_trait = {
+	set_variable = { which = hunger_progress  value = 0 }
+	remove_character_modifier = starving
+	if = {
+		limit = { trait = hunger_1 }
+		remove_trait = hunger_1
+	}
+	else_if = {
+		limit = { trait = hunger_2 }
+		remove_trait = hunger_2
+	}
+	else_if = {
+		limit = { trait = hunger_3 }
+		remove_trait = hunger_3
+	}
+	else_if = {
+		limit = { trait = hunger_4 }
+		remove_trait = hunger_4
+	}
+	else_if = {
+		limit = { trait = hunger_5 }
+		remove_trait = hunger_5
+	}
+}
+
+upgrade_hunger_trait = {
+	if = {
+		limit = { trait = hunger_1 }
+		remove_trait = hunger_1
+		add_trait = hunger_2
+	}
+	else_if = {
+		limit = { trait = hunger_2 }
+		remove_trait = hunger_2
+		add_trait = hunger_3
+	}
+	else_if = {
+		limit = { trait = hunger_3 }
+		remove_trait = hunger_3
+		add_trait = hunger_4
+	}
+	else_if = {
+		limit = { trait = hunger_4 }
+		remove_trait = hunger_4
+		add_trait = hunger_5
+	}
+	# Don't check for 5 here, check in previous event to call the automatic feeding
+	#else_if = {
+	#	limit = { trait = hunger_5 }
+	#	# Fails if imprisoned
+	#	if = {
+	#		limit = { is_inaccessible_or_incapable_trigger = no }
+	#		# Automatic high-risk feeding
+	#		random_courtier = {
+	#			limit = {
+	#				NOT = { trait = known_vampire }
+	#			}
+	#			character_event = { id = VAMPIRE.28 }
+	#		}
+	#	}
+	#}
+}
+	
