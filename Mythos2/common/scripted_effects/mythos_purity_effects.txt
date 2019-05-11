@@ -5069,7 +5069,7 @@ update_purity_level = {
 		update_purity_to_next = yes
 	}
 	if = {
-		limit = { is_variable_equal = { which = purity_level value = 10 }
+		limit = { is_variable_equal = { which = purity_level value = 10 } }
 		if = {
 			limit = { check_variable = { which = purity_progress value = 500 } }
 			set_variable = { which = purity_progress value = 500 }
