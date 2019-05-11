@@ -5283,6 +5283,88 @@ clear_purity_trait = {
 
 update_purity_trait = {
 	if = {
+		limit = { is_variable_equal = { which = purity_level value = 0 } }
+		if = {
+			limit = { check_variable = { which = purity_progress_percent value = 90 } }
+			if = {
+				limit = { NOT = { trait = purity_0x9 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x9
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 80 } }
+			if = {
+				limit = { NOT = { trait = purity_0x8 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x8
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 70 } }
+			if = {
+				limit = { NOT = { trait = purity_0x7 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x7
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 60 } }
+			if = {
+				limit = { NOT = { trait = purity_0x6 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x6
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 50 } }
+			if = {
+				limit = { NOT = { trait = purity_0x5 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x5
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 40 } }
+			if = {
+				limit = { NOT = { trait = purity_0x4 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x4
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 30 } }
+			if = {
+				limit = { NOT = { trait = purity_0x3 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x3
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 20 } }
+			if = {
+				limit = { NOT = { trait = purity_0x2 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x2
+			}
+		}
+		else_if = {
+			limit = { check_variable = { which = purity_progress_percent value = 10 } }
+			if = {
+				limit = { NOT = { trait = purity_0x1 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x1
+			}
+		}
+		else = {
+			if = {
+				limit = { NOT = { trait = purity_0x0 } }
+				clear_purity_trait = yes
+				add_trait = purity_1x0
+			}
+		}
+	}
+	else_if = {
 		limit = { is_variable_equal = { which = purity_level value = 1 } }
 		if = {
 			limit = { check_variable = { which = purity_progress_percent value = 90 } }
