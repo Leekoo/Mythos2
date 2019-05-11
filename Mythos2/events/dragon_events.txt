@@ -6307,7 +6307,9 @@ character_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		save_persistent_event_target_as = death_location
+		location = {
+			ROOT = { save_persistent_event_target = { name = death_location scope = PREV } }
+		}
 		# Select bloodline and nickname
 		random_list = {
 			1 = {
