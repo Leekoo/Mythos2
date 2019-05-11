@@ -9405,7 +9405,7 @@ calculate_hunger_gain = {
 
 clear_hunger_trait = {
 	set_variable = { which = hunger_progress  value = 0 }
-	remove_character_modifier = starving
+	remove_character_modifier = vampire_starving
 	if = {
 		limit = { trait = hunger_1 }
 		remove_trait = hunger_1
