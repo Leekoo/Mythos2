@@ -140,7 +140,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
-						set_graphical_culture = event_target:true_father
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -169,7 +182,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
-						mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -199,6 +225,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 					20 = {
 						modifier = {
@@ -211,6 +251,20 @@ character_event = {
 						}
 						remove_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -242,6 +296,20 @@ character_event = {
 					1 = {
 						add_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 						modifier = {
 							factor = 3
 							has_game_rule = { name = breeding value = strong }
@@ -254,6 +322,20 @@ character_event = {
 					9 = {
 						remove_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -270,7 +352,20 @@ character_event = {
 				}
 				add_trait = dragonborn
 				remove_trait = dragon
-				mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+				if = {
+					limit = { graphical_culture = dragongfx }
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
+				}
 			}
 			# One parent is a dragon and the other is human - mother is dragon
 			else_if = {
@@ -285,7 +380,20 @@ character_event = {
 				}
 				add_trait = dragonborn
 				remove_trait = dragon
-				set_graphical_culture = event_target:true_father
+				if = {
+					limit = { graphical_culture = dragongfx }
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
+				}
 			}
 			# Neither parent is dragonborn or dragon
 			else = {
@@ -293,7 +401,17 @@ character_event = {
 				remove_trait = dragon
 				if = {
 					limit = { graphical_culture = dragongfx }
-					set_graphical_culture = event_target:true_father
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
 				}
 			}
 			# Handle gods
@@ -1424,6 +1542,25 @@ character_event = {
 				any_owned_bloodline = { has_bloodline_flag = always_heritage }
 			}
 			add_trait = magic_heritage
+		}
+		
+		# Last check for false dragons
+		if = {
+			limit = {
+				graphical_culture = dragongfx
+				NOT = { trait = dragon }
+			}
+			if = {
+				limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+				set_graphical_culture = event_target:true_father
+			}
+			else_if = {
+				limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+				set_graphical_culture = mother_even_if_dead
+			}
+			else = {
+				set_graphical_culture = norse
+			}
 		}
 		
 		character_event = { id = SPECIES.11 }
