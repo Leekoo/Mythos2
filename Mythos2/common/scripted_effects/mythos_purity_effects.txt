@@ -5044,10 +5044,10 @@ update_purity_to_next = {
 	if = {
 		limit = { check_variable = { which = purity_level value = 0 } }
 		change_variable = { which = purity_to_next value = 1 }
-		multiply_variable = { which = purity_to_next value = 500 } # If too hard, try 500
+		multiply_variable = { which = purity_to_next value = 1000 } # If too hard, try 500
 	}
 	else = {
-		multiply_variable = { which = purity_to_next value = -500 }
+		multiply_variable = { which = purity_to_next value = -1000 }
 	}
 }
 
