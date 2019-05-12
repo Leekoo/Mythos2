@@ -6968,8 +6968,10 @@ defined_text = {
 				trait = dragon
 				always = yes # Neither Human Domination nor Human Extinction
 			}
-			any_realm_province = {
-				has_wonder_upgrade = upgrade_dragon_flame
+			FROM = {
+				any_realm_province = {
+					has_wonder_upgrade = upgrade_dragon_flame
+				}
 			}
 		}
 		localisation_key = tt_purity_eternal_flame_control
