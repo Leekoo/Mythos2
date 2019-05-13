@@ -1563,6 +1563,18 @@ character_event = {
 			}
 		}
 		
+		# Minor variable hiccup for draconic pagans
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			set_variable = { which = purity_level value = 0 }
+			update_purity_level = yes
+		}
+		
 		character_event = { id = SPECIES.11 }
 	}
 }
