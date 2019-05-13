@@ -2766,7 +2766,6 @@ character_event = {
 			trait = cancer
 			trait = dancing_plague
 			trait = scurvy
-			trait = severely_injured
 			trait = lovers_pox
 		}
 	}
@@ -2791,7 +2790,6 @@ character_event = {
 		remove_disease_trait_effect = yes
 		if = { limit = { trait = infirm } remove_trait = infirm }
 		if = { limit = { trait = incapable } remove_trait = incapable }
-		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 		if = { limit = { trait = lovers_pox } remove_trait = lovers_pox }
 		hidden_tooltip = {
 			clear_disease_level_effect = yes
@@ -2840,6 +2838,7 @@ character_event = {
 			trait = mangled
 			trait = eunuch
 			trait = blinded
+			trait = severely_injured
 			has_scarred_trait_trigger = yes
 			has_character_modifier = black_eye
 			has_character_modifier = swollen_wrist
@@ -2899,7 +2898,7 @@ character_event = {
 		if = { limit = { has_character_modifier = concussion } remove_character_modifier = concussion }
 		if = { limit = { has_character_modifier = cracked_ribs } remove_character_modifier = cracked_ribs }
 		if = { limit = { has_character_modifier = badly_bruised } remove_character_modifier = badly_bruised }
-		hidden_tooltip = { remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
+		if = { limit = { trait = severely_injured } remove_trait = severely_injured clear_delayed_event = { id = RIP.11000 } }
 	}
 }
 
