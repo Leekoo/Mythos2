@@ -2156,6 +2156,10 @@ letter_event = {
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		check_variable = { which = loan_amount value > 0 }
+	}
+	
 	option = {
 		name = OK
 	}
