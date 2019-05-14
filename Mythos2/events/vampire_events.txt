@@ -2310,10 +2310,12 @@ character_event = {
 			if = {
 				limit = { trait = hunger_1 }
 				remove_trait = hunger_1
+				add_trait = hunger_0
 			}
 			else_if = { 
 				limit = { trait = hunger_2 }
 				remove_trait = hunger_2
+				add_trait = hunger_0
 			}
 			else_if = {
 				limit = { trait = hunger_3 }
@@ -5713,6 +5715,7 @@ character_event = {
 		}
 		else = {
 			add_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_0 }
 		}
 	}
 }
@@ -13036,27 +13039,28 @@ character_event = {
 		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -13075,27 +13079,28 @@ character_event = {
 		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -13439,27 +13444,28 @@ character_event = {
 		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -13855,26 +13861,27 @@ character_event = {
 		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		ai_chance = {
@@ -15367,6 +15374,19 @@ character_event = {
 				# Increase Hunger
 				character_event = { id = VAMPIRE.203 }
 			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					trait = hunger_0
+					trait = hunger_1
+					trait = hunger_2
+					trait = hunger_3
+					trait = hunger_4
+					trait = hunger_5
+				}
+			}
+			add_trait = hunger_0
 		}
 	}
 }

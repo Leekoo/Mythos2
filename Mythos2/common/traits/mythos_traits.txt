@@ -1225,8 +1225,24 @@ ascetic = {
 }
 
 # Hunger mechanic for Vampires
+hunger_0 = {
+	opposites = {
+		hunger_1
+		hunger_2
+		hunger_3
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+}
 hunger_1 = {
 	opposites = {
+		hunger_0
 		hunger_2
 		hunger_3
 		hunger_4
@@ -1246,6 +1262,7 @@ hunger_1 = {
 }
 hunger_2 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_3
 		hunger_4
@@ -1265,6 +1282,7 @@ hunger_2 = {
 }
 hunger_3 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_4
@@ -1284,6 +1302,7 @@ hunger_3 = {
 }
 hunger_4 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_3
@@ -1303,6 +1322,7 @@ hunger_4 = {
 }
 hunger_5 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_3
