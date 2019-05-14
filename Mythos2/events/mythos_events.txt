@@ -2771,13 +2771,13 @@ character_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 20
+		days = 40
 		modifier = {
-			factor = 20
+			factor = 0.5
 			trait = god
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			NOT = {
 				trait = god
 				trait = demi_god
@@ -2852,11 +2852,11 @@ character_event = {
 	mean_time_to_happen = {
 		days = 360
 		modifier = {
-			factor = 10
+			factor = 0.1
 			trait = god
 		}
 		modifier = {
-			factor = 0.1
+			factor = 10
 			NOR = {
 				trait = god
 				trait = demi_god
