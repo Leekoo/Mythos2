@@ -15345,6 +15345,19 @@ character_event = {
 		calculate_hunger_gain = yes
 		change_variable = { which = hunger_progress which = hunger_gain }
 		if = {
+			limit = {
+				NOR = {
+					trait = hunger_0
+					trait = hunger_1
+					trait = hunger_2
+					trait = hunger_3
+					trait = hunger_4
+					trait = hunger_5
+				}
+			}
+			add_trait = hunger_0
+		}
+		if = {
 			limit = { check_variable = { which = hunger_progress value = 100 } }
 			if = {
 				limit = { trait = hunger_5 }
@@ -15374,19 +15387,6 @@ character_event = {
 				# Increase Hunger
 				character_event = { id = VAMPIRE.203 }
 			}
-		}
-		if = {
-			limit = {
-				NOR = {
-					trait = hunger_0
-					trait = hunger_1
-					trait = hunger_2
-					trait = hunger_3
-					trait = hunger_4
-					trait = hunger_5
-				}
-			}
-			add_trait = hunger_0
 		}
 	}
 }
