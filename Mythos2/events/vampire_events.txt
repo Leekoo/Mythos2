@@ -2305,26 +2305,26 @@ character_event = {
 		
 		if = {
 			limit = { has_character_flag = vampire_feed_minor }
-			set_variable = { which = hunger_progress  value = 0 }
+			hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
 			remove_character_modifier = vampire_starving
 			if = {
 				limit = { trait = hunger_1 }
-				remove_trait = hunger_1
+				hidden_tooltip = { remove_trait = hunger_1 }
 				add_trait = hunger_0
 			}
 			else_if = { 
 				limit = { trait = hunger_2 }
-				remove_trait = hunger_2
+				hidden_tooltip = { remove_trait = hunger_2 }
 				add_trait = hunger_0
 			}
 			else_if = {
 				limit = { trait = hunger_3 }
-				remove_trait = hunger_3
+				hidden_tooltip = { remove_trait = hunger_3 }
 				add_trait = hunger_1
 			}
 			else_if = {
 				limit = { trait = hunger_4 }
-				remove_trait = hunger_4
+				hidden_tooltip = { remove_trait = hunger_4 }
 				add_trait = hunger_2
 			}
 			else_if = {
@@ -13035,7 +13035,7 @@ character_event = {
 			limit = { has_character_flag = attending_blood_feast }
 			character_event = { id = VAMPIRE.175 }
 		}
-		set_variable = { which = hunger_progress  value = 0 }
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
 		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
@@ -13075,8 +13075,11 @@ character_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.175
 		tooltip = { FROMFROM = { death = { death_reason = death_vampire } } }
-		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = vampire_starving
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_5 }
 			hidden_tooltip = { remove_trait = hunger_5 }
@@ -13440,8 +13443,11 @@ character_event = {
 			FROMFROM = { death = { death_reason = death_vampire_unknown } }
 			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
 		}
-		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = vampire_starving
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_5 }
 			hidden_tooltip = { remove_trait = hunger_5 }
@@ -13857,8 +13863,11 @@ character_event = {
 	# Automatically lower hunger by one
 	option = {
 		name = EVTOPTA_VAMPIRE.193
-		set_variable = { which = hunger_progress  value = 0 }
-		remove_character_modifier = vampire_starving
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_1 }
 			hidden_tooltip = { remove_trait = hunger_1 }
@@ -15370,7 +15379,7 @@ character_event = {
 							prisoner = yes
 						}
 					}
-					set_variable = { which = hunger_progress value = 0 }
+					hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
 					add_character_modifier = { modifier = vampire_starving duration = -1 stacking = yes }
 				}
 				else = {

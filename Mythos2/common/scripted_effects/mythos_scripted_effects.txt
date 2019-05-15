@@ -9449,7 +9449,7 @@ clear_hunger_trait = {
 }
 
 upgrade_hunger_trait = {
-	set_variable = { which = hunger_progress value = 0 }
+	hidden_tooltip = { subtract_variable = { which = hunger_progress value = 100 } }
 	if = {
 		limit = { trait = hunger_0 }
 		hidden_tooltip = { remove_trait = hunger_0 }
