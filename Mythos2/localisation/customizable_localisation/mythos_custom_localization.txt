@@ -8816,3 +8816,27 @@ defined_text = {
 		localisation_key = "\n-"
 	}
 }
+
+defined_text = {
+	name = Hunger_Age
+	use_first_valid = yes
+	text = {
+		trigger = { age = 250 }
+		localisation_key = tt_hunger_age_4
+	}
+	text = {
+		trigger = { age = 200 }
+		localisation_key = tt_hunger_age_3
+	}
+	text = {
+		trigger = { age = 150 }
+		localisation_key = tt_hunger_age_2
+	}
+	text = {
+		trigger = { age = 100 }
+		localisation_key = tt_hunger_age_1
+	}
+	fallback_text= {
+		localisation_key = "[Hunger_Personality]"
+	}
+}

@@ -9145,6 +9145,23 @@ calculate_hunger_gain = {
 		limit = { has_character_modifier = vampire_starving }
 		change_variable = { which = hunger_gain value = 20 }
 	}
+	# Age affects hunger - starting at 100, -1 per 50 years, up to -4
+	if = {
+		limit = { age = 100 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 150 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 200 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 250 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
 	# Increased hunger from injuries - 3 for major injuries, 2 for standard injuries, 1 for minor injuries
 	# Major - Severely Injured, Mangled, Disfigured
 	# Standard - Maimed, One-Eyed, One-Handed, One-Legged, Blinded, Eunuch
@@ -9400,6 +9417,13 @@ calculate_hunger_gain = {
 		}
 		change_variable = { which = hunger_gain value = -1 }
 		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	# Minimum 1
+	if = {
+		limit = {
+			NOT = { check_variable = { which = hunger_gain value = 1 } }
+		}
+		set_variable = { which = hunger_gain value = 1 }
 	}
 }
 
