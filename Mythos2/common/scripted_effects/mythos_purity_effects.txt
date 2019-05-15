@@ -5044,15 +5044,22 @@ update_purity_to_next = {
 	if = {
 		limit = { check_variable = { which = purity_level value = 0 } }
 		change_variable = { which = purity_to_next value = 1 }
-		multiply_variable = { which = purity_to_next value = 1000 } # If too hard, try 500
+		multiply_variable = { which = purity_to_next value = 500 } # If too hard, try 500
 	}
 	else = {
-		multiply_variable = { which = purity_to_next value = -1000 }
+		multiply_variable = { which = purity_to_next value = -500 }
 	}
 }
 
 update_purity_level = {
 	update_purity_to_next = yes
+	if = {
+		limit = { is_variable_equal = { which = purity_level value = 10 } }
+		if = {
+			limit = { check_variable = { which = purity_progress value = 500 } }
+			set_variable = { which = purity_progress value = 500 }
+		}
+	}
 	if = {
 		limit = { check_variable = { which = purity_progress which = purity_to_next } }
 		change_variable = { which = purity_level value = 1 }
@@ -5070,13 +5077,6 @@ update_purity_level = {
 		set_variable = { which = purity_level value = -10 }
 		set_variable = { which = purity_progress value = 0 }
 		update_purity_to_next = yes
-	}
-	if = {
-		limit = { is_variable_equal = { which = purity_level value = 10 } }
-		if = {
-			limit = { check_variable = { which = purity_progress value = 500 } }
-			set_variable = { which = purity_progress value = 500 }
-		}
 	}
 }
 
