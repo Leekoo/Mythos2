@@ -8840,3 +8840,19 @@ defined_text = {
 		localisation_key = "[Hunger_Personality]"
 	}
 }
+
+defined_text = {
+	name = Hunger_Base
+	use_first_valid = yes
+	text = {
+		trigger = {
+			ai = yes
+			independent = no
+		}
+		localisation_key = tt_base_ai_vassal
+	}
+	fallback_text= {
+		localisation_key = tt_base_default
+	}
+}
+	
