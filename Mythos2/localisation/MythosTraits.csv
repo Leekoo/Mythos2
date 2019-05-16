@@ -715,9 +715,11 @@ tt_purity_gain_red;\nChange last month: §R[From.purity_gain.GetValue]§![GetPurit
 tt_purity_progress_yellow;\nProgress: §Y[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
 tt_purity_progress_green;\nProgress: §G[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
 tt_purity_progress_red;\nProgress: §R[From.purity_progress.GetValue]§!/[From.purity_to_next.GetValue][Purity_Wealth];;;;;;;;;;;;;
-tt_hunger_gain_increase;\nChange last month: §R+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;
-tt_hunger_gain_null;\nChange last month: §Y+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;
-tt_hunger_gain_decrease;\nChange last month: §G[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;
+tt_hunger_gain_increase;\nChange last month: §R+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
+tt_hunger_gain_null;\nChange last month: §Y+[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
+tt_hunger_gain_decrease;\nChange last month: §G[From.hunger_gain.GetValue]§!\nProgress: [From.hunger_progress.GetValue]%[Hunger_Base];;;;;;;;;;;;;
+tt_base_default;\nBase: §R+10§![Hunger_Age];;;;;;;;;;;;;
+tt_base_ai_vassal;\nBase (AI Vassal): §R+8§![Hunger_Age];;;;;;;;;;;;;
 tt_hunger_gluttonous;\nGluttonous: §R+5§![Hunger_Vomiting];;;;;;;;;;;;;
 tt_hunger_temperate;\nTemperate: §G-5§![Hunger_Vomiting];;;;;;;;;;;;;
 tt_hunger_vomiting;\nVomiting: §R+5§![Hunger_Starving];;;;;;;;;;;;;

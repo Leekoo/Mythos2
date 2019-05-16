@@ -9129,6 +9129,14 @@ calculate_hunger_gain = {
 	set_variable = { which = hunger_gain value = 10 }
 	set_variable = { which = hunger_gain_injuries value = 0 }
 	set_variable = { which = hunger_gain_vile_blood value = 0 }
+	# Slightly slower for vassal AI
+	if = {
+		limit = {
+			ai = yes
+			independent = no
+		}
+		subtract_variable = { which = hunger_gain value = 2 }
+	}
 	if = {
 		limit = { trait = temperate }
 		subtract_variable = { which = hunger_gain value = 5 }
