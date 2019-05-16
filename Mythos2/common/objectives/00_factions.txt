@@ -4696,6 +4696,21 @@ faction_independence = {
 				}
 			}
 		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			trait = monster_hunter
+		}
 	}
 	
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
@@ -5146,6 +5161,21 @@ faction_independence = {
 					has_status = china_golden_age
 				}
 			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			trait = monster_hunter
 		}
 	}
 	
@@ -5950,6 +5980,34 @@ faction_claimant = {
 				}
 			}
 		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			new_character = {
+				is_monster_to_root = no
+			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			new_character = {
+				is_monster_to_root = no
+			}
+			trait = monster_hunter
+		}
+		
+		modifier = {
+			factor = 0.5
+			new_character = {
+				is_monster_to_root = yes
+			}
+		}
 	}
 	
 	# AI membership weight: ROOT is the prospective member. FROM is the faction leader. FROMFROM is the target title or character.
@@ -6562,6 +6620,34 @@ faction_claimant = {
 			OR = {
 				has_opinion_modifier = { who = LIEGE modifier = opinion_evil_tyrant }
 				has_opinion_modifier = { who = LIEGE modifier = opinion_tyrant }
+			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			new_character = {
+				is_monster_to_root = no
+			}
+		}
+		
+		modifier = {
+			factor = 2.0
+			liege = {
+				is_monster_to_root = yes
+			}
+			new_character = {
+				is_monster_to_root = no
+			}
+			trait = monster_hunter
+		}
+		
+		modifier = {
+			factor = 0.5
+			new_character = {
+				is_monster_to_root = yes
 			}
 		}
 	}
