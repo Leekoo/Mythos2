@@ -50,6 +50,7 @@ character_event = {
 				trait = djinn
 				trait = giant
 			}
+			ai = yes
 		}
 	}
 	
@@ -77,7 +78,29 @@ character_event = {
 		spouse = { add_trait = vampire }
 		hidden_tooltip = { 
 			spouse = {
-				add_trait = secret_vampire
+				ROOT = {
+					any_owned_bloodline = {
+						limit = {
+							OR = {
+								has_bloodline_flag = high_vampiric_inheritance
+								has_bloodline_flag = vampiric_inheritance
+							}
+						}
+						add_bloodline_member = PREVPREV
+					}
+				}
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_known } }
+					add_trait = known_vampire
+				}
+				else = {
+					add_trait = secret_vampire
+				}
+				if = {
+					limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly } }
+					remove_trait = fair
+					add_trait = ugly
+				}
 			}
 		}
 	}
@@ -120,6 +143,56 @@ letter_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.5 # Accept
 		trigger = { NOT = { trait = werewolf } }
+		tooltip = { add_trait = vampire }
+		if = {
+			limit = {
+				FROMFROM = {
+					any_owned_bloodline = {
+						OR = {
+							has_bloodline_flag = high_vampiric_inheritance
+							has_bloodline_flag = vampiric_inheritance
+						}
+					}
+				}
+			}
+			tooltip = {
+				FROMFROM = {
+					any_owned_bloodline = {
+						limit = {
+							OR = {
+								has_bloodline_flag = high_vampiric_inheritance
+								has_bloodline_flag = vampiric_inheritance
+							}
+						}
+						add_bloodline_member = ROOT
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_auto_known
+					}
+				}
+			}
+			tooltip = {
+				add_trait = known_vampire
+			}
+		}
+		if = {
+			limit = {
+				FROMFROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_auto_ugly
+					}
+				}
+			}
+			tooltip = {
+				add_trait = ugly
+			}
+		}
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -225,6 +298,12 @@ letter_event = {
 				factor = 10000
 				prisoner = yes
 			}
+			modifier = {
+				factor = 1.5
+				FROMFROM = {
+					any_owned_bloodline = { has_bloodline_flag = high_vampiric_inheritance }
+				}
+			}
 		}
 		hidden_tooltip = { FROMFROM = { letter_event = { id = VAMPIRE.6 days = 7 } } }
 	}
@@ -284,6 +363,18 @@ letter_event = {
 			modifier = {
 				factor = 1.5
 				trait = kind
+			}
+			modifier = {
+				factor = 3
+				FROMFROM = {
+					any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly }
+				}
+				NOT = { trait = ugly }
+				OR = {
+					trait = proud
+					trait = fair
+					trait = groomed
+				}
 			}
 		}
 		opinion = { modifier = opinion_turn_refusal who = FROMFROM  }
@@ -365,7 +456,29 @@ letter_event = {
 		name = EVTOPTA_VAMPIRE.6
 		FROM = {
 			add_trait = vampire
-			hidden_tooltip = { add_trait = secret_vampire }
+			ROOT = {
+				any_owned_bloodline = {
+					limit = {
+						OR = {
+							has_bloodline_flag = high_vampiric_inheritance
+							has_bloodline_flag = vampiric_inheritance
+						}
+					}
+					add_bloodline_member = FROM
+				}
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_known } }
+				add_trait = known_vampire
+			}
+			else = {
+				add_trait = secret_vampire
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly } }
+				remove_trait = fair
+				add_trait = ugly
+			}
 			save_persistent_event_target = { name = sire scope = ROOT }
 			opinion = { who = ROOT modifier = vampire_blood_bond years = 50 }
 			if = {
@@ -406,6 +519,36 @@ letter_event = {
 		name = EVTOPTB_VAMPIRE.6
 		FROM = {
 			add_trait = vampire
+			ROOT = {
+				any_owned_bloodline = {
+					limit = {
+						OR = {
+							has_bloodline_flag = high_vampiric_inheritance
+							has_bloodline_flag = vampiric_inheritance
+						}
+					}
+					random = {
+						chance = 50
+						modifier = {
+							factor = 0.1
+							has_bloodline_flag = high_vampiric_inheritance
+						}
+						add_bloodline_member = FROM
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_known } }
+				add_trait = known_vampire
+			}
+			else = {
+				add_trait = secret_vampire
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly } }
+				remove_trait = fair
+				add_trait = ugly
+			}
 			hidden_tooltip = { add_trait = secret_vampire }
 			if = {
 				limit = { host = { character = ROOT } }
@@ -650,6 +793,9 @@ character_event = {
 						trait = demon_trait
 						trait = ethereal_trait
 					}
+					NOT = {
+						any_owned_bloodline = { has_bloodline_flag = vampire_feed_any }
+					}
 				}
 			}
 			clr_character_flag = vf_heal
@@ -847,8 +993,30 @@ character_event = {
 			# Diplomacy
 			export_to_variable = { which = var_diplomacy value = diplomacy }
 			FROMFROM = { export_to_variable = { which = var_diplomacy value = diplomacy } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_diplomacy value = 2 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_diplomacy value = 2 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_diplomacy value = 2 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_diplomacy value = 2 }
+					}
+				}
+			}
 			subtract_variable = { which = var_diplomacy which = FROMFROM }
 			set_variable = { which = diff which = var_diplomacy }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_diplomacy value = diplomacy }
 			if = {
 				limit = { NOT = { check_variable = { which = var_diplomacy which = FROMFROM } } }
@@ -890,8 +1058,30 @@ character_event = {
 			# Martial
 			export_to_variable = { which = var_martial value = martial }
 			FROMFROM = { export_to_variable = { which = var_martial value = martial } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_martial value = 2 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_martial value = 2 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_martial value = 2 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_martial value = 2 }
+					}
+				}
+			}
 			subtract_variable = { which = var_martial which = FROMFROM }
 			set_variable = { which = diff which = var_martial }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_martial value = martial }
 			if = {
 				limit = { NOT = { check_variable = { which = var_martial which = FROMFROM } } }
@@ -933,8 +1123,30 @@ character_event = {
 			# Stewardship
 			export_to_variable = { which = var_stewardship value = stewardship }
 			FROMFROM = { export_to_variable = { which = var_stewardship value = stewardship } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_stewardship value = 2 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_stewardship value = 2 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_stewardship value = 2 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_stewardship value = 2 }
+					}
+				}
+			}
 			subtract_variable = { which = var_stewardship which = FROMFROM }
 			set_variable = { which = diff which = var_stewardship }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_stewardship value = stewardship }
 			if = {
 				limit = { NOT = { check_variable = { which = var_stewardship which = FROMFROM } } }
@@ -976,8 +1188,30 @@ character_event = {
 			# Intrigue
 			export_to_variable = { which = var_intrigue value = intrigue }
 			FROMFROM = { export_to_variable = { which = var_intrigue value = intrigue } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_intrigue value = 2 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_intrigue value = 2 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_intrigue value = 2 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_intrigue value = 2 }
+					}
+				}
+			}
 			subtract_variable = { which = var_intrigue which = FROMFROM }
 			set_variable = { which = diff which = var_intrigue }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_intrigue value = intrigue }
 			if = {
 				limit = { NOT = { check_variable = { which = var_intrigue which = FROMFROM } } }
@@ -1019,8 +1253,30 @@ character_event = {
 			# Learning
 			export_to_variable = { which = var_learning value = learning }
 			FROMFROM = { export_to_variable = { which = var_learning value = learning } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_learning value = 2 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_learning value = 2 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_learning value = 2 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_learning value = 2 }
+					}
+				}
+			}
 			subtract_variable = { which = var_learning which = FROMFROM }
 			set_variable = { which = diff which = var_learning }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_learning value = learning }
 			if = {
 				limit = { NOT = { check_variable = { which = var_learning which = FROMFROM } } }
@@ -1062,8 +1318,30 @@ character_event = {
 			# Health
 			export_to_variable = { which = var_health value = base_health }
 			FROMFROM = { export_to_variable = { which = var_health value = base_health } }
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+				FROMFROM = {
+					if = {
+						limit = { trait = fair }
+						change_variable = { which = var_health value = 1 }
+					}
+					if = {
+						limit = { trait = genius }
+						change_variable = { which = var_health value = 1 }
+					}
+					if = {
+						limit = { trait = quick }
+						change_variable = { which = var_health value = 1 }
+					}
+					if = {
+						limit = { trait = strong }
+						change_variable = { which = var_health value = 1 }
+					}
+				}
+			}
 			subtract_variable = { which = var_health which = FROMFROM }
 			set_variable = { which = diff which = var_health }
+			multiply_variable = { which = diff value = -1 }
 			export_to_variable = { which = var_health value = base_health }
 			if = {
 				limit = { NOT = { check_variable = { which = var_health which = FROMFROM } } }
@@ -1577,7 +1855,14 @@ character_event = {
 		
 		# Diseases from unsafe races
 		if = {
-			limit = { FROMFROM = { trait = zombie } }
+			limit = {
+				FROMFROM = { trait = zombie }
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_feed_any
+					}
+				}
+			}
 			if = {
 				limit = { has_dlc = "Reapers" }
 				set_character_flag = got_bubonic_plague
@@ -1586,7 +1871,14 @@ character_event = {
 			set_character_flag = vf_sick_bubonic_plague
 		}
 		if = {
-			limit = { FROMFROM = { trait = werewolf } }
+			limit = {
+				FROMFROM = { trait = werewolf }
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_feed_any
+					}
+				}
+			}
 			if = {
 				limit = { has_dlc = "Reapers" }
 				set_character_flag = got_rabies
@@ -1595,7 +1887,14 @@ character_event = {
 			set_character_flag = vf_sick_rabies
 		}
 		if = {
-			limit = { FROMFROM = { trait = demon_trait } }
+			limit = {
+				FROMFROM = { trait = demon_trait }
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_feed_any
+					}
+				}
+			}
 			if = {
 				limit = { has_dlc = "Reapers" }
 				set_character_flag = got_tuberculosis
@@ -1604,11 +1903,25 @@ character_event = {
 			set_character_flag = vf_sick_tuberculosis
 		}
 		if = {
-			limit = { FROMFROM = { trait = ethereal_trait } }
+			limit = {
+				FROMFROM = { trait = ethereal_trait }
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_feed_any
+					}
+				}
+			}
 			set_character_flag = vf_sick_dancing_plague
 		}
 		if = {
-			limit = { FROMFROM = { trait = vampire } }
+			limit = {
+				FROMFROM = { trait = vampire }
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_feed_any
+					}
+				}
+			}
 			if = {
 				limit = { has_dlc = "Reapers" }
 				set_character_flag = got_food_poisoning
@@ -1620,6 +1933,11 @@ character_event = {
 		# Gain "Tainted Blood" from feeding on diseased or supernatural characters
 		if = {
 			limit = {
+				NOT = {
+					any_owned_bloodline = {
+						has_bloodline_flag = no_tainted_blood
+					}
+				}
 				OR = {
 					has_character_flag = vf_sick_tuberculosis
 					has_character_flag = vf_sick_typhoid_fever
@@ -1642,6 +1960,21 @@ character_event = {
 							trait = ill
 							trait = leper
 							trait = lovers_pox
+						}
+					}
+					AND = {
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_restricted_feeding
+						}
+						FROMFROM = {
+							NOR = {
+								is_landed = yes
+								any_owned_bloodline = { always = yes }
+								trait = fair
+								trait = genius
+								trait = quick
+								trait = strong
+							}
 						}
 					}
 				}
@@ -1729,26 +2062,65 @@ character_event = {
 		if = {
 			limit = { has_character_flag = vf_stat_diplomacy }
 			change_diplomacy = 1
+			FROMFROM = { set_character_flag = vf_lose_diplomacy }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_martial }
 			change_martial = 1
+			FROMFROM = { set_character_flag = vf_lose_martial }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_stewardship }
 			change_stewardship = 1
+			FROMFROM = { set_character_flag = vf_lose_stewardship }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_intrigue }
 			change_intrigue = 1
+			FROMFROM = { set_character_flag = vf_lose_intrigue }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_learning }
 			change_learning = 1
+			FROMFROM = { set_character_flag = vf_lose_learning }
 		}
 		if = {
 			limit = { has_character_flag = vf_stat_health }
 			health = 0.25
+			FROMFROM = { set_character_flag = vf_lose_health }
+		}
+		if = {
+			limit = { any_owned_bloodline = { has_bloodline_flag = vampire_genetic_feed } }
+			random_list = {
+				3 = {}
+				1 = {
+					trigger = { FROMFROM = { trait = fair } }
+					FROMFROM = { set_character_flag = vf_lose_fair }
+				}
+				1 = {
+					trigger = { FROMFROM = { trait = genius } }
+					FROMFROM = { set_character_flag = vf_lose_genius }
+				}
+				1 = {
+					trigger = { FROMFROM = { trait = quick } }
+					FROMFROM = { set_character_flag = vf_lose_quick }
+				}
+				1 = {
+					trigger = { FROMFROM = { trait = strong } }
+					FROMFROM = { set_character_flag = vf_lose_strong }
+				}
+				1 = {
+					trigger = {
+						FROMFROM = {
+							NOR = {
+								trait = fair
+								trait = ugly
+							}
+						}
+					}
+					FROMFROM = { set_character_flag = vf_gain_ugly }
+				}
+			}
 		}
 		if = {
 			limit = {
@@ -1756,6 +2128,7 @@ character_event = {
 				has_character_flag = vampire_feed_caught
 				trait = known_vampire
 				NOT = { has_character_flag = vampire_feed_kill }
+				NOT = { any_owned_bloodline = { has_bloodline_flag = no_tainted_blood } }
 			}
 			add_character_modifier = { name = plague_vampire years = 2 }
 		}
@@ -1931,36 +2304,36 @@ character_event = {
 		}
 		
 		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			limit = { has_character_flag = vampire_feed_minor }
+			hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+			remove_character_modifier = vampire_starving
 			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+				limit = { trait = hunger_1 }
+				hidden_tooltip = { remove_trait = hunger_1 }
+				add_trait = hunger_0
+			}
+			else_if = { 
+				limit = { trait = hunger_2 }
+				hidden_tooltip = { remove_trait = hunger_2 }
+				add_trait = hunger_0
+			}
+			else_if = {
+				limit = { trait = hunger_3 }
+				hidden_tooltip = { remove_trait = hunger_3 }
 				add_trait = hunger_1
 			}
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+			else_if = {
+				limit = { trait = hunger_4 }
+				hidden_tooltip = { remove_trait = hunger_4 }
 				add_trait = hunger_2
 			}
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-			if = {
-				limit = { has_character_flag = vampire_feed_minor }
+			else_if = {
+				limit = { trait = hunger_5 }
 				add_trait = hunger_3
 			}
+		}
+		else = {
+			clear_hunger_trait = yes
 		}
 		
 		# Thrall
@@ -2102,6 +2475,28 @@ character_event = {
 			}
 			else = {
 				FROMFROM = { death = { death_reason = death_vampire_unknown killer = ROOT } }
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					FROMFROM = {
+						OR = {
+							has_character_flag = vf_lose_fair
+							has_character_flag = vf_lose_genius
+							has_character_flag = vf_lose_quick
+							has_character_flag = vf_lose_strong
+							has_character_flag = vf_gain_ugly
+							has_character_flag = vf_lose_diplomacy
+							has_character_flag = vf_lose_martial
+							has_character_flag = vf_lose_stewardship
+							has_character_flag = vf_lose_intrigue
+							has_character_flag = vf_lose_learning
+							has_character_flag = vf_lose_health
+						}
+					}
+				}
+				FROMFROM = { character_event = { id = VAMPIRE.198 days = 1 } }
 			}
 		}
 	}
@@ -2530,6 +2925,147 @@ character_event = {
 					modifier = {
 						factor = 5
 						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+					}
+					# Vile Blood effect
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_aztec_disease }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_typhus }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = cancer }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_tuberculosis }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = dancing_plague }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = dysentery }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = flu }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = food_poisoning }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = gout }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = syphilitic }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_typhoid_fever }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = ill }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = leper }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_measles }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = pneumonic }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = rabies }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = scurvy }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_small_pox }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = has_bubonic_plague }
+					}
+					modifier = {
+						factor = 1.2
+						any_owned_bloodline = {
+							has_bloodline_flag = vampire_disease_hunger
+						}
+						FROM = { trait = lovers_pox }
 					}
 					set_character_flag = vampire_feed_success
 				}
@@ -2961,7 +3497,12 @@ character_event = {
 								}
 							}
 							1 = {
-								random_courtier = {
+								any_courtier = {
+									preferred_limit = { trait = vampire }
+									score_value = {
+										value = 10
+										interesting_courtier_selection_score = yes
+									}
 									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
 									character_event = { id = VAMPIRE.163 }
 								}
@@ -4246,117 +4787,217 @@ character_event = {
 }
 
 # VAMPIRE.27 - Hunger increases
-character_event = {
-	id = VAMPIRE.27
-	hide_window = yes
-	
-	capable_only = yes
-	
-	mean_time_to_happen = {
-		months = 24
-		modifier = {
-			factor = 0.5
-			trait = gluttonous
-		}
-		modifier = {
-			factor = 1.5
-			trait = temperate
-		}
-		modifier = {
-			factor = 0.8
-			is_maimed_trigger = yes
-		}
-		modifier = {
-			factor = 2
-			trait = vomiting
-		}
-		modifier = {
-			factor = 0.9
-			trait = impaler
-		}
-		modifier = {
-			factor = 0.9
-			trait = hunter
-		}
-		modifier = {
-			factor = 1.1
-			trait = hunger_1
-		}
-		modifier = {
-			factor = 1.2
-			trait = hunger_2
-		}
-		modifier = {
-			factor = 1.3
-			trait = hunger_3
-		}
-		modifier = {
-			factor = 1.4
-			trait = hunger_5
-		}
-		modifier = {
-			factor = 1.5
-			trait = hunger_5
-		}
-		modifier = {
-			factor = 0.8
-			NOT = { age = 30 }
-		}
-		modifier = {
-			factor = 1.2
-			age = 50
-		}
-		modifier = {
-			factor = 1.2
-			age = 70
-		}
-		modifier = {
-			factor = 1.2
-			age = 90
-		}
-		modifier = {
-			factor = 1.2
-			age = 110
-		}
-		modifier = {
-			factor = 1.2
-			age = 130
-		}
-		modifier = {
-			factor = 1.2
-			age = 150
-		}
-		modifier = {
-			factor = 1.5
-			ai = yes
-		}
-	}
-	
-	trigger = {
-		trait = vampire
-	}
-	
-	immediate = {
-		if = {
-			limit = { trait = hunger_5 }
-			# Fails if imprisoned
-			if = {
-				limit = { prisoner = no }
-				# Automatic high-risk feeding
-				random_courtier = {
-					limit = {
-						NOT = { trait = known_vampire }
-					}
-					character_event = { id = VAMPIRE.28 }
-				}
-			}
-		}
-		else = {
-			# Get hungry
-			character_event = { id = VAMPIRE.35 }
-		}
-	}
-}
+#character_event = {
+#	id = VAMPIRE.27
+#	hide_window = yes
+#	
+#	capable_only = yes
+#	
+#	mean_time_to_happen = {
+#		months = 24
+#		modifier = {
+#			factor = 0.5
+#			trait = gluttonous
+#		}
+#		modifier = {
+#			factor = 1.5
+#			trait = temperate
+#		}
+#		modifier = {
+#			factor = 0.8
+#			is_maimed_trigger = yes
+#		}
+#		modifier = {
+#			factor = 2
+#			trait = vomiting
+#		}
+#		modifier = {
+#			factor = 0.9
+#			trait = impaler
+#		}
+#		modifier = {
+#			factor = 0.9
+#			trait = hunter
+#		}
+#		modifier = {
+#			factor = 1.1
+#			trait = hunger_1
+#		}
+#		modifier = {
+#			factor = 1.2
+#			trait = hunger_2
+#		}
+#		modifier = {
+#			factor = 1.3
+#			trait = hunger_3
+#		}
+#		modifier = {
+#			factor = 1.4
+#			trait = hunger_5
+#		}
+#		modifier = {
+#			factor = 1.5
+#			trait = hunger_5
+#		}
+#		modifier = {
+#			factor = 0.8
+#			NOT = { age = 30 }
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 50
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 70
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 90
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 110
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 130
+#		}
+#		modifier = {
+#			factor = 1.2
+#			age = 150
+#		}
+#		modifier = {
+#			factor = 1.5
+#			ai = yes
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_aztec_disease
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_typhus
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = cancer
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_tuberculosis
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = dancing_plague
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = dysentery
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = flu
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = food_poisoning
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = gout
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = syphilitic
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_typhoid_fever
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = ill
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = leper
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_measles
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = pneumonic
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = rabies
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = scurvy
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = sickly
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_small_pox
+#		}
+#		modifier = {
+#			factor = 1.2
+#			any_owned_bloodline = { has_bloodline_flag = vampire_disease_hunger }
+#			trait = has_bubonic_plague
+#		}
+#	}
+#	
+#	trigger = {
+#		trait = vampire
+#	}
+#	
+#	immediate = {
+#		if = {
+#			limit = { trait = hunger_5 }
+#			# Fails if imprisoned
+#			if = {
+#				limit = { prisoner = no }
+#				# Automatic high-risk feeding
+#				random_courtier = {
+#					limit = {
+#						NOT = { trait = known_vampire }
+#					}
+#					character_event = { id = VAMPIRE.28 }
+#				}
+#			}
+#		}
+#		else = {
+#			# Get hungry
+#			character_event = { id = VAMPIRE.35 }
+#		}
+#	}
+#}
 
 # VAMPIRE.28 - Determine feeding success. ROOT is target, FROM is vampire
 character_event = {
@@ -4555,6 +5196,147 @@ character_event = {
 						trait = weak
 						trait = feeble
 					}
+				}
+				# Vile Blood effect
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_aztec_disease }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_typhus }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = cancer }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_tuberculosis }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = dancing_plague }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = dysentery }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = flu }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = food_poisoning }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = gout }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = syphilitic }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_typhoid_fever }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = ill }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = leper }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_measles }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = pneumonic }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = rabies }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = scurvy }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_small_pox }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = has_bubonic_plague }
+				}
+				modifier = {
+					factor = 1.2
+					any_owned_bloodline = {
+						has_bloodline_flag = vampire_disease_hunger
+					}
+					FROM = { trait = lovers_pox }
 				}
 				FROM = { character_event = { id = VAMPIRE.9 } } # Feeding effect
 				# Caught or not?
@@ -4938,6 +5720,7 @@ character_event = {
 		}
 		else = {
 			add_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_0 }
 		}
 	}
 }
@@ -5162,6 +5945,18 @@ character_event = {
 			FROM = {
 				ROOT = {
 					spread_vampire_illness = yes
+					if = {
+						limit = { has_character_modifier = plague_vampire }
+						change_variable = { which = vile_blood_spread value = 1 }
+						if = {
+							limit = {
+								NOT = { any_owned_bloodline = { has_bloodline_modifier = vile_blood } }
+								check_variable = { which = vile_blood_spread which = global_bloodline_vile_blood_needed }
+							}
+							multiply_variable = { which = global_bloodline_vile_blood_needed value = 2 }
+							character_event = { id = MBLOODLINE.45 }
+						}
+					}
 				}
 				# Chance to lose one disease you've spread
 				random_list = {
@@ -11329,6 +12124,33 @@ character_event = {
 		name = EVTOPTA_VAMPIRE.152
 		add_trait = vampire
 		add_trait = hunger_1
+		if = {
+			limit = {
+				FROMFROM = {
+					any_owned_bloodline = {
+						has_bloodline_flag = vampiric_inheritance
+					}
+				}
+			}
+			FROMFROM = {
+				any_owned_bloodline = {
+					limit = { has_bloodline_flag = vampiric_inheritance }
+					random = {
+						chance = 30
+						add_bloodline_member = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_known } }
+				add_trait = known_vampire
+			}
+			if = {
+				limit = { any_owned_bloodline = { has_bloodline_flag = vampire_auto_ugly } }
+				remove_trait = fair
+				add_trait = ugly
+			}
+		}
 	}
 }
 
@@ -11815,7 +12637,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_realm_character = {
+		any_realm_character = {
 			limit = {
 				is_incapable = no
 				trait = vampire
@@ -11829,6 +12651,10 @@ character_event = {
 					is_nibling_of = ROOT
 					any_spouse = { character = ROOT }
 				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			save_event_target_as = new_rival
 		}
@@ -12218,29 +13044,32 @@ character_event = {
 			limit = { has_character_flag = attending_blood_feast }
 			character_event = { id = VAMPIRE.175 }
 		}
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		remove_character_modifier = vampire_starving
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -12255,29 +13084,35 @@ character_event = {
 	option = {
 		name = EVTOPTA_VAMPIRE.175
 		tooltip = { FROMFROM = { death = { death_reason = death_vampire } } }
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -12423,7 +13258,7 @@ character_event = {
 						}
 					}
 				}
-				random_courtier = {
+				any_courtier = {
 					limit = {
 						prisoner = no
 						NOR = {
@@ -12434,6 +13269,10 @@ character_event = {
 							trait = ethereal_trait
 							has_minor_title = title_vampiric_protection
 						}
+					}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
 					}
 					character_event = { id = VAMPIRE.179 }
 				}
@@ -12617,29 +13456,35 @@ character_event = {
 			FROMFROM = { death = { death_reason = death_vampire_unknown } }
 			reverse_opinion = { who = ROOT modifier = opinion_feast_scandal years = 1 }
 		}
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 	}
 }
@@ -12674,6 +13519,10 @@ character_event = {
 	id = VAMPIRE.183
 	hide_window = yes
 	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { any_owned_bloodline = { has_bloodline_flag = vampire_feed_any } }
+	}
 	
 	immediate = {
 		random_list = {
@@ -12888,26 +13737,7 @@ character_event = {
 			gain_weight_small_effect = yes
 			weight_trait_check_effect = yes
 		}
-		if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
+		clear_hunger_trait = yes
 	}
 }
 
@@ -13046,28 +13876,34 @@ character_event = {
 	# Automatically lower hunger by one
 	option = {
 		name = EVTOPTA_VAMPIRE.193
+		hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+		if = {
+			limit = { has_character_modifier = vampire_starving }
+			remove_character_modifier = vampire_starving
+		}
 		if = {
 			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
+			hidden_tooltip = { remove_trait = hunger_1 }
+			add_trait = hunger_0
 		}
 		else_if = {
 			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
+			hidden_tooltip = { remove_trait = hunger_2 }
 			add_trait = hunger_1
 		}
 		else_if = {
 			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
+			hidden_tooltip = { remove_trait = hunger_3 }
 			add_trait = hunger_2
 		}
 		else_if = {
 			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
+			hidden_tooltip = { remove_trait = hunger_4 }
 			add_trait = hunger_3
 		}
 		else_if = {
 			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
+			hidden_tooltip = { remove_trait = hunger_5 }
 			add_trait = hunger_4
 		}
 		ai_chance = {
@@ -13703,26 +14539,7 @@ character_event = {
 			limit = { has_character_flag = vf_stat_learning }
 			change_learning = 1
 		}
-		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
+		clear_hunger_trait = yes
 	}
 	
 	after = {
@@ -14119,26 +14936,7 @@ character_event = {
 			limit = { has_character_flag = vf_stat_learning }
 			change_learning = 1
 		}
-		if = {
-			limit = { trait = hunger_1 }
-			remove_trait = hunger_1
-		}
-		else_if = { 
-			limit = { trait = hunger_2 }
-			remove_trait = hunger_2
-		}
-		else_if = {
-			limit = { trait = hunger_3 }
-			remove_trait = hunger_3
-		}
-		else_if = {
-			limit = { trait = hunger_4 }
-			remove_trait = hunger_4
-		}
-		else_if = {
-			limit = { trait = hunger_5 }
-			remove_trait = hunger_5
-		}
+		clear_hunger_trait = yes
 		
 		if = {
 			limit = { trait = known_vampire }
@@ -14235,5 +15033,414 @@ character_event = {
 		clr_character_flag = vampire_mini_feed_servant
 		clr_character_flag = vampire_mini_feed_guard
 		clr_character_flag = vampire_mini_feed_clerk
+	}
+}
+
+# 198 - Lose stats or traits from being fed upon
+character_event = {
+	id = VAMPIRE.198
+	desc = EVTDESC_VAMPIRE.198
+	picture = GFX_evt_bad_news
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.198
+		if = {
+			limit = { has_character_flag = vf_lose_fair }
+			remove_trait = fair
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_genius }
+			remove_trait = genius
+			add_trait = quick
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_quick }
+			remove_trait = quick
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_strong }
+			remove_trait = strong
+		}
+		if = {
+			limit = { has_character_flag = vf_gain_ugly }
+			add_trait = ugly
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_diplomacy }
+			change_diplomacy = -1
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_martial }
+			change_martial = -1
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_stewardship }
+			change_stewardship = -1
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_intrigue }
+			change_intrigue = -1
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_learning }
+			change_learning = -1
+		}
+		if = {
+			limit = { has_character_flag = vf_lose_health }
+			health = -0.25
+		}
+		clr_character_flag = vf_lose_fair
+		clr_character_flag = vf_lose_genius
+		clr_character_flag = vf_lose_quick
+		clr_character_flag = vf_lose_strong
+		clr_character_flag = vf_gain_ugly
+		clr_character_flag = vf_lose_diplomacy
+		clr_character_flag = vf_lose_martial
+		clr_character_flag = vf_lose_stewardship
+		clr_character_flag = vf_lose_intrigue
+		clr_character_flag = vf_lose_learning
+		clr_character_flag = vf_lose_health
+	}
+}
+
+narrative_event = {
+	id = VAMPIRE.199
+	title = EVTTITLE_VAMPIRE.199
+	desc = {
+		text = EVTDESCA_VAMPIRE.199
+		trigger = { character = FROM }
+	}
+	desc = {
+		text = EVTDESCB_VAMPIRE.199
+		trigger = { NOT = { character = FROM } }
+	}
+	picture = GFX_evt_sacrifice
+	
+	is_triggered_only = yes
+	only_playable = yes
+	
+	major = yes
+	
+	major_trigger = {
+		is_within_diplo_range = FROM
+	}
+	
+	option = {
+		trigger = { character = FROM }
+		name = EVTOPTA_VAMPIRE.199
+		activate_title = { title = e_vampire status = yes }
+		primary_title = {
+			e_vampire = {
+				copy_title_laws = PREV
+				add_law = law_voting_power_1
+				add_law = war_voting_power_1
+				add_law = revoke_title_voting_power_1
+				add_law = imprison_voting_power_1
+				add_law = grant_title_voting_power_1
+				add_law = banish_voting_power_1
+				add_law = execution_voting_power_1
+				add_law = succession_voting_power_1
+				gain_title = ROOT
+			}
+		}
+		any_demesne_title = {
+			limit = { tier = king }
+			de_jure_liege = e_vampire
+		}
+		create_bloodline = {
+			type = BL_vampiric_highborn
+		}
+		hidden_tooltip = {
+			if = {
+				limit = { can_apply_super_cool_nickname_trigger = yes }
+				random_list = {
+					2 = {}
+					1 = {
+						trigger = { can_apply_lame_nickname_trigger = yes }
+						give_nickname = nick_the_beguiling
+					}
+					1 = {
+						trigger = { can_apply_lame_nickname_trigger = yes }
+						give_nickname = nick_the_black
+					}
+					1 = {
+						trigger = { can_apply_lame_nickname_trigger = yes }
+						give_nickname = nick_the_undead
+					}
+					1 = {
+						trigger = { can_apply_lame_nickname_trigger = yes }
+						give_nickname = nick_the_grim
+					}
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_devil
+					}
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_great
+					}
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_grinner
+					}
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_posthumous
+					}
+					1 = {
+						trigger = { can_apply_average_nickname_trigger = yes }
+						give_nickname = nick_the_gravelord
+					}
+					1 = {
+						trigger = { can_apply_cool_nickname_trigger = yes }
+						give_nickname = nick_the_bloody
+					}
+					1 = {
+						trigger = { can_apply_cool_nickname_trigger = yes }
+						give_nickname = nick_the_undying
+					}
+					1 = {
+						trigger = { can_apply_cool_nickname_trigger = yes }
+						give_nickname = nick_the_unifier
+					}
+					1 = {
+						trigger = {
+							can_apply_cool_nickname_trigger = yes
+							trait = necromancer
+						}
+						give_nickname = nick_king_of_the_dead
+					}
+					1 = {
+						give_nickname = nick_the_blood_monger
+					}
+					1 = {
+						give_nickname = nick_the_pale_prince
+					}
+					1 = {
+						give_nickname = nick_the_leechlord
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = EVTOPTB_VAMPIRE.199
+		trigger = {
+			NOT = { character = FROM }
+			trait = vampire
+		}
+	}
+	
+	option = {
+		name = EVTOPTC_VAMPIRE.199
+		trigger = {
+			NOT = { character = FROM }
+			NOT = { trait = vampire }
+		}
+	}
+}
+
+# VAMPIRE.200 - Founding Blood of Nosferatu 
+character_event = {
+	id = VAMPIRE.200
+	desc = EVTDESC_VAMPIRE.200
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = vampire
+		trait = ugly
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 3
+			NOT = { has_global_flag = founded_blood_of_nosferatu }
+		}
+		modifier = {
+			factor = 1.5
+			trait = uncouth
+		}
+		modifier = {
+			factor = 0.5
+			any_owned_bloodline = {
+				OR = {
+					has_bloodline_flag = high_vampiric_inheritance
+					has_bloodline_flag = vampiric_inheritance
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			trait = known_vampire
+		}
+	}
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.200
+		create_bloodline = {
+			type = BL_blood_of_nosferatu
+		}
+		if = {
+			limit = { trait = secret_vampire }
+			hidden_tooltip = { remove_trait = secret_vampire }
+			add_trait = known_vampire
+		}
+		if = {
+			limit = { can_apply_average_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hideous
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_frog
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_repulsive
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_hollow
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_bewitched
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_oakskin
+				}
+				1 = {
+					trigger = { can_apply_lame_nickname_trigger = yes }
+					give_nickname = nick_the_green_faced
+				}
+				1 = {
+					give_nickname = nick_the_monster
+				}
+				1 = {
+					give_nickname = nick_the_abomination
+				}
+				1 = {
+					give_nickname = nick_the_mule
+				}
+				1 = {
+					give_nickname = nick_the_accursed
+				}
+			}
+		}
+	}
+}
+
+# VAMPIRE.201 - Found new noble vampire house
+character_event = {
+	id = VAMPIRE.201
+	desc = EVTDESC_VAMPIRE.201
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_VAMPIRE.201
+		create_bloodline = {
+			type = BL_vampiric_highborn
+		}
+	}
+}
+
+# VAMPIRE.202 - Update Hunger with new hunger system
+character_event = {
+	id = VAMPIRE.202
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = { trait = vampire }
+	
+	immediate = {
+		calculate_hunger_gain = yes
+		change_variable = { which = hunger_progress which = hunger_gain }
+		if = {
+			limit = {
+				NOR = {
+					trait = hunger_0
+					trait = hunger_1
+					trait = hunger_2
+					trait = hunger_3
+					trait = hunger_4
+					trait = hunger_5
+				}
+			}
+			add_trait = hunger_0
+		}
+		if = {
+			limit = { check_variable = { which = hunger_progress value = 100 } }
+			if = {
+				limit = { trait = hunger_5 }
+				# In unable to attempt to feed, become starving, but reset progress
+				if = {
+					limit = {
+						OR = {
+							trait = incapable
+							trait = sick_incapable
+							prisoner = yes
+						}
+					}
+					hidden_tooltip = { set_variable = { which = hunger_progress  value = 0 } }
+					add_character_modifier = { modifier = vampire_starving duration = -1 stacking = yes }
+				}
+				else = {
+					# Automatic high-risk feeding
+					random_courtier = {
+						limit = {
+							NOT = { trait = known_vampire }
+						}
+						character_event = { id = VAMPIRE.28 }
+					}
+				}
+			}
+			else = {
+				# Increase Hunger
+				character_event = { id = VAMPIRE.203 }
+			}
+		}
+	}
+}
+
+# Hunger increases
+character_event = {
+	id = VAMPIRE.203
+	desc = {
+		trigger = { trait = hunger_5 }
+		text = EVTDESCA_VAMPIRE.203
+	}
+	desc = {
+		trigger = { trait = hunger_1 }
+		text = EVTDESCB_VAMPIRE.203
+	}
+	desc = {
+		trigger = {
+			OR = {
+				trait = hunger_2
+				trait = hunger_3
+				trait = hunger_4
+			}
+		}
+		text = EVTDESC_VAMPIRE.203
+	}
+	picture = GFX_evt_bad_news
+	is_triggered_only = yes
+	notification = yes
+	
+	immediate = { upgrade_hunger_trait = yes }
+	
+	option = {
+		name = OK
 	}
 }

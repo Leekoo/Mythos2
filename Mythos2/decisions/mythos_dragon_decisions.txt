@@ -2344,7 +2344,6 @@ decisions = {
 				NOT = { has_dlc = "Way of Life" }
 				has_focus = focus_theology
 				has_quest = quest_monastic_order_pilgrimage_draconic
-				has_ambition = obj_pilgrimage
 			}
 			is_playable = yes
 			OR = {
@@ -2434,51 +2433,6 @@ decisions = {
 			modifier = {
 				factor = 0
 				NOT = { age = 30 }
-			}
-		}
-	}
-	
-	consult_on_purity = {
-		only_playable = yes
-		
-		potential = {
-			OR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-			}
-			is_incapable = no
-			age = 16
-			NOT = { trait = infirm }
-			is_playable = yes
-		}
-		allow = {
-			NOT = { has_character_modifier = purity_review_timer }
-			prisoner = no
-		}
-		effect = {
-			character_event = { id = Purity.1 }
-			hidden_tooltip = {
-				add_character_modifier = { modifier = purity_review_timer months = 3 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			
-			modifier = {
-				factor = 0.1
-				has_ambition = yes
-			}
-			modifier = {
-				factor = 2
-				has_positive_purity = no
-			}
-			modifier = {
-				factor = 2
-				ai_zeal = 40
-			}
-			modifier = {
-				factor = 0.2
-				NOT = { ai_zeal = -20 }
 			}
 		}
 	}
@@ -2617,7 +2571,7 @@ decisions = {
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_sjaelland = {
 				holder_scope = {
 					character = ROOT
@@ -2635,7 +2589,7 @@ decisions = {
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_sjaelland = {
 				holder_scope = {
 					character = ROOT
@@ -2673,6 +2627,15 @@ decisions = {
 								}
 							}
 							grant_title = PREVPREV
+						}
+						location = {
+							random_province_holding = {
+								limit = {
+									holding_type = temple
+									owner = { character = PREVPREVPREV }
+								}
+								make_capital_holding = yes
+							}
 						}
 					}
 					opinion = { modifier = opinion_granted_county who = ROOT }
@@ -2819,8 +2782,8 @@ decisions = {
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
+			c_plock = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -2837,8 +2800,8 @@ decisions = {
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
-			c_sjaelland = {
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
+			c_plock = {
 				holder_scope = {
 					character = ROOT
 				}
@@ -2877,6 +2840,15 @@ decisions = {
 								}
 							}
 							grant_title = PREVPREV
+						}
+						location = {
+							random_province_holding = {
+								limit = {
+									holding_type = temple
+									owner = { character = PREVPREVPREV }
+								}
+								make_capital_holding = yes
+							}
 						}
 					}
 					opinion = { modifier = opinion_granted_county who = ROOT }
@@ -3023,7 +2995,7 @@ decisions = {
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_galloway = {
 				holder_scope = {
 					character = ROOT
@@ -3041,7 +3013,7 @@ decisions = {
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_galloway = {
 				holder_scope = {
 					character = ROOT
@@ -3081,6 +3053,15 @@ decisions = {
 								}
 							}
 							grant_title = PREVPREV
+						}
+						location = {
+							random_province_holding = {
+								limit = {
+									holding_type = temple
+									owner = { character = PREVPREVPREV }
+								}
+								make_capital_holding = yes
+							}
 						}
 					}
 					opinion = { modifier = opinion_granted_county who = ROOT }
@@ -3227,7 +3208,7 @@ decisions = {
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_uppland = {
 				holder_scope = {
 					character = ROOT
@@ -3245,7 +3226,7 @@ decisions = {
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_uppland = {
 				holder_scope = {
 					character = ROOT
@@ -3285,6 +3266,15 @@ decisions = {
 								}
 							}
 							grant_title = PREVPREV
+						}
+						location = {
+							random_province_holding = {
+								limit = {
+									holding_type = temple
+									owner = { character = PREVPREVPREV }
+								}
+								make_capital_holding = yes
+							}
 						}
 					}
 					opinion = { modifier = opinion_granted_county who = ROOT }
@@ -3431,7 +3421,7 @@ decisions = {
 				NOT = { has_dlc = "Holy Fury" }
 			}
 			has_global_flag = draconic_reformation
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_kent = {
 				holder_scope = {
 					character = ROOT
@@ -3449,7 +3439,7 @@ decisions = {
 			religion = draconic_pagan_reformed
 		}
 		allow = {
-			k_draconic_pagan_reformed = { is_landless_type_title = yes }
+			k_draconic_pagan_reformed = { holder_scope = { is_landed = no } }
 			c_kent = {
 				holder_scope = {
 					character = ROOT
@@ -3489,6 +3479,15 @@ decisions = {
 								}
 							}
 							grant_title = PREVPREV
+						}
+						location = {
+							random_province_holding = {
+								limit = {
+									holding_type = temple
+									owner = { character = PREVPREVPREV }
+								}
+								make_capital_holding = yes
+							}
 						}
 					}
 					opinion = { modifier = opinion_granted_county who = ROOT }
@@ -3634,7 +3633,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_1 = {
 					holder_scope = {
 						OR = {
@@ -3648,7 +3647,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_1 = {
 					holder_scope = {
 						OR = {
@@ -3685,6 +3684,13 @@ decisions = {
 									set_defacto_liege = THIS
 								}
 							}
+						}
+						random_province_holding = {
+							limit = {
+								holding_type = temple
+								owner = { character = PREVPREVPREV }
+							}
+							make_capital_holding = yes
 						}
 					}
 				}
@@ -3810,7 +3816,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_2 = {
 					holder_scope = {
 						OR = {
@@ -3824,7 +3830,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_2 = {
 					holder_scope = {
 						OR = {
@@ -3861,6 +3867,13 @@ decisions = {
 									set_defacto_liege = THIS
 								}
 							}
+						}
+						random_province_holding = {
+							limit = {
+								holding_type = temple
+								owner = { character = PREVPREVPREV }
+							}
+							make_capital_holding = yes
 						}
 					}
 				}
@@ -3986,7 +3999,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_3 = {
 					holder_scope = {
 						OR = {
@@ -4000,7 +4013,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				is_landed = no
 				persistent_event_target:draconic_holy_site_3 = {
 					holder_scope = {
 						OR = {
@@ -4037,6 +4050,13 @@ decisions = {
 									set_defacto_liege = THIS
 								}
 							}
+						}
+						random_province_holding = {
+							limit = {
+								holding_type = temple
+								owner = { character = PREVPREVPREV }
+							}
+							make_capital_holding = yes
 						}
 					}
 				}
@@ -4162,7 +4182,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_4 = {
 					holder_scope = {
 						OR = {
@@ -4176,7 +4196,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_4 = {
 					holder_scope = {
 						OR = {
@@ -4213,6 +4233,13 @@ decisions = {
 									set_defacto_liege = THIS
 								}
 							}
+						}
+						random_province_holding = {
+							limit = {
+								holding_type = temple
+								owner = { character = PREVPREVPREV }
+							}
+							make_capital_holding = yes
 						}
 					}
 				}
@@ -4338,7 +4365,7 @@ decisions = {
 			}
 			has_global_flag = draconic_reformation
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_5 = {
 					holder_scope = {
 						OR = {
@@ -4352,7 +4379,7 @@ decisions = {
 		}
 		allow = {
 			k_draconic_pagan_reformed = {
-				is_landless_type_title = yes
+				holder_scope = { is_landed = no }
 				persistent_event_target:draconic_holy_site_5 = {
 					holder_scope = {
 						OR = {
@@ -4389,6 +4416,13 @@ decisions = {
 									set_defacto_liege = THIS
 								}
 							}
+						}
+						random_province_holding = {
+							limit = {
+								holding_type = temple
+								owner = { character = PREVPREVPREV }
+							}
+							make_capital_holding = yes
 						}
 					}
 				}
@@ -4934,7 +4968,8 @@ targetted_decisions = {
 				}
 			}
 			FROMFROM = {
-				NOT = { trait = purity_10 }
+				tooltip = { NOT = { trait = purity_10 } }
+				hidden_tooltip = { NOT = { check_variable = { which = purity_level value = 10 } } }
 				NOT = { has_character_modifier = sapphire_flame_blessing }
 			}
 		}
@@ -4977,7 +5012,7 @@ targetted_decisions = {
 			}
 			modifier = {
 				factor = 0.2
-				trait = purity_10
+				check_variable = { which = purity_level value = 10 }
 			}
 		}
 		ai_will_do = {

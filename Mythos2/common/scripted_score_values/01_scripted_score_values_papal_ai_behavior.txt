@@ -3206,121 +3206,121 @@ ask_for_excommunication_chance = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 10 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 9 }
 	}
 	additive_modifier = {
 		value = 16
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
+		is_variable_equal = { which = purity_level value = 8 }
 	}
 	additive_modifier = {
 		value = 14
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
 		value = 10
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 8
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 4
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
 		value = 2
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
 		value = -2
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_1
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -4
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -8
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
 		value = -10
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
 		value = -14
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
+		is_variable_equal = { which = purity_level value = -7 }
 	}
 	additive_modifier = {
 		value = -16
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -8 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -9 }
 	}
 	additive_modifier = {
 		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -10 }
 	}
 	additive_modifier = {
 		value = -30
@@ -3603,6 +3603,7 @@ ask_for_excommunication_chance = {
 			age = 16
 			religion = ROOT_FROM
 			is_feudal = yes
+			primary_title = { holy_order = no }
 			OR = { 
 				religion = catholic
 				religion = fraticelli
@@ -3731,6 +3732,7 @@ ask_for_excommunication_chance = {
 		value = num_vassals_with_minor_title
 		who = FROMFROM
 		key = title_cardinal
+		FROM = { NOT = { religion = orthodox } } #Cardinals doesn't matter if you're orthodox
 	}
 	additive_exported_value_modifier = {
 		localisation_key = POPE_AIREASON_MODIFIER_CONTROLLED_CARDINALS_TARGET
@@ -5214,121 +5216,121 @@ ask_for_excommunication_chance = {
 		value = -20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 10 } }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 9 } }
 	}
 	additive_modifier = {
 		value = -16
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 8 } }
 	}
 	additive_modifier = {
 		value = -14
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 7 } }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 6 } }
 	}
 	additive_modifier = {
 		value = -10
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 5 } }
 	}
 	additive_modifier = {
 		value = -8
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 4 } }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 3 } }
 	}
 	additive_modifier = {
 		value = -4
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 2 } }
 	}
 	additive_modifier = {
 		value = -2
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_1 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
 	}
 	additive_modifier = {
 		value = 2
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_1 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_modifier = {
 		value = 4
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -2 } }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -3 } }
 	}
 	additive_modifier = {
 		value = 8
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -4 } }
 	}
 	additive_modifier = {
 		value = 10
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -5 } }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -6 } }
 	}
 	additive_modifier = {
 		value = 14
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -7 } }
 	}
 	additive_modifier = {
 		value = 16
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -8 } }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
 	}
 	additive_modifier = {
 		value = 20
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -10 } }
 	}
 }
 
@@ -7980,124 +7982,124 @@ ask_for_invasion_chance = {
 		trait = miracle_worker
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 10 }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 9 }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 8 }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_1
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -7 }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -8 }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -9 }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -30
@@ -8363,6 +8365,7 @@ ask_for_invasion_chance = {
 			age = 16
 			religion = ROOT_FROM
 			is_feudal = yes
+			primary_title = { holy_order = no }
 			OR = { 
 				religion = catholic
 				religion = fraticelli
@@ -9971,124 +9974,124 @@ ask_for_invasion_chance = {
 		}
 	}
 	additive_modifier = {
-		value = -20
+		value = -30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 9 } }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 8 } }
+	}
+	additive_modifier = {
+		value = -21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 7 } }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 6 } }
 	}
 	additive_modifier = {
-		value = -16
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_8 }
-	}
-	additive_modifier = {
-		value = -14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 5 } }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 4 } }
 	}
 	additive_modifier = {
-		value = -10
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_5 }
-	}
-	additive_modifier = {
-		value = -8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 3 } }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 2 } }
 	}
 	additive_modifier = {
-		value = -4
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
 	}
 	additive_modifier = {
-		value = -2
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_1 }
-	}
-	additive_modifier = {
-		value = 2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_1 }
-	}
-	additive_modifier = {
-		value = 4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -2 } }
 	}
 	additive_modifier = {
-		value = 8
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_4 }
-	}
-	additive_modifier = {
-		value = 10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -3 } }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -4 } }
 	}
 	additive_modifier = {
-		value = 14
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_7 }
-	}
-	additive_modifier = {
-		value = 16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -5 } }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -6 } }
 	}
 	additive_modifier = {
-		value = 20
+		value = 21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -7 } }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -8 } }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
+	}
+	additive_modifier = {
+		value = 30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 
 }
@@ -10150,6 +10153,7 @@ ask_for_divorce_chance = {
 		localisation_key = POPE_AIREASON_MODIFIER_MARRIAGE_BARE_WOMB
 		FROMFROM = { 
 			is_female = yes
+			is_pregnant = no
 			NOT = { num_of_children = 1 }
 			is_30 = yes
 		}
@@ -13181,124 +13185,124 @@ ask_for_divorce_chance = {
 		trait = miracle_worker
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 1 }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 9 }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 8 }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_1
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -7 }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -8 }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -9 }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 
 
@@ -13365,6 +13369,7 @@ ask_for_divorce_chance = {
 			age = 16
 			religion = ROOT_FROM
 			is_feudal = yes
+			primary_title = { holy_order = no }
 			OR = { 
 				religion = catholic
 				religion = fraticelli
@@ -14973,124 +14978,124 @@ ask_for_divorce_chance = {
 		}
 	}
 	additive_modifier = {
-		value = -20
+		value = -30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 9 } }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 8 } }
+	}
+	additive_modifier = {
+		value = -21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 7 } }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 6 } }
 	}
 	additive_modifier = {
-		value = -16
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_8 }
-	}
-	additive_modifier = {
-		value = -14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 5 } }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 4 } }
 	}
 	additive_modifier = {
-		value = -10
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_5 }
-	}
-	additive_modifier = {
-		value = -8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 3 } }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 2 } }
 	}
 	additive_modifier = {
-		value = -4
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
 	}
 	additive_modifier = {
-		value = -2
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_1 }
-	}
-	additive_modifier = {
-		value = 2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_1 }
-	}
-	additive_modifier = {
-		value = 4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -2 } }
 	}
 	additive_modifier = {
-		value = 8
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_4 }
-	}
-	additive_modifier = {
-		value = 10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -3 } }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -4 } }
 	}
 	additive_modifier = {
-		value = 14
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_7 }
-	}
-	additive_modifier = {
-		value = 16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -5 } }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -6 } }
 	}
 	additive_modifier = {
-		value = 20
+		value = 21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -7 } }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -8 } }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
+	}
+	additive_modifier = {
+		value = 30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 }
 
@@ -18253,124 +18258,124 @@ ask_to_lift_excommunication_chance = {
 		trait = miracle_worker
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 1 }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 9 }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 8 }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_1
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -7 }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -8 }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -9 }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -30
@@ -18450,6 +18455,7 @@ ask_to_lift_excommunication_chance = {
 			age = 16
 			religion = ROOT_FROM
 			is_feudal = yes
+			primary_title = { holy_order = no }
 			OR = { 
 				religion = catholic
 				religion = fraticelli
@@ -21368,124 +21374,124 @@ ask_to_lift_excommunication_chance = {
 		FROMFROM = { trait = miracle_worker }
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 9 } }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 8 } }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 7 } }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 6 } }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_8 }
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 5 } }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 4 } }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_5 }
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 3 } }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 2 } }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_1 }
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -2 } }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_4 }
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -3 } }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -4 } }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_7 }
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -5 } }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -6 } }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -7 } }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -8 } }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_modifier = {
 		value = -30
@@ -27988,124 +27994,124 @@ ask_for_crusade_chance = {
 		trait = miracle_worker
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 1 }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 9 }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 8 }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_1
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -7 }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -8 }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -9 }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -30
@@ -31424,124 +31430,124 @@ ask_for_claim_chance = {
 		trait = miracle_worker
 	}
 	additive_modifier = {
-		value = 20
+		value = 30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_10
+		is_variable_equal = { which = purity_level value = 1 }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 9 }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 8 }
+	}
+	additive_modifier = {
+		value = 21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = 7 }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_9
+		is_variable_equal = { which = purity_level value = 6 }
 	}
 	additive_modifier = {
-		value = 16
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_8
-	}
-	additive_modifier = {
-		value = 14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_7
+		is_variable_equal = { which = purity_level value = 5 }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_6
+		is_variable_equal = { which = purity_level value = 4 }
 	}
 	additive_modifier = {
-		value = 10
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_5
-	}
-	additive_modifier = {
-		value = 8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_4
+		is_variable_equal = { which = purity_level value = 3 }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_3
+		is_variable_equal = { which = purity_level value = 2 }
 	}
 	additive_modifier = {
-		value = 4
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_2
+		is_variable_equal = { which = purity_level value = 1 }
 	}
 	additive_modifier = {
-		value = 2
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_1
-	}
-	additive_modifier = {
-		value = -2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_1
-	}
-	additive_modifier = {
-		value = -4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_2
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_3
+		is_variable_equal = { which = purity_level value = -2 }
 	}
 	additive_modifier = {
-		value = -8
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_4
-	}
-	additive_modifier = {
-		value = -10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_5
+		is_variable_equal = { which = purity_level value = -3 }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_6
+		is_variable_equal = { which = purity_level value = -4 }
 	}
 	additive_modifier = {
-		value = -14
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_7
-	}
-	additive_modifier = {
-		value = -16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
-		religion = draconic_pagan_reformed
-		trait = purity_minus_8
+		is_variable_equal = { which = purity_level value = -5 }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_9
+		is_variable_equal = { which = purity_level value = -6 }
 	}
 	additive_modifier = {
-		value = -20
+		value = -21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
 		religion = draconic_pagan_reformed
-		trait = purity_minus_10
+		is_variable_equal = { which = purity_level value = -7 }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -8 }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -9 }
+	}
+	additive_modifier = {
+		value = -30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY
+		religion = draconic_pagan_reformed
+		is_variable_equal = { which = purity_level value = -1 }
 	}
 	additive_modifier = {
 		value = -30
@@ -31824,6 +31830,7 @@ ask_for_claim_chance = {
 			age = 16
 			religion = ROOT_FROM
 			is_feudal = yes
+			primary_title = { holy_order = no }
 			OR = { 
 				religion = catholic
 				religion = fraticelli
@@ -33426,124 +33433,124 @@ ask_for_claim_chance = {
 		}
 	}
 	additive_modifier = {
-		value = -20
+		value = -30
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
+	}
+	additive_modifier = {
+		value = -27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 9 } }
+	}
+	additive_modifier = {
+		value = -24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 8 } }
+	}
+	additive_modifier = {
+		value = -21
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = 7 } }
 	}
 	additive_modifier = {
 		value = -18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 6 } }
 	}
 	additive_modifier = {
-		value = -16
+		value = -15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_8 }
-	}
-	additive_modifier = {
-		value = -14
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_7 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 5 } }
 	}
 	additive_modifier = {
 		value = -12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 4 } }
 	}
 	additive_modifier = {
-		value = -10
+		value = -9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_5 }
-	}
-	additive_modifier = {
-		value = -8
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_4 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 3 } }
 	}
 	additive_modifier = {
 		value = -6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 2 } }
 	}
 	additive_modifier = {
-		value = -4
+		value = -3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = 1 } }
 	}
 	additive_modifier = {
-		value = -2
+		value = 3
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_1 }
-	}
-	additive_modifier = {
-		value = 2
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_1 }
-	}
-	additive_modifier = {
-		value = 4
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_2 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_modifier = {
 		value = 6
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_3 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -2 } }
 	}
 	additive_modifier = {
-		value = 8
+		value = 9
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_4 }
-	}
-	additive_modifier = {
-		value = 10
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_5 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -3 } }
 	}
 	additive_modifier = {
 		value = 12
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_6 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -4 } }
 	}
 	additive_modifier = {
-		value = 14
+		value = 15
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_7 }
-	}
-	additive_modifier = {
-		value = 16
-		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
-		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_8 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -5 } }
 	}
 	additive_modifier = {
 		value = 18
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_9 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -6 } }
 	}
 	additive_modifier = {
-		value = 20
+		value = 21
 		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
 		religion = draconic_pagan_reformed
-		FROMFROM = { trait = purity_minus_10 }
+		FROMFROM = { is_variable_equal = { which = purity_level value = -7 } }
+	}
+	additive_modifier = {
+		value = 24
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -8 } }
+	}
+	additive_modifier = {
+		value = 27
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -9 } }
+	}
+	additive_modifier = {
+		value = 30
+		localisation_key = POPE_AIREASON_MODIFIER_RULER_PURITY_TARGET
+		religion = draconic_pagan_reformed
+		FROMFROM = { is_variable_equal = { which = purity_level value = -1 } }
 	}
 	additive_opinion_modifier = { 
 		localisation_key = POPE_AIREASON_MODIFIER_OPINION_RULER_TARGET

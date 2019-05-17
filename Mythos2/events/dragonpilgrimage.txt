@@ -1177,31 +1177,76 @@ character_event = {
 			limit = {
 				has_character_flag = pilgrimage_to_galloway
 			}
-			50 = { holder_scope = { random_courtier = { limit = { prisoner = no is_playable = no is_human = yes} save_event_target_as = curious_human } } }
+			50 = { holder_scope = { 
+				random_courtier = { 
+					limit = { prisoner = no is_playable = no is_human = yes}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+					save_event_target_as = curious_human }
+				}
+			}
 		}
 		else_if = {
 			limit = {
 				has_character_flag = pilgrimage_to_gwynedd
 			}
-			64 = { holder_scope = { random_courtier = { limit = { prisoner = no is_playable = no is_human = yes} save_event_target_as = curious_human } } }
+			64 = { holder_scope = { 
+				random_courtier = { 
+					limit = { prisoner = no is_playable = no is_human = yes}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+					save_event_target_as = curious_human }
+				}
+			}
 		}
 		else_if = {
 			limit = {
 				has_character_flag = pilgrimage_to_sjaelland
 			}
-			266 = { holder_scope = { random_courtier = { limit = { prisoner = no is_playable = no is_human = yes} save_event_target_as = curious_human } } }
+			266 = { holder_scope = { 
+				random_courtier = { 
+					limit = { prisoner = no is_playable = no is_human = yes}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+					save_event_target_as = curious_human }
+				}
+			}
 		}
 		else_if = {
 			limit = {
 				has_character_flag = pilgrimage_to_uppland
 			}
-			290 = { holder_scope = { random_courtier = { limit = { prisoner = no is_playable = no is_human = yes} save_event_target_as = curious_human } } }
+			290 = { holder_scope = { 
+				random_courtier = { 
+					limit = { prisoner = no is_playable = no is_human = yes}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+					save_event_target_as = curious_human }
+				}
+			}
 		}
 		else = {
 			#limit = {
 			#	has_character_flag = pilgrimage_to_plock
 			#}
-			529 = { holder_scope = { random_courtier = { limit = { prisoner = no is_playable = no is_human = yes} save_event_target_as = curious_human } } }
+			529 = { holder_scope = { 
+				random_courtier = { 
+					limit = { prisoner = no is_playable = no is_human = yes}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
+					save_event_target_as = curious_human }
+				}
+			}
 		}
 	}
 	
@@ -2163,7 +2208,7 @@ character_event = {
 	immediate = {
 		d_golden_order = {
 			holder_scope = {
-				random_courtier = {
+				any_courtier = {
 					limit = {
 						is_female = no
 						prisoner = no
@@ -2180,6 +2225,10 @@ character_event = {
 							is_rival = ROOT
 						}
 						NOT = { has_job_title = job_spiritual }
+					}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
 					}
 					add_friend = ROOT
 					character_event = { id = DragonPilgrimage.52 }

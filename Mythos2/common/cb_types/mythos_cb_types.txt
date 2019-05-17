@@ -26,26 +26,13 @@ slay_monster = {
 			NOT = { trait = zombie }
 		}
 		FROM = {
-			OR = {
-				trait = known_werewolf
-				trait = vampire
-				trait = zombie
-				trait = mummy
-				# TBI: Dragon will have it's own dragonslayer trait instead of monster_hunter
-				# Leaving off giants and djinn for now as being human enough
-			}
+			is_monster_to_root = yes
 		}
 	}
 	
 	is_valid = {
 		FROM = {
-			OR = {
-				# Ends if a non-monster inherits
-				trait = known_werewolf
-				trait = vampire
-				trait = zombie
-				trait = mummy
-			}
+			is_monster_to_root = yes
 		}
 	}
 	
@@ -263,7 +250,16 @@ slay_monster = {
 			add_character_modifier = { name = defeated_monster_hunters years = 5 }
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 800
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 400 400 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -500,7 +496,16 @@ dragon_tribal_tribute_cb = {
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -673,167 +678,6 @@ dragon_tribal_tribute_cb = {
 	}
 }
 
-cb_seize_flame = {
-	name = CB_NAME_SEIZE_FLAME
-	war_name = WAR_NAME_SEIZE_FLAME
-	sprite = 9
-	truce_days = 1825
-	is_permanent = yes
-	
-	allowed_to_target_tributaries = no
-	
-	can_use = {
-		government = draconic_theocracy_government
-		trait = dragon
-	}
-	
-	can_use_title = {
-		OR = {
-			title = b_lejre
-			title = b_canterbury
-			title = b_wyszogrod
-			title = b_whithorn
-			title = b_uppsala
-		}
-		NOT = { has_building = tp_eternal_flame }
-		holder_scope = {
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-				any_liege = {
-					OR = {
-						religion = draconic_pagan
-						religion = draconic_pagan_reformed
-					}
-				}
-			}
-		}
-	}
-	
-	is_valid = {
-		government = draconic_theocracy_government
-		trait = dragon
-	}
-	
-	is_valid_title = {
-		NOT = { has_building = tp_eternal_flame }
-		holder_scope = {
-			NOR = {
-				religion = draconic_pagan
-				religion = draconic_pagan_reformed
-				any_liege = {
-					OR = {
-						religion = draconic_pagan
-						religion = draconic_pagan_reformed
-					}
-				}
-			}
-		}
-	}
-
-	on_add = {
-		hidden_tooltip = { fire_haruspicy_event_effect = yes }
-		if = {
-			limit = { defender = { is_offmap_governor = offmap_china } }
-			attacker = {  
-				sound_effect = china_angered_emperor
-				detract_grace_super_huge_effect = yes 
-			}
-		}
-	}
-	
-	on_success = {
-		any_attacker = {
-			limit = { character = ROOT }
-			participation_scaled_piety = 100
-			participation_scaled_prestige = 50
-		}
-		any_attacker = {
-			limit = { NOT = { character = ROOT } }
-			hidden_tooltip = { 
-				participation_scaled_piety = 100
-				participation_scaled_prestige = 50
-			}
-		}
-		FROM = { piety = -100 }
-		FROM = { prestige = -50 }
-	}
-	
-	on_success_title = {
-		usurp_title = ROOT
-	}
-	
-	on_fail = {
-		ROOT = { 
-			piety = -50 
-			prestige = -100
-		}
-	}
-	
-	on_reverse_demand = {
-		ROOT = {
-			transfer_scaled_wealth = {
-				to = FROM
-				value = 4.0
-			}
-			piety = -75
-			prestige = -150
-		}
-		FROM = {
-			participation_scaled_piety = 200
-			participation_scaled_prestige = 100
-			if = {
-				limit = { government = zombie_horde }
-				manpower = 200
-			}
-		}
-		any_defender = {
-			limit = { NOT = { character = FROM } }
-			hidden_tooltip = { 
-				participation_scaled_piety = 200
-				participation_scaled_prestige = 100
-			}
-		}
-	}
-		
-	attacker_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	attacker_ai_defeat_worth = {
-		factor = 100
-	}
-
-	defender_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	defender_ai_defeat_worth = {
-		factor = 100
-	}
-	
-	ai_will_do = { 
-		factor = 1
-		modifier = {
-			factor = 2
-			ROOT = { trait = zealous }
-		}
-		# Prefer closer targets
-		modifier = {
-			factor = 0.5
-			ROOT = { distance_from_realm = { who = FROM value = 100 } }
-		}
-		modifier = {
-			factor = 0.5
-			ROOT = { distance_from_realm = { who = FROM value = 200 } }
-		}
-		modifier = {
-			factor = 0.3
-			ROOT = { distance_from_realm = { who = FROM value = 400 } }
-		}
-	}
-}
-
 cb_replace_sapphire_flame = {
 	name = CB_NAME_REPLACE_SAPPHIRE_FLAME
 	war_name = WAR_NAME_REPLACE_SAPPHIRE_FLAME
@@ -985,10 +829,7 @@ cb_replace_sapphire_flame = {
 		modifier = {
 			factor = 5
 			ROOT = {
-				OR = {
-					trait = purity_9
-					trait = purity_10
-				}
+				check_variable = { which = purity_level value = 9 }
 			}
 		}
 		modifier = {
@@ -1154,7 +995,16 @@ vassalize_draconic_tribute = {
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1199,13 +1049,12 @@ monster_revolt = {
 		ROOT = { has_character_flag = monster_revolter }
 	}
 	
-	is_valid = {
-		OR = {
-			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-			FROM = { is_monster_to_root = yes }
-			FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
-		}
-	}
+	#is_valid = {
+	#	OR = {
+	#		FROM = { has_instances_of_character_modifier = { modifier = known_monster amount = 3 } }
+	#		FROM = { is_monster_to_root = yes }
+	#	}
+	#}
 	
 	on_add = {
 		hidden_tooltip = { fire_haruspicy_event_effect = yes }
@@ -1459,10 +1308,10 @@ monster_revolt = {
 						}
 						# Cowed by defeat - remove growing_discontent
 						if = {
-							limit = { has_province_modifier = growing_discontent days = 1 }
+							limit = { has_province_modifier = growing_discontent }
 							random = {
 								chance = 60
-								province_event = { id = MONSTER.37 }
+								province_event = { id = MONSTER.37 days = 1}
 							}
 						}
 						# Execute instigators - remove human_riots
@@ -1496,9 +1345,22 @@ monster_revolt = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
+	}
+	
+	on_defender_leader_death = {
+		end_war = invalid
 	}
 	
 	attacker_ai_victory_worth = {
@@ -1697,7 +1559,7 @@ zombie_uprising = {
 	
 	on_success_title = {
 		FROM = {
-			any_province = {
+			any_realm_province = {
 				limit = {
 					controlled_by = ROOT
 					OR = {
@@ -1709,11 +1571,13 @@ zombie_uprising = {
 						has_province_modifier = devastation_3
 					}
 				}
-				ROOT = {
-					vassalize_or_take_under_title = {
-						title = PREV
-						enemy = FROM
-						type = revolt
+				county = {
+					ROOT = {
+						vassalize_or_take_under_title = {
+							title = PREV
+							enemy = FROM
+							type = revolt
+						}
 					}
 				}
 				culture = ROOT
@@ -1863,32 +1727,97 @@ feed_on_living = {
 					remove_province_modifier = prosperity_modifier_3
 					add_province_modifier = { name = prosperity_modifier_2 duration = -1 }
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 350 } }
-					hidden_tooltip = { ROOT = { manpower = 200 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 1
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = prosperity_modifier_2 }
 					remove_province_modifier = prosperity_modifier_2
 					add_province_modifier = { name = prosperity_modifier_1 duration = -1 }
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 150 } }
-					hidden_tooltip = { ROOT = { manpower = 150 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.8
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = prosperity_modifier_1 }
 					remove_province_modifier = prosperity_modifier_1
 					hidden_tooltip = { set_variable = { which = prosperity_value value = 25 } }
-					hidden_tooltip = { ROOT = { manpower = 100 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.8
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_3 }
 					culture = ROOT
 					religion = the_damned
-					hidden_tooltip = { ROOT = { manpower = 6 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.1
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_3 }
 					culture = ROOT
 					religion = the_damned
-					hidden_tooltip = { ROOT = { manpower = 6 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.1
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_2 }
@@ -1901,7 +1830,20 @@ feed_on_living = {
 						culture = ROOT
 						religion = the_damned
 					}
-					hidden_tooltip = { ROOT = { manpower = 12 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.15
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_2 }
@@ -1912,7 +1854,20 @@ feed_on_living = {
 						culture = ROOT
 						religion = the_damned
 					}
-					hidden_tooltip = { ROOT = { manpower = 12 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.15
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = depopulated_1 }
@@ -1924,7 +1879,20 @@ feed_on_living = {
 						chance = 30
 						culture = ROOT
 					}
-					hidden_tooltip = { ROOT = { manpower = 25 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.2
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_province_modifier = devastation_1 }
@@ -1934,7 +1902,20 @@ feed_on_living = {
 						chance = 30
 						culture = ROOT
 					}
-					hidden_tooltip = { ROOT = { manpower = 25 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.2
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else_if = {
 					limit = { has_dlc = Reapers }
@@ -1945,7 +1926,20 @@ feed_on_living = {
 						chance = 15
 						culture = ROOT
 					}
-					hidden_tooltip = { ROOT = { manpower = 50 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.4
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				else = {
 					add_province_modifier = { name = devastation_1 duration = -1 }
@@ -1953,7 +1947,20 @@ feed_on_living = {
 						chance = 15
 						culture = ROOT
 					}
-					hidden_tooltip = { ROOT = { manpower = 50 } }
+					hidden_tooltip = {
+						ROOT = {
+							spawn_unit = {
+								province = closest_to_capital
+								owner = ROOT
+								scaled_by_biggest_garrison = 0.4
+								troops = {
+									zombie_troops = { 1 1 }
+								}
+								reinforces = no
+								earmark = event_zombie
+							}
+						}
+					}
 				}
 				hidden_tooltip = { add_province_modifier = { name = undead_desolation years = 5 } }
 			}
@@ -1984,9 +1991,7 @@ feed_on_living = {
 		ROOT = {
 			prestige = -200
 			piety = -100
-			set_truce = { who = FROM years = 5 }
-			manpower = -100
-			population = -300
+			set_truce = { who = FROM years = 8 }
 		}
 	}
 	
@@ -2355,7 +2360,16 @@ undead_conquest = {
 			participation_scaled_piety = 50
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -2383,5 +2397,219 @@ undead_conquest = {
 	
 	defender_ai_defeat_worth = {
 		factor = 100
+	}
+}
+
+show_profane_strength = {
+	name = CB_NAME_SHOW_PROFANE_STRENGTH
+	war_name = WAR_NAME_SHOW_PROFANE_STRENGTH
+	sprite = 21
+	truce_days = 3650
+	infamy_modifier = 1.2
+	
+	is_permanent = yes
+	
+	allow_whitepeace = yes
+	allowed_to_target_suzerains = no
+	allowed_to_target_tributaries = yes
+	
+	attacker_can_call_allies = no
+	defender_can_call_allies = yes
+	max_attacker_battle_score = 100
+	max_defender_battle_score = 100
+	capturing_defender_is_complete_victory = no
+	
+	can_use = {
+		trait = necromancer
+		has_character_flag = has_show_strength_necromancer_cb
+	}
+	
+	can_use_gui = {
+		NOT = {
+			any_war = { using_cb = show_profane_strength }
+		}
+	}
+	
+	is_valid = {
+		trait = necromancer
+		has_character_flag = has_show_strength_necromancer_cb
+	}
+	
+	on_add = {
+		# Set some variables
+		hidden_tooltip = {
+			set_variable = { which = SPS_war_value value = 0 }
+			# Better vs higher tier
+			if = {
+				limit = { lower_real_tier_than = FROM }
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = { higher_real_tier_than = FROM }
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			# Better vs stronger
+			if = {
+				limit = {
+					FROM = { relative_power = { who = ROOT power = 3.0 } }
+				}
+				change_variable = { which = SPS_war_value value = 2 }
+			}
+			else_if = {
+				limit = {
+					FROM = { relative_power = { who = ROOT power = 2.0 } }
+				}
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_power = { who = FROM power = 2.0 }
+				}
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_power = { who = FROM power = 3.0 }
+				}
+				subtract_variable = { which = SPS_war_value value = 2 }
+			}
+			# Better vs larger realm
+			if = {
+				limit = {
+					relative_realm_size = { who = FROM size < 0.8 }
+				}
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			else_if = {
+				limit = {
+					relative_realm_size = { who = FROM size > 1.2 }
+				}
+				subtract_variable = { which = SPS_war_value value = 1 }
+			}
+			# Better vs rival
+			if = {
+				limit = { is_rival = FROM }
+				change_variable = { which = SPS_war_value value = 1 }
+			}
+			# Worse vs Revenants - nobody cares about zombies vs zombies
+			if = {
+				limit = { FROM = { trait = zombie } }
+				subtract_variable = { which = SPS_war_value value = 2 }
+			}
+		}
+		hidden_tooltip = { fire_haruspicy_event_effect = yes }
+		if = {
+			limit = { defender = { is_offmap_governor = offmap_china } }
+			attacker = {  
+				sound_effect = china_angered_emperor
+				detract_grace_super_huge_effect = yes 
+			}
+		}
+	}
+	
+	on_success = {
+		ROOT = {
+			show_scope_change = no
+			participation_scaled_prestige = 500
+		}
+		any_attacker = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 500 }
+		}
+		FROM = {
+			show_scope_change = no
+			prestige = -500
+		}
+		ROOT = {
+			character_event = { id = MBLOODLINE.36 }
+		}
+	}
+	
+	on_fail = {
+		ROOT = {
+			show_scope_change = no
+			prestige = -200
+		}
+		FROM = {
+			show_scope_change = no
+			participation_scaled_prestige = 200
+		}
+		any_defender = {
+			limit = { NOT = { character = FROM } }
+			hidden_tooltip = { participation_scaled_prestige = 200 }
+		}
+	}
+	
+	on_reverse_demand = {
+		FROM = {
+			show_scope_change = no
+			participation_scaled_prestige = 500
+		}
+		any_defender = {
+			limit = { NOT = { character = ROOT } }
+			hidden_tooltip = { participation_scaled_prestige = 500 }
+		}
+		ROOT = {
+			show_scope_change = no
+			prestige = -500
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
+			}
+			if = {
+				limit = {
+					NOT = { check_variable = { which = SFS_war_value value = 0 } }
+				}
+				character_event = { id = MBLOODLINE.35 }
+			}
+		}
+	}
+	
+	on_attacker_leader_death = { end_war = invalid }
+	
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
+
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
+	
+	defender_ai_defeat_worth = {
+		factor = 100
+	}
+	
+	ai_will_do = {
+		factor = 2
+		# Old characters want to hurry up and establish their bloodline
+		modifier = {
+			factor = 3
+			ROOT = { is_old = yes }
+		}
+		# AI avoids pointless wars
+		modifier = {
+			factor = 0.5
+			ROOT = { higher_real_tier_than = FROM }
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { relative_power = { who = FROM power = 2.0 } }
+		}
+		modifier = {
+			factor = 0.5
+			ROOT = { relative_realm_size = { who = FROM size > 1.2 } }
+		}
+		modifier = {
+			factor = 0.5
+			FROM = { trait = zombie }
+		}
+		modifier = {
+			factor = 3
+			ROOT = { is_rival = FROM }
+		}
 	}
 }

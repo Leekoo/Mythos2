@@ -373,6 +373,49 @@ decisions = {
 		}
 	}
 	
+	found_highborn_family_werewolf = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 12
+		potential = {
+			is_playable = yes
+			trait = werewolf
+			is_adult = yes
+			is_inaccessible_or_incapable_trigger = no
+			NOT = {
+				any_owned_bloodline = { has_bloodline_flag = werewolf_noble }
+			}
+		}
+		allow = {
+			OR = {
+				tier = duke
+				tier = king
+				tier = emperor
+			}
+			trait = known_werewolf
+			culture = werewolf_culture
+			independent = yes
+			prestige = 10000
+			age = 100
+			war = no
+		}
+		effect = {
+			tooltip = {
+				create_bloodline = {
+					type = BL_werewolf_nobility
+				}
+			}
+			character_event = { id = WEREWOLF.103 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				trait = ambitious
+			}
+		}
+	}
+	
 	werewolf_convert_culture = {
 		is_high_prio = yes
 		potential = {

@@ -56,15 +56,16 @@ einherjar = {
 	base_type = heavy_infantry
 }
 # Very good at "heroic" tactics or zeal tactics
+# No gains from technology, but slightly better than Max tech heavies
 angels = {
-	morale = 10
-	maintenance = 4
+	morale = 6
+	maintenance = 3
 	phase_skirmish_attack = 0.5
-	phase_melee_attack = 4
+	phase_melee_attack = 10
 	phase_pursue_attack = 2
 	phase_skirmish_defense = 5
-	phase_melee_defense = 5
-	phase_pursue_defense = 5
+	phase_melee_defense = 7
+	phase_pursue_defense = 7
 	base_type = heavy_infantry
 }
 fire_giants = {
@@ -89,15 +90,16 @@ frost_giants = {
 	phase_pursue_defense = 5
 	base_type = heavy_infantry
 }
+# No gains from technology, but only slightly worse than Max tech knights
 demons = {
-	morale = 10
+	morale = 15
 	maintenance = 7
-	phase_skirmish_attack = 1
-	phase_melee_attack = 10
+	phase_skirmish_attack = 0.7
+	phase_melee_attack = 15
 	phase_pursue_attack = 6
-	phase_skirmish_defense = 1
-	phase_melee_defense = 3
-	phase_pursue_defense = 1
+	phase_skirmish_defense = 8
+	phase_melee_defense = 8
+	phase_pursue_defense = 7
 	base_type = knights
 }
 # Generally behaves like heavy infantry, but terrible at charging

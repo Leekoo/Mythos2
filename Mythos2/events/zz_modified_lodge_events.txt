@@ -1,38 +1,38 @@
 ## Power 2: Summon Commander
 character_event = {
-    id = HF.25000
-    desc = EVTDESCHFA25000
-    picture = { 
-        trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_tengri } }
-        picture = GFX_evt_eagle_warriors
-    }
-    picture = { 
-        trigger = { event_target:invited_lodge_soldier = { OR = { society_member_of = warrior_lodge_zun society_member_of = warrior_lodge_west_african society_member_of = warrior_lodge_kemetic } } }
-        picture = GFX_evt_sun_temple
-    }
-    picture = { 
-        trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_hellenic } }
-        picture = GFX_evt_hellenic_temple
-    }
-    picture = { 
-        trigger = { 
-            event_target:invited_lodge_soldier = { 
-                NOR = { 
-                    society_member_of = warrior_lodge_zun 
-                    society_member_of = warrior_lodge_west_african
-                    society_member_of = warrior_lodge_kemetic
-                    society_member_of = warrior_lodge_tengri 
-                    society_member_of = warrior_lodge_hellenic 
-                } 
-            } 
-        }
-        picture = GFX_evt_viking_battle_oldgods
-    }
+	id = HF.25000
+	desc = EVTDESCHFA25000
+	picture = { 
+		trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_tengri } }
+		picture = GFX_evt_eagle_warriors
+	}
+	picture = { 
+		trigger = { event_target:invited_lodge_soldier = { OR = { society_member_of = warrior_lodge_zun society_member_of = warrior_lodge_west_african society_member_of = warrior_lodge_kemetic } } }
+		picture = GFX_evt_sun_temple
+	}
+	picture = { 
+		trigger = { event_target:invited_lodge_soldier = { society_member_of = warrior_lodge_hellenic } }
+		picture = GFX_evt_hellenic_temple
+	}
+	picture = { 
+		trigger = { 
+			event_target:invited_lodge_soldier = { 
+				NOR = { 
+					society_member_of = warrior_lodge_zun 
+					society_member_of = warrior_lodge_west_african
+					society_member_of = warrior_lodge_kemetic
+					society_member_of = warrior_lodge_tengri 
+					society_member_of = warrior_lodge_hellenic 
+				} 
+			} 
+		}
+		picture = GFX_evt_viking_battle_oldgods
+	}
 
-    border = GFX_event_normal_frame_war
+	border = GFX_event_normal_frame_war
 
-    is_triggered_only = yes
-    
+	is_triggered_only = yes
+	
 	option = {
 		name = EVTOPTCHF25000
 		
@@ -171,9 +171,9 @@ character_event = {
 			give_minor_title = title_commander
 		}
 	}
-    option = {
-        name = EVTOPTAHF25000
-        trigger = {
+	option = {
+		name = EVTOPTAHF25000
+		trigger = {
 			OR = { 
 				NOT = { ROOT = { has_law = succ_byzantine_elective } }  #Either not Imperial...
 				NOT = { #...Or there are no valid vassal candidates that can be commanders.
@@ -213,98 +213,98 @@ character_event = {
 					} 
 				}
 			}
-            OR = {
-                AND = {
-                    tier = COUNT
-                    NOT = {
-                        any_realm_character = {
-                            count = 2
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-                AND = {
-                    tier = DUKE
-                    NOT = {
-                        any_realm_character = {
-                            count = 4
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-                AND = {
-                    tier = KING
-                    is_nomadic = no
-                    NOT = {
-                        any_realm_character = {
-                            count = 6
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-                AND = {
-                    tier = EMPEROR
-                    is_nomadic = no
-                    NOT = {
-                        any_realm_character = {
-                            count = 8
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-                AND = {
-                    tier = KING
-                    is_nomadic = yes
-                    NOT = {
-                        any_realm_character = {
-                            count = 2
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-                AND = {
-                    tier = EMPEROR
-                    is_nomadic = yes
-                    NOT = {
-                        any_realm_character = {
-                            count = 4
-                            liege = { character = ROOT }
-                            has_minor_title = title_commander
-                        }
-                    }
-                }
-            }
-        }
-        
-        event_target:invited_lodge_soldier = {
+			OR = {
+				AND = {
+					tier = COUNT
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = DUKE
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 6
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = no
+					NOT = {
+						any_realm_character = {
+							count = 8
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = KING
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 2
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+				AND = {
+					tier = EMPEROR
+					is_nomadic = yes
+					NOT = {
+						any_realm_character = {
+							count = 4
+							liege = { character = ROOT }
+							has_minor_title = title_commander
+						}
+					}
+				}
+			}
+		}
+		
+		event_target:invited_lodge_soldier = {
 			show_scope_change = no
-            opinion = {
-                modifier = opinion_loyal_servant
-                who = ROOT
-                years = 100
-            }
-            give_minor_title = title_commander
-        }
-    }
-    option = {
-        name = EVTOPTBHF25000
-        event_target:invited_lodge_soldier = { 
-            show_scope_change = no
-            opinion = {
-                modifier = opinion_loyal_servant
-                who = ROOT
-                years = 100
-            }
-        }
-        ai_chance = {    
-            factor = 100
-        }
-    }
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+			give_minor_title = title_commander
+		}
+	}
+	option = {
+		name = EVTOPTBHF25000
+		event_target:invited_lodge_soldier = { 
+			show_scope_change = no
+			opinion = {
+				modifier = opinion_loyal_servant
+				who = ROOT
+				years = 100
+			}
+		}
+		ai_chance = {    
+			factor = 100
+		}
+	}
 }
 
 #War Sacrifice power.
@@ -725,7 +725,7 @@ character_event = {
 			#Tengri Lodge: light_cavalry + horse_archers 				100 + 150
 			#Slavic Lodge: light_infantry + light_cavalry 				200 + 50
 			#Baltic Lodge: light_infantry + heavy_infantry + archers 	100 + 100 + 50
- 			#Finnish Lodge: light_infantry + archers 					100 + 150
+			#Finnish Lodge: light_infantry + archers 					100 + 150
 			#West-African Lodge: light_infantry + pikemen 				150 + 100
 			#Zunist Lodge: pikemen + archers 							150 + 100
 			#Bon Lodge: light_infantry + light_cavalry + archers 		100 + 50 + 100
@@ -736,8 +736,8 @@ character_event = {
 			#Jotnar Lodge: heavy_infantry								200
 
 			#Numbers balanced based on realm size (30 or less, between 30 and 70, more than 70)
-            if = { #Low spawn
-            	limit = { society_member_of = warrior_lodge_norse NOT = { realm_size = 30 } }
+			if = { #Low spawn
+				limit = { society_member_of = warrior_lodge_norse NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -776,9 +776,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_tengri NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_tengri NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -817,9 +817,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_slavic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_slavic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -858,9 +858,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_baltic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_baltic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -901,9 +901,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_finnish NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_finnish NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -942,9 +942,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_west_african NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_west_african NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -983,9 +983,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_zun NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_zun NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1024,9 +1024,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_bon NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_bon NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1067,9 +1067,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_hellenic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_hellenic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1108,9 +1108,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1149,9 +1149,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1190,9 +1190,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1231,9 +1231,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1270,9 +1270,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = { #Mid spawn
-            	limit = { society_member_of = warrior_lodge_norse realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = { #Mid spawn
+				limit = { society_member_of = warrior_lodge_norse realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1311,9 +1311,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_tengri realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_tengri realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1352,9 +1352,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_slavic realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_slavic realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1393,9 +1393,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_baltic realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_baltic realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1436,9 +1436,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_finnish realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_finnish realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1477,9 +1477,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_west_african realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_west_african realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1518,9 +1518,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_zun realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_zun realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1559,9 +1559,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_bon realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_bon realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1602,9 +1602,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_hellenic realm_size = 30 NOT = { realm_size = 70 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_hellenic realm_size = 30 NOT = { realm_size = 70 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1643,9 +1643,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1684,9 +1684,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1725,9 +1725,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1766,9 +1766,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1805,9 +1805,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = { #Top spawn
-            	limit = { society_member_of = warrior_lodge_norse realm_size = 70 }
+			}
+			if = { #Top spawn
+				limit = { society_member_of = warrior_lodge_norse realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1846,9 +1846,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_tengri realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_tengri realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1887,9 +1887,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_slavic realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_slavic realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1928,9 +1928,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_baltic realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_baltic realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -1971,9 +1971,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_finnish realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_finnish realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2012,9 +2012,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_west_african realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_west_african realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2053,9 +2053,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_zun realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_zun realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2094,9 +2094,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_bon realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_bon realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2137,9 +2137,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_hellenic realm_size = 70 }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_hellenic realm_size = 70 }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2178,9 +2178,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2219,9 +2219,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_kemetic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2260,9 +2260,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_druidic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2301,9 +2301,9 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
-            if = {
-            	limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
+			}
+			if = {
+				limit = { society_member_of = warrior_lodge_draconic NOT = { realm_size = 30 } }
 	            location = {
 	                show_scope_change = no
 	                ROOT = {
@@ -2340,7 +2340,7 @@ character_event = {
 	                  	}
 	                }
 	            }
-            }
+			}
 
 		hidden_tooltip = { 
 			change_variable = { which = "call_to_glory_variable" value = 1 }
@@ -2515,99 +2515,99 @@ character_event = {
 # RANK 1 POWER - Go Berserk (Norse only)
 ########################################################
 character_event = {
-    id = HF.10056
-    picture = GFX_evt_duel_team
-    border = GFX_event_normal_frame_war
-    has_dlc = "Holy Fury"
+	id = HF.10056
+	picture = GFX_evt_duel_team
+	border = GFX_event_normal_frame_war
+	has_dlc = "Holy Fury"
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    portrait = event_target:kinslayer_target
-    
-    desc = {
-        text = EVTDESC_HF_10056_no_harm_1
-        trigger = {
-            has_character_flag = no_harm
-            event_target:fellow_member = { always = yes }
-        }
-    }
-    desc = {
-        text = EVTDESC_HF_10056_no_harm_2
-        trigger = {
-            has_character_flag = no_harm
-            event_target:my_beloved = { always = yes }
-        }
-    }
-    desc = {
-        text = EVTDESC_HF_10056_casualty
-        trigger = {
-            has_character_flag = someone_is_hurt
-        }
-    }
+	portrait = event_target:kinslayer_target
+	
+	desc = {
+		text = EVTDESC_HF_10056_no_harm_1
+		trigger = {
+			has_character_flag = no_harm
+			event_target:fellow_member = { always = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC_HF_10056_no_harm_2
+		trigger = {
+			has_character_flag = no_harm
+			event_target:my_beloved = { always = yes }
+		}
+	}
+	desc = {
+		text = EVTDESC_HF_10056_casualty
+		trigger = {
+			has_character_flag = someone_is_hurt
+		}
+	}
 
-    immediate = {
-        hidden_effect = {
-            #Play SFX...
-            if = {
-                limit = { is_female = yes }
-                random_list = {
-                    10 = {
-                        sound_effect = berserk_female_01
-                    }
-                    10 = {
-                        sound_effect = berserk_female_02
-                    }
-                    10 = {
-                        sound_effect = berserk_female_03
-                    }
-                }
-            }
-            else = {
-                random_list = {
-                    10 = {
-                        sound_effect = berserk_male_01
-                    }
-                    10 = {
-                        sound_effect = berserk_male_02
-                    }
-                    10 = {
-                        sound_effect = berserk_male_03
-                    }
-                }
-            }
+	immediate = {
+		hidden_effect = {
+			#Play SFX...
+			if = {
+				limit = { is_female = yes }
+				random_list = {
+					10 = {
+						sound_effect = berserk_female_01
+					}
+					10 = {
+						sound_effect = berserk_female_02
+					}
+					10 = {
+						sound_effect = berserk_female_03
+					}
+				}
+			}
+			else = {
+				random_list = {
+					10 = {
+						sound_effect = berserk_male_01
+					}
+					10 = {
+						sound_effect = berserk_male_02
+					}
+					10 = {
+						sound_effect = berserk_male_03
+					}
+				}
+			}
 
-            random_list = { # Decide if someone actually gets hurt...
-                2 = {
-                    set_character_flag = someone_is_hurt 
-                }
-                8 = {
-                    set_character_flag = no_harm
-                }
-            }
-            random_list = { #Find someone to get caught in the crossfire...
-                10 = {
-                    any_courtier_or_vassal = { #event_target:my_beloved (might be platonic, children, etc)
-                        limit = {
-                            is_adult = yes
-                            ai = yes
-                            prisoner = no
-                        }
-                        score_value = { #Prioritizes selecting some kind of loved person...
-                            value = 1
-                            beloved_target_selection_score = yes
-                        }
-                        score_value = { #Prioritizes selecting some kind of not great warrior...
-                            value = 1
-                            bad_soldier_outcome_score = yes
-                        }
-                        #Effect:
-                        save_event_target_as = my_beloved
-                    }
-                }
-                10 = {
-                    any_society_member = { #event_target:fellow_member (could be anyone in your society)
-                        limit = { 
-                            OR = {
+			random_list = { # Decide if someone actually gets hurt...
+				2 = {
+					set_character_flag = someone_is_hurt 
+				}
+				8 = {
+					set_character_flag = no_harm
+				}
+			}
+			random_list = { #Find someone to get caught in the crossfire...
+				10 = {
+					any_courtier_or_vassal = { #event_target:my_beloved (might be platonic, children, etc)
+						limit = {
+							is_adult = yes
+							ai = yes
+							prisoner = no
+						}
+						score_value = { #Prioritizes selecting some kind of loved person...
+							value = 1
+							beloved_target_selection_score = yes
+						}
+						score_value = { #Prioritizes selecting some kind of not great warrior...
+							value = 1
+							bad_soldier_outcome_score = yes
+						}
+						#Effect:
+						save_event_target_as = my_beloved
+					}
+				}
+				10 = {
+					any_society_member = { #event_target:fellow_member (could be anyone in your society)
+						limit = { 
+							OR = {
 								AND = {
 									society_member_of = warrior_lodge_norse
 									ROOT = { society_member_of = warrior_lodge_norse }
@@ -2617,403 +2617,403 @@ character_event = {
 									ROOT = { society_member_of = warrior_lodge_jotnar }
 								}
 							}
-                            NOT = { character = ROOT }
-                            ai = yes
-                            prisoner = no
-                        }
-                        score_value = { #Prioritizes selecting some kind of not great warrior...
-                            value = 10
-                            bad_soldier_outcome_score = yes
-                        }
-                        save_event_target_as = fellow_member
-                    }
-                }
-            }
-            if = {
-                limit = { event_target:my_beloved = { always = yes } }
-                event_target:my_beloved = { save_event_target_as = kinslayer_target }
-            }
-            else_if = {
-                limit = { event_target:fellow_member = { always = yes } }
-                event_target:fellow_member = { save_event_target_as = kinslayer_target }
-            }
-        }
-    }
+							NOT = { character = ROOT }
+							ai = yes
+							prisoner = no
+						}
+						score_value = { #Prioritizes selecting some kind of not great warrior...
+							value = 10
+							bad_soldier_outcome_score = yes
+						}
+						save_event_target_as = fellow_member
+					}
+				}
+			}
+			if = {
+				limit = { event_target:my_beloved = { always = yes } }
+				event_target:my_beloved = { save_event_target_as = kinslayer_target }
+			}
+			else_if = {
+				limit = { event_target:fellow_member = { always = yes } }
+				event_target:fellow_member = { save_event_target_as = kinslayer_target }
+			}
+		}
+	}
 
-    option = { #I am stronger than ever!
-        name = {
-            text = EVTOPTA_HF_10056_1
-            trigger = { has_character_flag = no_harm }
-        }
-        name = {
-            text = EVTOPTA_HF_10056_2
-            trigger = { has_character_flag = someone_is_hurt }
-        }
+	option = { #I am stronger than ever!
+		name = {
+			text = EVTOPTA_HF_10056_1
+			trigger = { has_character_flag = no_harm }
+		}
+		name = {
+			text = EVTOPTA_HF_10056_2
+			trigger = { has_character_flag = someone_is_hurt }
+		}
 
-        prestige = 15
-        add_trait = berserker
+		prestige = 15
+		add_trait = berserker
 
-        if = { limit = { has_character_flag = someone_is_hurt }
-            event_target:kinslayer_target = {
-                show_scope_change = no
-                hidden_effect = {
-                    random_list = { #Find someone who cares about the person caught in the fury...
-                        10 = {
-                            trigger = {
-                                any_spouse = { NOT = { character = ROOT } }
-                                is_married = yes
-                            }
-                            random_spouse = {
-                                limit = { NOT = { character = ROOT } }
-                                save_event_target_as = potential_rival
-                            }
-                        }
-                        10 = {
-                            trigger = {
-                                any_friend = { NOT = { character = ROOT } }
-                                any_friend = { always = yes }
-                            }
-                            random_friend = {
-                                limit = { NOT = { character = ROOT } }
-                                save_event_target_as = potential_rival
-                            }
-                        }
-                        10 = {
-                            trigger = {
-                                any_lover = { NOT = { character = ROOT } }
-                                any_lover = { always = yes }
-                            }
-                            random_lover = {
-                                limit = { NOT = { character = ROOT } }
-                                save_event_target_as = potential_rival
-                            }
-                        }
-                        10 = {
-                            trigger = {
-                                current_heir = {
-                                    is_adult = yes
-                                    prisoner = no
-                                    NOT = { character = ROOT }
-                                    is_close_relative = event_target:kinslayer_target
-                                }
-                            }
-                            current_heir = {
-                                save_event_target_as = potential_rival
-                            }
-                        }
-                        10 = {
-                            trigger = {
-                                any_child = {
-                                    is_adult = yes
-                                    NOT = { character = ROOT }
-                                }
-                            }
-                            random_child = {
-                                limit = {
-                                    is_adult = yes
-                                    NOT = { character = ROOT }
-                                }
-                                save_event_target_as = potential_rival
-                            }
-                        }
-                    }
-                    event_target:potential_rival = { character_event = { id = HF.10057 days = 3 } } #Send them a choice to become rival or not...
-                }
-                death = {
-                    death_reason = death_berserker_rage
-                    killer = ROOT
-                }
-            }
-            add_kinslayer_trait_effect = yes
-        }
-        else = {
-            if = {
-                limit = {
-                    event_target:kinslayer_target = { any_spouse = { character = ROOT } }
-                }
-                reverse_opinion = {
-                    who = event_target:kinslayer_target
-                    modifier = opinion_impressed_infatuated
-                    years = 10
-                }
-            }
-            else = {
-                reverse_opinion = {
-                    who = event_target:kinslayer_target
-                    modifier = opinion_impressed
-                    years = 5
-                }
-            }
-        }
-    }
-    option = { #W-wait, what did I do? [OPTIONAL: "only" maiming the other person]
-        name = EVTOPTB_HF_10056
-        add_trait = berserker
+		if = { limit = { has_character_flag = someone_is_hurt }
+			event_target:kinslayer_target = {
+				show_scope_change = no
+				hidden_effect = {
+					random_list = { #Find someone who cares about the person caught in the fury...
+						10 = {
+							trigger = {
+								any_spouse = { NOT = { character = ROOT } }
+								is_married = yes
+							}
+							random_spouse = {
+								limit = { NOT = { character = ROOT } }
+								save_event_target_as = potential_rival
+							}
+						}
+						10 = {
+							trigger = {
+								any_friend = { NOT = { character = ROOT } }
+								any_friend = { always = yes }
+							}
+							random_friend = {
+								limit = { NOT = { character = ROOT } }
+								save_event_target_as = potential_rival
+							}
+						}
+						10 = {
+							trigger = {
+								any_lover = { NOT = { character = ROOT } }
+								any_lover = { always = yes }
+							}
+							random_lover = {
+								limit = { NOT = { character = ROOT } }
+								save_event_target_as = potential_rival
+							}
+						}
+						10 = {
+							trigger = {
+								current_heir = {
+									is_adult = yes
+									prisoner = no
+									NOT = { character = ROOT }
+									is_close_relative = event_target:kinslayer_target
+								}
+							}
+							current_heir = {
+								save_event_target_as = potential_rival
+							}
+						}
+						10 = {
+							trigger = {
+								any_child = {
+									is_adult = yes
+									NOT = { character = ROOT }
+								}
+							}
+							random_child = {
+								limit = {
+									is_adult = yes
+									NOT = { character = ROOT }
+								}
+								save_event_target_as = potential_rival
+							}
+						}
+					}
+					event_target:potential_rival = { character_event = { id = HF.10057 days = 3 } } #Send them a choice to become rival or not...
+				}
+				death = {
+					death_reason = death_berserker_rage
+					killer = ROOT
+				}
+			}
+			add_kinslayer_trait_effect = yes
+		}
+		else = {
+			if = {
+				limit = {
+					event_target:kinslayer_target = { any_spouse = { character = ROOT } }
+				}
+				reverse_opinion = {
+					who = event_target:kinslayer_target
+					modifier = opinion_impressed_infatuated
+					years = 10
+				}
+			}
+			else = {
+				reverse_opinion = {
+					who = event_target:kinslayer_target
+					modifier = opinion_impressed
+					years = 5
+				}
+			}
+		}
+	}
+	option = { #W-wait, what did I do? [OPTIONAL: "only" maiming the other person]
+		name = EVTOPTB_HF_10056
+		add_trait = berserker
 
-        event_target:kinslayer_target = {
-            show_scope_change = no
-            add_maimed_trait_effect = yes
-        }
+		event_target:kinslayer_target = {
+			show_scope_change = no
+			add_maimed_trait_effect = yes
+		}
 
-        if = {
-            limit = { trait = cruel }
-            remove_trait = cruel
-        }
-        else = {
-            add_trait = kind
-        }
+		if = {
+			limit = { trait = cruel }
+			remove_trait = cruel
+		}
+		else = {
+			add_trait = kind
+		}
 
-        if = {
-            limit = { event_target:kinslayer_target = { is_close_relative = ROOT } }
-            random = {
-                chance = 5
-                add_trait = lunatic
-                hidden_effect = { character_event = { id = 38304 } }# notify lunatic
-            }
-        }
+		if = {
+			limit = { event_target:kinslayer_target = { is_close_relative = ROOT } }
+			random = {
+				chance = 5
+				add_trait = lunatic
+				hidden_effect = { character_event = { id = 38304 } }# notify lunatic
+			}
+		}
 
-        trigger = {
-            has_character_flag = someone_is_hurt
-            NOT = { trait = kind }
-        }
-    }
-    option = { #W-wait, what did I do? [OPTIONAL: "only" maiming the other person] KIND VERSION
-        name = EVTOPTC_HF_10056
-        tooltip_info = kind
-        add_trait = berserker
+		trigger = {
+			has_character_flag = someone_is_hurt
+			NOT = { trait = kind }
+		}
+	}
+	option = { #W-wait, what did I do? [OPTIONAL: "only" maiming the other person] KIND VERSION
+		name = EVTOPTC_HF_10056
+		tooltip_info = kind
+		add_trait = berserker
 
-        event_target:kinslayer_target = {
-            show_scope_change = no
-            add_maimed_trait_effect = yes
-        }
-        trigger = { has_character_flag = someone_is_hurt trait = kind }
-    }
-    after = {
-        clr_character_flag = no_harm
-        clr_character_flag = someone_is_hurt
-        clr_character_flag = going_berserk
-    }
+		event_target:kinslayer_target = {
+			show_scope_change = no
+			add_maimed_trait_effect = yes
+		}
+		trigger = { has_character_flag = someone_is_hurt trait = kind }
+	}
+	after = {
+		clr_character_flag = no_harm
+		clr_character_flag = someone_is_hurt
+		clr_character_flag = going_berserk
+	}
 }
 
 ### Follow-up: If was eligible, AI joins a warrior lodge
 character_event = {
-    id = HF.10051
-    hide_window = yes
-    is_triggered_only = yes
-    immediate = {
-        if = {
-            limit = {
-                religion_openly_norse_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_norse
-            }
-            join_society = warrior_lodge_norse
+	id = HF.10051
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				religion_openly_norse_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_norse
+			}
+			join_society = warrior_lodge_norse
 		}
-        else_if = {
-            limit = {
-                religion_openly_baltic_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_baltic
-            }
-            join_society = warrior_lodge_baltic
-        }
-        else_if = {
-            limit = {
-                religion_openly_finnish_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_finnish
-            }
-            join_society = warrior_lodge_finnish
-        }
-        else_if = {
-            limit = {
-                religion_openly_slavic_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_slavic
-            }
-            join_society = warrior_lodge_slavic
-        }
-        else_if = {
-            limit = {
-                religion_openly_west_african_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_west_african
-            }
-            join_society = warrior_lodge_west_african
-        }
-        else_if = {
-            limit = {
-                religion_openly_zun_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_zun
-            }
-            join_society = warrior_lodge_zun
-        }
-        else_if = {
-            limit = {
-                religion_openly_bon_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_bon
-            }
-            join_society = warrior_lodge_bon
-        }
-        else_if = {
-            limit = {
-                religion_openly_hellenic_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_hellenic
-            }
-            join_society = warrior_lodge_hellenic
-        }
-        else_if = {
-            limit = {
-                religion_openly_draconic_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_draconic
-            }
-            join_society = warrior_lodge_draconic
-        }
-        else_if = {
-            limit = {
-                OR = {
+		else_if = {
+			limit = {
+				religion_openly_baltic_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_baltic
+			}
+			join_society = warrior_lodge_baltic
+		}
+		else_if = {
+			limit = {
+				religion_openly_finnish_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_finnish
+			}
+			join_society = warrior_lodge_finnish
+		}
+		else_if = {
+			limit = {
+				religion_openly_slavic_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_slavic
+			}
+			join_society = warrior_lodge_slavic
+		}
+		else_if = {
+			limit = {
+				religion_openly_west_african_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_west_african
+			}
+			join_society = warrior_lodge_west_african
+		}
+		else_if = {
+			limit = {
+				religion_openly_zun_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_zun
+			}
+			join_society = warrior_lodge_zun
+		}
+		else_if = {
+			limit = {
+				religion_openly_bon_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_bon
+			}
+			join_society = warrior_lodge_bon
+		}
+		else_if = {
+			limit = {
+				religion_openly_hellenic_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_hellenic
+			}
+			join_society = warrior_lodge_hellenic
+		}
+		else_if = {
+			limit = {
+				religion_openly_draconic_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_draconic
+			}
+			join_society = warrior_lodge_draconic
+		}
+		else_if = {
+			limit = {
+				OR = {
 					religion_openly_kemetic_or_reformed_trigger = yes
 					religion = atenist
 				}
-                can_join_society = warrior_lodge_kemetic
-            }
-            join_society = warrior_lodge_kemetic
-        }
-        else_if = {
-            limit = {
-                religion_openly_druidic_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_druidic
-            }
-            join_society = warrior_lodge_druidic
-        }
-        else_if = {
-            limit = {
-                religion_openly_jotnar_or_reformed_trigger = yes
-                can_join_society = warrior_lodge_jotnar
-            }
-            join_society = warrior_lodge_jotnar
-        }
-        else_if = {
-            limit = {
+				can_join_society = warrior_lodge_kemetic
+			}
+			join_society = warrior_lodge_kemetic
+		}
+		else_if = {
+			limit = {
+				religion_openly_druidic_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_druidic
+			}
+			join_society = warrior_lodge_druidic
+		}
+		else_if = {
+			limit = {
+				religion_openly_jotnar_or_reformed_trigger = yes
+				can_join_society = warrior_lodge_jotnar
+			}
+			join_society = warrior_lodge_jotnar
+		}
+		else_if = {
+			limit = {
 				OR = {
 					religion_openly_tengri_or_reformed_trigger = yes
 					is_nomadic = yes
 				}
-                can_join_society = warrior_lodge_tengri
-            }
-            join_society = warrior_lodge_tengri
-        }
-        else = {
-            log = "[Root.GetTitledName] failed to join a society in event HF.10051"
-            break = yes
-        }
-        log = "[Root.GetTitledName] joined [Root.Society.GetName] society!"
-        
-        apply_random_minor_injury_effect = yes #So it seems they were in a duel!
+				can_join_society = warrior_lodge_tengri
+			}
+			join_society = warrior_lodge_tengri
+		}
+		else = {
+			log = "[Root.GetTitledName] failed to join a society in event HF.10051"
+			break = yes
+		}
+		log = "[Root.GetTitledName] joined [Root.Society.GetName] society!"
+		
+		apply_random_minor_injury_effect = yes #So it seems they were in a duel!
 
-        if = {
-            limit = {
-                NOT = {
-                    society = {
-                        any_society_member = {
-                            is_society_grandmaster = yes
-                        }
-                    }
-                }
-            }
-            log = "[This.Society.GetName] is a society without a grandmaster and I am trying to be set as the grandmaster."
-            set_society_grandmaster = yes # Set character as Grand Master (if there was none)
-            add_society_currency_massive_effect = yes
-        }
+		if = {
+			limit = {
+				NOT = {
+					society = {
+						any_society_member = {
+							is_society_grandmaster = yes
+						}
+					}
+				}
+			}
+			log = "[This.Society.GetName] is a society without a grandmaster and I am trying to be set as the grandmaster."
+			set_society_grandmaster = yes # Set character as Grand Master (if there was none)
+			add_society_currency_massive_effect = yes
+		}
 
-        society = {
-            any_society_member = { #Send notification to players that society is growing...
-                limit = {
-                    ai = no
-                    society_rank = 4
-                }
-                character_event = { id = HF.10052 days = 1 random = 15 }
-            }
-        }
-    }
+		society = {
+			any_society_member = { #Send notification to players that society is growing...
+				limit = {
+					ai = no
+					society_rank = 4
+				}
+				character_event = { id = HF.10052 days = 1 random = 15 }
+			}
+		}
+	}
 }
 
 ### A DUEL!
 character_event = {
-    id = HF.12010
-    title = legendary_raid_title
-    picture = GFX_evt_bandits
-    border = GFX_event_normal_frame_war
-    is_triggered_only = yes
+	id = HF.12010
+	title = legendary_raid_title
+	picture = GFX_evt_bandits
+	border = GFX_event_normal_frame_war
+	is_triggered_only = yes
 
-    portrait = event_target:my_duel_target
+	portrait = event_target:my_duel_target
 
 
-    immediate = {
+	immediate = {
 
-        hidden_effect = {
-            #Find someone to talk to...
-            save_fellow_member_effect = yes
-            #Find someone to duel...
-            event_target:target_ruler = {
-                if = { # First fight, just find *someone*...
-                    limit = {
-                        ROOT = {
-                            NOT = {
-                                any_kill_list_character = {
-                                    count = 3
-                                    death_reason = death_legendary_win_duel
-                                }
-                            }
-                        }
-                    }
-                    if = { #if there is anyone who fits the base bill...
-                        limit = { #base requirements
-                            any_realm_character = {
-                                is_adult = yes
-                                NOT = { same_society_as = ROOT }
-                                is_inaccessible_or_incapable_trigger = no
-                                NOT = { has_character_modifier = bedridden_illness }
-                                NOT = { has_character_modifier = severe_illness }
-                                NOT = { has_character_flag = do_not_disturb }
-                                NOT = { has_character_flag = fought_duel_against@ROOT }
-                                NOT = { character = event_target:my_duel_target } #Can't have previously dueled...
-                                NOT = { character = event_target:target_ruler } #Should not be the ruler themselves...
-                                ai = yes
-                            }
-                        }
-                        any_realm_character = {
-                            limit = { #same base requirements
-                                is_adult = yes
-                                NOT = { same_society_as = ROOT }
-                                is_inaccessible_or_incapable_trigger = no
-                                NOT = { has_character_modifier = bedridden_illness }
-                                NOT = { has_character_modifier = severe_illness }
-                                NOT = { has_character_flag = do_not_disturb }
-                                NOT = { has_character_flag = fought_duel_against@ROOT }
-                                NOT = { character = event_target:my_duel_target } #Can't have previously dueled...
-                                NOT = { character = event_target:target_ruler } #Should not be the ruler themselves...
-                                ai = yes
-                            }
-                            score_value = { #Prioritizes selecting a good warrior, if it can...
-                                value = 10
-                                good_soldier_outcome_score = yes
-                            }
-                            score_value = { #tries to make sure you fight someone the same gender as you...
-                                value = 10
-                                same_gender_preference_score = yes
-                            }
-                            save_event_target_as = my_duel_target
-                            set_character_flag = fought_duel_against@ROOT
-                            
-                            #REQUIRED event targets for setting up duel evaluation!
-                            save_event_target_as = combatant_2 #the target of the duel...
-                            ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
-                        }
-                    }
-                    else = { #There was no one available, so we spawn a character instead...
-                        # Spawn a character
-                        spawn_great_commander_effect = yes
-                        event_target:invited_character = {
-                            upgrade_education_effect = yes
-                            add_one_duel_experience_modifier = yes
-                            save_event_target_as = my_duel_target
-                            set_character_flag = fought_duel_against@ROOT
+		hidden_effect = {
+			#Find someone to talk to...
+			save_fellow_member_effect = yes
+			#Find someone to duel...
+			event_target:target_ruler = {
+				if = { # First fight, just find *someone*...
+					limit = {
+						ROOT = {
+							NOT = {
+								any_kill_list_character = {
+									count = 3
+									death_reason = death_legendary_win_duel
+								}
+							}
+						}
+					}
+					if = { #if there is anyone who fits the base bill...
+						limit = { #base requirements
+							any_realm_character = {
+								is_adult = yes
+								NOT = { same_society_as = ROOT }
+								is_inaccessible_or_incapable_trigger = no
+								NOT = { has_character_modifier = bedridden_illness }
+								NOT = { has_character_modifier = severe_illness }
+								NOT = { has_character_flag = do_not_disturb }
+								NOT = { has_character_flag = fought_duel_against@ROOT }
+								NOT = { character = event_target:my_duel_target } #Can't have previously dueled...
+								NOT = { character = event_target:target_ruler } #Should not be the ruler themselves...
+								ai = yes
+							}
+						}
+						any_realm_character = {
+							limit = { #same base requirements
+								is_adult = yes
+								NOT = { same_society_as = ROOT }
+								is_inaccessible_or_incapable_trigger = no
+								NOT = { has_character_modifier = bedridden_illness }
+								NOT = { has_character_modifier = severe_illness }
+								NOT = { has_character_flag = do_not_disturb }
+								NOT = { has_character_flag = fought_duel_against@ROOT }
+								NOT = { character = event_target:my_duel_target } #Can't have previously dueled...
+								NOT = { character = event_target:target_ruler } #Should not be the ruler themselves...
+								ai = yes
+							}
+							score_value = { #Prioritizes selecting a good warrior, if it can...
+								value = 10
+								good_soldier_outcome_score = yes
+							}
+							score_value = { #tries to make sure you fight someone the same gender as you...
+								value = 10
+								same_gender_preference_score = yes
+							}
+							save_event_target_as = my_duel_target
+							set_character_flag = fought_duel_against@ROOT
+							
+							#REQUIRED event targets for setting up duel evaluation!
+							save_event_target_as = combatant_2 #the target of the duel...
+							ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
+						}
+					}
+					else = { #There was no one available, so we spawn a character instead...
+						# Spawn a character
+						spawn_great_commander_effect = yes
+						event_target:invited_character = {
+							upgrade_education_effect = yes
+							add_one_duel_experience_modifier = yes
+							save_event_target_as = my_duel_target
+							set_character_flag = fought_duel_against@ROOT
 							
 							if = {
 								limit = { graphical_culture = dragongfx }
@@ -3049,508 +3049,508 @@ character_event = {
 									add_trait = size_2
 								}
 							}
-                            
-                            #REQUIRED event targets for setting up duel evaluation!
-                            save_event_target_as = combatant_2 #the target of the duel...
-                            ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
-                        }
-                    }
-                }
+							
+							#REQUIRED event targets for setting up duel evaluation!
+							save_event_target_as = combatant_2 #the target of the duel...
+							ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
+						}
+					}
+				}
 
-                else = { #You have killed X amount of characters already...
-                    ROOT = {
-                        randomize_XYZ_desc_flag_effect = yes
-                    }
+				else = { #You have killed X amount of characters already...
+					ROOT = {
+						randomize_XYZ_desc_flag_effect = yes
+					}
 
-                    #Spawn different characters, depending X/Y/Z-flag...
-                    if = {
-                        limit = { ROOT = { has_character_flag = WL_desc_X } } # Old man/woman
-                        spawn_old_duelist_effect = yes
-                        #event_target:invited_character = { add_age = 50 health = 2 } #For future reference: additional functionality would be cool
-                    }
-                    else_if = {
-                        limit = { ROOT = { has_character_flag = WL_desc_Y } } #Giant
-                        spawn_giant_duelist_effect = yes
+					#Spawn different characters, depending X/Y/Z-flag...
+					if = {
+						limit = { ROOT = { has_character_flag = WL_desc_X } } # Old man/woman
+						spawn_old_duelist_effect = yes
+						#event_target:invited_character = { add_age = 50 health = 2 } #For future reference: additional functionality would be cool
+					}
+					else_if = {
+						limit = { ROOT = { has_character_flag = WL_desc_Y } } #Giant
+						spawn_giant_duelist_effect = yes
 						random = {
 							chance = 40
 							remove_trait = giant
 							add_trait = mythos_giant
 							add_trait = size_2
 						}
-                    }
-                    else_if = {
-                        limit = { ROOT = { has_character_flag = WL_desc_Z } } # Actual bear
-                        spawn_creature_champion_effect = yes
-                    }
-                    
-                    event_target:invited_character = {
-                        save_event_target_as = my_duel_target
-                        set_character_flag = fought_duel_against@ROOT
-                        
-                        #REQUIRED event targets for setting up duel evaluation!
-                        save_event_target_as = combatant_2 #the target of the duel...
-                    }
-                    ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
-                }
+					}
+					else_if = {
+						limit = { ROOT = { has_character_flag = WL_desc_Z } } # Actual bear
+						spawn_creature_champion_effect = yes
+					}
+					
+					event_target:invited_character = {
+						save_event_target_as = my_duel_target
+						set_character_flag = fought_duel_against@ROOT
+						
+						#REQUIRED event targets for setting up duel evaluation!
+						save_event_target_as = combatant_2 #the target of the duel...
+					}
+					ROOT = { save_event_target_as = combatant_1 } #the person issuing the duel...
+				}
 
-                event_target:my_duel_target = {
-                    if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 85 } } # if ROOT is 85 better
-                        }
-                        remove_trait = erudite
-                        remove_disease_trait_effect = yes
-                        clear_disease_level_effect = yes
-                        remove_disease_flags_effect = yes
-                        remove_education_effect = yes
-                        add_trait = brilliant_strategist
-                        remove_lifestyle_trait_effect = yes
-                        add_trait = duelist
-                        remove_all_negative_congenital_traits_effect = yes
-                        add_trait = strong
-                        add_trait = wroth
-                        if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                    }
-                    else_if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 65 } } # if ROOT is 65 better
-                        }
-                        remove_trait = erudite
-                        remove_disease_trait_effect = yes
-                        clear_disease_level_effect = yes
-                        remove_disease_flags_effect = yes
-                        remove_education_effect = yes
-                        random_list = {
-                            10 = { add_trait = elusive_shadow }
-                            10 = { add_trait = brilliant_strategist }
-                        }
-                        remove_lifestyle_trait_effect = yes
-                        random_list = {
-                            10 = { add_trait = hunter }
-                            10 = { add_trait = duelist }
-                        }
-                        random_list = {
-                            20 = {
-                                add_trait = robust
-                            }
-                            10 = {
-                                add_trait = strong
-                            }
-                            10 = {
-                                add_trait = genius
-                            }
-                            5 = {
-                                health = 1
-                            }
-                        }
-                        if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                    }
-                    else_if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 50 } } # if ROOT is 50 better
-                        }
-                        remove_trait = erudite
-                        remove_disease_trait_effect = yes
-                        clear_disease_level_effect = yes
-                        remove_disease_flags_effect = yes
-                        remove_education_effect = yes
-                        random_list = {
-                            10 = { add_trait = elusive_shadow }
-                            10 = { add_trait = brilliant_strategist }
-                        }
-                        remove_lifestyle_trait_effect = yes
-                        random_list = {
-                            10 = { add_trait = hunter }
-                            10 = { add_trait = duelist }
-                        }
-                        if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                    }
-                    else_if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 35 } }  # if ROOT is 35 better
-                        }
-                        remove_trait = erudite
-                        remove_disease_trait_effect = yes
-                        clear_disease_level_effect = yes
-                        remove_disease_flags_effect = yes
-                        remove_education_effect = yes
-                        remove_lifestyle_trait_effect = yes
-                        if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        else_if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        else = {
-                            random_list = {
-                                10 = {
-                                    add_trait = elusive_shadow
-                                    random_list = {
-                                        10 = { add_trait = impaler }
-                                        10 = { add_trait = schemer }
-                                    }
-                                }
-                                10 = {
-                                    add_trait = brilliant_strategist
-                                    random_list = {
-                                        10 = { add_trait = hunter }
-                                        10 = { add_trait = duelist }
-                                    }
-                                }
-                            }
-                        }
-                        add_one_duel_experience_modifier = yes
-                        add_one_duel_experience_modifier = yes
-                    }
-                    else_if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 20 } } # if ROOT is 20 better
-                        }
-                        remove_trait = erudite
-                        remove_lifestyle_trait_effect = yes
-                        random_list = {
-                            10 = { add_trait = hunter }
-                            10 = { add_trait = duelist }
-                        }
-                        if = {
-                            limit = { NOT = { trait = brave } }
-                            add_trait = brave
-                        }
-                        else_if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        else_if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        else_if = {
-                            limit = { NOT = { trait = wroth } }
-                            add_trait = wroth
-                        }
-                        else_if = {
-                            limit = { NOT = { trait = cruel } }
-                            add_trait = cruel
-                        }
-                    }
-                    else_if = {
-                        limit = {
-                            ROOT = { combat_rating_diff = { who = PREV value = 10 } } # if ROOT is 10 better
-                        }
-                        remove_trait = erudite
-                        if = {
-                            limit = { NOT = { trait = brave } }
-                            add_trait = brave
-                        }
-                        else_if = {
-                            limit = { NOT = { trait = wroth } }
-                            add_trait = wroth
-                        }
-                        else_if = {
-                            limit = { NOT = { trait = cruel } }
-                            add_trait = cruel
-                        }
-                        else_if = {
-                            limit = { has_severe_disability_trigger = yes }
-                            remove_trait = infirm
-                            remove_trait = mangled
-                            remove_trait = inbred
-                            remove_trait = blinded
-                            remove_trait = incapable
-                            remove_trait = maimed
-                        }
-                        else_if = {
-                            limit = { has_injury_trigger = yes }
-                            remove_trait = wounded
-                            remove_trait = severely_injured
-                        }
-                        else = {
-                            add_trait = strong
-                        }
-                    }
-                    else = {
-                        #do nothing
-                    }
-                }
-            }
-            if = { # Means you have not reached the "boss" fight
-                limit = {
-                    NOR = {
-                        has_character_flag = WL_desc_X
-                        has_character_flag = WL_desc_Y
-                        has_character_flag = WL_desc_Z
-                    }
-                }
-                randomize_ABCDEF_desc_flag_effect = yes # Get a random desc
-            }
-        }        
-    }
+				event_target:my_duel_target = {
+					if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 85 } } # if ROOT is 85 better
+						}
+						remove_trait = erudite
+						remove_disease_trait_effect = yes
+						clear_disease_level_effect = yes
+						remove_disease_flags_effect = yes
+						remove_education_effect = yes
+						add_trait = brilliant_strategist
+						remove_lifestyle_trait_effect = yes
+						add_trait = duelist
+						remove_all_negative_congenital_traits_effect = yes
+						add_trait = strong
+						add_trait = wroth
+						if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+					}
+					else_if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 65 } } # if ROOT is 65 better
+						}
+						remove_trait = erudite
+						remove_disease_trait_effect = yes
+						clear_disease_level_effect = yes
+						remove_disease_flags_effect = yes
+						remove_education_effect = yes
+						random_list = {
+							10 = { add_trait = elusive_shadow }
+							10 = { add_trait = brilliant_strategist }
+						}
+						remove_lifestyle_trait_effect = yes
+						random_list = {
+							10 = { add_trait = hunter }
+							10 = { add_trait = duelist }
+						}
+						random_list = {
+							20 = {
+								add_trait = robust
+							}
+							10 = {
+								add_trait = strong
+							}
+							10 = {
+								add_trait = genius
+							}
+							5 = {
+								health = 1
+							}
+						}
+						if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+					}
+					else_if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 50 } } # if ROOT is 50 better
+						}
+						remove_trait = erudite
+						remove_disease_trait_effect = yes
+						clear_disease_level_effect = yes
+						remove_disease_flags_effect = yes
+						remove_education_effect = yes
+						random_list = {
+							10 = { add_trait = elusive_shadow }
+							10 = { add_trait = brilliant_strategist }
+						}
+						remove_lifestyle_trait_effect = yes
+						random_list = {
+							10 = { add_trait = hunter }
+							10 = { add_trait = duelist }
+						}
+						if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+					}
+					else_if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 35 } }  # if ROOT is 35 better
+						}
+						remove_trait = erudite
+						remove_disease_trait_effect = yes
+						clear_disease_level_effect = yes
+						remove_disease_flags_effect = yes
+						remove_education_effect = yes
+						remove_lifestyle_trait_effect = yes
+						if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						else_if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						else = {
+							random_list = {
+								10 = {
+									add_trait = elusive_shadow
+									random_list = {
+										10 = { add_trait = impaler }
+										10 = { add_trait = schemer }
+									}
+								}
+								10 = {
+									add_trait = brilliant_strategist
+									random_list = {
+										10 = { add_trait = hunter }
+										10 = { add_trait = duelist }
+									}
+								}
+							}
+						}
+						add_one_duel_experience_modifier = yes
+						add_one_duel_experience_modifier = yes
+					}
+					else_if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 20 } } # if ROOT is 20 better
+						}
+						remove_trait = erudite
+						remove_lifestyle_trait_effect = yes
+						random_list = {
+							10 = { add_trait = hunter }
+							10 = { add_trait = duelist }
+						}
+						if = {
+							limit = { NOT = { trait = brave } }
+							add_trait = brave
+						}
+						else_if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						else_if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						else_if = {
+							limit = { NOT = { trait = wroth } }
+							add_trait = wroth
+						}
+						else_if = {
+							limit = { NOT = { trait = cruel } }
+							add_trait = cruel
+						}
+					}
+					else_if = {
+						limit = {
+							ROOT = { combat_rating_diff = { who = PREV value = 10 } } # if ROOT is 10 better
+						}
+						remove_trait = erudite
+						if = {
+							limit = { NOT = { trait = brave } }
+							add_trait = brave
+						}
+						else_if = {
+							limit = { NOT = { trait = wroth } }
+							add_trait = wroth
+						}
+						else_if = {
+							limit = { NOT = { trait = cruel } }
+							add_trait = cruel
+						}
+						else_if = {
+							limit = { has_severe_disability_trigger = yes }
+							remove_trait = infirm
+							remove_trait = mangled
+							remove_trait = inbred
+							remove_trait = blinded
+							remove_trait = incapable
+							remove_trait = maimed
+						}
+						else_if = {
+							limit = { has_injury_trigger = yes }
+							remove_trait = wounded
+							remove_trait = severely_injured
+						}
+						else = {
+							add_trait = strong
+						}
+					}
+					else = {
+						#do nothing
+					}
+				}
+			}
+			if = { # Means you have not reached the "boss" fight
+				limit = {
+					NOR = {
+						has_character_flag = WL_desc_X
+						has_character_flag = WL_desc_Y
+						has_character_flag = WL_desc_Z
+					}
+				}
+				randomize_ABCDEF_desc_flag_effect = yes # Get a random desc
+			}
+		}        
+	}
 
 
-    desc = {
-        text = EVTDESC_HF_12010_A #Someone is hunting! Aha!
-        picture = GFX_evt_bandits
-        trigger = { has_character_flag = WL_desc_A }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_B #Outside the campfire, someone is tending to nature's call
-        picture = GFX_evt_carriage
-        trigger = { has_character_flag = WL_desc_B }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_C #In the streets of a village, accosted by locals
-        picture = GFX_evt_market
-        trigger = { has_character_flag = WL_desc_C }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_D #A moonlit night, listening to companion snoring, sneaky assassin?
-        picture = GFX_evt_mysterious_forest
-        trigger = { has_character_flag = WL_desc_D }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_E #Urchin tips you off, pointing you to finest warrior around
-        picture = GFX_evt_market
-        trigger = { has_character_flag = WL_desc_E }
-    }
-    # "Boss" fights...
-    desc = {
-        text = EVTDESC_HF_12010_X #Boss fight nr 1 (Old Fencer)
-        picture = GFX_evt_outside_tavern_hf
-        trigger = { has_character_flag = WL_desc_X }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_Y #Boss fight nr 2 (Giant)
-        picture = GFX_evt_mounted_combat_day_hf
-        trigger = { has_character_flag = WL_desc_Y }
-    }
-    desc = {
-        text = EVTDESC_HF_12010_Z #Boss fight nr 3 (Bear)
-        picture = GFX_evt_sway_hf
-        trigger = { has_character_flag = WL_desc_Z }
-    }
+	desc = {
+		text = EVTDESC_HF_12010_A #Someone is hunting! Aha!
+		picture = GFX_evt_bandits
+		trigger = { has_character_flag = WL_desc_A }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_B #Outside the campfire, someone is tending to nature's call
+		picture = GFX_evt_carriage
+		trigger = { has_character_flag = WL_desc_B }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_C #In the streets of a village, accosted by locals
+		picture = GFX_evt_market
+		trigger = { has_character_flag = WL_desc_C }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_D #A moonlit night, listening to companion snoring, sneaky assassin?
+		picture = GFX_evt_mysterious_forest
+		trigger = { has_character_flag = WL_desc_D }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_E #Urchin tips you off, pointing you to finest warrior around
+		picture = GFX_evt_market
+		trigger = { has_character_flag = WL_desc_E }
+	}
+	# "Boss" fights...
+	desc = {
+		text = EVTDESC_HF_12010_X #Boss fight nr 1 (Old Fencer)
+		picture = GFX_evt_outside_tavern_hf
+		trigger = { has_character_flag = WL_desc_X }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_Y #Boss fight nr 2 (Giant)
+		picture = GFX_evt_mounted_combat_day_hf
+		trigger = { has_character_flag = WL_desc_Y }
+	}
+	desc = {
+		text = EVTDESC_HF_12010_Z #Boss fight nr 3 (Bear)
+		picture = GFX_evt_sway_hf
+		trigger = { has_character_flag = WL_desc_Z }
+	}
 
-    option = { #I shall challenge them to a duel!
-        name = {
-            text = EVTOPTA_HF_12010_A #A challenge! Yes, you! Let's fight!
-            trigger = { has_character_flag = WL_desc_A }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_B #Excellent! I will duel this one!
-            trigger = { has_character_flag = WL_desc_B }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_C #You wanna say that to me face? Let's fight!
-            trigger = { has_character_flag = WL_desc_C }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_D #You come armed, eh...?
-            trigger = { has_character_flag = WL_desc_D }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_E #Aah, such fortune!
-            trigger = { has_character_flag = WL_desc_E }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_X #I won't go easy on you
-            trigger = { has_character_flag = WL_desc_X }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_Y #Finally, a challenge!
-            trigger = { has_character_flag = WL_desc_Y }
-        }
-        name = {
-            text = EVTOPTA_HF_12010_Z #I'll duel anyone sent at me!
-            trigger = { has_character_flag = WL_desc_Z }
-        }
-        trigger_switch = { #To set/display effects properly...
-            on_trigger = has_character_flag
-            WL_desc_A = { custom_tooltip = { text = EVTOPTA_HF_12010_A_TT } }
-            #WL_desc_B = { custom_tooltip = { text = EVTOPTA_HF_12010_B_TT } }
-            #WL_desc_C = { custom_tooltip = { text = EVTOPTA_HF_12010_C_TT } }
-            WL_desc_D = { custom_tooltip = { text = EVTOPTA_HF_12010_D_TT } }
-            WL_desc_E = { custom_tooltip = { text = EVTOPTA_HF_12010_E_TT } }
-            WL_desc_X = { custom_tooltip = { text = EVTOPTA_HF_12010_X_TT } }
-            WL_desc_Y = { custom_tooltip = { text = EVTOPTA_HF_12010_Y_TT } }
-            WL_desc_Z = { custom_tooltip = { text = EVTOPTA_HF_12010_Z_TT } }
-        }
-        show_portrait = event_target:my_duel_target
-        duel_someone_effect = yes
-        add_2_points_to_legendary_progress_effect = yes # Great progress on journey!
-        hidden_effect = {
-            if = {
-                limit = {
-                    has_character_flag = WL_desc_Z    
-                }
-                event_target:combatant_2 = {
-                    set_graphical_culture = bear
-                }
-            }
-        }
-    }
+	option = { #I shall challenge them to a duel!
+		name = {
+			text = EVTOPTA_HF_12010_A #A challenge! Yes, you! Let's fight!
+			trigger = { has_character_flag = WL_desc_A }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_B #Excellent! I will duel this one!
+			trigger = { has_character_flag = WL_desc_B }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_C #You wanna say that to me face? Let's fight!
+			trigger = { has_character_flag = WL_desc_C }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_D #You come armed, eh...?
+			trigger = { has_character_flag = WL_desc_D }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_E #Aah, such fortune!
+			trigger = { has_character_flag = WL_desc_E }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_X #I won't go easy on you
+			trigger = { has_character_flag = WL_desc_X }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_Y #Finally, a challenge!
+			trigger = { has_character_flag = WL_desc_Y }
+		}
+		name = {
+			text = EVTOPTA_HF_12010_Z #I'll duel anyone sent at me!
+			trigger = { has_character_flag = WL_desc_Z }
+		}
+		trigger_switch = { #To set/display effects properly...
+			on_trigger = has_character_flag
+			WL_desc_A = { custom_tooltip = { text = EVTOPTA_HF_12010_A_TT } }
+			#WL_desc_B = { custom_tooltip = { text = EVTOPTA_HF_12010_B_TT } }
+			#WL_desc_C = { custom_tooltip = { text = EVTOPTA_HF_12010_C_TT } }
+			WL_desc_D = { custom_tooltip = { text = EVTOPTA_HF_12010_D_TT } }
+			WL_desc_E = { custom_tooltip = { text = EVTOPTA_HF_12010_E_TT } }
+			WL_desc_X = { custom_tooltip = { text = EVTOPTA_HF_12010_X_TT } }
+			WL_desc_Y = { custom_tooltip = { text = EVTOPTA_HF_12010_Y_TT } }
+			WL_desc_Z = { custom_tooltip = { text = EVTOPTA_HF_12010_Z_TT } }
+		}
+		show_portrait = event_target:my_duel_target
+		duel_someone_effect = yes
+		add_2_points_to_legendary_progress_effect = yes # Great progress on journey!
+		hidden_effect = {
+			if = {
+				limit = {
+					has_character_flag = WL_desc_Z    
+				}
+				event_target:combatant_2 = {
+					set_graphical_culture = bear
+				}
+			}
+		}
+	}
 
-    option = { #You somehow avoid fighting...
-        name = {
-            text = EVTOPTB_HF_12010_A # This one looks too big for me
-            trigger = { has_character_flag = WL_desc_A }
-        }
-        name = {
-            text = EVTOPTB_HF_12010_B
-            trigger = { has_character_flag = WL_desc_B }
-        }
-        name = {
-            text = EVTOPTB_HF_12010_C
-            trigger = { has_character_flag = WL_desc_C }
-        }
-        name = {
-            text = EVTOPTB_HF_12010_D #Guys! Wake up! Help!
-            trigger = { has_character_flag = WL_desc_D }
-        }
-        name = {
-            text = EVTOPTB_HF_12010_E #On second thought, maybe this one is for you, [fellow_member]?
-            trigger = { has_character_flag = WL_desc_E }
-        }
+	option = { #You somehow avoid fighting...
+		name = {
+			text = EVTOPTB_HF_12010_A # This one looks too big for me
+			trigger = { has_character_flag = WL_desc_A }
+		}
+		name = {
+			text = EVTOPTB_HF_12010_B
+			trigger = { has_character_flag = WL_desc_B }
+		}
+		name = {
+			text = EVTOPTB_HF_12010_C
+			trigger = { has_character_flag = WL_desc_C }
+		}
+		name = {
+			text = EVTOPTB_HF_12010_D #Guys! Wake up! Help!
+			trigger = { has_character_flag = WL_desc_D }
+		}
+		name = {
+			text = EVTOPTB_HF_12010_E #On second thought, maybe this one is for you, [fellow_member]?
+			trigger = { has_character_flag = WL_desc_E }
+		}
 
-        trigger_switch = { #To set/display effects properly...
-            on_trigger = has_character_flag
-            WL_desc_A = { custom_tooltip = { text = EVTOPTB_HF_12010_A_TT } }
-            #WL_desc_B = { custom_tooltip = { text = EVTOPTB_HF_12010_B_TT } }
-            #WL_desc_C = { custom_tooltip = { text = EVTOPTB_HF_12010_C_TT } }
-            WL_desc_D = {
-                custom_tooltip = { text = EVTOPTB_HF_12010_D_TT }
-                add_character_modifier = {
-                    modifier = black_eye
-                    months = 10
-                }
-                show_portrait = event_target:fellow_member
-            }
-            WL_desc_E = {
-                custom_tooltip = { text = EVTOPTB_HF_12010_E_TT }
-                if = {
-                    limit = { trait = brave }
-                    remove_trait = brave
-                }
-                else = { add_trait = craven }
-                show_portrait = event_target:fellow_member
-            }
-        }
-        
-        prestige = -50
-        add_1_point_to_legendary_progress_effect = yes # Good progress on journey...
-        evaluate_legendary_progress_effect = yes
-        #send_legendary_tombola_effect = yes #superfluous (also fired from resolve_legendary_duel_effect)
-        trigger = {
-            ai = no
-            NOR = { #This is not a boss fight...
-                has_character_flag = WL_desc_X
-                has_character_flag = WL_desc_Y
-                has_character_flag = WL_desc_Z
-            }
-        }
-    }
+		trigger_switch = { #To set/display effects properly...
+			on_trigger = has_character_flag
+			WL_desc_A = { custom_tooltip = { text = EVTOPTB_HF_12010_A_TT } }
+			#WL_desc_B = { custom_tooltip = { text = EVTOPTB_HF_12010_B_TT } }
+			#WL_desc_C = { custom_tooltip = { text = EVTOPTB_HF_12010_C_TT } }
+			WL_desc_D = {
+				custom_tooltip = { text = EVTOPTB_HF_12010_D_TT }
+				add_character_modifier = {
+					modifier = black_eye
+					months = 10
+				}
+				show_portrait = event_target:fellow_member
+			}
+			WL_desc_E = {
+				custom_tooltip = { text = EVTOPTB_HF_12010_E_TT }
+				if = {
+					limit = { trait = brave }
+					remove_trait = brave
+				}
+				else = { add_trait = craven }
+				show_portrait = event_target:fellow_member
+			}
+		}
+		
+		prestige = -50
+		add_1_point_to_legendary_progress_effect = yes # Good progress on journey...
+		evaluate_legendary_progress_effect = yes
+		#send_legendary_tombola_effect = yes #superfluous (also fired from resolve_legendary_duel_effect)
+		trigger = {
+			ai = no
+			NOR = { #This is not a boss fight...
+				has_character_flag = WL_desc_X
+				has_character_flag = WL_desc_Y
+				has_character_flag = WL_desc_Z
+			}
+		}
+	}
 
-    option = { #This is getting too dangerous...
-        name = EVTOPTB_HF_12102
-        custom_tooltip = { text = EVTOPTB_HF_12010_TT } #Journey is over for you, you return home in shame...
-        add_trait = craven
-        prestige = -500
-        clean_up_after_legendary_showdown_effect = yes
-        set_character_flag = failed_call_to_legend
+	option = { #This is getting too dangerous...
+		name = EVTOPTB_HF_12102
+		custom_tooltip = { text = EVTOPTB_HF_12010_TT } #Journey is over for you, you return home in shame...
+		add_trait = craven
+		prestige = -500
+		clean_up_after_legendary_showdown_effect = yes
+		set_character_flag = failed_call_to_legend
 
-        if = {
-            limit = {
-                NOT = {
-                    any_society_member = {
-                        same_society_as = ROOT
-                        has_character_flag = call_to_legend_active
-                        NOT = { character = ROOT }
-                        prisoner = no
-                        is_alive = yes
-                        is_dying = no
-                        NOT = { trait = incapable }
-                    }
-                }
-            }
-            custom_tooltip = {
-                text = EVTOPTC_HF_12103_TT
-                stop_society_progress = yes
-            }
-        }
+		if = {
+			limit = {
+				NOT = {
+					any_society_member = {
+						same_society_as = ROOT
+						has_character_flag = call_to_legend_active
+						NOT = { character = ROOT }
+						prisoner = no
+						is_alive = yes
+						is_dying = no
+						NOT = { trait = incapable }
+					}
+				}
+			}
+			custom_tooltip = {
+				text = EVTOPTC_HF_12103_TT
+				stop_society_progress = yes
+			}
+		}
 
-        trigger = {
-            has_character_flag = call_to_legend_active
-            ai = no
-            OR = {
-                has_character_flag = WL_desc_X
-                has_character_flag = WL_desc_Y
-                has_character_flag = WL_desc_Z
-            }
-        }
-    }
+		trigger = {
+			has_character_flag = call_to_legend_active
+			ai = no
+			OR = {
+				has_character_flag = WL_desc_X
+				has_character_flag = WL_desc_Y
+				has_character_flag = WL_desc_Z
+			}
+		}
+	}
 }

@@ -192,10 +192,10 @@ character_event = {
 	
 	is_triggered_only = yes
 	min_age = 20
+	capable_only = yes
 	
 	trigger = {
 		trait = dragon
-		#age = 20
 	}
 	
 	weight_multiplier = {
@@ -1217,7 +1217,7 @@ character_event = {
 				save_event_target_as = upset_province
 			}
 		}
-		random_vassal = {
+		any_vassal = {
 			limit = { 
 				trait = zealous
 				NOR = {
@@ -1226,6 +1226,10 @@ character_event = {
 					secret_religion = draconic_pagan
 					secret_religion = draconic_pagan_reformed
 				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			save_event_target_as = upset_vassal
 		}
@@ -1311,11 +1315,15 @@ character_event = {
 				save_event_target_as = upset_province
 			}
 		}
-		random_courtier = {
+		any_courtier = {
 			limit = {
 				is_landed = no
 				NOT = { trait = zealous }
 				religion = ROOT
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			save_event_target_as = converted_courtier
 		}
@@ -5199,8 +5207,12 @@ character_event = {
 				}
 			}
 			set_character_flag = lover_sacrifice_flg
-			random_lover = {
+			any_lover = {
 				limit = { NOT = { character = event_target:spouse_sacrifice } }
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
+				}
 				save_event_target_as = lover_sacrifice
 				count_personal_virtues = yes
 				count_personal_vices = yes
@@ -5218,13 +5230,17 @@ character_event = {
 				}
 			}
 			set_character_flag = friend_sacrifice_flg
-			random_friend = {
+			any_friend = {
 				limit = {
 					NOR = {
 						character = event_target:child_sacrifice
 						character = event_target:spouse_sacrifice
 						character = event_target:lover_sacrifice
 					}
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
 				}
 				save_event_target_as = friend_sacrifice
 				count_personal_virtues = yes
@@ -6306,13 +6322,69 @@ character_event = {
 
 	is_triggered_only = yes
 	
+	immediate = {
+		location = {
+			ROOT = { save_persistent_event_target = { name = death_location scope = PREV } }
+		}
+		# Select bloodline and nickname
+		random_list = {
+			1 = {
+				set_variable = { which = local_nick value = 1 } # Holy Blood of Embers
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = zealous
+				}
+				set_variable = { which = local_nick value = 2 } # Holy Blood of Flame
+			}
+			1 = {
+				trigger = { religion = draconic_pagan_reformed }
+				# Add modifier if member of a monastic order
+				set_variable = { which = local_nick value = 3 } # Holy Blood of the Eternal Flame
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = charitable
+				}
+				set_variable = { which = local_nick value = 4 } # Holy Blood of Sacrifice 
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = greedy
+				}
+				modifier = {
+					factor = 2
+					trait = banker
+				}
+				set_variable = { which = local_nick value = 5 } # Golden Blooded
+			}
+			1 = {
+				modifier = {
+					factor = 2
+					trait = holy_warrior
+				}
+				set_variable = { which = local_nick value = 6 } # Holy Blood of the Reclaimer
+			}
+			1 = {
+				set_variable = { which = local_nick value = 7 } # Everburning Blood
+			}
+		}
+		sound_effect = saint_proclaimed
+	}
+	
 	option = {
 		name = EVTOPTA_DRAGON.52
 		if = { 
 			limit = { has_character_flag = restore_flame_sjaelland }
 			266 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6320,8 +6392,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_kent }
 			73 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6329,8 +6404,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_plock }
 			529 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6338,8 +6416,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_galloway }
 			50 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6347,8 +6428,11 @@ character_event = {
 		else_if = { 
 			limit = { has_character_flag = restore_flame_uppland }
 			290 = {
-				destroy_wonder_upgrade = upgrade_dead_flame
-				add_wonder_upgrade = upgrade_dragon_flame
+				wonder = {
+					destroy_wonder_upgrade = upgrade_dead_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+				}
 				save_event_target_as = relit_flame
 				set_province_flag = relit_eternal_flame
 			}
@@ -6358,8 +6442,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_1 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6371,8 +6458,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_2 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6384,8 +6474,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_3 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6397,8 +6490,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_4 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6410,8 +6506,11 @@ character_event = {
 			k_draconic_pagan_reformed = {
 				persistent_event_target:draconic_holy_site_5 = { 
 					location = {
-						destroy_wonder_upgrade = upgrade_dead_flame
-						add_wonder_upgrade = upgrade_dragon_flame
+						wonder = {
+							destroy_wonder_upgrade = upgrade_dead_flame
+							add_wonder_upgrade = upgrade_dragon_flame
+							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
+						}
 						save_event_target_as = relit_flame
 						set_province_flag = relit_eternal_flame
 					}
@@ -6421,7 +6520,265 @@ character_event = {
 		religion_authority = { modifier = relit_eternal_flame }
 		prestige = 1000
 		add_character_modifier = { name = flame_restorer }
-		give_nickname = nick_the_everburning
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					inheritance = matrilineal
+					religion = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					religion = ROOT
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = { is_variable_equal = { which = local_nick value = 1 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_lord_of_embers
+				}
+				create_bloodline = {
+					type = BL_blood_embers
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 2 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_renewed_flame
+				}
+				create_bloodline = {
+					type = BL_blood_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 3 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_eternal_flame
+				}
+				create_bloodline = {
+					type = BL_blood_eternal_flame
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 4 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_bloodgiver
+				}
+				create_bloodline = {
+					type = BL_blood_sacrifice
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 5 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_golden
+				}
+				create_bloodline = {
+					type = BL_golden_blood
+					religion = ROOT
+				}
+			}
+			else_if = {
+				limit = { is_variable_equal = { which = local_nick value = 6 } }
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_reclaimer
+				}
+				create_bloodline = {
+					type = BL_blood_reclaimer
+					religion = ROOT
+				}
+			}
+			else = {
+				if = {
+					limit = { can_apply_super_cool_nickname_trigger = yes }
+					give_nickname = nick_the_everburning
+				}
+				create_bloodline = {
+					type = BL_everburning_blood
+					religion = ROOT
+				}
+			}
+		}
+		new_bloodline = {
+			set_description = draconic_saint_desc
+		}
 		if = {
 			limit = { NOT = { trait = zealous } }
 			add_trait = zealous
@@ -6442,6 +6799,8 @@ character_event = {
 			limit = { trait = bad_priest_draconic }
 			remove_trait = bad_priest_draconic
 		}
+		add_trait = blessed_ancestor
+		set_special_character_title = BLESSED_TITLE
 		death = { death_reason = death_sacrificed }
 		hidden_tooltip = {
 			any_player = {
@@ -6572,39 +6931,10 @@ province_event = {
 }
 
 # DRAGON.56 - Update Purity
-character_event = {
-	id = DRAGON.56
-	hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		set_variable = { which = purity value = 0 }
-		remove_purity_trait = yes
-		if = {
-			limit = {
-				OR = {
-					religion = draconic_pagan
-					religion = draconic_pagan_reformed
-				}
-			}
-			determine_purity = yes
-			set_purity_trait = yes
-		}
-	}
-}
+# Replaced with new purity system
 
 # DRAGON.57 - Update purity for everyone. Runs on new game
-character_event = {
-	id = DRAGON.57
-	hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		any_character = {
-			character_event = { id = DRAGON.56 }
-		}
-	}
-}
+# Replaced with new purity system
 
 # DRAGON.58 - Single dragon with desire for a pure marriage approached by appropriate lowborn
 character_event = {
@@ -6649,14 +6979,12 @@ character_event = {
 			factor = 2
 			trait = zealous
 		}
-		modifier = {
-			factor = 4
-			has_ambition = obj_purify_marriage
-		}
+		# More likely with human domination
+		# Much more likely with human extermination
 	}
 	
 	immediate = {
-		random_courtier = {
+		any_courtier = {
 			limit = {
 				trait = dragon
 				ai = yes
@@ -6684,6 +7012,10 @@ character_event = {
 				culture = ROOT
 				
 				opinion = { who = ROOT value = 20 }
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
 			}
 			character_event = { id = DRAGON.59 }
 		}
@@ -6719,10 +7051,9 @@ character_event = {
 		add_spouse = FROM
 		ai_chance = {
 			factor = 70
-			modifier = {
-				factor = 2
-				has_ambition = obj_purify_marriage
-			}
+			# Less likely with human integration
+			# More likely with human domination
+			# Much more likely with human extermination
 		}
 	}
 	option = {
@@ -6775,22 +7106,15 @@ character_event = {
 			religion = draconic_pagan
 			religion = draconic_pagan_reformed
 		}
-		OR = {
-			trait = zealous
-			has_ambition = obj_purify_marriage
-		}
+		trait = zealous
+		# Not human integration
 	}
 	
-	weight_multiplier = {
-		days = 1
-		modifier = {
-			factor = 2
-			has_ambition = obj_purify_marriage
-		}
-	}
+	# More likely with human domination
+	# Much more likely with human extermination
 	
 	immediate = {
-		random_vassal = {
+		any_vassal = {
 			limit = {
 				is_priest = yes
 				OR = {
@@ -6801,6 +7125,10 @@ character_event = {
 					trait = cynical
 					trait = bad_priest_draconic
 				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			character_event = { id = DRAGON.62 }
 		}
@@ -6909,16 +7237,13 @@ character_event = {
 				NOT = { trait = dragon }
 			}
 		}
+		# Not human integration
 	}
 	weight_multiplier = {
 		days = 1
 		modifier = {
 			factor = 1.5
 			ai_zeal = 50
-		}
-		modifier = {
-			factor = 4
-			has_ambition = obj_purify_love
 		}
 		modifier = {
 			factor = 1.5
@@ -6935,6 +7260,8 @@ character_event = {
 				count = 2
 			}
 		}
+		# More likely with human domination
+		# Much more likely with human extermination
 	}
 	immediate = {
 		random_friend = {
@@ -6944,10 +7271,7 @@ character_event = {
 					religion = draconic_pagan
 					religion = draconic_pagan_reformed
 				}
-				OR = {
-					trait = zealous
-					ROOT = { has_ambition = obj_purify_love }
-				}
+				trait = zealous
 				# Don't be a hypocrite
 				NOR = {
 					any_lover = {
@@ -7757,35 +8081,35 @@ letter_event = {
 			
 			modifier = {
 				factor = 1.2
-				FROMFROM = { trait = purity_3 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 3 }  }
 			}
 			modifier = {
 				factor = 1.3
-				FROMFROM = { trait = purity_4 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 4 }  }
 			}
 			modifier = {
 				factor = 1.4
-				FROMFROM = { trait = purity_5  }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 5 }  }
 			}
 			modifier = {
 				factor = 1.5
-				FROMFROM = { trait = purity_6 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 6 }  }
 			}
 			modifier = {
 				factor = 1.6
-				FROMFROM = { trait = purity_7 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 7 }  }
 			}
 			modifier = {
 				factor = 1.7
-				FROMFROM = { trait = purity_8 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 8 }  }
 			}
 			modifier = {
 				factor = 1.8
-				FROMFROM = { trait = purity_9 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 9 }  }
 			}
 			modifier = {
 				factor = 1.9
-				FROMFROM = { trait = purity_10 }
+				FROMFROM = { is_variable_equal = { which = purity_level value = 10 }  }
 			}
 			modifier = {
 				factor = 1.5
@@ -9795,114 +10119,122 @@ character_event = {
 
 # Reignite Sapphire Flame with no holding - creates the holding
 # No longer needed after conversion to Wonders
-character_event = {
-	id = DRAGON.154
-	desc = EVTDESC_DRAGON.52
-	picture = GFX_evt_dragon_face
-	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_DRAGON.52
-		if = { 
-			limit = { has_character_flag = restore_flame_sjaelland }
-			c_sjaelland = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_lejre type = temple holder = ROOT } }
-			}
-			b_lejre = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_kent }
-			c_kent = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_canterbury type = temple holder = ROOT } }
-			}
-			b_canterbury = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_plock }
-			c_plock = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_wyszogrod type = temple holder = ROOT } }
-			}
-			b_wyszogrod = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_galloway }
-			c_galloway = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_whithorn type = temple holder = ROOT } }
-			}
-			b_whithorn = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_uppland }
-			c_uppland = {
-				set_province_flag = relit_eternal_flame
-				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
-			}
-			b_uppsala = { 
-				add_building = tp_eternal_flame
-				save_event_target_as = relit_flame
-			}
-		}
-		religion_authority = { modifier = relit_eternal_flame }
-		prestige = 1000
-		add_character_modifier = { name = flame_restorer }
-		give_nickname = nick_the_everburning
-		if = {
-			limit = { NOT = { trait = zealous } }
-			add_trait = zealous
-		}
-		if = {
-			limit = { NOT = { trait = flametender } }
-			add_trait = flametender
-		}
-		if = {
-			limit = { NOT = { trait = brave } }
-			add_trait = brave
-		}
-		if = {
-			limit = { NOT = { trait = claw_of_fafnir } }
-			add_trait = claw_of_fafnir
-		}
-		if = {
-			limit = { trait = bad_priest_draconic }
-			remove_trait = bad_priest_draconic
-		}
-		death = { death_reason = death_sacrificed }
-		hidden_tooltip = {
-			any_player = {
-				narrative_event = { id = DRAGON.54 }
-			}
-		}
-	}
-	
-	option = {
-		name = EVTOPTB_DRAGON.51
-		hidden_tooltip = {
-			clr_character_flag = restore_flame_sjaelland
-			clr_character_flag = restore_flame_kent
-			clr_character_flag = restore_flame_plock
-			clr_character_flag = restore_flame_galloway
-			clr_character_flag = restore_flame_uppland
-		}
-	}
-}
+#character_event = {
+#	id = DRAGON.154
+#	desc = EVTDESC_DRAGON.52
+#	picture = GFX_evt_dragon_face
+#	border = GFX_event_normal_frame_religion
+#
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_DRAGON.52
+#		if = { 
+#			limit = { has_character_flag = restore_flame_sjaelland }
+#			c_sjaelland = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_lejre type = temple holder = ROOT }
+#				}
+#			}
+#			b_lejre = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_kent }
+#			c_kent = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_canterbury type = temple holder = ROOT }
+#				}
+#			}
+#			b_canterbury = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_plock }
+#			c_plock = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_wyszogrod type = temple holder = ROOT }
+#				}
+#			}
+#			b_wyszogrod = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_galloway }
+#			c_galloway = {
+#				location = {
+#					set_province_flag = relit_eternal_flame
+#					build_holding = { title = b_whithorn type = temple holder = ROOT }
+#				}
+#			}
+#			b_whithorn = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		else_if = { 
+#			limit = { has_character_flag = restore_flame_uppland }
+#			c_uppland = {
+#				set_province_flag = relit_eternal_flame
+#				location = { build_holding = { title = b_uppsala type = temple holder = ROOT } }
+#			}
+#			b_uppsala = { 
+#				add_building = tp_eternal_flame
+#				save_event_target_as = relit_flame
+#			}
+#		}
+#		religion_authority = { modifier = relit_eternal_flame }
+#		prestige = 1000
+#		add_character_modifier = { name = flame_restorer }
+#		give_nickname = nick_the_everburning
+#		if = {
+#			limit = { NOT = { trait = zealous } }
+#			add_trait = zealous
+#		}
+#		if = {
+#			limit = { NOT = { trait = flametender } }
+#			add_trait = flametender
+#		}
+#		if = {
+#			limit = { NOT = { trait = brave } }
+#			add_trait = brave
+#		}
+#		if = {
+#			limit = { NOT = { trait = claw_of_fafnir } }
+#			add_trait = claw_of_fafnir
+#		}
+#		if = {
+#			limit = { trait = bad_priest_draconic }
+#			remove_trait = bad_priest_draconic
+#		}
+#		death = { death_reason = death_sacrificed }
+#		hidden_tooltip = {
+#			any_player = {
+#				narrative_event = { id = DRAGON.54 }
+#			}
+#		}
+#	}
+#	
+#	option = {
+#		name = EVTOPTB_DRAGON.51
+#		hidden_tooltip = {
+#			clr_character_flag = restore_flame_sjaelland
+#			clr_character_flag = restore_flame_kent
+#			clr_character_flag = restore_flame_plock
+#			clr_character_flag = restore_flame_galloway
+#			clr_character_flag = restore_flame_uppland
+#		}
+#	}
+#}
 
 # Dragon child adopts dragon culture - start
 character_event = {
@@ -10774,5 +11106,45 @@ character_event = {
 			limit = { FROM = { wonder_stage == 1 } }
 			religion_authority = { modifier = built_eternal_flame }
 		}
+	}
+}
+
+# Monthly Purity Update
+character_event = {
+	id = DRAGON.176
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		use_purity_mechanic = yes
+	}
+	
+	immediate = {
+		calculate_purity_gain = yes
+		change_variable = { which = purity_progress which = purity_gain }
+		update_purity_level = yes
+		update_purity_progress_percent = yes
+		update_purity_trait = yes
+	}
+}
+
+# Remove purity on religion change
+character_event = {
+	id = DRAGON.177
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		use_purity_mechanic = no
+		FROM = { use_purity_mechanic = yes }
+	}
+	
+	immediate = {
+		set_variable = { which = purity_level value = 0 }
+		set_variable = { which = purity_progress value = 0 }
+		set_variable = { which = purity_gain value = 0 }
+		set_variable = { which = purity_progress_percent value = 0 }
+		update_purity_to_next = yes
+		clear_purity_trait = yes
 	}
 }

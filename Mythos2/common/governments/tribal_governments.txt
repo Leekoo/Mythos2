@@ -70,11 +70,7 @@ tribal_governments = {
 			mercenary = no
 			holy_order = no
 			NOT = { is_government_potential = order_government }
-			OR = {
-				NOT = { trait = zombie }
-				liege = { government = tribal_government }
-				liege = { government = draconic_tribal_government }
-			}
+			NOT = { trait = zombie }
 		}
 		
 		color = { 92 31 23 }

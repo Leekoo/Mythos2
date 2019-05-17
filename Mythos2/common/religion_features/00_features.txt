@@ -1209,9 +1209,9 @@ religion_doctrine = {
 		trigger = {
 			NOR = {
 				has_selected_religion_feature = religion_peaceful
-				has_selected_religion_feature = religion_defensive
+				# has_selected_religion_feature = religion_defensive # Now compatible
 				has_selected_religion_feature = religion_feature_aztec #Redundant
-				has_selected_religion_feature = religion_feature_tengri
+				has_selected_religion_feature = religion_feature_tengri # Now compatible
 			}
 		}
 		effect = {
@@ -1553,6 +1553,14 @@ religion_doctrine = {
 				set_psc_marriage = yes
 				set_cousin_marriage = yes
 				set_divine_blood = yes
+				set_unit_modifier = {
+					levy_size = 0.3
+					
+					heavy_infantry_offensive = 0.2
+					heavy_infantry_defensive = 0.2
+					
+					key = "OFF_RELIGION"
+				}
 			}
 		}
 		ai_will_do = {

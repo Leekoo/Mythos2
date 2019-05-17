@@ -349,12 +349,12 @@ strait_crossing = {
 	icon = 3
 	archers_defensive = -0.15
 	light_infantry_defensive = -0.15
-	zombie_troops_defensive = -0.2
-	pikemen_defensive = -0.2
-	heavy_infantry_defensive = -0.2
-	light_cavalry_defensive = -0.172
-	knights_defensive = -0.2
-	horse_archers_defensive = -0.172
+	zombie_troops_defensive = -0.3
+	pikemen_defensive = -0.3
+	heavy_infantry_defensive = -0.3
+	light_cavalry_defensive = -0.2
+	knights_defensive = -0.3
+	horse_archers_defensive = -0.2
 	lycan_berzerkers_defensive = -0.2
 	vampires_defensive = -0.3
 	zombie_troops_defensive = -0.15
@@ -365,16 +365,16 @@ strait_crossing = {
 	archers_offensive = -0.1
 	light_infantry_offensive = -0.15
 	zombie_troops_offensive = -0.2
-	pikemen_offensive = -0.2
-	heavy_infantry_offensive = -0.2
-	light_cavalry_offensive = -0.172
-	knights_offensive = -0.2
-	horse_archers_offensive = -0.125
+	pikemen_offensive = -0.3
+	heavy_infantry_offensive = -0.3
+	light_cavalry_offensive = -0.2
+	knights_offensive = -0.3
+	horse_archers_offensive = -0.2
 	lycan_berzerkers_offensive = -0.2
 	vampires_offensive = -0.3
-	einherjar_offensive = -0.1
+	einherjar_offensive = -0.2
 	fire_giants_offensive = -0.3
-	frost_giants_offensive = 0.1
+	frost_giants_offensive = 0.2
 	golems_offensive = -0.2
 }
 
@@ -410,46 +410,43 @@ amphibious_landing = {
 
 defenderbonus_mountain = {
 	icon = 1
-	archers_defensive = 0.3
-	light_infantry_defensive = 0.1
-	pikemen_defensive = 0.2
-	heavy_infantry_defensive = 0.1
-	horse_archers_defensive = 0.25
+	archers_defensive = 1.0
+	light_infantry_defensive = 1.0
+	pikemen_defensive = 0.5
+	heavy_infantry_defensive = 0.5
 	dragon_cavalry_defensive = 0.2
-	fire_giants_defensive = 0.1
-	golems_defensive = 0.1
+	fire_giants_defensive = 0.2
+	golems_defensive = 0.2
 
-	archers_offensive = 0.2
-	pikemen_offensive = 0.1
-	horse_archers_offensive = 0.15
+	archers_offensive = 0.5
+	light_infantry_offensive = 1.0
 	dragon_cavalry_offensive = 0.2
 }
 
 defenderbonus_hills = {
 	icon = 1
-	archers_defensive = 0.2
-	pikemen_defensive = 0.1
+	archers_defensive = 0.5
+	light_infantry_defensive = 0.3
+	pikemen_defensive = 0.2
+	heavy_infantry_defensive = 0.2
 	horse_archers_defensive = 0.15
-	dragon_cavalry_defensive = 0.15
-	fire_giants_defensive = 0.1
-	golems_defensive = 0.1
+	light_cavalry_defensive = 0.15
 
-	archers_offensive = 0.15
-	pikemen_offensive = 0.05
+	archers_offensive = 0.2
+	pikemen_offensive = 0.1
 	horse_archers_offensive = 0.10
-	dragon_cavalry_offensive = 0.15
 }
 
 defenderbonus_jungle = {
 	icon = 1
 	archers_defensive = 0.3
-	light_infantry_defensive = 0.1
+	light_infantry_defensive = 0.5
 	zombie_troops_defensive = 0.1
 	pikemen_defensive = 0.2
 	heavy_infantry_defensive = 0.1
 	horse_archers_defensive = -0.25
 
-	light_infantry_offensive = 0.1
+	light_infantry_offensive = 0.5
 	zombie_troops_offensive = 0.1
 	heavy_infantry_offensive = 0.1
 	pikemen_offensive = 0.1
@@ -458,8 +455,27 @@ defenderbonus_jungle = {
 
 defenderbonus_forest = { 
 	icon = 1
-	lycan_berzerkers_offensive = 0.3
-	lycan_berzerkers_defensive = 0.3
+	archers_defensive = 0.3
+	light_infantry_defensive = 0.3
+	pikemen_defensive = 0.1
+	heavy_infantry_defensive = 0.1
+	lycan_berzerkers_defensive = 0.5
+	
+	light_infantry_offensive = 0.3
+	heavy_infantry_offensive = 0.1
+	pikemen_offensive = 0.1
+	lycan_berzerkers_offensive = 0.5
+}
+
+defenderbonus_desert = {
+	icon = 1
+	horse_archers_defensive = 0.15
+	light_cavalry_defensive = 0.15
+	camel_cavalry_defensive = 0.50
+
+	horse_archers_offensive = 0.15
+	light_cavalry_offensive = 0.15
+	camel_cavalry_offensive = 0.50
 }
 
 ##########################################################################

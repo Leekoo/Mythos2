@@ -597,6 +597,10 @@ character_event = {
 		random = {
 			chance = 20
 			modifier = {
+				factor = 1.5
+				any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+			}
+			modifier = {
 				factor = 2
 				father_even_if_dead = { trait = werewolf }
 				is_father_real_father = yes
@@ -882,15 +886,11 @@ letter_event = {
 			factor = 30
 			modifier = {
 				factor = 2
-				OR = {
-					religion_group = christian
-					religion_group = muslim
-					religion_group = jewish_group
-				}
+				high_werewolf_turn_resistance = yes
 			}
 			modifier = {
 				factor = 1.5
-				religion_group = pagan_group
+				low_werewolf_turn_resistance = yes
 			}
 			modifier = {
 				factor = 2
@@ -1094,6 +1094,7 @@ character_event = {
 	border = GFX_event_normal_frame_war
 	
 	is_triggered_only = yes
+	capable_only = yes
 	
 	trigger = {
 		trait = werewolf
@@ -4947,18 +4948,34 @@ character_event = {
 		decrease_control = yes
 		random_courtier = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_courtier = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_vassal = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_vassal = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 	}
@@ -5323,6 +5340,22 @@ character_event = {
 	immediate = {
 		FROM = {
 			character_event = { id = WEREWOLF.97 }
+		}
+	}
+}
+
+# WEREWOLF.103 - Found new noble werewolf clan
+character_event = {
+	id = WEREWOLF.103
+	desc = EVTDESC_WEREWOLF.103
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_WEREWOLF.103
+		create_bloodline = {
+			type = BL_werewolf_nobility
 		}
 	}
 }

@@ -270,9 +270,10 @@ zombie = {
 		speed = -0.2
 	}
 	
-	ai_rationality = -100
+	ai_rationality = -50
 	ai_honor = -100
-	ai_ambition = 100
+	ai_ambition = 50
+	ai_bravery = -20
 	ai_zeal = 100
 	
 	customizer = no
@@ -329,7 +330,7 @@ dragon = {
 	stewardship = 2
 	martial = 2
 	health = 10
-	fertility = -0.3 # To make up for longevity
+	fertility = -0.2 # To make up for longevity
 	
 	combat_rating = 30
 	
@@ -1224,8 +1225,24 @@ ascetic = {
 }
 
 # Hunger mechanic for Vampires
+hunger_0 = {
+	opposites = {
+		hunger_1
+		hunger_2
+		hunger_3
+		hunger_4
+		hunger_5
+	}
+	potential = {
+		trait = vampire
+	}
+	
+	hidden_from_others = yes
+	customizer = no
+}
 hunger_1 = {
 	opposites = {
+		hunger_0
 		hunger_2
 		hunger_3
 		hunger_4
@@ -1245,6 +1262,7 @@ hunger_1 = {
 }
 hunger_2 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_3
 		hunger_4
@@ -1264,6 +1282,7 @@ hunger_2 = {
 }
 hunger_3 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_4
@@ -1283,6 +1302,7 @@ hunger_3 = {
 }
 hunger_4 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_3
@@ -1302,6 +1322,7 @@ hunger_4 = {
 }
 hunger_5 = {
 	opposites = {
+		hunger_0
 		hunger_1
 		hunger_2
 		hunger_3

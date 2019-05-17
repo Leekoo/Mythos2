@@ -242,7 +242,7 @@ character_event = {
 				is_alive = yes
 			}
 		}
-		random_child = {
+		any_child = {
 			limit = {
 				age = 14
 				is_female = no
@@ -252,6 +252,10 @@ character_event = {
 				NOT = { health_traits = 1 }
 				is_alive = yes
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			prestige = 10
 			opinion = {
 				modifier = opinion_flattered
@@ -594,10 +598,14 @@ character_event = {
 			add_trait = wounded
 			hidden_tooltip = { character_event = { id = 38280 } }
 		}
-		random_vassal = {
+		any_vassal = {
 			limit = {
 				trait = diligent
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
 			reverse_opinion = {
 				modifier = opinion_my_saviour
 				who = ROOT
@@ -618,11 +626,15 @@ character_event = {
 			add_trait = wounded
 			hidden_tooltip = { character_event = { id = 38280 } }
 		}
-		random_courtier = {
+		any_courtier = {
 			limit = {
 				trait = ambitious
 				trait = wroth
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+        		interesting_courtier_selection_score = yes
+	        }
 			reverse_opinion = {
 				modifier = opinion_fool_courtier
 				who = ROOT
@@ -1346,44 +1358,14 @@ character_event = {
 			has_religion_feature = religion_cosmopolitan
 		}
 	
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			learning = 10
-		}
-		modifier = {
-			factor = 1.25
-			learning = 11
-		}
-		modifier = {
-			factor = 1.25
-			learning = 12
-		}
-		modifier = {
-			factor = 1.25
-			learning = 13
-		}
+		job_event_mtth_modifier_inverted_learning_score = yes
+		
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.4 }
 		}
 		modifier = {
-			factor =0.75
+			factor = 0.75
 			NOT = { religion_authority = 0.2 }
 		}
 		modifier = {
@@ -1450,38 +1432,8 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 	
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			learning = 10
-		}
-		modifier = {
-			factor = 1.25
-			learning = 11
-		}
-		modifier = {
-			factor = 1.25
-			learning = 12
-		}
-		modifier = {
-			factor = 1.25
-			learning = 13
-		}
+		job_event_mtth_modifier_inverted_learning_score = yes
+		
 		modifier = {
 			factor = 0.75
 			NOT = { religion_authority = 0.4 }
@@ -1589,38 +1541,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 		
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 10
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 11
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 12
-		}
-		modifier = {
-			factor = 1.25
-			intrigue = 13
-		}
+		job_event_mtth_modifier_inverted_intrigue_score = yes
 	}
 	
 	option = {
@@ -1750,38 +1671,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 240
 	
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 5 }
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 10
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 11
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 12
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 13
-		}
+		job_event_mtth_modifier_inverted_stewardship_score = yes
 		modifier = {
 			factor = 0.5
 			location = {
@@ -1928,22 +1818,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 500
 		
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 2 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 3 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 4 }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { stewardship = 5 }
-		}
+		job_event_mtth_modifier_inverted_stewardship_score = yes
 		modifier = {
 			factor = 0.75
 			location = { has_province_modifier = depopulated_1 }
@@ -1955,26 +1830,6 @@ character_event = {
 		modifier = {
 			factor = 0.25
 			location = { has_province_modifier = depopulated_3 }
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 9
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 10
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 11
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 12
-		}
-		modifier = {
-			factor = 1.25
-			stewardship = 13
 		}
 	}
 	

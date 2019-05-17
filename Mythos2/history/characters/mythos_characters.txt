@@ -27,6 +27,8 @@
 	religion="satanist"
 	culture="romanian"
 	trait="vampire"
+	trait="secret_vampire"
+	trait="hunger_0"
 	trait="impaler"
 	trait="patient"
 	trait="quick"
@@ -96,6 +98,9 @@
 	1.1.1 = {
 		birth="1.1.1"
 		effect = { set_character_flag = checked_race }
+		create_bloodline = {
+			type = BL_ramesis
+		}
 	}
 }	
 268290 = {
@@ -2966,6 +2971,7 @@
 	religion=sunni
 	culture=bedouin_arabic
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=elusive_shadow
 	trait=seductress
@@ -2989,6 +2995,7 @@
 	religion=sunni
 	culture=bedouin_arabic
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=elusive_shadow
 	trait=schemer
@@ -3011,6 +3018,7 @@
 	religion=slavic_pagan
 	culture=serbian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	immortal_age=45
 	dna="cjefg0ha000"
@@ -3030,6 +3038,7 @@
 	religion=catholic
 	culture=scottish
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	immortal_age=20
 	1020.1.1={
@@ -3057,6 +3066,7 @@
 	culture=greek
 	employer=1732
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	immortal_age=20
 	1061.1.1={
@@ -3086,6 +3096,7 @@
 	1173.1.1={
 		# "Death"
 		add_trait=vampire
+		add_trait="hunger_0"
 		add_trait=secret_vampire
 	}
 	1269.1.1={
@@ -3100,6 +3111,7 @@
 	culture=german
 	employer=212513
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=homosexual
 	trait=elusive_shadow
@@ -3122,6 +3134,7 @@
 	culture=ashkenazi
 	employer=462736
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=elusive_shadow
 	1312.1.1={
@@ -3136,6 +3149,7 @@
 	religion=slavic_pagan
 	culture=pommeranian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=elusive_shadow
 	immortal_age=20
@@ -3157,6 +3171,7 @@
 	religion=slavic_pagan
 	culture=pommeranian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=brilliant_strategist
 	immortal_age=45
@@ -3176,6 +3191,7 @@
 	religion=slavic_pagan
 	culture=pommeranian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=flamboyant_schemer
 	immortal_age=27
@@ -3200,6 +3216,7 @@
 	religion=catholic
 	culture=pommeranian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=scholarly_theologian
 	immortal_age=33
@@ -3218,6 +3235,7 @@
 	religion=catholic
 	culture=pommeranian
 	trait=vampire
+	trait="hunger_0"
 	trait=secret_vampire
 	trait=intricate_webweaver
 	immortal_age=16
@@ -3249,7 +3267,10 @@
 	immortal_age=35
 	720.1.1={
 		birth=720.1.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	768.12.31={
 		effect = {
@@ -3305,7 +3326,10 @@
 	immortal_age=35
 	811.1.1={
 		birth=831.1.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	866.12.31={
 		effect = {
@@ -3361,7 +3385,10 @@
 	immortal_age=40
 	1020.1.1={
 		birth=1020.1.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	1065.12.31={
 		effect = {
@@ -3417,7 +3444,10 @@
 	immortal_age=24
 	1064.1.1={
 		birth=1064.1.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	1080.12.31={
 		effect = {
@@ -3473,7 +3503,10 @@
 	immortal_age=55
 	1180.1.1={
 		birth=1180.1.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	1240.12.31={
 		effect = {
@@ -3526,7 +3559,10 @@
 	trait=inspiring_leader
 	1302.11.1={
 		birth=1302.11.1
-		effect = { set_character_flag = checked_race }
+		effect = { 
+			set_character_flag = checked_race
+			set_government_type = zombie_horde
+		}
 	}
 	1336.12.31={
 		effect = {
@@ -3577,9 +3613,11 @@
 	immortal_age=30
 	770.3.13={
 		birth=1.3.13 # Will the game lie for me?
-		effect = { set_global_flag = ramesses_reborn }
 		give_nickname = nick_ozymandias
-		effect = { set_character_flag = checked_race }
+		effect = {
+			set_global_flag = ramesses_reborn
+			set_character_flag = checked_race
+		}
 	}
 }
 268453={
@@ -4085,7 +4123,6 @@
 	culture = greek
 	employer=268400
 	father=268400
-	immortal_age = 40
 	trait = god
 	trait = intricate_webweaver
 	trait = charitable
@@ -4100,6 +4137,7 @@
 		create_bloodline = {
 			type = BL_blood_of_olympus
 		}
+		immortal_age = 40
 	}
 	17.1.1={
 		add_spouse=268401
@@ -4114,7 +4152,6 @@
 	employer=268400
 	father=268401
 	mother=268472
-	immortal_age = 30
 	trait = just
 	trait = god
 	trait = quick
@@ -4130,6 +4167,7 @@
 		create_bloodline = {
 			type = BL_blood_of_hades
 		}
+		immortal_age = 30
 	}
 }
 268474={
@@ -4141,7 +4179,6 @@
 	employer=268400
 	father=268401
 	mother=268472
-	immortal_age=40
 	trait = brave
 	trait = envious
 	trait = proud
@@ -4159,6 +4196,7 @@
 		create_bloodline = {
 			type = BL_blood_of_poseidon
 		}
+		immortal_age=40
 	}
 }
 268475={
@@ -4169,7 +4207,6 @@
 	culture = greek
 	employer=268400
 	father=268400
-	immortal_age=20
 	trait = fair
 	trait = seductress
 	trait = kind
@@ -4188,6 +4225,7 @@
 		create_bloodline = {
 			type = BL_blood_of_aphrodite
 		}
+		immortal_age=20
 	}
 }
 268476={
@@ -4199,7 +4237,6 @@
 	employer=268400
 	father=268401
 	mother=268472
-	immortal_age = 40
 	trait = elusive_shadow
 	trait = god
 	trait = envious
@@ -4211,6 +4248,7 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age = 40
 	}
 	36.1.1={
 		add_spouse=268477
@@ -4225,7 +4263,6 @@
 	employer=268400
 	father=268401
 	mother=268472
-	immortal_age = 40
 	trait = god
 	trait = brave
 	trait = just
@@ -4244,6 +4281,7 @@
 		create_bloodline = {
 			type = BL_blood_of_zeus
 		}
+		immortal_age = 40
 	}
 	36.1.1={
 		add_spouse=268476
@@ -4256,7 +4294,6 @@
 	religion = hellenic_pagan
 	culture = greek
 	father=268477
-	immortal_age = 25
 	trait = god
 	trait = kind
 	trait = temperate
@@ -4277,6 +4314,7 @@
 			type = BL_blood_of_athena
 		}
 		employer=268477
+		immortal_age = 25
 	}
 }
 268479={
@@ -4287,7 +4325,6 @@
 	culture = greek
 	father=268477
 	mother=268476
-	immortal_age = 30
 	trait = god
 	trait = brave
 	trait = stubborn
@@ -4308,6 +4345,7 @@
 		create_bloodline = {
 			type = BL_blood_of_ares
 		}
+		immortal_age = 30
 	}
 }
 268480={
@@ -4317,7 +4355,6 @@
 	religion = hellenic_pagan
 	culture = greek
 	father=268477
-	immortal_age = 20
 	trait = god
 	trait = midas_touched
 	trait = fair
@@ -4342,6 +4379,7 @@
 		create_bloodline = {
 			type = BL_blood_of_hermes
 		}
+		immortal_age = 20
 	}
 }
 268481={
@@ -4351,7 +4389,6 @@
 	religion = hellenic_pagan
 	culture = greek
 	father=268480 # Sometimes listed as a son of Zeus, Cronos, or Aegipan instead
-	immortal_age = 20
 	trait = god
 	trait = hedonist
 	trait = charismatic_negotiator
@@ -4368,6 +4405,7 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age = 20
 	}
 }
 268482={
@@ -4376,7 +4414,6 @@
 	religion = hellenic_pagan
 	culture = greek
 	employer=268400
-	immortal_age = 25
 	trait=charismatic_negotiator
 	trait = god
 	trait=fair
@@ -4389,6 +4426,7 @@
 		create_bloodline = {
 			type = BL_blood_of_olympus
 		}
+		immortal_age = 25
 	}
 }
 	
@@ -4400,7 +4438,6 @@
 	culture = greek
 	father=268477
 	mother=268482
-	immortal_age = 20
 	trait = charismatic_negotiator
 	trait = god
 	trait = physician
@@ -4421,6 +4458,7 @@
 		create_bloodline = {
 			type = BL_blood_of_apollo
 		}
+		immortal_age = 20
 	}
 }
 268484={
@@ -4431,7 +4469,6 @@
 	culture = greek
 	father=268477
 	mother=268482
-	immortal_age = 20
 	trait = god
 	trait = chaste
 	trait = hunter
@@ -4452,6 +4489,7 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age = 20
 	}
 }
 
@@ -4462,7 +4500,6 @@
 	religion=norse_pagan
 	culture=norse
 	employer=268305
-	immortal_age = 50
 	trait = god
 	trait = genius
 	trait = brave
@@ -4482,6 +4519,7 @@
 		create_bloodline = {
 			type = BL_blood_of_odin
 		}
+		immortal_age = 50
 	}
 	330.1.1={
 		add_spouse=268489
@@ -4494,7 +4532,6 @@
 	dna="0i0i00hbe00"
 	religion=norse_pagan
 	culture=norse
-	immortal_age = 30
 	trait = god
 	trait = brave
 	trait = just
@@ -4514,6 +4551,7 @@
 		create_bloodline = {
 			type = BL_blood_of_thor
 		}
+		immortal_age = 30
 	}
 	428.1.1={
 		add_spouse=268495
@@ -4526,7 +4564,6 @@
 	dynasty=1049009
 	religion = norse_pagan # Might convert to Jotun later by event or through his wife
 	culture = norse
-	immortal_age = 25
 	trait = god
 	trait = mythos_giant
 	trait = cynical
@@ -4547,6 +4584,7 @@
 		create_bloodline = {
 			type = BL_blood_of_loki
 		}
+		immortal_age = 25
 	}
 }
 268488={
@@ -4574,6 +4612,7 @@
 			set_graphical_culture = horse
 		}
 		employer=268485
+		immortal_age = 18
 	}
 }
 268489={
@@ -4583,7 +4622,6 @@
 	employer=268485
 	religion=norse_pagan
 	culture=norse
-	immortal_age=25
 	trait = god
 	trait = mystic
 	trait = mastermind_theologian
@@ -4599,6 +4637,7 @@
 		create_bloodline = {
 			type = BL_blood_of_asgard
 		}
+		immortal_age=25
 	}
 	330.1.1={
 		add_spouse=268485
@@ -4610,7 +4649,6 @@
 	dynasty = 1049008
 	religion=norse_pagan
 	culture=norse
-	immortal_age=25
 	trait = god
 	trait = seductress
 	trait = fair
@@ -4628,6 +4666,7 @@
 		create_bloodline = {
 			type = BL_blood_of_njorthr
 		}
+		immortal_age=25
 	}
 }
 268491={
@@ -4636,7 +4675,6 @@
 	dynasty = 1049006
 	religion=norse_pagan
 	culture=norse
-	immortal_age=35
 	trait = god
 	trait = midas_touched
 	trait = patient
@@ -4656,6 +4694,7 @@
 		create_bloodline = {
 			type = BL_blood_of_heimdal
 		}
+		immortal_age=35
 	}
 }
 268492={
@@ -4666,7 +4705,6 @@
 	mother=268489
 	religion=norse_pagan
 	culture=norse
-	immortal_age=20
 	trait = god
 	trait = fair
 	trait = quick
@@ -4681,9 +4719,12 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age=20
+		employer=268485
 	}
 	439.1.1={
 		add_spouse=268493
+		employer=268485
 	}
 }
 268493={
@@ -4692,7 +4733,6 @@
 	dynasty = 1049010
 	religion=norse_pagan
 	culture=norse
-	immortal_age=20
 	trait = god
 	trait = temperate
 	trait = just
@@ -4707,9 +4747,11 @@
 		create_bloodline = {
 			type = BL_blood_of_asgard
 		}
+		immortal_age=20
 	}
 	439.1.1={
 		add_spouse=268492
+		employer=268485
 	}
 }
 268494={
@@ -4719,7 +4761,6 @@
 	father=268485
 	religion=norse_pagan
 	culture=norse
-	immortal_age=30
 	trait = god
 	trait = poet
 	trait = grey_eminence
@@ -4733,6 +4774,7 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age=30
 	}
 }
 268495={
@@ -4743,7 +4785,6 @@
 	religion=norse_pagan
 	culture=norse
 	trait = god
-	immortal_age=18
 	412.1.1={
 		birth=yes
 		effect = {
@@ -4755,6 +4796,7 @@
 		create_bloodline = {
 			type = BL_blood_of_sif
 		}
+		immortal_age=18
 	}
 	428.1.1={
 		add_spouse=268486
@@ -4767,7 +4809,6 @@
 	dynasty = 1049006
 	religion=norse_pagan
 	culture=norse
-	immortal_age=18
 	trait = god
 	trait = just
 	trait = brave
@@ -4788,6 +4829,7 @@
 		create_bloodline = {
 			type = BL_blood_of_tyr
 		}
+		immortal_age=18
 	}
 }
 268497={
@@ -4816,6 +4858,7 @@
 	}
 	736.1.1={
 		add_spouse=268487
+		employer=268485
 	}
 }
 268498={
@@ -4829,7 +4872,6 @@
 	trait = half_giant
 	trait = elusive_shadow
 	trait = stubborn
-	immortal_age=70
 	752.1.1={
 		birth=yes
 		effect = {
@@ -4837,6 +4879,8 @@
 			set_character_flag=ai_flag_refuse_conversion
 			set_character_flag=checked_race
 		}
+		immortal_age=70
+		employer=268485
 	}
 }
 268499={
@@ -4855,7 +4899,6 @@
 	trait=humble
 	trait=content
 	trait=gregarious
-	immortal_age=40
 	18.1.1={
 		birth=yes
 		effect = {
@@ -4864,5 +4907,110 @@
 			set_character_flag=checked_race
 		}
 		create_bloodline = { type = BL_blood_of_hestia }
+		immortal_age=40
+	}
+}
+
+268500 = {
+	# Skrýmir Útgar?a-Loki
+	name = Skrýmir
+	female=no
+	dynasty=1049431
+	religion=jotnar
+	culture=jotunn
+	diplomacy = 6
+	martial = 6
+	intrigue = 8
+	stewardship = 4
+	learning = 7
+	trait = mythos_giant
+	trait = veteran_wizard
+	trait = enchanter
+	trait = quick
+	trait = proud
+	trait = size_3
+	disallow_random_traits=yes
+	823.1.1={
+		birth = yes
+		create_bloodline = { type = BL_of_utgardr_loki }
+		employer=280020
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268501={
+	name = "Logi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = skilled_tactician
+	trait = duelist
+	trait = lustful
+	trait = aggressive_leader
+	trait = size_1
+	disallow_random_traits=yes
+	846.1.1={
+		birth=yes
+		employer=280020
+	}
+	865.1.2={
+		employer=268500
+		give_nickname = nick_the_cleansing_flame
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268502={
+	name="Hugi"
+	female=no
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = genius
+	trait = mastermind_theologian
+	trait = gamer
+	trait = trickster
+	trait = size_1
+	840.1.1={
+		birth=yes
+		employer=280020
+	}
+	845.1.2={
+		employer=268500
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
+	}
+}
+268503={
+	name="Elli"
+	female=yes
+	religion=jotnar
+	culture=jotunn
+	trait = mythos_giant
+	trait = immortal
+	trait = size_9
+	trait = cannot_marry
+	770.1.1={
+		birth=yes
+		employer=280020
+		effect = {
+			set_character_flag = ai_flag_refuse_marriage
+			set_character_flag = ai_flag_refuse_concubinage
+			set_character_flag = cannot_marry
+			set_character_flag = no_court_invites
+			will_not_marry_effect = yes
+		}
+		immortal_age = 70
+	}
+	845.1.2={
+		employer=268500
+		give_nickname = nick_the_old
+	}
+	916.1.1={
+		death = { death_reason = death_vanished }
 	}
 }

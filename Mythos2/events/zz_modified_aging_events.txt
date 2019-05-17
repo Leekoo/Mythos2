@@ -66,7 +66,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_courtier = {
+		any_courtier = {
 			limit = {
 				is_female = yes
 				prisoner = no
@@ -87,6 +87,10 @@ character_event = {
 				is_ill = no
 				has_lover = no
 			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+	            value = 10
+	            interesting_courtier_selection_score = yes
+	        }
 			save_event_target_as = target_lover
 		}
 	}
@@ -1846,7 +1850,7 @@ character_event = {
 	
 	immediate = {
 		liege = {
-			random_courtier = {
+			any_courtier = {
 				limit = {
 					is_ruler = no
 					has_lover = no
@@ -1931,6 +1935,10 @@ character_event = {
 						}
 					}
 				}
+				score_value = { #Prioritizes selecting an interesting courtier...
+		            value = 10
+		            interesting_courtier_selection_score = yes
+		        }
 				
 				character_event = { id = 457 }
 			}
@@ -3058,11 +3066,15 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = { 
 							has_character_flag = guest_feast_started
 							war = no
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72020 days = 3 }
 					}
 				}
@@ -3077,11 +3089,15 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = { 
 							has_character_flag = guest_feast_started
 							war = no
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72021 days = 3 }
 					}
 				}
@@ -3096,11 +3112,15 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = { 
 							has_character_flag = guest_feast_started
 							war = no
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72022 days = 3 }
 					}
 				}
@@ -3233,7 +3253,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							war = no
 							has_character_flag = guest_feast_started
@@ -3246,6 +3266,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72050 days = 10 }
 					}
 				}
@@ -3314,7 +3338,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3358,6 +3382,10 @@ character_event = {
 						}
 						character_event = { id = 72030 days = 10 }
 					}
+					score_value = { #Prioritizes selecting an interesting courtier...
+						value = 10
+						interesting_courtier_selection_score = yes
+					}
 				}
 				10 = { #Late night talk become friends 1 (vassal)
 					modifier = {
@@ -3399,7 +3427,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3434,6 +3462,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72025 days = 10 }
 					}
 				}
@@ -3484,7 +3516,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3526,6 +3558,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72027 days = 10 }
 					}
 				}
@@ -3586,7 +3622,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							war = no
 							has_character_flag = guest_feast_started
@@ -3614,6 +3650,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72055 days = 14 }
 					}
 				}
@@ -3636,7 +3676,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3650,6 +3690,10 @@ character_event = {
 								has_character_modifier = holding_large_feast
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72045 days = 14 }
 					}
 				}
@@ -3679,7 +3723,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3700,6 +3744,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72046 days = 14 }
 					}
 				}
@@ -3723,7 +3771,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3738,6 +3786,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72048 days = 14 }
 					}
 				}
@@ -3860,7 +3912,7 @@ character_event = {
 							}
 						}
 					}
-					random_vassal = {
+					any_vassal = {
 						limit = {
 							is_adult = yes
 							war = no
@@ -3911,6 +3963,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72040 days = 14 }
 					}
 				}
@@ -3998,7 +4054,7 @@ character_event = {
 							}
 						}
 					}
-					random_realm_character = {
+					any_realm_character = {
 						limit = {
 							OR = {
 								character = ROOT
@@ -4077,6 +4133,10 @@ character_event = {
 								}
 							}
 						}
+						score_value = { #Prioritizes selecting an interesting courtier...
+				            value = 10
+				            interesting_courtier_selection_score = yes
+				        }
 						character_event = { id = 72090 days = 14 }
 					}
 				}
@@ -4579,7 +4639,7 @@ character_event = {
 			break = yes
 		}
 		
-		random_courtier = {
+		any_courtier = {
 			limit = {
 				is_pregnant = no
 				prisoner = no
@@ -4615,6 +4675,10 @@ character_event = {
 				}
 				
 				is_valid_romance_target = ROOT
+			}
+			score_value = { #Prioritizes selecting an interesting courtier...
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			character_event = { id = 450 }
 		}

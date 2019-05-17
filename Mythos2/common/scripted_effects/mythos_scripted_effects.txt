@@ -284,6 +284,50 @@ count_undead_vices = {
 	if = {	limit = { trait = craven } change_variable = { which = num_vices value = 1 } }
 }
 
+count_draconic_human_domination_virtues = {
+	set_variable = { which = num_virtues value = 0 }
+	if = {	limit = { trait = temperate } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = charitable } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = diligent } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = humble } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = content } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = honest } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = shy } change_variable = { which = num_virtues value = 1 } }
+}
+
+count_draconic_human_domination_vices = {
+	set_variable = { which = num_vices value = 0 }
+	if = {	limit = { trait = gluttonous } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = greedy } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = slothful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = proud } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = ambitious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = deceitful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = gregarious } change_variable = { which = num_vices value = 1 } }
+}
+
+count_draconic_human_extermination_virtues = {
+	set_variable = { which = num_virtues value = 0 }
+	if = {	limit = { trait = chaste } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = humble } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = slothful } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = content } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = craven } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = shy } change_variable = { which = num_virtues value = 1 } }
+	if = {	limit = { trait = trusting } change_variable = { which = num_virtues value = 1 } }
+}
+
+count_draconic_human_extermination_vices = {
+	set_variable = { which = num_vices value = 0 }
+	if = {	limit = { trait = lustful } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = proud } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = diligent } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = ambitious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = brave } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = gregarious } change_variable = { which = num_vices value = 1 } }
+	if = {	limit = { trait = paranoid } change_variable = { which = num_vices value = 1 } }
+}
+
 count_personal_virtues = {
 	if = {
 		limit = {
@@ -326,6 +370,18 @@ count_personal_virtues = {
 			use_undead_vice_virtue = yes
 		}
 		count_undead_virtues = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_domination_vice_virtue = yes
+		}
+		count_draconic_human_domination_virtues = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_extermination_vice_virtue = yes
+		}
+		count_draconic_human_extermination_virtues = yes
 	}
 	else = {
 		#limit = {
@@ -378,609 +434,24 @@ count_personal_vices = {
 		}
 		count_undead_vices = yes
 	}
+	else_if = {
+		limit = {
+			use_draconic_human_domination_vice_virtue = yes
+		}
+		count_draconic_human_domination_vices = yes
+	}
+	else_if = {
+		limit = {
+			use_draconic_human_extermination_vice_virtue = yes
+		}
+		count_draconic_human_extermination_vices = yes
+	}
 	else = {
 		#limit = {
 		#	use_christian_vice_virtue = yes
 		#}
 		count_vices = yes
 	}
-}
-
-determine_purity = {
-	set_variable = { which = purity value = 0 }
-	if = {
-		limit = {
-			OR = {
-				religion = draconic_pagan
-				AND = {
-					religion = draconic_pagan_reformed
-					trait = dragon
-				}
-			}
-		}
-		if = {
-			limit = { wealth = 200 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 400 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 800 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 1600 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 3200 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 6400 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { wealth = 12800 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 2000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 4000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 8000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 5000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 10000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { has_landed_title = k_draconic_pagan_reformed }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = flametender }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				any_realm_province = { has_building = tp_eternal_flame }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = god }
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = { trait = demi_god }
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				trait = blood_of_the_gods
-				any_owned_bloodline = { has_bloodline_flag = BOTG }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { tier = emperor }
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = { tier = king }
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				OR = {
-					tier = count
-					tier = duke
-				}
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				any_spouse = {
-					NOT = { trait = dragon }
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -3 }
-		}
-		if = {
-			limit = {
-				NOT = { trait = dragon }
-				any_spouse = {
-					trait = dragon
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				OR = {
-					any_lover = {
-						NOT = { trait = dragon }
-					}
-					any_consort = {
-						NOT = { trait = dragon }
-					}
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				NOT = { trait = dragon }
-				OR = {
-					any_lover = {
-						trait = dragon
-					}
-					any_consort = {
-						trait = dragon
-					}
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = {
-				trait = dragon
-				current_heir = {
-					NOT = { trait = dragon }
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dragonborn }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { 
-				NOR = {
-					trait = dragonborn
-					trait = dragon
-				}
-				total_years_played = 1 # Some characters don't have right traits at start
-			}
-			change_variable = { which = purity value = -10 }
-		}
-		if = {
-			limit = { NOT = { wealth = 0 } }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { character_disease_trigger = yes }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = clubfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = quailfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = harelip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = cleft_lip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = hunchback }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = twisted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = lisp }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = stutter }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = ugly }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dwarf }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = slow }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = imbecile }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = inbred }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = weak }
-			change_variable = { which = purity value = -1 }
-		}
-	}
-	if = {
-		limit = {
-			NOT = { trait = dragon }
-			religion = draconic_pagan_reformed
-		}
-		if = {
-			limit = { prestige = 2500 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 5000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 10000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 20000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { prestige = 40000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = diligent }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = dragonborn }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				tier = king
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 3 }
-		}
-		else_if = {
-			limit = {
-				tier = duke
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 2 }
-		}
-		else_if = {
-			limit = {
-				tier = count
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				any_liege = { trait = dragon }
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = {
-				has_secret_religion = no
-				is_society_grandmaster = yes
-			}
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { is_voter = yes }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 1000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 2000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { piety = 4000 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = flametender }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { trait = slothful }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = werewolf }
-			change_variable = { which = purity value = -2 }
-		}
-		if = {
-			limit = { is_undead = yes }
-			change_variable = { which = purity value = -4 }
-		}
-		if = {
-			limit = { trait = clubfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = quailfooted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = harelip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = cleft_lip }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = hunchback }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = twisted }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = lisp }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = stutter }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = ugly }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = dwarf }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = slow }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = imbecile }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = inbred }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { trait = weak }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { diplomacy = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { martial = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { stewardship = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { intrigue = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { NOT = { learning = 5 } }
-			change_variable = { which = purity value = -1 }
-		}
-		if = {
-			limit = { diplomacy = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { martial = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { stewardship = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { intrigue = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-		if = {
-			limit = { learning = 20 }
-			change_variable = { which = purity value = 1 }
-		}
-	}
-	# Everyone
-	if = {
-		limit = { has_character_modifier = replaced_impure_flame }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = { has_character_modifier = rebelled_against_religious_head }
-		change_variable = { which = purity value = -3 }
-	}
-	if = {
-		limit = { has_character_modifier = sapphire_flame_blessing }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = { has_character_modifier = potion_of_purity }
-		change_variable = { which = purity value = 1 }
-	}
-	if = {
-		limit = {
-			is_in_society = warrior_lodge_draconic
-			society_rank >= 3
-			NOT = { trait = dragon }
-		}
-		change_variable = { which = purity value = 2 }
-	}
-	if = {
-		limit = { 
-			OR = {
-				has_character_modifier = begger 
-				has_character_modifier = borrowed_from_bank
-			}
-		}
-		change_variable = { which = purity value = -3 }
-	}
-	if = {
-		limit = {
-			independent = yes
-			any_realm_province = { has_wonder_upgrade = upgrade_purification_chambers }
-		}
-		change_variable = { which = purity value = 1 }
-	}
-}
-
-set_purity_trait = {
-	# Set negative purity traits
-	if = { limit = { NOT = { check_variable = { which = purity value = -9 } } }
-		add_trait = purity_minus_10
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -9 } }
-		add_trait = purity_minus_9
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -8 } }
-		add_trait = purity_minus_8
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -7 } }
-		add_trait = purity_minus_7
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -6 } }
-		add_trait = purity_minus_6
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -5 } }
-		add_trait = purity_minus_5
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -4 } }
-		add_trait = purity_minus_4
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -3 } }
-		add_trait = purity_minus_3
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -2 } }
-		add_trait = purity_minus_2
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = -1 } }
-		add_trait = purity_minus_1
-	}
-	# Set positive purity traits
-	else_if = { limit = { is_variable_equal = { which = purity value = 1 } }
-		add_trait = purity_1
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 2 } }
-		add_trait = purity_2
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 3 } }
-		add_trait = purity_3
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 4 } }
-		add_trait = purity_4
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 5 } }
-		add_trait = purity_5
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 6 } }
-		add_trait = purity_6
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 7 } }
-		add_trait = purity_7
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 8 } }
-		add_trait = purity_8
-	}
-	else_if = { limit = { is_variable_equal = { which = purity value = 9 } }
-		add_trait = purity_9
-	}
-	else_if = { limit = { check_variable = { which = purity value = 10 } }
-		add_trait = purity_10
-	}
-}
-
-remove_purity_trait = {
-	remove_trait = purity_1
-	remove_trait = purity_2
-	remove_trait = purity_3
-	remove_trait = purity_4
-	remove_trait = purity_5
-	remove_trait = purity_6
-	remove_trait = purity_7
-	remove_trait = purity_8
-	remove_trait = purity_9
-	remove_trait = purity_10
-	remove_trait = purity_minus_1
-	remove_trait = purity_minus_2
-	remove_trait = purity_minus_3
-	remove_trait = purity_minus_4
-	remove_trait = purity_minus_5
-	remove_trait = purity_minus_6
-	remove_trait = purity_minus_7
-	remove_trait = purity_minus_8
-	remove_trait = purity_minus_9
-	remove_trait = purity_minus_10
-}
-
-clear_purity_ambition_modifiers = {
-	remove_character_modifier = can_ambition_dragon_gold_1
-	remove_character_modifier = can_ambition_dragon_gold_2
-	remove_character_modifier = can_ambition_dragon_gold_3
-	remove_character_modifier = can_ambition_dragon_gold_4
-	remove_character_modifier = can_ambition_dragon_gold_5
-	remove_character_modifier = can_ambition_dragon_gold_6
-	remove_character_modifier = can_ambition_dragon_gold_7
-	remove_character_modifier = can_ambition_dragon_piety_1
-	remove_character_modifier = can_ambition_dragon_piety_2
-	remove_character_modifier = can_ambition_dragon_piety_3
-	remove_character_modifier = can_ambition_pilgrimage
-	remove_character_modifier = can_ambition_clean_marriage
-	remove_character_modifier = can_ambition_clean_love
-	remove_character_modifier = can_ambition_clean_heir
-	remove_character_modifier = can_ambition_human_prestige_1
-	remove_character_modifier = can_ambition_human_prestige_2
-	remove_character_modifier = can_ambition_human_prestige_3
-	remove_character_modifier = can_ambition_human_prestige_4
-	remove_character_modifier = can_ambition_human_prestige_5
-	remove_character_modifier = can_ambition_diligent
-	remove_character_modifier = can_ambition_dragon_prestige_1
-	remove_character_modifier = can_ambition_dragon_prestige_2
 }
 
 clear_vice_virtue_modifiers = {
@@ -9520,3 +8991,536 @@ fix_local_character_culture = {
 		culture = PREV
 	}
 }
+
+update_religion_feature_effects = { # cover combining religion features
+	hidden_tooltip = {
+		if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				has_religion_feature = religion_relentless
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.5
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.2
+				heavy_infantry_defensive = 0.2
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				OR = {
+					has_religion_feature = religion_relentless
+					has_religion_feature = religion_feature_tengri
+				}
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.2
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.1
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_defensive
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = {		
+				garrison_size = 0.3
+				levy_size = 0.5
+				
+				heavy_infantry_offensive = 0.2
+				heavy_infantry_defensive = 0.2
+				
+				key = "OFF_RELIGION"
+			}
+			set_unit_home_modifier = {
+				land_morale = 0.8
+				light_infantry_defensive = 0.8
+				heavy_infantry_defensive = 0.8
+				pikemen_defensive = 0.8
+				light_cavalry_defensive = 0.8
+				knights_defensive = 0.8
+				archers_defensive = 0.8
+				horse_archers_defensive = 0.8
+				camel_cavalry_defensive = 0.8
+				war_elephants_defensive = 0.8
+				
+				garrison_size = 0.4
+				
+				key = "DEF_RELIGION_HOME_TERRITORY"
+			}
+		}
+		else_if = {
+			limit = {
+				has_religion_feature = religion_relentless
+				has_religion_feature = religion_feature_zun
+			}
+			set_unit_modifier = { 
+				light_infantry_offensive = 0.1
+				heavy_infantry_offensive = 0.3
+				heavy_infantry_defensive = 0.2
+				light_cavalry_offensive = 0.1 
+				knights_offensive = 0.1 
+				pikemen_offensive = 0.1 
+				archers_offensive = 0.1
+				horse_archers_offensive = 0.1
+				camel_cavalry_offensive = 0.1
+				war_elephants_offensive = 0.1
+				key = "RELENTLESS_RELIGION"
+			}
+		}
+	}
+}
+
+calculate_hunger_gain = {
+	# Base of 10
+	set_variable = { which = hunger_gain value = 10 }
+	set_variable = { which = hunger_gain_injuries value = 0 }
+	set_variable = { which = hunger_gain_vile_blood value = 0 }
+	# Slightly slower for vassal AI
+	if = {
+		limit = {
+			ai = yes
+			independent = no
+		}
+		subtract_variable = { which = hunger_gain value = 2 }
+	}
+	if = {
+		limit = { trait = temperate }
+		subtract_variable = { which = hunger_gain value = 5 }
+	}
+	else_if = {
+		limit = { trait = gluttonous }
+		change_variable = { which = hunger_gain value = 5 }
+	}
+	if = {
+		limit = { trait = vomiting }
+		change_variable = { which = hunger_gain value = 5 }
+	}
+	if = {
+		limit = { has_character_modifier = vampire_starving }
+		change_variable = { which = hunger_gain value = 20 }
+	}
+	# Age affects hunger - starting at 100, -1 per 50 years, up to -4
+	if = {
+		limit = { age = 100 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 150 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 200 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	if = {
+		limit = { age = 250 }
+		change_variable = { which = hunger_gain value = -1 }
+	}
+	# Increased hunger from injuries - 3 for major injuries, 2 for standard injuries, 1 for minor injuries
+	# Major - Severely Injured, Mangled, Disfigured
+	# Standard - Maimed, One-Eyed, One-Handed, One-Legged, Blinded, Eunuch
+	# Minor - Wounded, Scarred, Grievously Scarred, Horrifically Scarred, badly_bruised, black_eye, swollen_ankle, swollen_wrist, sore_muscles, cracked_ribs, concussion
+	if = {
+		limit = { trait = severely_injured }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = mangled }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = disfigured }
+		change_variable = { which = hunger_gain value = 3 }
+		change_variable = { which = hunger_gain_injuries value = 3 }
+	}
+	if = {
+		limit = { trait = maimed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_eyed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_handed }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = one_legged }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = blinded }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = eunuch }
+		change_variable = { which = hunger_gain value = 2 }
+		change_variable = { which = hunger_gain_injuries value = 2 }
+	}
+	if = {
+		limit = { trait = wounded }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred_mid }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { trait = scarred_high }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = badly_bruised }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = black_eye }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = swollen_ankle }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = swollen_wrist }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = sore_muscles }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = cracked_ribs }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = { has_character_modifier = concussion }
+		change_variable = { which = hunger_gain value = 1 }
+		change_variable = { which = hunger_gain_injuries value = 1 }
+	}
+	if = {
+		limit = {
+			trait = has_aztec_disease
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_typhus
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = cancer
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_tuberculosis
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = dancing_plague
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = dysentery
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = flu
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = food_poisoning
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = gout
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = syphilitic
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_typhoid_fever
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = ill
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = leper
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_measles
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = pneumonic
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = rabies
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = scurvy
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_small_pox
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	if = {
+		limit = {
+			trait = has_bubonic_plague
+			any_owned_bloodline = { has_blooodline_flag = vampire_disease_hunger }
+		}
+		change_variable = { which = hunger_gain value = -1 }
+		change_variable = { which = hunger_gain_vile_blood value = -1 }
+	}
+	# Minimum 1
+	if = {
+		limit = {
+			NOT = { check_variable = { which = hunger_gain value = 1 } }
+		}
+		set_variable = { which = hunger_gain value = 1 }
+	}
+}
+
+clear_hunger_trait = {
+	set_variable = { which = hunger_progress  value = 0 }
+	remove_character_modifier = vampire_starving
+	if = {
+		limit = { trait = hunger_1 }
+		remove_trait = hunger_1
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+	}
+	else_if = {
+		limit = { trait = hunger_2 }
+		remove_trait = hunger_2
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+	}
+	else_if = {
+		limit = { trait = hunger_3 }
+		remove_trait = hunger_3
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+	}
+	else_if = {
+		limit = { trait = hunger_4 }
+		remove_trait = hunger_4
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+	}
+	else_if = {
+		limit = { trait = hunger_5 }
+		remove_trait = hunger_5
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+	}
+}
+
+upgrade_hunger_trait = {
+	hidden_tooltip = { subtract_variable = { which = hunger_progress value = 100 } }
+	if = {
+		limit = { trait = hunger_0 }
+		hidden_tooltip = { remove_trait = hunger_0 }
+		add_trait = hunger_1
+	}
+	if = {
+		limit = { trait = hunger_1 }
+		hidden_tooltip = { remove_trait = hunger_1 }
+		add_trait = hunger_2
+	}
+	else_if = {
+		limit = { trait = hunger_2 }
+		hidden_tooltip = { remove_trait = hunger_2 }
+		add_trait = hunger_3
+	}
+	else_if = {
+		limit = { trait = hunger_3 }
+		hidden_tooltip = { remove_trait = hunger_3 }
+		add_trait = hunger_4
+	}
+	else_if = {
+		limit = { trait = hunger_4 }
+		hidden_tooltip = { remove_trait = hunger_4 }
+		add_trait = hunger_5
+	}
+	# Don't check for 5 here, check in previous event to call the automatic feeding
+	#else_if = {
+	#	limit = { trait = hunger_5 }
+	#	# Fails if imprisoned
+	#	if = {
+	#		limit = { is_inaccessible_or_incapable_trigger = no }
+	#		# Automatic high-risk feeding
+	#		random_courtier = {
+	#			limit = {
+	#				NOT = { trait = known_vampire }
+	#			}
+	#			character_event = { id = VAMPIRE.28 }
+	#		}
+	#	}
+	#}
+}
+	

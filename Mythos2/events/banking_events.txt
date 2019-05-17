@@ -258,6 +258,7 @@ character_event = {
 			divide_variable = { which = loan_amount value = 10 }
 			event_target:selected_banker = {
 				subtract_variable = { which = bank_total which = large_loan }
+				subtract_variable = { which = loan_profit which = large_loan }
 			}
 			character_event = { id = BANK.7 days = 365 }
 		}
@@ -310,6 +311,7 @@ character_event = {
 			divide_variable = { which = loan_amount value = 10 }
 			event_target:selected_banker = {
 				subtract_variable = { which = bank_total which = medium_loan }
+				subtract_variable = { which = loan_profit which = medium_loan }
 			}
 			character_event = { id = BANK.7 days = 365 }
 		}
@@ -358,6 +360,7 @@ character_event = {
 			divide_variable = { which = loan_amount value = 10 }
 			event_target:selected_banker = {
 				subtract_variable = { which = bank_total which = small_loan }
+				subtract_variable = { which = loan_profit which = small_loan }
 			}
 			character_event = { id = BANK.7 days = 365 }
 		}
@@ -473,6 +476,7 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
 				if = {
 					limit = { ai = no }
 					character_event = { id = BANK.9 } # Alert that a loan was paid off
@@ -506,6 +510,7 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
 			}
 		}
 		ai_chance = {
@@ -535,6 +540,7 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
 			}
 		}
 		ai_chance = {
@@ -564,6 +570,7 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
 			}
 		}
 		ai_chance = {
@@ -571,6 +578,17 @@ character_event = {
 			modifier = {
 				factor = 2
 				check_variable = { which = local_wealth which = local_requirement_medium }
+			}
+		}
+	}
+	
+	after = {
+		if = {
+			limit = {
+				FROM = { check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed } }
+			}
+			FROM = {
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 	}
@@ -703,9 +721,16 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
 				if = {
 					limit = { ai = no }
 					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
 				}
 			}
 		}
@@ -741,6 +766,13 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
 			}
 			repeat_event = { id = BANK.7 days = 365 }
 		}
@@ -769,6 +801,13 @@ character_event = {
 				}
 				else = {
 					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
 				}
 			}
 			repeat_event = { id = BANK.7 days = 365 }
@@ -1132,6 +1171,13 @@ character_event = {
 					limit = { ai = no }
 					character_event = { id = BANK.9 } # Alert that a loan was paid off
 				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
 			}
 		}
 		ai_chance = {
@@ -1166,6 +1212,13 @@ character_event = {
 				else = {
 					wealth = local_payment
 				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
+				}
 				character_event = { id = BANK.24 }
 			}
 		}
@@ -1192,6 +1245,13 @@ character_event = {
 				}
 				else = {
 					wealth = local_payment
+				}
+				change_variable = { which = loan_profit which = local_payment }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
 				}
 				character_event = { id = BANK.24 }
 			}
@@ -1229,6 +1289,13 @@ character_event = {
 			}
 			else = {
 				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_payment }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 	}
@@ -1271,6 +1338,13 @@ character_event = {
 			}
 			else = {
 				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_payment }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 		hidden_tooltip = {
@@ -1326,6 +1400,7 @@ letter_event = {
 			check_variable = { which = bank_total which = local_loan }
 		}
 		subtract_variable = { which = bank_total which = local_loan }
+		subtract_variable = { which = loan_profit which = local_loan }
 		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
 		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
 		FROM = {
@@ -1343,6 +1418,13 @@ letter_event = {
 			}
 			else = {
 				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 		ai_chance = {
@@ -1357,6 +1439,7 @@ letter_event = {
 			wealth = local_loan
 		}
 		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_loan }
 		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
 		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
 		FROM = {
@@ -1374,6 +1457,13 @@ letter_event = {
 			}
 			else = {
 				wealth = local_loan
+			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 		ai_chance = {
@@ -1440,6 +1530,13 @@ letter_event = {
 			else = {
 				wealth = local_loan
 			}
+			change_variable = { which = loan_profit which = local_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
 		}
 		hidden_tooltip = {
 			clr_character_flag = ask_existing_banker_buy_loan
@@ -1503,6 +1600,7 @@ letter_event = {
 			check_variable = { which = bank_total which = local_existing_loan }
 		}
 		subtract_variable = { which = bank_total which = local_existing_loan }
+		subtract_variable = { which = loan_profit which = local_existing_loan }
 		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
 		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
 		FROM = {
@@ -1524,6 +1622,13 @@ letter_event = {
 			else = {
 				wealth = local_existing_loan
 			}
+			change_variable = { which = loan_profit which = local_existing_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
+			}
 		}
 		ai_chance = {
 			factor = 5
@@ -1537,6 +1642,7 @@ letter_event = {
 			check_variable = { which = local_wealth which = local_existing_loan }
 		}
 		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_existing_loan }
 		opinion = { who = FROM modifier = opinion_gave_loan years = 800 }
 		reverse_opinion = { who = FROM modifier = opinion_my_banker years = 800 }
 		FROM = {
@@ -1556,6 +1662,13 @@ letter_event = {
 			}
 			else = {
 				wealth = local_existing_loan
+			}
+			change_variable = { which = loan_profit which = local_existing_loan }
+			if = {
+				limit = {
+					check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+				}
+				character_event = { id = BANK.34 days = 1 }
 			}
 		}
 		ai_chance = {
@@ -1624,6 +1737,7 @@ character_event = {
 			check_variable = { which = bank_total which = local_loan }
 		}
 		subtract_variable = { which = bank_total which = local_loan }
+		subtract_variable = { which = loan_profit which = local_loan }
 		ai_chance = { factor = 5 }
 	}
 	
@@ -1636,6 +1750,7 @@ character_event = {
 			}
 		}
 		wealth = local_payment
+		subtract_variable = { which = loan_profit which = local_loan }
 		ai_chance = { factor = 1 }
 	}
 }
@@ -2041,6 +2156,10 @@ letter_event = {
 	
 	is_triggered_only = yes
 	
+	trigger = {
+		check_variable = { which = loan_amount value > 0 }
+	}
+	
 	option = {
 		name = OK
 	}
@@ -2093,6 +2212,13 @@ letter_event = {
 				if = {
 					limit = { ai = no }
 					character_event = { id = BANK.9 } # Alert that a loan was paid off
+				}
+				change_variable = { which = loan_profit which = local_existing_loan }
+				if = {
+					limit = {
+						check_variable = { which = loan_profit which = global_bloodline_banking_profit_needed }
+					}
+					character_event = { id = BANK.34 days = 1 }
 				}
 			}
 		}
@@ -2179,6 +2305,95 @@ letter_event = {
 		}
 		tooltip = {
 			opinion = { who = FROM modifier = opinion_forgave_debt years = 20 }
+		}
+	}
+}
+
+# BANK.33 - Bank interest
+character_event = {
+	id = BANK.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	trigger = {
+		check_variable = { which = bank_total value = 1 }
+		any_owned_bloodline = {
+			has_bloodline_flag = bank_interest
+		}
+	}
+	
+	immediate = {
+		multiply_variable = { which = bank_total value = 1.01 }
+	}
+}
+
+# BANK.34 - Gain banking bloodline
+character_event = {
+	id = BANK.34
+	desc = EVTDESC_BANK.34
+	picture = GFX_evt_powerful_ruler
+	border = GFX_event_normal_frame_economy
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = {
+			any_owned_bloodline = {
+				has_bloodline_flag = bloodline_banking
+			}
+		}
+	}
+	
+	immediate = {
+		multiply_variable = { which = global_bloodline_banking_profit_needed value = 2 }
+	}
+	
+	option = {
+		name = EVTOPTA_BANK.34
+		prestige = 300
+		if = {
+			limit = {
+				has_religion_feature = religion_matriarchal
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = matrilineal
+			}
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_religion_feature = religion_equal
+					has_religion_feature = religion_feature_bon
+					culture = basque
+					culture = zhangzhung
+					culture = sumpa
+					religion = cathar
+					religion = messalian
+					religion = mazdaki
+				}
+			}
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+				inheritance = all_descendants
+			}
+		}
+		else = {
+			create_bloodline = {
+				type = BL_blood_of_sigurd
+			}
+		}
+		if = {
+			limit = { can_apply_average_nickname_trigger = yes }
+			random_list = {
+				1 = {
+					give_nickname = nick_the_wealthy
+				}
+				1 = {
+					give_nickname = nick_the_rich
+				}
+			}
 		}
 	}
 }

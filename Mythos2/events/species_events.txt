@@ -140,7 +140,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
-						set_graphical_culture = event_target:true_father
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -169,7 +182,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
-						mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -199,6 +225,20 @@ character_event = {
 						}
 						add_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 					20 = {
 						modifier = {
@@ -211,6 +251,20 @@ character_event = {
 						}
 						remove_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -242,6 +296,20 @@ character_event = {
 					1 = {
 						add_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 						modifier = {
 							factor = 3
 							has_game_rule = { name = breeding value = strong }
@@ -254,6 +322,20 @@ character_event = {
 					9 = {
 						remove_trait = dragonborn
 						remove_trait = dragon
+						if = {
+							limit = { graphical_culture = dragongfx }
+							if = {
+								limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+								set_graphical_culture = event_target:true_father
+							}
+							else_if = {
+								limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+								set_graphical_culture = mother_even_if_dead
+							}
+							else = {
+								set_graphical_culture = norse
+							}
+						}
 					}
 				}
 			}
@@ -270,7 +352,20 @@ character_event = {
 				}
 				add_trait = dragonborn
 				remove_trait = dragon
-				mother_even_if_dead = { ROOT = { set_graphical_culture = PREV } }
+				if = {
+					limit = { graphical_culture = dragongfx }
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
+				}
 			}
 			# One parent is a dragon and the other is human - mother is dragon
 			else_if = {
@@ -285,7 +380,20 @@ character_event = {
 				}
 				add_trait = dragonborn
 				remove_trait = dragon
-				set_graphical_culture = event_target:true_father
+				if = {
+					limit = { graphical_culture = dragongfx }
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
+				}
 			}
 			# Neither parent is dragonborn or dragon
 			else = {
@@ -293,7 +401,17 @@ character_event = {
 				remove_trait = dragon
 				if = {
 					limit = { graphical_culture = dragongfx }
-					set_graphical_culture = event_target:true_father
+					if = {
+						limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+						set_graphical_culture = event_target:true_father
+					}
+					else_if = {
+						limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+						set_graphical_culture = mother_even_if_dead
+					}
+					else = {
+						set_graphical_culture = norse
+					}
 				}
 			}
 			# Handle gods
@@ -733,6 +851,10 @@ character_event = {
 				}
 				random = {
 					chance = 80
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+					}
 					add_trait = pup
 				}
 			}
@@ -746,6 +868,10 @@ character_event = {
 				}
 				random = {
 					chance = 40
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+					}
 					add_trait = pup
 				}
 			}
@@ -760,6 +886,10 @@ character_event = {
 					modifier = {
 						factor = 0.6
 						mother_even_if_dead = { trait = vampire }
+					}
+					modifier = {
+						factor = 1.5
+						any_owned_bloodline = { has_bloodline_flag = child_werewolf }
 					}
 					add_trait = pup
 				}
@@ -1009,6 +1139,10 @@ character_event = {
 						set_graphical_culture = draconic
 					}
 					1 = {
+						modifier = {
+							factor = 2
+							any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+						}
 						remove_trait = mythos_giant
 						remove_trait = half_giant
 						add_trait = pup
@@ -1126,6 +1260,10 @@ character_event = {
 					}
 					random = {
 						chance = 50
+						modifier = {
+							factor = 1.5
+							any_owned_bloodline = { has_bloodline_flag = child_werewolf }
+						}
 						if = {
 							limit = { age = 16 }
 							add_trait = werewolf
@@ -1399,6 +1537,49 @@ character_event = {
 		
 		update_sickly_trait = yes
 		
+		if = {
+			limit = {
+				any_owned_bloodline = { has_bloodline_flag = always_heritage }
+			}
+			add_trait = magic_heritage
+		}
+		
+		# Last check for false dragons
+		if = {
+			limit = {
+				graphical_culture = dragongfx
+				NOT = { trait = dragon }
+			}
+			if = {
+				limit = { NOT = { event_target:true_father = { graphical_culture = dragongfx } } }
+				set_graphical_culture = event_target:true_father
+			}
+			else_if = {
+				limit = { NOT = { mother_even_if_dead = { graphical_culture = dragongfx } } }
+				set_graphical_culture = mother_even_if_dead
+			}
+			else = {
+				set_graphical_culture = norse
+			}
+		}
+		
+		# Minor variable hiccup for draconic pagans
+		if = {
+			limit = {
+				OR = {
+					religion = draconic_pagan
+					religion = draconic_pagan_reformed
+				}
+			}
+			set_variable = { which = purity_level value = 0 }
+			add_trait = purity_0x0
+		}
+		
+		if = {
+			limit = { trait = vampire }
+			add_trait = hunger_0
+		}
+		
 		character_event = { id = SPECIES.11 }
 	}
 }
@@ -1473,11 +1654,8 @@ character_event = {
 				trait = known_vampire
 			}
 			remove_trait = known_vampire
-			remove_trait = hunger_1
-			remove_trait = hunger_2
-			remove_trait = hunger_3
-			remove_trait = hunger_4
-			remove_trait = hunger_5
+			remove_trait = hunger_0
+			clear_hunger_trait = yes
 		}
 		else_if = {
 			limit = { 
@@ -1625,6 +1803,12 @@ character_event = {
 						trait = arcane_master
 					}
 					NOT = { trait = magic_heritage }
+				}
+				add_trait = magic_heritage
+			}
+			else_if = {
+				limit = {
+					any_owned_bloodline = { has_bloodline_flag = always_heritage }
 				}
 				add_trait = magic_heritage
 			}
@@ -2108,5 +2292,63 @@ character_event = {
 			add_trait = race_placeholder
 		}
 		repeat_event = { id = SPECIES.2 } # Repeat event to keep scopes correct
+	}
+}
+
+# Monthly event setup. Annual event that manages the monthly events
+character_event = {
+	id = SPECIES.17
+	hide_window = yes
+	is_triggered_only = yes
+	
+	# No filtering, handle that in the events themselves to avoid any delay if something about the character changes
+	
+	immediate = {
+		character_event = { id = SPECIES.18 } # Doesn't necessarily fire in January, but try to match the Julian calendar minus leap years for even spacing
+		character_event = { id = SPECIES.18 days = 31 }
+		character_event = { id = SPECIES.18 days = 59 }
+		character_event = { id = SPECIES.18 days = 90 }
+		character_event = { id = SPECIES.18 days = 121 }
+		character_event = { id = SPECIES.18 days = 151 }
+		character_event = { id = SPECIES.18 days = 182 }
+		character_event = { id = SPECIES.18 days = 212 }
+		character_event = { id = SPECIES.18 days = 243 }
+		character_event = { id = SPECIES.18 days = 274 }
+		character_event = { id = SPECIES.18 days = 304 }
+		character_event = { id = SPECIES.18 days = 335 }
+	}
+}
+
+# Monthly event
+character_event = {
+	id = SPECIES.18
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		# Zombies gain troops
+		character_event = { id = ZOMBIE.11 }
+		# New Purity system
+		character_event = { id = DRAGON.176 }
+		# New Hunger system
+		character_event = { id = VAMPIRE.202 }
+		# Bank bloodline gains interest
+		character_event = { id = BANK.33 }
+	}
+}
+
+# Lower health of incapable characters
+# Makes having long-lived characters become incapable less extreme
+character_event = {
+	id = SPECIES.19
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		trait = incapable
+	}
+	
+	immediate = {
+		health = -0.2
 	}
 }

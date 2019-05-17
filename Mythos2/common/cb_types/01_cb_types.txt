@@ -391,7 +391,16 @@ dejure_duchy_claim = { # New1
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -675,7 +684,16 @@ force_vassalization = { # New2
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -960,7 +978,16 @@ great_realm_conflict = { # New3
 			participation_scaled_prestige = 3000
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 6000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 3000 3000 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1258,7 +1285,16 @@ ducal_county_conquest = { # New4
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -1524,7 +1560,16 @@ hostages_cb = { # New5
 			prestige = 250
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 500
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 250 250 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -2110,7 +2155,16 @@ liberate_religion = { # New6
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -2808,7 +2862,16 @@ unjust_conquest = { # New7
 			participation_scaled_prestige = 100
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -3230,7 +3293,16 @@ tributary_permanent_cb = { # New8
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -3577,7 +3649,16 @@ tributary_nomad_cb = { # New9
 			prestige = 200
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 400
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 200 200 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 	}
@@ -4270,7 +4351,16 @@ offmap_submission = {
 			participation_scaled_prestige = 2500
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 5000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 2500 2500 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -4446,7 +4536,16 @@ tributary_offmap_cb = {
 			set_character_flag = defeated_china
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 5000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 2500 2500 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -4584,7 +4683,16 @@ dismantle_pretender_china_cb = {
 			participation_scaled_prestige = 1000
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 2000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 1000 1000 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -4753,7 +4861,16 @@ force_open_china_cb = {
 			}
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 200
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 100 100 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -4876,7 +4993,16 @@ destabilization_china_cb = {
 			set_character_flag = defeated_china
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 1000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 500 500 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {
@@ -5201,7 +5327,16 @@ invasion_of_china_cb = {
 			participation_scaled_prestige = 1000
 			if = {
 				limit = { government = zombie_horde }
-				manpower = 2000
+				spawn_unit = {
+					province = closest_to_capital
+					troops = {
+						zombie_troops = { 1000 1000 }
+					}
+					maintenance = no
+					merge = yes
+					reinforces = no
+					earmark = event_zombie
+				}
 			}
 		}
 		any_defender = {

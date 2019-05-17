@@ -11,7 +11,18 @@ province_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_dlc = "The Old Gods"
+		OR = {
+			has_dlc = "The Old Gods"
+			has_province_flag = force_monster_revolt
+		}
+		
+		# Will get clan rebels instead
+		NAND = {
+			has_empty_holding = yes
+			owner = {
+				is_nomadic = yes
+			}
+		}
 		
 		any_province_holding = {
 			NOT = { holding_type = nomad }
@@ -53,7 +64,7 @@ province_event = {
 		
 		NOT = { # Not if there is already an ongoing peasant revolt for this province
 			owner = {
-				top_liege = {
+				any_liege = {
 					war = yes
 					
 					any_war = {
@@ -101,29 +112,40 @@ province_event = {
 		
 		new_character = {
 			set_character_flag = monster_revolter
+			set_graphical_culture = ROOT
+			
+			# Figure out revolt target
+			ROOT = {
+				owner = {
+					if = {
+						limit = { is_monster_to_root = yes }
+						save_event_target_as = revolt_target
+					}
+					else = {
+						top_liege = {
+							save_event_target_as = revolt_target
+						}
+					}
+				}
+			}
 			
 			if = {
-				limit = { ROOT = { owner = { top_liege = { trait = known_vampire } } } }
+				limit = { event_target:revolt_target = { trait = known_vampire } }
 				remove_trait = known_vampire
 				remove_trait = vampire
 			}
 			if = {
-				limit = { ROOT = { owner = { top_liege = { trait = known_werewolf } } } }
+				limit = { event_target:revolt_target = { trait = known_werewolf } }
 				remove_trait = known_werewolf
 				remove_trait = werewolf
 			}
 			if = {
-				limit = { ROOT = { owner = { top_liege = { trait = dragon } } } }
+				limit = { event_target:revolt_target = { trait = dragon } }
 				remove_trait = dragon
-				random_realm_character = {
-					limit = { NOT = { graphical_culture = dragongfx } }
-					new_character = {
-						set_graphical_culture = PREV
-					}
-				}
+				set_graphical_culture = ROOT
 			}
 			if = {
-				limit = { ROOT = { owner = { top_liege = { trait = mythos_giant } } } }
+				limit = { event_target:revolt_target = { trait = mythos_giant } }
 				remove_trait = mythos_giant
 				remove_trait = half_giant
 				remove_trait = giant_bergrisar
@@ -141,7 +163,7 @@ province_event = {
 				remove_trait = size_1
 			}
 			if = {
-				limit = { ROOT = { owner = { top_liege = { trait = mummy } } } }
+				limit = { event_target:revolt_target = { trait = mummy } }
 				remove_trait = mummy
 			}
 			
@@ -211,37 +233,27 @@ province_event = {
 			}
 			
 			# DoW on the province top liege
-			ROOT = {
-				owner = {
-					top_liege = {
-						reverse_war = {
-							target = PREVPREVPREV
-							casus_belli = monster_revolt
-							thirdparty_title = ROOT # The county...
-							tier = DUKE # ... but really the de jure duchy
-						}
-						reverse_opinion = {
-							who = PREVPREVPREV
-							modifier = opinion_evil_tyrant
-						}
-					}
+			event_target:revolt_target = {
+				reverse_war = {
+					target = PREVPREVPREV
+					casus_belli = monster_revolt
+					thirdparty_title = ROOT # The county...
+					tier = DUKE # ... but really the de jure duchy
+				}
+				reverse_opinion = {
+					who = PREVPREVPREV
+					modifier = opinion_evil_tyrant
 				}
 			}
 		}
 		
 		owner = {
-			any_liege = { # Inform the lieges
-				limit = {
-					NOT = {
-						OR = {
-							trait = vampire
-							trait = werewolf
-						}
-					}
-				}
-				character_event = {
-					id = MONSTER.2
-				}
+			character_event = {
+				id = MONSTER.2
+			}
+			if = {
+				limit = { NOT = { character = event_target:revolt_target } }
+				event_target:revolt_target = { character_event = { id = MONSTER.2 } }
 			}
 		}
 	}
@@ -289,8 +301,50 @@ character_event = {
 				if = {
 					limit = {
 						OR = {
-							culture = werewolf_culture
-							culture = vampire_culture
+							AND = {
+								culture = werewolf_culture
+								ROOT = { 
+									NOR = {
+										culture = werewolf_culture
+										trait = werewolf
+										trait = pup
+									}
+								}
+							}
+							AND = {
+								culture = vampire_culture
+								ROOT = { 
+									NOR = {
+										culture = vampire_culture
+										trait = vampire
+										religion = satanist
+									}
+								}
+							}
+							AND = {
+								culture = draconic
+								ROOT = { 
+									NOR = {
+										culture = draconic
+										trait = dragon
+										trait = dragonborn
+										religion = draconic_pagan
+										religion = draconic_pagan_reformed
+									}
+								}
+							}
+							AND = {
+								culture = jotunn
+								ROOT = { 
+									NOR = {
+										culture = jotunn
+										trait = mythos_giant
+										trait = half_giant
+										religion = jotnar
+										religion = jotnar_reformed
+									}
+								}
+							}
 						}
 					}
 					random = {
@@ -352,6 +406,7 @@ province_event = {
 				any_war = {
 					defender = { character = PREV }
 					using_cb = monster_revolt
+					war_title = ROOT # The county
 				}
 			}
 		}
@@ -690,7 +745,7 @@ character_event = {
 	
 	immediate = {
 		event_target:my_liege = {
-			random_realm_character = {
+			any_realm_character = {
 				limit = {
 					age = 16
 					ai = yes
@@ -701,6 +756,10 @@ character_event = {
 					NOT = {
 						character = event_target:accused_apostate
 					}
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
 				}
 				save_event_target_as = rival_target
 			}
@@ -2016,7 +2075,7 @@ province_event = {
 	}
 }
 # MONSTER.28 - MONSTER.27 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.28
 	desc = EVTDESC_MONSTER.28
 	picture = GFX_evt_battle
@@ -2054,7 +2113,7 @@ province_event = {
 	}
 }
 # MONSTER.30 - MONSTER.29 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.30
 	desc = EVTDESC_MONSTER.30
 	picture = GFX_evt_death_execution_beheading
@@ -2092,7 +2151,7 @@ province_event = {
 	}
 }
 # MONSTER.32 - MONSTER.31 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.32
 	desc = EVTDESC_MONSTER.32
 	picture = GFX_evt_armory
@@ -2130,7 +2189,7 @@ province_event = {
 	}
 }
 # MONSTER.34 - MONSTER.33 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.34
 	desc = EVTDESC_MONSTER.34
 	picture = GFX_evt_armory
@@ -2168,7 +2227,7 @@ province_event = {
 	}
 }
 # MONSTER.36 - MONSTER.35 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.36
 	desc = EVTDESC_MONSTER.36
 	picture = GFX_evt_market
@@ -2206,7 +2265,7 @@ province_event = {
 	}
 }
 # MONSTER.38 - MONSTER.37 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.38
 	desc = EVTDESC_MONSTER.38
 	picture = GFX_evt_noble_haughty_talking_to_peasants
@@ -2244,7 +2303,7 @@ province_event = {
 	}
 }
 # MONSTER.40 - MONSTER.39 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.40
 	desc = EVTDESC_MONSTER.40
 	picture = GFX_evt_died_battle
@@ -2282,7 +2341,7 @@ province_event = {
 	}
 }
 # MONSTER.42 - MONSTER.41 notification if not province owner
-province_event = {
+character_event = {
 	id = MONSTER.42
 	desc = EVTDESC_MONSTER.42
 	picture = GFX_evt_hung_from_trees_hf
