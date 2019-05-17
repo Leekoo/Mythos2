@@ -7914,3 +7914,143 @@ ask_for_blessing = {
 		FROMFROM = { is_variable_equal = { which = purity_level value = -10 } }
 	}
 }
+
+romantic_courtier_selection_score = { # Mostly intended to help the AI hook up with members of their species
+	additive_modifier = {
+    	has_scarred_trait_trigger = yes
+        value = 5
+    }
+    additive_modifier = {
+    	this_is_sea_raider_trigger = yes
+        value = 5
+    }
+	additive_modifier = {
+    	has_positive_congenital_trigger = yes
+        value = 10
+    }
+    additive_modifier = {
+    	has_any_lifestyle_trait = yes
+        value = 10
+    }
+    additive_modifier = {
+    	is_evil_trigger = yes
+        value = 10
+    }
+    additive_modifier = {
+    	is_benevolent_trigger = yes
+        value = 10
+    }
+	additive_modifier = {
+		is_close_relative = PREV
+		PREV = {
+			NOR = {
+				has_religion_feature = religion_holy_family
+				has_religion_feature = religion_feature_zun
+				has_religion_feature = religion_feature_bon
+				religion = zoroastrian #Random World.
+				religion = messalian
+				religion = kemetic_pagan # Built in
+				religion = kemetic_pagan_reformed # Built in
+			}
+		}
+		value = -30
+	}
+	additive_modifier = {
+		is_close_relative = PREV
+		PREV = {
+			OR = {
+				has_religion_feature = religion_holy_family
+				has_religion_feature = religion_feature_zun
+				has_religion_feature = religion_feature_bon
+				religion = zoroastrian #Random World.
+				religion = messalian
+				religion = kemetic_pagan # Built in
+				religion = kemetic_pagan_reformed # Built in
+			}
+		}
+		value = 10
+	}
+	additive_modifier = {
+		dynasty = PREV
+		value = -5
+	}
+	additive_modifier = {
+		trait = lustful
+		value = 5
+	}
+	additive_modifier = {
+		trait = underhanded_rogue
+		value = 1
+	}
+	additive_modifier = {
+		trait = charismatic_negotiator
+		value = 1
+	}
+	additive_modifier = {
+		trait = grey_eminence
+		value = 3
+	}
+	additive_modifier = {
+		trait = thrifty_clerk
+		value = 1
+	}
+	additive_modifier = {
+		trait = fortune_builder
+		value = 3
+	}
+	additive_modifier = {
+		trait = midas_touched
+		value = 5
+	}
+	additive_modifier = {
+		ROOT_possibly_romantically_interested_trigger = yes
+		value = 10
+    }
+    additive_modifier = {
+		possibly_romantically_interested_in_ROOT_trigger = yes
+        value = 10
+    }
+    additive_modifier = {
+		possibly_romantically_interested_in_each_other_trigger = yes
+        value = 10
+    }
+    additive_modifier = {
+    	is_married = yes
+        value = -20
+    }
+	additive_value = {
+		trait = dragon
+		PREV = { trait = dragon }
+		value = 50
+	}
+	additive_value = {
+		trait = dragonborn
+		PREV = { trait = dragon }
+		value = 5
+	}
+	additive_value = {
+		trait = werewolf
+		PREV = { trait = werewolf }
+		value = 50
+	}
+	additive_value = {
+		trait = mythos_giant
+		PREV = { trait = mythos_giant }
+		value = 50
+	}
+	additive_value = {
+		trait = half_giant
+		PREV = { trait = mythos_giant }
+		value = 5
+	}
+	additive_value = {
+		trait = god
+		PREV = { trait = god }
+		value = 20
+	}
+	additive_value = {
+		trait = demi_god
+		PREV = { trait = god }
+		value = 10
+	}
+}

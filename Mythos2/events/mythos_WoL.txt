@@ -6191,6 +6191,10 @@ character_event = {
 	
 	immediate = {
 		random_courtier_or_vassal = {
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			save_event_target_as = stalked
 		}
 	}
@@ -6680,8 +6684,12 @@ character_event = {
 	}
 	
 	immediate = {
-		random_courtier = {
+		any_courtier = {
 			limit = { is_ill = yes }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			save_event_target_as = sick_courtier
 			character_event = { id = MYTH_WoL.89 }
 		}
@@ -9081,11 +9089,15 @@ character_event = {
 			religion_group = pagan_group
 			num_of_prisoners = 1
 		}
-		random_courtier = {
+		any_courtier = {
 			limit = { 
 				prisoner = yes
 				host = { character = ROOT }
 				age = 12
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			# Make Tyranny apply if I can find a way to check for it
 			death = { death_reason = death_sacrificed killer = ROOT }
@@ -13407,8 +13419,12 @@ character_event = {
 	}
 	
 	immediate = {
-		random_vassal = {
+		any_vassal = {
 			limit = { num_of_count_titles = 1 }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			save_event_target_as = kos_vassal
 		}
 	}
@@ -22082,8 +22098,12 @@ character_event = {
 	}
 	
 	immediate = {
-		random_realm_character = {
+		any_realm_character = {
 			limit = { liege = { character = ROOT } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			save_event_target_as = character_1
 			random_list = {
 				1 = {
@@ -22203,10 +22223,14 @@ character_event = {
 				}
 			}
 		}
-		random_realm_character = {
+		any_realm_character = {
 			limit = {
 				liege = { character = ROOT }
 				NOT = { character = event_target:character_1 }
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			save_event_target_as = character_2
 			random_list = {

@@ -6670,6 +6670,9 @@ character_event = {
 	trigger = {
 		has_job_action = action_inquisition
 		NOT = { has_character_modifier = in_seclusion }
+		NOT = { has_character_modifier = bedridden_illness }
+		NOT = { trait = incapable }
+		NOT = { religion = the_damned }
 		location = {
 			any_province_character = {
 				ai = yes
@@ -6677,6 +6680,7 @@ character_event = {
 				NOT = { character = ROOT }
 				NOT = { is_liege_of = ROOT }
 				NOT = { religion = ROOT }
+				NOT = { religion = the_damned }
 				OR = {
 					is_ruler = no
 					primary_title = {
@@ -6853,38 +6857,7 @@ character_event = {
 			factor = 2.75
 			has_religion_feature = religion_cosmopolitan
 		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			learning = 10
-		}
-		modifier = {
-			factor = 0.75
-			learning = 11
-		}
-		modifier = {
-			factor = 0.75
-			learning = 12
-		}
-		modifier = {
-			factor = 0.75
-			learning = 13
-		}
+		job_event_mtth_modifier_learning_score = yes
 		modifier = {
 			factor = 2.0
 			NOT = { religion_authority = 0.4 }
@@ -6966,184 +6939,6 @@ letter_event = {
 		trigger = { trait = god }
 		ai_chance = { factor = 0 }
 		religion = FROM
-	}
-}
-
-# Convert to the physicians religion?
-character_event = {
-	id = RIP.4101
-	desc = EVTDESC_RIP_4101
-	picture = GFX_evt_court_physician
-	border = GFX_event_normal_frame_religion
-
-	is_triggered_only = yes
-	
-	trigger = {
-		event_target:missionary_physician_target = {
-			NOT = { religion_group = ROOT }
-		}
-		controls_religion = no
-		NOT = { trait = god }
-	}
-	
-	option = {
-		name = EVTOPTA_RIP_4101
-		
-		ai_chance = {
-			factor = 60
-			modifier = {
-				factor = 2
-				trait = humble
-			}
-			modifier = {
-				factor = 2
-				trait = craven
-			}
-		}
-		
-		event_target:missionary_physician_target = {
-			opinion = {
-				modifier = opinion_did_not_trust_me
-				who = ROOT
-				years = 10
-			}
-		}
-	}
-
-	option = {
-		name = EVTOPTB_RIP_4101
-		
-		ai_chance = {
-			factor = 5
-			modifier = {
-				factor = 3
-				trait = cynical
-			}
-			modifier = {
-				factor = 1.5
-				trait = arbitrary
-			}
-			modifier = {
-				factor = 1.5
-				trait = trusting
-			}
-			modifier = {
-				factor = 0.75
-				NOT = {
-					year = 900
-				}
-			}
-			modifier = {
-				factor = 0.25
-				OR = {
-					culture_group = baltic
-					culture_group = finno_ugric  # The most stubborn pagans
-				}
-			}
-			modifier = {
-				factor = 0.25
-				culture_group = east_slavic # Like alcohol
-				event_target:missionary_physician_target = {
-					religion_group = muslim
-				}
-			}
-			modifier = {
-				factor = 0.25
-				culture_group = north_germanic # Vikings do like their alcohol
-				event_target:missionary_physician_target = {
-					religion_group = muslim
-				}
-			}
-			modifier = {
-				factor = 1.5
-				event_target:missionary_physician_target = {
-					has_religion_feature = religion_proselytizing
-				}
-			}
-			modifier = {
-				factor = 0.25
-				trait = paranoid
-			}
-			modifier = {
-				factor = 0
-				NOT = {
-					religion_group = pagan_group
-				}
-			}
-		}
-		
-		event_target:missionary_physician_target = {
-			opinion = {
-				modifier = opinion_glad
-				who = ROOT
-				years = 10
-			}
-		}
-		if = {
-			limit = {
-				religion_group = pagan_group
-			}
-			add_trait = sympathy_pagans
-		}
-		religion = event_target:missionary_physician_target
-		prestige = -500
-		piety = 250
-		hidden_tooltip = {
-			any_courtier = {
-				limit = { 
-					is_close_relative = ROOT
-					NOT = { trait = zealous }
-					NOT = { has_character_flag = ai_flag_refuse_conversion }
-					NOT = { trait = stubborn }
-				}
-				religion = event_target:missionary_physician_target
-			}
-			any_spouse = {
-				limit = { 
-					is_consort = no
-					NOT = { trait = zealous }
-					NOT = { has_character_flag = ai_flag_refuse_conversion }
-					NOT = { trait = stubborn }
-				}
-				religion = event_target:missionary_physician_target
-			}
-		}
-		custom_tooltip = { text = EVTOPTB_RIP_4101_TT }
-	}
-	
-	option = {
-		name = EVTOPTC_RIP_4101
-		
-		ai_chance = {
-			factor = 30
-			modifier = {
-				factor = 5
-				trait = zealous
-			}
-			modifier = {
-				factor = 2
-				trait = stubborn
-			}
-			modifier = {
-				factor = 2
-				trait = cruel
-			}
-		}
-		
-		wealth = 50
-		event_target:missionary_physician_target = {
-			death = {
-				death_reason = death_execution_burning
-				killer = ROOT
-			}
-		}
-		event_target:origin_realm_of_missionary_physician_target = {
-			opinion = {
-				modifier = opinion_dishonorable_scum
-				who = ROOT
-				years = 15
-			}
-		}
 	}
 }
 
@@ -7458,38 +7253,7 @@ character_event = {
 			factor = 2
 			has_religion_feature = religion_dogmatic
 		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			learning = 10
-		}
-		modifier = {
-			factor = 0.75
-			learning = 11
-		}
-		modifier = {
-			factor = 0.75
-			learning = 12
-		}
-		modifier = {
-			factor = 0.75
-			learning = 13
-		}
+		job_event_mtth_modifier_learning_score = yes
 	}
 	
 	option = {
@@ -9301,50 +9065,7 @@ character_event = { # Hunt Apostates meta event
 	mean_time_to_happen = {
 		months = 100
 
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 6 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 8 }
-		}
-		modifier = {
-			factor = 0.75
-			learning = 10
-		}
-		modifier = {
-			factor = 0.75
-			learning = 12
-		}
-		modifier = {
-			factor = 0.75
-			learning = 14
-		}
-		modifier = {
-			factor = 0.75
-			learning = 16
-		}
-		modifier = {
-			factor = 0.75
-			learning = 18
-		}
-		modifier = {
-			factor = 0.75
-			learning = 20
-		}
-		modifier = {
-			factor = 0.75
-			learning = 22
-		}
+		job_event_mtth_modifier_learning_score = yes
 		modifier = {
 			factor = 0.75
 			inquisitor = yes
@@ -9465,38 +9186,7 @@ character_event = {
 	mean_time_to_happen = {
 		months = 120
 		
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { intrigue = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 10
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 11
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 12
-		}
-		modifier = {
-			factor = 0.75
-			intrigue = 13
-		}
+		job_event_mtth_modifier_intrigue_score = yes
 	}
 	
 	immediate = {
@@ -9678,6 +9368,19 @@ narrative_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		FROM = { is_alive = yes }
+	}
+
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				FROM = { is_alive = no }
+			}
+			character_event = { id = RIP.21099 }
+		}
+	}
+
 	option = {
 		name = EVTOPTA_RIP_21322
 		custom_tooltip = { text = EVTOPTA_RIP_21322_TOOLTIP } 
@@ -9738,6 +9441,19 @@ narrative_event = {
 	picture = GFX_evt_shadowy_cabal
 
 	is_triggered_only = yes
+
+	trigger = {
+		FROM = { is_alive = yes }
+	}
+
+	fail_trigger_effect = {
+		if = {
+			limit = {
+				FROM = { is_alive = no }
+			}
+			character_event = { id = RIP.21099 }
+		}
+	}
 
 	option = {
 		name = EVTOPTA_RIP_21324
@@ -10851,6 +10567,18 @@ province_event = {
 			owner = { stewardship = 15 }
 		}
 		modifier = {
+			factor = 0.9
+			owner = { stewardship = 20 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { stewardship = 25 }
+		}
+		modifier = {
+			factor = 0.9
+			owner = { stewardship = 30 }
+		}
+		modifier = {
 			factor = 0.75
 			has_province_flag = recent_depopulation_1
 		}
@@ -11140,7 +10868,7 @@ character_event = {
 	option = {
 		name = EVTOPTB100080
 		host = {
-			random_courtier = {
+			any_courtier = {
 				limit = {
 					is_inaccessible_trigger = no
 					prisoner = no
@@ -11173,6 +10901,10 @@ character_event = {
 						is_rival = ROOT
 					}
 				}
+				score_value = { #Prioritizes selecting an interesting courtier...
+		            value = 10
+		            interesting_courtier_selection_score = yes
+		        }
 				character_event = {
 					id = 100081
 					days = 1
@@ -11417,140 +11149,6 @@ character_event = {
 	}
 }
 
-# 901: The Lord Spiritual converts a subject character
-character_event = {
-	id = 901
-	title = "EVTNAME901"
-	desc = "EVTDESC901"
-	picture = GFX_evt_heretic
-	border = GFX_event_normal_frame_religion
-
-	min_age = 16
-	capable_only = yes
-	prisoner = no
-	has_job_title = yes
-	
-	trigger = {
-		has_job_action = action_inquisition
-		NOT = { has_character_modifier = in_seclusion }
-		NOT = { has_character_modifier = bedridden_illness }
-		NOT = { trait = incapable }
-		NOT = { religion = the_damned }
-		location = {
-			any_province_character = {
-				ai = yes
-				is_adult = yes
-				NOT = { character = ROOT }
-				NOT = { is_liege_of = ROOT }
-				NOT = { religion = ROOT }
-				NOT = { religion = the_damned }
-				OR = {
-					is_ruler = no
-					primary_title = {
-						controls_religion = no
-						mercenary = no
-						holy_order = no
-					}
-				}
-				same_realm = ROOT
-			}
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 120
-	
-		modifier = {
-			factor = 0.75
-			has_religion_feature = religion_proselytizing
-		}
-		modifier = {
-			factor = 2.75
-			has_religion_feature = religion_cosmopolitan
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 2 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 3 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 4 }
-		}
-		modifier = {
-			factor = 1.25
-			NOT = { learning = 5 }
-		}
-		modifier = {
-			factor = 0.75
-			learning = 10
-		}
-		modifier = {
-			factor = 0.75
-			learning = 11
-		}
-		modifier = {
-			factor = 0.75
-			learning = 12
-		}
-		modifier = {
-			factor = 0.75
-			learning = 13
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { religion_authority = 0.4 }
-		}
-		modifier = {
-			factor = 2.0
-			NOT = { religion_authority = 0.2 }
-		}
-		modifier = {
-			factor = 0.75
-			religion_authority = 0.6
-		}
-		modifier = {
-			factor = 0.75
-			religion_authority = 0.8
-		}
-		modifier = {
-			factor = 3.0
-			religion_group = pagan_group
-			is_reformed_religion = no
-		}
-	}
-	
-	option = {
-		name = "EVTOPTA901"
-		piety = 5
-		location = {
-			random_province_character = {
-				limit = {
-					ai = yes
-					is_adult = yes
-					NOT = { character = ROOT }
-					NOT = { is_liege_of = ROOT }
-					NOT = { religion = ROOT }
-					NOT = { religion = the_damned }
-					OR = {
-						is_ruler = no
-						primary_title = {
-							controls_religion = no
-							mercenary = no
-							holy_order = no
-						}
-					}
-					same_realm = ROOT
-				}
-				letter_event = { id = 20010 tooltip = "EVTTOOLTIP20010" }
-			}
-		}
-	}
-}
-
 # Convert to the physicians religion?
 character_event = {
 	id = RIP.4101
@@ -11567,6 +11165,7 @@ character_event = {
 		}
 		controls_religion = no
 		NOT = { religion = the_damned }
+		NOT = { trait = god }
 	}
 	
 	option = {
@@ -11635,6 +11234,12 @@ character_event = {
 				culture_group = north_germanic # Vikings do like their alcohol
 				event_target:missionary_physician_target = {
 					religion_group = muslim
+				}
+			}
+			modifier = {
+				factor = 1.5
+				event_target:missionary_physician_target = {
+					has_religion_feature = religion_proselytizing
 				}
 			}
 			modifier = {
@@ -15081,7 +14686,18 @@ character_event = {
 				}
 			}
 			
-			father_of_unborn = { character_event = { id = 413 tooltip = EVTTOOLTIP413 } }
+			if = {
+				limit = {
+					father_of_unborn = { is_lover = ROOT }		
+				}
+				custom_tooltip = { text = EVTTOOLTIP413 }
+			}
+			else = {
+				father_of_unborn = {
+					show_scope_change = no
+					character_event = { id = 413 tooltip = EVTTOOLTIP413 }
+				}
+			}
 		}
 	}
 }
@@ -21149,7 +20765,7 @@ character_event = {
 	desc = EVTDESCHFPA20582
 	picture = GFX_evt_birth
 	
-	trigger = { 
+	trigger = {
 		FROM = { 
 			OR = {
 				trait = clubfooted 

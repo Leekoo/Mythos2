@@ -8234,7 +8234,7 @@ character_event = {
 			give_goldsmith_artifacts_flag_amazing_effect = yes
 		}
 		else = {
-			scaled_wealth = { value = 3.5 min = 230 } # Get some money back if duplicate
+			scaled_wealth = { value = 3.5 min = 230 max = 2000 } # Get some money back if duplicate
 			custom_tooltip = { text = EVTTT_MNM_9105_NO_DUPLICATES }
 		}
 
@@ -8281,7 +8281,7 @@ character_event = {
 			give_goldsmith_artifacts_flag_expensive_effect = yes
 		}
 		else = {
-			scaled_wealth = { value = 3.5 min = 230 } # Get some money back if duplicate
+			scaled_wealth = { value = 3.5 min = 230 max = 2000 } # Get some money back if duplicate
 			custom_tooltip = { text = EVTTT_MNM_9105_NO_DUPLICATES }
 		}
 

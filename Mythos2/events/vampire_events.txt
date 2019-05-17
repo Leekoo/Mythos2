@@ -3497,7 +3497,12 @@ character_event = {
 								}
 							}
 							1 = {
-								random_courtier = {
+								any_courtier = {
+									preferred_limit = { trait = vampire }
+									score_value = {
+										value = 10
+										interesting_courtier_selection_score = yes
+									}
 									reverse_opinion = { who = PREV modifier = suspected_attacked_protected years = 10 }
 									character_event = { id = VAMPIRE.163 }
 								}
@@ -12632,7 +12637,7 @@ character_event = {
 	}
 	
 	immediate = {
-		random_realm_character = {
+		any_realm_character = {
 			limit = {
 				is_incapable = no
 				trait = vampire
@@ -12646,6 +12651,10 @@ character_event = {
 					is_nibling_of = ROOT
 					any_spouse = { character = ROOT }
 				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			save_event_target_as = new_rival
 		}
@@ -13249,7 +13258,7 @@ character_event = {
 						}
 					}
 				}
-				random_courtier = {
+				any_courtier = {
 					limit = {
 						prisoner = no
 						NOR = {
@@ -13260,6 +13269,10 @@ character_event = {
 							trait = ethereal_trait
 							has_minor_title = title_vampiric_protection
 						}
+					}
+					score_value = {
+						value = 10
+						interesting_courtier_selection_score = yes
 					}
 					character_event = { id = VAMPIRE.179 }
 				}

@@ -1891,9 +1891,16 @@ character_event = {
 			preferred_limit = { ai = yes }
 			save_event_target_as = selected_family
 		}
-		random_courtier = {
+		any_courtier = {
 			limit = { NOT = { character = event_target:selected_family } }
-			preferred_limit = { ai = yes }
+			score_value = {
+				value = 10
+				additive_modifier = {
+					ai = yes
+					value = 30
+				}
+				interesting_courtier_selection_score = yes
+			}
 			save_event_target_as = selected_courtier
 		}
 		random_courtier = {
@@ -1903,6 +1910,10 @@ character_event = {
 					character = event_target:selected_family
 					character = event_target:selected_courtier
 				}
+			}
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
 			}
 			# Okay to use this on players who are prisoners
 			save_event_target_as = selected_prisoner

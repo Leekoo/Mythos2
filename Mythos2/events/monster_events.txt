@@ -745,7 +745,7 @@ character_event = {
 	
 	immediate = {
 		event_target:my_liege = {
-			random_realm_character = {
+			any_realm_character = {
 				limit = {
 					age = 16
 					ai = yes
@@ -756,6 +756,10 @@ character_event = {
 					NOT = {
 						character = event_target:accused_apostate
 					}
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
 				}
 				save_event_target_as = rival_target
 			}

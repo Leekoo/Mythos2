@@ -1120,10 +1120,14 @@ character_event = {
 					is_heretic = no
 				}
 			}
-			random_courtier = {
+			any_courtier = {
 				limit = {
 					religion_group = muslim
 					is_heretic = no
+				}
+				score_value = {
+					value = 10
+					interesting_courtier_selection_score = yes
 				}
 				save_event_target_as = target_muslim
 			}
@@ -3790,8 +3794,6 @@ character_event = {
 	}
 	
 	immediate = {
-		log = "Running MYTHMORE.61"
-		# Eternal flames are no longer added here - they are added in history for normal starts and can be built in random worlds
 		
 		# Record eternal flame sites
 		if = {
@@ -3818,6 +3820,9 @@ character_event = {
 					k_draconic_pagan_reformed = {
 						save_persistent_event_target = { name = draconic_holy_site_1 scope = PREV }
 					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
 				}
 				random_landed_title = {
 					limit = {
@@ -3827,6 +3832,9 @@ character_event = {
 					k_draconic_pagan_reformed = {
 						save_persistent_event_target = { name = draconic_holy_site_2 scope = PREV }
 					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
 				}
 				random_landed_title = {
 					limit = {
@@ -3837,6 +3845,9 @@ character_event = {
 					k_draconic_pagan_reformed = {
 						save_persistent_event_target = { name = draconic_holy_site_3 scope = PREV }
 					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
 				}
 				random_landed_title = {
 					limit = {
@@ -3848,6 +3859,9 @@ character_event = {
 					k_draconic_pagan_reformed = {
 						save_persistent_event_target = { name = draconic_holy_site_4 scope = PREV }
 					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
 				}
 				random_landed_title = {
 					limit = {
@@ -3860,6 +3874,9 @@ character_event = {
 					k_draconic_pagan_reformed = {
 						save_persistent_event_target = { name = draconic_holy_site_5 scope = PREV }
 					}
+					add_wonder = wonder_eternal_flame
+					add_wonder_upgrade = upgrade_dragon_flame
+					remove_wonder_upgrade_slots = 1
 				}
 			}
 		}

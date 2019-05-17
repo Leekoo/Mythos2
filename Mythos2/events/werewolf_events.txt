@@ -4948,18 +4948,34 @@ character_event = {
 		decrease_control = yes
 		random_courtier = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_courtier = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_vassal = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 		random_vassal = {
 			limit = { NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_cruel } } }
+			score_value = {
+				value = 10
+				interesting_courtier_selection_score = yes
+			}
 			opinion = { who = ROOT modifier = opinion_cruel years = 3 }
 		}
 	}
