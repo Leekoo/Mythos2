@@ -1024,19 +1024,19 @@ targetted_decisions = {
 		ai_will_do = {
 			factor = 0.01
 			modifier = {
-				factor = 1.5
+				factor = 1.1
 				FROM = { trait = hunger_2 }
 			}
 			modifier = {
-				factor = 2
+				factor = 1.5
 				FROM = { trait = hunger_3 }
 			}
 			modifier = {
-				factor = 4
+				factor = 8
 				FROM = { trait = hunger_4 }
 			}
 			modifier = {
-				factor = 8
+				factor = 20
 				FROM = { trait = hunger_5 }
 			}
 			modifier = {
@@ -1280,7 +1280,7 @@ targetted_decisions = {
 			}
 		}
 		ai_will_do = {
-			factor = 0.01
+			factor = 0.05
 			modifier = {
 				factor = 3
 				FROM = { trait = hunger_2 }
@@ -1290,11 +1290,11 @@ targetted_decisions = {
 				FROM = { trait = hunger_3 }
 			}
 			modifier = {
-				factor = 5
+				factor = 8
 				FROM = { trait = hunger_4 }
 			}
 			modifier = {
-				factor = 8
+				factor = 10
 				FROM = { trait = hunger_5 }
 			}
 			modifier = {

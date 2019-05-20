@@ -3075,9 +3075,9 @@ character_event = {
 			limit = { has_character_flag = vampire_feed_success }
 			random_list = {
 				# Kill
-				60 = {
+				30 = {
 					modifier = {
-						factor = 0.167
+						factor = 0.2
 						has_character_flag = vampire_feed_minor
 					}
 					modifier = {
@@ -3124,7 +3124,7 @@ character_event = {
 					set_character_flag = vampire_feed_kill
 				}
 				# Don't kill
-				30 = {
+				65 = {
 					modifier = {
 						factor = 2.67
 						has_character_flag = vampire_feed_minor
@@ -3158,14 +3158,10 @@ character_event = {
 							}
 						}
 					}
-					modifier = {
-						factor = 1.5
-						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
-					}
 					set_character_flag = vampire_feed_survive
 				}
 				# Turn
-				10 = {
+				5 = {
 					modifier = {
 						factor = 0
 						FROM = {
@@ -3194,8 +3190,8 @@ character_event = {
 						}
 					}
 					modifier = {
-						factor = 1.2
-						reverse_has_opinion_modifier = { who = FROM modifier = opinion_thrall }
+						factor = 0.2
+						has_character_flag = vampire_feed_minor
 					}
 					set_character_flag = vampire_feed_turn
 				}
