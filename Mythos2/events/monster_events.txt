@@ -64,7 +64,7 @@ province_event = {
 		
 		NOT = { # Not if there is already an ongoing peasant revolt for this province
 			owner = {
-				any_liege = {
+				top_liege = {
 					war = yes
 					
 					any_war = {
@@ -117,15 +117,15 @@ province_event = {
 			# Figure out revolt target
 			ROOT = {
 				owner = {
-					if = {
-						limit = { is_monster_to_root = yes }
-						save_event_target_as = revolt_target
-					}
-					else = {
+					#if = {
+					#	limit = { is_monster_to_root = yes }
+					#	save_event_target_as = revolt_target
+					#}
+					#else = {
 						top_liege = {
 							save_event_target_as = revolt_target
 						}
-					}
+					#}
 				}
 			}
 			
