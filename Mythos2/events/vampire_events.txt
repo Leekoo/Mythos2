@@ -78,6 +78,8 @@ character_event = {
 		spouse = { add_trait = vampire }
 		hidden_tooltip = { 
 			spouse = {
+				reverse_opinion = { modifier = opinion_vampire_child who = ROOT duration = -1 }
+				opinion = { modifier = opinion_sire who = ROOT duration = -1 }
 				ROOT = {
 					any_owned_bloodline = {
 						limit = {
@@ -87,6 +89,13 @@ character_event = {
 							}
 						}
 						add_bloodline_member = PREVPREV
+					}
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { who = PREV modifier = opinion_sire }
+						}
+						opinion = { modifier = opinion_vampire_child who = PREVPREV }
+						reverse_opinion = { modifier = opinion_sire who = PREVPREV }
 					}
 				}
 				if = {
@@ -481,6 +490,17 @@ letter_event = {
 			}
 			save_persistent_event_target = { name = sire scope = ROOT }
 			opinion = { who = ROOT modifier = vampire_blood_bond years = 50 }
+			reverse_opinion = { modifier = opinion_vampire_child who = ROOT duration = -1 }
+			opinion = { modifier = opinion_sire who = ROOT duration = -1 }
+			ROOT = {
+				any_opinion_modifier_target = {
+					limit = {
+						reverse_has_opinion_modifier = { who = PREV modifier = opinion_sire }
+					}
+					opinion = { modifier = opinion_vampire_child who = PREVPREV }
+					reverse_opinion = { modifier = opinion_sire who = PREVPREV }
+				}
+			}
 			if = {
 				limit = { NOT = { dynasty = ROOT } }
 				dynasty = ROOT
@@ -15149,6 +15169,17 @@ narrative_event = {
 			type = BL_vampiric_highborn
 		}
 		hidden_tooltip = {
+			new_bloodline = {
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { modifier = opinion_sire who = PREV }
+						}
+						add_bloodline_member = PREVPREV
+						character_event = { id = VAMPIRE.205 }
+					}
+				}
+			}
 			if = {
 				limit = { can_apply_super_cool_nickname_trigger = yes }
 				random_list = {
@@ -15287,6 +15318,19 @@ character_event = {
 			hidden_tooltip = { remove_trait = secret_vampire }
 			add_trait = known_vampire
 		}
+		hidden_tooltip = {
+			new_bloodline = {
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { modifier = opinion_sire who = PREV }
+						}
+						add_bloodline_member = PREVPREV
+						character_event = { id = VAMPIRE.204 }
+					}
+				}
+			}
+		}
 		if = {
 			limit = { can_apply_average_nickname_trigger = yes }
 			random_list = {
@@ -15347,6 +15391,19 @@ character_event = {
 		name = EVTOPTA_VAMPIRE.201
 		create_bloodline = {
 			type = BL_vampiric_highborn
+		}
+		hidden_tooltip = {
+			new_bloodline = {
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { modifier = opinion_sire who = PREV }
+						}
+						add_bloodline_member = PREVPREV
+						character_event = { id = VAMPIRE.205 }
+					}
+				}
+			}
 		}
 	}
 }
@@ -15438,5 +15495,87 @@ character_event = {
 	
 	option = {
 		name = OK
+	}
+}
+
+# Vampire.204 - Sire gained Blood of Nosferatu
+character_event = {
+	id = VAMPIRE.204
+	desc = EVTDESC_VAMPIRE.204
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_VAMPIRE.204
+		if = {
+			limit = { trait = fair }
+			remove_trait = fair
+		}
+		if = {
+			limit = { NOT = { trait = ugly } }
+			add_trait = ugly
+		}
+		if = {
+			limit = { trait = secret_vampire }
+			hidden_tooltip = { remove_trait = secret_vampire }
+			add_trait = known_vampire
+		}
+		tooltip = {
+			FROM = {
+				any_owned_bloodline = {
+					limit = { has_bloodline_flag = vampire_auto_ugly }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+	}
+}
+	
+# Vampire.205 - Sire gained Highborn Vampire Blood
+character_event = {
+	id = VAMPIRE.205
+	desc = EVTDESC_VAMPIRE.205
+	picture = GFX_evt_powerful_ruler
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_VAMPIRE.205
+		if = {
+			limit = { trait = secret_vampire }
+			hidden_tooltip = { remove_trait = secret_vampire }
+			add_trait = known_vampire
+		}
+		tooltip = {
+			FROM = {
+				any_owned_bloodline = {
+					limit = { has_bloodline_flag = vampire_restricted_feeding }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Vampire.206 - Sire gained Vile Blood
+character_event = {
+	id = VAMPIRE.206
+	desc = EVTDESC_VAMPIRE.206
+	picture = GFX_evt_lunatic
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPT_VAMPIRE.206
+		remove_character_modifier = plague_vampire
+		tooltip = {
+			FROM = {
+				any_owned_bloodline = {
+					limit = { has_bloodline_flag = vile_blood }
+					add_bloodline_member = ROOT
+				}
+			}
+		}
 	}
 }
