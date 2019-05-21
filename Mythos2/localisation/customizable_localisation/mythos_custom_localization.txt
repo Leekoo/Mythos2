@@ -8694,6 +8694,27 @@ defined_text = {
 		}
 		localisation_key = tt_purity_flames_minus_1
 	}
+	fallback_text = {
+		localisation_key = "[Purity_Saint]"
+	}
+}
+
+defined_text = {
+	name = Purity_Saint
+	use_first_valid = yes
+	text = {
+		trigger = {
+			any_bloodline = { has_bloodline_flag = dragon_saint }
+			#OR = {
+			#	trait = dragon
+			#	NOR = {
+			#		# Human Domination
+			#		# Human Extermination
+			#	}
+			#}
+		}
+		localisation_key = tt_purity_saint
+	}
 }
 
 defined_text = {
