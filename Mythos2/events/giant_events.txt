@@ -867,3 +867,393 @@ character_event = {
 		name = EVTOPTA_GIANT.14
 	}
 }
+
+# Giant.15 - Unimportant landed giant marries an unimportant unlanded giant
+# Should help avoid giants breeding themselves to extinction
+character_event = {
+	id = GIANT.15
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		is_marriage_adult = yes
+		is_pregnant = no
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		can_marry = yes
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = mythos_giant
+		any_courtier = {
+			OR = {
+				AND = {
+					is_female = yes
+					ROOT = { is_female = no }
+				}
+				AND = {
+					is_female = no
+					ROOT = { is_female = yes }
+				}
+			}
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_marriage }
+			NOT = { has_character_flag = cannot_marry }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = mythos_giant
+			can_marry = ROOT
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				OR = {
+					AND = {
+						is_female = yes
+						ROOT = { is_female = no }
+					}
+					AND = {
+						is_female = no
+						ROOT = { is_female = yes }
+					}
+				}
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_marriage }
+				NOT = { has_character_flag = cannot_marry }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = mythos_giant
+				can_marry = ROOT
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+				additive_modifier = {
+					value = 3
+					trait = giant
+				}
+				additive_modifier = {
+					value = -3
+					trait = dwarf
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}
+
+# GIANT.16 - Unimportant landed giant makes a concubine of an unimportant unlanded giant
+# Should help avoid giants breeding themselves to extinction
+# This event assumes the default 3 concubines until better code exists to check if a character can take a concubine
+character_event = {
+	id = GIANT.16
+	hide_window = yes
+	is_triggered_only = yes
+	
+	only_rulers = yes
+	ai = yes
+	min_age = 18
+	capable_only = yes
+	prisoner = no
+	in_command = no
+	
+	trigger = {
+		has_concubinage = yes
+		is_female = no
+		num_of_consorts < 3
+		is_marriage_adult = yes
+		NOR = {
+			trait = celibate
+			trait = horse
+			trait = cat
+		}
+		NOT = { is_ascetic_trigger = yes }
+		NOT = { has_character_flag = ai_flag_refuse_marriage }
+		NOT = { has_character_flag = cannot_marry }
+		is_undead = no
+		is_infertile = no
+		NOT = {
+			any_close_relative = { ai = no }
+		}
+		trait = mythos_giant
+		any_courtier = {
+			is_female = yes
+			ai = yes
+			is_consort = no
+			is_married = no
+			is_landed = no
+			is_marriage_adult = yes
+			is_pregnant = no
+			NOR = {
+				trait = celibate
+				trait = horse
+				trait = cat
+			}
+			NOT = { is_ascetic_trigger = yes }
+			NOT = { has_character_flag = ai_flag_refuse_concubinage }
+			is_undead = no
+			is_infertile = no
+			NOT = {
+				any_close_relative = { ai = no }
+			}
+			trait = mythos_giant
+		}
+	}
+	
+	weight_multiplier = {
+		days = 1
+		modifier = {
+			factor = 0.75
+			trait = homosexual
+		}
+		modifier = {
+			factor = 0.9
+			trait = chaste
+		}
+		modifier = {
+			factor = 1.2
+			is_30 = yes
+		}
+		modifier = {
+			factor = 1.2
+			is_40 = yes
+		}
+		modifier = {
+			factor = 0.5
+			is_married = no # Try to marry first
+		}
+	}
+	
+	immediate = {
+		any_courtier = {
+			limit = {
+				is_female = yes
+				ai = yes
+				is_consort = no
+				is_married = no
+				is_landed = no
+				is_marriage_adult = yes
+				is_pregnant = no
+				NOR = {
+					trait = celibate
+					trait = horse
+					trait = cat
+				}
+				NOT = { is_ascetic_trigger = yes }
+				NOT = { has_character_flag = ai_flag_refuse_concubinage }
+				is_undead = no
+				is_infertile = no
+				NOT = {
+					any_close_relative = { ai = no }
+				}
+				trait = giant
+			}
+			score_value = {
+				value = 10
+				romantic_courtier_selection_score = yes
+				additive_modifier = {
+					value = 1
+					trait = underhanded_rogue
+				}
+				additive_modifier = {
+					value = 1
+					trait = charismatic_negotiator
+				}
+				additive_modifier = {
+					value = 2
+					trait = grey_eminence
+				}
+				additive_modifier = {
+					value = 1
+					trait = thrifty_clerk
+				}
+				additive_modifier = {
+					value = 2
+					trait = fortune_builder
+				}
+				additive_modifier = {
+					value = 3
+					trait = midas_touched
+				}
+				additive_modifier = {
+					value = -1
+					trait = scholarly_theologian
+				}
+				additive_modifier = {
+					value = -1
+					trait = mastermind_theologian
+				}
+				additive_modifier = {
+					value = -10
+					trait = syphilitic
+				}
+				additive_modifier = {
+					value = -10
+					trait = inbred
+				}
+				additive_modifier = {
+					value = 4
+					trait = strong
+				}
+				additive_modifier = {
+					value = -2
+					trait = weak
+				}
+				additive_modifier = {
+					value = 6
+					trait = genius
+				}
+				additive_modifier = {
+					value = 3
+					trait = quick
+				}
+				additive_modifier = {
+					value = 3
+					trait = fair
+				}
+				additive_modifier = {
+					value = 4
+					trait = hedonist
+				}
+				additive_modifier = {
+					value = -10
+					trait = has_aztec_disease
+				}
+			}
+			add_spouse = ROOT
+		}
+	}
+}
