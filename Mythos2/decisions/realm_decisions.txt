@@ -1577,6 +1577,7 @@ decisions = {
 		ai_check_interval = 24
 		
 		potential = {
+			NOT = { has_global_flag = hre_removed }
 			is_playable = yes
 			has_global_flag = charlemagne_hre
 			independent = yes
@@ -1603,12 +1604,23 @@ decisions = {
 			prestige = 1000
 			realm_size = 180
 			has_landed_title = k_germany
-			custom_tooltip = {
-				text = FORM_THE_HRE_TT
-				any_demesne_title = {
-					tier = KING
-					NOT = {
-						title = k_germany
+			conditional_tooltip = {
+				limit = {
+					start_date = 936.8.7
+				}
+				has_landed_title = k_italy
+			}
+			conditional_tooltip = {
+				limit = {
+					NOT = { start_date = 936.8.7 }
+				}
+				custom_tooltip = {
+					text = FORM_THE_HRE_TT
+					any_demesne_title = {
+						tier = KING
+						NOT = {
+							title = k_germany
+						}
 					}
 				}
 			}
