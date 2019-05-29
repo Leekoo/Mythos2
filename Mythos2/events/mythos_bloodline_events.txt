@@ -3847,6 +3847,17 @@ character_event = {
 			type = BL_vile_blood
 		}
 		hidden_tooltip = {
+			new_bloodline = {
+				ROOT = {
+					any_opinion_modifier_target = {
+						limit = {
+							reverse_has_opinion_modifier = { modifier = opinion_sire who = PREV }
+						}
+						add_bloodline_member = PREVPREV
+						character_event = { id = VAMPIRE.206 }
+					}
+				}
+			}
 			remove_character_modifier = plague_vampire
 			if = {
 				limit = { can_apply_cool_nickname_trigger = yes }
@@ -3867,6 +3878,7 @@ character_event = {
 					}
 				}
 			}
+			
 		}
 	}
 }
