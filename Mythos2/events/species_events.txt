@@ -525,7 +525,7 @@ character_event = {
 					}
 				}
 				if = {
-					limit = { # Any grandparent is a god or demigod, 80%
+					limit = { # Any grandparent is a god or demigod, 90%
 						OR = {
 							mother_even_if_dead = {
 								OR = {
@@ -562,10 +562,10 @@ character_event = {
 						}
 					}
 					random_list = {
-						7 = {
+						9 = {
 							set_character_flag = gain_blood_of_the_gods
 						}
-						3 = {
+						1 = {
 							modifier = {
 								factor = 0.6
 								has_game_rule = { name = breeding value = strong }
