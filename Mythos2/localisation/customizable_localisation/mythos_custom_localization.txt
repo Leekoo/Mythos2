@@ -8876,4 +8876,60 @@ defined_text = {
 		localisation_key = tt_base_default
 	}
 }
-	
+
+defined_text = {
+	name = GetGreatTemple
+	text = {
+		trigger = {
+			religion_group = christian
+		}
+		localisation_key = wonder_cathedral
+	}
+	text = {
+		trigger = {
+			religion_group = muslim
+		}
+		localisation_key = wonder_mosque
+	}
+	text = {
+		trigger = {
+			religion_group = jewish_group
+		}
+		localisation_key = wonder_synagogue
+	}
+	text = {
+		trigger = {
+			religion = buddhist
+		}
+		localisation_key = wonder_temple_buddhist
+	}
+	text = {
+		trigger = {
+			religion = hindu
+		}
+		localisation_key = wonder_temple_hindu
+	}
+	fallback_text = {
+		localisation_key = wonder_temple_pagan
+	}
+}
+
+defined_text = {
+	name = GetTempleConversion
+	text = {
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+				religion = buddhist
+				religion = hindu
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+				}
+			}
+		}
+		text = String_CanConvertTemple
+	}
+}

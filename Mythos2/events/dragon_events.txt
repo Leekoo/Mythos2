@@ -6372,14 +6372,298 @@ character_event = {
 				set_variable = { which = local_nick value = 7 } # Everburning Blood
 			}
 		}
+		# Get target
+		if = {
+			limit = {
+				has_character_flag = restore_flame_sjaelland
+			}
+			266 = { save_event_target_as = restore_target }
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_kent
+			}
+			73 = { save_event_target_as = restore_target }
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_plock
+			}
+			529 = { save_event_target_as = restore_target }
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_galloway
+			}
+			50 = { save_event_target_as = restore_target }
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_uppland
+			}
+			290 = { save_event_target_as = restore_target }
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_random_1
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = { 
+					location = {
+						save_event_target_as = restore_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_random_2
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = { 
+					location = {
+						save_event_target_as = restore_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_random_3
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = { 
+					location = {
+						save_event_target_as = restore_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_random_4
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = { 
+					location = {
+						save_event_target_as = restore_target
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_character_flag = restore_flame_random_5
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = { 
+					location = {
+						save_event_target_as = restore_target
+					}
+				}
+			}
+		}
+		# Get conversion information
+		if = {
+			limit = {
+				event_target:restore_target = { NOT = { has_wonder = wonder_eternal_flame } }
+			}
+			set_character_flag = flame_conversion
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { wonder_stage = 4 } }
+				}
+				set_character_flag = flame_conversion_stage_4
+			}
+			else_if = {
+				limit = {
+					event_target:restore_target = { wonder = { wonder_stage = 3 } }
+				}
+				set_character_flag = flame_conversion_stage_3
+			}
+			else_if = {
+				limit = {
+					event_target:restore_target = { wonder = { wonder_stage = 2 } }
+				}
+				set_character_flag = flame_conversion_stage_2
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_decorations } }
+				}
+				set_character_flag = upgrade_divine_shrines
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_statue_god } }
+				}
+				set_character_flag = upgrade_divine_shrines
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_catacombs } }
+				}
+				set_character_flag = upgrade_holy_mausoleum
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_inner_sanctuary } }
+				}
+				set_character_flag = upgrade_holy_mausoleum
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_relic_stupa } }
+				}
+				set_character_flag = upgrade_holy_mausoleum
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_custodian_of_the_mosque } }
+				}
+				set_character_flag = upgrade_flame_custodian
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_custodian_of_temple } }
+				}
+				set_character_flag = upgrade_flame_custodian
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_hostel } }
+				}
+				set_character_flag = upgrade_eternal_palace
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_choir_rooms } }
+				}
+				set_character_flag = upgrade_eternal_palace
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_temple_precinct } }
+				}
+				set_character_flag = upgrade_eternal_palace
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_vihara } }
+				}
+				set_character_flag = upgrade_eternal_palace
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_temple_complex } }
+				}
+				set_character_flag = upgrade_eternal_palace
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_inquisition_chambers } }
+				}
+				set_character_flag = upgrade_purification_chambers
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_votive_stupa } }
+				}
+				set_character_flag = upgrade_purification_chambers
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_hospital_hindu } }
+				}
+				set_character_flag = upgrade_purification_chambers
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_prophecy_rooms } }
+				}
+				set_character_flag = upgrade_runestones
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_symbolic_stupa } }
+				}
+				set_character_flag = upgrade_runestones
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_historical_mural } }
+				}
+				set_character_flag = upgrade_historical_mural
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_commerative_stupa } }
+				}
+				set_character_flag = upgrade_historical_mural
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_roads } }
+				}
+				set_character_flag = upgrade_roads
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_spikes } }
+				}
+				set_character_flag = upgrade_spikes
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_road_tolls } }
+				}
+				set_character_flag = upgrade_road_tolls
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_tower } }
+				}
+				set_character_flag = upgrade_tower
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_retinue } }
+				}
+				set_character_flag = upgrade_retinue
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_hypocausts } }
+				}
+				set_character_flag = upgrade_hypocausts
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_heating_pipes } }
+				}
+				set_character_flag = upgrade_heating_pipes
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_watchtower_network } }
+				}
+				set_character_flag = upgrade_watchtower_network
+			}
+			if = {
+				limit = {
+					event_target:restore_target = { wonder = { has_wonder_upgrade = upgrade_tavern } }
+				}
+				set_character_flag = upgrade_tavern
+			}
+		}
 		sound_effect = saint_proclaimed
 	}
 	
 	option = {
 		name = EVTOPTA_DRAGON.52
-		if = { 
-			limit = { has_character_flag = restore_flame_sjaelland }
-			266 = {
+		if = {
+			limit = { NOT = { has_character_flag = flame_conversion } }
+			event_target:restore_target = {
 				wonder = {
 					destroy_wonder_upgrade = upgrade_dead_flame
 					add_wonder_upgrade = upgrade_dragon_flame
@@ -6389,130 +6673,107 @@ character_event = {
 				set_province_flag = relit_eternal_flame
 			}
 		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_kent }
-			73 = {
+		else = {
+			event_target:restore_target = {
+				wonder = { destroy_wonder = yes }
+				add_wonder = wonder_eternal_flame
 				wonder = {
-					destroy_wonder_upgrade = upgrade_dead_flame
-					add_wonder_upgrade = upgrade_dragon_flame
-					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-				}
-				save_event_target_as = relit_flame
-				set_province_flag = relit_eternal_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_plock }
-			529 = {
-				wonder = {
-					destroy_wonder_upgrade = upgrade_dead_flame
-					add_wonder_upgrade = upgrade_dragon_flame
-					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-				}
-				save_event_target_as = relit_flame
-				set_province_flag = relit_eternal_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_galloway }
-			50 = {
-				wonder = {
-					destroy_wonder_upgrade = upgrade_dead_flame
-					add_wonder_upgrade = upgrade_dragon_flame
-					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-				}
-				save_event_target_as = relit_flame
-				set_province_flag = relit_eternal_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_uppland }
-			290 = {
-				wonder = {
-					destroy_wonder_upgrade = upgrade_dead_flame
-					add_wonder_upgrade = upgrade_dragon_flame
-					remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-				}
-				save_event_target_as = relit_flame
-				set_province_flag = relit_eternal_flame
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_random_1 }
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_1 = { 
-					location = {
-						wonder = {
-							destroy_wonder_upgrade = upgrade_dead_flame
-							add_wonder_upgrade = upgrade_dragon_flame
-							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-						}
-						save_event_target_as = relit_flame
-						set_province_flag = relit_eternal_flame
+					if = {
+						limit = { ROOT = { has_character_flag = flame_conversion_stage_2 } }
+						add_wonder_stage = 1
 					}
-				}
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_random_2 }
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_2 = { 
-					location = {
-						wonder = {
-							destroy_wonder_upgrade = upgrade_dead_flame
-							add_wonder_upgrade = upgrade_dragon_flame
-							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-						}
-						save_event_target_as = relit_flame
-						set_province_flag = relit_eternal_flame
+					else_if = {
+						limit = { ROOT = { has_character_flag = flame_conversion_stage_3 } }
+						add_wonder_stage = 2
 					}
-				}
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_random_3 }
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_3 = { 
-					location = {
-						wonder = {
-							destroy_wonder_upgrade = upgrade_dead_flame
-							add_wonder_upgrade = upgrade_dragon_flame
-							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-						}
-						save_event_target_as = relit_flame
-						set_province_flag = relit_eternal_flame
+					else_if = {
+						limit = { ROOT = { has_character_flag = flame_conversion_stage_4 } }
+						add_wonder_stage = 3
 					}
-				}
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_random_4 }
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_4 = { 
-					location = {
-						wonder = {
-							destroy_wonder_upgrade = upgrade_dead_flame
-							add_wonder_upgrade = upgrade_dragon_flame
-							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-						}
-						save_event_target_as = relit_flame
-						set_province_flag = relit_eternal_flame
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_divine_shrines } }
+						add_wonder_upgrade = upgrade_divine_shrines
+						remove_wonder_upgrade_slots = 1
 					}
-				}
-			}
-		}
-		else_if = { 
-			limit = { has_character_flag = restore_flame_random_5 }
-			k_draconic_pagan_reformed = {
-				persistent_event_target:draconic_holy_site_5 = { 
-					location = {
-						wonder = {
-							destroy_wonder_upgrade = upgrade_dead_flame
-							add_wonder_upgrade = upgrade_dragon_flame
-							remove_wonder_upgrade_slots = 1 # Adding the flame adds a slot
-						}
-						save_event_target_as = relit_flame
-						set_province_flag = relit_eternal_flame
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_holy_mausoleum } }
+						add_wonder_upgrade = upgrade_holy_mausoleum
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_flame_custodian } }
+						add_wonder_upgrade = upgrade_flame_custodian
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_eternal_palace } }
+						add_wonder_upgrade = upgrade_eternal_palace
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_purification_chambers } }
+						add_wonder_upgrade = upgrade_purification_chambers
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_runestones } }
+						add_wonder_upgrade = upgrade_runestones
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_overseer_of_rites } }
+						add_wonder_upgrade = upgrade_overseer_of_rites
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_historical_mural } }
+						add_wonder_upgrade = upgrade_historical_mural
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_roads } }
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_spikes } }
+						add_wonder_upgrade = upgrade_spikes
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_road_tolls } }
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_tower } }
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_retinue } }
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_hypocausts } }
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_heating_pipes } }
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_watchtower_network } }
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+					if = {
+						limit = { ROOT = { has_character_flag = upgrade_tavern } }
+						add_wonder_upgrade = upgrade_tavern
+						remove_wonder_upgrade_slots = 1
 					}
 				}
 			}
@@ -6822,6 +7083,27 @@ character_event = {
 			clr_character_flag = restore_flame_random_3
 			clr_character_flag = restore_flame_random_4
 			clr_character_flag = restore_flame_random_5
+			clr_character_flag = flame_conversion
+			clr_character_flag = flame_conversion_stage_2
+			clr_character_flag = flame_conversion_stage_3
+			clr_character_flag = flame_conversion_stage_4
+			clr_character_flag = upgrade_divine_shrines
+			clr_character_flag = upgrade_holy_mausoleum
+			clr_character_flag = upgrade_flame_custodian
+			clr_character_flag = upgrade_eternal_palace
+			clr_character_flag = upgrade_purification_chambers
+			clr_character_flag = upgrade_runestones
+			clr_character_flag = upgrade_overseer_of_rites
+			clr_character_flag = upgrade_historical_mural
+			clr_character_flag = upgrade_roads
+			clr_character_flag = upgrade_spikes
+			clr_character_flag = upgrade_road_tolls
+			clr_character_flag = upgrade_tower
+			clr_character_flag = upgrade_retinue
+			clr_character_flag = upgrade_hypocausts
+			clr_character_flag = upgrade_heating_pipes
+			clr_character_flag = upgrade_watchtower_network
+			clr_character_flag = upgrade_tavern
 		}
 	}
 }
@@ -11527,6 +11809,915 @@ character_event = {
 				}
 			}
 			add_spouse = ROOT
+		}
+	}
+}
+
+# 180 - Destroy shrine to eternal flame
+character_event = {
+	id = DRAGON.180
+	desc = EVTDESC_DRAGON.180
+	picture = GFX_evt_pagan
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	# Destroy it
+	option = {
+		name = EVTOPTA_DRAGON.180
+		scaled_wealth = 0.2
+		tooltip = {
+			event_target:destroy_shrine = {
+				wonder = { destroy_wonder = yes }
+			}
+		}
+		hidden_tooltip = { character_event = { id = DRAGON.181 } }
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				trait = cynical
+			}
+			modifier = {
+				factor = 3
+				trait = greedy
+			}
+			modifier = {
+				factor = 5
+				NOT = { scaled_wealth = 1 }
+			}
+		}
+	}
+	
+	# Convert it
+	option = {
+		name = EVTOPTB_DRAGON.180
+		trigger = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+				AND = {
+					religion_group = pagan_group
+					is_reformed_religion = yes
+				}
+				religion = buddhist
+				religion = hindu
+			}
+		}
+		scaled_wealth = { value = -1 min = 100 max = 3000 }
+		tooltip = {
+			event_target:destroy_shrine = {
+				wonder = { destroy_wonder = yes }
+				if = {
+					limit = { ROOT = { religion_group = christian } }
+					add_wonder = wonder_cathedral
+				}
+				else_if = {
+					limit = { ROOT = { religion_group = muslim } }
+					add_wonder = wonder_mosque
+				}
+				else_if = {
+					limit = { ROOT = { religion_group = jewish_group } }
+					add_wonder = wonder_synagogue
+				}
+				else_if = {
+					limit = {
+						ROOT = {
+							religion_group = pagan_group
+							is_reformed_religion = yes
+						}
+					}
+					add_wonder = wonder_temple_pagan
+				}
+				else_if = {
+					limit = { ROOT = { religion = buddhist } }
+					add_wonder = wonder_temple_buddhist
+				}
+				else_if = {
+					limit = { ROOT = { religion = hindu } }
+					add_wonder = wonder_temple_hindu
+				}
+			}
+		}
+		custom_tooltip = { text = tt_takes_3_months }
+		hidden_tooltip = {
+			event_target:destroy_shrine = {
+				# Set flags for conversion
+				if = {
+					limit = { wonder = { wonder_stage == 4 } }
+					set_province_flag = conversion_wonder_stage_4
+				}
+				else_if = {
+					limit = { wonder = { wonder_stage == 3 } }
+					set_province_flag = conversion_wonder_stage_3
+				}
+				else_if = {
+					limit = { wonder = { wonder_stage == 2 } }
+					set_province_flag = conversion_wonder_stage_2
+				}
+				else = {
+					set_province_flag = conversion_wonder_stage_1
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_divine_shrines }
+					set_province_flag = conversion_wonder_divine_shrines
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_holy_mausoleum }
+					set_province_flag = upgrade_holy_mausoleum
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_flame_custodian }
+					set_province_flag = upgrade_flame_custodian
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_eternal_palace }
+					set_province_flag = upgrade_eternal_palace
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_purification_chambers }
+					set_province_flag = upgrade_purification_chambers
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_runestones }
+					set_province_flag = upgrade_runestones
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_historical_mural }
+					set_province_flag = upgrade_historical_mural
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_roads }
+					set_province_flag = upgrade_roads
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_spikes }
+					set_province_flag = upgrade_spikes
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_road_tolls }
+					set_province_flag = upgrade_road_tolls
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_tower }
+					set_province_flag = upgrade_tower
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_retinue }
+					set_province_flag = upgrade_retinue
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_hypocausts }
+					set_province_flag = upgrade_hypocausts
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_heating_pipes }
+					set_province_flag = upgrade_heating_pipes
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_watchtower_network }
+					set_province_flag = upgrade_watchtower_network
+				}
+				if = {
+					limit = { has_wonder_upgrade = upgrade_tavern }
+					set_province_flag = upgrade_tavern
+				}
+			}
+			character_event = { id = DRAGON.182 days = 90 random = 10 }
+		}
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				NOT = { scaled_wealth = { value = 1 min = 100 max = 3000 } }
+			}
+		}
+	}
+	
+	# Nevermind
+	option = {
+		name = EVTOPTC_DRAGON.180
+		trigger = { ai = no }
+	}
+}
+
+# 181 - Eternal Flame Shrine destroyed
+character_event = {
+	id = DRAGON.181
+	desc = EVTDESC_DRAGON.181
+	picture = GFX_evt_arson_hf
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.181
+		event_target:destroy_shrine = {
+			wonder = { destroy_wonder = yes }
+		}
+	}
+}
+
+# 182 - Shrine conversion
+character_event = {
+	id = DRAGON.182
+	desc = EVTDESC_DRAGON.182
+	picture = {
+		trigger = { religion_group = christian }
+		picture = GFX_evt_cathedral
+	}
+	picture = {
+		trigger = { religion_group = muslim }
+		picture = GFX_evt_cathedral_muslim
+	}
+	picture = {
+		trigger = { religion_group = indian_group }
+		picture = GFX_evt_cathedral_indian_group
+	}
+	picture = {
+		trigger = {
+			OR = {
+				religion = zun_pagan
+				religion = zun_pagan_reformed
+			}
+		}
+		picture = GFX_evt_cathedral_zun_pagan
+	}
+	picture = {
+		trigger = {
+			OR = {
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				religion = jotnar
+				religion = jotnar_reformed
+			}
+		}
+		picture = GFX_evt_cathedral_norse_pagan
+	}
+	picture = {
+		trigger = {
+			religion = satanist
+		}
+		picture = GFX_evt_sacrifice
+	}
+	picture = {
+		trigger = {
+			OR = {
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+		}
+		picture = GFX_evt_hellenic_temple
+	}
+	picture = {
+		trigger = {
+			NOR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = indian_group
+				religion = zun_pagan
+				religion = zun_pagan_reformed
+				religion = norse_pagan
+				religion = norse_pagan_reformed
+				religion = jotnar
+				religion = jotnar_reformed
+				religion = satanist
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+			}
+		}
+		picture = GFX_evt_cathedral_pagan_group
+	}
+	border = GFX_event_normal_frame_religion
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_DRAGON.182
+		piety = 100
+		event_target:destroy_shrine = {
+			wonder = { destroy_wonder = yes }
+			if = {
+				limit = { ROOT = { religion_group = christian } }
+				add_wonder = wonder_cathedral
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_holy_mausoleum }
+					wonder = {
+						add_wonder_upgrade = upgrade_catacombs
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_inquisition_chambers
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_historical_mural }
+					wonder = {
+						add_wonder_upgrade = upgrade_historical_mural
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_spikes }
+					wonder = {
+						add_wonder_upgrade = upgrade_spikes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_road_tolls }
+					wonder = {
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tavern }
+					wonder = {
+						add_wonder_upgrade = upgrade_tavern
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+			else_if = {
+				limit = { ROOT = { religion_group = muslim } }
+				add_wonder = wonder_mosque
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_flame_custodian }
+					wonder = {
+						add_wonder_upgrade = upgrade_custodian_of_the_mosque
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_eternal_palace }
+					wonder = {
+						add_wonder_upgrade = upgrade_hostel
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_inquisition_chambers
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_spikes }
+					wonder = {
+						add_wonder_upgrade = upgrade_spikes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_road_tolls }
+					wonder = {
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+			else_if = {
+				limit = { ROOT = { religion_group = jewish_group } }
+				add_wonder = wonder_synagogue
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_divine_shrines }
+					wonder = {
+						add_wonder_upgrade = upgrade_decorations
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_eternal_palace }
+					wonder = {
+						add_wonder_upgrade = upgrade_choir_rooms
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_inquisition_chambers
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_spikes }
+					wonder = {
+						add_wonder_upgrade = upgrade_spikes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_road_tolls }
+					wonder = {
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tavern }
+					wonder = {
+						add_wonder_upgrade = upgrade_tavern
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						religion_group = pagan_group
+						is_reformed_religion = yes
+					}
+				}
+				add_wonder = wonder_temple_pagan
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_divine_shrines }
+					wonder = {
+						add_wonder_upgrade = upgrade_statue_god
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_holy_mausoleum }
+					wonder = {
+						add_wonder_upgrade = upgrade_inner_sanctuary
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_flame_custodian }
+					wonder = {
+						add_wonder_upgrade = upgrade_custodian_of_temple
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_eternal_palace }
+					wonder = {
+						add_wonder_upgrade = upgrade_temple_precinct
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_inquisition_chambers
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_runestones }
+					wonder = {
+						add_wonder_upgrade = upgrade_prophecy_rooms
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_spikes }
+					wonder = {
+						add_wonder_upgrade = upgrade_spikes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_road_tolls }
+					wonder = {
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tavern }
+					wonder = {
+						add_wonder_upgrade = upgrade_tavern
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+			else_if = {
+				limit = { ROOT = { religion = buddhist } }
+				add_wonder = wonder_temple_buddhist
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_holy_mausoleum }
+					wonder = {
+						add_wonder_upgrade = upgrade_relic_stupa
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_eternal_palace }
+					wonder = {
+						add_wonder_upgrade = upgrade_vihara
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_votive_stupa
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_runestones }
+					wonder = {
+						add_wonder_upgrade = upgrade_symbolic_stupa
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_historical_mural }
+					wonder = {
+						add_wonder_upgrade = upgrade_commerative_stupa
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+			else_if = {
+				limit = { ROOT = { religion = hindu } }
+				add_wonder = wonder_temple_hindu
+				if = {
+					limit = { has_province_flag = conversion_wonder_stage_2 }
+					wonder = { add_wonder_stage = 1 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_3 }
+					wonder = { add_wonder_stage = 2 }
+				}
+				else_if = {
+					limit = { has_province_flag = conversion_wonder_stage_4 }
+					wonder = { add_wonder_stage = 3 }
+				}
+				if = {
+					limit = { has_province_flag = upgrade_eternal_palace }
+					wonder = {
+						add_wonder_upgrade = upgrade_temple_complex
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_purification_chambers }
+					wonder = {
+						add_wonder_upgrade = upgrade_hospital_hindu
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_roads }
+					wonder = {
+						add_wonder_upgrade = upgrade_roads
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_road_tolls }
+					wonder = {
+						add_wonder_upgrade = upgrade_road_tolls
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_tower }
+					wonder = {
+						add_wonder_upgrade = upgrade_tower
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_retinue }
+					wonder = {
+						add_wonder_upgrade = upgrade_retinue
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_hypocausts }
+					wonder = {
+						add_wonder_upgrade = upgrade_hypocausts
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_heating_pipes }
+					wonder = {
+						add_wonder_upgrade = upgrade_heating_pipes
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+				if = {
+					limit = { has_province_flag = upgrade_watchtower_network }
+					wonder = {
+						add_wonder_upgrade = upgrade_watchtower_network
+						remove_wonder_upgrade_slots = 1
+					}
+				}
+			}
+		}
+	}
+	
+	after = {
+		hidden_tooltip = {
+			event_target:destroy_shrine = {
+				clr_province_flag = conversion_wonder_stage_4
+				clr_province_flag = conversion_wonder_stage_3
+				clr_province_flag = conversion_wonder_stage_2
+				clr_province_flag = conversion_wonder_stage_1
+				clr_province_flag = upgrade_divine_shrines
+				clr_province_flag = upgrade_holy_mausoleum
+				clr_province_flag = upgrade_flame_custodian
+				clr_province_flag = upgrade_eternal_palace
+				clr_province_flag = upgrade_purification_chambers
+				clr_province_flag = upgrade_runestones
+				clr_province_flag = upgrade_overseer_of_rites
+				clr_province_flag = upgrade_historical_mural
+				clr_province_flag = upgrade_roads
+				clr_province_flag = upgrade_spikes
+				clr_province_flag = upgrade_road_tolls
+				clr_province_flag = upgrade_tower
+				clr_province_flag = upgrade_retinue
+				clr_province_flag = upgrade_hypocausts
+				clr_province_flag = upgrade_heating_pipes
+				clr_province_flag = upgrade_watchtower_network
+				clr_province_flag = upgrade_tavern
+			}
 		}
 	}
 }

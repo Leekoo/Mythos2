@@ -4530,6 +4530,826 @@ decisions = {
 			}
 		}
 	}
+	
+	destroy_shrine_sjaelland = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_sjaelland
+			#c_sjaelland
+			266 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			266 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_sjaelland
+				c_sjaelland = {
+					save_event_target_as = destroy_shrine
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_kent = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_kent
+			#c_kent
+			73 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			73 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_kent
+				c_kent = {
+					save_event_target_as = destroy_shrine
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_plock = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_plock
+			#c_plock
+			529 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			529 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_plock
+				c_plock = {
+					save_event_target_as = destroy_shrine
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_galloway = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_galloway
+			#c_galloway
+			50 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			50 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_galloway
+				c_galloway = {
+					save_event_target_as = destroy_shrine
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_uppland = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			completely_controls = c_uppland
+			#c_uppland
+			290 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+			NOR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			290 = {
+				has_wonder = wonder_eternal_flame
+				NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_uppland
+				c_uppland = {
+					save_event_target_as = destroy_shrine
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip}
+			custom_tooltip = { text = "[GetTempleConversion]" }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_random_1 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = {
+					owner = {
+						OR = {
+							character = ROOT
+							any_liege = { character = ROOT }
+						}
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_1 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_random_1
+				persistent_event_target:draconic_holy_site_1 = {
+					location = {
+						save_event_target_as = destroy_shrine
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_random_2 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = {
+					owner = {
+						OR = {
+							character = ROOT
+							any_liege = { character = ROOT }
+						}
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_2 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_random_2
+				persistent_event_target:draconic_holy_site_2 = {
+					location = {
+						save_event_target_as = destroy_shrine
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_random_3 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = {
+					owner = {
+						OR = {
+							character = ROOT
+							any_liege = { character = ROOT }
+						}
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_3 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_random_3
+				persistent_event_target:draconic_holy_site_3 = {
+					location = {
+						save_event_target_as = destroy_shrine
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_random_4 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = {
+					owner = {
+						OR = {
+							character = ROOT
+							any_liege = { character = ROOT }
+						}
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_4 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_random_4
+				persistent_event_target:draconic_holy_site_4 = {
+					location = {
+						save_event_target_as = destroy_shrine
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
+	
+	destroy_shrine_random_5 = {
+		only_rulers = yes
+		
+		potential = {
+			NOR = {
+				religion = draconic_pagan
+				religion = draconic_pagan_reformed
+				secret_religion = draconic_pagan
+				secret_religion = draconic_pagan_reformed
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = {
+					owner = {
+						OR = {
+							character = ROOT
+							any_liege = { character = ROOT }
+						}
+					}
+				}
+			}
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+			OR = {
+				has_alternate_start_parameter = {
+					key = religion
+					value = random
+				}
+				has_alternate_start_parameter = {
+					key = religion
+					value = full_random
+				}
+			}
+		}
+		allow = {
+			k_draconic_pagan_reformed = {
+				persistent_event_target:draconic_holy_site_5 = {
+					location = {
+						has_wonder = wonder_eternal_flame
+						NOT = { has_wonder_upgrade = upgrade_dragon_flame }
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_tooltip = {
+				set_character_flag = destroy_shrine_random_5
+				persistent_event_target:draconic_holy_site_5 = {
+					location = {
+						save_event_target_as = destroy_shrine
+					}
+				}
+			}
+			character_event = { id = DRAGON.31 tooltip = tt_destroy_draconic_shrine }
+			custom_tooltip = { text = tt_may_convert_temple }
+		}
+		
+		ai_will_do = {
+			factor = 0.01
+			modifier = {
+				factor = 2
+				trait = zealous
+			}
+			modifier = {
+				factor = 0.2
+				trait = sympathy_pagans
+			}
+			modifier = {
+				factor = 0.5
+				trait = slothful
+			}
+			modifier = {
+				factor = 0.5
+				trait = content
+			}
+			modifier = {
+				factor = 0.5
+				trait = cynical
+			}
+			modifier = {
+				factor = 0.3
+				independent = no
+			}
+		}
+	}
 
 }
 
