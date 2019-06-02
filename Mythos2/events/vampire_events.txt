@@ -5871,6 +5871,7 @@ character_event = {
 		tooltip = {
 			FROMFROM = {
 				add_trait = known_werewolf
+				hidden_tooltip = { remove_trait = secret_werewolf }
 				hidden_tooltip = { remove_character_modifier = known_monster }
 				imprison = no
 			}
@@ -13142,7 +13143,7 @@ character_event = {
 	
 	option = {
 		name = EVTOPTA_VAMPIRE.176
-		remove_trait = secret_werewolf
+		hidden_tooltip = { remove_trait = secret_werewolf }
 		add_trait = known_werewolf
 		remove_character_modifier = known_monster
 		any_realm_character = {

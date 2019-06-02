@@ -714,6 +714,7 @@ character_event = {
 						capital_scope = { culture = werewolf_culture }
 					}
 					add_trait = known_werewolf
+					hidden_tooltip = { remove_trait = secret_werewolf }
 				}
 			}
 		}
@@ -1891,6 +1892,7 @@ character_event = {
 				NOT = { trait = known_werewolf }
 			}
 			add_trait = known_werewolf
+			hidden_tooltip = { remove_trait = secret_werewolf }
 			hidden_tooltip = { remove_character_modifier = known_monster }
 			any_realm_character = { character_event = { id = WEREWOLF.33 } } # Court finds out character is a werewolf
 			if = {
@@ -3291,7 +3293,7 @@ character_event = {
 				liege = { character_event = { id = WEREWOLF.33 } } # Liege finds out character is a werewolf
 			}
 		}
-		remove_trait = secret_werewolf
+		hidden_tooltip = { remove_trait = secret_werewolf }
 		add_trait = known_werewolf
 		hidden_tooltip = { remove_character_modifier = known_monster }
 	}
@@ -4668,6 +4670,7 @@ character_event = {
 	option = {
 		name = EVTOPTA_WEREWOLF.86
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_trait = secret_werewolf }
 		hidden_tooltip = { remove_character_modifier = known_monster }
 		update_control = yes
 		host = { ROOT = { opinion = { modifier = exposed_me who = PREV } } }

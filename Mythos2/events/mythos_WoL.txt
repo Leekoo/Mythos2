@@ -1030,6 +1030,7 @@ character_event = {
 			duration = 360
 		}
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_trait = secret_werewolf }
 		increase_control = yes
 		hidden_tooltip = {
 			remove_character_modifier = known_monster
@@ -1920,6 +1921,7 @@ character_event = {
 	option = { # Refuse and get exposed
 		name = EVTOPTB_MYTH_WoL.19
 		add_trait = known_werewolf
+		hidden_tooltip = { remove_trait = secret_werewolf }
 		hidden_tooltip = { remove_character_modifier = known_monster }
 		any_realm_character = { character_event = { id = WEREWOLF.33 } }
 		FROM = {
@@ -3203,6 +3205,7 @@ character_event = {
 				chance = 70
 				add_trait = werewolf
 				add_trait = known_werewolf
+				hidden_tooltip = { remove_trait = secret_werewolf }
 			}
 		}
 	}

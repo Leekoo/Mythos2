@@ -96,22 +96,20 @@ known_werewolf = {
 		trait = werewolf
 	}
 	opposites = {
-		secret_werewolf
+		known_vampire
 	}
 	birth = 0
 	customizer = no
 	
 	general_opinion = -30
-	#opposite_opinion = 30 # Information leak
+	opposite_opinion = -30
 	werewolf_culture_opinion = 40
 }
 
 secret_werewolf = {
 	potential = {
 		trait = werewolf
-	}
-	opposites = {
-		known_werewolf
+		NOT = { trait = known_werewolf }
 	}
 	birth = 0
 	customizer = no
