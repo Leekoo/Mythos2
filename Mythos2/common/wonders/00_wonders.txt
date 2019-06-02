@@ -116,20 +116,6 @@ wonder_cathedral = {
 	model = wonder_cathedral
 	potential = {
 		religion_group = christian
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -251,20 +237,6 @@ wonder_mosque = {
 	model = wonder_mosque
 	potential = {
 		religion_group = muslim
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -379,20 +351,6 @@ wonder_synagogue = {
 	picture = GFX_wonder_strip_jewish_temple
 	potential = {
 		religion_group = jewish_group
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -508,20 +466,6 @@ wonder_temple_pagan = {
 	potential = {
 		religion_group = pagan_group
 		is_reformed_religion = yes
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -637,20 +581,6 @@ wonder_temple_buddhist = {
 	picture = GFX_wonder_strip_buddhist_temple
 	potential = {
 		religion = buddhist
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -764,20 +694,6 @@ wonder_temple_hindu = {
 	picture = GFX_wonder_strip_hindu_temple
 	potential = {
 		religion = hindu
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -901,20 +817,6 @@ wonder_statue_ruler = {
 				religion_group = muslim
 			}
 			NOT = { trait = zealous }
-		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
 		}
 	}
 	active = {
@@ -1046,20 +948,6 @@ wonder_statue_horse = {
 			}
 			NOT = { trait = zealous }
 		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -1185,20 +1073,6 @@ wonder_fortress = {
 	allow_coastal = yes
 	picture = GFX_wonder_strip_grandfortress
 	potential = {
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1347,20 +1221,6 @@ wonder_underground_city = {
 				}
 			}
 		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1468,20 +1328,6 @@ wonder_wall = {
 	picture = GFX_wonder_strip_grand_walls
 	show_model = no
 	potential = {
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FFROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1613,20 +1459,6 @@ wonder_harbor = {
 	is_in_water = yes
 	potential = {
 		FROMFROMFROM = { is_coastal = yes }
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1741,20 +1573,6 @@ wonder_lighthouse = {
 	is_in_water = yes
 	potential = {
 		FROMFROMFROM = { is_coastal = yes }
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1875,20 +1693,6 @@ wonder_amphitheater = {
 		NOT = {
 			has_religion_feature = religion_peaceful
 		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -1996,20 +1800,6 @@ wonder_palace = {
 	allow_coastal = yes
 	picture = GFX_wonder_strip_royalpalace
 	potential = {
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -2128,20 +1918,6 @@ wonder_palace = {
 wonder_garden = {
 	picture = GFX_wonder_strip_gardens
 	potential = {
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -2274,20 +2050,6 @@ wonder_university = {
 				religion_group = pagan_group
 			}
 			is_reformed_religion = yes
-		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
 		}
 	}
 	active = {
@@ -2443,20 +2205,6 @@ wonder_library = {
 				is_reformed_religion = yes
 			}
 		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		trigger_if = {
@@ -2581,20 +2329,6 @@ wonder_mausoleum = {
 	allow_coastal = yes
 	picture = GFX_wonder_strip_mausoleum
 	potential = {
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -2714,20 +2448,6 @@ wonder_pyramid = {
 			trait = lunatic
 			has_religion_feature = religion_feature_pyramids
 		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 	}
@@ -2836,20 +2556,6 @@ wonder_pagan_stones = {
 	picture = GFX_wonder_strip_pagan_stones
 	potential = {
 		religion_group = pagan_group
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
-		}
 	}
 	active = {
 		ROOT = {
@@ -2960,20 +2666,6 @@ wonder_aztec_pyramid = {
 		OR = {
 			religion = aztec_reformed
 			religion = aztec
-		}
-		trigger_if = {
-			limit = {
-				OR = {
-					has_alternate_start_parameter = { key = religion value = random }
-					has_alternate_start_parameter = { key = religion value = full_random }
-				}
-			}
-			FROMFROMFROM = {
-				NOR = {
-					county = { is_holy_site = draconic_pagan }
-					any_province_holding = { is_holy_site = draconic_pagan }
-				}
-			}
 		}
 	}
 	active = {
