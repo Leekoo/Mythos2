@@ -3358,3 +3358,92 @@ character_event = {
 		check_if_ancestor_worship_worthy_effect = yes
 	}
 }
+
+# Third Temple built - add a free Great Synagogue
+narrative_event = {
+	id = SoA.101
+	title = EVTNAME_SoA_101
+	desc = EVTDESC_SoA_101
+	picture = GFX_evt_jerusalem_captured_jews
+	border = GFX_event_narrative_frame_religion
+	major = yes
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	major_trigger = {
+		ai = no
+		religion = jewish
+	}
+	
+	immediate = {
+		set_global_flag = third_temple_built
+		clr_global_flag = building_third_temple
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_101
+	}
+}
+province_event = {
+	id = SoA.10199
+	
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_wonder = no }
+			add_wonder = wonder_synagogue
+			wonder = {
+				if = {
+					limit = {
+						FROM = { trait = proud }
+					}
+					set_name = "[From.Owner.GetFirstName]'s Temple"
+				}
+				else = {
+					set_name = "Ezekiel's Temple"
+				}
+				set_description = "Commissioned by [From.GetBestName] on [This.GetFoundingDate] using plans from the prophet Ezekiel, the Third Temple acts as a central place of prayer, sacrifice, and worship, allowing the restoration of ancient rites."
+			}
+		}
+		set_province_flag = build_third_temple_wonder
+		owner = { narrative_event = { id = SoA.101 } }
+	}
+}
+
+narrative_event = {
+	id = SoA.101
+	title = EVTNAME_SoA_101
+	desc = EVTDESC_SoA_101
+	picture = GFX_evt_jerusalem_captured_jews
+	border = GFX_event_narrative_frame_religion
+	major = yes
+	
+	is_triggered_only = yes
+	
+	hide_from = yes
+	
+	major_trigger = {
+		ai = no
+		religion = jewish
+	}
+	
+	immediate = {
+		set_global_flag = third_temple_built
+		clr_global_flag = building_third_temple
+	}
+	
+	option = {
+		name = EVTOPTA_SoA_101
+		tooltip = {
+			if = {
+				limit = { 774 = { has_province_flag = build_third_temple_wonder } }
+				774 = { add_wonder = wonder_synagogue }
+			}
+		}
+	}
+}
